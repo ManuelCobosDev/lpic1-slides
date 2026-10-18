@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Glosario global oficial LPIC-1 de términos técnicos y conceptos organizado por temas y subtemas.">
+  <title>Glosario Global Oficial LPIC-1 (Separado por Temas)</title>
+  <style>
+    :root {
+      --bg: #F8FAFC; --surface: #FFFFFF; --text: #0F172A; --text-muted: #475569;
+      --border: #E2E8F0; --border-strong: #CBD5E1; --primary: #2563EB; --primary-soft: #DBEAFE;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 40px 24px; line-height: 1.5; }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header { border-bottom: 2px solid var(--border); padding-bottom: 24px; margin-bottom: 32px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 700; margin-bottom: 16px; font-size: 16px; }
+    h1 { font-size: 40px; font-weight: 800; }
+    .subtitle { font-size: 20px; color: var(--text-muted); margin-top: 6px; }
+    .nav-bar { display: flex; gap: 14px; margin-top: 20px; flex-wrap: wrap; }
+    .nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; background: var(--surface); border: 2px solid var(--border); text-decoration: none; color: var(--text); font-weight: 600; font-size: 16px; }
+    .nav-btn:hover { border-color: var(--primary); background: var(--primary-soft); }
+    .search-bar-wrap { margin: 28px 0; display: flex; gap: 16px; align-items: center; }
+    .search-input { flex: 1; padding: 16px 20px; font-size: 20px; border: 2px solid var(--border-strong); border-radius: 12px; background: var(--surface); color: var(--text); }
+    .search-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
+    .counter-badge { padding: 10px 20px; background: #DBEAFE; color: #1D4ED8; border-radius: 10px; font-weight: 700; font-size: 18px; white-space: nowrap; }
+    .topic-section { margin-bottom: 48px; }
+    .topic-header { padding: 14px 20px; background: #1E293B; color: #FFFFFF; border-radius: 12px; margin-bottom: 20px; }
+    .topic-header h2 { font-size: 26px; font-weight: 800; }
+    .subtopic-block { margin-bottom: 28px; }
+    .subtopic-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .subtopic-badge { padding: 4px 12px; background: #E0E7FF; color: #3730A3; font-weight: 800; border-radius: 8px; font-size: 16px; }
+    .subtopic-header h3 { font-size: 22px; font-weight: 700; }
+    .cmd-count-badge { font-size: 15px; color: var(--text-muted); font-weight: 600; }
+    .term-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 18px; }
+    .term-card { background: var(--surface); border: 2px solid var(--border); border-radius: 14px; padding: 18px 22px; box-shadow: 0 4px 12px rgba(15,23,42,0.03); display: flex; flex-direction: column; justify-content: space-between; gap: 10px; }
+    .term-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .term-name { font-family: monospace; font-size: 21px; font-weight: 800; color: #1D4ED8; }
+    .term-sub-badge { background: #F1F5F9; border: 1px solid var(--border-strong); padding: 4px 10px; border-radius: 8px; font-size: 14px; color: var(--text-muted); text-decoration: none; font-weight: 600; white-space: nowrap; }
+    .term-sub-badge:hover { background: var(--primary-soft); color: var(--primary); }
+    .term-def { font-size: 17px; color: #334155; line-height: 1.45; }
+    
+    .site-footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border);
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .site-footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    .site-footer a:hover { text-decoration: underline; }
+    .footer-legal p { margin-bottom: 6px; }
+    @media (max-width: 640px) {
+      body { padding: 20px 14px; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 26px; }
+      .subtitle { font-size: 16px; }
+      .nav-bar { flex-direction: column; }
+      .term-grid { grid-template-columns: 1fr; }
+      .table-card { overflow-x: auto; }
+      table.data-table { min-width: 600px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Volver al Índice Principal de Temas</a>
+    <header>
+      <h1>Glosario Global LPIC-1</h1>
+      <div class="subtitle">Términos y conceptos oficiales organizados por Temas (Temas 101, 102 y 103)</div>
+      <div class="nav-bar">
+        <a href="comandos.html" class="nav-btn">Índice Global de Comandos</a>
+        <a href="erratas.html" class="nav-btn">Notas y Erratas del Manual</a>
+        <a href="#t101" class="nav-btn">Tema 101</a>
+        <a href="#t102" class="nav-btn">Tema 102</a>
+        <a href="#t103" class="nav-btn">Tema 103</a>
+      </div>
+    </header>
+
+    <div class="search-bar-wrap">
+      <input type="text" id="glo-filter" class="search-input" placeholder="🔍 Buscar término, definición o concepto..." onkeyup="filterGlossary()">
+      <div class="counter-badge" id="glo-counter">86 términos registrados</div>
+    </div>
+
+    <div id="glo-container">
+      
+        <section class="topic-section" id="t101">
+          <div class="topic-header">
+            <h2>Tema 101: Arquitectura del Sistema</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">101.1</span>
+                <h3>Determinar y configurar los ajustes de hardware</h3>
+                <span class="cmd-count-badge">6 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">PCI</span>
+                    <a href="t101/101-1-determinar-y-configurar.html" class="term-sub-badge">101.1 p. 5</a>
+                  </div>
+                  <div class="term-def">Peripheral Component Interconnect: estándar de bus de conexión interna de componentes a la placa base.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">USB</span>
+                    <a href="t101/101-1-determinar-y-configurar.html" class="term-sub-badge">101.1 p. 7</a>
+                  </div>
+                  <div class="term-def">Universal Serial Bus: estándar industrial de buses y cables para conexión de periféricos externos.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">BIOS</span>
+                    <a href="t101/101-1-determinar-y-configurar.html" class="term-sub-badge">101.1 p. 3</a>
+                  </div>
+                  <div class="term-def">Basic Input/Output System: firmware tradicional x86 que realiza el test POST e inicia el arranque.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">UEFI</span>
+                    <a href="t101/101-1-determinar-y-configurar.html" class="term-sub-badge">101.1 p. 3</a>
+                  </div>
+                  <div class="term-def">Unified Extensible Firmware Interface: sucesor moderno del BIOS con soporte para discos mayores de 2 TB y arranque rápido.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">udev</span>
+                    <a href="t101/101-1-determinar-y-configurar.html" class="term-sub-badge">101.1 p. 13</a>
+                  </div>
+                  <div class="term-def">Gestor de dispositivos del kernel Linux en espacio de usuario que crea nodos dinámicos en /dev/.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">D-Bus</span>
+                    <a href="t101/101-1-determinar-y-configurar.html" class="term-sub-badge">101.1 p. 13</a>
+                  </div>
+                  <div class="term-def">Bus de mensajes de sistema que permite la comunicación entre programas y la notificación de eventos de hardware.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">101.2</span>
+                <h3>Arranque del sistema</h3>
+                <span class="cmd-count-badge">9 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">BIOS</span>
+                    <a href="t101/101-2-arranque-del-sistema.html" class="term-sub-badge">101.2 p. 4</a>
+                  </div>
+                  <div class="term-def">Basic Input/Output System: firmware clásico de placas x86 que ejecuta el POST y lee el primer sector MBR.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">UEFI</span>
+                    <a href="t101/101-2-arranque-del-sistema.html" class="term-sub-badge">101.2 p. 4</a>
+                  </div>
+                  <div class="term-def">Unified Extensible Firmware Interface: sucesor de BIOS capaz de leer sistemas de archivos y ejecutar aplicaciones EFI.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">MBR</span>
+                    <a href="t101/101-2-arranque-del-sistema.html" class="term-sub-badge">101.2 p. 4</a>
+                  </div>
+                  <div class="term-def">Master Boot Record: sector de 512 bytes al inicio del disco con 440 bytes de bootstrap y tabla de particiones DOS.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ESP</span>
+                    <a href="t101/101-2-arranque-del-sistema.html" class="term-sub-badge">101.2 p. 5</a>
+                  </div>
+                  <div class="term-def">EFI System Partition: partición formateada en FAT32 que almacena aplicaciones EFI y gestores de arranque.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GRUB</span>
+                    <a href="t101/101-2-arranque-del-sistema.html" class="term-sub-badge">101.2 p. 5</a>
+                  </div>
+                  <div class="term-def">Grand Unified Bootloader: gestor de arranque estándar de Linux que presenta menús y carga el kernel.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">initramfs</span>
+                    <a href="t101/101-2-arranque-del-sistema.html" class="term-sub-badge">101.2 p. 8</a>
+                  </div>
+                  <div class="term-def">Initial RAM filesystem: sistema raíz temporal cargado en memoria que suministra drivers para montar la raíz definitiva.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">systemd</span>
+                    <a href="t101/101-2-arranque-del-sistema.html" class="term-sub-badge">101.2 p. 8</a>
+                  </div>
+                  <div class="term-def">Administrador moderno de sistemas y servicios en Linux con arranque concurrente, cgroups y sockets.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">dmesg</span>
+                    <a href="t101/101-2-arranque-del-sistema.html" class="term-sub-badge">101.2 p. 9</a>
+                  </div>
+                  <div class="term-def">Comando para consultar y controlar los mensajes del kernel almacenados en el ring buffer circular en RAM.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">journalctl</span>
+                    <a href="t101/101-2-arranque-del-sistema.html" class="term-sub-badge">101.2 p. 10</a>
+                  </div>
+                  <div class="term-def">Herramienta de consulta del diario binario indexado generado por el servicio systemd-journald.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">101.3</span>
+                <h3>Cambiar los niveles de ejecución / objetivos de arranque y apagar o reiniciar el sistema</h3>
+                <span class="cmd-count-badge">4 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">daemon</span>
+                    <a href="t101/101-3-cambiar-los-niveles-de-e.html" class="term-sub-badge">101.3 </a>
+                  </div>
+                  <div class="term-def">Proceso en segundo plano que atiende peticiones o tareas del sistema sin estar vinculado a una terminal interactiva.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">runlevel</span>
+                    <a href="t101/101-3-cambiar-los-niveles-de-e.html" class="term-sub-badge">101.3 </a>
+                  </div>
+                  <div class="term-def">Estado operativo predefinido en SysVinit (0 a 6) que determina qué demonios y servicios están activos.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">target</span>
+                    <a href="t101/101-3-cambiar-los-niveles-de-e.html" class="term-sub-badge">101.3 </a>
+                  </div>
+                  <div class="term-def">Unidad de systemd (.target) que agrupa otras unidades para sincronizar estados o definir objetivos de arranque.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">init</span>
+                    <a href="t101/101-3-cambiar-los-niveles-de-e.html" class="term-sub-badge">101.3 </a>
+                  </div>
+                  <div class="term-def">Primer proceso lanzado por el núcleo del sistema operativo (PID 1), antecesor de todos los procesos en espacio de usuario.</div>
+                </div>
+                
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t102">
+          <div class="topic-header">
+            <h2>Tema 102: Instalación de Linux y gestión de paquetes</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.1</span>
+                <h3>Diseño del esquema de particionado del disco duro</h3>
+                <span class="cmd-count-badge">4 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">partición</span>
+                    <a href="t102/102-1-diseno-del-esquema-de-pa.html" class="term-sub-badge">102.1 </a>
+                  </div>
+                  <div class="term-def">División lógica de un dispositivo de almacenamiento físico delimitada por una tabla de particiones.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">punto de montaje</span>
+                    <a href="t102/102-1-diseno-del-esquema-de-pa.html" class="term-sub-badge">102.1 </a>
+                  </div>
+                  <div class="term-def">Directorio del árbol de archivos de Linux al cual se conecta un sistema de archivos para acceder a su contenido.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ESP</span>
+                    <a href="t102/102-1-diseno-del-esquema-de-pa.html" class="term-sub-badge">102.1 </a>
+                  </div>
+                  <div class="term-def">EFI System Partition, partición formateada en FAT donde el firmware UEFI busca los cargadores de arranque.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">LVM</span>
+                    <a href="t102/102-1-diseno-del-esquema-de-pa.html" class="term-sub-badge">102.1 </a>
+                  </div>
+                  <div class="term-def">Logical Volume Management, mecanismo de virtualización de almacenamiento que permite agrupar y redimensionar volúmenes lógicamente.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.2</span>
+                <h3>Instalar un gestor de arranque</h3>
+                <span class="cmd-count-badge">4 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">bootloader</span>
+                    <a href="t102/102-2-instalar-un-gestor-de-ar.html" class="term-sub-badge">102.2 </a>
+                  </div>
+                  <div class="term-def">Programa de arranque que carga el núcleo del sistema operativo en memoria y le transfiere el control de ejecución.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GRUB 2</span>
+                    <a href="t102/102-2-instalar-un-gestor-de-ar.html" class="term-sub-badge">102.2 </a>
+                  </div>
+                  <div class="term-def">Grand Unified Bootloader versión 2, gestor de arranque modular y dinámico estándar en las distribuciones Linux actuales.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">chainloading</span>
+                    <a href="t102/102-2-instalar-un-gestor-de-ar.html" class="term-sub-badge">102.2 </a>
+                  </div>
+                  <div class="term-def">Mecanismo mediante el cual un gestor de arranque transfiere la ejecución al sector de arranque de otro cargador de SO.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">MBR</span>
+                    <a href="t102/102-2-instalar-un-gestor-de-ar.html" class="term-sub-badge">102.2 </a>
+                  </div>
+                  <div class="term-def">Master Boot Record, primer sector de 512 bytes de un disco particionado que aloja el código de arranque primario y la tabla de particiones.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.3</span>
+                <h3>Gestión de librerías compartidas</h3>
+                <span class="cmd-count-badge">5 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">soname</span>
+                    <a href="t102/102-3-gestion-de-librerias-com.html" class="term-sub-badge">102.3 p. 1-4</a>
+                  </div>
+                  <div class="term-def">Nombre canónico de una biblioteca compartida con formato lib[nombre].so.[versión_mayor].</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ld.so / ld-linux.so</span>
+                    <a href="t102/102-3-gestion-de-librerias-com.html" class="term-sub-badge">102.3 p. 4-8</a>
+                  </div>
+                  <div class="term-def">Enlazador y cargador dinámico del sistema que busca y carga las bibliotecas compartidas al arrancar un ejecutable.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ldconfig</span>
+                    <a href="t102/102-3-gestion-de-librerias-com.html" class="term-sub-badge">102.3 p. 5-7</a>
+                  </div>
+                  <div class="term-def">Programa de administración que escanea los directorios de librerías y reconstruye /etc/ld.so.cache.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ldd</span>
+                    <a href="t102/102-3-gestion-de-librerias-com.html" class="term-sub-badge">102.3 p. 8-10</a>
+                  </div>
+                  <div class="term-def">Utilidad que analiza las cabeceras ELF de un ejecutable e imprime las librerías compartidas de las que depende.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">LD_LIBRARY_PATH</span>
+                    <a href="t102/102-3-gestion-de-librerias-com.html" class="term-sub-badge">102.3 p. 10-12</a>
+                  </div>
+                  <div class="term-def">Variable de entorno con lista de directorios donde buscar bibliotecas antes que en las rutas estándar del sistema.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.4</span>
+                <h3>Gestión de paquetes Debian</h3>
+                <span class="cmd-count-badge">5 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">.deb</span>
+                    <a href="t102/102-4-gestion-de-paquetes-debi.html" class="term-sub-badge">102.4 p. 1-6</a>
+                  </div>
+                  <div class="term-def">Formato de paquete binario estándar de las distribuciones basadas en Debian.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">dpkg</span>
+                    <a href="t102/102-4-gestion-de-paquetes-debi.html" class="term-sub-badge">102.4 p. 7-14</a>
+                  </div>
+                  <div class="term-def">Gestor de paquetes de bajo nivel en Debian para instalar, remover y consultar paquetes individuales.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">APT (Advanced Package Tool)</span>
+                    <a href="t102/102-4-gestion-de-paquetes-debi.html" class="term-sub-badge">102.4 p. 15-22</a>
+                  </div>
+                  <div class="term-def">Conjunto de herramientas de alto nivel que resuelve dependencias y descarga paquetes de repositorios.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">sources.list</span>
+                    <a href="t102/102-4-gestion-de-paquetes-debi.html" class="term-sub-badge">102.4 p. 17-19</a>
+                  </div>
+                  <div class="term-def">Archivo principal de configuración de repositorios y fuentes de paquetes para APT.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">alien</span>
+                    <a href="t102/102-4-gestion-de-paquetes-debi.html" class="term-sub-badge">102.4 p. 23-25</a>
+                  </div>
+                  <div class="term-def">Herramienta de conversión que transforma paquetes entre formatos .deb, .rpm y .tgz.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.5</span>
+                <h3>Gestión de paquetes RPM y YUM</h3>
+                <span class="cmd-count-badge">5 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-102.5-001</span>
+                    <a href="t102/102-5-gestion-de-paquetes-rpm.html" class="term-sub-badge">102.5 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-102.5-002</span>
+                    <a href="t102/102-5-gestion-de-paquetes-rpm.html" class="term-sub-badge">102.5 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-102.5-003</span>
+                    <a href="t102/102-5-gestion-de-paquetes-rpm.html" class="term-sub-badge">102.5 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-102.5-004</span>
+                    <a href="t102/102-5-gestion-de-paquetes-rpm.html" class="term-sub-badge">102.5 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-102.5-005</span>
+                    <a href="t102/102-5-gestion-de-paquetes-rpm.html" class="term-sub-badge">102.5 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.6</span>
+                <h3>Linux como sistema virtualizado</h3>
+                <span class="cmd-count-badge">5 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-102.6-001</span>
+                    <a href="t102/102-6-linux-como-sistema-virtu.html" class="term-sub-badge">102.6 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-102.6-002</span>
+                    <a href="t102/102-6-linux-como-sistema-virtu.html" class="term-sub-badge">102.6 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-102.6-003</span>
+                    <a href="t102/102-6-linux-como-sistema-virtu.html" class="term-sub-badge">102.6 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-102.6-004</span>
+                    <a href="t102/102-6-linux-como-sistema-virtu.html" class="term-sub-badge">102.6 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-102.6-005</span>
+                    <a href="t102/102-6-linux-como-sistema-virtu.html" class="term-sub-badge">102.6 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t103">
+          <div class="topic-header">
+            <h2>Tema 103: Comandos GNU y Unix</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.1</span>
+                <h3>Trabajar desde la línea de comandos</h3>
+                <span class="cmd-count-badge">5 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.1-001</span>
+                    <a href="t103/103-1-trabajar-desde-la-linea.html" class="term-sub-badge">103.1 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.1-002</span>
+                    <a href="t103/103-1-trabajar-desde-la-linea.html" class="term-sub-badge">103.1 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.1-003</span>
+                    <a href="t103/103-1-trabajar-desde-la-linea.html" class="term-sub-badge">103.1 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.1-004</span>
+                    <a href="t103/103-1-trabajar-desde-la-linea.html" class="term-sub-badge">103.1 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.1-005</span>
+                    <a href="t103/103-1-trabajar-desde-la-linea.html" class="term-sub-badge">103.1 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.2</span>
+                <h3>Procesar secuencias de texto usando filtros</h3>
+                <span class="cmd-count-badge">6 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.2-001</span>
+                    <a href="t103/103-2-procesar-secuencias-de-t.html" class="term-sub-badge">103.2 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.2-002</span>
+                    <a href="t103/103-2-procesar-secuencias-de-t.html" class="term-sub-badge">103.2 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.2-003</span>
+                    <a href="t103/103-2-procesar-secuencias-de-t.html" class="term-sub-badge">103.2 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.2-004</span>
+                    <a href="t103/103-2-procesar-secuencias-de-t.html" class="term-sub-badge">103.2 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.2-005</span>
+                    <a href="t103/103-2-procesar-secuencias-de-t.html" class="term-sub-badge">103.2 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.2-006</span>
+                    <a href="t103/103-2-procesar-secuencias-de-t.html" class="term-sub-badge">103.2 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.3</span>
+                <h3>Administración básica de archivos</h3>
+                <span class="cmd-count-badge">5 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.3-001</span>
+                    <a href="t103/103-3-administracion-basica-de.html" class="term-sub-badge">103.3 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.3-002</span>
+                    <a href="t103/103-3-administracion-basica-de.html" class="term-sub-badge">103.3 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.3-003</span>
+                    <a href="t103/103-3-administracion-basica-de.html" class="term-sub-badge">103.3 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.3-004</span>
+                    <a href="t103/103-3-administracion-basica-de.html" class="term-sub-badge">103.3 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GLOS-103.3-005</span>
+                    <a href="t103/103-3-administracion-basica-de.html" class="term-sub-badge">103.3 </a>
+                  </div>
+                  <div class="term-def"></div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.4</span>
+                <h3>Uso de secuencias de texto, tuberías y redireccionamientos</h3>
+                <span class="cmd-count-badge">5 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Pipeline (Tubería |)</span>
+                    <a href="t103/103-4-uso-de-secuencias-de-tex.html" class="term-sub-badge">103.4 p. 1-6</a>
+                  </div>
+                  <div class="term-def">Mecanismo IPC de Unix que conecta la salida estándar de un proceso con la entrada estándar de otro.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Redirección (<, >, >>)</span>
+                    <a href="t103/103-4-uso-de-secuencias-de-tex.html" class="term-sub-badge">103.4 p. 7-15</a>
+                  </div>
+                  <div class="term-def">Operador de la shell que desvía los flujos estándar (stdin, stdout, stderr) hacia o desde archivos.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">tee</span>
+                    <a href="t103/103-4-uso-de-secuencias-de-tex.html" class="term-sub-badge">103.4 p. 16-20</a>
+                  </div>
+                  <div class="term-def">Comando en T que replica la entrada estándar hacia la pantalla y a uno o más ficheros a la vez.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">xargs</span>
+                    <a href="t103/103-4-uso-de-secuencias-de-tex.html" class="term-sub-badge">103.4 p. 21-28</a>
+                  </div>
+                  <div class="term-def">Utilidad que lee elementos de la entrada estándar y construye líneas de comando para ejecutarlas.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/dev/null</span>
+                    <a href="t103/103-4-uso-de-secuencias-de-tex.html" class="term-sub-badge">103.4 p. 12-14</a>
+                  </div>
+                  <div class="term-def">Dispositivo de caracteres especial que descarta toda la información que se escribe en él.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.5</span>
+                <h3>Crear, supervisar y matar procesos</h3>
+                <span class="cmd-count-badge">7 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">PID (Process ID)</span>
+                    <a href="t103/103-5-crear-supervisar-y-matar.html" class="term-sub-badge">103.5 p. 3</a>
+                  </div>
+                  <div class="term-def">Identificador numérico único entero asignado por el kernel Linux a cada proceso activo.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">PPID (Parent Process ID)</span>
+                    <a href="t103/103-5-crear-supervisar-y-matar.html" class="term-sub-badge">103.5 p. 3</a>
+                  </div>
+                  <div class="term-def">Identificador de proceso del proceso padre que creó la instancia mediante la llamada fork().</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">SIGTERM (Señal 15)</span>
+                    <a href="t103/103-5-crear-supervisar-y-matar.html" class="term-sub-badge">103.5 p. 10</a>
+                  </div>
+                  <div class="term-def">Señal estándar de terminación enviada por defecto por kill. Puede ser interceptada para limpieza ordenada.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">SIGKILL (Señal 9)</span>
+                    <a href="t103/103-5-crear-supervisar-y-matar.html" class="term-sub-badge">103.5 p. 10</a>
+                  </div>
+                  <div class="term-def">Señal de aniquilación forzosa incondicional ejecutada por el núcleo sin posibilidad de captura o bloqueo.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Proceso Zombie (Defunct)</span>
+                    <a href="t103/103-5-crear-supervisar-y-matar.html" class="term-sub-badge">103.5 p. 19</a>
+                  </div>
+                  <div class="term-def">Proceso que completó su ejecución pero permanece en la tabla de procesos porque el padre no leyó su código de salida.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Load Average</span>
+                    <a href="t103/103-5-crear-supervisar-y-matar.html" class="term-sub-badge">103.5 p. 24</a>
+                  </div>
+                  <div class="term-def">Promedio móvil del número de procesos en cola de ejecución (estado R) o en espera no interrumpible de E/S (estado D).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Multiplexor de terminal</span>
+                    <a href="t103/103-5-crear-supervisar-y-matar.html" class="term-sub-badge">103.5 p. 36</a>
+                  </div>
+                  <div class="term-def">Software (Screen, tmux) que permite desacoplar sesiones de consola haciéndolas persistentes ante caídas de red.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.6</span>
+                <h3>Modificar la prioridad de ejecución de los procesos</h3>
+                <span class="cmd-count-badge">4 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">nice / NI</span>
+                    <a href="t103/103-6-modificar-la-prioridad-d.html" class="term-sub-badge">103.6 p. 1-8</a>
+                  </div>
+                  <div class="term-def">Valor de prioridad de CPU de un proceso en Linux (-20 máxima prioridad, 19 mínima prioridad, 0 por defecto).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">renice</span>
+                    <a href="t103/103-6-modificar-la-prioridad-d.html" class="term-sub-badge">103.6 p. 9-14</a>
+                  </div>
+                  <div class="term-def">Comando para alterar el valor de nice de uno o más procesos que ya se encuentran en ejecución.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">top</span>
+                    <a href="t103/103-6-modificar-la-prioridad-d.html" class="term-sub-badge">103.6 p. 15-20</a>
+                  </div>
+                  <div class="term-def">Herramienta interactiva de monitorización de procesos en tiempo real, uso de CPU y memoria.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ps</span>
+                    <a href="t103/103-6-modificar-la-prioridad-d.html" class="term-sub-badge">103.6 p. 5-12</a>
+                  </div>
+                  <div class="term-def">Comando que muestra una instantánea estática de los procesos activos en el sistema.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.7</span>
+                <h3>Realizar búsquedas en archivos de texto usando expresiones regulares</h3>
+                <span class="cmd-count-badge">4 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Expresión Regular (RegEx)</span>
+                    <a href="t103/103-7-realizar-busquedas-en-ar.html" class="term-sub-badge">103.7 p. 1-8</a>
+                  </div>
+                  <div class="term-def">Patrón formal que describe un conjunto de cadenas de texto utilizado por grep, sed y awk.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">grep</span>
+                    <a href="t103/103-7-realizar-busquedas-en-ar.html" class="term-sub-badge">103.7 p. 9-18</a>
+                  </div>
+                  <div class="term-def">Herramienta de búsqueda global de expresiones regulares que imprime las líneas coincidentes.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">egrep (grep -E)</span>
+                    <a href="t103/103-7-realizar-busquedas-en-ar.html" class="term-sub-badge">103.7 p. 19-24</a>
+                  </div>
+                  <div class="term-def">Variante de grep con soporte para expresiones regulares extendidas (+, ?, |, ()).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">sed (Stream Editor)</span>
+                    <a href="t103/103-7-realizar-busquedas-en-ar.html" class="term-sub-badge">103.7 p. 25-30</a>
+                  </div>
+                  <div class="term-def">Editor de flujo de texto para realizar transformaciones, sustituciones y filtrado automatizado.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.8</span>
+                <h3>Edición básica de archivos</h3>
+                <span class="cmd-count-badge">3 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Modos de vi/vim</span>
+                    <a href="t103/103-8-edicion-basica-de-archiv.html" class="term-sub-badge">103.8 p. 1-10</a>
+                  </div>
+                  <div class="term-def">Modo comando (navegación y borrado), modo inserción (escribir texto) y modo ex / línea de comandos (:).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Comandos de vi</span>
+                    <a href="t103/103-8-edicion-basica-de-archiv.html" class="term-sub-badge">103.8 p. 11-20</a>
+                  </div>
+                  <div class="term-def">i=insertar, a=añadir, dd=borrar línea, yy=copiar línea, p=pegar, :wq=guardar y salir, :q!=salir sin guardar.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">vim (Vi IMproved)</span>
+                    <a href="t103/103-8-edicion-basica-de-archiv.html" class="term-sub-badge">103.8 p. 1-5</a>
+                  </div>
+                  <div class="term-def">Versión ampliada y moderna del editor vi tradicional con resaltado de sintaxis y autocompletado.</div>
+                </div>
+                
+              </div>
+            </div>
+            </section>
+    </div>
+    
+    <footer class="site-footer">
+      <div class="footer-legal">
+        <p><strong>Material didáctico no oficial</strong> basado en los <em>LPI Learning Materials</em> del <a href="https://learning.lpi.org" target="_blank" rel="noopener noreferrer">Linux Professional Institute</a>.</p>
+        <p>LPI® y LPIC-1® son marcas de LPI; este sitio no está afiliado ni respaldado por LPI. Uso educativo bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</a>.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    function filterGlossary() {
+      const q = document.getElementById('glo-filter').value.toLowerCase();
+      let visibleCount = 0;
+      document.querySelectorAll('.term-card').forEach(card => {
+        const match = card.textContent.toLowerCase().includes(q);
+        card.style.display = match ? 'flex' : 'none';
+        if (match) visibleCount++;
+      });
+      document.querySelectorAll('.subtopic-block').forEach(block => {
+        const hasVisible = Array.from(block.querySelectorAll('.term-card')).some(c => c.style.display !== 'none');
+        block.style.display = hasVisible ? '' : 'none';
+      });
+      document.querySelectorAll('.topic-section').forEach(sec => {
+        const hasVisible = Array.from(sec.querySelectorAll('.subtopic-block')).some(b => b.style.display !== 'none');
+        sec.style.display = hasVisible ? '' : 'none';
+      });
+      document.getElementById('glo-counter').textContent = q ? `${visibleCount} términos encontrados` : '86 términos registrados';
+    }
+  </script>
+</body>
+</html>

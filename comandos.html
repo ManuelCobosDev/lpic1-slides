@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Índice global de comandos LPIC-1 clasificados por temas y subtemas con sintaxis, opciones y enlaces directos a diapositivas.">
+  <title>Índice Global de Comandos LPIC-1 (Separado por Temas)</title>
+  <style>
+    :root {
+      --bg: #F8FAFC; --surface: #FFFFFF; --text: #0F172A; --text-muted: #475569;
+      --border: #E2E8F0; --border-strong: #CBD5E1; --primary: #2563EB; --primary-soft: #DBEAFE;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 40px 24px; line-height: 1.5; }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header { border-bottom: 2px solid var(--border); padding-bottom: 24px; margin-bottom: 32px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 700; margin-bottom: 16px; font-size: 16px; }
+    h1 { font-size: 40px; font-weight: 800; }
+    .subtitle { font-size: 20px; color: var(--text-muted); margin-top: 6px; }
+    .nav-bar { display: flex; gap: 14px; margin-top: 20px; flex-wrap: wrap; }
+    .nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; background: var(--surface); border: 2px solid var(--border); text-decoration: none; color: var(--text); font-weight: 600; font-size: 16px; }
+    .nav-btn:hover { border-color: var(--primary); background: var(--primary-soft); }
+    .search-bar-wrap { margin: 28px 0; display: flex; gap: 16px; align-items: center; }
+    .search-input { flex: 1; padding: 16px 20px; font-size: 20px; border: 2px solid var(--border-strong); border-radius: 12px; background: var(--surface); color: var(--text); }
+    .search-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
+    .counter-badge { padding: 10px 20px; background: #DBEAFE; color: #1D4ED8; border-radius: 10px; font-weight: 700; font-size: 18px; white-space: nowrap; }
+    .topic-section { margin-bottom: 48px; }
+    .topic-header { padding: 14px 20px; background: #1E293B; color: #FFFFFF; border-radius: 12px; margin-bottom: 20px; }
+    .topic-header h2 { font-size: 26px; font-weight: 800; }
+    .subtopic-block { margin-bottom: 24px; }
+    .subtopic-header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .subtopic-badge { padding: 4px 12px; background: #E0E7FF; color: #3730A3; font-weight: 800; border-radius: 8px; font-size: 16px; }
+    .subtopic-header h3 { font-size: 22px; font-weight: 700; }
+    .cmd-count-badge { font-size: 15px; color: var(--text-muted); font-weight: 600; }
+    .table-card { background: var(--surface); border: 2px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 12px rgba(15,23,42,0.04); }
+    table.data-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 17px; }
+    table.data-table th { background: #F1F5F9; padding: 14px 18px; font-weight: 700; color: var(--text); border-bottom: 2px solid var(--border-strong); }
+    table.data-table td { padding: 12px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    table.data-table tr:last-child td { border-bottom: none; }
+    .cmd-name { font-family: monospace; font-size: 20px; font-weight: 800; color: #1D4ED8; text-decoration: none; }
+    .cmd-name:hover { text-decoration: underline; }
+    .cmd-syntax { font-family: monospace; background: #F1F5F9; padding: 4px 8px; border-radius: 6px; font-size: 16px; color: #0F172A; }
+    .cmd-opts code { background: #FEF3C7; color: #92400E; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-weight: 600; margin: 2px; display: inline-block; }
+    .slide-link { font-weight: 600; color: var(--primary); text-decoration: none; white-space: nowrap; }
+    .slide-link:hover { text-decoration: underline; }
+    
+    .site-footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border);
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .site-footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    .site-footer a:hover { text-decoration: underline; }
+    .footer-legal p { margin-bottom: 6px; }
+    @media (max-width: 640px) {
+      body { padding: 20px 14px; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 26px; }
+      .subtitle { font-size: 16px; }
+      .nav-bar { flex-direction: column; }
+      .term-grid { grid-template-columns: 1fr; }
+      .table-card { overflow-x: auto; }
+      table.data-table { min-width: 600px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Volver al Índice Principal de Temas</a>
+    <header>
+      <h1>Índice Global de Comandos LPIC-1</h1>
+      <div class="subtitle">Separado por Temas Oficiales (Examen 101-500: Temas 101, 102 y 103)</div>
+      <div class="nav-bar">
+        <a href="glosario.html" class="nav-btn">Glosario Global</a>
+        <a href="erratas.html" class="nav-btn">Notas y Erratas del Manual</a>
+        <a href="#t101" class="nav-btn">Tema 101</a>
+        <a href="#t102" class="nav-btn">Tema 102</a>
+        <a href="#t103" class="nav-btn">Tema 103</a>
+      </div>
+    </header>
+
+    <div class="search-bar-wrap">
+      <input type="text" id="cmd-filter" class="search-input" placeholder="🔍 Buscar comando, opción, propósito o subtema..." onkeyup="filterCommands()">
+      <div class="counter-badge" id="cmd-counter">231 comandos registrados</div>
+    </div>
+
+    <div id="cmd-container">
+      
+        <section class="topic-section" id="t101">
+          <div class="topic-header">
+            <h2>Tema 101: Arquitectura del Sistema</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">101.1</span>
+                <h3>Determinar y configurar los ajustes de hardware</h3>
+                <span class="cmd-count-badge">12 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/9" class="cmd-name">lspci</a></td>
+                      <td><code class="cmd-syntax">lspci [OPCIONES]</code></td>
+                      <td class="cmd-purpose">Muestra todos los dispositivos conectados al bus PCI y PCIe:</td>
+                      <td class="cmd-opts"><code>-v</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/9" class="slide-link">Slide 9</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/10" class="cmd-name">lspci</a></td>
+                      <td><code class="cmd-syntax">lspci [-s [[bus]:][slot][.[func]]] [-d [vendor]:[device]]</code></td>
+                      <td class="cmd-purpose">Aísla dispositivos específicos por ranura o identificador:</td>
+                      <td class="cmd-opts"><code>-s</code>, <code>-d</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/10" class="slide-link">Slide 10</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/11" class="cmd-name">lspci</a></td>
+                      <td><code class="cmd-syntax">lspci -k [-s ranura]</code></td>
+                      <td class="cmd-purpose">Revela qué módulo del kernel gestiona el hardware:</td>
+                      <td class="cmd-opts"><code>-k</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/11" class="slide-link">Slide 11</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/12" class="cmd-name">lspci</a></td>
+                      <td><code class="cmd-syntax">lspci [-v]</code></td>
+                      <td class="cmd-purpose">Muestra capacidades avanzadas, memoria y latencias:</td>
+                      <td class="cmd-opts"><code>-v</code>, <code>-vv</code>, <code>-vvv</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/12" class="slide-link">Slide 12</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/14" class="cmd-name">lsusb</a></td>
+                      <td><code class="cmd-syntax">lsusb [OPCIONES]</code></td>
+                      <td class="cmd-purpose">Inspecciona todos los buses y dispositivos USB conectados:</td>
+                      <td class="cmd-opts"><code>-v</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/14" class="slide-link">Slide 14</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/15" class="cmd-name">lsusb</a></td>
+                      <td><code class="cmd-syntax">lsusb [-s [[bus]:][devnum]] [-d [vendor]:[product]]</code></td>
+                      <td class="cmd-purpose">Localiza dispositivos por bus:dispositivo o fabricante:</td>
+                      <td class="cmd-opts"><code>-s</code>, <code>-d</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/15" class="slide-link">Slide 15</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/16" class="cmd-name">lsusb</a></td>
+                      <td><code class="cmd-syntax">lsusb -v [-s bus:dev]</code></td>
+                      <td class="cmd-purpose">Inspecciona especificaciones de alimentación y endpoints:</td>
+                      <td class="cmd-opts"><code>-v</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/16" class="slide-link">Slide 16</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/17" class="cmd-name">lsusb</a></td>
+                      <td><code class="cmd-syntax">lsusb -t</code></td>
+                      <td class="cmd-purpose">Mapea concentradores, puertos, controladores y velocidades:</td>
+                      <td class="cmd-opts"><code>-t</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/17" class="slide-link">Slide 17</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/18" class="cmd-name">lsmod</a></td>
+                      <td><code class="cmd-syntax">lsmod</code></td>
+                      <td class="cmd-purpose">Consulta el estado y dependencias de los drivers en ejecución:</td>
+                      <td class="cmd-opts"><code>lsmod</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/18" class="slide-link">Slide 18</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/20" class="cmd-name">modprobe</a></td>
+                      <td><code class="cmd-syntax">modprobe [OPCIONES] <nombre_módulo> [parámetros]</code></td>
+                      <td class="cmd-purpose">Carga un controlador y todos los módulos previos necesarios:</td>
+                      <td class="cmd-opts"><code>modprobe</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/20" class="slide-link">Slide 20</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/21" class="cmd-name">modprobe</a></td>
+                      <td><code class="cmd-syntax">modprobe -r <módulo></code></td>
+                      <td class="cmd-purpose">Elimina de forma segura un módulo y las dependencias no utilizadas:</td>
+                      <td class="cmd-opts"><code>-r</code>, <code>-v</code>, <code>-c</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/21" class="slide-link">Slide 21</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/24" class="cmd-name">modinfo</a></td>
+                      <td><code class="cmd-syntax">modinfo [OPCIONES] <nombre_módulo></code></td>
+                      <td class="cmd-purpose">Inspecciona autor, licencia, dependencias y parámetros aceptados:</td>
+                      <td class="cmd-opts"><code>modinfo</code></td>
+                      <td><a href="t101/101-1-determinar-y-configurar.html#/24" class="slide-link">Slide 24</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">101.2</span>
+                <h3>Arranque del sistema</h3>
+                <span class="cmd-count-badge">5 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-2-arranque-del-sistema.html#/23" class="cmd-name">grub-mkconfig</a></td>
+                      <td><code class="cmd-syntax">-</code></td>
+                      <td class="cmd-purpose">Genera el archivo final /boot/grub/grub.cfg leyendo /etc/default/grub:</td>
+                      <td class="cmd-opts"><code>-o</code></td>
+                      <td><a href="t101/101-2-arranque-del-sistema.html#/23" class="slide-link">Slide 23</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-2-arranque-del-sistema.html#/33" class="cmd-name">dmesg</a></td>
+                      <td><code class="cmd-syntax">-</code></td>
+                      <td class="cmd-purpose">Inspecciona los mensajes de inicialización y hardware del núcleo:</td>
+                      <td class="cmd-opts"><code>--clear</code>, <code>-H</code>, <code>--human</code></td>
+                      <td><a href="t101/101-2-arranque-del-sistema.html#/33" class="slide-link">Slide 33</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-2-arranque-del-sistema.html#/36" class="cmd-name">journalctl</a></td>
+                      <td><code class="cmd-syntax">-</code></td>
+                      <td class="cmd-purpose">Inspecciona los registros del sistema operativo y del kernel:</td>
+                      <td class="cmd-opts"><code>-b</code>, <code>--boot</code>, <code>-k</code>, <code>--dmesg</code></td>
+                      <td><a href="t101/101-2-arranque-del-sistema.html#/36" class="slide-link">Slide 36</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-2-arranque-del-sistema.html#/37" class="cmd-name">journalctl</a></td>
+                      <td><code class="cmd-syntax">-</code></td>
+                      <td class="cmd-purpose">Muestra el catálogo histórico de todas las sesiones de arranque registradas:</td>
+                      <td class="cmd-opts"><code>--list-boots</code></td>
+                      <td><a href="t101/101-2-arranque-del-sistema.html#/37" class="slide-link">Slide 37</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-2-arranque-del-sistema.html#/40" class="cmd-name">journalctl</a></td>
+                      <td><code class="cmd-syntax">-</code></td>
+                      <td class="cmd-purpose">Inspecciona registros de un disco dañado montado en un directorio alternativo:</td>
+                      <td class="cmd-opts"><code>-D</code>, <code>--directory</code></td>
+                      <td><a href="t101/101-2-arranque-del-sistema.html#/40" class="slide-link">Slide 40</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">101.3</span>
+                <h3>Cambiar los niveles de ejecución / objetivos de arranque y apagar o reiniciar el sistema</h3>
+                <span class="cmd-count-badge">12 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/12" class="cmd-name">telinit</a></td>
+                      <td><code class="cmd-syntax">telinit {q|Q}</code></td>
+                      <td class="cmd-purpose">Aplica inmediatamente los cambios realizados en /etc/inittab sin reiniciar el equipo:</td>
+                      <td class="cmd-opts"><code>q</code>, <code>Q</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/12" class="slide-link">Slide 12</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/15" class="cmd-name">runlevel</a></td>
+                      <td><code class="cmd-syntax">runlevel</code></td>
+                      <td class="cmd-purpose">Muestra el nivel de ejecución previo y el nivel de ejecución actual del sistema:</td>
+                      <td class="cmd-opts"><code>N</code>, <code>3</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/15" class="slide-link">Slide 15</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/16" class="cmd-name">telinit</a></td>
+                      <td><code class="cmd-syntax">telinit {1|s|S|3|5|6}</code></td>
+                      <td class="cmd-purpose">Alterna entre niveles de ejecución en un sistema en funcionamiento sin reiniciar:</td>
+                      <td class="cmd-opts"><code>telinit 1</code>, <code>telinit 6</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/16" class="slide-link">Slide 16</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/20" class="cmd-name">systemctl</a></td>
+                      <td><code class="cmd-syntax">systemctl {start|stop|restart} unit.service</code></td>
+                      <td class="cmd-purpose">Controla el ciclo de vida inmediato de las unidades del sistema:</td>
+                      <td class="cmd-opts"><code>start</code>, <code>stop</code>, <code>restart</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/20" class="slide-link">Slide 20</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/21" class="cmd-name">systemctl</a></td>
+                      <td><code class="cmd-syntax">systemctl {status|is-active} unit.service</code></td>
+                      <td class="cmd-purpose">Comprueba el estado de ejecución y salud de un servicio:</td>
+                      <td class="cmd-opts"><code>status</code>, <code>is-active</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/21" class="slide-link">Slide 21</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/22" class="cmd-name">systemctl</a></td>
+                      <td><code class="cmd-syntax">systemctl {enable|disable|is-enabled} unit.service</code></td>
+                      <td class="cmd-purpose">Controla si una unidad se cargará de manera automática durante la inicialización:</td>
+                      <td class="cmd-opts"><code>enable</code>, <code>disable</code>, <code>is-enabled</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/22" class="slide-link">Slide 22</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/24" class="cmd-name">systemctl</a></td>
+                      <td><code class="cmd-syntax">systemctl isolate target.target</code></td>
+                      <td class="cmd-purpose">Alterna entre objetivos operativos en tiempo de ejecución deteniendo unidades innecesarias:</td>
+                      <td class="cmd-opts"><code>isolate</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/24" class="slide-link">Slide 24</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/27" class="cmd-name">systemctl</a></td>
+                      <td><code class="cmd-syntax">systemctl {list-unit-files|list-units} [--type=...]</code></td>
+                      <td class="cmd-purpose">Enumera unidades disponibles en disco o activas en la sesión actual:</td>
+                      <td class="cmd-opts"><code>list-unit-files</code>, <code>list-units</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/27" class="slide-link">Slide 27</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/30" class="cmd-name">shutdown</a></td>
+                      <td><code class="cmd-syntax">shutdown [option] time [message]</code></td>
+                      <td class="cmd-purpose">Apagado y reinicio ordenado con notificación previa y bloqueo de nuevos inicios de sesión:</td>
+                      <td class="cmd-opts"><code>-h</code>, <code>-r</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/30" class="slide-link">Slide 30</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/32" class="cmd-name">shutdown</a></td>
+                      <td><code class="cmd-syntax">shutdown -c [message]</code></td>
+                      <td class="cmd-purpose">Aborta una acción de apagado programada y restringe reinicios por teclado:</td>
+                      <td class="cmd-opts"><code>-c</code>, <code>-a</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/32" class="slide-link">Slide 32</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/33" class="cmd-name">systemctl</a></td>
+                      <td><code class="cmd-syntax">systemctl {reboot|poweroff}</code></td>
+                      <td class="cmd-purpose">Acciones directas de reinicio y apagado vinculadas a systemctl:</td>
+                      <td class="cmd-opts"><code>reboot</code>, <code>poweroff</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/33" class="slide-link">Slide 33</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/34" class="cmd-name">wall</a></td>
+                      <td><code class="cmd-syntax">wall [message | file]</code></td>
+                      <td class="cmd-purpose">Transmite un mensaje de advertencia urgente a todas las sesiones de terminal de usuarios conectados:</td>
+                      <td class="cmd-opts"><code>message</code>, <code>file</code></td>
+                      <td><a href="t101/101-3-cambiar-los-niveles-de-e.html#/34" class="slide-link">Slide 34</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t102">
+          <div class="topic-header">
+            <h2>Tema 102: Instalación de Linux y gestión de paquetes</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.2</span>
+                <h3>Instalar un gestor de arranque</h3>
+                <span class="cmd-count-badge">9 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/7" class="cmd-name">fdisk</a></td>
+                      <td><code class="cmd-syntax">fdisk -l /dev/sda</code></td>
+                      <td class="cmd-purpose">Localiza la partición marcada como arrancable y prepara su montaje temporal:</td>
+                      <td class="cmd-opts"><code>-l</code>, <code>*</code></td>
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/7" class="slide-link">Slide 7</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/8" class="cmd-name">grub-install</a></td>
+                      <td><code class="cmd-syntax">grub-install [--boot-directory=...] /dev/sda</code></td>
+                      <td class="cmd-purpose">Instala los archivos de arranque de GRUB 2 en el Master Boot Record del disco:</td>
+                      <td class="cmd-opts"><code>--boot-directory</code>, <code>/dev/sda</code></td>
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/8" class="slide-link">Slide 8</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/10" class="cmd-name">update-grub</a></td>
+                      <td><code class="cmd-syntax">update-grub  |  grub-mkconfig -o /boot/grub/grub.cfg</code></td>
+                      <td class="cmd-purpose">Escanea el sistema en busca de núcleos y genera el archivo grub.cfg actualizado:</td>
+                      <td class="cmd-opts"><code>update-grub</code>, <code>-o</code></td>
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/10" class="slide-link">Slide 10</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/17" class="cmd-name">search</a></td>
+                      <td><code class="cmd-syntax">search --set=root [--no-floppy] --fs-uuid UUID</code></td>
+                      <td class="cmd-purpose">Localiza de forma robusta la partición de arranque mediante su UUID o etiqueta:</td>
+                      <td class="cmd-opts"><code>--set=root</code>, <code>--fs-uuid</code>, <code>--no-floppy</code></td>
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/17" class="slide-link">Slide 17</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/19" class="cmd-name">grub></a></td>
+                      <td><code class="cmd-syntax">Tecla c  ->  grub></code></td>
+                      <td class="cmd-purpose">Abre el shell interactivo de GRUB para diagnóstico y arranque por comandos:</td>
+                      <td class="cmd-opts"><code>c</code>, <code>set root=</code></td>
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/19" class="slide-link">Slide 19</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/20" class="cmd-name">boot</a></td>
+                      <td><code class="cmd-syntax">linux ... ; initrd ... ; boot</code></td>
+                      <td class="cmd-purpose">Carga y ejecuta el sistema operativo paso a paso desde el shell de GRUB 2:</td>
+                      <td class="cmd-opts"><code>linux</code>, <code>initrd</code>, <code>boot</code></td>
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/20" class="slide-link">Slide 20</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/21" class="cmd-name">grub rescue></a></td>
+                      <td><code class="cmd-syntax">set prefix=... ; insmod normal ; insmod linux</code></td>
+                      <td class="cmd-purpose">Recupera el arranque cuando GRUB 2 entra en modo mínimo tras fallos de configuración:</td>
+                      <td class="cmd-opts"><code>set prefix=</code>, <code>insmod</code></td>
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/21" class="slide-link">Slide 21</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/22" class="cmd-name">grub-install</a></td>
+                      <td><code class="cmd-syntax">grub-install [--boot-directory=...] /dev/sda</code></td>
+                      <td class="cmd-purpose">Instala GRUB Legacy en un disco desde una instalación de Linux en funcionamiento:</td>
+                      <td class="cmd-opts"><code>/dev/sda</code>, <code>--boot-directory</code></td>
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/22" class="slide-link">Slide 22</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/23" class="cmd-name">setup</a></td>
+                      <td><code class="cmd-syntax">find /boot/grub/stage1  ->  root (hd0,0)  ->  setup (hd0)</code></td>
+                      <td class="cmd-purpose">Reinstala GRUB Legacy en el MBR desde un disco de rescate:</td>
+                      <td class="cmd-opts"><code>find</code>, <code>root</code>, <code>setup</code></td>
+                      <td><a href="t102/102-2-instalar-un-gestor-de-ar.html#/23" class="slide-link">Slide 23</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.3</span>
+                <h3>Gestión de librerías compartidas</h3>
+                <span class="cmd-count-badge">9 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/14" class="cmd-name">ldconfig</a></td>
+                      <td><code class="cmd-syntax">ldconfig [opciones]</code></td>
+                      <td class="cmd-purpose">Configura los enlaces dinámicos en runtime y actualiza la caché /etc/ld.so.cache:</td>
+                      <td class="cmd-opts"><code>ldconfig</code>, <code>sudo</code></td>
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/14" class="slide-link">Slide 14</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/15" class="cmd-name">ldconfig</a></td>
+                      <td><code class="cmd-syntax">ldconfig -v, --verbose</code></td>
+                      <td class="cmd-purpose">Muestra los números de versión, nombres de directorio y enlaces simbólicos creados:</td>
+                      <td class="cmd-opts"><code>-v</code>, <code>--verbose</code></td>
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/15" class="slide-link">Slide 15</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/16" class="cmd-name">ldconfig</a></td>
+                      <td><code class="cmd-syntax">ldconfig -p, --print-cache</code></td>
+                      <td class="cmd-purpose">Imprime las listas de directorios y bibliotecas candidatas en la caché actual:</td>
+                      <td class="cmd-opts"><code>-p</code>, <code>--print-cache</code></td>
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/16" class="slide-link">Slide 16</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/18" class="cmd-name">export</a></td>
+                      <td><code class="cmd-syntax">LD_LIBRARY_PATH=/ruta  |  export LD_LIBRARY_PATH=...</code></td>
+                      <td class="cmd-purpose">Define rutas de bibliotecas en el shell actual y las exporta a subprocesos:</td>
+                      <td class="cmd-opts"><code>export</code>, <code>echo</code></td>
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/18" class="slide-link">Slide 18</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/19" class="cmd-name">unset</a></td>
+                      <td><code class="cmd-syntax">unset LD_LIBRARY_PATH</code></td>
+                      <td class="cmd-purpose">Elimina completamente la variable de entorno de la sesión de shell:</td>
+                      <td class="cmd-opts"><code>unset</code></td>
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/19" class="slide-link">Slide 19</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/21" class="cmd-name">ldd</a></td>
+                      <td><code class="cmd-syntax">ldd /ruta/al/programa</code></td>
+                      <td class="cmd-purpose">Imprime las bibliotecas requeridas y las direcciones de memoria hexadecimales:</td>
+                      <td class="cmd-opts"><code>ldd</code></td>
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/21" class="slide-link">Slide 21</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/22" class="cmd-name">ldd</a></td>
+                      <td><code class="cmd-syntax">ldd /ruta/a/la/biblioteca.so</code></td>
+                      <td class="cmd-purpose">Inspecciona dependencias encadenadas entre las propias librerías compartidas:</td>
+                      <td class="cmd-opts"><code>/lib64/ld-linux-x86-64.so.2</code>, <code>linux-vdso.so.1</code></td>
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/22" class="slide-link">Slide 22</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/23" class="cmd-name">ldd</a></td>
+                      <td><code class="cmd-syntax">ldd -u, --unused /ruta/al/programa</code></td>
+                      <td class="cmd-purpose">Detecta dependencias directas enlazadas que el binario no necesita realmente:</td>
+                      <td class="cmd-opts"><code>-u</code>, <code>--unused</code></td>
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/23" class="slide-link">Slide 23</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/25" class="cmd-name">objdump</a></td>
+                      <td><code class="cmd-syntax">objdump -p, --private-headers /ruta/al/binario</code></td>
+                      <td class="cmd-purpose">Imprime información detallada de cabeceras privadas en archivos objeto ELF:</td>
+                      <td class="cmd-opts"><code>-p</code>, <code>--private-headers</code></td>
+                      <td><a href="t102/102-3-gestion-de-librerias-com.html#/25" class="slide-link">Slide 25</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.4</span>
+                <h3>Gestión de paquetes Debian</h3>
+                <span class="cmd-count-badge">21 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/4" class="cmd-name">dpkg</a></td>
+                      <td><code class="cmd-syntax">dpkg -i <archivo.deb></code></td>
+                      <td class="cmd-purpose">Instala o actualiza uno o varios paquetes .deb desde el sistema de archivos local:</td>
+                      <td class="cmd-opts"><code>-i</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/4" class="slide-link">Slide 4</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/7" class="cmd-name">dpkg</a></td>
+                      <td><code class="cmd-syntax">dpkg -r <paquete> [paquete2 ...]</code></td>
+                      <td class="cmd-purpose">Desinstala paquetes eliminando sus archivos ejecutables pero conservando configuraciones:</td>
+                      <td class="cmd-opts"><code>-r</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/7" class="slide-link">Slide 7</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/8" class="cmd-name">dpkg</a></td>
+                      <td><code class="cmd-syntax">dpkg -P <paquete>  |  dpkg --purge <paquete></code></td>
+                      <td class="cmd-purpose">Elimina completamente el paquete y todos sus archivos de configuración del sistema:</td>
+                      <td class="cmd-opts"><code>-P</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/8" class="slide-link">Slide 8</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/9" class="cmd-name">dpkg</a></td>
+                      <td><code class="cmd-syntax">dpkg --force-<opción> ...</code></td>
+                      <td class="cmd-purpose">Fuerza la instalación o eliminación ignorando conflictos y dependencias rotas:</td>
+                      <td class="cmd-opts"><code>--force</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/9" class="slide-link">Slide 9</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/10" class="cmd-name">dpkg</a></td>
+                      <td><code class="cmd-syntax">dpkg -I <archivo.deb>, --info</code></td>
+                      <td class="cmd-purpose">Muestra información detallada, arquitectura, mantenedor y dependencias de un archivo .deb:</td>
+                      <td class="cmd-opts"><code>-I</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/10" class="slide-link">Slide 10</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/11" class="cmd-name">dpkg</a></td>
+                      <td><code class="cmd-syntax">dpkg -L <nombre_paquete>, --listfiles</code></td>
+                      <td class="cmd-purpose">Imprime la lista completa de archivos instalados en el sistema por un paquete específico:</td>
+                      <td class="cmd-opts"><code>-L</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/11" class="slide-link">Slide 11</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/12" class="cmd-name">dpkg</a></td>
+                      <td><code class="cmd-syntax">dpkg --get-selections [patrón]</code></td>
+                      <td class="cmd-purpose">Enumera todos los paquetes instalados en el sistema y su estado actual:</td>
+                      <td class="cmd-opts"><code>--get-selections</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/12" class="slide-link">Slide 12</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/13" class="cmd-name">dpkg-query</a></td>
+                      <td><code class="cmd-syntax">dpkg-query -S <ruta_o_patrón></code></td>
+                      <td class="cmd-purpose">Averigua qué paquete instalado en el sistema es dueño de un archivo específico:</td>
+                      <td class="cmd-opts"><code>-S</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/13" class="slide-link">Slide 13</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/14" class="cmd-name">dpkg-reconfigure</a></td>
+                      <td><code class="cmd-syntax">dpkg-reconfigure <paquete></code></td>
+                      <td class="cmd-purpose">Vuelve a ejecutar las preguntas y scripts post-install de un paquete ya instalado:</td>
+                      <td class="cmd-opts"><code>dpkg-reconfigure</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/14" class="slide-link">Slide 14</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/17" class="cmd-name">apt-get</a></td>
+                      <td><code class="cmd-syntax">apt-get update  |  apt update</code></td>
+                      <td class="cmd-purpose">Descarga las listas más recientes de paquetes desde los repositorios configurados:</td>
+                      <td class="cmd-opts"><code>update</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/17" class="slide-link">Slide 17</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/18" class="cmd-name">apt-get</a></td>
+                      <td><code class="cmd-syntax">apt-get install <paquete> [paquete2 ...]</code></td>
+                      <td class="cmd-purpose">Descarga desde repositorios e instala paquetes satisfaciendo sus dependencias:</td>
+                      <td class="cmd-opts"><code>install</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/18" class="slide-link">Slide 18</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/19" class="cmd-name">apt-get</a></td>
+                      <td><code class="cmd-syntax">apt-get remove <paquete></code></td>
+                      <td class="cmd-purpose">Desinstala paquetes del sistema resolviendo y eliminando dependencias inversas:</td>
+                      <td class="cmd-opts"><code>remove</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/19" class="slide-link">Slide 19</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/20" class="cmd-name">apt-get</a></td>
+                      <td><code class="cmd-syntax">apt-get purge <paquete>  |  apt-get remove --purge <paquete></code></td>
+                      <td class="cmd-purpose">Desinstala el paquete y elimina totalmente cualquier archivo de configuración:</td>
+                      <td class="cmd-opts"><code>purge</code>, <code>--purge</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/20" class="slide-link">Slide 20</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/21" class="cmd-name">apt-get</a></td>
+                      <td><code class="cmd-syntax">apt-get install -f, --fix-broken</code></td>
+                      <td class="cmd-purpose">Corrige un sistema con dependencias rotas instalando automáticamente los paquetes faltantes:</td>
+                      <td class="cmd-opts"><code>-f</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/21" class="slide-link">Slide 21</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/22" class="cmd-name">apt-get</a></td>
+                      <td><code class="cmd-syntax">apt-get upgrade [paquete]</code></td>
+                      <td class="cmd-purpose">Actualiza todos los paquetes instalados a sus versiones más recientes en repositorios:</td>
+                      <td class="cmd-opts"><code>upgrade</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/22" class="slide-link">Slide 22</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/24" class="cmd-name">apt-get</a></td>
+                      <td><code class="cmd-syntax">apt-get clean  |  apt clean</code></td>
+                      <td class="cmd-purpose">Elimina los archivos .deb descargados en /var/cache/apt/archives para liberar disco:</td>
+                      <td class="cmd-opts"><code>clean</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/24" class="slide-link">Slide 24</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/25" class="cmd-name">apt-cache</a></td>
+                      <td><code class="cmd-syntax">apt-cache search <patrón>  |  apt search <patrón></code></td>
+                      <td class="cmd-purpose">Busca paquetes por nombre o descripción dentro de la base de datos local de APT:</td>
+                      <td class="cmd-opts"><code>search</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/25" class="slide-link">Slide 25</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/26" class="cmd-name">apt-cache</a></td>
+                      <td><code class="cmd-syntax">apt-cache show <paquete>  |  apt show <paquete></code></td>
+                      <td class="cmd-purpose">Muestra información completa, descripción, tamaño y dependencias de un paquete en catálogo:</td>
+                      <td class="cmd-opts"><code>show</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/26" class="slide-link">Slide 26</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/31" class="cmd-name">apt-file</a></td>
+                      <td><code class="cmd-syntax">apt-file update</code></td>
+                      <td class="cmd-purpose">Descarga y actualiza el índice completo de contenidos de paquetes de repositorios:</td>
+                      <td class="cmd-opts"><code>update</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/31" class="slide-link">Slide 31</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/32" class="cmd-name">apt-file</a></td>
+                      <td><code class="cmd-syntax">apt-file list <paquete></code></td>
+                      <td class="cmd-purpose">Muestra todos los archivos que instalaría un paquete, incluso si no está instalado:</td>
+                      <td class="cmd-opts"><code>list</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/32" class="slide-link">Slide 32</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/33" class="cmd-name">apt-file</a></td>
+                      <td><code class="cmd-syntax">apt-file search <nombre_archivo></code></td>
+                      <td class="cmd-purpose">Descubre qué paquete en los repositorios proporciona un archivo que falta en el sistema:</td>
+                      <td class="cmd-opts"><code>search</code></td>
+                      <td><a href="t102/102-4-gestion-de-paquetes-debi.html#/33" class="slide-link">Slide 33</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.5</span>
+                <h3>Gestión de paquetes RPM y YUM</h3>
+                <span class="cmd-count-badge">31 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/5" class="cmd-name">rpm</a></td>
+                      <td><code class="cmd-syntax">rpm -i [opciones] archivo.rpm</code></td>
+                      <td class="cmd-purpose">rpm -i: Instalación básica y opciones combinadas</td>
+                      <td class="cmd-opts"><code>-i</code>, <code>-v</code>, <code>-h</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/5" class="slide-link">Slide 5</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/6" class="cmd-name">rpm</a></td>
+                      <td><code class="cmd-syntax">rpm {-U|-F} [opciones] archivo.rpm</code></td>
+                      <td class="cmd-purpose">rpm -U frente a rpm -F: Actualización</td>
+                      <td class="cmd-opts"><code>-U</code>, <code>-F</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/6" class="slide-link">Slide 6</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/7" class="cmd-name">rpm</a></td>
+                      <td><code class="cmd-syntax">rpm -e [opciones] nombre_paquete</code></td>
+                      <td class="cmd-purpose">rpm -e: Desinstalación de paquetes</td>
+                      <td class="cmd-opts"><code>-e</code>, <code>--nodeps</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/7" class="slide-link">Slide 7</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/9" class="cmd-name">rpm</a></td>
+                      <td><code class="cmd-syntax">rpm -qa [filtro]</code></td>
+                      <td class="cmd-purpose">rpm -qa: Listar todos los paquetes instalados</td>
+                      <td class="cmd-opts"><code>-q</code>, <code>-a</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/9" class="slide-link">Slide 9</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/10" class="cmd-name">rpm</a></td>
+                      <td><code class="cmd-syntax">rpm -qi nombre_paquete</code></td>
+                      <td class="cmd-purpose">rpm -qi: Información de paquetes instalados</td>
+                      <td class="cmd-opts"><code>-q</code>, <code>-i</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/10" class="slide-link">Slide 10</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/11" class="cmd-name">rpm</a></td>
+                      <td><code class="cmd-syntax">rpm -ql nombre_paquete</code></td>
+                      <td class="cmd-purpose">rpm -ql: Listar archivos instalados por paquete</td>
+                      <td class="cmd-opts"><code>-q</code>, <code>-l</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/11" class="slide-link">Slide 11</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/12" class="cmd-name">rpm</a></td>
+                      <td><code class="cmd-syntax">rpm -qf /ruta/al/archivo</code></td>
+                      <td class="cmd-purpose">rpm -qf: Determinar qué paquete contiene un archivo</td>
+                      <td class="cmd-opts"><code>-q</code>, <code>-f</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/12" class="slide-link">Slide 12</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/13" class="cmd-name">rpm</a></td>
+                      <td><code class="cmd-syntax">rpm -qp[i|l] archivo.rpm</code></td>
+                      <td class="cmd-purpose">Consultas sobre archivos en disco con rpm -p</td>
+                      <td class="cmd-opts"><code>-p</code>, <code>-qip</code>, <code>-qlp</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/13" class="slide-link">Slide 13</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/14" class="cmd-name">rpm2cpio</a></td>
+                      <td><code class="cmd-syntax">rpm2cpio archivo.rpm | cpio -idmv</code></td>
+                      <td class="cmd-purpose">rpm2cpio: Extracción de archivos sin instalación</td>
+                      <td class="cmd-opts"><code>rpm2cpio</code>, <code>cpio -idmv</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/14" class="slide-link">Slide 14</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/16" class="cmd-name">yum</a></td>
+                      <td><code class="cmd-syntax">yum search término</code></td>
+                      <td class="cmd-purpose">yum search: Localizar paquetes en repositorios</td>
+                      <td class="cmd-opts"><code>search</code>, <code>all</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/16" class="slide-link">Slide 16</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/17" class="cmd-name">yum</a></td>
+                      <td><code class="cmd-syntax">yum info nombre_paquete</code></td>
+                      <td class="cmd-purpose">yum info: Detalles y metadatos de paquetes remotos</td>
+                      <td class="cmd-opts"><code>info</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/17" class="slide-link">Slide 17</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/18" class="cmd-name">yum</a></td>
+                      <td><code class="cmd-syntax">yum install [opciones] nombre_paquete</code></td>
+                      <td class="cmd-purpose">yum install: Instalación con resolución automática</td>
+                      <td class="cmd-opts"><code>install</code>, <code>-y</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/18" class="slide-link">Slide 18</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/19" class="cmd-name">yum</a></td>
+                      <td><code class="cmd-syntax">yum {update|check-update} [paquete]</code></td>
+                      <td class="cmd-purpose">yum update y check-update: Actualizaciones</td>
+                      <td class="cmd-opts"><code>update</code>, <code>check-update</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/19" class="slide-link">Slide 19</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/20" class="cmd-name">yum</a></td>
+                      <td><code class="cmd-syntax">yum remove nombre_paquete</code></td>
+                      <td class="cmd-purpose">yum remove: Desinstalación segura de paquetes</td>
+                      <td class="cmd-opts"><code>remove</code>, <code>erase</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/20" class="slide-link">Slide 20</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/21" class="cmd-name">yum</a></td>
+                      <td><code class="cmd-syntax">yum whatprovides ruta_o_patron</code></td>
+                      <td class="cmd-purpose">yum whatprovides: Localizar proveedor de ficheros</td>
+                      <td class="cmd-opts"><code>whatprovides</code>, <code>provides</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/21" class="slide-link">Slide 21</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/24" class="cmd-name">yum</a></td>
+                      <td><code class="cmd-syntax">yum repolist [enabled|disabled|all]</code></td>
+                      <td class="cmd-purpose">yum repolist all: Listar estado de repositorios</td>
+                      <td class="cmd-opts"><code>repolist</code>, <code>repolist all</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/24" class="slide-link">Slide 24</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/25" class="cmd-name">yum-config-manager</a></td>
+                      <td><code class="cmd-syntax">yum-config-manager [opciones] [repoid]</code></td>
+                      <td class="cmd-purpose">yum-config-manager: Administrar repositorios</td>
+                      <td class="cmd-opts"><code>--add-repo</code>, <code>--enable</code>, <code>--disable</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/25" class="slide-link">Slide 25</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/26" class="cmd-name">yum</a></td>
+                      <td><code class="cmd-syntax">yum clean {packages|metadata|all}</code></td>
+                      <td class="cmd-purpose">yum clean: Limpieza y vaciado de caché local</td>
+                      <td class="cmd-opts"><code>packages</code>, <code>metadata</code>, <code>all</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/26" class="slide-link">Slide 26</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/28" class="cmd-name">dnf</a></td>
+                      <td><code class="cmd-syntax">dnf {search|info|help} [término]</code></td>
+                      <td class="cmd-purpose">dnf search, info y help: Exploración</td>
+                      <td class="cmd-opts"><code>search</code>, <code>info</code>, <code>help</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/28" class="slide-link">Slide 28</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/29" class="cmd-name">dnf</a></td>
+                      <td><code class="cmd-syntax">dnf {install|remove} [opciones] paquete</code></td>
+                      <td class="cmd-purpose">dnf install y dnf remove: Operaciones</td>
+                      <td class="cmd-opts"><code>install</code>, <code>remove</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/29" class="slide-link">Slide 29</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/30" class="cmd-name">dnf</a></td>
+                      <td><code class="cmd-syntax">dnf upgrade [paquete]</code></td>
+                      <td class="cmd-purpose">dnf upgrade: Actualización general del sistema</td>
+                      <td class="cmd-opts"><code>upgrade</code>, <code>update</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/30" class="slide-link">Slide 30</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/31" class="cmd-name">dnf</a></td>
+                      <td><code class="cmd-syntax">dnf provides patron_o_ruta</code></td>
+                      <td class="cmd-purpose">dnf provides: Búsqueda inversa de archivos</td>
+                      <td class="cmd-opts"><code>provides</code>, <code>whatprovides</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/31" class="slide-link">Slide 31</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/32" class="cmd-name">dnf</a></td>
+                      <td><code class="cmd-syntax">dnf list --installed | dnf repoquery -l paquete</code></td>
+                      <td class="cmd-purpose">dnf list --installed y repoquery -l</td>
+                      <td class="cmd-opts"><code>list --installed</code>, <code>repoquery -l</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/32" class="slide-link">Slide 32</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/33" class="cmd-name">dnf</a></td>
+                      <td><code class="cmd-syntax">dnf repolist | dnf config-manager [opciones]</code></td>
+                      <td class="cmd-purpose">dnf repolist y dnf config-manager</td>
+                      <td class="cmd-opts"><code>repolist</code>, <code>config-manager --add-repo</code>, <code>config-manager --set-enabled</code>, <code>config-manager --set-disabled</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/33" class="slide-link">Slide 33</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/35" class="cmd-name">zypper</a></td>
+                      <td><code class="cmd-syntax">zypper refresh (o zypper ref)</code></td>
+                      <td class="cmd-purpose">zypper refresh: Refresco de repositorios locales</td>
+                      <td class="cmd-opts"><code>refresh</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/35" class="slide-link">Slide 35</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/36" class="cmd-name">zypper</a></td>
+                      <td><code class="cmd-syntax">zypper {search|se} [opciones] patrón</code></td>
+                      <td class="cmd-purpose">zypper search: Consultar catálogo y patrones</td>
+                      <td class="cmd-opts"><code>search</code>, <code>-i</code>, <code>-u</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/36" class="slide-link">Slide 36</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/37" class="cmd-name">zypper</a></td>
+                      <td><code class="cmd-syntax">zypper {install|in|remove|rm} [opciones] paquete</code></td>
+                      <td class="cmd-purpose">zypper install y zypper remove: Operaciones</td>
+                      <td class="cmd-opts"><code>install</code>, <code>remove</code>, <code>-y</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/37" class="slide-link">Slide 37</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/38" class="cmd-name">zypper</a></td>
+                      <td><code class="cmd-syntax">zypper {update|up|list-updates|lu} [paquete]</code></td>
+                      <td class="cmd-purpose">zypper update y zypper list-updates</td>
+                      <td class="cmd-opts"><code>update</code>, <code>list-updates</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/38" class="slide-link">Slide 38</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/39" class="cmd-name">zypper</a></td>
+                      <td><code class="cmd-syntax">zypper se --provides archivo_o_simbolo</code></td>
+                      <td class="cmd-purpose">zypper se --provides: Búsqueda inversa en SUSE</td>
+                      <td class="cmd-opts"><code>--provides</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/39" class="slide-link">Slide 39</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/40" class="cmd-name">zypper</a></td>
+                      <td><code class="cmd-syntax">zypper {info|if} nombre_paquete</code></td>
+                      <td class="cmd-purpose">zypper info: Información detallada de paquetes</td>
+                      <td class="cmd-opts"><code>info</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/40" class="slide-link">Slide 40</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/41" class="cmd-name">zypper</a></td>
+                      <td><code class="cmd-syntax">zypper {repos|modifyrepo|addrepo} [opciones]</code></td>
+                      <td class="cmd-purpose">zypper repos, modifyrepo y addrepo</td>
+                      <td class="cmd-opts"><code>repos</code>, <code>addrepo</code>, <code>modifyrepo</code></td>
+                      <td><a href="t102/102-5-gestion-de-paquetes-rpm.html#/41" class="slide-link">Slide 41</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.6</span>
+                <h3>Linux como sistema virtualizado</h3>
+                <span class="cmd-count-badge">7 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/10" class="cmd-name">lsblk</a></td>
+                      <td><code class="cmd-syntax">lsblk [opciones]</code></td>
+                      <td class="cmd-purpose">Compara el tamaño físico del archivo en el host con el tamaño visto dentro del invitado.</td>
+                      <td class="cmd-opts"><code>COW</code>, <code>RAW</code></td>
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/10" class="slide-link">Slide 10</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/12" class="cmd-name">dbus-uuidgen</a></td>
+                      <td><code class="cmd-syntax">dbus-uuidgen {--ensure|--get}</code></td>
+                      <td class="cmd-purpose">Verifica y obtiene el identificador único global de la instalación en /var/lib/dbus/machine-id.</td>
+                      <td class="cmd-opts"><code>--ensure</code>, <code>--get</code></td>
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/12" class="slide-link">Slide 12</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/13" class="cmd-name">dbus-uuidgen</a></td>
+                      <td><code class="cmd-syntax">sudo rm -f /etc/machine-id && sudo dbus-uuidgen --ensure=/etc/machine-id</code></td>
+                      <td class="cmd-purpose">Procedimiento obligatorio para crear un nuevo identificador tras clonar una plantilla.</td>
+                      <td class="cmd-opts"><code>rm -f</code>, <code>--ensure=/etc/machine-id</code></td>
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/13" class="slide-link">Slide 13</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/16" class="cmd-name">ssh-keygen</a></td>
+                      <td><code class="cmd-syntax">ssh-keygen [opciones]</code></td>
+                      <td class="cmd-purpose">Genera un par de claves criptográficas pública y privada para autenticación sin contraseña.</td>
+                      <td class="cmd-opts"><code>id_rsa</code>, <code>id_rsa.pub</code></td>
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/16" class="slide-link">Slide 16</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/17" class="cmd-name">ssh-copy-id</a></td>
+                      <td><code class="cmd-syntax">ssh-copy-id [-i archivo_pub] usuario@servidor</code></td>
+                      <td class="cmd-purpose">Copia la clave pública en ~/.ssh/authorized_keys del host remoto ajustando sus permisos.</td>
+                      <td class="cmd-opts"><code>-i</code>, <code>authorized_keys</code></td>
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/17" class="slide-link">Slide 17</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/23" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">grep --color -E "vmx|svm" /proc/cpuinfo</code></td>
+                      <td class="cmd-purpose">Detecta si el microprocesador soporta y tiene activadas las extensiones de virtualización.</td>
+                      <td class="cmd-opts"><code>vmx</code>, <code>svm</code></td>
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/23" class="slide-link">Slide 23</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/24" class="cmd-name">virt-manager</a></td>
+                      <td><code class="cmd-syntax">virt-manager | virt-install [opciones]</code></td>
+                      <td class="cmd-purpose">Herramientas de escritorio (GUI) y de línea de comandos (CLI) para crear y gestionar VMs.</td>
+                      <td class="cmd-opts"><code>virt-manager</code>, <code>virt-install</code></td>
+                      <td><a href="t102/102-6-linux-como-sistema-virtu.html#/24" class="slide-link">Slide 24</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t103">
+          <div class="topic-header">
+            <h2>Tema 103: Comandos GNU y Unix</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.1</span>
+                <h3>Trabajar desde la línea de comandos</h3>
+                <span class="cmd-count-badge">16 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/4" class="cmd-name">pwd</a></td>
+                      <td><code class="cmd-syntax">pwd [OPCIÓN] | touch [OPCIÓN] FICHERO...</code></td>
+                      <td class="cmd-purpose">Ubicación actual y creación básica de ficheros</td>
+                      <td class="cmd-opts"><code>pwd</code>, <code>touch newfile</code></td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/4" class="slide-link">Slide 4</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/5" class="cmd-name">ls</a></td>
+                      <td><code class="cmd-syntax">ls [OPCIÓN]... [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Inspección de ficheros y directorios con ls</td>
+                      <td class="cmd-opts"><code>ls</code></td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/5" class="slide-link">Slide 5</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/6" class="cmd-name">uname</a></td>
+                      <td><code class="cmd-syntax">uname [OPCIÓN]...</code></td>
+                      <td class="cmd-purpose">Identificación del sistema y kernel con uname</td>
+                      <td class="cmd-opts"><code>-s, --kernel-name</code>, <code>-a, --all</code></td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/6" class="slide-link">Slide 6</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/8" class="cmd-name">man</a></td>
+                      <td><code class="cmd-syntax">man [SECCIÓN] COMANDO</code></td>
+                      <td class="cmd-purpose">Sistema de manuales oficial de Linux: man</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/8" class="slide-link">Slide 8</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/9" class="cmd-name">apropos</a></td>
+                      <td><code class="cmd-syntax">apropos [OPCIÓN] PALABRA_CLAVE...</code></td>
+                      <td class="cmd-purpose">Búsqueda por palabra clave en manuales: apropos</td>
+                      <td class="cmd-opts"><code>--usage</code></td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/9" class="slide-link">Slide 9</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/10" class="cmd-name">type</a></td>
+                      <td><code class="cmd-syntax">type [OPCIÓN] NOMBRE...</code></td>
+                      <td class="cmd-purpose">Clasificación de comandos con type: binarios y builtins</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/10" class="slide-link">Slide 10</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/12" class="cmd-name">which</a></td>
+                      <td><code class="cmd-syntax">which [OPCIÓN] NOMBRE...</code></td>
+                      <td class="cmd-purpose">Localización de ejecutables en PATH con which</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/12" class="slide-link">Slide 12</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/13" class="cmd-name">help</a></td>
+                      <td><code class="cmd-syntax">help [-dms] [PATRÓN]</code></td>
+                      <td class="cmd-purpose">Documentación de comandos internos con help</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/13" class="slide-link">Slide 13</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/14" class="cmd-name">history</a></td>
+                      <td><code class="cmd-syntax">history [NÚMERO] | history -c</code></td>
+                      <td class="cmd-purpose">Consulta y reutilización del historial con history</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/14" class="slide-link">Slide 14</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/15" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">history | grep [OPCIÓN] 'PATRÓN'</code></td>
+                      <td class="cmd-purpose">Búsqueda filtrada en el historial con grep</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/15" class="slide-link">Slide 15</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/27" class="cmd-name">env</a></td>
+                      <td><code class="cmd-syntax">env [OPCIÓN]... [-] [NOMBRE=VALOR]... [COMANDO [ARG]...]</code></td>
+                      <td class="cmd-purpose">Inspección de variables del sistema con env</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/27" class="slide-link">Slide 27</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/29" class="cmd-name">echo</a></td>
+                      <td><code class="cmd-syntax">echo [OPCIÓN]... [CADENA]...</code></td>
+                      <td class="cmd-purpose">Impresión y expansión de variables con echo</td>
+                      <td class="cmd-opts"><code>$VARIABLE</code></td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/29" class="slide-link">Slide 29</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/30" class="cmd-name">myvar=hello</a></td>
+                      <td><code class="cmd-syntax">NOMBRE=VALOR</code></td>
+                      <td class="cmd-purpose">Definición y asignación de variables de shell locales</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/30" class="slide-link">Slide 30</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/32" class="cmd-name">export</a></td>
+                      <td><code class="cmd-syntax">export [NOMBRE[=VALOR]]...</code></td>
+                      <td class="cmd-purpose">Exportación de variables a procesos secundarios: export</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/32" class="slide-link">Slide 32</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/33" class="cmd-name">unset</a></td>
+                      <td><code class="cmd-syntax">unset [-v] [-f] NOMBRE...</code></td>
+                      <td class="cmd-purpose">Eliminación de variables de entorno y shell: unset</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/33" class="slide-link">Slide 33</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/36" class="cmd-name">rm</a></td>
+                      <td><code class="cmd-syntax">touch "NOMBRE COMPLETO" | rm 'NOMBRE COMPLETO'</code></td>
+                      <td class="cmd-purpose">Manejo de espacios mediante comillas y borrado</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-1-trabajar-desde-la-linea.html#/36" class="slide-link">Slide 36</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.2</span>
+                <h3>Procesar secuencias de texto usando filtros</h3>
+                <span class="cmd-count-badge">23 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/4" class="cmd-name">cat</a></td>
+                      <td><code class="cmd-syntax">cat [OPCIÓN]... [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Visualización y concatenación de flujos: cat</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/4" class="slide-link">Slide 4</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/5" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">grep [OPCIÓN]... PATRÓN [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Filtrado de flujos con grep y opción -i</td>
+                      <td class="cmd-opts"><code>-i, --ignore-case</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/5" class="slide-link">Slide 5</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/6" class="cmd-name">zcat</a></td>
+                      <td><code class="cmd-syntax">gzip [OPCIÓN] FICHERO | zcat FICHERO.gz</code></td>
+                      <td class="cmd-purpose">Compresión gzip y visualización con zcat</td>
+                      <td class="cmd-opts"><code>-v, --verbose</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/6" class="slide-link">Slide 6</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/7" class="cmd-name">bzcat</a></td>
+                      <td><code class="cmd-syntax">bzcat FICHERO.bz2 | xzcat FICHERO.xz</code></td>
+                      <td class="cmd-purpose">Lectura de archivos comprimidos: bzcat y xzcat</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/7" class="slide-link">Slide 7</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/8" class="cmd-name">less</a></td>
+                      <td><code class="cmd-syntax">less [OPCIÓN]... [FICHERO]... | sudo less /var/log/syslog</code></td>
+                      <td class="cmd-purpose">Paginación interactiva de registros con less</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/8" class="slide-link">Slide 8</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/9" class="cmd-name">head</a></td>
+                      <td><code class="cmd-syntax">head [-n LÍNEAS] [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Extracción de encabezados de archivo con head</td>
+                      <td class="cmd-opts"><code>-n, --lines=N</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/9" class="slide-link">Slide 9</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/10" class="cmd-name">tail</a></td>
+                      <td><code class="cmd-syntax">tail [-n LÍNEAS] [-f] [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Extracción de colas y monitorización viva: tail</td>
+                      <td class="cmd-opts"><code>-n, --lines=N</code>, <code>-f, --follow</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/10" class="slide-link">Slide 10</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/11" class="cmd-name">nl</a></td>
+                      <td><code class="cmd-syntax">nl [OPCIÓN]... [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Numeración secuencial de líneas con nl</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/11" class="slide-link">Slide 11</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/12" class="cmd-name">wc</a></td>
+                      <td><code class="cmd-syntax">wc [OPCIÓN]... [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Conteo de líneas, palabras y bytes: wc</td>
+                      <td class="cmd-opts"><code>-l, --lines</code>, <code>-w, --words</code>, <code>-c, --bytes</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/12" class="slide-link">Slide 12</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/13" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">grep -v PATRÓN [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Selección invertida de líneas con grep -v</td>
+                      <td class="cmd-opts"><code>-v, --invert-match</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/13" class="slide-link">Slide 13</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/14" class="cmd-name">sed</a></td>
+                      <td><code class="cmd-syntax">sed -n '/PATRÓN/p' [FICHERO]</code></td>
+                      <td class="cmd-purpose">Editor sed: selección e impresión con /p</td>
+                      <td class="cmd-opts"><code>-n, --quiet, --silent</code>, <code>/patrón/p</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/14" class="slide-link">Slide 14</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/15" class="cmd-name">sed</a></td>
+                      <td><code class="cmd-syntax">sed '/PATRÓN/d' [FICHERO]</code></td>
+                      <td class="cmd-purpose">Editor sed: supresión de líneas con /d</td>
+                      <td class="cmd-opts"><code>/patrón/d</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/15" class="slide-link">Slide 15</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/17" class="cmd-name">sha256sum</a></td>
+                      <td><code class="cmd-syntax">sha256sum [FICHERO]... | sha256sum -c ARCHIVO_HASHES</code></td>
+                      <td class="cmd-purpose">Generación y comprobación de hashes: sha256sum</td>
+                      <td class="cmd-opts"><code>-c, --check</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/17" class="slide-link">Slide 17</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/18" class="cmd-name">od</a></td>
+                      <td><code class="cmd-syntax">od [OPCIÓN]... [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Volcado e inspección binaria con od</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/18" class="slide-link">Slide 18</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/19" class="cmd-name">od</a></td>
+                      <td><code class="cmd-syntax">-</code></td>
+                      <td class="cmd-purpose">Análisis de caracteres ocultos con od -c</td>
+                      <td class="cmd-opts"><code>-x</code>, <code>-c</code>, <code>-An</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/19" class="slide-link">Slide 19</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/24" class="cmd-name">cut</a></td>
+                      <td><code class="cmd-syntax">cut OPT... [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Extracción de columnas de texto con cut</td>
+                      <td class="cmd-opts"><code>-d, --delimiter=DELIM</code>, <code>-f, --fields=LISTA</code>, <code>-c, --characters=LISTA</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/24" class="slide-link">Slide 24</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/25" class="cmd-name">paste</a></td>
+                      <td><code class="cmd-syntax">paste [OPCIÓN]... [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Unión horizontal de columnas con paste</td>
+                      <td class="cmd-opts"><code>-d, --delimiters=LISTA</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/25" class="slide-link">Slide 25</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/26" class="cmd-name">sort</a></td>
+                      <td><code class="cmd-syntax">sort [OPCIÓN]... [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Ordenación de líneas de texto con sort</td>
+                      <td class="cmd-opts"><code>-r, --reverse</code>, <code>-n, --numeric-sort</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/26" class="slide-link">Slide 26</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/27" class="cmd-name">sort</a></td>
+                      <td><code class="cmd-syntax">-</code></td>
+                      <td class="cmd-purpose">Modos de sort: aleatorio (-R) y único (-u)</td>
+                      <td class="cmd-opts"><code>-R, --random-sort</code>, <code>-u, --unique</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/27" class="slide-link">Slide 27</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/28" class="cmd-name">uniq</a></td>
+                      <td><code class="cmd-syntax">uniq [OPCIÓN]... [ENTRADA [SALIDA]]</code></td>
+                      <td class="cmd-purpose">Eliminación de duplicados con uniq</td>
+                      <td class="cmd-opts"><code>-c, --count</code>, <code>-d, --repeated</code>, <code>-u, --unique</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/28" class="slide-link">Slide 28</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/29" class="cmd-name">tr</a></td>
+                      <td><code class="cmd-syntax">tr [OPCIÓN]... CONJUNTO1 [CONJUNTO2]</code></td>
+                      <td class="cmd-purpose">Traducción y compresión de caracteres: tr</td>
+                      <td class="cmd-opts"><code>-s, --squeeze-repeats</code>, <code>-d, --delete</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/29" class="slide-link">Slide 29</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/30" class="cmd-name">split</a></td>
+                      <td><code class="cmd-syntax">split [OPCIÓN]... [FICHERO [PREFIJO]]</code></td>
+                      <td class="cmd-purpose">Particionado de ficheros grandes con split</td>
+                      <td class="cmd-opts"><code>-l, --lines=N</code>, <code>-d, --numeric-suffixes</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/30" class="slide-link">Slide 30</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/31" class="cmd-name">sed</a></td>
+                      <td><code class="cmd-syntax">sed [-i[SUFIJO]] 's/ORIGEN/DESTINO/[g]' FICHERO</code></td>
+                      <td class="cmd-purpose">Sustitución de cadenas y edición in-place sed</td>
+                      <td class="cmd-opts"><code>s/orig/dest/</code>, <code>-i.backup</code></td>
+                      <td><a href="t103/103-2-procesar-secuencias-de-t.html#/31" class="slide-link">Slide 31</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.3</span>
+                <h3>Administración básica de archivos</h3>
+                <span class="cmd-count-badge">21 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/3" class="cmd-name">ls</a></td>
+                      <td><code class="cmd-syntax">ls [OPCIÓN]... [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Listado detallado de directorios con ls</td>
+                      <td class="cmd-opts"><code>-l</code>, <code>-a, --all</code>, <code>-h, --human-readable</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/3" class="slide-link">Slide 3</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/5" class="cmd-name">touch</a></td>
+                      <td><code class="cmd-syntax">touch [OPCIÓN]... FICHERO...</code></td>
+                      <td class="cmd-purpose">Creación y actualización temporal con touch</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/5" class="slide-link">Slide 5</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/6" class="cmd-name">mkdir</a></td>
+                      <td><code class="cmd-syntax">mkdir [OPCIÓN]... DIRECTORIO...</code></td>
+                      <td class="cmd-purpose">Creación jerárquica de directorios con mkdir</td>
+                      <td class="cmd-opts"><code>-p, --parents</code>, <code>-m, --mode=MODO</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/6" class="slide-link">Slide 6</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/7" class="cmd-name">cp</a></td>
+                      <td><code class="cmd-syntax">cp [OPCIÓN]... ORIGEN DESTINO</code></td>
+                      <td class="cmd-purpose">Copia simple e interactiva con cp</td>
+                      <td class="cmd-opts"><code>-i, --interactive</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/7" class="slide-link">Slide 7</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/8" class="cmd-name">cp</a></td>
+                      <td><code class="cmd-syntax">cp -r ORIGEN... DESTINO | cp -a ORIGEN... DESTINO</code></td>
+                      <td class="cmd-purpose">Copia recursiva y preservación de atributos</td>
+                      <td class="cmd-opts"><code>-r, -R, --recursive</code>, <code>-p</code>, <code>-a, --archive</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/8" class="slide-link">Slide 8</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/9" class="cmd-name">mv</a></td>
+                      <td><code class="cmd-syntax">mv [OPCIÓN]... ORIGEN... DESTINO | mv -t DESTINO ORIGEN...</code></td>
+                      <td class="cmd-purpose">Movimiento y cambio de nombre con mv</td>
+                      <td class="cmd-opts"><code>-i, --interactive</code>, <code>-t, --target-directory=DIR</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/9" class="slide-link">Slide 9</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/10" class="cmd-name">rm</a></td>
+                      <td><code class="cmd-syntax">rm [OPCIÓN]... FICHERO... | rmdir [-p] DIRECTORIO...</code></td>
+                      <td class="cmd-purpose">Eliminación de archivos y directorios vacíos</td>
+                      <td class="cmd-opts"><code>rm -i</code>, <code>rmdir</code>, <code>rmdir -p</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/10" class="slide-link">Slide 10</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/20" class="cmd-name">find</a></td>
+                      <td><code class="cmd-syntax">find RUTA -name 'PATRÓN' | find RUTA -iname 'PATRÓN'</code></td>
+                      <td class="cmd-purpose">Filtrado por nombre en el comando find</td>
+                      <td class="cmd-opts"><code>-name 'PATRÓN'</code>, <code>-iname 'PATRÓN'</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/20" class="slide-link">Slide 20</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/21" class="cmd-name">find</a></td>
+                      <td><code class="cmd-syntax">find RUTA -type [f|d|l|b|c|s|p]</code></td>
+                      <td class="cmd-purpose">Filtrado por tipo de archivo find -type</td>
+                      <td class="cmd-opts"><code>-type f</code>, <code>-type d</code>, <code>-type l</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/21" class="slide-link">Slide 21</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/22" class="cmd-name">find</a></td>
+                      <td><code class="cmd-syntax">find RUTA -size [+/-]N[c|k|M|G]</code></td>
+                      <td class="cmd-purpose">Búsqueda por tamaño de archivo find -size</td>
+                      <td class="cmd-opts"><code>+N</code>, <code>-N</code>, <code>Unidades: c, k, M, G</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/22" class="slide-link">Slide 22</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/23" class="cmd-name">find</a></td>
+                      <td><code class="cmd-syntax">find RUTA -mtime [+/-]DÍAS | find RUTA -atime [+/-]DÍAS</code></td>
+                      <td class="cmd-purpose">Búsqueda por marcas temporales find -mtime</td>
+                      <td class="cmd-opts"><code>-mtime -N</code>, <code>-mtime +N</code>, <code>-atime N</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/23" class="slide-link">Slide 23</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/24" class="cmd-name">find</a></td>
+                      <td><code class="cmd-syntax">find RUTA EXPRESIÓN -exec COMANDO '{}' \;</code></td>
+                      <td class="cmd-purpose">Ejecución de acciones automáticas find -exec</td>
+                      <td class="cmd-opts"><code>'{}'</code>, <code>\;</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/24" class="slide-link">Slide 24</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/25" class="cmd-name">find</a></td>
+                      <td><code class="cmd-syntax">find RUTA CRITERIOS -delete</code></td>
+                      <td class="cmd-purpose">Purga directa de resultados con find -delete</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/25" class="slide-link">Slide 25</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/27" class="cmd-name">tar</a></td>
+                      <td><code class="cmd-syntax">tar -cvf ARCHIVO.tar ORIGEN...</code></td>
+                      <td class="cmd-purpose">Creación de empaquetados tar con -cvf</td>
+                      <td class="cmd-opts"><code>-c, --create</code>, <code>-v, --verbose</code>, <code>-f, --file=ARCHIVO</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/27" class="slide-link">Slide 27</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/28" class="cmd-name">tar</a></td>
+                      <td><code class="cmd-syntax">tar -tvf ARCHIVO.tar | tar -xvf ARCHIVO.tar [-C DESTINO]</code></td>
+                      <td class="cmd-purpose">Extracción y listado de paquetes tar</td>
+                      <td class="cmd-opts"><code>-t, --list</code>, <code>-x, --extract</code>, <code>-C, --directory=DIR</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/28" class="slide-link">Slide 28</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/29" class="cmd-name">tar</a></td>
+                      <td><code class="cmd-syntax">tar -czvf ARCHIVO.tar.gz DIR | tar -cjvf ARCHIVO.tar.bz2 DIR</code></td>
+                      <td class="cmd-purpose">Compresión gzip y bzip2 en tar</td>
+                      <td class="cmd-opts"><code>-z, --gzip</code>, <code>-j, --bzip2</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/29" class="slide-link">Slide 29</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/30" class="cmd-name">tar</a></td>
+                      <td><code class="cmd-syntax">tar -cJvf ARCHIVO.tar.xz ORIGEN... | xz FICHERO | unxz FICHERO.xz</code></td>
+                      <td class="cmd-purpose">Compresión moderna con xz en tar</td>
+                      <td class="cmd-opts"><code>-J, --xz</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/30" class="slide-link">Slide 30</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/31" class="cmd-name">cpio</a></td>
+                      <td><code class="cmd-syntax">ls | cpio -o > ARCHIVO.cpio | cpio -id < ARCHIVO.cpio</code></td>
+                      <td class="cmd-purpose">Empaquetado y descompresión con cpio</td>
+                      <td class="cmd-opts"><code>-o, --create</code>, <code>-i, --extract</code>, <code>-d, --make-directories</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/31" class="slide-link">Slide 31</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/33" class="cmd-name">dd</a></td>
+                      <td><code class="cmd-syntax">dd if=DISPOSITIVO_O_FICHERO of=DESTINO [bs=BYTES] [count=N]</code></td>
+                      <td class="cmd-purpose">Sintaxis y parámetros de dd: if, of, bs</td>
+                      <td class="cmd-opts"><code>if=FICHERO</code>, <code>of=FICHERO</code>, <code>bs=BYTES</code>, <code>count=N</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/33" class="slide-link">Slide 33</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/34" class="cmd-name">dd</a></td>
+                      <td><code class="cmd-syntax">-</code></td>
+                      <td class="cmd-purpose">Progreso y conversión de datos en dd</td>
+                      <td class="cmd-opts"><code>status=progress</code>, <code>conv=ucase</code></td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/34" class="slide-link">Slide 34</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-3-administracion-basica-de.html#/35" class="cmd-name">file</a></td>
+                      <td><code class="cmd-syntax">file [OPCIÓN]... [FICHERO]...</code></td>
+                      <td class="cmd-purpose">Identificación de tipos de contenido con file</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-3-administracion-basica-de.html#/35" class="slide-link">Slide 35</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.4</span>
+                <h3>Uso de secuencias de texto, tuberías y redireccionamientos</h3>
+                <span class="cmd-count-badge">19 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/7" class="cmd-name">cat</a></td>
+                      <td><code class="cmd-syntax">COMANDO > ARCHIVO_DESTINO</code></td>
+                      <td class="cmd-purpose">Redirección de salida estándar a archivos</td>
+                      <td class="cmd-opts"><code>></code>, <code>1></code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/7" class="slide-link">Slide 7</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/8" class="cmd-name">cat</a></td>
+                      <td><code class="cmd-syntax">COMANDO 2> ARCHIVO_ERROR</code></td>
+                      <td class="cmd-purpose">Redirección del canal de error estándar</td>
+                      <td class="cmd-opts"><code>2></code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/8" class="slide-link">Slide 8</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/9" class="cmd-name">cat</a></td>
+                      <td><code class="cmd-syntax">COMANDO &> ARCHIVO | COMANDO >& ARCHIVO</code></td>
+                      <td class="cmd-purpose">Redirección simultánea de salida y errores</td>
+                      <td class="cmd-opts"><code>&></code>, <code>>&</code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/9" class="slide-link">Slide 9</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/10" class="cmd-name">cat</a></td>
+                      <td><code class="cmd-syntax">COMANDO > log.txt 2>&1 | COMANDO 1>&2</code></td>
+                      <td class="cmd-purpose">Reasignación entre descriptores de archivos</td>
+                      <td class="cmd-opts"><code>2>&1</code>, <code>1>&2</code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/10" class="slide-link">Slide 10</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/11" class="cmd-name">cat</a></td>
+                      <td><code class="cmd-syntax">COMANDO 2> /dev/null | COMANDO 2>> ARCHIVO</code></td>
+                      <td class="cmd-purpose">Descarte de datos y adición continua</td>
+                      <td class="cmd-opts"><code>/dev/null</code>, <code>>></code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/11" class="slide-link">Slide 11</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/12" class="cmd-name">set</a></td>
+                      <td><code class="cmd-syntax">set -o noclobber | set -C | set +o noclobber | set +C</code></td>
+                      <td class="cmd-purpose">Prevención de sobreescritura con noclobber</td>
+                      <td class="cmd-opts"><code>set -o noclobber</code>, <code>set -C</code>, <code>set +o noclobber</code>, <code>set +C</code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/12" class="slide-link">Slide 12</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/13" class="cmd-name">uniq</a></td>
+                      <td><code class="cmd-syntax">COMANDO < ARCHIVO | COMANDO 0< ARCHIVO</code></td>
+                      <td class="cmd-purpose">Reasignación del canal de entrada estándar</td>
+                      <td class="cmd-opts"><code><</code>, <code>-c</code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/13" class="slide-link">Slide 13</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/15" class="cmd-name">cat</a></td>
+                      <td><code class="cmd-syntax">cat <<. > /dev/stdout</code></td>
+                      <td class="cmd-purpose">Here Document combinado con salida estándar</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/15" class="slide-link">Slide 15</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/16" class="cmd-name">bc</a></td>
+                      <td><code class="cmd-syntax">bc <<< "scale=6; 1/3"</code></td>
+                      <td class="cmd-purpose">Cadenas de entrada única con Here String</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/16" class="slide-link">Slide 16</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/25" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">COMANDO1 | COMANDO2 | COMANDO3</code></td>
+                      <td class="cmd-purpose">Encadenamiento de procesos mediante tuberías</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/25" class="slide-link">Slide 25</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/27" class="cmd-name">tee</a></td>
+                      <td><code class="cmd-syntax">COMANDO | tee ARCHIVO</code></td>
+                      <td class="cmd-purpose">Bifurcación de flujos de salida con tee</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/27" class="slide-link">Slide 27</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/28" class="cmd-name">tee</a></td>
+                      <td><code class="cmd-syntax">COMANDO | tee -a ARCHIVO</code></td>
+                      <td class="cmd-purpose">Adición sin sobreescritura con tee a</td>
+                      <td class="cmd-opts"><code>-a, --append</code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/28" class="slide-link">Slide 28</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/29" class="cmd-name">make</a></td>
+                      <td><code class="cmd-syntax">COMANDO 2>&1 | tee log.txt</code></td>
+                      <td class="cmd-purpose">Captura de errores estándar en tuberías</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/29" class="slide-link">Slide 29</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/31" class="cmd-name">uname</a></td>
+                      <td><code class="cmd-syntax">mkdir $(date +%Y-%m-%d) && OS=$(uname -o)</code></td>
+                      <td class="cmd-purpose">Asignación de variables con sustitución</td>
+                      <td class="cmd-opts"><code>uname -o</code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/31" class="slide-link">Slide 31</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/33" class="cmd-name">xargs</a></td>
+                      <td><code class="cmd-syntax">find /usr/share/icons -name 'debian*' | xargs identify -format "%f: %wx%h\n"</code></td>
+                      <td class="cmd-purpose">Ejecución de comandos con xargs find</td>
+                      <td class="cmd-opts">-</td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/33" class="slide-link">Slide 33</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/34" class="cmd-name">xargs</a></td>
+                      <td><code class="cmd-syntax">xargs -n CANTIDAD COMANDO | xargs -L LINEAS COMANDO</code></td>
+                      <td class="cmd-purpose">Control de argumentos por invocación en xargs</td>
+                      <td class="cmd-opts"><code>-n NUM</code>, <code>-L NUM</code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/34" class="slide-link">Slide 34</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/35" class="cmd-name">xargs</a></td>
+                      <td><code class="cmd-syntax">find . -name '*avi' -print0 -o -name '*mp4' -print0 | xargs -0 du | sort -n</code></td>
+                      <td class="cmd-purpose">Manejo seguro de espacios con print0 y 0</td>
+                      <td class="cmd-opts"><code>find -print0</code>, <code>xargs -0</code>, <code>sort -n</code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/35" class="slide-link">Slide 35</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/36" class="cmd-name">xargs</a></td>
+                      <td><code class="cmd-syntax">find . -name '*.avi' -print0 | xargs -0 -I PATH mv PATH ./destino/</code></td>
+                      <td class="cmd-purpose">Sustitución de posición de argumentos con xargs</td>
+                      <td class="cmd-opts"><code>-I CADENA</code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/36" class="slide-link">Slide 36</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/37" class="cmd-name">tar</a></td>
+                      <td><code class="cmd-syntax">find /etc -type f -print0 | tar -cJ -f /srv/backup/etc.tar.xz --null -T -</code></td>
+                      <td class="cmd-purpose">Integración de find con tar mediante tuberías</td>
+                      <td class="cmd-opts"><code>-T -</code>, <code>--null</code>, <code>-cJ -f</code></td>
+                      <td><a href="t103/103-4-uso-de-secuencias-de-tex.html#/37" class="slide-link">Slide 37</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.5</span>
+                <h3>Crear, supervisar y matar procesos</h3>
+                <span class="cmd-count-badge">17 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/5" class="cmd-name">sleep</a></td>
+                      <td><code class="cmd-syntax">sleep 60 &</code></td>
+                      <td class="cmd-purpose">Inicia la ejecución de una orden sin bloquear la línea de comandos interactiva:</td>
+                      <td class="cmd-opts"><code>&</code>, <code>sleep</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/5" class="slide-link">Slide 5</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/6" class="cmd-name">jobs</a></td>
+                      <td><code class="cmd-syntax">jobs [opciones]</code></td>
+                      <td class="cmd-purpose">Lista todos los trabajos creados o suspendidos en la sesión de shell actual:</td>
+                      <td class="cmd-opts"><code>-l</code>, <code>-p</code>, <code>-r</code>, <code>-s</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/6" class="slide-link">Slide 6</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/8" class="cmd-name">bg</a></td>
+                      <td><code class="cmd-syntax">bg [%job_id]</code></td>
+                      <td class="cmd-purpose">Despierta un trabajo detenido y continúa su ejecución en segundo plano:</td>
+                      <td class="cmd-opts"><code>%n</code>, <code>bg</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/8" class="slide-link">Slide 8</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/9" class="cmd-name">fg</a></td>
+                      <td><code class="cmd-syntax">fg [%job_id]</code></td>
+                      <td class="cmd-purpose">Trae una tarea en segundo plano o suspendida de vuelta al primer plano de la terminal:</td>
+                      <td class="cmd-opts"><code>fg</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/9" class="slide-link">Slide 9</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/10" class="cmd-name">nohup</a></td>
+                      <td><code class="cmd-syntax">nohup COMANDO &</code></td>
+                      <td class="cmd-purpose">Ejecuta programas protegidos contra el envío de la señal de desconexión SIGHUP:</td>
+                      <td class="cmd-opts"><code>nohup</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/10" class="slide-link">Slide 10</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/12" class="cmd-name">watch</a></td>
+                      <td><code class="cmd-syntax">watch [opciones] COMANDO</code></td>
+                      <td class="cmd-purpose">Ejecuta un comando a intervalos regulares mostrando su resultado en pantalla completa:</td>
+                      <td class="cmd-opts"><code>-n</code>, <code>-d</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/12" class="slide-link">Slide 12</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/15" class="cmd-name">kill</a></td>
+                      <td><code class="cmd-syntax">kill [-s SEÑAL | -SEÑAL] PID... | %job_id</code></td>
+                      <td class="cmd-purpose">Transmite señales a uno o varios identificadores de proceso numéricos:</td>
+                      <td class="cmd-opts"><code>-l</code>, <code>-s</code>, <code>-9</code>, <code>-15</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/15" class="slide-link">Slide 15</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/16" class="cmd-name">killall</a></td>
+                      <td><code class="cmd-syntax">killall [opciones] NOMBRE_COMANDO...</code></td>
+                      <td class="cmd-purpose">Envía una señal a todas las instancias en ejecución que coincidan con un nombre de comando:</td>
+                      <td class="cmd-opts"><code>-u</code>, <code>-i</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/16" class="slide-link">Slide 16</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/17" class="cmd-name">pkill</a></td>
+                      <td><code class="cmd-syntax">pkill [opciones] PATRÓN</code></td>
+                      <td class="cmd-purpose">Envía señales a procesos evaluando expresiones regulares y criterios de usuario:</td>
+                      <td class="cmd-opts"><code>-u</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/17" class="slide-link">Slide 17</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/18" class="cmd-name">pgrep</a></td>
+                      <td><code class="cmd-syntax">pgrep [opciones] PATRÓN | pidof PROGRAMA</code></td>
+                      <td class="cmd-purpose">Localiza los identificadores numéricos de procesos según criterios de filtrado:</td>
+                      <td class="cmd-opts"><code>-l</code>, <code>-u</code>, <code>-f</code>, <code>pidof</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/18" class="slide-link">Slide 18</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/20" class="cmd-name">ps</a></td>
+                      <td><code class="cmd-syntax">ps -ef</code></td>
+                      <td class="cmd-purpose">Inspecciona todos los procesos del sistema con detalle de linaje padre-hijo:</td>
+                      <td class="cmd-opts"><code>-e</code>, <code>-p</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/20" class="slide-link">Slide 20</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/21" class="cmd-name">ps</a></td>
+                      <td><code class="cmd-syntax">ps aux</code></td>
+                      <td class="cmd-purpose">Despliega métricas de consumo de CPU, memoria y estado para cada proceso:</td>
+                      <td class="cmd-opts"><code>aux</code>, <code>-u</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/21" class="slide-link">Slide 21</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/25" class="cmd-name">top</a></td>
+                      <td><code class="cmd-syntax">top [opciones]</code></td>
+                      <td class="cmd-purpose">Cuadro de mandos dinámico para supervisar recursos, CPU y procesos en tiempo real:</td>
+                      <td class="cmd-opts"><code>-d</code>, <code>-n</code>, <code>-p</code>, <code>-u</code>, <code>-b</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/25" class="slide-link">Slide 25</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/27" class="cmd-name">uptime</a></td>
+                      <td><code class="cmd-syntax">uptime</code></td>
+                      <td class="cmd-purpose">Informa del tiempo en servicio del equipo, usuarios conectados y promedios de carga:</td>
+                      <td class="cmd-opts"><code>uptime</code>, <code>w</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/27" class="slide-link">Slide 27</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/29" class="cmd-name">free</a></td>
+                      <td><code class="cmd-syntax">free -h</code></td>
+                      <td class="cmd-purpose">Comprueba el uso de memoria RAM física y espacio de intercambio Swap:</td>
+                      <td class="cmd-opts"><code>-h</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/29" class="slide-link">Slide 29</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/31" class="cmd-name">screen</a></td>
+                      <td><code class="cmd-syntax">screen [opciones]</code></td>
+                      <td class="cmd-purpose">Crea, desacopla y reconecta sesiones de consola virtuales persistentes:</td>
+                      <td class="cmd-opts"><code>-S</code>, <code>-ls</code>, <code>-r</code>, <code>-X</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/31" class="slide-link">Slide 31</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/33" class="cmd-name">tmux</a></td>
+                      <td><code class="cmd-syntax">tmux [new | attach | ls]</code></td>
+                      <td class="cmd-purpose">Multiplexor moderno de terminal con soporte de paneles y configuración flexible:</td>
+                      <td class="cmd-opts"><code>new</code>, <code>attach</code></td>
+                      <td><a href="t103/103-5-crear-supervisar-y-matar.html#/33" class="slide-link">Slide 33</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.6</span>
+                <h3>Modificar la prioridad de ejecución de los procesos</h3>
+                <span class="cmd-count-badge">8 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/6" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">grep ^prio /proc/<PID>/sched</code></td>
+                      <td class="cmd-purpose">Comprueba el valor de prioridad estática asignado por defecto al primer proceso del sistema:</td>
+                      <td class="cmd-opts"><code>^prio</code></td>
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/6" class="slide-link">Slide 6</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/9" class="cmd-name">ps</a></td>
+                      <td><code class="cmd-syntax">ps -el  # o ps -Al</code></td>
+                      <td class="cmd-purpose">Muestra todos los procesos del sistema con sus columnas de prioridad interna (PRI) y valor nice (NI):</td>
+                      <td class="cmd-opts"><code>-el</code>, <code>-Al</code></td>
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/9" class="slide-link">Slide 9</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/10" class="cmd-name">ps</a></td>
+                      <td><code class="cmd-syntax">ps -e -o columnas --sort=criterio</code></td>
+                      <td class="cmd-purpose">Filtra columnas clave y ordena los procesos según su consumo de CPU para detectar cuellos de botella:</td>
+                      <td class="cmd-opts"><code>-e</code>, <code>-o</code>, <code>--sort</code></td>
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/10" class="slide-link">Slide 10</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/11" class="cmd-name">top</a></td>
+                      <td><code class="cmd-syntax">top</code></td>
+                      <td class="cmd-purpose">Supervisa en directo las métricas de prioridad y el comportamiento dinámico de los procesos:</td>
+                      <td class="cmd-opts"><code>PR</code>, <code>NI</code></td>
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/11" class="slide-link">Slide 11</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/12" class="cmd-name">nice</a></td>
+                      <td><code class="cmd-syntax">nice [-n incremento] comando [argumentos...]</code></td>
+                      <td class="cmd-purpose">Inicia un nuevo programa con un valor de cortesía distinto al predeterminado:</td>
+                      <td class="cmd-opts"><code>-n</code></td>
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/12" class="slide-link">Slide 12</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/13" class="cmd-name">renice</a></td>
+                      <td><code class="cmd-syntax">renice [-n] prioridad [-p] PID...</code></td>
+                      <td class="cmd-purpose">Cambia inmediatamente la prioridad de un proceso que ya se encuentra en ejecución:</td>
+                      <td class="cmd-opts"><code>-p</code></td>
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/13" class="slide-link">Slide 13</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/14" class="cmd-name">renice</a></td>
+                      <td><code class="cmd-syntax">renice prioridad [-g grupo] [-u usuario]</code></td>
+                      <td class="cmd-purpose">Aplica cambios masivos de prioridad a todos los procesos pertenecientes a un grupo o usuario:</td>
+                      <td class="cmd-opts"><code>-g</code>, <code>-u</code></td>
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/14" class="slide-link">Slide 14</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/16" class="cmd-name">schedtool</a></td>
+                      <td><code class="cmd-syntax">schedtool [opciones] PID</code></td>
+                      <td class="cmd-purpose">Consulta y ajusta políticas de planificación de CPU avanzadas y prioridades en tiempo real:</td>
+                      <td class="cmd-opts"><code>-R</code>, <code>-p</code></td>
+                      <td><a href="t103/103-6-modificar-la-prioridad-d.html#/16" class="slide-link">Slide 16</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.7</span>
+                <h3>Realizar búsquedas en archivos de texto usando expresiones regulares</h3>
+                <span class="cmd-count-badge">14 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/5" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">grep '^options' archivo</code></td>
+                      <td class="cmd-purpose">Aísla las directivas de configuración iniciales en archivos del sistema mediante anclas:</td>
+                      <td class="cmd-opts"><code>^options</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/5" class="slide-link">Slide 5</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/11" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">grep [opciones] patrón [fichero...] / egrep / fgrep</code></td>
+                      <td class="cmd-purpose">Comprende la función y los dialectos de las tres utilidades de búsqueda del sistema:</td>
+                      <td class="cmd-opts"><code>-E</code>, <code>-F</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/11" class="slide-link">Slide 11</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/12" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">grep [-i] [-v] [-c] [-n] patrón fichero</code></td>
+                      <td class="cmd-purpose">Ajusta la sensibilidad, invierte el filtrado y numera las líneas coincidentes:</td>
+                      <td class="cmd-opts"><code>-i</code>, <code>-v</code>, <code>-c</code>, <code>-n</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/12" class="slide-link">Slide 12</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/13" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">grep [-l | -L] [-w] [-x] patrón ficheros...</code></td>
+                      <td class="cmd-purpose">Inspecciona múltiples archivos y restringe la búsqueda a palabras o líneas completas:</td>
+                      <td class="cmd-opts"><code>-l</code>, <code>-L</code>, <code>-w</code>, <code>-x</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/13" class="slide-link">Slide 13</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/14" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">grep [-o] [-H | -h] [-z] [-s] patrón fichero</code></td>
+                      <td class="cmd-purpose">Aísla el fragmento coincidente, controla la salida de nombres y gestiona flujos binarios:</td>
+                      <td class="cmd-opts"><code>-o</code>, <code>-H</code>, <code>-h</code>, <code>-z</code>, <code>-s</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/14" class="slide-link">Slide 14</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/15" class="cmd-name">grep</a></td>
+                      <td><code class="cmd-syntax">grep [-r | -R] [-A num] [-B num] [-C num] patrón ruta</code></td>
+                      <td class="cmd-purpose">Inspecciona árboles de directorios enteros y visualiza líneas adyacentes a cada coincidencia:</td>
+                      <td class="cmd-opts"><code>-r</code>, <code>-R</code>, <code>-C</code>, <code>-B</code>, <code>-A</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/15" class="slide-link">Slide 15</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/17" class="cmd-name">sed</a></td>
+                      <td><code class="cmd-syntax">sed 'direccion_o_rango d' [fichero]</code></td>
+                      <td class="cmd-purpose">Aplica acciones selectivas mediante números de línea, rangos con coma o expresiones regulares:</td>
+                      <td class="cmd-opts"><code>1d</code>, <code>1,7d</code>, <code>-n</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/17" class="slide-link">Slide 17</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/18" class="cmd-name">sed</a></td>
+                      <td><code class="cmd-syntax">sed '/patrón/d' [fichero]</code></td>
+                      <td class="cmd-purpose">Elimina o selecciona líneas que contengan un patrón delimitado por barras /patrón/:</td>
+                      <td class="cmd-opts"><code>/patrón/d</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/18" class="slide-link">Slide 18</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/19" class="cmd-name">sed</a></td>
+                      <td><code class="cmd-syntax">sed 's/buscar/reemplazar/[g]' fichero</code></td>
+                      <td class="cmd-purpose">Reemplaza ocurrencias de texto mediante la sintaxis universal s/origen/destino/banderas:</td>
+                      <td class="cmd-opts"><code>s///</code>, <code>s///g</code>, <code>-i</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/19" class="slide-link">Slide 19</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/20" class="cmd-name">sed</a></td>
+                      <td><code class="cmd-syntax">sed -e 'orden1' -e 'orden2' [fichero]</code></td>
+                      <td class="cmd-purpose">Aplica transformaciones compuestas o procesa variables dinámicas en bucles de shell:</td>
+                      <td class="cmd-opts"><code>-e</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/20" class="slide-link">Slide 20</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/21" class="cmd-name">sed</a></td>
+                      <td><code class="cmd-syntax">sed -r -e 's/(patrón)/\1/banderas'</code></td>
+                      <td class="cmd-purpose">Reutiliza grupos de captura en el reemplazo e invoca órdenes del sistema operativas:</td>
+                      <td class="cmd-opts"><code>-r</code>, <code>-E</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/21" class="slide-link">Slide 21</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/22" class="cmd-name">find</a></td>
+                      <td><code class="cmd-syntax">find ruta [-regextype tipo] -regex patrón</code></td>
+                      <td class="cmd-purpose">Localiza archivos en el sistema de ficheros filtrando sus rutas con sintaxis ERE:</td>
+                      <td class="cmd-opts"><code>-regex</code>, <code>-regextype</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/22" class="slide-link">Slide 22</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/23" class="cmd-name">lastb</a></td>
+                      <td><code class="cmd-syntax">lastb [opciones] | grep [opciones]</code></td>
+                      <td class="cmd-purpose">Aísla nombres de host atacantes a partir de intentos fallidos de autenticación:</td>
+                      <td class="cmd-opts"><code>lastb</code>, <code>last</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/23" class="slide-link">Slide 23</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/24" class="cmd-name">less</a></td>
+                      <td><code class="cmd-syntax">less fichero</code></td>
+                      <td class="cmd-purpose">Emplea expresiones regulares en tiempo real mientras se visualizan archivos extensos:</td>
+                      <td class="cmd-opts"><code>/patrón</code>, <code>?patrón</code></td>
+                      <td><a href="t103/103-7-realizar-busquedas-en-ar.html#/24" class="slide-link">Slide 24</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.8</span>
+                <h3>Edición básica de archivos</h3>
+                <span class="cmd-count-badge">7 comandos</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:20%;">Comando</th>
+                      <th style="width:22%;">Sintaxis</th>
+                      <th style="width:36%;">Propósito Oficial</th>
+                      <th style="width:14%;">Opciones Evaluadas</th>
+                      <th style="width:8%;">Slide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/4" class="cmd-name">vi</a></td>
+                      <td><code class="cmd-syntax">vi [+num | +] ruta_archivo</code></td>
+                      <td class="cmd-purpose">Abre un fichero situando de inmediato el cursor en una línea específica o al final del archivo:</td>
+                      <td class="cmd-opts"><code>+</code>, <code>+num</code></td>
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/4" class="slide-link">Slide 4</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/8" class="cmd-name">vi</a></td>
+                      <td><code class="cmd-syntax">/patrón (hacia adelante) | ?patrón (hacia atrás)</code></td>
+                      <td class="cmd-purpose">Localiza patrones de texto o expresiones regulares dentro del documento abierto:</td>
+                      <td class="cmd-opts"><code>/patrón</code>, <code>?patrón</code></td>
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/8" class="slide-link">Slide 8</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/11" class="cmd-name">vi</a></td>
+                      <td><code class="cmd-syntax">d + movimiento (ej: dw, dd, d$, d5w, dt.)</code></td>
+                      <td class="cmd-purpose">Combina el operador delete (d) con modificadores de movimiento o destinos exactos:</td>
+                      <td class="cmd-opts"><code>dd</code>, <code>dw</code>, <code>dt.</code></td>
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/11" class="slide-link">Slide 11</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/15" class="cmd-name">vi</a></td>
+                      <td><code class="cmd-syntax">< (izquierda) | > (derecha) | num<</code></td>
+                      <td class="cmd-purpose">Ajusta la indentación de bloques de texto para mejorar la legibilidad de scripts:</td>
+                      <td class="cmd-opts"><code><</code>, <code>3<</code></td>
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/15" class="slide-link">Slide 15</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/19" class="cmd-name">vi</a></td>
+                      <td><code class="cmd-syntax">:s/patrón/texto/g | :!comando | :visual</code></td>
+                      <td class="cmd-purpose">Aplica sustituciones con expresiones regulares e interactúa con la shell del sistema:</td>
+                      <td class="cmd-opts"><code>:s</code>, <code>:!</code></td>
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/19" class="slide-link">Slide 19</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/21" class="cmd-name">nano</a></td>
+                      <td><code class="cmd-syntax">nano [archivo]</code></td>
+                      <td class="cmd-purpose">Editor sencillo no modal orientado a principiantes con atajos Ctrl y Meta:</td>
+                      <td class="cmd-opts"><code>Ctrl-K</code>, <code>Ctrl-U</code></td>
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/21" class="slide-link">Slide 21</a></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/23" class="cmd-name">export</a></td>
+                      <td><code class="cmd-syntax">export EDITOR=editor | export VISUAL=editor</code></td>
+                      <td class="cmd-purpose">Define qué editor de texto invoca automáticamente el sistema y herramientas como crontab -e:</td>
+                      <td class="cmd-opts"><code>EDITOR</code>, <code>VISUAL</code></td>
+                      <td><a href="t103/103-8-edicion-basica-de-archiv.html#/23" class="slide-link">Slide 23</a></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </section>
+    </div>
+    
+    <footer class="site-footer">
+      <div class="footer-legal">
+        <p><strong>Material didáctico no oficial</strong> basado en los <em>LPI Learning Materials</em> del <a href="https://learning.lpi.org" target="_blank" rel="noopener noreferrer">Linux Professional Institute</a>.</p>
+        <p>LPI® y LPIC-1® son marcas de LPI; este sitio no está afiliado ni respaldado por LPI. Uso educativo bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</a>.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    function filterCommands() {
+      const q = document.getElementById('cmd-filter').value.toLowerCase();
+      let visibleCount = 0;
+      document.querySelectorAll('.cmd-row').forEach(row => {
+        const match = row.textContent.toLowerCase().includes(q);
+        row.style.display = match ? '' : 'none';
+        if (match) visibleCount++;
+      });
+      // Ocultar bloques de subtemas y temas si no tienen filas visibles
+      document.querySelectorAll('.subtopic-block').forEach(block => {
+        const hasVisible = Array.from(block.querySelectorAll('.cmd-row')).some(r => r.style.display !== 'none');
+        block.style.display = hasVisible ? '' : 'none';
+      });
+      document.querySelectorAll('.topic-section').forEach(sec => {
+        const hasVisible = Array.from(sec.querySelectorAll('.subtopic-block')).some(b => b.style.display !== 'none');
+        sec.style.display = hasVisible ? '' : 'none';
+      });
+      document.getElementById('cmd-counter').textContent = q ? `${visibleCount} comandos encontrados` : '231 comandos registrados';
+    }
+  </script>
+</body>
+</html>

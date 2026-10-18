@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Notas, erratas y advertencias críticas de examen del manual oficial LPIC-1 organizadas por temas.">
+  <title>Notas y Erratas del Manual Oficial LPIC-1 (Separado por Temas)</title>
+  <style>
+    :root {
+      --bg: #F8FAFC; --surface: #FFFFFF; --text: #0F172A; --text-muted: #475569;
+      --border: #E2E8F0; --border-strong: #CBD5E1; --primary: #2563EB; --primary-soft: #DBEAFE;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 40px 24px; line-height: 1.5; }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header { border-bottom: 2px solid var(--border); padding-bottom: 24px; margin-bottom: 32px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 700; margin-bottom: 16px; font-size: 16px; }
+    h1 { font-size: 40px; font-weight: 800; }
+    .subtitle { font-size: 20px; color: var(--text-muted); margin-top: 6px; }
+    .nav-bar { display: flex; gap: 14px; margin-top: 20px; flex-wrap: wrap; }
+    .nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; background: var(--surface); border: 2px solid var(--border); text-decoration: none; color: var(--text); font-weight: 600; font-size: 16px; }
+    .nav-btn:hover { border-color: var(--primary); background: var(--primary-soft); }
+    .search-bar-wrap { margin: 28px 0; display: flex; gap: 16px; align-items: center; }
+    .search-input { flex: 1; padding: 16px 20px; font-size: 20px; border: 2px solid var(--border-strong); border-radius: 12px; background: var(--surface); color: var(--text); }
+    .search-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
+    .counter-badge { padding: 10px 20px; background: #FEF3C7; color: #92400E; border-radius: 10px; font-weight: 700; font-size: 18px; white-space: nowrap; }
+    .topic-section { margin-bottom: 48px; }
+    .topic-header { padding: 14px 20px; background: #1E293B; color: #FFFFFF; border-radius: 12px; margin-bottom: 20px; }
+    .topic-header h2 { font-size: 26px; font-weight: 800; }
+    .subtopic-block { margin-bottom: 32px; }
+    .subtopic-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .subtopic-badge { padding: 4px 12px; background: #E0E7FF; color: #3730A3; font-weight: 800; border-radius: 8px; font-size: 16px; }
+    .subtopic-header h3 { font-size: 22px; font-weight: 700; }
+    .cmd-count-badge { font-size: 15px; color: var(--text-muted); font-weight: 600; }
+    .errata-list { display: flex; flex-direction: column; gap: 20px; }
+    .errata-card { background: var(--surface); border: 2px solid var(--border); border-radius: 14px; padding: 22px 26px; box-shadow: 0 4px 12px rgba(15,23,42,0.04); display: flex; flex-direction: column; gap: 14px; }
+    .errata-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .errata-id-badge { padding: 4px 12px; background: #FEE2E2; color: #991B1B; font-weight: 800; border-radius: 6px; font-size: 15px; font-family: monospace; }
+    .errata-ref { font-weight: 600; color: var(--text-muted); font-size: 16px; }
+    .errata-link { color: var(--primary); font-weight: 700; text-decoration: none; font-size: 16px; margin-left: auto; }
+    .errata-link:hover { text-decoration: underline; }
+    .errata-box { padding: 14px 18px; border-radius: 10px; font-size: 18px; line-height: 1.45; }
+    .box-tag { font-weight: 800; display: block; margin-bottom: 4px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .box-manual { background: #FEF3C7; border-left: 6px solid #D97706; color: #92400E; }
+    .box-reality { background: #DCFCE7; border-left: 6px solid #16A34A; color: #166534; }
+    .box-tip { background: #EDE9FE; border-left: 6px solid #7C3AED; color: #5B21B6; }
+    
+    .site-footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border);
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .site-footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    .site-footer a:hover { text-decoration: underline; }
+    .footer-legal p { margin-bottom: 6px; }
+    @media (max-width: 640px) {
+      body { padding: 20px 14px; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 26px; }
+      .subtitle { font-size: 16px; }
+      .nav-bar { flex-direction: column; }
+      .term-grid { grid-template-columns: 1fr; }
+      .table-card { overflow-x: auto; }
+      table.data-table { min-width: 600px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Volver al Índice Principal de Temas</a>
+    <header>
+      <h1>Notas y Erratas del Manual Oficial LPIC-1</h1>
+      <div class="subtitle">Discrepancias, advertencias críticas y trampas habituales de examen registradas por temas</div>
+      <div class="nav-bar">
+        <a href="comandos.html" class="nav-btn">Índice Global de Comandos</a>
+        <a href="glosario.html" class="nav-btn">Glosario Global</a>
+        <a href="#t101" class="nav-btn">Tema 101</a>
+        <a href="#t102" class="nav-btn">Tema 102</a>
+        <a href="#t103" class="nav-btn">Tema 103</a>
+      </div>
+    </header>
+
+    <div class="search-bar-wrap">
+      <input type="text" id="err-filter" class="search-input" placeholder="🔍 Buscar por término, manual, realidad o trampa de examen..." onkeyup="filterErratas()">
+      <div class="counter-badge" id="err-counter">19 erratas registradas</div>
+    </div>
+
+    <div id="err-container">
+      
+        <section class="topic-section" id="t101">
+          <div class="topic-header">
+            <h2>Tema 101: Arquitectura del Sistema</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">101.1</span>
+                <h3>Determinar y configurar los ajustes de hardware</h3>
+                <span class="cmd-count-badge">2 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">E-001</span>
+                    <span class="errata-ref">Manual p. pág. 13</span>
+                    <a href="t101/101-1-determinar-y-configurar.html" class="errata-link">Ir a Diapositivas 101.1 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>/dev/fdO</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>/dev/fd0</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>El manual oficial indica '/dev/fdO, /dev/fd1' con una letra 'O' mayúscula en lugar de un dígito cero '0'. La ruta correcta en el sistema operativo Linux es /dev/fd0.</div>
+                  </div>
+                </div>
+                
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">E-002</span>
+                    <span class="errata-ref">Manual p. pág. 17</span>
+                    <a href="t101/101-1-determinar-y-configurar.html" class="errata-link">Ir a Diapositivas 101.1 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>operatico</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>operativo</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>El manual oficial indica 'núcleo de sistema operatico' en la respuesta al ejercicio guiado 3. La palabra correcta es 'operativo'.</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">101.2</span>
+                <h3>Arranque del sistema</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">E-003</span>
+                    <span class="errata-ref">Manual p. pág. 11 (impresa 29)</span>
+                    <a href="t101/101-2-arranque-del-sistema.html" class="errata-link">Ir a Diapositivas 101.2 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>se almacenan en texto sin formato, se requiere el comando journalctl para leerlos</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>se almacenan en formato binario estructurado e indexado</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>El manual oficial afirma erróneamente que los mensajes de journald son texto sin formato. En realidad son binarios indexados; por eso no se pueden ver con cat y se requiere journalctl.</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">101.3</span>
+                <h3>Cambiar los niveles de ejecución / objetivos de arranque y apagar o reiniciar el sistema</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">E-004</span>
+                    <span class="errata-ref">Manual p. </span>
+                    <a href="t101/101-3-cambiar-los-niveles-de-e.html" class="errata-link">Ir a Diapositivas 101.3 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div></div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t102">
+          <div class="topic-header">
+            <h2>Tema 102: Instalación de Linux y gestión de paquetes</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.1</span>
+                <h3>Diseño del esquema de particionado del disco duro</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">ERR-102.1-01</span>
+                    <span class="errata-ref">Manual p. p. 4-8</span>
+                    <a href="t102/102-1-diseno-del-esquema-de-pa.html" class="errata-link">Ir a Diapositivas 102.1 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>fdisk solo soporta esquemas de particionado MBR.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>Las versiones modernas de util-linux fdisk soportan GPT, pero para el examen LPIC-1 se debe asociar estrictamente fdisk con MBR y gdisk/parted con GPT.</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>Trampa de examen: asociar siempre fdisk a MBR (DOS) y gdisk a GPT.</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.2</span>
+                <h3>Instalar un gestor de arranque</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">ERR-102.2-01</span>
+                    <span class="errata-ref">Manual p. p. 10</span>
+                    <a href="t102/102-2-instalar-un-gestor-de-ar.html" class="errata-link">Ir a Diapositivas 102.2 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>grub-install /dev/sda1 instala el gestor en el disco.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>grub-install /dev/sda1 instala en el sector de arranque de la partición (VBR), no en el MBR del disco (/dev/sda). En sistemas BIOS legacy debe instalarse en /dev/sda.</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>No confundir el dispositivo de bloque del disco (/dev/sda) con una de sus particiones (/dev/sda1).</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.3</span>
+                <h3>Gestión de librerías compartidas</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">ERR-102.3-01</span>
+                    <span class="errata-ref">Manual p. p. 7</span>
+                    <a href="t102/102-3-gestion-de-librerias-com.html" class="errata-link">Ir a Diapositivas 102.3 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>ldconfig actualiza /etc/ld.so.conf al ejecutarse.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>ldconfig NO modifica /etc/ld.so.conf; LEE ese archivo y sus subdirectorios para regenerar la caché binaria /etc/ld.so.cache.</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>En el examen LPIC-1 preguntan qué archivo es regenerado por ldconfig: la respuesta correcta siempre es /etc/ld.so.cache.</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.4</span>
+                <h3>Gestión de paquetes Debian</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">ERR-102.4-01</span>
+                    <span class="errata-ref">Manual p. p. 12</span>
+                    <a href="t102/102-4-gestion-de-paquetes-debi.html" class="errata-link">Ir a Diapositivas 102.4 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>dpkg -r elimina todos los ficheros del paquete.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>dpkg -r (remove) conserva los ficheros de configuración; solo dpkg -P (purge) elimina los ficheros de configuración.</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>Pregunta recurrente de examen: cómo eliminar un paquete y sus configuraciones: dpkg -P o dpkg --purge.</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.5</span>
+                <h3>Gestión de paquetes RPM y YUM</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">E-005</span>
+                    <span class="errata-ref">Manual p. </span>
+                    <a href="t102/102-5-gestion-de-paquetes-rpm.html" class="errata-link">Ir a Diapositivas 102.5 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div></div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">102.6</span>
+                <h3>Linux como sistema virtualizado</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">ERR-102.6-01</span>
+                    <span class="errata-ref">Manual p. p. 6</span>
+                    <a href="t102/102-6-linux-como-sistema-virtu.html" class="errata-link">Ir a Diapositivas 102.6 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>KVM es un hipervisor Tipo 2 porque se ejecuta dentro de Linux.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>El módulo kvm.ko convierte al propio kernel Linux en un hipervisor Tipo 1 (bare-metal), con acceso directo a las extensiones de hardware de la CPU (VT-x / AMD-V).</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>En preguntas de arquitectura de virtualización, clasificar KVM como Tipo 1 y VirtualBox/VMware Workstation como Tipo 2.</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t103">
+          <div class="topic-header">
+            <h2>Tema 103: Comandos GNU y Unix</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.1</span>
+                <h3>Trabajar desde la línea de comandos</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">E-006</span>
+                    <span class="errata-ref">Manual p. </span>
+                    <a href="t103/103-1-trabajar-desde-la-linea.html" class="errata-link">Ir a Diapositivas 103.1 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>/usr/bin/sudo/bin/cat/etc/shadow</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.2</span>
+                <h3>Procesar secuencias de texto usando filtros</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">E-007</span>
+                    <span class="errata-ref">Manual p. </span>
+                    <a href="t103/103-2-procesar-secuencias-de-t.html" class="errata-link">Ir a Diapositivas 103.2 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>zcat: Permite el procesamiento o la lectura de archivos comprimidos utilizando el método xz.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.3</span>
+                <h3>Administración básica de archivos</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">ERR-103.3-01</span>
+                    <span class="errata-ref">Manual p. p. 18</span>
+                    <a href="t103/103-3-administracion-basica-de.html" class="errata-link">Ir a Diapositivas 103.3 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>tar -J comprime con bzip2.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>tar -j (minúscula) comprime con bzip2 (.bz2); tar -J (mayúscula) comprime con xz (.xz).</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>Diferencia estricta en el examen LPIC-1: -z (gzip), -j (bzip2), -J (xz).</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.4</span>
+                <h3>Uso de secuencias de texto, tuberías y redireccionamientos</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">ERR-103.4-01</span>
+                    <span class="errata-ref">Manual p. p. 14</span>
+                    <a href="t103/103-4-uso-de-secuencias-de-tex.html" class="errata-link">Ir a Diapositivas 103.4 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>comando > archivo 2> archivo redirige stdout y stderr de forma segura.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>Abrir el mismo archivo dos veces con '>' provoca colisiones de escritura entre descriptores. Lo correcto es comando > archivo 2>&1 o comando &> archivo.</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>No marques respuestas con redirecciones duplicadas concurrentes sin duplicación de descriptores (2>&1).</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.5</span>
+                <h3>Crear, supervisar y matar procesos</h3>
+                <span class="cmd-count-badge">2 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">E-103.5-01</span>
+                    <span class="errata-ref">Manual p. p. 11</span>
+                    <a href="t103/103-5-crear-supervisar-y-matar.html" class="errata-link">Ir a Diapositivas 103.5 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>kill sin opciones envía la señal de detención</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>kill sin opciones envía la señal de terminación ordenada SIGTERM (15)</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>Detención corresponde a SIGSTOP/SIGTSTP; kill por defecto termina el proceso (SIGTERM).</div>
+                  </div>
+                </div>
+                
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">E-103.5-02</span>
+                    <span class="errata-ref">Manual p. p. 17</span>
+                    <a href="t103/103-5-crear-supervisar-y-matar.html" class="errata-link">Ir a Diapositivas 103.5 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>ps -aux muestra procesos BSD</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>ps aux (sin guion) es la sintaxis BSD clásica oficial</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>El manual a veces incluye guion accidentalmente; el examen exige distinguir que el estilo BSD carece de guion.</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.6</span>
+                <h3>Modificar la prioridad de ejecución de los procesos</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">ERR-103.6-01</span>
+                    <span class="errata-ref">Manual p. p. 11</span>
+                    <a href="t103/103-6-modificar-la-prioridad-d.html" class="errata-link">Ir a Diapositivas 103.6 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>Cualquier usuario puede asignar un nice de -5 a sus procesos.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>Solo root (superusuario) puede asignar valores negativos de nice (aumentar prioridad de CPU). Los usuarios normales solo pueden subir el nice (0 a 19).</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>Pregunta típica de examen: si un usuario normal ejecuta renice -5 1234, fallará por falta de permisos.</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.7</span>
+                <h3>Realizar búsquedas en archivos de texto usando expresiones regulares</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">ERR-103.7-01</span>
+                    <span class="errata-ref">Manual p. p. 15</span>
+                    <a href="t103/103-7-realizar-busquedas-en-ar.html" class="errata-link">Ir a Diapositivas 103.7 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>grep 'a+' encuentra una o más 'a'.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>En grep básico (BRE), '+' es un carácter literal. Se debe escapar como grep 'a\+' o usar expresiones regulares extendidas (grep -E o egrep).</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>Trampa clásica de examen LPIC-1 entre BRE (grep básico) y ERE (egrep / grep -E).</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">103.8</span>
+                <h3>Edición básica de archivos</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">ERR-103.8-01</span>
+                    <span class="errata-ref">Manual p. p. 14</span>
+                    <a href="t103/103-8-edicion-basica-de-archiv.html" class="errata-link">Ir a Diapositivas 103.8 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>Para salir de vi sin guardar se usa :q.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div>Si el archivo ha sido modificado, :q devolverá error ('No write since last change'). Es obligatorio usar :q! para forzar la salida sin guardar.</div>
+                  </div>
+                  <div class="errata-box box-tip">
+                    <span class="box-tag tag-info">💡 Consejo y trampa de examen:</span>
+                    <div>Para el examen LPIC-1 recuerda la exclamación ! como modificador de forzado en vi.</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            </section>
+    </div>
+    
+    <footer class="site-footer">
+      <div class="footer-legal">
+        <p><strong>Material didáctico no oficial</strong> basado en los <em>LPI Learning Materials</em> del <a href="https://learning.lpi.org" target="_blank" rel="noopener noreferrer">Linux Professional Institute</a>.</p>
+        <p>LPI® y LPIC-1® son marcas de LPI; este sitio no está afiliado ni respaldado por LPI. Uso educativo bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</a>.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    function filterErratas() {
+      const q = document.getElementById('err-filter').value.toLowerCase();
+      let visibleCount = 0;
+      document.querySelectorAll('.errata-card').forEach(card => {
+        const match = card.textContent.toLowerCase().includes(q);
+        card.style.display = match ? 'flex' : 'none';
+        if (match) visibleCount++;
+      });
+      document.querySelectorAll('.subtopic-block').forEach(block => {
+        const hasVisible = Array.from(block.querySelectorAll('.errata-card')).some(c => c.style.display !== 'none');
+        block.style.display = hasVisible ? '' : 'none';
+      });
+      document.querySelectorAll('.topic-section').forEach(sec => {
+        const hasVisible = Array.from(sec.querySelectorAll('.subtopic-block')).some(b => b.style.display !== 'none');
+        sec.style.display = hasVisible ? '' : 'none';
+      });
+      document.getElementById('err-counter').textContent = q ? `${visibleCount} erratas encontradas` : '19 erratas registradas';
+    }
+  </script>
+</body>
+</html>

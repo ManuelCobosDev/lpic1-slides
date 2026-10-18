@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Diapositivas interactivas de aula para la certificación Linux Professional Institute LPIC-1 — Subtema 101.2: Arranque del sistema.">
+  <title>101.2 Arranque del sistema — LPIC-1</title>
+  <!-- Icons: Lucide v0.468.0 (ISC) https://lucide.dev -->
+  <style>
+    /* -------------------------------------------------------------
+       CSS TOKENS Y DISEÑO (slides-paleta-contenido y guidelines)
+       ------------------------------------------------------------- */
+    :root {
+      /* Fondo y superficies (TEMA CLARO SIEMPRE) */
+      --bg: #F8FAFC;
+      --stage-bg: #FFFFFF;
+      --surface: #FFFFFF;
+      --surface-alt: #F1F5F9;
+      
+      /* Textos y bordes */
+      --text: #0F172A;
+      --text-muted: #475569;
+      --text-faint: #64748B;
+      --text-faint-on-alt: #5B6B82;
+      --border: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --control-border: #64748B;
+      
+      /* Estados */
+      --primary: #2563EB;
+      --primary-soft: #DBEAFE;
+      --primary-ink: #1D4ED8;
+      
+      --success: #16A34A;
+      --success-soft: #DCFCE7;
+      --success-ink: #166534;
+      
+      --warning: #D97706;
+      --warning-soft: #FEF3C7;
+      --warning-ink: #92400E;
+      
+      --danger: #DC2626;
+      --danger-soft: #FEE2E2;
+      --danger-ink: #991B1B;
+      
+      --info: #0284C7;
+      --info-soft: #E0F2FE;
+      --info-ink: #075985;
+      
+      /* Categorías semánticas */
+      --cat-hardware-accent: #0F766E;
+      --cat-hardware-soft: #CCFBF1;
+      --cat-hardware-ink: #0F766E;
+      
+      --cat-boot-accent: #4338CA;
+      --cat-boot-soft: #E0E7FF;
+      --cat-boot-ink: #3730A3;
+      
+      --cat-services-accent: #6D28D9;
+      --cat-services-soft: #EDE9FE;
+      --cat-services-ink: #6D28D9;
+      
+      --cat-network-accent: #0E7490;
+      --cat-network-soft: #CFFAFE;
+      --cat-network-ink: #155E75;
+      
+      --cat-files-accent: #4D7C0F;
+      --cat-files-soft: #ECFCCB;
+      --cat-files-ink: #3F6212;
+      
+      --cat-kernel-accent: #BE185D;
+      --cat-kernel-soft: #FCE7F3;
+      --cat-kernel-ink: #BE185D;
+      
+      --cat-neutral-accent: #2563EB;
+      --cat-neutral-soft: #DBEAFE;
+      --cat-neutral-ink: #1D4ED8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      user-select: none;
+    }
+
+    /* Iconos SVG */
+    .ic {
+      width: 1.25em;
+      height: 1.25em;
+      flex: none;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: -0.2em;
+    }
+    .ic-sm { width: 24px; height: 24px; }
+    .ic-md { width: 32px; height: 32px; }
+    .ic-lg { width: 48px; height: 48px; }
+    .ic-xl { width: 72px; height: 72px; }
+
+    /* Barra superior de navegación */
+    #top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 52px;
+      background: #FFFFFF;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 100;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .nav-links { display: flex; align-items: center; gap: 20px; }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
+    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+
+    /* Contenedor del escenario (1920x1080) */
+    #app-container {
+      position: absolute;
+      top: 52px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    #stage-viewport {
+      flex: 1;
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: margin-right 0.25s ease;
+    }
+    #stage {
+      width: 1920px;
+      height: 1080px;
+      flex: none;
+      background: var(--stage-bg);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      border-radius: 20px;
+      border: 2px solid var(--border);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform-origin: center center;
+    }
+
+    /* Cabecera interna del escenario */
+    .stage-header {
+      height: 88px;
+      padding: 0 60px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: none;
+    }
+    .stage-header-left { display: flex; align-items: center; gap: 20px; }
+    .stage-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .stage-header-right { display: flex; align-items: center; gap: 20px; font-size: 22px; font-weight: 600; color: var(--text-muted); }
+    .ref-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      font-size: 20px;
+      color: var(--text-faint-on-alt);
+    }
+
+    /* Área de contenido del slide (1680 x 870 aprox) */
+    .slide-body {
+      flex: 1;
+      padding: 30px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .slide-body::-webkit-scrollbar { width: 8px; }
+    .slide-body::-webkit-scrollbar-track { background: transparent; }
+    .slide-body::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+    .slide-body::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+    .slide-title {
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .slide-lead {
+      font-size: 26px;
+      line-height: 1.35;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    /* Viñetas / Puntos clave (Concept) */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 6px;
+    }
+    .concept-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-left: 8px solid var(--cat-accent, var(--primary));
+      border-radius: 14px;
+      padding: 16px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    }
+    .concept-card .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--cat-soft, var(--primary-soft));
+      color: var(--cat-ink, var(--primary-ink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+    .concept-card .card-text { font-size: 24px; line-height: 1.35; font-weight: 600; color: var(--text); }
+    .concept-card .card-detail { font-size: 19px; color: var(--text-muted); margin-top: 4px; font-weight: 400; line-height: 1.35; }
+
+    /* Cajas Recuerda / Trampa / Callouts */
+    .callout-box {
+      margin-top: 10px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 20px;
+      font-weight: 600;
+      border: 2px solid transparent;
+      line-height: 1.35;
+    }
+    .callout-warning {
+      background: var(--warning-soft);
+      color: var(--warning-ink);
+      border-color: #FCD34D;
+    }
+    .callout-remember {
+      background: var(--cat-services-soft);
+      color: var(--cat-services-ink);
+      border-color: #DDD6FE;
+    }
+    .callout-info {
+      background: var(--info-soft);
+      color: var(--info-ink);
+      border-color: #BAE6FD;
+    }
+
+    /* Terminal y Comandos (slides-terminal-comandos) */
+    .term-wrapper {
+      margin: 10px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      background: var(--surface-alt);
+      overflow: hidden;
+    }
+    .term-header {
+      background: #E2E8F0;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #475569;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .term-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 2px solid var(--control-border);
+      background: #FFFFFF;
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-code {
+      padding: 14px 20px;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: clamp(16px, 1.2vw, 22px);
+      line-height: 1.38;
+      color: #0F172A;
+      white-space: pre-wrap;
+      user-select: text;
+      max-height: 340px;
+      overflow-y: auto;
+    }
+    .term-code::-webkit-scrollbar { width: 6px; }
+    .term-code::-webkit-scrollbar-track { background: transparent; }
+    .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+    .t-cmd { font-weight: 700; color: #0F172A; }
+    .t-flag { color: #1D4ED8; font-weight: 600; }
+    .t-arg { color: #9A3412; font-weight: 500; }
+    .t-path { color: #15803D; font-weight: 500; }
+    .t-str { color: #A21CAF; }
+    .t-cmt { color: #5B6B82; font-style: italic; }
+    .t-err { color: #B91C1C; font-weight: 600; }
+    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+
+    /* Chips de opciones interactivas */
+    .options-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 8px 0;
+    }
+    .opt-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: #FFFFFF;
+      border: 2px solid var(--control-border);
+      border-radius: 10px;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.1s, border-color 0.15s;
+    }
+    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 21px; font-weight: 700; }
+
+    /* Sintaxis y Directivas */
+    .syntax-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      background: var(--surface-alt);
+      border: 2px solid var(--border-strong);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+    .directives-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .directive-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-left: 6px solid var(--cat-accent, var(--primary));
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+    .directive-key {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1D4ED8;
+      margin-bottom: 4px;
+    }
+    .directive-desc {
+      font-size: 19px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Tablas (≤5x4) */
+    .table-container {
+      width: 100%;
+      margin: 20px 0;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+    table.slide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 26px;
+      text-align: left;
+    }
+    table.slide-table th {
+      background: var(--surface-alt);
+      color: var(--text);
+      padding: 16px 24px;
+      border-bottom: 2px solid var(--border-strong);
+      font-weight: 700;
+    }
+    table.slide-table td {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    table.slide-table tr:last-child td { border-bottom: none; }
+    table.slide-table tr.highlighted { background: #FEF3C7; }
+
+    /* Ejercicios y Repasos */
+    .quiz-options { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+    .quiz-btn {
+      padding: 18px 24px;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      background: #FFFFFF;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .quiz-btn:hover { border-color: var(--primary); background: var(--surface-alt); }
+    .quiz-btn.correct { background: var(--success-soft); border-color: var(--success); color: var(--success-ink); }
+    .quiz-btn.incorrect { background: var(--danger-soft); border-color: var(--danger); color: var(--danger-ink); }
+    .quiz-feedback {
+      margin-top: 20px;
+      padding: 18px 24px;
+      border-radius: 14px;
+      font-size: 24px;
+      line-height: 1.4;
+      display: none;
+    }
+
+    /* Flashcards */
+    .flashcard-stage {
+      width: 720px;
+      height: 420px;
+      margin: 20px auto;
+      perspective: 1200px;
+      cursor: pointer;
+    }
+    .flashcard-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+      border-radius: 20px;
+      border: 3px solid var(--border-strong);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+    }
+    .flashcard-inner.flipped { transform: rotateY(180deg); }
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+      background: #FFFFFF;
+      border-radius: 18px;
+    }
+    .flashcard-back {
+      transform: rotateY(180deg);
+      background: var(--surface-alt);
+    }
+    .flashcard-title { font-size: 44px; font-weight: 800; color: var(--primary-ink); margin-bottom: 16px; }
+    .flashcard-desc { font-size: 30px; font-weight: 500; color: var(--text); line-height: 1.35; }
+
+    /* Barra inferior del escenario */
+    .stage-footer {
+      height: 72px;
+      padding: 0 60px;
+      border-top: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: none;
+      font-size: 20px;
+      color: var(--text-muted);
+    }
+    .progress-bar-container {
+      width: 380px;
+      height: 10px;
+      background: var(--border);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 0%;
+      transition: width 0.2s ease;
+    }
+
+    /* Panel del Docente (Notas) — ancho 420px empuja el escenario */
+    #teacher-panel {
+      position: fixed;
+      top: 52px;
+      right: 0;
+      bottom: 0;
+      width: 420px;
+      background: #FFFFFF;
+      border-left: 2px solid var(--border-strong);
+      box-shadow: -10px 0 30px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      z-index: 90;
+      overflow-y: auto;
+    }
+    #teacher-panel.open { transform: translateX(0); }
+    .panel-header {
+      padding: 20px 24px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .panel-body { padding: 24px; font-size: 20px; line-height: 1.5; color: var(--text); }
+    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 18px; }
+
+    /* Modales y Popovers */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #FFFFFF;
+      border-radius: 20px;
+      width: 900px;
+      max-width: 90vw;
+      max-height: 85vh;
+      overflow-y: auto;
+      border: 2px solid var(--border-strong);
+      box-shadow: 0 25px 50px rgba(15, 23, 42, 0.2);
+      padding: 36px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+    .popover {
+      position: absolute;
+      background: #FFFFFF;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+      padding: 18px 22px;
+      max-width: 360px;
+      z-index: 150;
+      font-size: 20px;
+      line-height: 1.4;
+      display: none;
+    }
+    .popover.open { display: block; }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transition: transform 0.25s ease;
+      z-index: 300;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* Fragments */
+    .frag { opacity: 0; transition: opacity 0.25s ease; }
+    .frag.on { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .frag { transition: none !important; }
+      #stage-viewport { transition: none !important; }
+      #teacher-panel { transition: none !important; }
+    }
+
+    /* Aviso para dispositivos móviles */
+    .mobile-notice {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #1E293B;
+      color: #F8FAFC;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      align-items: center;
+      gap: 10px;
+      z-index: 500;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    .mobile-notice-close {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 4px 8px;
+    }
+    @media (max-width: 900px) {
+      .mobile-notice { display: flex; }
+      #top-nav { top: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="i-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5" /> <line x1="12" x2="20" y1="19" y2="19" /></symbol>
+<symbol id="i-square-terminal" viewBox="0 0 24 24"><path d="m7 11 2-2-2-2" /> <path d="M11 13h4" /> <rect width="18" height="18" x="3" y="3" rx="2" ry="2" /></symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><rect width="16" height="16" x="4" y="4" rx="2" /> <rect width="6" height="6" x="9" y="9" rx="1" /> <path d="M15 2v2" /> <path d="M15 20v2" /> <path d="M2 15h2" /> <path d="M2 9h2" /> <path d="M20 15h2" /> <path d="M20 9h2" /> <path d="M9 2v2" /> <path d="M9 20v2" /></symbol>
+<symbol id="i-hard-drive" viewBox="0 0 24 24"><line x1="22" x2="2" y1="12" y2="12" /> <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /> <line x1="6" x2="6.01" y1="16" y2="16" /> <line x1="10" x2="10.01" y1="16" y2="16" /></symbol>
+<symbol id="i-memory-stick" viewBox="0 0 24 24"><path d="M6 19v-3" /> <path d="M10 19v-3" /> <path d="M14 19v-3" /> <path d="M18 19v-3" /> <path d="M8 11V9" /> <path d="M16 11V9" /> <path d="M12 11V9" /> <path d="M2 15h20" /> <path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z" /></symbol>
+<symbol id="i-microchip" viewBox="0 0 24 24"><path d="M18 12h2" /> <path d="M18 16h2" /> <path d="M18 20h2" /> <path d="M18 4h2" /> <path d="M18 8h2" /> <path d="M4 12h2" /> <path d="M4 16h2" /> <path d="M4 20h2" /> <path d="M4 4h2" /> <path d="M4 8h2" /> <path d="M8 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-1.5c-.276 0-.494.227-.562.495a2 2 0 0 1-3.876 0C9.994 2.227 9.776 2 9.5 2z" /></symbol>
+<symbol id="i-usb" viewBox="0 0 24 24"><circle cx="10" cy="7" r="1" /> <circle cx="4" cy="20" r="1" /> <path d="M4.7 19.3 19 5" /> <path d="m21 3-3 1 2 2Z" /> <path d="M9.26 7.68 5 12l2 5" /> <path d="m10 14 5 2 3.5-3.5" /> <path d="m18 12 1-1 1 1-1 1Z" /></symbol>
+<symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1" /> <rect x="2" y="16" width="6" height="6" rx="1" /> <rect x="9" y="2" width="6" height="6" rx="1" /> <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /> <path d="M12 12V8" /></symbol>
+<symbol id="i-wifi" viewBox="0 0 24 24"><path d="M12 20h.01" /> <path d="M2 8.82a15 15 0 0 1 20 0" /> <path d="M5 12.859a10 10 0 0 1 14 0" /> <path d="M8.5 16.429a5 5 0 0 1 7 0" /></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></symbol>
+<symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" /> <path d="M3 5V19A9 3 0 0 0 21 19V5" /> <path d="M3 12A9 3 0 0 0 21 12" /></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol>
+<symbol id="i-folder-open" viewBox="0 0 24 24"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" /></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /></symbol>
+<symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /></symbol>
+<symbol id="i-file-code" viewBox="0 0 24 24"><path d="M10 12.5 8 15l2 2.5" /> <path d="m14 12.5 2 2.5-2 2.5" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" /></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" /> <circle cx="12" cy="12" r="3" /></symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10" /> <path d="M18.4 6.6a9 9 0 1 1-12.77.04" /></symbol>
+<symbol id="i-power-off" viewBox="0 0 24 24"><path d="M18.36 6.64A9 9 0 0 1 20.77 15" /> <path d="M6.16 6.16a9 9 0 1 0 12.68 12.68" /> <path d="M12 2v4" /> <path d="m2 2 20 20" /></symbol>
+<symbol id="i-rotate-cw" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /></symbol>
+<symbol id="i-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3" /></symbol>
+<symbol id="i-square" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" /></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1" /> <rect x="6" y="4" width="4" height="16" rx="1" /></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></symbol>
+<symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4" /> <path d="m21 2-9.6 9.6" /> <circle cx="7.5" cy="15.5" r="5.5" /></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol>
+<symbol id="i-user-cog" viewBox="0 0 24 24"><circle cx="18" cy="15" r="3" /> <circle cx="9" cy="7" r="4" /> <path d="M10 15H6a4 4 0 0 0-4 4v2" /> <path d="m21.7 16.4-.9-.3" /> <path d="m15.2 13.9-.9-.3" /> <path d="m16.6 18.7.3-.9" /> <path d="m19.1 12.2.3-.9" /> <path d="m19.6 18.7-.4-1" /> <path d="m16.8 12.3-.4-1" /> <path d="m14.3 16.6 1-.4" /> <path d="m20.7 13.8 1-.4" /></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /> <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" /> <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" /> <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /> <path d="m3.3 7 8.7 5 8.7-5" /> <path d="M12 22V12" /></symbol>
+<symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7" /> <path d="m7.5 4.27 9 5.15" /></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="7 10 12 15 17 10" /> <line x1="12" x2="12" y1="15" y2="3" /></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="17 8 12 3 7 8" /> <line x1="12" x2="12" y1="3" y2="15" /></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /></symbol>
+<symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /> <path d="M9 18h6" /> <path d="M10 22h4" /></symbol>
+<symbol id="i-triangle-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></symbol>
+<symbol id="i-circle-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></symbol>
+<symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /></symbol>
+<symbol id="i-circle-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m15 9-6 6" /> <path d="m9 9 6 6" /></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol>
+<symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+<symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol>
+<symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14" /> <path d="m19 12-7 7-7-7" /></symbol>
+<symbol id="i-git-branch" viewBox="0 0 24 24"><line x1="6" x2="6" y1="3" y2="15" /> <circle cx="18" cy="6" r="3" /> <circle cx="6" cy="18" r="3" /> <path d="M18 9a9 9 0 0 1-9 9" /></symbol>
+<symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" /></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <polyline points="12 6 12 12 16 14" /></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" /> <line x1="4" x2="4" y1="22" y2="15" /></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" /> <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" /> <path d="M4 22h16" /> <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" /> <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" /> <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" /></symbol>
+<symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /> <path d="M20 3v4" /> <path d="M22 5h-4" /> <path d="M4 17v2" /> <path d="M5 18H3" /></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></symbol>
+<symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></symbol>
+<symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2" /> <line x1="8" x2="16" y1="21" y2="21" /> <line x1="12" x2="12" y1="17" y2="21" /></symbol>
+<symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5" /> <path d="M9 8V2" /> <path d="M15 8V2" /> <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></symbol>
+<symbol id="i-cable" viewBox="0 0 24 24"><path d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1" /> <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" /> <path d="M21 21v-2h-4" /> <path d="M3 5h4V3" /> <path d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3" /></symbol>
+<symbol id="i-circuit-board" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M11 9h4a2 2 0 0 0 2-2V3" /> <circle cx="9" cy="9" r="2" /> <path d="M7 21v-4a2 2 0 0 1 2-2h4" /> <circle cx="15" cy="15" r="2" /></symbol>
+<symbol id="i-hash" viewBox="0 0 24 24"><line x1="4" x2="20" y1="9" y2="9" /> <line x1="4" x2="20" y1="15" y2="15" /> <line x1="10" x2="8" y1="3" y2="21" /> <line x1="16" x2="14" y1="3" y2="21" /></symbol>
+<symbol id="i-scroll-text" viewBox="0 0 24 24"><path d="M15 12h-5" /> <path d="M15 8h-5" /> <path d="M19 17V5a2 2 0 0 0-2-2H4" /> <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" /></symbol>
+<symbol id="i-list-checks" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4" /> <path d="m3 7 2 2 4-4" /> <path d="M13 6h8" /> <path d="M13 12h8" /> <path d="M13 18h8" /></symbol>
+<symbol id="i-clipboard-check" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /> <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /> <path d="m9 14 2 2 4-4" /></symbol>
+<symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /> <path d="M22 10v6" /> <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></symbol>
+<symbol id="i-pencil" viewBox="0 0 24 24"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol>
+<symbol id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /></symbol>
+<symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3" /> <path d="M21 8V5a2 2 0 0 0-2-2h-3" /> <path d="M3 16v3a2 2 0 0 0 2 2h3" /> <path d="M16 21h3a2 2 0 0 0 2-2v-3" /></symbol>
+<symbol id="i-minimize" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3" /> <path d="M21 8h-3a2 2 0 0 1-2-2V3" /> <path d="M3 16h3a2 2 0 0 1 2 2v3" /> <path d="M16 21v-3a2 2 0 0 1 2-2h3" /></symbol>
+<symbol id="i-circle-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /> <path d="M12 17h.01" /></symbol>
+<symbol id="i-message-square-warning" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M12 7v2" /> <path d="M12 13h.01" /></symbol>
+<symbol id="i-bug-off" viewBox="0 0 24 24"><path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2" /> <path d="M14.12 3.88 16 2" /> <path d="M22 13h-4v-2a4 4 0 0 0-4-4h-1.3" /> <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /> <path d="m2 2 20 20" /> <path d="M7.7 7.7A4 4 0 0 0 6 11v3a6 6 0 0 0 11.13 3.13" /> <path d="M12 20v-8" /> <path d="M6 13H2" /> <path d="M3 21c0-2.1 1.7-3.9 3.8-4" /></symbol>
+<symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m4.9 4.9 14.2 14.2" /></symbol>
+<symbol id="i-octagon-alert" viewBox="0 0 24 24"><path d="M12 16h.01" /> <path d="M12 8v4" /> <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" /></symbol>
+</svg>
+
+
+  <div id="mobile-notice" class="mobile-notice">
+    <svg class="ic ic-sm" style="color:#60A5FA;"><use href="#i-monitor"/></svg>
+    <span>Optimizado para pantalla completa (1920×1080). Gira tu dispositivo en horizontal para una mejor experiencia.</span>
+    <button onclick="document.getElementById('mobile-notice').remove(); document.getElementById('top-nav').style.top='0';" class="mobile-notice-close" title="Cerrar">✕</button>
+  </div>
+
+  <!-- Barra superior fija -->
+  <header id="top-nav">
+    <div class="nav-links">
+      <a href="../index.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-menu"/></svg>Índice</a>
+      <a href="101-1-determinar-y-configurar.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>101.1</a>
+      <a href="101-3-cambiar-los-niveles-de-e.html" class="nav-btn">101.3<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></a>
+    </div>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <span style="font-size:16px; color:var(--text-muted);">LPIC-1 · 101.2</span>
+      <button class="nav-btn" onclick="toggleHelp()" title="Atajos (?)"><svg class="ic ic-sm"><use href="#i-circle-help"/></svg>Ayuda</button>
+      <button class="nav-btn" onclick="toggleOverview()" title="Vista general (O)"><svg class="ic ic-sm"><use href="#i-layers"/></svg>Vista general</button>
+      <button class="nav-btn primary" id="btn-notes" onclick="toggleTeacherNotes()" title="Notas del docente (N)"><svg class="ic ic-sm"><use href="#i-clipboard-check"/></svg>Notas (N)</button>
+    </div>
+  </header>
+
+  <!-- Contenedor general -->
+  <div id="app-container">
+    <main id="stage-viewport">
+      <div id="stage">
+        <!-- Contenido renderizado dinámicamente -->
+        <div class="stage-header">
+          <div class="stage-header-left">
+            <span class="stage-chip" id="chip-section"></span>
+            <span style="font-size:24px; font-weight:700;" id="header-topic-name"></span>
+          </div>
+          <div class="stage-header-right">
+            <span class="ref-badge" id="badge-ref"></span>
+            <span class="ref-badge" id="badge-weight"></span>
+          </div>
+        </div>
+
+        <div class="slide-body" id="slide-content">
+          <!-- Slide interactiva inyectada por JS -->
+        </div>
+
+        <div class="stage-footer">
+          <div style="display:flex; align-items:center; gap:20px;">
+            <span id="slide-counter" style="font-weight:700;">1 / 1</span>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:16px;">
+            <button class="nav-btn" onclick="openErratasModal()" id="btn-erratas-chip" style="display:none;"><svg class="ic ic-sm"><use href="#i-message-square-warning"/></svg>Nota Oficial</button>
+            <span>Tema Claro · 1920×1080</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Panel del docente (Notas) -->
+    <aside id="teacher-panel">
+      <div class="panel-header">
+        <span>Notas del Docente</span>
+        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="panel-body">
+        <div class="panel-meta" id="panel-meta-info"></div>
+        <div id="panel-notes-content"></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Popover flotante anclado -->
+  <div class="popover" id="global-popover"></div>
+
+  <!-- Modal de Erratas -->
+  <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
+        <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
+        Notas y Erratas del Manual Oficial
+      </h2>
+      <div id="modal-erratas-body"></div>
+    </div>
+  </div>
+
+  <!-- Modal de Ayuda / Atajos -->
+  <div class="modal-overlay" id="modal-help" onclick="closeModals()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
+        <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
+        <div><kbd>←</kbd> / <kbd>Retroceso</kbd> : Anterior paso / slide</div>
+        <div><kbd>N</kbd> : Panel de notas del docente</div>
+        <div><kbd>O</kbd> : Vista general de diapositivas</div>
+        <div><kbd>F</kbd> : Pantalla completa</div>
+        <div><kbd>Esc</kbd> : Cerrar popovers y modales</div>
+        <div><kbd>?</kbd> : Esta ayuda</div>
+      </div>
+      <div style="margin-top:32px; padding:18px 22px; background:var(--surface-alt); border-radius:12px; border:1px solid var(--border-strong); font-size:16px; line-height:1.5; color:var(--text-muted);">
+        <p style="margin-bottom:6px;"><strong>Material didáctico no oficial</strong> basado en los <em>LPI Learning Materials</em> del <a href="https://learning.lpi.org" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Linux Professional Institute</a>.</p>
+        <p style="margin-bottom:6px;">LPI® y LPIC-1® son marcas registradas de Linux Professional Institute, Inc. Este recurso didáctico no está afiliado ni respaldado por LPI.</p>
+        <p>Uso educativo bajo licencia <strong>Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional (CC BY-NC-ND 4.0)</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Vista General (Overview) -->
+  <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
+    <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
+      <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
+    </div>
+  </div>
+
+  <!-- Toast flotante -->
+  <div id="toast">
+    <svg class="ic ic-sm" style="color:#22C55E;"><use href="#i-check"/></svg>
+    <span id="toast-msg">Comando copiado</span>
+  </div>
+
+  <!-- -------------------------------------------------------------
+       DATOS DE LAS DIAPOSITIVAS (Inline)
+       ------------------------------------------------------------- -->
+  <script>
+    const SLIDES = [{"id": 1, "section": "101.2", "cat": "boot", "type": "cover", "title": "Arranque del sistema", "subtitle": "Secuencia de arranque, firmware, GRUB y registros", "ref": "1-2", "pdf": {"manual": "A", "pages": [1, 2], "figure": null}, "coverage": ["101.2-OBJ-001", "101.2-OBJ-002"], "meta": {"peso": 3, "paginas": "1–17", "duracion": "120 min"}, "icon": "power", "notes": "Comenzamos el subtema 101.2 con peso 3 en el examen 101. Abarca desde la inicialización del firmware hasta el inicio del primer proceso del espacio de usuario."}, {"id": 2, "section": "101.2", "cat": "boot", "type": "concept", "title": "Objetivos oficiales del examen LPI", "lead": "Competencias clave evaluadas en el objetivo oficial 101.2:", "ref": "1-2", "pdf": {"manual": "A", "pages": [1, 2], "figure": null}, "coverage": ["101.2-OBJ-003", "101.2-OBJ-004", "101.2-OBJ-005", "101.2-OBJ-006", "101.2-OBJ-007"], "points": [{"icon": "terminal", "text": "Comandos de arranque y opciones al kernel", "detail": "Gestión interactiva y persistente de parámetros de inicio."}, {"icon": "layers", "text": "Secuencia completa desde firmware hasta servicios", "detail": "Etapas secuenciales de BIOS/UEFI, GRUB y kernel Linux."}, {"icon": "server", "text": "Comprensión de SysVinit, systemd y Upstart", "detail": "Diferenciación entre runlevels clásicos y objetivos modernos."}, {"icon": "file-text", "text": "Comprobación de eventos en archivos de registro", "detail": "Uso de herramientas como dmesg y journalctl."}], "remember": "Peso oficial en examen: 3 preguntas directas.", "notes": "El examen incluye preguntas prácticas sobre parámetros de kernel, rescate ante fallos y filtrado de registros de arranque."}, {"id": 3, "section": "101.2", "cat": "boot", "type": "flow", "title": "Secuencia general de arranque del sistema", "lead": "Cuatro fases consecutivas desde el encendido hasta el entorno operativo:", "ref": "3", "pdf": {"manual": "A", "pages": [3], "figure": null}, "coverage": ["101.2-CON-001", "101.2-WARN-001"], "steps": [{"num": 1, "icon": "cpu", "title": "1. Firmware", "desc": "BIOS o UEFI realiza el POST e inicializa hardware."}, {"num": 2, "icon": "hard-drive", "title": "2. Bootloader", "desc": "GRUB muestra el menú y carga el kernel en RAM."}, {"num": 3, "icon": "zap", "title": "3. Kernel", "desc": "Abre initramfs, detecta hardware y monta raíz."}, {"num": 4, "icon": "server", "title": "4. Init / Systemd", "desc": "Ejecuta el proceso PID 1 e inicia los servicios."}], "callout": {"type": "warning", "title": "Requisito de Privilegios", "text": "En algunas distribuciones de Linux, los comandos ejecutados en esta lección pueden requerir privilegios de root."}, "notes": "Destacar la frontera entre el firmware de bajo nivel, la carga del kernel en memoria y la entrada al espacio de usuario."}, {"id": 4, "section": "101.2", "cat": "boot", "type": "concept", "title": "Firmware de placa base: BIOS vs UEFI", "lead": "Las dos tecnologías estándar de firmware en arquitecturas x86:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["101.2-CON-002", "101.2-CON-006"], "points": [{"icon": "cpu", "text": "BIOS grabado en chip de placa base", "detail": "Basic Input/Output System: programa firmware en memoria no volátil."}, {"icon": "zap", "text": "UEFI sustituto moderno del firmware clásico", "detail": "Unified Extensible Firmware Interface con funciones avanzadas."}, {"icon": "database", "text": "Almacenamiento de ajustes en CMOS y NVRAM", "detail": "BIOS usa memoria CMOS con pila; UEFI utiliza memoria NVRAM."}, {"icon": "settings", "text": "Mismo propósito básico de inicialización", "detail": "Ambos identifican hardware primario y cargan el bootloader."}], "remember": "UEFI puede leer particiones y sistemas de archivos directamente.", "notes": "Explicar que la utilidad de configuración se sigue llamando BIOS coloquialmente aunque sea UEFI."}, {"id": 5, "section": "101.2", "cat": "boot", "type": "concept", "title": "Arquitectura BIOS y estructura del MBR", "lead": "Estructura del primer sector de 512 bytes del disco de arranque:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["101.2-CON-003", "101.2-CON-004"], "points": [{"icon": "file-code", "text": "Primeros 440 bytes albergan el bootstrap", "detail": "Primera etapa del gestor de arranque ejecutada por BIOS a ciegas."}, {"icon": "database", "text": "Tabla de particiones estándar de DOS", "detail": "64 bytes contiguos que definen hasta 4 particiones primarias."}, {"icon": "shield", "text": "Firma de arranque mágica obligatoria", "detail": "Los dos últimos bytes (0x55AA) validan que el sector es booteable."}, {"icon": "triangle-alert", "text": "Riesgo de fallo crítico de arranque", "detail": "Si el MBR no contiene datos correctos, el sistema no arranca."}], "remember": "MBR = 440 bytes código + tabla particiones + firma.", "notes": "Detallar que la primera etapa de GRUB en MBR solo sirve para localizar y cargar la segunda etapa."}, {"id": 6, "section": "101.2", "cat": "boot", "type": "flow", "title": "Proceso secuencial de arranque en BIOS", "lead": "Fases previas a la operación en un equipo con BIOS tradicional:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["101.2-PRO-001", "101.2-CON-005"], "steps": [{"num": 1, "icon": "zap", "title": "1. POST", "desc": "Power-on self-test para detectar fallos simples de hardware."}, {"num": 2, "icon": "cpu", "title": "2. Hardware Básico", "desc": "Activa salida de vídeo, teclado y discos de almacenamiento."}, {"num": 3, "icon": "hard-drive", "title": "3. Etapa 1 MBR", "desc": "BIOS carga los primeros 440 bytes del primer disco configurado."}, {"num": 4, "icon": "layers", "title": "4. Etapa 2 GRUB", "desc": "Presenta opciones de arranque y carga el núcleo del sistema."}], "notes": "Resaltar el orden del BIOS: si se altera el orden de discos, puede intentar cargar un MBR sin gestor."}, {"id": 7, "section": "101.2", "cat": "boot", "type": "concept", "title": "Arquitectura UEFI: NVRAM y aplicaciones EFI", "lead": "Independencia del sector MBR mediante software modular en disco:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["101.2-CON-006", "101.2-CON-007"], "points": [{"icon": "database", "text": "Configuración almacenada en memoria NVRAM", "detail": "Guarda variables y rutas a las aplicaciones EFI en placa."}, {"icon": "package", "text": "Aplicaciones EFI modulares ejecutables", "detail": "Gestores de arranque, selectores de SO y test de diagnóstico."}, {"icon": "folder", "text": "Lectura directa de sistemas de archivos", "detail": "UEFI lee archivos directamente sin depender de sectores físicos."}, {"icon": "menu", "text": "Ejecución automática o desde menú", "detail": "Llamada directa a programas configurados por el administrador."}], "remember": "UEFI prescinde por completo del código en el MBR.", "notes": "Explicar que las aplicaciones EFI son ejecutables PE/COFF independientes con extensión .efi."}, {"id": 8, "section": "101.2", "cat": "boot", "type": "concept", "title": "La partición del sistema EFI (ESP)", "lead": "Requisitos de la partición dedicada que alberga las aplicaciones EFI:", "ref": "4, 5", "pdf": {"manual": "A", "pages": [4, 5], "figure": null}, "coverage": ["101.2-CON-008", "101.2-CON-009", "101.2-WARN-002"], "points": [{"icon": "database", "text": "Sistemas de archivos compatibles estándar", "detail": "FAT12, FAT16 y FAT32 en bloques; ISO-9660 en medios ópticos."}, {"icon": "folder-open", "text": "Directorio EFI en la partición ESP", "detail": "Contiene los binarios señalados por las entradas en NVRAM."}, {"icon": "shield", "text": "Aislamiento de la partición de sistema", "detail": "No debe compartirse con el sistema raíz ni con datos de usuario."}, {"icon": "layers", "text": "Múltiples gestores conviven sin conflicto", "detail": "Cada sistema operativo instala su propia carpeta dentro de /EFI/."}], "remember": "La partición ESP usa habitualmente formato FAT32.", "notes": "Pregunta frecuente: ¿Por qué UEFI soporta FAT? Porque el estándar exige una especificación simple y universal sin licencias restrictivas."}, {"id": 9, "section": "101.2", "cat": "boot", "type": "flow", "title": "Proceso secuencial de arranque en UEFI", "lead": "Fases de inicialización preoperativa bajo firmware UEFI:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["101.2-PRO-002"], "steps": [{"num": 1, "icon": "zap", "title": "1. POST", "desc": "Ejecuta comprobaciones para identificar fallos simples."}, {"num": 2, "icon": "cpu", "title": "2. Hardware Básico", "desc": "Activa vídeo, teclado y medios de almacenamiento masivo."}, {"num": 3, "icon": "database", "title": "3. Lectura NVRAM", "desc": "Lee definiciones que indican la aplicación EFI predefinida."}, {"num": 4, "icon": "layers", "title": "4. Carga desde ESP", "desc": "Ejecuta el gestor de arranque en ESP y carga el kernel."}], "notes": "Comparar con BIOS: aquí no hay partición oculta de 440 bytes; el firmware lee un ejecutable regular en la partición ESP."}, {"id": 10, "section": "101.2", "cat": "boot", "type": "concept", "title": "UEFI Secure Boot: Firmas y protección", "lead": "Validación criptográfica previa a la ejecución de código en firmware:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["101.2-CON-010", "101.2-WARN-003"], "points": [{"icon": "shield-check", "text": "Ejecución exclusiva de aplicaciones EFI firmadas", "detail": "Solo permite software autorizado por el fabricante de hardware."}, {"icon": "shield", "text": "Protección contra malware y bootkits", "detail": "Impide que binarios manipulados intercepten el arranque."}, {"icon": "triangle-alert", "text": "Dificultad con sistemas no certificados", "detail": "Puede complicar la instalación de sistemas comunitarios."}, {"icon": "settings", "text": "Control deshabilitable en firmware", "detail": "El administrador puede desactivar Secure Boot en el menú UEFI."}], "remember": "Secure Boot exige claves criptográficas en firmware.", "notes": "Explicar que las distribuciones principales (Ubuntu, Fedora, Debian) incluyen un cargador intermediario 'shim' firmado por Microsoft."}, {"id": 11, "section": "101.2", "cat": "boot", "type": "table", "title": "Comparativa de arquitectura: BIOS frente a UEFI", "takeaway": "Diferencias técnicas evaluadas habitualmente en el examen LPIC-1:", "ref": "4, 5", "pdf": {"manual": "A", "pages": [4, 5], "figure": null}, "coverage": ["101.2-CON-002", "101.2-CON-006", "101.2-CON-003", "101.2-CON-009"], "headers": ["Característica", "BIOS Clásico", "UEFI Moderno"], "rows": [["Ubicación de arranque", "MBR (primeros 440 bytes)", "Partición ESP con sistema archivos"], ["Memoria de ajustes", "CMOS RAM (pila botón)", "Memoria no volátil (NVRAM)"], ["Sistemas soportados", "Ninguno (sectores crudos)", "FAT12, FAT16, FAT32 e ISO-9660"], ["Verificación criptográfica", "No disponible", "Secure Boot con firma digital"], ["Modelo de arranque", "Dos etapas secuenciales", "Aplicaciones EFI independientes"]], "notes": "Tabla de referencia obligada para preguntas teóricas del examen."}, {"id": 12, "section": "101.2", "cat": "boot", "type": "concept", "title": "El gestor de arranque: GRUB", "lead": "Grand Unified Bootloader: el gestor estándar en sistemas Linux x86:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["101.2-CON-011"], "points": [{"icon": "menu", "text": "Presentación del menú de sistemas disponibles", "detail": "Permite elegir entre múltiples núcleos y sistemas operativos."}, {"icon": "settings", "text": "Edición interactiva de parámetros", "detail": "Permite modificar las directivas antes de arrancar el kernel."}, {"icon": "hard-drive", "text": "Carga del núcleo e imagen initramfs", "detail": "Transfiere la imagen del sistema a la memoria física RAM."}, {"icon": "layers", "text": "Compatibilidad dual con BIOS y UEFI", "detail": "Funciona en modo MBR tradicional o como aplicación EFI."}], "remember": "GRUB es el intermediario entre firmware y kernel.", "notes": "En LPIC-1 v5.0 nos centramos en GRUB versión 2."}, {"id": 13, "section": "101.2", "cat": "boot", "type": "concept", "title": "Invocación del menú de GRUB: Shift y Esc", "lead": "Teclas específicas para mostrar menús de arranque ocultos:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["101.2-KEY-001", "101.2-KEY-002"], "points": [{"icon": "key", "text": "Tecla Shift para sistemas con BIOS", "detail": "Mantener pulsada Shift mientras BIOS llama a GRUB para ver el menú."}, {"icon": "key", "text": "Tecla Esc para sistemas con UEFI", "detail": "Pulsar la tecla Esc repetidamente en sistemas con firmware UEFI."}, {"icon": "eye", "text": "Revelar menú oculto por defecto", "detail": "Muchas distribuciones ocultan el menú para un arranque más rápido."}, {"icon": "wrench", "text": "Acceso a modo rescate y edición", "detail": "Imprescindible para reparar fallos o seleccionar kernels previos."}], "remember": "Shift en BIOS; Esc en UEFI.", "notes": "Pregunta de examen clásica. No confundir las teclas entre ambos firmwares."}, {"id": 14, "section": "101.2", "cat": "boot", "type": "concept", "title": "Parámetros del kernel en el arranque", "lead": "Directivas pasadas al núcleo de Linux durante su carga inicial:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["101.2-CON-012"], "points": [{"icon": "file-code", "text": "Formato de sintaxis estándar option=value", "detail": "La mayoría de parámetros siguen esta estructura o son palabras clave."}, {"icon": "pencil", "text": "Modificación interactiva en menú GRUB", "detail": "Pulsando la tecla 'e' en la entrada seleccionada antes de iniciar."}, {"icon": "wrench", "text": "Herramienta principal de diagnóstico", "detail": "Permite resolver problemas graves de arranque y controladores."}, {"icon": "file-text", "text": "Inspección posterior en tiempo de ejecución", "detail": "Disponibles en el sistema activo a través de /proc/cmdline."}], "remember": "Los parámetros se separan por espacios.", "notes": "Explicar que los parámetros se pasan en la línea que empieza por 'linux' o 'linux16' dentro del menú de GRUB."}, {"id": 15, "section": "101.2", "cat": "boot", "type": "concept", "title": "Parámetros del kernel: Soporte ACPI", "lead": "Gestión de energía y tabla de interrupciones avanzadas:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["101.2-CFG-001"], "points": [{"icon": "power-off", "text": "Parámetro específico acpi=off", "detail": "Deshabilita por completo la compatibilidad con el subsistema ACPI."}, {"icon": "activity", "text": "Advanced Configuration and Power Interface", "detail": "Estándar industrial de gestión de energía e interrupciones en placa."}, {"icon": "bug-off", "text": "Resolución de congelaciones de hardware", "detail": "Útil si un firmware de placa defectuoso cuelga el arranque del kernel."}, {"icon": "clock", "text": "Retrocompatibilidad con buses heredados", "detail": "Fuerza al núcleo a recurrir a rutinas de interrupción clásicas."}], "remember": "acpi=off apaga la gestión avanzada de energía.", "notes": "Si un ordenador se queda congelado durante la detección de componentes ACPI, este parámetro permite salvar la instalación."}, {"id": 16, "section": "101.2", "cat": "boot", "type": "concept", "title": "Iniciador alternativo con init=/bin/bash", "lead": "Arranque de emergencia directamente en una shell de intérprete:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["101.2-CFG-002", "101.2-FILE-005"], "points": [{"icon": "terminal", "text": "Establece shell Bash como iniciador", "detail": "Sustituye al gestor init convencional por el binario /bin/bash."}, {"icon": "zap", "text": "Apertura inmediata de consola de root", "detail": "Se inicia sesión de shell sin solicitar contraseña de usuario."}, {"icon": "wrench", "text": "Recuperación ante olvido de credenciales", "detail": "Permite resetear contraseñas de administración olvidadas."}, {"icon": "ban", "text": "Omisión de todos los demonios del sistema", "detail": "Ningún servicio ni conexión de red se pondrá en marcha."}], "remember": "init=/bin/bash inicia una shell sin demonios.", "notes": "Advertir que el disco arranca en modo ro; habrá que ejecutar 'mount -o remount,rw /' para poder modificar archivos."}, {"id": 17, "section": "101.2", "cat": "boot", "type": "concept", "title": "Selección de objetivos y runlevels en arranque", "lead": "Parámetros para determinar el modo operativo al que transiciona el sistema:", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["101.2-CFG-003", "101.2-CFG-004", "101.2-CFG-005"], "points": [{"icon": "monitor", "text": "systemd.unit=graphical.target", "detail": "Indica a systemd que inicie el entorno gráfico de escritorio."}, {"icon": "terminal", "text": "Niveles de ejecución numéricos SysV", "detail": "systemd acepta números clásicos como parámetro de compatibilidad."}, {"icon": "shield-check", "text": "Parámetro numérico 1 en línea de comandos", "detail": "Activa el modo monousuario de rescate (single-user)."}, {"icon": "user", "text": "Letra S como equivalente a single", "detail": "Incluir 'S' o 'single' tiene el mismo efecto que el nivel 1."}], "remember": "systemd.unit define el objetivo; 1 ó S activan monousuario.", "notes": "Pregunta de examen: ¿Cómo arrancar en modo rescate monousuario? Respuesta: pasando '1' o 'S' al kernel."}, {"id": 18, "section": "101.2", "cat": "boot", "type": "concept", "title": "Limitación de hardware con mem y maxcpus", "lead": "Control de memoria física y procesadores disponibles en tiempo de arranque:", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["101.2-CFG-006", "101.2-CFG-007", "101.2-CFG-008"], "points": [{"icon": "memory-stick", "text": "Parámetro mem=512M para limitar RAM", "detail": "Restringe la memoria a 512 megabytes (ideal para pruebas virtuales)."}, {"icon": "cpu", "text": "Parámetro maxcpus=2 para limitar núcleos", "detail": "Limita los procesadores visibles por el sistema a dos CPUs."}, {"icon": "ban", "text": "maxcpus=0 equivale al parámetro nosmp", "detail": "Desactiva por completo el soporte para máquinas multiprocesador."}, {"icon": "box", "text": "Aislamiento de fallos y virtualización", "detail": "Permite recrear entornos de recursos reducidos o aislar bugs."}], "remember": "maxcpus=0 equivale exactamente a nosmp.", "notes": "Detalle que suele caer en preguntas trampa de LPIC-1: 'maxcpus=0' apaga SMP."}, {"id": 19, "section": "101.2", "cat": "boot", "type": "concept", "title": "Control visual de consola con quiet y vga", "lead": "Regulación de mensajes de inicio y resolución de pantalla:", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["101.2-CFG-009", "101.2-CFG-010"], "points": [{"icon": "eye", "text": "Parámetro quiet para silenciar mensajes", "detail": "Oculta la mayoría de los textos de arranque en pantalla."}, {"icon": "scroll-text", "text": "Mensajes conservados en memoria interna", "detail": "Aunque quiet suprima la pantalla, el kernel registra todo."}, {"icon": "monitor", "text": "Selección de modo de vídeo con vga=ask", "detail": "Muestra una lista de resoluciones disponibles para elegir."}, {"icon": "settings", "text": "Compatibilidad de consola gráfica VESA", "detail": "Permite ajustar modos de pantalla en adaptadores antiguos."}], "remember": "quiet no impide que dmesg guarde los mensajes.", "notes": "Al depurar servidores, retirar 'quiet' de GRUB es la primera acción para ver dónde se bloquea la máquina."}, {"id": 20, "section": "101.2", "cat": "boot", "type": "concept", "title": "Especificación de partición raíz con root", "lead": "Asignación del dispositivo que alberga el sistema de archivos principal:", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["101.2-CFG-011", "101.2-CFG-012", "101.2-FILE-009"], "points": [{"icon": "hard-drive", "text": "Parámetro root=/dev/sda3 para partición raíz", "detail": "Define el dispositivo que el kernel montará como raíz /."}, {"icon": "settings", "text": "Directiva rootflags de opciones adicionales", "detail": "Aplica opciones específicas de montaje al sistema de archivos raíz."}, {"icon": "triangle-alert", "text": "Fallo crítico por partición inexistente", "detail": "Si /dev/sda3 no existe, el arranque se detiene de inmediato."}, {"icon": "wrench", "text": "Sustitución en casos de clonado o cambio", "detail": "Permite corregir desajustes tras mover discos o cambiar puertos."}], "remember": "root=/dev/sda3 define la raíz del sistema operativo.", "notes": "Enlazar con el ejercicio guiado 4 sobre el error de /dev/sda3 inexistente."}, {"id": 21, "section": "101.2", "cat": "boot", "type": "concept", "title": "Montaje inicial de raíz: ro frente a rw", "lead": "Políticas de escritura durante las fases preliminares de arranque:", "ref": "6, 7", "pdf": {"manual": "A", "pages": [6, 7], "figure": null}, "coverage": ["101.2-CFG-013", "101.2-CFG-014"], "points": [{"icon": "lock", "text": "Parámetro ro para montaje de solo lectura", "detail": "Monta inicialmente la raíz como solo lectura para comprobación segura."}, {"icon": "circle-check", "text": "Comprobación de integridad con fsck", "detail": "fsck solo puede verificar de forma segura particiones montadas ro."}, {"icon": "pencil", "text": "Parámetro rw para permitir escritura directa", "detail": "Permite escribir en el sistema de archivos raíz desde el primer instante."}, {"icon": "rotate-cw", "text": "Remontaje automático posterior en rw", "detail": "Tras verificar los discos, los scripts de inicio remontan la raíz en rw."}], "remember": "ro protege el disco mientras fsck revisa la integridad.", "notes": "La inmensa mayoría de distribuciones arrancan con 'ro' en GRUB por motivos de seguridad del sistema de archivos."}, {"id": 22, "section": "101.2", "cat": "boot", "type": "file", "title": "Configuración persistente en /etc/default/grub", "path": "/etc/default/grub", "contains": "Variables maestras para la generación del menú de GRUB", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["101.2-FILE-001", "101.2-CFG-015", "101.2-WARN-004"], "writtenBy": "Administrador de sistemas (root)", "readBy": ["grub-mkconfig", "update-grub"], "sample": {"lines": ["GRUB_DEFAULT=0", "GRUB_TIMEOUT=5", "GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`", "GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"", "GRUB_CMDLINE_LINUX=\"acpi=off mem=512M\""]}, "notes": "Cualquier parámetro de kernel añadido a GRUB_CMDLINE_LINUX se aplicará en todos los reinicios futuros."}, {"id": 23, "section": "101.2", "cat": "boot", "type": "command", "title": "grub-mkconfig compila la configuración", "purpose": "Genera el archivo final /boot/grub/grub.cfg leyendo /etc/default/grub:", "name": "grub-mkconfig", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["101.2-CMD-003", "101.2-OPT-014", "101.2-FILE-002"], "options": [{"flag": "-o", "short": "Ruta destino de salida", "example": "grub-mkconfig -o /boot/grub/grub.cfg"}], "terminal": {"prompt": "#", "lines": [{"t": "cmd", "v": "grub-mkconfig -o /boot/grub/grub.cfg"}, {"t": "out", "v": "Generating grub configuration file ..."}, {"t": "out", "v": "Found linux image: /boot/vmlinuz-5.4.0-42-generic"}, {"t": "out", "v": "Found initrd image: /boot/initrd.img-5.4.0-42-generic"}, {"t": "out", "v": "done"}]}, "trap": "Modificar /etc/default/grub no tiene efecto sin ejecutar antes grub-mkconfig.", "notes": "En Debian/Ubuntu 'update-grub' es un alias corto que invoca este comando exactamente con la opción -o."}, {"id": 24, "section": "101.2", "cat": "boot", "type": "file", "title": "Parámetros en vivo en /proc/cmdline", "path": "/proc/cmdline", "contains": "Argumentos exactos pasados al núcleo en el arranque actual", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["101.2-FILE-003"], "writtenBy": "Kernel de Linux (en memoria RAM)", "readBy": ["Administrador", "Scripts de inicio", "systemd"], "sample": {"lines": ["BOOT_IMAGE=/boot/vmlinuz-5.4.0-42-generic root=/dev/sda3 ro quiet splash acpi=off"]}, "notes": "Es el método universal para auditar con qué parámetros arrancó el kernel sin necesidad de reiniciar la máquina."}, {"id": 25, "section": "101.2", "cat": "boot", "type": "concept", "title": "Inicialización: Scripts frente a demonios", "lead": "Diferenciación entre tareas efímeras y servicios en segundo plano:", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["101.2-CON-001"], "points": [{"icon": "file-text", "text": "Scripts para tareas de corta duración", "detail": "Se ejecutan al iniciar el sistema y terminan tras configurar el entorno."}, {"icon": "server", "text": "Demonios en ejecución continua", "detail": "Servicios activos permanentemente que atienden peticiones de fondo."}, {"icon": "refresh-cw", "text": "Acciones de control del administrador", "detail": "Capacidad esencial para iniciar, detener y reiniciar servicios."}, {"icon": "wrench", "text": "Reinicio tras cambios de configuración", "detail": "El administrador debe reiniciar el servicio al editar sus directivas."}], "remember": "Un demonio suele llevar una letra 'd' al final (systemd, sshd).", "notes": "Explicar que un script termina al terminar de configurar, mientras que un demonio permanece escuchando en un socket."}, {"id": 26, "section": "101.2", "cat": "boot", "type": "concept", "title": "El sistema raíz temporal initramfs", "lead": "Mecanismo para suministrar controladores antes de acceder al disco real:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["101.2-CON-013"], "points": [{"icon": "memory-stick", "text": "Initial RAM filesystem en memoria", "detail": "Archivo comprimido que actúa como sistema de archivos raíz temporal."}, {"icon": "package", "text": "Suministro de módulos de almacenamiento", "detail": "Aporta drivers para que el kernel pueda leer el disco raíz definitivo."}, {"icon": "hard-drive", "text": "Soporte de tecnologías complejas", "detail": "Imprescindible para discos en RAID, LVM, NVMe o volúmenes cifrados LUKS."}, {"icon": "power-off", "text": "Eliminación automática de la memoria RAM", "detail": "Tan pronto como se carga el proceso init, el initramfs se desecha."}], "remember": "initramfs permite al kernel acceder al disco raíz 'real'.", "notes": "Si un kernel no incluye el driver de la controladora de disco en su binario estático, necesita initramfs obligatoriamente."}, {"id": 27, "section": "101.2", "cat": "boot", "type": "flow", "title": "Transición de initramfs al sistema raíz real", "lead": "Fases exactas de conmutación desde la RAM al disco duro definitivo:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["101.2-PRO-003", "101.2-FILE-004", "101.2-WARN-006"], "steps": [{"num": 1, "icon": "package", "title": "1. Abre initramfs", "desc": "El kernel descomprime el sistema de archivos temporal en RAM."}, {"num": 2, "icon": "cpu", "title": "2. Carga drivers", "desc": "Carga los módulos necesarios para acceder a las controladoras."}, {"num": 3, "icon": "hard-drive", "title": "3. Monta /etc/fstab", "desc": "Monta los sistemas de archivos reales configurados en /etc/fstab."}, {"num": 4, "icon": "power", "title": "4. Ejecuta init", "desc": "Ejecuta el programa init y elimina el initramfs de la memoria RAM."}], "callout": {"type": "info", "title": "Liberación de Recursos", "text": "Una vez que se carga el programa init, initramfs se elimina completamente de la memoria RAM."}, "notes": "Destacar la importancia del archivo /etc/fstab en esta fase para montar todas las particiones del sistema."}, {"id": 28, "section": "101.2", "cat": "boot", "type": "concept", "title": "El proceso init: Primer proceso en RAM", "lead": "El ancestro directo de todos los programas del espacio de usuario:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["101.2-CON-014"], "points": [{"icon": "power", "text": "Primer programa ejecutado tras montar raíz", "detail": "El kernel lanza /sbin/init o el enlace a systemd asignándole PID 1."}, {"icon": "server", "text": "Responsable de iniciar scripts y demonios", "detail": "Pone en marcha los servicios necesarios según el nivel de ejecución."}, {"icon": "layers", "text": "Diferentes implementaciones a lo largo del tiempo", "detail": "SysVinit tradicional, Upstart en versiones previas y systemd moderno."}, {"icon": "shield-check", "text": "Proceso inmortal del sistema operativo", "detail": "Si el proceso con PID 1 termina, el kernel entra en Kernel Panic."}], "remember": "init siempre tiene el Process ID (PID) número 1.", "notes": "Comprobar con 'ps -p 1' en clase para ver qué binario es PID 1."}, {"id": 29, "section": "101.2", "cat": "boot", "type": "concept", "title": "Gestor de servicios clásico: SysVinit", "lead": "El modelo de niveles de ejecución numerados de Unix System V:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["101.2-CON-015", "101.2-PKG-001"], "points": [{"icon": "list-checks", "text": "Concepto de runlevels numerados del 0 al 6", "detail": "Define qué demonios y recursos de hardware estarán disponibles."}, {"icon": "power-off", "text": "Nivel de ejecución 0 de apagado", "detail": "Detiene todos los servicios y corta la energía (Halt / Poweroff)."}, {"icon": "user", "text": "Nivel de ejecución 1 monousuario de rescate", "detail": "Modo single user sin red para tareas administrativas críticas."}, {"icon": "rotate-cw", "text": "Nivel de ejecución 6 de reinicio", "detail": "Reinicia el sistema cerrando ordenadamente todos los procesos."}], "remember": "Los únicos runlevels compartidos en todas las distribuciones son 0, 1 y 6.", "notes": "Los niveles 2 al 5 varían: en Red Hat el 3 es consola y el 5 gráfico; en Debian del 2 al 5 son idénticos multiusuario."}, {"id": 30, "section": "101.2", "cat": "boot", "type": "concept", "title": "Gestor moderno de sistemas: systemd", "lead": "La solución integral adoptada por las principales distribuciones:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["101.2-CON-016", "101.2-PKG-002"], "points": [{"icon": "zap", "text": "Estructura concurrente de alto rendimiento", "detail": "Paraleliza la inicialización de demonios reduciendo tiempos."}, {"icon": "plug", "text": "Activación por sockets y bus D-Bus", "detail": "Inicia los servicios bajo demanda tan pronto como reciben tráfico."}, {"icon": "circuit-board", "text": "Supervisión de procesos mediante cgroups", "detail": "Control estricto de recursos y aislamiento evitando demonios huérfanos."}, {"icon": "layers", "text": "Capa de compatibilidad con SysV", "detail": "Admite scripts tradicionales y compatibilidad con niveles 0 a 6."}], "remember": "systemd es hoy el administrador predeterminado en Linux.", "notes": "Detallar que systemd sustituye tanto a init como al sistema de logs tradicional con journald."}, {"id": 31, "section": "101.2", "cat": "boot", "type": "concept", "title": "Gestor de inicio por eventos: Upstart", "lead": "El paso intermedio entre SysVinit clásico y el actual systemd:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["101.2-CON-017", "101.2-PKG-003"], "points": [{"icon": "activity", "text": "Sustituto de init orientado a eventos", "detail": "Diseñado por Canonical para paralelizar el arranque del sistema."}, {"icon": "zap", "text": "Respuesta reactiva ante hardware dinámico", "detail": "Los servicios arrancan al detectarse eventos de disco o red."}, {"icon": "book-open", "text": "Utilizado históricamente en versiones de Ubuntu", "detail": "Dominó las versiones de Ubuntu previas a la adopción de systemd."}, {"icon": "rotate-cw", "text": "Transición completada hacia systemd", "detail": "Hoy en día ha cedido el testigo totalmente a systemd en el mercado."}], "remember": "Upstart aceleraba el arranque paralelizando tareas por eventos.", "notes": "Figura en el temario oficial de LPIC-1 para comprender la evolución histórica del arranque."}, {"id": 32, "section": "101.2", "cat": "boot", "type": "concept", "title": "Inspección de arranque: Kernel Ring Buffer", "lead": "El búfer circular en memoria RAM dedicado a los mensajes del kernel:", "ref": "9", "pdf": {"manual": "A", "pages": [9], "figure": null}, "coverage": ["101.2-CON-018", "101.2-WARN-005"], "points": [{"icon": "memory-stick", "text": "Espacio de memoria circular en RAM", "detail": "Almacena los mensajes de diagnóstico emitidos por el núcleo."}, {"icon": "eye", "text": "Independiente de la animación de pantalla", "detail": "Conserva los mensajes aunque en monitor se muestre un splash."}, {"icon": "rotate-cw", "text": "Sobreescritura de mensajes más antiguos", "detail": "Al llenarse, los nuevos eventos reemplazan a los iniciales."}, {"icon": "power-off", "text": "Pérdida al apagar o con dmesg --clear", "detail": "El buffer se vacía al reiniciar o mediante limpieza explícita."}], "remember": "El ring buffer es volátil: se borra al apagar el equipo.", "notes": "Los alumnos deben saber que los mensajes de arranque no se pierden aunque el sistema inicie en modo gráfico."}, {"id": 33, "section": "101.2", "cat": "boot", "type": "command", "title": "dmesg muestra el buffer del kernel", "purpose": "Inspecciona los mensajes de inicialización y hardware del núcleo:", "name": "dmesg", "ref": "9, 10", "pdf": {"manual": "A", "pages": [9, 10], "figure": null}, "coverage": ["101.2-CMD-001", "101.2-CON-019"], "options": [{"flag": "--clear", "short": "Limpia y vacía el buffer", "example": "dmesg --clear"}, {"flag": "-H", "short": "Modo humano con paginación", "example": "dmesg -H"}, {"flag": "--human", "short": "Sintaxis larga de -H", "example": "dmesg --human"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "dmesg | head -n 4"}, {"t": "out", "v": "[    5.262389] EXT4-fs (sda1): mounted filesystem with ordered data mode."}, {"t": "out", "v": "[    5.449712] ip_tables: (C) 2000-2006 Netfilter Core Team"}, {"t": "out", "v": "[    5.460286] systemd[1]: systemd 237 running in system mode."}]}, "trap": "Los números al inicio indican segundos desde el inicio de la carga del núcleo.", "notes": "Enseñar a interpretar los números entre corchetes: 5.262389 = 5,26 segundos tras encender el kernel."}, {"id": 34, "section": "101.2", "cat": "boot", "type": "concept", "title": "Opciones de dmesg: Limpieza y modo humano", "lead": "Gestión del buffer y visualización ágil de registros extensos:", "ref": "9, 16", "pdf": {"manual": "A", "pages": [9, 16], "figure": null}, "coverage": ["101.2-OPT-001", "101.2-OPT-002", "101.2-OPT-003"], "points": [{"icon": "refresh-cw", "text": "dmesg --clear para vaciar el buffer", "detail": "Elimina los mensajes actuales del ring buffer (requiere root)."}, {"icon": "eye", "text": "dmesg -H activa el formato humano", "detail": "Convierte timestamps a fechas relativas y colorea la consola."}, {"icon": "scroll-text", "text": "Paginación automática integrada en -H", "detail": "dmesg --human pagina la salida sin necesitar tubería con less."}, {"icon": "wrench", "text": "Diagnóstico de nuevos eventos de hardware", "detail": "Limpiar antes de conectar un dispositivo permite ver solo sus logs."}], "remember": "dmesg -H (o --human) incluye paginación automática.", "notes": "Responde directamente al ejercicio exploratorio 3 del manual oficial."}, {"id": 35, "section": "101.2", "cat": "boot", "type": "concept", "title": "El servicio de registros: systemd-journald", "lead": "Captura y almacenamiento indexado de eventos del sistema:", "ref": "9, 11", "pdf": {"manual": "A", "pages": [9, 11], "figure": null}, "coverage": ["101.2-PKG-004"], "points": [{"icon": "database", "text": "Captura unificada de kernel y servicios", "detail": "systemd-journald centraliza logs de syslog, kernel y stdout."}, {"icon": "circuit-board", "text": "Almacenamiento en formato binario estructurado", "detail": "Indexado para consultas rápidas por fecha, servicio o usuario."}, {"icon": "search", "text": "Lectura obligatoria mediante journalctl", "detail": "No son archivos de texto plano; se leen con su visor oficial."}, {"icon": "layers", "text": "Volcado desde memoria RAM a disco", "detail": "Guarda en /run/log/ y vuelca a /var/log/ de forma persistente."}], "remember": "systemd-journald gestiona el diario unificado de eventos.", "notes": "journald reemplaza la dispersión de logs de los antiguos demonios syslogd."}, {"id": 36, "section": "101.2", "cat": "boot", "type": "command", "title": "journalctl consulta eventos de arranque", "purpose": "Inspecciona los registros del sistema operativo y del kernel:", "name": "journalctl", "ref": "10", "pdf": {"manual": "A", "pages": [10], "figure": null}, "coverage": ["101.2-CMD-002", "101.2-OPT-004", "101.2-OPT-005", "101.2-OPT-006", "101.2-OPT-007"], "options": [{"flag": "-b", "short": "Filtra por sesión de arranque", "example": "journalctl -b"}, {"flag": "--boot", "short": "Forma larga de -b", "example": "journalctl --boot"}, {"flag": "-k", "short": "Muestra solo mensajes del kernel", "example": "journalctl -k"}, {"flag": "--dmesg", "short": "Forma larga de -k", "example": "journalctl --dmesg"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "journalctl -b -k | head -n 3"}, {"t": "out", "v": "oct 04 00:31:01 ubuntu-host kernel: EXT4-fs (sda1): mounted filesystem with ordered data mode."}, {"t": "out", "v": "oct 04 00:31:01 ubuntu-host kernel: ip_tables: (C) 2000-2006 Netfilter Core Team"}, {"t": "out", "v": "oct 04 00:31:01 ubuntu-host kernel: lp: driver loaded but no devices found"}]}, "trap": "journalctl -k es el equivalente moderno de dmesg en entornos systemd.", "notes": "Combinar -b con -k muestra exactamente el arranque del kernel de la sesión actual."}, {"id": 37, "section": "101.2", "cat": "boot", "type": "command", "title": "journalctl --list-boots lista los arranques", "purpose": "Muestra el catálogo histórico de todas las sesiones de arranque registradas:", "name": "journalctl", "ref": "10", "pdf": {"manual": "A", "pages": [10], "figure": null}, "coverage": ["101.2-OPT-008", "101.2-CON-020"], "options": [{"flag": "--list-boots", "short": "Lista índices, UUIDs y marcas de tiempo", "example": "journalctl --list-boots"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "journalctl --list-boots"}, {"t": "out", "v": "-2 17672d8851694e6c9bb102df7355452c Thu 2019-10-03 14:56:57 -03—Thu 2019-10-03 19:27:16 -03"}, {"t": "out", "v": "-1 55c0d9439bfb4e85a20a62776d0dbb4d Thu 2019-10-03 19:27:53 -03—Fri 2019-10-04 00:28:47 -03"}, {"t": "out", "v": " 0 08fbbebd9f964a74b8a02bb27b200622 Fri 2019-10-04 00:31:01 -03—Fri 2019-10-04 10:17:01 -03"}]}, "trap": "El índice 0 siempre representa el arranque actual en curso.", "notes": "Explicar las 4 columnas: índice numérico relativo, identificador hash de 32 hex, fecha inicial y fecha final."}, {"id": 38, "section": "101.2", "cat": "boot", "type": "concept", "title": "Navegación de arranques con journalctl -b", "lead": "Filtrado de eventos por número de sesión relativo:", "ref": "10", "pdf": {"manual": "A", "pages": [10], "figure": null}, "coverage": ["101.2-OPT-009", "101.2-OPT-010", "101.2-OPT-011"], "points": [{"icon": "play", "text": "journalctl -b 0 / --boot=0 actual", "detail": "Muestra los registros pertenecientes a la sesión en ejecución."}, {"icon": "rotate-cw", "text": "journalctl -b -1 / --boot=-1 previo", "detail": "Muestra los registros de la sesión inmediatamente anterior."}, {"icon": "clock", "text": "journalctl -b -2 / --boot=-2 antepenúltimo", "detail": "Retrocede dos arranques en el historial de sesiones."}, {"icon": "search", "text": "Diagnóstico de fallos tras reinicios inesperados", "detail": "Permite averiguar qué provocó la caída del servidor antes de reiniciar."}], "remember": "Índice negativo = arranques pasados (-1 anterior, -2 previo).", "notes": "Pregunta de examen 100% fija: ¿Qué opción inspecciona el arranque previo? journalctl -b -1."}, {"id": 39, "section": "101.2", "cat": "boot", "type": "file", "title": "Almacenamiento de logs: Volátil y persistente", "path": "/var/log/journal/", "contains": "Archivos binarios indexados de eventos del sistema", "ref": "11", "pdf": {"manual": "A", "pages": [11], "figure": null}, "coverage": ["101.2-FILE-006", "101.2-FILE-007", "101.2-FILE-008", "101.2-CON-021"], "writtenBy": "systemd-journald", "readBy": ["journalctl"], "sample": {"lines": ["/run/log/journal/abb765408f3741ae9519ab3b96063a15  (Memoria volátil en RAM)", "/var/log/journal/abb765408f3741ae9519ab3b96063a15  (Almacenamiento persistente)", "/var/log/                                           (Directorio estándar de logs)"]}, "notes": "Si /var/log/journal/ existe en disco, journald guarda los logs permanentemente entre reinicios."}, {"id": 40, "section": "101.2", "cat": "boot", "type": "command", "title": "journalctl -D analiza logs externos", "purpose": "Inspecciona registros de un disco dañado montado en un directorio alternativo:", "name": "journalctl", "ref": "11, 16", "pdf": {"manual": "A", "pages": [11, 16], "figure": null}, "coverage": ["101.2-OPT-012", "101.2-OPT-013", "101.2-FILE-010"], "options": [{"flag": "-D", "short": "Directorio personalizado de journal", "example": "journalctl -D /mnt/hd/var/log/journal"}, {"flag": "--directory", "short": "Sintaxis larga equivalente", "example": "journalctl --directory=/mnt/hd/var/log/journal"}], "terminal": {"prompt": "#", "lines": [{"t": "cmd", "v": "journalctl -D /mnt/hd/var/log/journal | head -n 3"}, {"t": "out", "v": "oct 03 14:56:57 servidor kernel: Linux version 5.4.0 ..."}, {"t": "out", "v": "oct 03 14:56:57 servidor systemd[1]: Starting System Initialization..."}, {"t": "out", "v": "oct 03 14:57:02 servidor kernel: Kernel panic - not syncing: VFS..."}]}, "trap": "journalctl -D lee diarios binarios de otros discos sin necesidad de arrancarlos.", "notes": "Coincide palabra por palabra con el ejercicio exploratorio 4 del manual oficial."}, {"id": 41, "section": "101.2", "cat": "boot", "type": "concept", "title": "Aviso oficial y errata del manual LPI", "lead": "Aclaración técnica sobre el formato de los archivos de journald:", "ref": "11", "pdf": {"manual": "A", "pages": [11], "figure": null}, "coverage": ["101.2-ERR-001"], "errata": ["E-003"], "points": [{"icon": "triangle-alert", "text": "Texto oficial incorrecto en pág. 11", "detail": "El manual dice: 'se almacenan en texto sin formato, se requiere journalctl'."}, {"icon": "circuit-board", "text": "Realidad técnica del formato binario", "detail": "Los logs son binarios indexados; por eso se requiere journalctl."}, {"icon": "ban", "text": "Inviabilidad de cat y visores simples", "detail": "Un archivo de journald no puede leerse directamente con cat o less."}, {"icon": "circle-check", "text": "Enfoque para el examen LPIC-1", "detail": "Recuerda siempre que el journal es binario y estructurado."}], "remember": "Los archivos de systemd-journald son binarios e indexados.", "notes": "Gran valor didáctico: explicar al alumno que la frase del manual es una errata de traducción para no confundir preguntas de examen."}, {"id": 42, "section": "101.2", "cat": "boot", "type": "exercise", "title": "Ejercicios guiados: Binario BIOS y ESP", "lead": "Ubicación del binario de arranque en BIOS y aplicaciones EFI:", "ref": "12, 15", "pdf": {"manual": "A", "pages": [12, 15], "figure": null}, "coverage": ["101.2-EX-001", "101.2-EX-002"], "steps": [{"do": "1. ¿Dónde se encuentra el binario de arranque en una máquina con BIOS?", "look": "En el MBR del primer dispositivo de almacenamiento (primeros 440 bytes)."}, {"do": "2. ¿En qué parte del sistema se ubicarían las aplicaciones EFI en UEFI?", "look": "En la partición del sistema EFI (ESP) con sistema compatible (FAT32)."}], "solution": {"explain": "1. En el MBR del primer dispositivo de almacenamiento definido en el orden de arranque de BIOS. 2. En la partición del sistema EFI (ESP), ubicada en un dispositivo de bloque con sistema de archivos compatible (típicamente FAT32)."}, "notes": "Hacer que los alumnos respondan mentalmente antes de pulsar en Mostrar Solución."}, {"id": 43, "section": "101.2", "cat": "boot", "type": "exercise", "title": "Ejercicios guiados: Parámetro root y error", "lead": "Especificación de partición raíz y diagnóstico de errores en arranque:", "ref": "12, 15", "pdf": {"manual": "A", "pages": [12, 15], "figure": null}, "coverage": ["101.2-EX-003", "101.2-EX-004"], "steps": [{"do": "3. ¿Cómo se le daría al kernel la raíz correcta en /dev/sda3?", "look": "Mediante el parámetro root=/dev/sda3 en la línea de arranque."}, {"do": "4. El arranque termina con ALERT! /dev/sda3 does not exist. ¿Causa?", "look": "El núcleo no pudo encontrar el dispositivo especificado como raíz."}], "solution": {"explain": "3. Se pasa el parámetro 'root=/dev/sda3' en la línea de comandos del kernel en GRUB. 4. La causa es que el núcleo no pudo encontrar el dispositivo /dev/sda3 configurado como raíz (disco desconectado, UUID erróneo o falta del módulo en initramfs)."}, "notes": "Escenario típico tras sustituir un disco duro o clonar una instalación sin actualizar GRUB."}, {"id": 44, "section": "101.2", "cat": "boot", "type": "challenge", "title": "Retos: Sobreescritura en UEFI e initramfs", "scenario": "Casos prácticos de particionado multissistema y compilación de kernels:", "ref": "13, 16", "pdf": {"manual": "A", "pages": [13, 16], "figure": null}, "coverage": ["101.2-EX-005", "101.2-EX-006"], "question": "1. ¿Por qué un nuevo SO no sobreescribe el gestor de arranque en máquinas UEFI como pasa en MBR?\n2. ¿Cuál es una consecuencia común de instalar un kernel personalizado sin initramfs adecuado?", "hint": "Compara la unicidad del sector MBR con el almacenamiento de archivos independientes en la partición ESP.", "solution": {"explain": "1. Las máquinas UEFI no usan el MBR del disco duro para almacenar la primera etapa; cada sistema operativo añade su propio archivo .efi en la partición ESP y su entrada en NVRAM sin destruir las anteriores. 2. El sistema de archivos raíz puede ser inaccesible si los controladores necesarios para el disco fueron compilados como módulos externos."}, "notes": "Preguntas excelentes para evaluar si el alumno comprende el valor de UEFI y de initramfs."}, {"id": 45, "section": "101.2", "cat": "boot", "type": "challenge", "title": "Retos: Paginación en dmesg y logs externos", "scenario": "Comandos avanzados de auditoría y análisis forense de arranque:", "ref": "13, 16", "pdf": {"manual": "A", "pages": [13, 16], "figure": null}, "coverage": ["101.2-EX-007", "101.2-EX-008"], "question": "3. ¿Qué opción de dmesg paginará automáticamente su salida sin necesidad de usar tubería con less?\n4. Con un disco montado en /mnt/hd, ¿cómo se usa journalctl para inspeccionar /mnt/hd/var/log/journal/?", "hint": "Revisa las opciones de formato humano de dmesg y la opción de directorio de journalctl.", "solution": {"explain": "3. Los comandos dmesg -H o dmesg --human habilitan el paginador por defecto. 4. Mediante los comandos journalctl -D /mnt/hd/var/log/journal o journalctl --directory=/mnt/hd/var/log/journal."}, "notes": "Ambas opciones (-H y -D) son preguntas muy habituales de examen LPIC-1."}, {"id": 46, "section": "101.2", "cat": "boot", "type": "summary", "title": "Cheat Sheet: Arranque del sistema (101.2)", "ref": "14", "pdf": {"manual": "A", "pages": [14], "figure": null}, "coverage": ["101.2-CON-001", "101.2-CMD-001", "101.2-CMD-002"], "items": [{"icon": "zap", "text": "<strong>dmesg:</strong> Muestra buffer del kernel; -H activa modo humano paginado; --clear vacía el buffer."}, {"icon": "database", "text": "<strong>journalctl:</strong> -b (arranque actual), -b -1 (previo), --list-boots (historial), -k (kernel), -D (offline)."}, {"icon": "terminal", "text": "<strong>Parámetros kernel:</strong> root=/dev/sda3, acpi=off, init=/bin/bash, systemd.unit=..., mem=512M, maxcpus=2, quiet, ro, rw."}, {"icon": "folder", "text": "<strong>Archivos clave:</strong> /etc/default/grub (fuente), /boot/grub/grub.cfg (salida), /proc/cmdline (parámetros vivos)."}], "top3": ["dmesg -H", "journalctl -b -1", "grub-mkconfig -o /boot/grub/grub.cfg"], "notes": "Resumen ideal para proyectar como cierre antes de las flashcards de repaso."}, {"id": 47, "section": "101.2", "cat": "boot", "type": "flashcards", "title": "Tarjetas de memorización: Arranque 101.2", "ref": "14", "pdf": {"manual": "A", "pages": [14], "figure": null}, "coverage": ["101.2-OBJ-001"], "deck": [{"front": "¿Dónde reside la 1ª etapa de arranque en BIOS?", "back": "En los primeros 440 bytes del MBR (Master Boot Record) del disco."}, {"front": "¿Dónde residen las aplicaciones EFI en UEFI?", "back": "En la partición ESP (EFI System Partition), usualmente formateada en FAT32."}, {"front": "¿Qué tecla revela el menú de GRUB en BIOS y UEFI?", "back": "Tecla Shift en sistemas BIOS; tecla Esc en sistemas UEFI."}, {"front": "init=/bin/bash", "back": "Parámetro que inicia directamente una shell de root en rescate sin cargar demonios."}, {"front": "maxcpus=0", "back": "Parámetro que desactiva multiprocesador; equivale exactamente a nosmp."}, {"front": "journalctl -b -1", "back": "Muestra los registros de arranque del reinicio anterior al actual."}, {"front": "dmesg -H", "back": "Formato humano legible con paginación automática integrada tipo less."}, {"front": "/proc/cmdline", "back": "Archivo virtual en RAM que expone los parámetros con los que arrancó el kernel actual."}, {"front": "grub-mkconfig -o /boot/grub/grub.cfg", "back": "Compila y actualiza el archivo de configuración de GRUB tras editar /etc/default/grub."}, {"front": "journalctl -D <dir>", "back": "Lee archivos de registro journal ubicados en un directorio o disco externo montado."}], "notes": "Pide a los alumnos que adivinen mentalmente el reverso de cada tarjeta antes de pulsar para voltearla."}];
+    const ERRATAS = [{"id": "E-003", "pdf": "pág. 11 (impresa 29)", "original": "se almacenan en texto sin formato, se requiere el comando journalctl para leerlos", "correct": "se almacenan en formato binario estructurado e indexado", "kind": "técnica / traducción", "note": "El manual oficial afirma erróneamente que los mensajes de journald son texto sin formato. En realidad son binarios indexados; por eso no se pueden ver con cat y se requiere journalctl."}];
+    const GLOSARIO = [{"id": "BIOS", "term": "BIOS", "def": "Basic Input/Output System: firmware clásico de placas x86 que ejecuta el POST y lee el primer sector MBR.", "ref": "p. 4", "see": ["UEFI", "MBR"]}, {"id": "UEFI", "term": "UEFI", "def": "Unified Extensible Firmware Interface: sucesor de BIOS capaz de leer sistemas de archivos y ejecutar aplicaciones EFI.", "ref": "p. 4", "see": ["BIOS", "ESP"]}, {"id": "MBR", "term": "MBR", "def": "Master Boot Record: sector de 512 bytes al inicio del disco con 440 bytes de bootstrap y tabla de particiones DOS.", "ref": "p. 4", "see": ["BIOS"]}, {"id": "ESP", "term": "ESP", "def": "EFI System Partition: partición formateada en FAT32 que almacena aplicaciones EFI y gestores de arranque.", "ref": "p. 5", "see": ["UEFI"]}, {"id": "GRUB", "term": "GRUB", "def": "Grand Unified Bootloader: gestor de arranque estándar de Linux que presenta menús y carga el kernel.", "ref": "p. 5", "see": ["kernel"]}, {"id": "initramfs", "term": "initramfs", "def": "Initial RAM filesystem: sistema raíz temporal cargado en memoria que suministra drivers para montar la raíz definitiva.", "ref": "p. 8", "see": ["init", "fstab"]}, {"id": "systemd", "term": "systemd", "def": "Administrador moderno de sistemas y servicios en Linux con arranque concurrente, cgroups y sockets.", "ref": "p. 8", "see": ["SysVinit", "journald"]}, {"id": "dmesg", "term": "dmesg", "def": "Comando para consultar y controlar los mensajes del kernel almacenados en el ring buffer circular en RAM.", "ref": "p. 9", "see": ["journalctl"]}, {"id": "journalctl", "term": "journalctl", "def": "Herramienta de consulta del diario binario indexado generado por el servicio systemd-journald.", "ref": "p. 10", "see": ["systemd-journald", "dmesg"]}];
+    const META = {"course": "LPIC-1 v5.0", "topic": "101.2", "title": "Arranque del sistema", "weight": 3, "pages": "1–17", "icons": "Lucide 0.468.0 (ISC)"};
+
+    /* -------------------------------------------------------------
+       MOTOR DE RENDERIZADO Y NAVEGACIÓN (Pure JS)
+       ------------------------------------------------------------- */
+    let currentSlideIdx = 0;
+    let currentFragStep = 0;
+    let maxFragStep = 0;
+    let teacherNotesOpen = false;
+
+    const stage = document.getElementById('stage');
+    const viewport = document.getElementById('stage-viewport');
+
+    function resizeStage() {
+      const topBarHeight = 52;
+      const notesWidth = teacherNotesOpen ? 420 : 0;
+      const availW = window.innerWidth - notesWidth;
+      const availH = window.innerHeight - topBarHeight;
+      const scale = Math.min((availW - 40) / 1920, (availH - 40) / 1080);
+      stage.style.transform = `scale(${Math.max(scale, 0.25)})`;
+    }
+    window.addEventListener('resize', resizeStage);
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Comando copiado al portapapeles");
+      }).catch(() => {
+        showToast("Copiado: " + text);
+      });
+    }
+
+    function getCatColors(cat) {
+      const map = {
+        'hardware': { accent: '#0F766E', soft: '#CCFBF1', ink: '#0F766E' },
+        'boot': { accent: '#4338CA', soft: '#E0E7FF', ink: '#3730A3' },
+        'services': { accent: '#6D28D9', soft: '#EDE9FE', ink: '#6D28D9' },
+        'network': { accent: '#0E7490', soft: '#CFFAFE', ink: '#155E75' },
+        'files': { accent: '#4D7C0F', soft: '#ECFCCB', ink: '#3F6212' },
+        'kernel': { accent: '#BE185D', soft: '#FCE7F3', ink: '#BE185D' },
+        'neutral': { accent: '#2563EB', soft: '#DBEAFE', ink: '#1D4ED8' }
+      };
+      return map[cat] || map['neutral'];
+    }
+
+    function renderSlide(idx) {
+      if (idx < 0 || idx >= SLIDES.length) return;
+      currentSlideIdx = idx;
+      window.location.hash = `#/${idx + 1}`;
+      closePopovers();
+
+      const s = SLIDES[idx];
+      const colors = getCatColors(s.cat || 'neutral');
+      stage.style.setProperty('--cat-accent', colors.accent);
+      stage.style.setProperty('--cat-soft', colors.soft);
+      stage.style.setProperty('--cat-ink', colors.ink);
+
+      // Metadatos de cabecera
+      const chip = document.getElementById('chip-section');
+      chip.textContent = s.section || (typeof META !== 'undefined' && META.topic) || '101.1';
+      chip.style.background = colors.soft;
+      chip.style.color = colors.ink;
+
+      document.getElementById('header-topic-name').textContent = (typeof META !== 'undefined' && META.title) ? META.title : '';
+      document.getElementById('badge-ref').textContent = s.ref ? `PDF p. ${s.ref}` : '';
+      const weightVal = (typeof META !== 'undefined' && META && META.weight) ? META.weight : (s.weight || (s.meta && s.meta.peso) || '');
+      document.getElementById('badge-weight').textContent = weightVal ? `Peso LPI: ${weightVal}` : '';
+
+      // Contador y progreso
+      document.getElementById('slide-counter').textContent = `${idx + 1} / ${SLIDES.length}`;
+      const pct = ((idx + 1) / SLIDES.length) * 100;
+      document.getElementById('progress-fill').style.width = `${pct}%`;
+
+      // Erratas chip
+      const errBtn = document.getElementById('btn-erratas-chip');
+      if (s.errata && s.errata.length > 0) {
+        errBtn.style.display = 'inline-flex';
+      } else {
+        errBtn.style.display = 'none';
+      }
+
+      // Renderizado del cuerpo según el tipo
+      const container = document.getElementById('slide-content');
+      container.innerHTML = buildSlideHTML(s, colors);
+
+      // Actualizar fragmentos
+      const frags = container.querySelectorAll('.frag');
+      maxFragStep = 0;
+      frags.forEach(el => {
+        const step = parseInt(el.getAttribute('data-step') || '1', 10);
+        if (step > maxFragStep) maxFragStep = step;
+      });
+      currentFragStep = 0;
+
+      // Actualizar panel docente
+      updateTeacherNotes(s);
+    }
+
+    function escapeHTML(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function renderRichText(str) {
+      if (str === null || str === undefined) return '';
+      let s = String(str);
+      // Markdown bold **text** -> <strong>text</strong>
+      s = s.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      // Markdown inline code `cmd` -> <code class="t-cmd">$1</code>
+      s = s.replace(/`([^`]+)`/g, '<code class="t-cmd">$1</code>');
+      
+      // If s contains safe HTML markup (strong, b, em, code, span, br)
+      if (/<[a-z/][\s\S]*>/i.test(s)) {
+        // Neutralize unsafe tags
+        s = s.replace(/<\/?(script|iframe|object|embed)[^>]*>/gi, '');
+        s = s.replace(/\son\w+="[^"]*"/gi, '');
+        s = s.replace(/\son\w+='[^']*'/gi, '');
+        return s;
+      }
+      return escapeHTML(s);
+    }
+
+    function escapeQuotes(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'")
+        .replace(/"/g, '&quot;')
+        .replace(/\r?\n/g, ' ');
+    }
+
+    function renderTerminalBox(term, title) {
+      if (!term) return '';
+      const termTitle = title || term.title || term.name || 'bash';
+      let lines = [];
+      let cmdToCopy = '';
+
+      if (term.lines && Array.isArray(term.lines)) {
+        lines = term.lines;
+        cmdToCopy = lines.find(l => l.t === 'cmd')?.v || termTitle;
+      } else if (term.command) {
+        cmdToCopy = term.command;
+        const prompt = term.prompt || '$ ';
+        lines.push({ t: 'cmd', v: term.command, prompt: prompt });
+        if (term.output) {
+          const outList = Array.isArray(term.output) ? term.output : String(term.output).split('\n');
+          outList.forEach(outLine => {
+            const trimmed = String(outLine).trim();
+            if (trimmed.startsWith('#')) {
+              lines.push({ t: 'cmt', v: outLine });
+            } else {
+              lines.push({ t: 'out', v: outLine });
+            }
+          });
+        }
+        if (term.comment) {
+          lines.push({ t: 'cmt', v: '# ' + term.comment });
+        }
+      } else if (typeof term === 'string') {
+        cmdToCopy = term;
+        lines.push({ t: 'cmd', v: term, prompt: '$ ' });
+      }
+
+      let h = `
+        <div class="term-wrapper">
+          <div class="term-header">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>
+              <span>${escapeHTML(termTitle)}</span>
+            </div>
+            <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmdToCopy)}')">
+              <svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar comando
+            </button>
+          </div>
+          <div class="term-code">`;
+      lines.forEach(l => {
+        if (l.t === 'cmd') {
+          const p = l.prompt || term.prompt || '$ ';
+          h += `<div><span class="t-prompt">${escapeHTML(p)} </span><span class="t-cmd">${escapeHTML(l.v)}</span></div>`;
+        } else if (l.t === 'hl') {
+          h += `<div><span class="t-hl">${escapeHTML(l.v)}</span></div>`;
+        } else if (l.t === 'err') {
+          h += `<div><span class="t-err">${escapeHTML(l.v)}</span></div>`;
+        } else if (l.t === 'cmt') {
+          h += `<div><span class="t-cmt">${escapeHTML(l.v)}</span></div>`;
+        } else {
+          h += `<div>${escapeHTML(l.v)}</div>`;
+        }
+      });
+      h += `</div></div>`;
+      return h;
+    }
+
+    function buildSlideHTML(s, colors) {
+      let html = '';
+      if (s.type === 'cover') {
+        html += `
+          <div style="text-align:center; max-width:1200px; margin:0 auto;">
+            <div style="width:110px; height:110px; margin:0 auto 24px; border-radius:28px; background:${colors.soft}; color:${colors.ink}; display:flex; align-items:center; justify-content:center;">
+              <svg class="ic ic-xl"><use href="#i-${s.icon || 'graduation-cap'}"/></svg>
+            </div>
+            <h1 style="font-size:72px; font-weight:800; line-height:1.15; margin-bottom:20px;">${escapeHTML(s.title)}</h1>
+            <p style="font-size:32px; color:var(--text-muted); margin-bottom:36px;">${escapeHTML(s.subtitle || '')}</p>
+            <div style="display:flex; justify-content:center; gap:20px; font-size:22px; font-weight:600;">
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Peso LPI: ${escapeHTML(s.meta?.peso || (typeof META !== 'undefined' && META.weight) || '')}</span>
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Páginas: ${escapeHTML(s.meta?.paginas || '')}</span>
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '45 min')}</span>
+            </div>
+          </div>
+        `;
+      } else if (s.type === 'concept') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.points && s.points.length > 0) {
+          html += `<div class="concept-grid">`;
+          s.points.forEach(p => {
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'check'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(p.text || p.title || '')}</div>
+                  ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
+                </div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+        if (s.console || s.terminal) {
+          html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
+        }
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'command') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const purpose = s.purpose || s.lead || s.desc || '';
+        if (purpose) html += `<div class="slide-lead">${renderRichText(purpose)}</div>`;
+        
+        // Barra de Sintaxis si existe
+        if (s.syntax) {
+          html += `
+            <div class="syntax-bar">
+              <span style="font-weight:700; color:var(--text-muted); font-size:19px;">Sintaxis:</span>
+              <code class="t-cmd" style="font-size:21px;">${escapeHTML(s.syntax)}</code>
+            </div>
+          `;
+        }
+
+        // Sintaxis y Chips de Opciones
+        if (s.options && s.options.length > 0) {
+          html += `<div class="options-row">`;
+          s.options.forEach(opt => {
+            const flag = opt.flag || opt.opt || opt.name || '';
+            const short = opt.short || opt.desc || opt.detail || '';
+            const detail = opt.detail || opt.desc || opt.description || '';
+            const example = opt.example || opt.sample || '';
+            html += `
+              <button class="opt-chip" onclick="showOptionDetail(event, '${escapeQuotes(flag)}', '${escapeQuotes(short)}', '${escapeQuotes(detail)}', '${escapeQuotes(example)}')">
+                ${flag ? `<span class="flag">${escapeHTML(flag)}</span>` : ''}
+                ${short && short !== flag ? `<span>${escapeHTML(short)}</span>` : ''}
+              </button>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        // Si tiene viñetas descriptivas
+        if (s.points && s.points.length > 0) {
+          html += `<div class="concept-grid">`;
+          s.points.forEach(p => {
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'check'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(p.text || p.title || '')}</div>
+                  ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
+                </div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        // Terminal con código
+        const termData = s.terminal || s.console;
+        if (termData) {
+          html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
+        if (s.remember || s.look) {
+          html += `
+            <div class="callout-box callout-remember">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.look)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'file') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const filePath = s.path || s.file || '';
+        const fileDesc = s.desc || s.contains || s.lead || s.purpose || '';
+        html += `<div class="slide-lead"><code class="t-path" style="font-size:28px; font-weight:700;">${escapeHTML(filePath)}</code>${fileDesc ? ` — ${renderRichText(fileDesc)}` : ''}</div>`;
+        
+        // Directivas de configuración si existen
+        if (s.directives && s.directives.length > 0) {
+          html += `<div class="directives-grid">`;
+          s.directives.forEach(d => {
+            html += `
+              <div class="directive-card">
+                <div class="directive-key">${escapeHTML(d.key || '')}</div>
+                <div class="directive-desc">${renderRichText(d.desc || d.detail || '')}</div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        // Muestra de sintaxis o archivo
+        if (s.sample || s.syntax) {
+          let lines = [];
+          if (s.sample && s.sample.lines) lines = s.sample.lines;
+          else if (typeof s.syntax === 'string') lines = s.syntax.split('\n');
+          else if (Array.isArray(s.syntax)) lines = s.syntax;
+          else if (typeof s.sample === 'string') lines = s.sample.split('\n');
+
+          html += `
+            <div class="term-wrapper" style="margin-top:12px;">
+              <div class="term-header">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
+                  <span>${escapeHTML(filePath || 'config')}</span>
+                </div>
+              </div>
+              <div class="term-code">`;
+          lines.forEach(line => {
+            html += `<div>${escapeHTML(line)}</div>`;
+          });
+          html += `</div></div>`;
+        }
+
+        // Consola o terminal complementario en slide file
+        const fileTerm = s.terminal || s.console;
+        if (fileTerm) {
+          html += renderTerminalBox(fileTerm, s.command || 'bash');
+        }
+
+        if (s.writtenBy || s.readBy) {
+          html += `<div style="font-size:22px; color:var(--text-muted); margin-top:16px;">
+            ${s.writtenBy ? `<span>Escrito por: <strong>${escapeHTML(s.writtenBy)}</strong></span> · ` : ''}
+            ${s.readBy ? `<span>Leído por: <strong>${escapeHTML(Array.isArray(s.readBy) ? s.readBy.join(', ') : s.readBy)}</strong></span>` : ''}
+          </div>`;
+        }
+      } else if (s.type === 'table') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const takeaway = s.takeaway || s.lead || s.desc || '';
+        if (takeaway) html += `<div class="slide-lead">${renderRichText(takeaway)}</div>`;
+        const headers = s.headers || s.table?.headers || [];
+        const rows = s.rows || s.table?.rows || [];
+        html += `<div class="table-container"><table class="slide-table"><thead><tr>`;
+        headers.forEach(h => html += `<th>${renderRichText(h)}</th>`);
+        html += `</tr></thead><tbody>`;
+        rows.forEach((row, ridx) => {
+          const isHl = s.highlight && s.highlight.row === (ridx + 1);
+          html += `<tr class="${isHl ? 'highlighted' : ''}">`;
+          (Array.isArray(row) ? row : []).forEach(cell => html += `<td>${renderRichText(cell)}</td>`);
+          html += `</tr>`;
+        });
+        html += `</tbody></table></div>`;
+      } else if (s.type === 'flow') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const steps = s.steps || s.nodes || s.diagram?.nodes || [];
+        if (steps.length > 0) {
+          html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
+          steps.forEach((st, idx) => {
+            const stitle = st.step || st.title || st.text || st.label || '';
+            const sdesc = st.desc || st.detail || st.sub || '';
+            html += `
+              <div class="concept-card" style="position:relative; display:flex; flex-direction:column; justify-content:space-between; border-left:6px solid var(--primary);">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+                  <span style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;">${st.num || idx + 1}</span>
+                  <div class="icon-box" style="margin:0;"><svg class="ic ic-md"><use href="#i-${st.icon || 'arrow-right'}"/></svg></div>
+                </div>
+                <div>
+                  <div style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
+                  <div style="font-size:18px; color:var(--text-muted); line-height:1.4;">${renderRichText(sdesc)}</div>
+                </div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+        if (s.callout) {
+          html += `
+            <div class="callout-box callout-${s.callout.type || 'info'}" style="margin-top:18px;">
+              <svg class="ic ic-md"><use href="#i-${s.callout.type === 'warning' ? 'triangle-alert' : (s.callout.type === 'danger' ? 'circle-x' : 'info')}"/></svg>
+              <span><strong>${escapeHTML(s.callout.title || 'Nota')}:</strong> ${renderRichText(s.callout.text || '')}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'exercise') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        
+        // Badge del manual oficial
+        const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        html += `
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
+              <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
+            </span>
+          </div>
+        `;
+
+        // Planteamiento del problema (Escenario claro)
+        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
+        html += `
+          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
+            <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
+            <div>${renderRichText(scenarioText)}</div>
+          </div>
+        `;
+
+        // Tareas / Pasos que deben resolver los alumnos (sin desvelar la respuesta)
+        const steps = s.steps || [];
+        const tasks = s.tasks || [];
+        if (steps.length > 0 || tasks.length > 0) {
+          html += `
+            <div style="margin-bottom:16px;">
+              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+          `;
+          if (steps.length > 0) {
+            steps.forEach((st, idx) => {
+              const doText = st.do || st.task || st.step || '';
+              html += `
+                <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
+                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span>${renderRichText(doText)}</span>
+                </div>
+              `;
+            });
+          } else {
+            tasks.forEach((t, idx) => {
+              html += `
+                <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
+                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span>${renderRichText(t)}</span>
+                </div>
+              `;
+            });
+          }
+          html += `</div></div>`;
+        }
+
+        // Botón docente interactivo para revelar resolución lineal y explicación
+        html += `
+          <div>
+            <button class="nav-btn primary btn-reveal-exercise" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+              <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar / Ocultar Resolución Guiada y Explicación
+            </button>
+            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+        `;
+
+        // Dentro del cuadro de resolución: pasos resueltos y comandos
+        if (steps.length > 0) {
+          html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
+          steps.forEach((st, idx) => {
+            const doText = st.do || st.task || st.step || '';
+            const lookText = st.look || st.cmd || st.code || '';
+            html += `
+              <div style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
+                <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
+                ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+              </div>
+            `;
+          });
+        }
+
+        // Explicación de la solución ("Por qué")
+        const solText = s.solution?.explain || s.solution?.text || (typeof s.solution === 'string' ? s.solution : '');
+        if (solText) {
+          html += `
+            <div style="margin-top:6px; line-height:1.45;">
+              <strong style="color:var(--success-ink);">Por qué se resuelve así (Explicación docente):</strong><br>
+              <div style="margin-top:4px;">${renderRichText(solText)}</div>
+            </div>
+          `;
+        }
+
+        if (s.solution?.terminal) {
+          html += `<div style="width:100%; margin-top:10px;">${renderTerminalBox(s.solution.terminal, 'solución')}</div>`;
+        }
+
+        html += `</div></div>`;
+      } else if (s.type === 'challenge') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        
+        // Badge del manual oficial
+        const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        html += `
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--warning-ink); background:var(--warning-soft); border-color:#FCD34D; font-size:19px;">
+              <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
+            </span>
+          </div>
+        `;
+
+        // Enunciado y Escenario del reto
+        const scenario = s.scenario || s.prompt || s.lead || '';
+        const question = s.question || s.task || '';
+        html += `
+          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
+            <div style="font-size:16px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
+            <div>${renderRichText(scenario)}</div>
+            ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border);">${renderRichText(question)}</div>` : ''}
+          </div>
+        `;
+
+        if (s.hint) {
+          html += `
+            <div class="callout-box callout-info" style="margin-bottom:16px;">
+              <svg class="ic ic-md"><use href="#i-help-circle"/></svg>
+              <span><strong>Pista para los alumnos:</strong> ${renderRichText(s.hint)}</span>
+            </div>
+          `;
+        }
+
+        // Botón docente interactivo
+        const solText = s.solution?.explain || s.solution?.text || (typeof s.solution === 'string' ? s.solution : '');
+        html += `
+          <div>
+            <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+              <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar Solución y Razonamiento Docente
+            </button>
+            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+              <div style="display:flex; align-items:flex-start; gap:12px;">
+                <svg class="ic ic-md" style="margin-top:2px; flex:none;"><use href="#i-circle-check"/></svg>
+                <div style="line-height:1.45;"><strong>Solución y Razonamiento:</strong><br><span style="margin-top:4px; display:inline-block;">${renderRichText(solText)}</span></div>
+              </div>
+              ${s.solution?.terminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(s.solution.terminal, 'solución')}</div>` : ''}
+            </div>
+          </div>
+        `;
+      } else if (s.type === 'review') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const qText = s.q || s.question || s.prompt || 'Pregunta de repaso:';
+        html += `<div style="font-size:32px; font-weight:700; margin-bottom:24px;">${renderRichText(qText)}</div>`;
+        html += `<div class="quiz-options">`;
+        const options = s.options || [];
+        options.forEach((opt, oidx) => {
+          html += `
+            <button class="quiz-btn" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
+              <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
+              <span>${renderRichText(opt)}</span>
+            </button>
+          `;
+        });
+        html += `</div>`;
+        html += `<div class="quiz-feedback" id="quiz-feedback-box"></div>`;
+      } else if (s.type === 'flashcards') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
+        const deck = s.deck || s.cards || [];
+        const firstFront = deck[0]?.front || deck[0]?.q || '';
+        const firstBack = deck[0]?.back || deck[0]?.a || '';
+        html += `
+          <div class="flashcard-stage" onclick="flipFlashcard(this)">
+            <div class="flashcard-inner" id="fc-inner">
+              <div class="flashcard-front">
+                <span class="ref-badge" style="margin-bottom:18px;">Anverso (Pregunta / Concepto)</span>
+                <div class="flashcard-title" id="fc-front-text">${renderRichText(firstFront)}</div>
+              </div>
+              <div class="flashcard-back">
+                <span class="ref-badge" style="margin-bottom:18px;">Reverso (Respuesta / Mnemotecnia)</span>
+                <div class="flashcard-desc" id="fc-back-text">${renderRichText(firstBack)}</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
+            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>Anterior</button>
+            <span id="fc-counter" style="font-size:22px; font-weight:700; align-self:center;">1 / ${deck.length}</span>
+            <button class="nav-btn" onclick="nextCard()">Siguiente<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
+          </div>
+        `;
+      } else if (s.type === 'summary') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        html += `<div class="concept-grid">`;
+        const items = s.items || s.points || s.cards || [];
+        items.forEach(item => {
+          const cardTitle = item.title || item.heading || item.key || (typeof item === 'string' ? item : item.text) || '';
+          const cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '') || '';
+          html += `
+            <div class="concept-card">
+              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${item.icon || 'circle-check'}"/></svg></div>
+              <div style="flex:1;">
+                <div class="card-text">${renderRichText(cardTitle)}</div>
+                ${cardDesc ? `<div class="card-detail">${renderRichText(cardDesc)}</div>` : ''}
+              </div>
+            </div>
+          `;
+        });
+        html += `</div>`;
+        const top3 = s.top3 || s.commands || [];
+        if (top3.length > 0) {
+          html += `
+            <div style="margin-top:20px; padding:16px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:12px; font-size:22px;">
+              <strong style="color:var(--primary-ink);">Los comandos clave que no puedes olvidar:</strong> <span style="font-family:monospace; font-weight:700;">${renderRichText(top3.join(' · '))}</span>
+            </div>
+          `;
+        }
+      } else {
+        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        const lead = s.lead || s.desc || '';
+        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+      }
+      return html;
+    }
+
+    function updateTeacherNotes(s) {
+      document.getElementById('panel-meta-info').innerHTML = `
+        <div><strong>Slide ID:</strong> ${s.id} (${s.type})</div>
+        <div><strong>Página PDF:</strong> ${s.ref || '-'}</div>
+        <div><strong>Cobertura:</strong> ${s.coverage ? s.coverage.join(', ') : '-'}</div>
+      `;
+      document.getElementById('panel-notes-content').innerHTML = `
+        <p>${s.notes || '<em>Sin notas adicionales del docente para esta diapositiva.</em>'}</p>
+      `;
+    }
+
+    function toggleTeacherNotes() {
+      teacherNotesOpen = !teacherNotesOpen;
+      document.getElementById('teacher-panel').classList.toggle('open', teacherNotesOpen);
+      resizeStage();
+    }
+
+    function nextStep() {
+      if (currentFragStep < maxFragStep) {
+        currentFragStep++;
+        const el = document.querySelector(`.frag[data-step="${currentFragStep}"]`);
+        if (el) el.classList.add('on');
+      } else {
+        if (currentSlideIdx < SLIDES.length - 1) {
+          renderSlide(currentSlideIdx + 1);
+        }
+      }
+    }
+
+    function prevStep() {
+      if (currentFragStep > 0) {
+        const el = document.querySelector(`.frag[data-step="${currentFragStep}"]`);
+        if (el) el.classList.remove('on');
+        currentFragStep--;
+      } else {
+        if (currentSlideIdx > 0) {
+          renderSlide(currentSlideIdx - 1);
+        }
+      }
+    }
+
+    // Navegación por teclado
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextStep();
+      } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevStep();
+      } else if (e.key === 'Home') {
+        renderSlide(0);
+      } else if (e.key === 'End') {
+        renderSlide(SLIDES.length - 1);
+      } else if (e.key === 'n' || e.key === 'N') {
+        toggleTeacherNotes();
+      } else if (e.key === 'o' || e.key === 'O') {
+        toggleOverview();
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullScreen();
+      } else if (e.key === '?' || e.key === 'h' || e.key === 'H') {
+        toggleHelp();
+      } else if (e.key === 'Escape') {
+        closeModals();
+        closePopovers();
+      }
+    });
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    function toggleHelp() {
+      document.getElementById('modal-help').classList.toggle('open');
+    }
+
+    function closeModals() {
+      document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+    }
+
+    function closePopovers() {
+      document.getElementById('global-popover').classList.remove('open');
+    }
+
+    function showOptionDetail(e, flag, short, detail, example) {
+      e.stopPropagation();
+      const popover = document.getElementById('global-popover');
+      let content = '';
+      if (flag) {
+        content += `<div style="font-weight:700; color:#1D4ED8; font-size:22px; margin-bottom:6px; font-family:monospace;">${escapeHTML(flag)}</div>`;
+      }
+      const descText = detail || short;
+      if (descText && descText !== flag) {
+        content += `<div style="margin-bottom:8px; font-size:20px; line-height:1.4;">${escapeHTML(descText)}</div>`;
+      }
+      if (example) {
+        content += `<div style="font-family:monospace; font-size:18px; background:var(--surface-alt); padding:6px 10px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
+      }
+      popover.innerHTML = content || '<div>Sin detalles adicionales</div>';
+      const rect = e.currentTarget.getBoundingClientRect();
+      popover.style.top = `${rect.bottom + 8}px`;
+      popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      popover.classList.add('open');
+    }
+    document.addEventListener('click', closePopovers);
+
+    function checkReviewAnswer(btn, chosen, correct, why) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.quiz-btn').forEach(b => b.disabled = true);
+      const isCorrect = chosen === correct;
+      btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.style.background = 'var(--success-soft)';
+        fb.style.color = 'var(--success-ink)';
+        fb.innerHTML = `<strong>✔ ¡Correcto!</strong> ${why}`;
+      } else {
+        fb.style.background = 'var(--danger-soft)';
+        fb.style.color = 'var(--danger-ink)';
+        fb.innerHTML = `<strong>✖ Incorrecto.</strong> ${why}`;
+      }
+    }
+
+    // Flashcard engine
+    let currentCardIdx = 0;
+    function flipFlashcard(el) {
+      el.querySelector('.flashcard-inner').classList.toggle('flipped');
+    }
+    function updateCardView() {
+      const s = SLIDES[currentSlideIdx];
+      const deck = s.deck || [];
+      const c = deck[currentCardIdx];
+      document.getElementById('fc-inner').classList.remove('flipped');
+      document.getElementById('fc-front-text').textContent = c?.front || '';
+      document.getElementById('fc-back-text').textContent = c?.back || '';
+      document.getElementById('fc-counter').textContent = `${currentCardIdx + 1} / ${deck.length}`;
+    }
+    function nextCard() {
+      const deck = SLIDES[currentSlideIdx].deck || [];
+      if (currentCardIdx < deck.length - 1) {
+        currentCardIdx++;
+        updateCardView();
+      }
+    }
+    function prevCard() {
+      if (currentCardIdx > 0) {
+        currentCardIdx--;
+        updateCardView();
+      }
+    }
+
+    function openErratasModal() {
+      const s = SLIDES[currentSlideIdx];
+      const errList = (s.errata || []).map(id => ERRATAS[id] || { id, note: 'Nota técnica oficial' });
+      let html = '';
+      errList.forEach(e => {
+        html += `
+          <div style="margin-bottom:16px; padding:16px; background:var(--warning-soft); border-radius:10px; color:var(--warning-ink); font-size:22px;">
+            <div><strong>Errata / Nota ${e.id || ''}:</strong> ${e.original ? `El texto original indicaba "<em>${e.original}</em>".` : ''}</div>
+            <div style="margin-top:6px;"><strong>Corrección técnica:</strong> ${e.correct || e.note || ''}</div>
+          </div>
+        `;
+      });
+      document.getElementById('modal-erratas-body').innerHTML = html;
+      document.getElementById('modal-erratas').classList.add('open');
+    }
+
+    function toggleOverview() {
+      const grid = document.getElementById('overview-grid');
+      grid.innerHTML = '';
+      SLIDES.forEach((s, i) => {
+        const item = document.createElement('div');
+        item.style.padding = '14px';
+        item.style.border = '2px solid var(--border)';
+        item.style.borderRadius = '10px';
+        item.style.background = i === currentSlideIdx ? 'var(--primary-soft)' : '#FFFFFF';
+        item.style.cursor = 'pointer';
+        item.innerHTML = `
+          <div style="font-weight:700; font-size:16px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
+          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2;">${s.title}</div>
+        `;
+        item.onclick = () => {
+          closeModals();
+          renderSlide(i);
+        };
+        grid.appendChild(item);
+      });
+      document.getElementById('modal-overview').classList.add('open');
+    }
+
+    // Inicializar slide inicial desde hash URL o 0
+    window.addEventListener('load', () => {
+      resizeStage();
+      let initSlide = 0;
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length) initSlide = num;
+        }
+      }
+      renderSlide(initSlide);
+    });
+  </script>
+</body>
+</html>
