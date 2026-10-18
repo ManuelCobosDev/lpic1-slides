@@ -152,6 +152,7 @@
       display: flex;
       overflow: hidden;
       background: var(--bg);
+      touch-action: pan-y pinch-zoom;
     }
     #stage-viewport {
       flex: 1;
@@ -162,6 +163,7 @@
       justify-content: center;
       overflow: hidden;
       transition: margin-right 0.25s ease;
+      touch-action: pan-y pinch-zoom;
     }
     #stage {
       width: 1920px;
@@ -176,6 +178,7 @@
       flex-direction: column;
       overflow: hidden;
       transform-origin: center center;
+      touch-action: pan-y pinch-zoom;
     }
 
     /* Cabecera interna del escenario */
@@ -815,8 +818,10 @@
         </div>
 
         <div class="stage-footer">
-          <div style="display:flex; align-items:center; gap:20px;">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg></button>
             <span id="slide-counter" style="font-weight:700;">1 / 1</span>
+            <button class="nav-btn" onclick="nextStep()" title="Siguiente (→ / Espacio)" aria-label="Siguiente slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
             <div class="progress-bar-container">
               <div class="progress-bar-fill" id="progress-fill"></div>
             </div>
@@ -870,6 +875,7 @@
         <div><kbd>F</kbd> : Pantalla completa</div>
         <div><kbd>Esc</kbd> : Cerrar popovers y modales</div>
         <div><kbd>?</kbd> : Esta ayuda</div>
+        <div><span style="font-weight:700;">👆 Deslizar (Swipe)</span> : Desplazar con el dedo (tablet / móvil)</div>
       </div>
       <div style="margin-top:32px; padding:18px 22px; background:var(--surface-alt); border-radius:12px; border:1px solid var(--border-strong); font-size:16px; line-height:1.5; color:var(--text-muted);">
         <p style="margin-bottom:6px;"><strong>Material didáctico no oficial</strong> basado en los <em>LPI Learning Materials</em> del <a href="https://learning.lpi.org" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Linux Professional Institute</a>.</p>
@@ -1615,6 +1621,103 @@
         closePopovers();
       }
     });
+
+    // Navegación táctil (Touch / Swipe para tablet y móvil)
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+    let touchIgnored = false;
+
+    const appContainer = document.getElementById('app-container');
+
+    if (appContainer) {
+      appContainer.addEventListener('touchstart', (e) => {
+        // Ignorar gestos multi-touch (como zoom con dos dedos)
+        if (e.touches.length !== 1) {
+          touchIgnored = true;
+          return;
+        }
+        touchIgnored = false;
+
+        // No navegar si hay un modal abierto (ayuda, erratas, vista general)
+        if (document.querySelector('.modal-overlay.open')) {
+          touchIgnored = true;
+          return;
+        }
+
+        // No navegar si se interactúa dentro del panel de notas del docente abierto
+        if (teacherNotesOpen && e.target.closest('#teacher-panel')) {
+          touchIgnored = true;
+          return;
+        }
+
+        // No interceptar toques en controles interactivos (botones, enlaces, quiz, chips, inputs)
+        if (e.target.closest('button, a, input, textarea, select, .quiz-btn, .opt-chip')) {
+          touchIgnored = true;
+          return;
+        }
+
+        // Respetar scroll horizontal en tablas anchas o bloques de código si lo tienen
+        const scrollableH = e.target.closest('.table-card, pre, .term-body');
+        if (scrollableH && scrollableH.scrollWidth > scrollableH.clientWidth + 15) {
+          touchIgnored = true;
+          return;
+        }
+
+        const touch = e.touches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+        touchStartTime = Date.now();
+      }, { passive: true });
+
+      appContainer.addEventListener('touchend', (e) => {
+        if (touchIgnored || e.changedTouches.length !== 1) return;
+
+        const touch = e.changedTouches[0];
+        const diffX = touch.clientX - touchStartX;
+        const diffY = touch.clientY - touchStartY;
+        const duration = Date.now() - touchStartTime;
+
+        // Gesto rápido (menos de 800 ms)
+        if (duration > 800) return;
+
+        // Desplazamiento horizontal predominante (mínimo 50px y 1.5 veces el vertical para no bloquear scroll vertical)
+        if (Math.abs(diffX) < 50 || Math.abs(diffX) < Math.abs(diffY) * 1.5) return;
+
+        // Si se desliza directamente sobre una flashcard, cambiar de tarjeta
+        const fcStage = e.target.closest('.flashcard-stage');
+        if (fcStage) {
+          const s = SLIDES[currentSlideIdx];
+          const deck = s?.deck || s?.cards || [];
+          if (diffX < 0) {
+            if (currentCardIdx < deck.length - 1) {
+              nextCard();
+            } else {
+              nextStep();
+            }
+          } else {
+            if (currentCardIdx > 0) {
+              prevCard();
+            } else {
+              prevStep();
+            }
+          }
+          return;
+        }
+
+        // Swipe izquierda (dedo hacia la izquierda) -> Siguiente paso / slide
+        // Swipe derecha (dedo hacia la derecha) -> Anterior paso / slide
+        if (diffX < 0) {
+          nextStep();
+        } else {
+          prevStep();
+        }
+      }, { passive: true });
+
+      appContainer.addEventListener('touchcancel', () => {
+        touchIgnored = true;
+      }, { passive: true });
+    }
 
     function toggleFullScreen() {
       if (!document.fullscreenElement) {
