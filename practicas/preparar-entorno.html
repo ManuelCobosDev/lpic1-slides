@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="Guía de preparación del entorno único Debian 12 de laboratorio y capturas para las prácticas de LPIC-1.">
-  <title>Preparación del Entorno Único — LPIC-1</title>
+  <meta name="description" content="Guía detallada de instalación de Debian 12, configuración del disco virtual VDI, menús de VirtualBox e instantáneas base para las prácticas de LPIC-1.">
+  <title>Guía de Instalación VDI y Entorno de Laboratorio — LPIC-1</title>
   <style>
     
 :root {
@@ -109,9 +109,166 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
   .card { box-shadow: none; border-color: #94A3B8; }
 }
 
-    .step-box { background: var(--surface); border: 2px solid var(--border-light); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
-    .step-box h2 { font-size: 22px; font-weight: 700; margin-bottom: 12px; display:flex; align-items:center; gap:10px; }
-    .step-num { background: var(--primary); color:#FFF; width: 32px; height: 32px; border-radius: 50%; display:inline-flex; align-items:center; justify-content:center; font-size: 16px; font-weight:700; }
+    .step-box {
+      background: var(--surface);
+      border: 2px solid var(--border-light);
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 6px rgba(15,23,42,0.03);
+    }
+    .step-box h2 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+    }
+    .step-num {
+      background: var(--primary);
+      color: #FFF;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .step-subhead {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .quick-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .quick-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .quick-pill:hover {
+      background: var(--primary-soft);
+      border-color: var(--primary);
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .param-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .param-card {
+      background: var(--surface-alt);
+      border: 1.5px solid var(--border-light);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .param-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .param-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .param-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .tasksel-preview {
+      background: #0F172A;
+      color: #E2E8F0;
+      border-radius: 10px;
+      padding: 18px 24px;
+      font-family: var(--font-mono);
+      font-size: 15px;
+      line-height: 1.8;
+      margin: 16px 0;
+    }
+    .tasksel-on {
+      color: #4ADE80;
+      font-weight: 700;
+    }
+    .tasksel-off {
+      color: #94A3B8;
+    }
+    .tasksel-rec {
+      background: rgba(74, 222, 128, 0.15);
+      border-left: 3px solid #4ADE80;
+      padding: 2px 8px;
+      border-radius: 0 4px 4px 0;
+    }
+    .vbox-menu-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 15px;
+    }
+    .vbox-menu-table th, .vbox-menu-table td {
+      padding: 12px 16px;
+      border: 1px solid var(--border-light);
+      text-align: left;
+    }
+    .vbox-menu-table th {
+      background: var(--surface-alt);
+      font-weight: 700;
+      color: var(--text);
+    }
+    .vbox-menu-table tr:hover td {
+      background: #F8FAFC;
+    }
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+    }
+    .check-icon-ok {
+      color: var(--success);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .check-icon-warn {
+      color: var(--warning);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
   </style>
 </head>
 <body>
@@ -141,116 +298,439 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 </svg>
 
   <div class="container">
-    <header style="margin-bottom: 24px; display:flex; justify-content:space-between; align-items:center;">
+    <header style="margin-bottom: 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <a href="index.html" style="display:inline-flex; align-items:center; gap:8px; font-weight:600; color:var(--text-muted);">
-        <svg class="ic"><use href="#i-arrow-left"/></svg> Volver al Portal de Prácticas
+        <svg class="ic"><use href="#i-arrow-left"/></svg> Volver al Catálogo de Prácticas
       </a>
-      <span class="badge badge-green">⏱ Setup único: ≤ 45 min</span>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <span class="badge badge-blue">VirtualBox 7.x</span>
+        <span class="badge badge-green">Debian 12 (Bookworm)</span>
+        <span class="badge badge-amber">Disco VDI: 20-25 GB</span>
+      </div>
     </header>
 
-    <div class="card" style="border-left: 6px solid var(--primary);">
-      <h1 style="font-size:32px; font-weight:800; margin-bottom:8px;">Preparación del Entorno Único de Laboratorio</h1>
-      <p style="font-size:18px; color:var(--text-muted);">
-        Configurarás <strong>una sola máquina virtual Debian 12 (bookworm)</strong> que servirá para realizar todas las prácticas de clase. No necesitarás instalar otros sistemas operativos ni hardware secundario.
+    <div class="card" style="border-left: 6px solid var(--primary); padding:32px 36px; margin-bottom:28px;">
+      <div class="badge badge-blue" style="margin-bottom:10px;">Metodología Aula Activa · LPIC-1 v5.0</div>
+      <h1 style="font-size:34px; font-weight:800; margin-bottom:10px; line-height:1.2;">Guía Maestra: Configuración de la VDI, Menús de VirtualBox e Instalación de Debian 12</h1>
+      <p style="font-size:17px; color:var(--text-muted); line-height:1.6; max-width:980px;">
+        Esta guía explica paso a paso cómo crear <strong>una sola máquina virtual Debian 12 sobre VirtualBox</strong> con su disco virtual <strong>VDI dinámico</strong>, qué opciones exactas marcar en los menús de configuración y del instalador de Debian, y cómo congelar el estado con la instantánea <code>00-base-limpia</code> para que sea el seguro de vida de todas tus prácticas.
       </p>
+
+      <div class="quick-nav">
+        <a href="#paso1" class="quick-pill">1. Requisitos y Descargas</a>
+        <a href="#paso2" class="quick-pill">2. Asistente y Disco VDI</a>
+        <a href="#paso3" class="quick-pill">3. Menús de VirtualBox</a>
+        <a href="#paso4" class="quick-pill">4. Instalador de Debian 12</a>
+        <a href="#paso5" class="quick-pill">5. Sudo y Post-Instalación</a>
+        <a href="#paso6" class="quick-pill">6. Instantánea Base 00-base-limpia</a>
+        <a href="#capturas" class="quick-pill">7. Capturas de Pantalla</a>
+      </div>
     </div>
 
-    <div class="step-box">
-      <h2><span class="step-num">1</span> Requisitos y Descargas Oficiales</h2>
-      <p style="margin-bottom:12px;">Tu equipo anfitrión necesita: <strong>4 GB de RAM libres</strong>, <strong>25 GB de disco</strong> y virtualización activada (VT-x / AMD-V).</p>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin: 16px 0;">
-        <div style="background:var(--surface-alt); padding:16px; border-radius:10px;">
-          <h3 style="font-size:18px; font-weight:700; margin-bottom:6px;">1. Hipervisor</h3>
-          <p style="font-size:15px; margin-bottom:10px;">Elige el software según tu sistema anfitrión:</p>
-          <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" class="badge badge-blue">VirtualBox 7.x (Windows/Linux/macOS Intel)</a><br><br>
-          <a href="https://mac.getutm.app/" target="_blank" class="badge badge-gray">UTM (macOS Apple Silicon M1-M4)</a>
+    <!-- PASO 1 -->
+    <div class="step-box" id="paso1">
+      <h2><span class="step-num">1</span> Requisitos del Equipo Anfitrión y Descargas Oficiales</h2>
+      <p style="margin-bottom:16px;">Para que la máquina virtual funcione con total soltura sin ralentizar tu ordenador:</p>
+
+      <div class="param-grid">
+        <div class="param-card">
+          <div class="param-label">Memoria RAM Libre</div>
+          <div class="param-val">≥ 4 GB libres</div>
+          <div class="param-desc">Si tu PC tiene 8 GB o 16 GB, podrás asignar 2 a 4 GB a la VM.</div>
         </div>
-        <div style="background:var(--surface-alt); padding:16px; border-radius:10px;">
-          <h3 style="font-size:18px; font-weight:700; margin-bottom:6px;">2. ISO Debian 12 ("Bookworm")</h3>
-          <p style="font-size:15px; margin-bottom:10px;">Descarga la imagen de red oficial (netinst, ≈ 600 MB):</p>
-          <a href="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/" target="_blank" class="badge badge-green">Descargar ISO Debian 12 amd64</a>
+        <div class="param-card">
+          <div class="param-label">Espacio en Disco</div>
+          <div class="param-val">≥ 25 GB libres</div>
+          <div class="param-desc">En SSD o disco rígido para albergar el archivo de disco virtual <code>.vdi</code>.</div>
+        </div>
+        <div class="param-card">
+          <div class="param-label">Virtualización CPU</div>
+          <div class="param-val">Intel VT-x / AMD-V</div>
+          <div class="param-desc">Debe estar habilitada en la BIOS/UEFI de tu placa base.</div>
+        </div>
+      </div>
+
+      <h3 class="step-subhead">Descargas Oficiales Gratuitas:</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:16px; margin-top:14px;">
+        <div style="background:var(--surface-alt); padding:20px; border-radius:12px; border:1px solid var(--border-light);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <svg class="ic" style="color:var(--primary);"><use href="#i-box"/></svg>
+            <h4 style="font-size:17px; font-weight:700;">Oracle VM VirtualBox 7.x</h4>
+          </div>
+          <p style="font-size:14px; color:var(--text-muted); margin-bottom:12px;">Descarga el instalador para tu sistema operativo (Windows, Linux o macOS Intel) y el <strong>Extension Pack</strong> oficial:</p>
+          <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener noreferrer" class="badge badge-blue" style="padding:8px 14px; font-size:14px;">
+            <svg class="ic ic-sm"><use href="#i-download"/></svg> Descargar VirtualBox 7.x + Extension Pack
+          </a>
+          <div style="font-size:12px; color:var(--text-muted); margin-top:8px;">*En macOS con chip Apple Silicon (M1 a M4), utiliza <a href="https://mac.getutm.app/" target="_blank">UTM</a> o VMware Fusion Pro.</div>
+        </div>
+
+        <div style="background:var(--surface-alt); padding:20px; border-radius:12px; border:1px solid var(--border-light);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <svg class="ic" style="color:var(--success);"><use href="#i-disc"/></svg>
+            <h4 style="font-size:17px; font-weight:700;">ISO Oficial Debian 12 («Bookworm»)</h4>
+          </div>
+          <p style="font-size:14px; color:var(--text-muted); margin-bottom:12px;">Descarga la imagen oficial ligera por red (versión <em>netinst</em>, aprox. 600 MB):</p>
+          <a href="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/" target="_blank" rel="noopener noreferrer" class="badge badge-green" style="padding:8px 14px; font-size:14px;">
+            <svg class="ic ic-sm"><use href="#i-download"/></svg> Descargar Debian 12 amd64 netinst ISO
+          </a>
+          <div style="font-size:12px; color:var(--text-muted); margin-top:8px;">Archivo estándar: <code>debian-12.x.x-amd64-netinst.iso</code> (64 bits).</div>
         </div>
       </div>
     </div>
 
-    <div class="step-box">
-      <h2><span class="step-num">2</span> Creación de la Máquina Virtual</h2>
-      <p>Abre tu hipervisor y pulsa en <strong>Nueva Máquina Virtual</strong> con estos parámetros:</p>
-      <ul style="margin: 12px 0 12px 24px;">
-        <li><strong>Nombre</strong>: <code>LPIC1-Debian</code></li>
-        <li><strong>Memoria RAM</strong>: 2048 MB (2 GB)</li>
-        <li><strong>Procesadores</strong>: 2 vCPU</li>
-        <li><strong>Disco virtual</strong>: 20 GB (almacenamiento de tamaño dinámico)</li>
-        <li><strong>Red</strong>: Adaptador en modo <strong>NAT</strong> (para acceso a Internet)</li>
-      </ul>
-    </div>
+    <!-- PASO 2 -->
+    <div class="step-box" id="paso2">
+      <h2><span class="step-num">2</span> Creación de la Máquina Virtual y del Disco Virtual (VDI)</h2>
+      <p>Abre VirtualBox y haz clic en el botón azul <strong>Nueva</strong> (o pulsa el atajo <kbd>Ctrl</kbd> + <kbd>N</kbd>). Sigue estos parámetros pantalla a pantalla:</p>
 
-    <div class="step-box">
-      <h2><span class="step-num">3</span> Instalación Guiada de Debian 12</h2>
-      <p>Inicia la VM con la ISO montada y sigue el asistente:</p>
-      <div class="callout callout-info">
+      <div class="callout callout-warning">
+        <svg class="ic" style="flex-shrink:0;"><use href="#i-triangle-alert"/></svg>
         <div>
-          <strong>Cuentas requeridas:</strong><br>
-          • Clave de <code>root</code>: asígnale una contraseña conocida (ej. <code>root1234</code>)<br>
-          • Usuario habitual: <code>alumno</code> con contraseña <code>alumno1234</code><br>
-          • Particionado: <em>Guiado - utilizar todo el disco</em> (todos los ficheros en una partición).<br>
-          • Programas: Marca <em>Utilidades estándar del sistema</em> y <em>Servidor SSH</em> (entorno de escritorio opcional).
+          <strong>¡ATENCIÓN! CASILLA CRÍTICA EN VIRTUALBOX 7:</strong><br>
+          En la primera pantalla del asistente, marca <strong>OBLIGATORIAMENTE</strong> la casilla:  
+          <strong style="color:#B45309;">☑ «Omitir instalación desatendida» (Skip Unattended Installation)</strong>.<br>
+          <em>¿Por qué?</em> Si la dejas desmarcada, VirtualBox instalará Debian automáticamente en inglés sin preguntarte nada, impidiéndote aprender a particionar el disco, crear los usuarios de examen y seleccionar los paquetes necesarios para LPIC-1.
+        </div>
+      </div>
+
+      <div style="margin: 20px 0;">
+        <h3 class="step-subhead">1. Pantalla «Nombre y Sistema Operativo»</h3>
+        <ul style="margin-left: 24px; line-height: 1.8;">
+          <li><strong>Nombre</strong>: <code>LPIC1-Debian</code></li>
+          <li><strong>Carpeta de la máquina</strong>: La ruta por defecto de VirtualBox (ej. carpeta predeterminada <code>VirtualBox VMs</code> o similar con espacio suficiente).</li>
+          <li><strong>Imagen ISO</strong>: Pulsa el desplegable → selecciona <em>Otro...</em> → busca el archivo <code>debian-12.x.x-amd64-netinst.iso</code> descargado.</li>
+          <li><strong>Tipo</strong>: <code>Linux</code></li>
+          <li><strong>Versión</strong>: <code>Debian (64-bit)</code></li>
+          <li><strong>Omitir instalación desatendida</strong>: <strong>Marcado ☑</strong></li>
+        </ul>
+
+        <h3 class="step-subhead">2. Pantalla «Hardware»</h3>
+        <ul style="margin-left: 24px; line-height: 1.8;">
+          <li><strong>Memoria base (RAM)</strong>: Asigna entre <strong>2048 MB (2 GB)</strong> y <strong>4096 MB (4 GB)</strong>. Mantén la barra siempre dentro de la franja verde.</li>
+          <li><strong>Procesadores (CPU)</strong>: Asigna <strong>2 vCPU</strong>.</li>
+          <li><strong>Habilitar EFI</strong>: Déjalo <strong>desmarcado ☐</strong> (utilizaremos arranque BIOS clásico / MBR para aprender los conceptos oficiales de GRUB de LPIC-1).</li>
+        </ul>
+
+        <h3 class="step-subhead">3. Pantalla «Disco Duro Virtual (VDI)»</h3>
+        <div style="background:var(--surface-alt); padding:16px 20px; border-radius:10px; margin: 12px 0;">
+          <p style="margin-bottom:8px;"><strong>¿Qué es un archivo VDI y cómo se configura?</strong></p>
+          <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+            <li>Selecciona: <strong>Crear un disco duro virtual ahora</strong>.</li>
+            <li><strong>Tamaño de disco</strong>: Especifica <strong>20.00 GB</strong> a <strong>25.00 GB</strong>.</li>
+            <li><strong>Tipo de archivo</strong>: <code>VDI (VirtualBox Disk Image)</code>.</li>
+            <li><strong>Tipo de asignación</strong>: Asegúrate de que queda en <strong>Almacenamiento de tamaño dinámico (*Dynamically allocated*)</strong>.</li>
+            <li><em>¿Qué significa dinámico?</em> El archivo <code>.vdi</code> en tu disco duro físico solo pesará ~1.5 GB al instalar el sistema, y solo irá aumentando su tamaño real en tu SSD a medida que crees ficheros en Debian, hasta un tope máximo de 20 GB. NO marca "Reservar tamaño completo ahora".</li>
+          </ul>
+        </div>
+
+        <p>Pulsa <strong>Terminar</strong>. La máquina virtual aparecerá creada en la lista izquierda de VirtualBox.</p>
+      </div>
+    </div>
+
+    <!-- PASO 3 -->
+    <div class="step-box" id="paso3">
+      <h2><span class="step-num">3</span> Ajustes Críticos en el Menú de Configuración de VirtualBox (Antes de arrancar)</h2>
+      <p>Selecciona tu máquina <code>LPIC1-Debian</code> y haz clic en el icono de rueda dentada <strong>Configuración</strong> (o pulsa <kbd>Ctrl</kbd> + <kbd>S</kbd>). Revisa estos apartados:</p>
+
+      <table class="vbox-menu-table">
+        <thead>
+          <tr>
+            <th style="width:28%;">Menú de VirtualBox</th>
+            <th style="width:36%;">Opción a Cambiar</th>
+            <th style="width:36%;">Propósito / Por qué es necesario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>General → Avanzado</strong></td>
+            <td>
+              • <strong>Portapapeles compartido</strong>: <code>Bidireccional</code><br>
+              • <strong>Arrastrar y soltar</strong>: <code>Bidireccional</code>
+            </td>
+            <td>Permite copiar comandos desde la web de prácticas en tu navegador anfitrión y pegarlos directamente dentro del terminal de Debian.</td>
+          </tr>
+          <tr>
+            <td><strong>Sistema → Placa base</strong></td>
+            <td>
+              • <strong>Orden de arranque</strong>: 1º Óptico, 2º Disco duro. Desmarca <em>Disquete</em>.<br>
+              • <strong>Dispositivo señalador</strong>: <code>Tableta USB</code>
+            </td>
+            <td>Evita que el cursor del ratón se quede "atrapado" dentro de la ventana de la máquina virtual sin necesidad de pulsar la tecla Host.</td>
+          </tr>
+          <tr>
+            <td><strong>Sistema → Procesador</strong></td>
+            <td>
+              • <strong>Procesadores</strong>: 2 vCPU<br>
+              • Marcar: <code>☑ Habilitar PAE/NX</code>
+            </td>
+            <td>Habilita la extensión de direcciones físicas necesaria para módulos del kernel Linux y paginación avanzada evaluada en LPIC-1.</td>
+          </tr>
+          <tr>
+            <td><strong>Pantalla → Pantalla</strong></td>
+            <td>
+              • <strong>Memoria de vídeo</strong>: <code>128 MB</code><br>
+              • <strong>Controlador gráfico</strong>: <code>VMSVGA</code>
+            </td>
+            <td>El controlador oficial VMSVGA ofrece el mejor rendimiento con el kernel Linux moderno y permite redimensionar la resolución automáticamente.</td>
+          </tr>
+          <tr>
+            <td><strong>Almacenamiento</strong></td>
+            <td>
+              • <strong>Controlador SATA</strong>: Debe aparecer <code>LPIC1-Debian.vdi</code>.<br>
+              • <strong>Controlador IDE / Óptico</strong>: Comprueba que está insertada la ISO de Debian 12.
+            </td>
+            <td>El VDI emula el disco duro SATA principal (<code>/dev/sda</code>) y el lector óptico permite arrancar el instalador.</td>
+          </tr>
+          <tr>
+            <td><strong>Red → Adaptador 1</strong></td>
+            <td>
+              • <strong>Conectado a</strong>: <code>NAT</code><br>
+              • <em>(Opcional SSH)</em>: Despliega <em>Avanzadas</em> → pulsa <strong>Reenvío de puertos</strong> → añade regla: Host <code>2222</code> → Guest <code>22</code>.
+            </td>
+            <td>El modo NAT comparte tu conexión a Internet para actualizar paquetes con <code>apt</code>. El reenvío SSH te permite conectar desde tu terminal de Windows/Mac con <code>ssh alumno@localhost -p 2222</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Pulsa <strong>Aceptar</strong> para guardar todos los cambios.</p>
+    </div>
+
+    <!-- PASO 4 -->
+    <div class="step-box" id="paso4">
+      <h2><span class="step-num">4</span> Instalación Guiada de Debian 12 (Pantalla a Pantalla)</h2>
+      <p>Haz clic en el botón verde <strong>Iniciar</strong> de VirtualBox. En el menú de arranque que aparece, sitúate sobre <strong>Graphical install</strong> y pulsa <kbd>Enter</kbd>.</p>
+
+      <div style="display:flex; flex-direction:column; gap:16px; margin:20px 0;">
+        <div class="card" style="margin-bottom:0; background:#F8FAFC;">
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px; color:var(--primary);">1. Idioma, País y Teclado</h3>
+          <p>• <strong>Select a language</strong>: Selecciona <code>Spanish - Español</code> y pulsa <em>Continue</em>.<br>
+          • <strong>Seleccione su ubicación</strong>: <code>España</code> (o tu país).<br>
+          • <strong>Configuración del teclado</strong>: <code>Español</code> (o la distribución de tu teclado físico).</p>
+        </div>
+
+        <div class="card" style="margin-bottom:0; background:#F8FAFC;">
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px; color:var(--primary);">2. Red y Nombres del Sistema</h3>
+          <p>• El instalador configurará la red automáticamente por DHCP.<br>
+          • <strong>Nombre de la máquina (hostname)</strong>: Escribe <code>debian-lpic</code> y pulsa <em>Continuar</em>.<br>
+          • <strong>Nombre de dominio</strong>: Déjalo <strong>totalmente vacío</strong> y pulsa <em>Continuar</em>.</p>
+        </div>
+
+        <div class="card" style="margin-bottom:0; background:#F8FAFC; border-left:4px solid var(--warning);">
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px; color:#B45309;">3. Cuentas de Usuario y Contraseñas (¡CRÍTICO PARA EL EXAMEN!)</h3>
+          <p>Debian te pedirá dos cuentas: el superusuario <code>root</code> y el usuario estándar <code>alumno</code>:</p>
+          <ul style="margin-left:24px; line-height:1.7;">
+            <li><strong>Contraseña de root</strong>: Escribe <code>root1234</code> (vuelve a escribirla para confirmar).</li>
+            <li><strong>Nombre real del nuevo usuario</strong>: Escribe <code>alumno</code>.</li>
+            <li><strong>Nombre de usuario para la cuenta</strong>: Escribe <code>alumno</code> (todo en minúsculas).</li>
+            <li><strong>Contraseña para alumno</strong>: Escribe <code>alumno1234</code> (vuelve a escribirla para confirmar).</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom:0; background:#F8FAFC; border-left:4px solid var(--primary);">
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px; color:var(--primary);">4. Particionado del Disco Virtual VDI (Preguntas de Examen LPIC-1)</h3>
+          <p>Sigue esta secuencia exacta en el asistente de particionado:</p>
+          <ol style="margin-left:24px; line-height:1.8;">
+            <li><strong>Método de particionado</strong>: Selecciona <code>Guiado - utilizar todo el disco</code>.</li>
+            <li><strong>Disco a particionar</strong>: Selecciona el disco virtual VDI: <code>SDA - 21.5 GB ATA VBOX HARDDISK</code>.</li>
+            <li><strong>Esquema de particionado</strong>: Selecciona <code>Todos los ficheros en una partición (recomendado para novatos)</code>. <em>(Creará automáticamente una partición principal EXT4 en <code>/dev/sda1</code> y el área swap en <code>/dev/sda2</code>)</em>.</li>
+            <li><strong>Resumen</strong>: Selecciona <code>Finalizar el particionado y escribir los cambios en el disco</code>.</li>
+            <li><strong style="color:var(--danger);">⚠️ CONFIRMACIÓN CRÍTICA</strong>: Aparecerá la pregunta <em>¿Desea escribir los cambios en los discos?</em>. La opción viene por defecto en <em>No</em>. <strong>Cambia a SÍ</strong> y pulsa <em>Continuar</em>.</li>
+          </ol>
+        </div>
+
+        <div class="card" style="margin-bottom:0; background:#F8FAFC;">
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px; color:var(--primary);">5. Configuración del Gestor de Paquetes (APT)</h3>
+          <p>• <strong>¿Desea analizar otro medio de instalación?</strong>: Selecciona <code>NO</code>.<br>
+          • <strong>País de la réplica</strong>: <code>España</code>.<br>
+          • <strong>Servidor réplica de Debian</strong>: <code>deb.debian.org</code>.<br>
+          • <strong>Proxy HTTP</strong>: Déjalo en blanco y pulsa <em>Continuar</em>.<br>
+          • <strong>Encuesta sobre el uso de paquetes (popularity-contest)</strong>: Selecciona <code>NO</code>.</p>
+        </div>
+
+        <div class="card" style="margin-bottom:0; background:#F8FAFC; border-left:4px solid var(--success);">
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px; color:#15803D;">6. Selección de Programas (Tasksel) — QUÉ MARCAR Y QUÉ DESMARCAR</h3>
+          <p style="margin-bottom:8px;">Aparecerá el menú de paquetes de Debian. Utiliza la <strong>Barra Espaciadora</strong> para marcar con asterisco <code>[*]</code> o desmarcar <code>[ ]</code>:</p>
+
+          <div class="tasksel-preview">
+<span class="tasksel-off">[ ] Entorno de escritorio de Debian</span>  <em style="color:#94A3B8;">(← DESMARCAR si quieres CLI puro rápido; o MARCAR con XFCE si quieres GUI)</em>
+<span class="tasksel-off">[ ] ... GNOME</span>
+<span class="tasksel-off">[ ] ... XFCE</span>                       <em style="color:#94A3B8;">(← Opcional: solo si marcaste escritorio)</em>
+<span class="tasksel-on tasksel-rec">[*] Servidor SSH</span>                     <strong style="color:#4ADE80;">(← ¡MARCAR OBLIGATORIAMENTE!)</strong>
+<span class="tasksel-on tasksel-rec">[*] Utilidades estándar del sistema</span>  <strong style="color:#4ADE80;">(← ¡MARCAR OBLIGATORIAMENTE!)</strong>
+          </div>
+          <p style="font-size:14px; color:var(--text-muted);"><em>Recomendación didáctica para LPIC-1:</em> Desmarcar el entorno de escritorio produce un servidor Linux puro ultraligero que arranca en 3 segundos y consume solo 120 MB de RAM.</p>
+        </div>
+
+        <div class="card" style="margin-bottom:0; background:#F8FAFC; border-left:4px solid var(--primary);">
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px; color:var(--primary);">7. Cargador de Arranque GRUB</h3>
+          <p>• <strong>¿Desea instalar el cargador de arranque GRUB en su unidad principal?</strong>: Selecciona <code>SÍ</code>.<br>
+          • <strong style="color:var(--danger);">Dispositivo donde instalar el cargador</strong>: ⚠️ <strong>NO elijas "introducir dispositivo manualmente"</strong>. Haz clic directamente sobre la ruta de tu disco: <code>/dev/sda</code> y pulsa <em>Continuar</em>.</p>
+        </div>
+
+        <div class="card" style="margin-bottom:0; background:#F8FAFC;">
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px; color:var(--primary);">8. Finalización y Reinicio</h3>
+          <p>El instalador expulsará la ISO automáticamente. Pulsa <strong>Continuar</strong> y la máquina arrancará directamente en tu nuevo Debian 12.</p>
         </div>
       </div>
     </div>
 
-    <div class="step-box">
-      <h2><span class="step-num">4</span> Configuración Post-Instalación (5 min)</h2>
-      <p>Inicia sesión en la VM y ejecuta como <code>root</code> para configurar permisos <code>sudo</code>:</p>
+    <!-- PASO 5 -->
+    <div class="step-box" id="paso5">
+      <h2><span class="step-num">5</span> Configuración Post-Instalación en la Terminal (5 minutos)</h2>
+      <p>Inicia sesión en la máquina con el usuario <code>alumno</code> y contraseña <code>alumno1234</code>. Abre un terminal.</p>
+
+      <h3 class="step-subhead">Paso 5.1 — Habilitar `sudo` sin contraseña e instalar herramientas LPIC-1</h3>
+      <p>Debian recién instalado no añade por defecto al usuario en <code>sudoers</code>. Ejecuta este bloque:</p>
+
       <figure class="term">
         <figcaption class="term-bar">
-          <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash (como root)
+          <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash — Configuración de privilegios de administrador
           <button class="copy-btn" onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
         </figcaption>
-        <pre><code><span class="t-prompt"># </span><span class="t-cmd">apt</span> <span class="t-flag">update</span> && <span class="t-cmd">apt</span> <span class="t-flag">install</span> <span class="t-flag">-y</span> <span class="t-arg">sudo</span> <span class="t-arg">curl</span> <span class="t-arg">pciutils</span> <span class="t-arg">usbutils</span> <span class="t-arg">kmod</span> <span class="t-arg">procps</span> <span class="t-arg">util-linux</span> <span class="t-arg">xfsprogs</span> <span class="t-arg">plocate</span>
+        <pre><code><span class="t-cmt"># 1. Pasa a root con la contraseña definida en la instalación (root1234)</span>
+<span class="t-prompt">$ </span><span class="t-cmd">su</span> <span class="t-flag">-</span>
+
+<span class="t-cmt"># 2. Actualiza repositorios e instala las herramientas oficiales de los temas LPIC-1</span>
+<span class="t-prompt"># </span><span class="t-cmd">apt</span> <span class="t-flag">update</span> && <span class="t-cmd">apt</span> <span class="t-flag">install</span> <span class="t-flag">-y</span> <span class="t-arg">sudo</span> <span class="t-arg">curl</span> <span class="t-arg">pciutils</span> <span class="t-arg">usbutils</span> <span class="t-arg">kmod</span> <span class="t-arg">procps</span> <span class="t-arg">util-linux</span> <span class="t-arg">xfsprogs</span> <span class="t-arg">e2fsprogs</span> <span class="t-arg">plocate</span> <span class="t-arg">net-tools</span> <span class="t-arg">iproute2</span> <span class="t-arg">bzip2</span> <span class="t-arg">xz-utils</span>
+
+<span class="t-cmt"># 3. Añade al usuario alumno al grupo sudo y configúralo sin contraseña para las prácticas</span>
 <span class="t-prompt"># </span><span class="t-cmd">usermod</span> <span class="t-flag">-aG</span> <span class="t-arg">sudo</span> <span class="t-arg">alumno</span>
+<span class="t-prompt"># </span><span class="t-cmd">echo</span> <span class="t-arg">"alumno ALL=(ALL) NOPASSWD: ALL"</span> > <span class="t-path">/etc/sudoers.d/alumno</span>
+<span class="t-prompt"># </span><span class="t-cmd">chmod</span> <span class="t-arg">0440</span> <span class="t-path">/etc/sudoers.d/alumno</span>
 <span class="t-prompt"># </span><span class="t-cmd">exit</span></code></pre>
       </figure>
-      <p style="font-size:15px; color:var(--text-muted);">Para portapapeles bidireccional en VirtualBox: <em>Dispositivos</em> → <em>Portapapeles compartido</em> → <em>Bidireccional</em>.</p>
-    </div>
 
-    <div class="step-box" style="border: 2px solid var(--success);">
-      <h2><span class="step-num" style="background:var(--success);">5</span> La Instantánea Imprescindible: <code>00-base-limpia</code></h2>
-      <p>Apaga la máquina virtual y toma un snapshot en tu hipervisor:</p>
+      <h3 class="step-subhead">Paso 5.2 — Instalar las Guest Additions de VirtualBox</h3>
+      <p>Permiten portapapeles bidireccional, carpetas compartidas y resolución adaptativa:</p>
+
       <figure class="term">
         <figcaption class="term-bar">
-          <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+          <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash — Como usuario alumno con sudo
           <button class="copy-btn" onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
         </figcaption>
-        <pre><code><span class="t-prompt">$ </span><span class="t-cmd">sudo</span> <span class="t-cmd">poweroff</span></code></pre>
+        <pre><code><span class="t-prompt">$ </span><span class="t-cmd">sudo</span> <span class="t-cmd">apt</span> <span class="t-flag">update</span> && <span class="t-cmd">sudo</span> <span class="t-cmd">apt</span> <span class="t-flag">install</span> <span class="t-flag">-y</span> <span class="t-arg">build-essential</span> <span class="t-arg">dkms</span> <span class="t-arg">linux-headers-$(uname -r)</span></code></pre>
       </figure>
-      <div class="callout callout-success">
+
+      <p style="font-size:15px; margin:10px 0;">A continuación, en la barra superior de la ventana de la máquina virtual en VirtualBox, ve a:</p>
+      <div style="background:var(--surface-alt); padding:12px 18px; border-radius:8px; font-weight:600; margin-bottom:12px;">
+        📌 Menú: <strong>Dispositivos</strong> → <strong>Insertar imagen de CD de las «Guest Additions»...</strong>
+      </div>
+
+      <figure class="term">
+        <figcaption class="term-bar">
+          <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash — Montar CD y compilar módulos
+          <button class="copy-btn" onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+        </figcaption>
+        <pre><code><span class="t-prompt">$ </span><span class="t-cmd">sudo</span> <span class="t-cmd">mount</span> <span class="t-path">/dev/cdrom</span> <span class="t-path">/media</span>
+<span class="t-prompt">$ </span><span class="t-cmd">sudo</span> <span class="t-path">/media/VBoxLinuxAdditions.run</span>
+<span class="t-prompt">$ </span><span class="t-cmd">sudo</span> <span class="t-cmd">reboot</span></code></pre>
+      </figure>
+    </div>
+
+    <!-- PASO 6 -->
+    <div class="step-box" id="paso6" style="border: 2px solid var(--success);">
+      <h2><span class="step-num" style="background:var(--success);">6</span> La Instantánea Imprescindible de VirtualBox: <code>00-base-limpia</code></h2>
+      <p style="font-size:16px; margin-bottom:14px;">
+        Esta instantánea (*snapshot*) es tu <strong>salvavidas</strong>: congela el estado del disco <code>.vdi</code> en el instante en que Debian está 100% configurado, limpio y con permisos. Todas las prácticas partirán de aquí.
+      </p>
+
+      <h3 class="step-subhead">A. Cómo Crear la Instantánea:</h3>
+      <ol style="margin-left:24px; line-height:1.8;">
+        <li>Apaga la máquina virtual limpiamente ejecutando en su terminal:
+          <figure class="term" style="margin:8px 0 12px;">
+            <figcaption class="term-bar"><svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash <button class="copy-btn" onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button></figcaption>
+            <pre><code><span class="t-prompt">$ </span><span class="t-cmd">sudo</span> <span class="t-cmd">poweroff</span></code></pre>
+          </figure>
+        </li>
+        <li>En la ventana del Administrador de VirtualBox (con la máquina apagada):
+          <ul style="margin-left:20px; margin-top:6px;">
+            <li>Selecciona la máquina <code>LPIC1-Debian</code> en la columna izquierda.</li>
+            <li>En el panel derecho, haz clic en el icono de menú de tres rayas horizontales al lado de `LPIC1-Debian` y selecciona <strong>Instantáneas</strong> (*Snapshots*), o pulsa <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>.</li>
+            <li>Haz clic en el icono con forma de cámara de fotos: botón <strong>Tomar</strong> (*Take*).</li>
+            <li><strong>Nombre de la instantánea</strong>: <code>00-base-limpia</code></li>
+            <li><strong>Descripción</strong>: <code>Debian 12 recién instalado con usuario alumno en sudoers sin contraseña, paquetes de herramientas LPIC-1 y Guest Additions.</code></li>
+            <li>Pulsa <strong>Aceptar</strong>.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <div class="callout callout-success" style="margin:20px 0;">
+        <svg class="ic" style="flex-shrink:0;"><use href="#i-circle-check"/></svg>
         <div>
-          <strong>📸 Nombre de la instantánea:</strong> <code>00-base-limpia</code><br>
-          Este es tu <strong>salvavidas</strong>: todas las prácticas del curso partirán de aquí y podrás restaurarla en cualquier momento si cometes un fallo grave.
+          <strong>¡Enhorabuena! Estado congelado con éxito.</strong><br>
+          A partir de ahora verás en el árbol de VirtualBox:<br>
+          <code>📸 00-base-limpia</code><br>
+          <code>&nbsp;&nbsp;└── Estado actual</code>
+        </div>
+      </div>
+
+      <h3 class="step-subhead">B. Cómo Restaurar la Instantánea ante un Fallo o al Comenzar una Nueva Práctica:</h3>
+      <p>Si durante un laboratorio rompes una partición, borras un fichero esencial, arruinas GRUB o simplemente quieres repetir el ejercicio:</p>
+      <ol style="margin-left:24px; line-height:1.8;">
+        <li>Apaga la máquina (si se ha congelado, menú <em>Máquina</em> → <em>Apagar</em>).</li>
+        <li>Ve a la pestaña <strong>Instantáneas</strong> de VirtualBox.</li>
+        <li>Haz clic derecho sobre <code>00-base-limpia</code> → selecciona <strong>Restaurar</strong> (*Restore*).</li>
+        <li><strong style="color:var(--danger);">⚠️ PASO VITAL</strong>: VirtualBox te preguntará: <em>¿Desea crear una instantánea del estado actual de la máquina?</em>.<br>
+        👉 <strong>DESMARCA esa casilla</strong> (no marques la casilla, para no acumular basura de disco).</li>
+        <li>Haz clic en el botón <strong>Restaurar</strong>.</li>
+        <li>¡En solo 2 segundos, tu disco VDI vuelve al estado idéntico y perfecto del primer día!</li>
+      </ol>
+    </div>
+
+    <!-- PASO 7 -->
+    <div class="step-box" id="capturas">
+      <h2><span class="step-num">7</span> Guía Oficial de Capturas de Pantalla y Entrega de Evidencias</h2>
+      <p style="margin-bottom:12px;">Las evidencias de tus prácticas consisten en <strong>capturas de pantalla completas</strong> donde se aprecie el comando ejecutado y su salida real en el terminal.</p>
+
+      <div class="param-grid">
+        <div class="param-card">
+          <div class="param-label">En Windows</div>
+          <div class="param-val"><kbd>Alt</kbd> + <kbd>Impr Pant</kbd></div>
+          <div class="param-desc">Captura la ventana activa de VirtualBox. O <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> para recorte.</div>
+        </div>
+        <div class="param-card">
+          <div class="param-label">En macOS</div>
+          <div class="param-val"><kbd>Cmd ⌘</kbd> + <kbd>Shift ⇧</kbd> + <kbd>4</kbd></div>
+          <div class="param-desc">Pulsa la barra espaciadora para seleccionar y capturar solo la ventana de la VM.</div>
+        </div>
+        <div class="param-card">
+          <div class="param-label">Desde VirtualBox</div>
+          <div class="param-val"><kbd>Host</kbd> + <kbd>E</kbd></div>
+          <div class="param-desc">Menú <em>Entrada</em> → <em>Tomar captura de pantalla</em>. Guarda directo en PNG.</div>
+        </div>
+      </div>
+
+      <h3 class="step-subhead">Nomenclatura Estricta de Archivos:</h3>
+      <p>Guarda cada captura en una carpeta de tu ordenador con el nombre especificado en cada paso de la práctica:</p>
+      <div style="background:#0F172A; color:#E2E8F0; padding:12px 18px; border-radius:8px; font-family:var(--font-mono); font-size:14px; margin:10px 0;">
+        P[SUBTEMA]-C[NUMERO]-[DESCRIPCION].png<br>
+        • Ejemplo: <code>P101-1-C1-hardware-pci.png</code><br>
+        • Ejemplo: <code>P102-4-C2-paquetes-dpkg.png</code><br>
+        • Ejemplo: <code>P103-2-C3-filtros-sed.png</code>
+      </div>
+
+      <div class="callout callout-info">
+        <svg class="ic" style="flex-shrink:0;"><use href="#i-info"/></svg>
+        <div>
+          <strong>Entrega al Docente:</strong><br>
+          Al completar un tema, comprime todas tus capturas en un archivo ZIP nombrado con tu nombre (ej. <code>Practica-Tema101-TuNombre.zip</code>) o súbelas a la tarea de Google Classroom según las instrucciones dadas en clase.
         </div>
       </div>
     </div>
 
-    <div class="step-box" id="capturas">
-      <h2><span class="step-num">6</span> Guía Oficial de Capturas de Pantalla</h2>
-      <p>Atajos rápidos para capturar la ventana activa de tu terminal:</p>
-      <ul style="margin: 12px 0 12px 24px; line-height:1.8;">
-        <li><strong>Windows</strong>: <kbd>Windows</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> o <kbd>Alt</kbd> + <kbd>Impr Pant</kbd></li>
-        <li><strong>macOS</strong>: <kbd>Cmd (⌘)</kbd> + <kbd>Shift (⇧)</kbd> + <kbd>4</kbd> (luego barra espaciadora para seleccionar ventana)</li>
-        <li><strong>Linux</strong>: <kbd>Shift</kbd> + <kbd>Impr Pant</kbd> o Flameshot</li>
-        <li><strong>VirtualBox</strong>: <kbd>Host</kbd> + <kbd>E</kbd> (menú <em>Entrada</em> → <em>Tomar captura</em>)</li>
-      </ul>
-      <p>Nombra siempre los archivos con el formato especificado en cada práctica (ej: <code>101-1-C1-lspci.png</code>).</p>
+    <!-- BOTÓN FINAL -->
+    <div style="text-align:center; margin: 48px 0 20px;">
+      <a href="p-101-1-ajustes-hardware.html" style="display:inline-flex; align-items:center; gap:12px; background:var(--primary); color:#FFF; padding:16px 32px; border-radius:12px; font-weight:800; font-size:18px; box-shadow:0 4px 14px rgba(37,99,235,0.3); transition:all 0.2s ease;">
+        <span>¡Entorno Listo! Comenzar la Práctica 101.1: Ajustes de Hardware</span>
+        <svg class="ic"><use href="#i-arrow-right"/></svg>
+      </a>
+      <div style="margin-top:12px;">
+        <a href="index.html" style="font-size:15px; color:var(--text-muted); font-weight:600;">O explorar el catálogo de las 27 prácticas →</a>
+      </div>
     </div>
 
-    <div style="text-align:center; margin: 40px 0;">
-      <a href="p-101-1-ajustes-hardware.html" style="display:inline-flex; align-items:center; gap:10px; background:var(--primary); color:#FFF; padding:14px 28px; border-radius:10px; font-weight:700; font-size:18px;">
-        Empezar Práctica 101.1: Ajustes de Hardware <svg class="ic"><use href="#i-arrow-right"/></svg>
-      </a>
-    </div>
     <footer class="site-footer" style="margin-top:64px; text-align:center; padding:24px 20px; border-top:2px solid var(--border-light); font-size:14px; color:var(--text-muted);">
-      <p>Material didáctico no oficial basado en los <em>LPI Learning Materials</em> de <a href="https://learning.lpi.org" target="_blank" rel="noopener noreferrer">Linux Professional Institute</a>.</p>
+      <p>Material didáctico no oficial basado en los objetivos de certificación de Linux Professional Institute (LPIC-1).</p>
     </footer>
   </div>
 
