@@ -454,6 +454,44 @@
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: #FEF3C7; }
 
+    /* Matrices comparativas y mapas de equivalencias */
+    .matrix-container {
+      width: 100%;
+      margin: 14px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      overflow-x: auto;
+      background: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+    table.slide-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(16px, 1.15vw, 20px);
+      text-align: left;
+    }
+    table.slide-matrix th {
+      background: var(--surface-alt);
+      color: var(--text);
+      padding: 12px 18px;
+      border-bottom: 2px solid var(--border-strong);
+      font-weight: 700;
+      font-size: clamp(17px, 1.2vw, 21px);
+      letter-spacing: -0.01em;
+    }
+    table.slide-matrix td {
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    table.slide-matrix tr:last-child td { border-bottom: none; }
+    table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
+    table.slide-matrix tr:hover td { background: #F1F5F9; }
+    table.slide-matrix tr.highlighted td { background: #FEF3C7; }
+    table.slide-matrix td:first-child { font-weight: 700; color: #1E293B; }
+
     /* Ejercicios y Repasos */
     .quiz-options { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
     .quiz-btn {
@@ -773,6 +811,67 @@
 <symbol id="i-bug-off" viewBox="0 0 24 24"><path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2" /> <path d="M14.12 3.88 16 2" /> <path d="M22 13h-4v-2a4 4 0 0 0-4-4h-1.3" /> <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /> <path d="m2 2 20 20" /> <path d="M7.7 7.7A4 4 0 0 0 6 11v3a6 6 0 0 0 11.13 3.13" /> <path d="M12 20v-8" /> <path d="M6 13H2" /> <path d="M3 21c0-2.1 1.7-3.9 3.8-4" /></symbol>
 <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m4.9 4.9 14.2 14.2" /></symbol>
 <symbol id="i-octagon-alert" viewBox="0 0 24 24"><path d="M12 16h.01" /> <path d="M12 8v4" /> <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" /></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></symbol>
+<symbol id="i-folder-tree" viewBox="0 0 24 24"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M3 5v14a2 2 0 0 0 2 2h3" /><path d="M3 10h4" /></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14" /><line x1="4" x2="4" y1="10" y2="3" /><line x1="12" x2="12" y1="21" y2="12" /><line x1="12" x2="12" y1="8" y2="3" /><line x1="20" x2="20" y1="21" y2="16" /><line x1="20" x2="20" y1="12" y2="3" /><line x1="1" x2="7" y1="14" y2="14" /><line x1="9" x2="15" y1="8" y2="8" /><line x1="17" x2="23" y1="16" y2="16" /></symbol>
+<symbol id="i-slash" viewBox="0 0 24 24"><path d="M22 2 2 22" /></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></symbol>
+<symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="4" /></symbol>
+<symbol id="i-keyboard" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" ry="2" /><path d="M6 8h.001M10 8h.001M14 8h.001M18 8h.001M8 12h.001M12 12h.001M16 12h.001M7 16h10" /></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" /></symbol>
+<symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line x1="20" x2="8.12" y1="4" y2="15.88" /><line x1="14.47" x2="20" y1="14.48" y2="20" /><line x1="8.12" x2="12" y1="8.12" y2="12" /></symbol>
+<symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5v14" /></symbol>
+<symbol id="i-plus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></symbol>
+<symbol id="i-minus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /></symbol>
+<symbol id="i-check-square" viewBox="0 0 24 24"><path d="m9 11 3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></symbol>
+<symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></symbol>
+<symbol id="i-folder-check" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9 13 2 2 4-4" /></symbol>
+<symbol id="i-folder-plus" viewBox="0 0 24 24"><path d="M12 10v6" /><path d="M9 13h6" /><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol>
+<symbol id="i-folder-search" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><circle cx="11" cy="13" r="3" /><path d="m13.2 15.2 2.8 2.8" /></symbol>
+<symbol id="i-folder-x" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9.5 10.5 5 5" /><path d="m14.5 10.5-5 5" /></symbol>
+<symbol id="i-message-square" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></symbol>
+<symbol id="i-link-2" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2" /><path d="M15 7h2a5 5 0 1 1 0 10h-2" /><line x1="8" x2="16" y1="12" y2="12" /></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></symbol>
+<symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-archive" viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1" /><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></symbol>
+<symbol id="i-file-check" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></symbol>
+<symbol id="i-corner-down-right" viewBox="0 0 24 24"><polyline points="15 10 20 15 15 20" /><path d="M4 4v7a4 4 0 0 0 4 4h12" /></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" /><line x1="9" x2="9" y1="3" y2="18" /><line x1="15" x2="15" y1="6" y2="21" /></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+<symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /><path d="m18 2 4 4-4 4" /><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /><path d="m18 14 4 4-4 4" /></symbol>
+<symbol id="i-log-in" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" /></symbol>
+<symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></symbol>
+
+<!-- Aliases directos para nombres alternativos comunes -->
+<symbol id="i-alert-triangle" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-alert-circle" viewBox="0 0 24 24"><use href="#i-circle-alert" /></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><use href="#i-circle-check" /></symbol>
+<symbol id="i-help-circle" viewBox="0 0 24 24"><use href="#i-circle-help" /></symbol>
+<symbol id="i-broken-link" viewBox="0 0 24 24"><use href="#i-link" /></symbol>
+<symbol id="i-shield-alert" viewBox="0 0 24 24"><use href="#i-shield" /></symbol>
+<symbol id="i-edit-3" viewBox="0 0 24 24"><use href="#i-wrench" /></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" /><line x1="6" x2="6" y1="2" y2="4" /><line x1="10" x2="10" y1="2" y2="4" /><line x1="14" x2="14" y1="2" y2="4" /></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" /></symbol>
+<symbol id="i-skull" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1" /><circle cx="15" cy="12" r="1" /><path d="M8 20v2h8v-2" /><path d="m12.5 17-.5-1-.5 1h1z" /><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20" /></symbol>
+<symbol id="i-alert-octagon" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-asterisk" viewBox="0 0 24 24"><use href="#i-hash" /></symbol>
+<symbol id="i-brackets" viewBox="0 0 24 24"><use href="#i-square-terminal" /></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-dot" viewBox="0 0 24 24"><use href="#i-circle" /></symbol>
+<symbol id="i-download-cloud" viewBox="0 0 24 24"><use href="#i-download" /></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-fast-forward" viewBox="0 0 24 24"><use href="#i-play" /></symbol>
+<symbol id="i-git-commit" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-git-merge" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><use href="#i-power" /></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
+<symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
 </svg>
 
 
@@ -786,7 +885,7 @@
   <header id="top-nav">
     <div class="nav-links">
       <a href="../index.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-menu"/></svg>Índice</a>
-      <a href="102-1-diseno-del-esquema-de-pa.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>102.1</a>
+      <a href="102-1-diseno-del-esquema-de-pa.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>102.1</a>
       <a href="102-3-gestion-de-librerias-com.html" class="nav-btn">102.3<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></a>
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
@@ -819,7 +918,7 @@
 
         <div class="stage-footer">
           <div style="display:flex; align-items:center; gap:14px;">
-            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg></button>
+            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg></button>
             <span id="slide-counter" style="font-weight:700;">1 / 1</span>
             <button class="nav-btn" onclick="nextStep()" title="Siguiente (→ / Espacio)" aria-label="Siguiente slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
             <div class="progress-bar-container">
@@ -904,10 +1003,10 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "102.2", "cat": "boot", "type": "cover", "title": "Instalación y configuración del gestor de arranque", "subtitle": "Gestión integral de GRUB 2, GRUB Legacy, menús y consola interactiva", "ref": "1-3", "pdf": {"manual": "A", "pages": [1, 2, 3], "figure": null}, "coverage": ["102.2-OBJ-001", "102.2-OBJ-002", "102.2-OBJ-003", "102.2-OBJ-004"], "meta": {"peso": 2, "paginas": "1–21", "duracion": "120 min"}, "icon": "power", "notes": "Comenzamos el subtema 102.2 del examen 101. Abarca tanto GRUB 2 como GRUB Legacy, instalación con grub-install, configuración en /etc/default/grub, menús y recuperación interactiva desde el shell."}, {"id": 2, "section": "102.2", "cat": "boot", "type": "concept", "title": "El papel central del cargador de arranque", "lead": "El primer programa ejecutado tras la fase de inicialización del firmware:", "ref": "2-3", "pdf": {"manual": "A", "pages": [2, 3], "figure": null}, "coverage": ["102.2-OBJ-001"], "points": [{"icon": "play", "text": "Carga el núcleo del sistema operativo en memoria RAM", "detail": "Su propósito exclusivo es transferir el control y parámetros al kernel."}, {"icon": "cpu", "text": "Permite seleccionar entre múltiples kernels y sistemas operativos", "detail": "Muestra un menú visual y admite arrancar otros sistemas como Windows."}, {"icon": "terminal", "text": "Ofrece interfaz interactiva para depuración y arranque de emergencia", "detail": "Permite editar parámetros en tiempo real o arrancar desde su shell propio."}, {"icon": "wrench", "text": "Vital para recuperar el sistema tras fallos de actualización", "detail": "Permite arrancar versiones anteriores del kernel si la última no inicia."}], "remember": "El gestor de arranque entrega el control y parámetros al núcleo.", "notes": "Destacar la importancia de saber interactuar con la línea de comandos de GRUB cuando el menú falla."}, {"id": 3, "section": "102.2", "cat": "boot", "type": "concept", "title": "Evolución histórica: De GRUB Legacy a GRUB", "lead": "Reescritura completa desde el diseño original de 1995:", "ref": "3", "pdf": {"manual": "A", "pages": [3], "figure": null}, "coverage": ["102.2-OBJ-002"], "points": [{"icon": "clock", "text": "GRUB Legacy nació en 1995 dentro del proyecto GNU Hurd", "detail": "Reemplazó a LILO en casi todas las distribuciones; última versión 0.97 en 2005."}, {"icon": "refresh-cw", "text": "GRUB 2 reescritura modular con lenguaje de scripting avanzado", "detail": "Admite condicionales, funciones, variables y módulos cargados dinámicamente."}, {"icon": "hash", "text": "Soporte universal para UUID y arranque directo de ISOs", "detail": "Identificación robusta de discos y capacidad de arrancar LiveCD desde disco duro."}, {"icon": "layers", "text": "Soporte de múltiples arquitecturas y menús gráficos con temas", "detail": "Funciona en plataformas x86, ARM, PowerPC y entornos con firmware UEFI."}], "remember": "GRUB Legacy usaba configuración estática; GRUB 2 es un script dinámico y modular.", "notes": "En LPIC-1 se evalúan las diferencias de sintaxis y numeración entre ambas generaciones."}, {"id": 4, "section": "102.2", "cat": "boot", "type": "concept", "title": "Ubicación del gestor: MBR y espacio intermedio", "lead": "Cómo se distribuye el código de arranque en discos particionados con MBR:", "ref": "3-4", "pdf": {"manual": "A", "pages": [3, 4], "figure": null}, "coverage": ["102.2-CFG-010"], "points": [{"icon": "hard-drive", "text": "El Master Boot Record MBR ocupa el primer sector del disco", "detail": "Sector de 512 bytes que aloja la primera fase mínima del gestor y la tabla."}, {"icon": "layers", "text": "Espacio de 32 KB reservado entre el MBR y la partición", "detail": "Aloja la imagen núcleo de GRUB que proporciona controladores de disco."}, {"icon": "play", "text": "La fase inicial del MBR salta a la imagen intermedia", "detail": "Desde ese punto, GRUB adquiere capacidad para leer sistemas de archivos."}, {"icon": "folder", "text": "Carga posterior de módulos y menús desde el directorio boot", "detail": "Lee la partición de arranque y carga fuentes, temas y configuraciones."}], "remember": "MBR (512 bytes) -> Espacio intermedio (32 KB) -> Partición /boot.", "notes": "Explicar a los alumnos por qué se necesitan dos etapas debido a los escasos 446 bytes de código en MBR."}, {"id": 5, "section": "102.2", "cat": "boot", "type": "file", "title": "Archivos de configuración del kernel en boot", "path": "/boot/", "contains": "Archivos de configuración y mapas de símbolos asociados a cada versión del kernel", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["102.2-FILE-009", "102.2-FILE-010", "102.2-FILE-014", "102.2-FILE-015"], "writtenBy": "Compilación del kernel / Paquete linux-image", "readBy": ["GRUB", "klogd", "gdb"], "sample": {"lines": ["# Archivos generados para cada versión del núcleo:", "/boot/config-VERSION       -> Parámetros de compilación del núcleo", "/boot/System.map-VERSION   -> Tabla de símbolos y direcciones en memoria", "/boot/grub/                -> Directorio de recursos de GRUB (módulos y fuentes)", "", "# Ejemplo real:", "config-4.15.0-65-generic", "System.map-4.15.0-65-generic"]}, "notes": "System.map es vital para depurar Kernel Panics asociando direcciones de memoria a nombres de función."}, {"id": 6, "section": "102.2", "cat": "boot", "type": "file", "title": "Imagen del núcleo vmlinuz e initrd", "path": "/boot/", "contains": "Binario comprimido del kernel de Linux e imagen del disco RAM inicial", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["102.2-FILE-016", "102.2-FILE-017"], "writtenBy": "Instalador de la distribución / mkinitramfs", "readBy": ["GRUB (grub-install, update-grub)"], "sample": {"lines": ["# Núcleo comprimido (la 'z' final significa compresión):", "/boot/vmlinuz-4.15.0-65-generic", "", "# Sistema de archivos raíz mínimo temporal en RAM:", "/boot/initrd.img-4.15.0-65-generic", "", "# Enlaces simbólicos en la raíz / creados por muchas distribuciones:", "/vmlinuz -> boot/vmlinuz-4.15.0-65-generic", "/initrd.img -> boot/initrd.img-4.15.0-65-generic"]}, "notes": "El sufijo 'z' en vmlinuz indica que el binario está comprimido; vmlinux es la versión sin comprimir."}, {"id": 7, "section": "102.2", "cat": "boot", "type": "command", "title": "Identificación de partición de arranque con fdisk", "syntax": "fdisk -l /dev/sda", "purpose": "Localiza la partición marcada como arrancable y prepara su montaje temporal:", "name": "fdisk", "ref": "6, 20", "pdf": {"manual": "A", "pages": [6, 20], "figure": null}, "coverage": ["102.2-CMD-004", "102.2-CMD-005", "102.2-CMD-006"], "terminal": {"prompt": "# ", "command": "fdisk -l /dev/sda", "lines": [{"t": "cmd", "v": "fdisk -l /dev/sda"}, {"t": "out", "v": "Device     Boot    Start       End   Sectors   Size Id Type"}, {"t": "hl", "v": "/dev/sda1  *        2048   2000895   1998848   976M 83 Linux"}, {"t": "out", "v": "/dev/sda2        2002942 234440703 232437762 110,9G  5 Extended"}, {"t": "out", "v": "/dev/sda5        2002944  18008063  16005120   7,6G 82 Linux swap"}, {"t": "cmd", "v": "mkdir /mnt/tmp && mount /dev/sda1 /mnt/tmp"}]}, "options": [{"flag": "-l", "short": "Listar", "detail": "Enumera la tabla de particiones del disco especificado."}, {"flag": "*", "short": "Boot flag", "detail": "El asterisco en la columna Boot identifica la partición de arranque (/dev/sda1)."}], "notes": "Pregunta exploratoria 2: ¿Cómo saber cuál es la partición de arranque? Con fdisk -l (marcada con asterisco)."}, {"id": 8, "section": "102.2", "cat": "boot", "type": "command", "title": "Instalación de GRUB 2 con grub-install", "syntax": "grub-install [--boot-directory=...] /dev/sda", "purpose": "Instala los archivos de arranque de GRUB 2 en el Master Boot Record del disco:", "name": "grub-install", "ref": "6-7", "pdf": {"manual": "A", "pages": [6, 7], "figure": null}, "coverage": ["102.2-CMD-001", "102.2-WARN-003"], "terminal": {"prompt": "# ", "command": "grub-install --boot-directory=/mnt/tmp /dev/sda", "lines": [{"t": "cmt", "v": "# Si hay partición de arranque montada en /mnt/tmp:"}, {"t": "cmd", "v": "grub-install --boot-directory=/mnt/tmp /dev/sda"}, {"t": "out", "v": "Installing for i386-pc platform."}, {"t": "out", "v": "Installation finished. No error reported."}, {"t": "cmt", "v": "# Si no hay partición dedicada y /boot está en la raíz:"}, {"t": "cmd", "v": "grub-install --boot-directory=/boot /dev/sda"}]}, "options": [{"flag": "--boot-directory", "short": "Ruta a boot", "detail": "Especifica el directorio donde se copiarán los módulos y recursos de GRUB."}, {"flag": "/dev/sda", "short": "Dispositivo disco", "detail": "Debe apuntar al disco entero (ej. /dev/sda), NO a la partición (/dev/sda1)."}], "trap": "¡TRAMPA DE EXAMEN! Indicar una partición como /dev/sda1 en grub-install causará error de arranque.", "notes": "Subrayar fuertemente a los alumnos que grub-install recibe un disco (/dev/sda), no una partición."}, {"id": 9, "section": "102.2", "cat": "boot", "type": "file", "title": "Archivo principal de configuración de GRUB 2", "path": "/boot/grub/grub.cfg", "contains": "Script autogenerado que contiene las directivas y menús de arranque", "ref": "7, 16, 19", "pdf": {"manual": "A", "pages": [7, 16, 19], "figure": null}, "coverage": ["102.2-FILE-001", "102.2-WARN-001"], "writtenBy": "update-grub / grub-mkconfig", "readBy": ["GRUB 2 durante el arranque"], "sample": {"lines": ["# DO NOT EDIT THIS FILE", "# It is automatically generated by grub-mkconfig using templates", "# from /etc/grub.d and settings from /etc/default/grub", "", "set default=\"0\"", "set timeout=5", "menuentry 'Debian GNU/Linux' { ... }"]}, "notes": "Pregunta guiada 1 del manual: ¿Dónde reside la configuración de GRUB 2? En /boot/grub/grub.cfg. ¡Nunca editarlo a mano!"}, {"id": 10, "section": "102.2", "cat": "boot", "type": "command", "title": "Generación de menús con update-grub y grub-mkconfig", "syntax": "update-grub  |  grub-mkconfig -o /boot/grub/grub.cfg", "purpose": "Escanea el sistema en busca de núcleos y genera el archivo grub.cfg actualizado:", "name": "update-grub", "ref": "7, 8, 18, 19", "pdf": {"manual": "A", "pages": [7, 8, 18, 19], "figure": null}, "coverage": ["102.2-CMD-002", "102.2-CMD-003"], "terminal": {"prompt": "# ", "command": "update-grub", "lines": [{"t": "cmd", "v": "update-grub"}, {"t": "out", "v": "Generating grub configuration file ..."}, {"t": "out", "v": "Found linux image: /boot/vmlinuz-4.15.0-65-generic"}, {"t": "out", "v": "Found initrd image: /boot/initrd.img-4.15.0-65-generic"}, {"t": "out", "v": "done"}, {"t": "cmt", "v": "# Comando equivalente exacto en bajo nivel:"}, {"t": "cmd", "v": "grub-mkconfig -o /boot/grub/grub.cfg"}]}, "options": [{"flag": "update-grub", "short": "Script Debian/Ubuntu", "detail": "Acceso directo que invoca 'grub-mkconfig -o /boot/grub/grub.cfg'."}, {"flag": "-o", "short": "Output file", "detail": "Opción de grub-mkconfig para redirigir la configuración generada al archivo canónico (/boot/grub/grub.cfg)."}], "notes": "Pregunta guiada 2: Para cambiar configuración de GRUB 2: editar /etc/default/grub y ejecutar update-grub."}, {"id": 11, "section": "102.2", "cat": "boot", "type": "file", "title": "Configuración global en el archivo default grub", "path": "/etc/default/grub", "contains": "Variables clave para personalizar el comportamiento del cargador de arranque", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["102.2-FILE-004", "102.2-CFG-001", "102.2-CFG-002"], "writtenBy": "Administrador del sistema", "readBy": ["grub-mkconfig"], "sample": {"lines": ["# Entrada de menú predeterminada (número desde 0, nombre o 'saved'):", "GRUB_DEFAULT=0", "", "# Recordar la última opción elegida como predeterminada:", "GRUB_DEFAULT=saved", "GRUB_SAVEDEFAULT=true"]}, "notes": "Si GRUB_SAVEDEFAULT=true y DEFAULT=saved, la opción arrancada la última vez se convierte en la predeterminada."}, {"id": 12, "section": "102.2", "cat": "boot", "type": "file", "title": "Variables de temporización y parámetros del kernel", "path": "/etc/default/grub", "contains": "Tiempo de espera y parámetros del núcleo para arranques normales y de rescate", "ref": "7-8, 17, 21", "pdf": {"manual": "A", "pages": [7, 8, 17, 21], "figure": null}, "coverage": ["102.2-CFG-003", "102.2-CFG-004", "102.2-CFG-005"], "writtenBy": "Administrador del sistema", "readBy": ["grub-mkconfig"], "sample": {"lines": ["# Tiempo de espera en segundos (0 arranca de inmediato, -1 espera infinita):", "GRUB_TIMEOUT=10", "", "# Opciones añadidas a TODAS las entradas (normal y recovery):", "GRUB_CMDLINE_LINUX=\"\"", "", "# Opciones añadidas SÓLO a la entrada predeterminada:", "GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\""]}, "notes": "Pregunta exploratoria 5: Para que espere 10 segundos antes de arrancar, fijar GRUB_TIMEOUT=10."}, {"id": 13, "section": "102.2", "cat": "boot", "type": "file", "title": "Soporte de discos cifrados con cryptodisk", "path": "/etc/default/grub", "contains": "Directiva para habilitar soporte de particiones y discos cifrados con LUKS", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["102.2-CFG-006", "102.2-WARN-004"], "writtenBy": "Sysadmin con discos cifrados", "readBy": ["grub-mkconfig", "grub-install"], "sample": {"lines": ["# Habilitar detección y desbloqueo de discos cifrados:", "GRUB_ENABLE_CRYPTODISK=y", "", "# Efecto secundario crucial:", "# Desactiva el arranque automático sin temporizador (GRUB_TIMEOUT=0 no funciona)", "# porque el usuario debe introducir obligatoriamente la clave criptográfica."]}, "notes": "Con CRYPTODISK=y, GRUB pedirá la contraseña de descifrado antes de cargar el menú o el kernel."}, {"id": 14, "section": "102.2", "cat": "boot", "type": "file", "title": "Directorio etc grub.d y scripts modulares", "path": "/etc/grub.d/", "contains": "Scripts ejecutables procesados en orden numérico para generar las entradas de menú", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["102.2-FILE-005", "102.2-FILE-007", "102.2-FILE-008"], "writtenBy": "Distribución / Paquetes", "readBy": ["grub-mkconfig"], "sample": {"lines": ["/etc/grub.d/00_header        -> Cabecera y entorno de variables", "/etc/grub.d/05_debian_theme  -> Temas visuales y colores de menú", "/etc/grub.d/10_linux         -> Detecta núcleos Linux instalados", "/etc/grub.d/20_memtest86+    -> Entrada para test de memoria RAM", "/etc/grub.d/30_os-prober     -> Detecta otros sistemas operativos (Windows)", "/etc/grub.d/40_custom        -> Plantilla para menús personalizados"]}, "notes": "Los archivos deben tener permisos de ejecución (+x); de lo contrario, grub-mkconfig los ignorará."}, {"id": 15, "section": "102.2", "cat": "boot", "type": "file", "title": "Entradas personalizadas en el archivo 40 custom", "path": "/etc/grub.d/40_custom", "contains": "Script para añadir entradas de menú manuales persistentes", "ref": "8, 16, 19", "pdf": {"manual": "A", "pages": [8, 16, 19], "figure": null}, "coverage": ["102.2-FILE-006", "102.2-CFG-007"], "writtenBy": "Sysadmin", "readBy": ["update-grub"], "sample": {"lines": ["#!/bin/sh", "exec tail -n +3 $0", "# Entradas personalizadas permanentes:", "menuentry \"Default OS\" {", "    set root=(hd0,1)", "    linux /vmlinuz root=/dev/sda1 ro quiet splash", "    initrd /initrd.img", "}"]}, "notes": "Pregunta guiada 3 del manual: ¿En qué archivo se deben agregar entradas personalizadas de GRUB 2? En /etc/grub.d/40_custom."}, {"id": 16, "section": "102.2", "cat": "boot", "type": "concept", "title": "Nomenclatura y numeración en GRUB 2", "lead": "Reglas de direccionamiento de discos y particiones en GRUB 2:", "ref": "8, 10", "pdf": {"manual": "A", "pages": [8, 10], "figure": null}, "coverage": ["102.2-CFG-008", "102.2-WARN-002"], "points": [{"icon": "hard-drive", "text": "Los discos se numeran comenzando en cero", "detail": "hd0 es el primer disco (/dev/sda en Linux), hd1 es el segundo (/dev/sdb)."}, {"icon": "layers", "text": "Las particiones se numeran comenzando en uno", "detail": "(hd0,1) es la primera partición del primer disco (/dev/sda1)."}, {"icon": "file-text", "text": "Nombres descriptivos según tabla MBR o GPT", "detail": "(hd0,msdos1) para discos con MBR y (hd0,gpt1) para discos particionados con GPT."}, {"icon": "triangle-alert", "text": "Diferencia crítica con GRUB Legacy donde particiones inician en 0", "detail": "En GRUB Legacy la primera partición es (hd0,0); en GRUB 2 es (hd0,1)."}], "remember": "GRUB 2: Discos desde 0 (hd0) · Particiones desde 1 (,1).", "notes": "Pregunta 100% segura de examen: ¿A qué equivale /dev/sda1 en GRUB 2? A (hd0,1) o (hd0,msdos1)."}, {"id": 17, "section": "102.2", "cat": "boot", "type": "command", "title": "Búsqueda por UUID mediante el comando search", "syntax": "search --set=root [--no-floppy] --fs-uuid UUID", "purpose": "Localiza de forma robusta la partición de arranque mediante su UUID o etiqueta:", "name": "search", "ref": "9, 17, 20-21", "pdf": {"manual": "A", "pages": [9, 17, 20, 21], "figure": null}, "coverage": ["102.2-SH-007", "102.2-FILE-013", "102.2-CMD-007"], "terminal": {"prompt": "$ ", "command": "ls -l /dev/disk/by-uuid/", "lines": [{"t": "cmd", "v": "ls -l /dev/disk/by-uuid/"}, {"t": "out", "v": "ae71b214-0aec-48e8-80b2-090b6986b625 -> ../../sda1"}, {"t": "cmt", "v": "# En /etc/grub.d/40_custom o en la consola grub>:"}, {"t": "cmd", "v": "search --set=root --no-floppy --fs-uuid ae71b214-0aec-48e8-80b2-090b6986b625"}, {"t": "cmt", "v": "# También admite búsqueda por etiqueta:"}, {"t": "cmd", "v": "search --set=root --label ROOT_DISK"}]}, "options": [{"flag": "--set=root", "short": "Asignar root", "detail": "Establece la variable root de GRUB al dispositivo que coincida con el identificador."}, {"flag": "--fs-uuid", "short": "Buscar por UUID", "detail": "Localiza el sistema de archivos por su identificador único universal."}, {"flag": "--no-floppy", "short": "Omitir disquetes", "detail": "Evita perder tiempo sondeando disqueteras heredadas."}], "notes": "Preguntas exploratorias 3 y 4: Averiguar UUID con ls -l /dev/disk/by-uuid/ y usar search --set=root --fs-uuid."}, {"id": 18, "section": "102.2", "cat": "boot", "type": "concept", "title": "Interacción con la interfaz del menú GRUB", "lead": "Atajos de teclado en la pantalla de selección del gestor de arranque:", "ref": "10", "pdf": {"manual": "A", "pages": [10], "figure": null}, "coverage": ["102.2-KEY-002", "102.2-KEY-003", "102.2-KEY-004", "102.2-KEY-005", "102.2-KEY-006"], "points": [{"icon": "key", "text": "Tecla e abre la ventana del editor para modificar la entrada", "detail": "Permite alterar parámetros del kernel (ej. añadir init=/bin/bash o single)."}, {"icon": "play", "text": "Atajo Ctrl + x o tecla F10 para arrancar tras editar", "detail": "Ejecuta los comandos editados sin persistir cambios en el disco."}, {"icon": "chevron-down", "text": "Tecla Esc cancela la edición y regresa a la pantalla del menú", "detail": "Descarta todas las modificaciones hechas en la ventana de edición."}, {"icon": "clock", "text": "Mantener pulsada tecla Shift para forzar la visualización del menú", "detail": "Útil si el menú está oculto con cuenta atrás o configurado con timeout rápido."}], "remember": "e = editar · Ctrl+x / F10 = arrancar · Esc = cancelar · Shift = mostrar menú.", "notes": "Atajos fundamentales para cualquier examen práctico o incidente de recuperación en clase."}, {"id": 19, "section": "102.2", "cat": "boot", "type": "command", "title": "Acceso interactivo a la consola de comandos", "syntax": "Tecla c  ->  grub>", "purpose": "Abre el shell interactivo de GRUB para diagnóstico y arranque por comandos:", "name": "grub>", "ref": "10, 11, 16, 19", "pdf": {"manual": "A", "pages": [10, 11, 16, 19], "figure": null}, "coverage": ["102.2-KEY-001", "102.2-SH-001"], "terminal": {"prompt": "grub> ", "command": "ls", "lines": [{"t": "cmt", "v": "# Pulsar 'c' en el menú de arranque abre este shell:"}, {"t": "cmd", "v": "ls"}, {"t": "out", "v": "(proc) (hd0) (hd0,msdos1)"}, {"t": "cmd", "v": "ls (hd0,msdos1)/"}, {"t": "out", "v": "lost+found/ etc/ media/ bin/ boot/ vmlinuz initrd.img"}, {"t": "cmd", "v": "set root=(hd0,msdos1)"}]}, "options": [{"flag": "c", "short": "Abrir shell", "detail": "Presionar 'c' en la pantalla del menú (o Ctrl + c en edición) para entrar al shell grub>."}, {"flag": "set root=", "short": "Fijar dispositivo", "detail": "Configura la partición de arranque activa para los comandos posteriores."}], "notes": "Pregunta guiada 5 del manual: ¿Cómo ingresar a la consola de GRUB desde el menú? Presionando 'c'."}, {"id": 20, "section": "102.2", "cat": "boot", "type": "command", "title": "Secuencia de arranque manual en GRUB 2", "syntax": "linux ... ; initrd ... ; boot", "purpose": "Carga y ejecuta el sistema operativo paso a paso desde el shell de GRUB 2:", "name": "boot", "ref": "11", "pdf": {"manual": "A", "pages": [11], "figure": null}, "coverage": ["102.2-SH-002", "102.2-SH-003", "102.2-SH-004"], "terminal": {"prompt": "grub> ", "command": "linux /vmlinuz root=/dev/sda1", "lines": [{"t": "cmd", "v": "set root=(hd0,msdos1)"}, {"t": "cmd", "v": "linux /vmlinuz root=/dev/sda1"}, {"t": "cmt", "v": "# Carga el núcleo indicando la raíz del sistema"}, {"t": "cmd", "v": "initrd /initrd.img"}, {"t": "cmt", "v": "# Carga la imagen de disco RAM inicial"}, {"t": "cmd", "v": "boot"}, {"t": "out", "v": "[   0.000000] Linux version 4.15.0 ..."}]}, "options": [{"flag": "linux", "short": "Cargar kernel", "detail": "Carga la imagen ejecutable del núcleo y le transfiere parámetros como root=."}, {"flag": "initrd", "short": "Cargar initramfs", "detail": "Carga el disco RAM inicial necesario para montar el sistema de archivos raíz."}, {"flag": "boot", "short": "Arrancar", "detail": "Inicia la ejecución del núcleo cargado en memoria."}], "notes": "Secuencia indispensable: 1. set root -> 2. linux -> 3. initrd -> 4. boot."}, {"id": 21, "section": "102.2", "cat": "boot", "type": "command", "title": "Consola de rescate y carga de módulos", "syntax": "set prefix=... ; insmod normal ; insmod linux", "purpose": "Recupera el arranque cuando GRUB 2 entra en modo mínimo tras fallos de configuración:", "name": "grub rescue>", "ref": "11-12", "pdf": {"manual": "A", "pages": [11, 12], "figure": null}, "coverage": ["102.2-SH-005", "102.2-SH-006"], "terminal": {"prompt": "grub rescue> ", "command": "insmod normal", "lines": [{"t": "cmd", "v": "set prefix=(hd0,msdos1)/boot/grub"}, {"t": "cmt", "v": "# Indica dónde residen los módulos de GRUB 2"}, {"t": "cmd", "v": "insmod normal"}, {"t": "cmt", "v": "# Carga el módulo de funcionamiento estándar"}, {"t": "cmd", "v": "insmod linux"}, {"t": "cmt", "v": "# Carga el soporte para núcleos Linux"}, {"t": "cmd", "v": "normal"}, {"t": "out", "v": "# Retorna al entorno de menú estándar de GRUB"}]}, "options": [{"flag": "set prefix=", "short": "Ruta de módulos", "detail": "Apunta al directorio que contiene los módulos .mod de GRUB (/boot/grub)."}, {"flag": "insmod", "short": "Insertar módulo", "detail": "Carga dinámicamente módulos como 'normal' y 'linux' para habilitar comandos avanzados."}], "notes": "grub rescue> aparece cuando GRUB no encuentra su directorio de módulos por partición cambiada."}, {"id": 22, "section": "102.2", "cat": "boot", "type": "command", "title": "Instalación de GRUB Legacy desde el sistema", "syntax": "grub-install [--boot-directory=...] /dev/sda", "purpose": "Instala GRUB Legacy en un disco desde una instalación de Linux en funcionamiento:", "name": "grub-install", "ref": "12, 14, 15", "pdf": {"manual": "A", "pages": [12, 14, 15], "figure": null}, "coverage": ["102.2-FILE-012"], "terminal": {"prompt": "# ", "command": "grub-install /dev/sda", "lines": [{"t": "cmd", "v": "grub-install /dev/sda"}, {"t": "out", "v": "Installation finished. No error reported."}, {"t": "out", "v": "This is the contents of the device map /boot/grub/device.map."}, {"t": "out", "v": "(hd0) /dev/sda"}, {"t": "cmt", "v": "# Copia módulos x86 en /boot/grub/i386-pc"}]}, "options": [{"flag": "/dev/sda", "short": "Dispositivo disco", "detail": "Se debe especificar el disco completo, no una partición como /dev/sda1."}, {"flag": "--boot-directory", "short": "Directorio destino", "detail": "Opcional si se desea copiar los archivos fuera de /boot."}], "notes": "Al igual que en GRUB 2, en GRUB Legacy se instala en el MBR del disco (/dev/sda)."}, {"id": 23, "section": "102.2", "cat": "boot", "type": "command", "title": "Instalación de GRUB Legacy desde la consola", "syntax": "find /boot/grub/stage1  ->  root (hd0,0)  ->  setup (hd0)", "purpose": "Reinstala GRUB Legacy en el MBR desde un disco de rescate:", "name": "setup", "ref": "12, 13, 21", "pdf": {"manual": "A", "pages": [12, 13, 21], "figure": null}, "coverage": ["102.2-LEG-001", "102.2-LEG-002", "102.2-LEG-003", "102.2-FILE-011"], "terminal": {"prompt": "grub> ", "command": "find /boot/grub/stage1", "lines": [{"t": "cmd", "v": "find /boot/grub/stage1"}, {"t": "out", "v": "(hd0,0)"}, {"t": "cmt", "v": "# Fijar partición de arranque identificada:"}, {"t": "cmd", "v": "root (hd0,0)"}, {"t": "cmt", "v": "# Instalar en el MBR del primer disco:"}, {"t": "cmd", "v": "setup (hd0)"}, {"t": "out", "v": "Running \"install /boot/grub/stage1 ... stage2\"... Succeeded"}]}, "options": [{"flag": "find", "short": "Buscar archivo", "detail": "Localiza en qué disco y partición reside un fichero como /boot/grub/stage1."}, {"flag": "root", "short": "Fijar raíz GRUB", "detail": "Establece el dispositivo de arranque (hd0,0) en GRUB Legacy."}, {"flag": "setup", "short": "Escribir en MBR", "detail": "Escribe el gestor en el MBR del disco especificado (ej. setup (hd0))."}], "notes": "Pregunta exploratoria 6: Para instalar en el 2º disco desde consola: root (hd1,0) y setup (hd1)."}, {"id": 24, "section": "102.2", "cat": "boot", "type": "file", "title": "Archivos menu.lst y grub.conf en Legacy", "path": "/boot/grub/menu.lst", "contains": "Archivo de configuración editable directamente para menús en GRUB Legacy", "ref": "1, 13, 16, 19", "pdf": {"manual": "A", "pages": [1, 13, 16, 19], "figure": null}, "coverage": ["102.2-FILE-002", "102.2-FILE-003"], "writtenBy": "Sysadmin (edición manual directa permitida)", "readBy": ["GRUB Legacy"], "sample": {"lines": ["# Configuración de GRUB Legacy (menu.lst / grub.conf):", "default 0", "timeout 10", "", "title My Linux Distribution", "root (hd0,0)", "kernel /vmlinuz root=/dev/hda1", "initrd /initrd.img"]}, "notes": "Pregunta guiada 4: Las entradas de GRUB Legacy se almacenan en /boot/grub/menu.lst (o grub.conf)."}, {"id": 25, "section": "102.2", "cat": "boot", "type": "concept", "title": "Estructura de entradas de menú en Legacy", "lead": "Comandos indispensables para definir una entrada en GRUB Legacy:", "ref": "13-14", "pdf": {"manual": "A", "pages": [13, 14], "figure": null}, "coverage": ["102.2-LEG-004", "102.2-LEG-005", "102.2-CFG-009"], "points": [{"icon": "pencil", "text": "title establece el texto visible en la pantalla del menú", "detail": "Etiqueta descriptiva del sistema operativo mostrado en la lista de arranque."}, {"icon": "hard-drive", "text": "root indica el dispositivo y partición de arranque", "detail": "En GRUB Legacy ambos inician en 0: root (hd0,0) es primer disco, 1ª partición."}, {"icon": "cpu", "text": "kernel especifica la ruta de la imagen del núcleo y parámetros", "detail": "Ruta relativa a root; incluye root=/dev/hda1 para pasarle la partición raíz al kernel."}, {"icon": "box", "text": "initrd especifica la ruta de la imagen del disco RAM", "detail": "Carga los controladores requeridos para montar el sistema de ficheros raíz."}], "remember": "En GRUB Legacy las particiones empiezan en 0: (hd0,0) = 1ª partición, (hd0,1) = 2ª partición.", "notes": "Pregunta exploratoria 1: Si un usuario pone root (hd0,2) para la 2ª partición, fallará (debe ser hd0,1)."}, {"id": 26, "section": "102.2", "cat": "boot", "type": "concept", "title": "Carga de módulos adicionales en GRUB Legacy", "lead": "Ampliación de funcionalidades mediante archivos .mod modulares:", "ref": "14-15", "pdf": {"manual": "A", "pages": [14, 15], "figure": null}, "coverage": ["102.2-LEG-006"], "points": [{"icon": "box", "text": "Los módulos .mod agregan compatibilidad con hardware especial", "detail": "Ubicados habitualmente en /boot/grub/i386-pc/."}, {"icon": "terminal", "text": "El comando module carga el archivo en memoria", "detail": "Sintaxis: module /boot/grub/i386-pc/nombre.mod."}, {"icon": "monitor", "text": "Ejemplo con módulo 915resolution para chips de vídeo Intel", "detail": "module /boot/grub/i386-pc/915resolution.mod ajusta la resolución de consola."}, {"icon": "layers", "text": "La ruta indicada es relativa al dispositivo definido por root", "detail": "Igual que sucede con los archivos de kernel e initrd."}], "remember": "El comando module carga extensiones .mod en GRUB Legacy.", "notes": "En GRUB Legacy la carga modular permitía resolver peculiaridades de vídeo antes del arranque."}, {"id": 27, "section": "102.2", "cat": "boot", "type": "concept", "title": "Carga en cadena chainloading de otros sistemas", "lead": "Técnica para arrancar sistemas no compatibles como Windows:", "ref": "15", "pdf": {"manual": "A", "pages": [15], "figure": null}, "coverage": ["102.2-CFG-011", "102.2-LEG-007", "102.2-LEG-008"], "points": [{"icon": "link", "text": "Chainloading transfiere el control a otro gestor de arranque", "detail": "Permite arrancar sistemas operativos propietarios que tienen su propio cargador."}, {"icon": "check", "text": "makeactive marca la partición primaria como activa", "detail": "Requisito histórico necesario para particiones primarias de DOS y Windows."}, {"icon": "arrow-right", "text": "chainload +1 carga el primer sector de la partición de destino", "detail": "Lee el Volume Boot Record (VBR) donde reside el cargador del sistema secundario."}, {"icon": "play", "text": "boot ejecuta el gestor de arranque cargado en memoria", "detail": "Inicia la ejecución de NTLDR, BOOTMGR o el gestor correspondiente."}], "remember": "Chainloading: root (hd0,1) -> makeactive -> chainload +1 -> boot.", "notes": "Sintaxis clásica de examen LPIC-1 para arranque dual de Linux con Windows."}, {"id": 28, "section": "102.2", "cat": "boot", "type": "table", "title": "Comparativa exhaustiva: GRUB Legacy vs GRUB 2", "takeaway": "Diferencias técnicas cruciales para no dudar en el examen LPIC-1:", "ref": "3, 7, 8, 13", "pdf": {"manual": "A", "pages": [3, 7, 8, 13], "figure": null}, "coverage": ["102.2-OBJ-002"], "headers": ["Característica", "GRUB Legacy (v1)", "GRUB 2 (v2)", "Regla de Memoria"], "rows": [["Archivo de configuración", "/boot/grub/menu.lst", "/boot/grub/grub.cfg", "Legacy = lst / GRUB2 = cfg"], ["Edición de configuración", "Manual directa", "/etc/default/grub + update-grub", "Nunca editar grub.cfg"], ["Numeración particiones", "Comienza en 0: (hd0,0)", "Comienza en 1: (hd0,1)", "Legacy 0 / GRUB2 1"], ["Comando cargar kernel", "kernel /vmlinuz ...", "linux /vmlinuz ...", "kernel vs linux"], ["Entradas personalizadas", "En menu.lst", "/etc/grub.d/40_custom", "Scripts en /etc/grub.d/"]], "notes": "Esta tabla resume el 80% de las preguntas de examen relacionadas con GRUB en LPIC-1."}, {"id": 29, "section": "102.2", "cat": "boot", "type": "exercise", "title": "Ejercicio guiado 1: Archivo de configuración GRUB", "lead": "¿Cuál es la ubicación predeterminada para el archivo de configuración de GRUB 2?", "ref": "16, 19", "pdf": {"manual": "A", "pages": [16, 19], "figure": null}, "coverage": ["102.2-EX-001"], "steps": [{"do": "1. Identificar el directorio de GRUB en la partición de arranque", "look": "El directorio es /boot/grub/."}, {"do": "2. Indicar el nombre canónico del script autogenerado", "look": "El archivo es grub.cfg."}], "solution": {"explain": "/boot/grub/grub.cfg. Es el archivo que lee GRUB 2 al iniciar el sistema; no se debe modificar directamente."}, "notes": "Pregunta guiada 1 del manual oficial."}, {"id": 30, "section": "102.2", "cat": "boot", "type": "exercise", "title": "Ejercicio guiado 2: Pasos para cambiar configuración", "lead": "¿Cuáles son los pasos necesarios para cambiar la configuración de GRUB 2?", "ref": "16, 19", "pdf": {"manual": "A", "pages": [16, 19], "figure": null}, "coverage": ["102.2-EX-002"], "steps": [{"do": "1. Modificar las variables en el archivo de personalización", "look": "Editar /etc/default/grub (o scripts en /etc/grub.d/)."}, {"do": "2. Regenerar el archivo final de configuración", "look": "Ejecutar update-grub (o grub-mkconfig -o /boot/grub/grub.cfg)."}], "solution": {"explain": "Realizar los cambios en el archivo /etc/default/grub (y/o scripts ejecutables en /etc/grub.d/), luego actualizar la configuración ejecutando update-grub."}, "notes": "Pregunta guiada 2 del manual oficial."}, {"id": 31, "section": "102.2", "cat": "boot", "type": "exercise", "title": "Ejercicio guiado 3: Entradas de menú personalizadas", "lead": "¿En qué archivo se deben agregar entradas de menú personalizadas de GRUB 2?", "ref": "16, 19", "pdf": {"manual": "A", "pages": [16, 19], "figure": null}, "coverage": ["102.2-EX-003"], "steps": [{"do": "1. Localizar el directorio de scripts de configuración", "look": "El directorio es /etc/grub.d/."}, {"do": "2. Identificar el script reservado para entradas de usuario", "look": "El archivo es /etc/grub.d/40_custom."}], "solution": {"explain": "En /etc/grub.d/40_custom. Luego se debe ejecutar update-grub para compilar los cambios en /boot/grub/grub.cfg."}, "notes": "Pregunta guiada 3 del manual oficial."}, {"id": 32, "section": "102.2", "cat": "boot", "type": "exercise", "title": "Ejercicio guiado 4: Archivo de menú GRUB", "lead": "¿Dónde se almacenan las entradas de menú para GRUB Legacy?", "ref": "16, 19", "pdf": {"manual": "A", "pages": [16, 19], "figure": null}, "coverage": ["102.2-EX-004"], "steps": [{"do": "1. Identificar el gestor de arranque (GRUB Legacy)", "look": "Utiliza un archivo de texto plano editable."}, {"do": "2. Indicar la ruta canónica", "look": "/boot/grub/menu.lst (o /boot/grub/grub.conf)."}], "solution": {"explain": "En /boot/grub/menu.lst (en algunas distribuciones como Red Hat se enlaza con grub.conf)."}, "notes": "Pregunta guiada 4 del manual oficial."}, {"id": 33, "section": "102.2", "cat": "boot", "type": "exercise", "title": "Ejercicio guiado 5: Acceso a la consola", "lead": "Desde un menú de GRUB 2 o GRUB Legacy, ¿cómo puede ingresar a la consola de GRUB?", "ref": "16, 19", "pdf": {"manual": "A", "pages": [16, 19], "figure": null}, "coverage": ["102.2-EX-005"], "steps": [{"do": "1. Estar en la pantalla gráfica de selección de arranque", "look": "Menú visible con la cuenta atrás o lista de SOs."}, {"do": "2. Presionar la tecla de acceso directo", "look": "Presionar la tecla 'c' en el teclado."}], "solution": {"explain": "Presione la tecla 'c' en la pantalla del menú para abrir el símbolo del sistema grub>."}, "notes": "Pregunta guiada 5 del manual oficial."}, {"id": 34, "section": "102.2", "cat": "boot", "type": "challenge", "title": "Ejercicio exploratorio 1: Error en partición Legacy", "scenario": "Un usuario configura GRUB Legacy para arrancar desde la segunda partición del primer disco y escribe: root (hd0,2) ; kernel /vmlinuz root=/dev/hda1. El sistema no arranca. ¿Cuál es el error?", "ref": "17, 20", "pdf": {"manual": "A", "pages": [17, 20], "figure": null}, "coverage": ["102.2-EX-006"], "question": "¿Cómo numera GRUB Legacy las particiones?", "hint": "En GRUB Legacy tanto los discos como las particiones comienzan a numerarse desde cero.", "solution": {"explain": "La partición de arranque está mal especificada. En GRUB Legacy las particiones comienzan a contarse desde cero (0). Por tanto, la segunda partición del primer disco es root (hd0,1), no (hd0,2)."}, "notes": "Pregunta exploratoria 1 del manual oficial."}, {"id": 35, "section": "102.2", "cat": "boot", "type": "challenge", "title": "Ejercicio exploratorio 2: Partición de arranque fdisk", "scenario": "Tiene un disco identificado como /dev/sda con múltiples particiones y necesita saber cuál de ellas es la partición de arranque del sistema:", "ref": "17, 20", "pdf": {"manual": "A", "pages": [17, 20], "figure": null}, "coverage": ["102.2-EX-007"], "question": "¿Qué comando y qué marca visual permiten identificarla?", "hint": "Utilice la herramienta tradicional de particionado de discos MBR.", "solution": {"explain": "Use el comando 'fdisk -l /dev/sda'. La partición de arranque aparecerá marcada con un asterisco (*) en la columna Boot."}, "notes": "Pregunta exploratoria 2 del manual oficial."}, {"id": 36, "section": "102.2", "cat": "boot", "type": "challenge", "title": "Ejercicio exploratorio 3: Averiguar UUID de partición", "scenario": "Desea configurar una entrada en GRUB 2 utilizando el identificador único universal en lugar de rutas tradicionales tipo /dev/sda1:", "ref": "17, 20", "pdf": {"manual": "A", "pages": [17, 20], "figure": null}, "coverage": ["102.2-EX-008"], "question": "¿Qué comando del sistema operativo permite averiguar el UUID de una partición?", "hint": "Inspeccione el directorio /dev/disk/by-uuid/ con un listado detallado.", "solution": {"explain": "Ejecutar 'ls -l /dev/disk/by-uuid/' (o 'ls -la /dev/disk/by-uuid/') y buscar el enlace simbólico que apunta hacia la partición deseada (o usar 'blkid')."}, "notes": "Pregunta exploratoria 3 del manual oficial."}, {"id": 37, "section": "102.2", "cat": "boot", "type": "challenge", "title": "Ejercicio exploratorio 4: Entrada GRUB 2 UUID", "scenario": "Dada la entrada: menuentry \"Default OS\" { set root=(hd0,1) ; linux /vmlinuz root=/dev/sda1 ro quiet splash ; initrd /initrd.img }", "ref": "17, 20-21", "pdf": {"manual": "A", "pages": [17, 20, 21], "figure": null}, "coverage": ["102.2-EX-009"], "question": "¿Cómo se modifica para arrancar desde un disco con UUID 5dda0af3-c995-481a-a6f3-46dcd3b6998d?", "hint": "Reemplace 'set root=(hd0,1)' por el comando 'search' adecuado.", "solution": {"explain": "Se sustituye 'set root=(hd0,1)' por: search --set=root --fs-uuid 5dda0af3-c995-481a-a6f3-46dcd3b6998d"}, "notes": "Pregunta exploratoria 4 del manual oficial."}, {"id": 38, "section": "102.2", "cat": "boot", "type": "challenge", "title": "Ejercicio exploratorio 5: Configurar tiempo de espera", "scenario": "El equipo de sistemas solicita que el menú de arranque de GRUB 2 espere exactamente 10 segundos antes de iniciar automáticamente:", "ref": "17, 21", "pdf": {"manual": "A", "pages": [17, 21], "figure": null}, "coverage": ["102.2-EX-010"], "question": "¿Qué parámetro y en qué archivo se debe configurar?", "hint": "Variable de temporización en /etc/default/grub.", "solution": {"explain": "Agregar o modificar el parámetro 'GRUB_TIMEOUT=10' en el archivo /etc/default/grub y luego ejecutar 'update-grub'."}, "notes": "Pregunta exploratoria 5 del manual oficial."}, {"id": 39, "section": "102.2", "cat": "boot", "type": "challenge", "title": "Ejercicio exploratorio 6: Instalar en segundo disco", "scenario": "Desde una consola interactiva de GRUB Legacy (grub>), necesita instalar el cargador en la primera partición del segundo disco duro:", "ref": "17, 21", "pdf": {"manual": "A", "pages": [17, 21], "figure": null}, "coverage": ["102.2-EX-011"], "question": "¿Cuáles son los comandos exactos que deben ejecutarse?", "hint": "El segundo disco es hd1; la primera partición es 0.", "solution": {"explain": "grub> root (hd1,0) seguido de grub> setup (hd1)"}, "notes": "Pregunta exploratoria 6 del manual oficial."}, {"id": 40, "section": "102.2", "cat": "boot", "type": "flashcards", "title": "Tarjetas nemotécnicas de examen (102.2)", "ref": "1-21", "pdf": {"manual": "A", "pages": [1, 21], "figure": null}, "coverage": ["102.2-MEM-001"], "deck": [{"front": "Numeración de discos y particiones: GRUB Legacy vs GRUB 2", "back": "GRUB Legacy: (hd0,0) = 1er disco, 1ª partición (ambos base 0).\nGRUB 2: (hd0,1) = 1er disco (base 0), pero particiones base 1 (1ª partición = 1)!"}, {"front": "¿Dónde reside la configuración de GRUB 2 y cómo se regenera?", "back": "Archivo final: /boot/grub/grub.cfg (¡NUNCA editar manualmente!).\nConfiguración en /etc/default/grub y /etc/grub.d/*.\nRegenerar con: grub-mkconfig -o /boot/grub/grub.cfg (o update-grub en Debian/Ubuntu)."}, {"front": "¿Cómo se instala GRUB 2 en el MBR del primer disco SATA?", "back": "grub-install /dev/sda (¡al disco entero /dev/sda, NUNCA a una partición como /dev/sda1!)."}, {"front": "Parámetro del kernel para recuperación de contraseña root olvidada", "back": "init=/bin/bash (inicia una shell bash directa como PID 1 saltándose el inicio normal y sin pedir password)."}, {"front": "¿Qué opción del kernel arranca en modo rescate con systemd?", "back": "systemd.unit=rescue.target (o systemd.unit=emergency.target para modo de emergencia mínima)."}], "notes": "Tarjetas de memorización activa de alta frecuencia para el examen LPIC-1 del subtema 102.2."}, {"id": 41, "section": "102.2", "cat": "boot", "type": "summary", "title": "Resumen y mnemotecnias del subtema 102.2", "ref": "18", "pdf": {"manual": "A", "pages": [18], "figure": null}, "coverage": ["102.2-OBJ-001", "102.2-OBJ-002", "102.2-OBJ-003", "102.2-OBJ-004"], "items": [{"icon": "box", "text": "<strong>GRUB 2:</strong> Configuración generada en /boot/grub/grub.cfg. Editar /etc/default/grub y /etc/grub.d/40_custom. Ejecutar update-grub."}, {"icon": "scroll-text", "text": "<strong>GRUB Legacy:</strong> Archivo /boot/grub/menu.lst (o grub.conf). Directivas: title, root, kernel, initrd, module, makeactive, chainload +1."}, {"icon": "hash", "text": "<strong>Numeración:</strong> GRUB 2: (hd0,1) = 1er disco, 1ª part. GRUB Legacy: (hd0,0) = 1er disco, 1ª part. Discos siempre desde 0."}, {"icon": "terminal", "text": "<strong>Consola y atajos:</strong> 'c' abre grub>; 'e' edita entrada; Ctrl+x o F10 arranca; search --set=root --fs-uuid busca por UUID."}], "top3": ["update-grub = grub-mkconfig -o /boot/grub/grub.cfg", "GRUB 2 cuenta particiones desde 1; Legacy desde 0", "grub-install /dev/sda (disco completo, no partición)"], "notes": "Cheat sheet de repaso para examen oficial LPIC-1 (Objetivo 102.2)."}];
+    const SLIDES = [{"id": 1, "section": "102.2", "cat": "boot", "type": "cover", "title": "Instalación y configuración del gestor de arranque", "subtitle": "GRUB 2, GRUB Legacy, archivos de configuración, consola interactiva y recuperación (Modo Examen)", "ref": "75-76", "pdf": {"manual": "A", "pages": [75, 76], "figure": null}, "coverage": ["102.2-OBJ-001", "102.2-OBJ-002"], "meta": {"peso": 2, "paginas": "75–100", "duracion": "30 min"}, "icon": "disc", "notes": "Iniciamos el subtema 102.2 (peso 2), dedicado al gestor de arranque GRUB. El examen evalúa tanto el gestor actual (GRUB 2) como el histórico (GRUB Legacy), su sintaxis de discos y su consola interactiva de rescate."}, {"id": 2, "section": "102.2", "cat": "boot", "type": "concept", "title": "Evolución de los Gestores: GRUB Legacy frente a GRUB 2", "lead": "¿Por qué se rediseñó GRUB desde cero y qué diferencias fundamentales evalúa LPIC-1?", "ref": "76-78", "pdf": {"manual": "A", "pages": [76, 77, 78], "figure": null}, "coverage": ["102.2-CON-001", "102.2-CON-002"], "points": [{"icon": "archive", "text": "GRUB Legacy (versión 0.97 y anteriores)", "detail": "Monolítico. Se configuraba en un único archivo de texto editable a mano (/boot/grub/menu.lst o grub.conf). Solo entendía particiones MBR básicas y carecía de soporte nativo para GPT, LVM o RAID."}, {"icon": "layers", "text": "GRUB 2 (versión 1.98 en adelante, estándar actual)", "detail": "Totalmente modular y scriptable. Carga módulos dinámicos (.mod), soporta GPT, UEFI, LVM, RAID por software y sistemas de archivos modernos (Btrfs, XFS, ext4)."}, {"icon": "shield-alert", "text": "Diferencia de edición", "detail": "🎯 Clave de Examen: En Legacy se editaba menu.lst a mano. En GRUB 2 NUNCA se edita /boot/grub/grub.cfg directamente; se modifica /etc/default/grub y los scripts de /etc/grub.d/."}], "remember": "🎯 Clave de Examen: Si ves preguntas sobre 'menu.lst', se refieren a GRUB Legacy. Si mencionan 'grub-mkconfig' o 'grub.cfg', se refieren a GRUB 2.", "notes": "Explica a la clase que GRUB Legacy se mantiene en el temario porque muchos sistemas embebidos y servidores industriales antiguos siguen utilizándolo."}, {"id": 3, "section": "102.2", "cat": "boot", "type": "table", "title": "Nomenclatura de Discos y Particiones: Legacy vs GRUB 2", "lead": "¡ATENCIÓN! Esta diferencia de numeración es la trampa favorita del examen de certificación:", "ref": "78-80", "pdf": {"manual": "A", "pages": [78, 79, 80], "figure": null}, "coverage": ["102.2-CON-003"], "headers": ["Dispositivo Real Linux", "Nomenclatura GRUB Legacy (Versión 0.9x)", "Nomenclatura GRUB 2 (Versión 2.x)"], "rows": [["Primer Disco (/dev/sda)", "(hd0)", "(hd0)"], ["Segundo Disco (/dev/sdb)", "(hd1)", "(hd1)"], ["Primera partición de sda (/dev/sda1)", "🎯 (hd0,0)  <- Partición empieza en CERO", "🎯 (hd0,1) o (hd0,msdos1) <- Partición empieza en UNO"], ["Segunda partición de sda (/dev/sda2)", "(hd0,1)", "(hd0,2) o (hd0,msdos2)"], ["Primera partición de sdb (/dev/sdb1)", "(hd1,0)", "(hd1,1) o (hd1,msdos1)"], ["Partición GPT 1 de sda", "No soportado nativamente", "(hd0,gpt1)"]], "remember": "🎯 Regla Mnemotécnica de Examen: Los discos SIEMPRE empiezan en 0 en ambos. Las particiones empiezan en 0 en Legacy, pero empiezan en 1 en GRUB 2.", "notes": "Pide a todos los alumnos que anoten esto en rojo: /dev/sda1 es (hd0,0) en Legacy y (hd0,1) en GRUB 2."}, {"id": 4, "section": "102.2", "cat": "boot", "type": "file", "title": "Archivos del Kernel en /boot", "lead": "¿Qué componentes encuentra y carga GRUB en el directorio /boot?", "ref": "80-82", "pdf": {"manual": "A", "pages": [80, 81, 82], "figure": null}, "coverage": ["102.2-FIL-001"], "file": {"path": "/boot/", "purpose": "Almacenar los núcleos instalados, sistemas de arranque en RAM y mapas de símbolos", "content": "-rw-r--r-- 1 root root  8391808 Oct 15 08:00 vmlinuz-6.1.0-18-amd64\n-rw-r--r-- 1 root root 42194304 Oct 15 08:05 initrd.img-6.1.0-18-amd64\n-rw-r--r-- 1 root root   235920 Oct 15 08:00 config-6.1.0-18-amd64\n-rw-r--r-- 1 root root  6029312 Oct 15 08:00 System.map-6.1.0-18-amd64"}, "points": [{"icon": "cpu", "text": "vmlinuz-<versión>", "detail": "🎯 El ejecutable comprimido del kernel Linux. La 'z' final indica que está comprimido (zImage/bzImage)."}, {"icon": "archive", "text": "initrd.img / initramfs-<versión>", "detail": "Sistema de archivos temporal en RAM que contiene los controladores necesarios para montar la partición raíz."}, {"icon": "file-text", "text": "config-<versión>", "detail": "Archivo de texto que documenta las opciones de compilación exactas con las que se construyó ese núcleo (ej: CONFIG_EXT4_FS=y)."}, {"icon": "map", "text": "System.map-<versión>", "detail": "Tabla de símbolos que mapea las funciones del kernel con sus direcciones exactas de memoria RAM (usada para depuración y volcados de fallos)."}], "remember": "🎯 Clave de Examen: Para consultar la configuración de compilación del kernel en ejecución, también se puede leer /boot/config-$(uname -r) o /proc/config.gz (si está activo el módulo configs).", "notes": "Muestra los 4 archivos de /boot. Los esenciales para arrancar son vmlinuz e initrd."}, {"id": 5, "section": "102.2", "cat": "boot", "type": "command", "title": "Instalación del Cargador: grub-install", "lead": "¿Cómo instalamos físicamente GRUB en un disco duro nuevo o recuperamos el arranque dañado?", "ref": "82-84", "pdf": {"manual": "A", "pages": [82, 83, 84], "figure": null}, "coverage": ["102.2-CMD-001"], "command": "grub-install", "purpose": "Escribir el código de arranque en el MBR o copiar los ejecutables EFI en la partición ESP", "terminal": {"command": "sudo grub-install /dev/sda", "output": "Installing for i386-pc platform.\nInstallation finished. No error reported."}, "options": [{"flag": "/dev/sdX", "desc": "🎯 Clave de Examen: En BIOS se instala en el DISCO ENTERO (ej: /dev/sda, sin número de partición), escribiendo los 446 bytes del MBR."}, {"flag": "--boot-directory=<dir>", "desc": "Especifica una ruta alternativa donde reside el directorio /boot (útil al rescatar un sistema montado en /mnt)."}, {"flag": "--efi-directory=<dir>", "desc": "En UEFI, especifica la ruta de montaje de la partición ESP (habitualmente /boot/efi)."}, {"flag": "--recheck", "desc": "Fuerza a sondear de nuevo los discos y reconstruir el mapa /boot/grub/device.map."}], "remember": "🎯 Error Típico de Examen: En BIOS NUNCA se hace 'grub-install /dev/sda1' (en la partición), sino 'grub-install /dev/sda' (en el MBR del disco).", "notes": "Enfatiza la diferencia entre el disco (/dev/sda) y la partición (/dev/sda1). En MBR el código va al sector 0 del disco."}, {"id": 6, "section": "102.2", "cat": "boot", "type": "file", "title": "Arquitectura Modular de GRUB 2: /etc/grub.d/", "lead": "¿Cómo construye GRUB 2 el archivo maestro /boot/grub/grub.cfg?", "ref": "84-87", "pdf": {"manual": "A", "pages": [84, 85, 86, 87], "figure": null}, "coverage": ["102.2-FIL-002", "102.2-CMD-002"], "file": {"path": "/etc/grub.d/", "purpose": "Scripts ejecutables que generan secuencialmente las secciones de grub.cfg", "content": "00_header        # Configuración básica, variables globales y timeout\n05_debian_theme  # Colores, fuentes y temas visuales\n10_linux         # Detecta kernels instalados en /boot y genera entradas\n30_os-prober     # Detecta otros sistemas operativos (Windows, otras distros)\n40_custom        # Plantilla para añadir entradas manuales personalizadas"}, "points": [{"icon": "sliders", "text": "Orden numérico de ejecución", "detail": "Los scripts se ejecutan en estricto orden alfanumérico (00 -> 10 -> 30 -> 40). El prefijo numérico define la posición de sus entradas en el menú."}, {"icon": "terminal", "text": "Permiso de ejecución obligatorio", "detail": "🎯 Pregunta de Examen: Si un script en /etc/grub.d/ no tiene permisos de ejecución (chmod +x), grub-mkconfig lo ignorará por completo."}, {"icon": "refresh-cw", "text": "grub-mkconfig -o /boot/grub/grub.cfg", "detail": "Comando que lee /etc/default/grub, ejecuta los scripts de /etc/grub.d/ y escribe el archivo final /boot/grub/grub.cfg."}], "remember": "🎯 Clave de Examen: Para añadir una entrada personalizada permanente, se edita /etc/grub.d/40_custom y luego se ejecuta grub-mkconfig -o /boot/grub/grub.cfg.", "notes": "Muestra que el archivo /boot/grub/grub.cfg lleva un aviso en la primera línea: 'DO NOT EDIT THIS FILE'."}, {"id": 7, "section": "102.2", "cat": "boot", "type": "file", "title": "Entradas Manuales en /etc/grub.d/40_custom", "lead": "¿Cómo se escribe sintácticamente una entrada de menú personalizada en GRUB 2?", "ref": "87-89", "pdf": {"manual": "A", "pages": [87, 88, 89], "figure": null}, "coverage": ["102.2-FIL-003"], "file": {"path": "/etc/grub.d/40_custom", "purpose": "Añadir sistemas alternativos o entradas de rescate con parámetros propios", "content": "#!/bin/sh\nexec tail -n +3 $0\n\nmenuentry \"Linux Modo Seguro Rescate\" {\n    insmod ext4\n    set root=(hd0,1)\n    search --no-floppy --fs-uuid --set=root 3a7f8b91-1c2d-4e5f\n    linux /boot/vmlinuz-6.1.0-18-amd64 root=UUID=3a7f8b91-1c2d-4e5f ro single\n    initrd /boot/initrd.img-6.1.0-18-amd64\n}"}, "points": [{"icon": "box", "text": "Directiva menuentry 'Nombre' { ... }", "detail": "Delimita la entrada del menú. Las llaves '{' y '}' deben cerrarse correctamente."}, {"icon": "search", "text": "search --no-floppy --fs-uuid --set=root <UUID>", "detail": "🎯 Clave de Examen: Busca la partición por su UUID (evitando fallos si los discos cambian de orden sda/sdb) y fija la variable $root."}, {"icon": "play", "text": "linux e initrd", "detail": "Carga la imagen del kernel y el archivo initramfs correspondientes."}], "remember": "🎯 Clave de Examen: En GRUB 2 el comando se llama 'linux' e 'initrd'. En GRUB Legacy el comando se llamaba 'kernel' e 'initrd'.", "notes": "Destaca el uso de UUID en search: es el método moderno preferido frente a confiar en nombres frágiles como (hd0,1)."}, {"id": 8, "section": "102.2", "cat": "boot", "type": "command", "title": "Recuperación Interactiva en la Consola de GRUB 2", "lead": "Si el menú de GRUB se rompe y te deja en el prompt 'grub>', ¿cómo arrancas el sistema a mano?", "ref": "89-91", "pdf": {"manual": "A", "pages": [89, 90, 91], "figure": null}, "coverage": ["102.2-CMD-003"], "command": "grub> (Consola interactiva de comandos)", "purpose": "Localizar particiones, cargar módulos del kernel y arrancar paso a paso", "terminal": {"command": "grub> ls\n(hd0) (hd0,gpt1) (hd0,gpt2)\ngrub> set root=(hd0,gpt2)\ngrub> linux /vmlinuz root=/dev/sda2 ro\ngrub> initrd /initrd.img\ngrub> boot", "output": "[Iniciando el arranque manual del kernel...]"}, "options": [{"flag": "ls", "desc": "Lista todos los discos y particiones detectados por GRUB (ej: (hd0,msdos1), (hd1,gpt2))."}, {"flag": "set root=(hdX,Y)", "desc": "Define la partición de trabajo predeterminada para las rutas relativas."}, {"flag": "linux <ruta_kernel> [opciones]", "desc": "Carga el kernel en memoria RAM y le pasa los parámetros de arranque (root=...)."}, {"flag": "initrd <ruta_initrd>", "desc": "Carga el sistema de archivos inicial en memoria RAM."}, {"flag": "boot", "desc": "🎯 Comando final: Ordena a la CPU iniciar la ejecución del kernel cargado en memoria."}], "remember": "🎯 Secuencia de Examen: La secuencia manual de 4 pasos es: 1. set root -> 2. linux -> 3. initrd -> 4. boot.", "notes": "Haz que los alumnos memoricen el orden: linux -> initrd -> boot. Sin 'boot' al final, la máquina se queda parada en el prompt."}, {"id": 9, "section": "102.2", "cat": "boot", "type": "concept", "title": "Consola de Rescate: grub rescue>", "lead": "¿Qué significa si al encender la pantalla solo muestra 'error: unknown filesystem. grub rescue>'?", "ref": "91-92", "pdf": {"manual": "A", "pages": [91, 92], "figure": null}, "coverage": ["102.2-CON-004"], "points": [{"icon": "alert-triangle", "text": "¿Por qué ocurre?", "detail": "GRUB encontró el Stage 1 en el MBR, pero la partición donde residen sus módulos (/boot/grub/i386-pc/) ha cambiado de número o su sistema de archivos está corrupto."}, {"icon": "refresh-cw", "text": "Procedimiento de salvamento", "detail": "1. Localizar partición con 'ls';\n2. Fijar prefijo: 'set prefix=(hd0,msdos1)/boot/grub';\n3. Fijar raíz: 'set root=(hd0,msdos1)';\n4. Cargar el módulo normal: 'insmod normal';\n5. Ejecutar 'normal' para recuperar el menú gráfico completo."}], "remember": "🎯 Clave de Examen: El comando mágico que restaura la consola normal desde el modo rescue es 'insmod normal' seguido de 'normal'.", "notes": "Esta pantalla de 'grub rescue>' aterra a los usuarios novatos, pero conociendo 'prefix', 'root' e 'insmod normal' se soluciona en 30 segundos."}, {"id": 10, "section": "102.2", "cat": "boot", "type": "table", "title": "Gestor Heredado: GRUB Legacy (/boot/grub/menu.lst)", "lead": "¿Cómo era la sintaxis del archivo de configuración en GRUB Legacy?", "ref": "92-94", "pdf": {"manual": "A", "pages": [92, 93, 94], "figure": null}, "coverage": ["102.2-FIL-004", "102.2-CON-005"], "headers": ["Directiva Legacy", "Ejemplo en menu.lst", "Equivalente en GRUB 2"], "rows": [["Título de entrada", "title Debian GNU/Linux", "menuentry 'Debian GNU/Linux' {"], ["Definir raíz", "root (hd0,0)", "set root=(hd0,1)"], ["Cargar Kernel", "kernel /vmlinuz root=/dev/sda1 ro", "linux /vmlinuz root=/dev/sda1 ro"], ["Cargar Initrd", "initrd /initrd.img", "initrd /initrd.img"], ["Tiempo de espera", "timeout 10", "set timeout=10"], ["Carga en cadena", "chainloader +1", "chainloader +1"]], "remember": "🎯 Diferencias Clave de Examen: En Legacy: 'title' en vez de 'menuentry'; 'root (hd0,0)' con partición en 0; y 'kernel' en vez de 'linux'.", "notes": "Pregunta de examen habitual: Te muestran un fragmento con 'title' y 'kernel' y te preguntan qué versión de GRUB es. Respuesta: GRUB Legacy."}, {"id": 11, "section": "102.2", "cat": "boot", "type": "command", "title": "Instalación de GRUB Legacy: Consola grub", "lead": "En GRUB Legacy se podía instalar interactivamente desde su propia shell de sistema:", "ref": "94-95", "pdf": {"manual": "A", "pages": [94, 95], "figure": null}, "coverage": ["102.2-CMD-004"], "command": "grub (Shell de GRUB Legacy)", "purpose": "Instalar el gestor de arranque en el MBR mediante la consola interactiva legacy", "terminal": {"command": "sudo grub\ngrub> root (hd0,0)\ngrub> setup (hd0)\ngrub> quit", "output": "Checking if \"/boot/grub/stage1\" exists... yes\nChecking if \"/boot/grub/stage2\" exists... yes\nRunning \"install /boot/grub/stage1 (hd0)... succeeded\nDone."}, "options": [{"flag": "root (hdX,Y)", "desc": "Indica a GRUB dónde residen los archivos Stage 1 y Stage 2 (ej: partición /boot)."}, {"flag": "setup (hdX)", "desc": "🎯 Comando de Examen: Instala GRUB en el MBR del disco especificado (ej: (hd0))."}, {"flag": "find /boot/grub/stage1", "desc": "Busca automáticamente en qué partición se encuentra el archivo Stage 1 de GRUB."}, {"flag": "quit", "desc": "Sale de la consola interactiva de GRUB y regresa a la shell de Linux."}], "remember": "🎯 Pregunta de Examen: ¿Qué comando dentro de la consola interactiva de GRUB Legacy instala el cargador en el MBR del primer disco? Respuesta: setup (hd0).", "notes": "Muestra los dos pasos de Legacy: 'root (hd0,0)' para decirle dónde están los archivos, y 'setup (hd0)' para escribir en el MBR."}, {"id": 12, "section": "102.2", "cat": "boot", "type": "concept", "title": "Carga en Cadena (Chainloading) de Otros Sistemas", "lead": "¿Cómo arranca GRUB un sistema operativo que no es Linux, como Windows?", "ref": "95-96", "pdf": {"manual": "A", "pages": [95, 96], "figure": null}, "coverage": ["102.2-CON-006"], "points": [{"icon": "link", "text": "¿Qué es Chainloading?", "detail": "GRUB no puede interpretar el kernel de Windows (NTLDR / bootmgr). Por tanto, pasa el testigo cargando el primer sector (Volume Boot Record) de la partición de Windows y cediéndole la ejecución."}, {"icon": "file-code", "text": "Sintaxis en GRUB 2", "detail": "menuentry 'Windows 10' {\n    insmod ntfs\n    set root=(hd0,msdos2)\n    chainloader +1\n}"}], "remember": "🎯 Clave de Examen: La directiva 'chainloader +1' significa: 'lee 1 sector desde el principio de la partición de destino y ejecútalo'.", "notes": "Explica por qué 'chainloader +1' se llama así: es una cadena de relevos donde GRUB le pasa el testigo al gestor de arranque de Windows."}, {"id": 13, "section": "102.2", "cat": "boot", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: Archivos y Pasos)", "ref": "96-97", "pdf": {"manual": "A", "pages": [96, 97], "figure": null}, "scenario": "Casos prácticos de configuración de GRUB basados en el Manual Oficial LPIC-1 (Páginas 96-97):", "steps": [{"action": "Caso 1: En un sistema moderno con GRUB 2, ¿cuál es la ruta del archivo de configuración maestro y qué comando se utiliza para regenerarlo?", "command": "Ruta: /boot/grub/grub.cfg ; Comando: grub-mkconfig -o /boot/grub/grub.cfg (o update-grub en Debian)", "reason": "El archivo grub.cfg es generado dinámicamente combinando /etc/default/grub con los scripts modulares ejecutables de /etc/grub.d/."}, {"action": "Caso 2: ¿Cuáles son los pasos obligatorios para cambiar permanentemente el tiempo de espera del menú de GRUB 2 a 10 segundos?", "command": "1. Editar /etc/default/grub y fijar GRUB_TIMEOUT=10 ; 2. Ejecutar grub-mkconfig -o /boot/grub/grub.cfg", "reason": "Modificar el archivo /etc/default/grub no tiene efecto hasta que se recompila el grub.cfg en disco."}], "solution": {"explain": "El examen insiste en que nunca se debe tocar grub.cfg directamente; el flujo profesional siempre pasa por /etc/default/grub y grub-mkconfig."}, "notes": "Haz que todos los alumnos repitan el mantra: 'Edito /etc/default/grub y ejecuto grub-mkconfig'."}, {"id": 14, "section": "102.2", "cat": "boot", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: Entradas y Consola)", "ref": "97-98", "pdf": {"manual": "A", "pages": [97, 98], "figure": null}, "scenario": "Casos prácticos de personalización y consola interactiva (Manual Oficial LPIC-1 Páginas 97-98):", "steps": [{"action": "Caso 3: ¿En qué archivo de /etc/grub.d/ debe colocar el administrador sus entradas de arranque manuales personalizadas?", "command": "/etc/grub.d/40_custom", "reason": "El archivo 40_custom está reservado específicamente para que el administrador agregue entradas menuentry personalizadas que no se borren en actualizaciones."}, {"action": "Caso 4: Estás en el prompt 'grub>' y has cargado el kernel y el initramfs. ¿Qué comando ejecuta finalmente el arranque?", "command": "boot", "reason": "El comando 'boot' transfiere el control de la CPU al kernel que ha sido depositado previamente en memoria RAM."}], "solution": {"explain": "La consola de comandos de GRUB permite salvar sistemas caídos sin necesidad de arrancar un LiveCD si el kernel e initrd siguen intactos en el disco."}, "notes": "Muestra que el comando 'boot' es análogo a girar la llave de contacto del coche una vez metida la gasolina (kernel)."}, {"id": 15, "section": "102.2", "cat": "boot", "type": "challenge", "title": "Retos de Exploración del Manual Oficial", "ref": "98-99", "pdf": {"manual": "A", "pages": [98, 99], "figure": null}, "scenario": "Resuelve estos 4 retos de examen planteados en el manual oficial LPIC-1 (Páginas 98-99):\n1. Un alumno escribe '(hd1,0)' en GRUB 2 esperando acceder a la primera partición del segundo disco. ¿Por qué falla?\n2. ¿Cómo averiguarías el UUID de una partición desde la consola de comandos de Linux antes de escribir una entrada de GRUB?\n3. ¿Qué ocurre si eliminas los permisos de ejecución en /etc/grub.d/30_os-prober y ejecutas grub-mkconfig?\n4. ¿Cómo instalarías GRUB 2 en el MBR del segundo disco duro del equipo (/dev/sdb)?", "hint": "Recuerda: Numeración de particiones en GRUB 2; comando blkid; permisos ejecutables de scripts en grub.d; y sintaxis de grub-install.", "solution": {"explain": "1. Porque en GRUB 2 las particiones empiezan en 1. Para la primera partición de sdb debe escribir '(hd1,1)' o '(hd1,msdos1)'. (hd1,0) solo era válido en GRUB Legacy.\n2. Con el comando: blkid (o lsblk -f).\n3. grub-mkconfig ignorará el script; por tanto, el menú de GRUB dejará de mostrar otros sistemas operativos (como Windows).\n4. Se ejecuta: sudo grub-install /dev/sdb (en el disco entero, no en la partición sdb1)."}, "notes": "Estos retos cubren fallos típicos de examen: numeración 0 vs 1 y permisos en /etc/grub.d/."}, {"id": 16, "section": "102.2", "cat": "boot", "type": "review", "title": "Pregunta de Examen LPIC-1: Nomenclatura en GRUB 2", "q": "¿Cómo se referencia la segunda partición del primer disco duro en la sintaxis nativa de GRUB 2?", "options": ["(hd0,1)", "(hd0,2)", "(hd1,2)", "(sda,2)"], "answer": 1, "why": "En GRUB 2, los discos físicos se numeran desde 0 (hd0 = primer disco), pero las particiones se numeran desde 1 (partición 1 = 1, partición 2 = 2). Por tanto, la segunda partición de sda es (hd0,2). En GRUB Legacy habría sido (hd0,1).", "notes": "Pregunta clásica donde cae muchísima gente si no memoriza que en GRUB 2 las particiones empiezan en 1."}, {"id": 17, "section": "102.2", "cat": "boot", "type": "review", "title": "Pregunta de Examen LPIC-1: Configuración de GRUB 2", "q": "¿Cuál es el comando estándar oficial de GRUB 2 que genera el archivo de configuración final /boot/grub/grub.cfg combinando las plantillas modulares y las opciones de /etc/default/grub?", "options": ["grub-install", "grub-mkconfig", "grub-config", "grub-setup"], "answer": 1, "why": "grub-mkconfig es la herramienta oficial de GRUB 2 que lee /etc/default/grub y /etc/grub.d/ para generar la salida indicada con -o (habitualmente -o /boot/grub/grub.cfg). update-grub es solo un script alias presente en Debian/Ubuntu.", "notes": "Pregunta de examen 101. En RHEL/CentOS no existe update-grub, solo grub-mkconfig."}, {"id": 18, "section": "102.2", "cat": "boot", "type": "flashcards", "title": "Tarjetas de Memorización: GRUB Legacy y GRUB 2 (102.2)", "deck": [{"front": "¿Cómo se numera /dev/sda1 en GRUB Legacy y cómo en GRUB 2?", "back": "En Legacy: (hd0,0) [empieza en 0]. En GRUB 2: (hd0,1) o (hd0,msdos1) [empieza en 1]."}, {"front": "¿Qué archivo se edita para fijar opciones persistentes en GRUB 2 y cuál en Legacy?", "back": "GRUB 2: /etc/default/grub (y luego grub-mkconfig). GRUB Legacy: /boot/grub/menu.lst (o grub.conf)."}, {"front": "¿Dónde añade el administrador sus entradas personalizadas en GRUB 2?", "back": "En el archivo ejecutable /etc/grub.d/40_custom."}, {"front": "¿Qué comando instala GRUB 2 en el MBR del disco /dev/sda?", "back": "grub-install /dev/sda (en el disco completo, nunca en la partición sda1)."}, {"front": "¿Cuáles son los 4 comandos interactivos de arranque manual en la consola grub>?", "back": "1. set root -> 2. linux -> 3. initrd -> 4. boot."}, {"front": "¿Qué directiva se utiliza para arrancar sistemas no Linux como Windows?", "back": "chainloader +1 (carga en cadena el primer sector de la partición de destino)."}, {"front": "¿Qué comando restaura el entorno normal desde el prompt 'grub rescue>'?", "back": "insmod normal seguido del comando 'normal'."}, {"front": "¿Qué hace el comando 'blkid'?", "back": "Muestra los UUIDs, etiquetas y sistemas de archivos de todas las particiones detectadas."}], "notes": "Pasa estas tarjetas para consolidar la distinción absoluta entre Legacy y GRUB 2."}, {"id": 19, "section": "102.2", "cat": "boot", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 102.2", "takeaways": ["Evolución: GRUB Legacy usa menu.lst y particiones desde 0 (hd0,0). GRUB 2 usa grub.cfg y particiones desde 1 (hd0,1).", "Archivos /boot: vmlinuz (kernel comprimido), initrd/initramfs (drivers temporales), config (ajustes de compilación), System.map (símbolos).", "Configuración GRUB 2: /etc/default/grub (variables globales) + /etc/grub.d/ (scripts 00_header, 10_linux, 30_os-prober, 40_custom). Compilado con grub-mkconfig.", "Recuperación: grub-install /dev/sdX instala en MBR. En consola grub>: linux, initrd, boot. Carga de Windows: chainloader +1."], "top3": [{"cmd": "grub-mkconfig -o /boot/grub/grub.cfg", "desc": "Compila la configuración modular de GRUB 2 en el archivo maestro de arranque."}, {"cmd": "grub-install /dev/sda", "desc": "Instala el cargador de arranque en el primer sector (MBR) del disco duro."}, {"cmd": "boot (en consola grub>)", "desc": "Inicia la ejecución del kernel cargado manualmente en la consola de rescate."}], "practice": {"name": "Practica 102.2: Instalación y Configuración del Gestor de Arranque GRUB", "url": "../practicas/p-102-2-gestor-arranque-grub.html", "desc": "Domina la configuración de GRUB 2 mediante /etc/default/grub y /etc/grub.d/, comprende la regeneración de grub.cfg y compara su arquitectura con GRUB Legacy."}, "notes": "Concluimos el subtema 102.2. Los alumnos ya dominan los dos gestores de arranque de la certificación."}];
     const ERRATAS = [{"id": "ERR-102.2-01", "section": "102.2", "ref": "p. 10", "manual_says": "grub-install /dev/sda1 instala el gestor en el disco.", "reality": "grub-install /dev/sda1 instala en el sector de arranque de la partición (VBR), no en el MBR del disco (/dev/sda). En sistemas BIOS legacy debe instalarse en /dev/sda.", "exam_tip": "No confundir el dispositivo de bloque del disco (/dev/sda) con una de sus particiones (/dev/sda1)."}];
     const GLOSARIO = [{"id": "bootloader", "term": "bootloader", "def": "Programa de arranque que carga el núcleo del sistema operativo en memoria y le transfiere el control de ejecución."}, {"id": "grub2", "term": "GRUB 2", "def": "Grand Unified Bootloader versión 2, gestor de arranque modular y dinámico estándar en las distribuciones Linux actuales."}, {"id": "chainloading", "term": "chainloading", "def": "Mecanismo mediante el cual un gestor de arranque transfiere la ejecución al sector de arranque de otro cargador de SO."}, {"id": "mbr", "term": "MBR", "def": "Master Boot Record, primer sector de 512 bytes de un disco particionado que aloja el código de arranque primario y la tabla de particiones."}];
-    const META = {"course": "LPIC-1 v5.0", "topic": "102.2", "title": "Instalar un gestor de arranque", "weight": 2, "pages": "1–21", "icons": "Lucide 0.468.0 (ISC)"};
+    const META = {"topic": "102.2", "title": "Instalación y configuración del gestor de arranque", "weight": 2, "description": "GRUB 2, GRUB Legacy, archivos de configuración, consola interactiva y recuperación (Alta Densidad LPIC-1)", "duracion": "30 min"};
 
     /* -------------------------------------------------------------
        MOTOR DE RENDERIZADO Y NAVEGACIÓN (Pure JS)
@@ -1124,7 +1223,7 @@
             <div style="display:flex; justify-content:center; gap:20px; font-size:22px; font-weight:600;">
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Peso LPI: ${escapeHTML(s.meta?.peso || (typeof META !== 'undefined' && META.weight) || '')}</span>
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Páginas: ${escapeHTML(s.meta?.paginas || '')}</span>
-              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '45 min')}</span>
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '30 min')}</span>
             </div>
           </div>
         `;
@@ -1232,51 +1331,87 @@
         }
       } else if (s.type === 'file') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
-        const filePath = s.path || s.file || '';
-        const fileDesc = s.desc || s.contains || s.lead || s.purpose || '';
+        const fileObj = (typeof s.file === 'object' && s.file !== null) ? s.file : {};
+        const filePath = fileObj.path || s.path || (typeof s.file === 'string' ? s.file : '');
+        const filePurpose = fileObj.purpose || s.purpose || '';
+        const fileDesc = fileObj.desc || s.desc || s.contains || s.lead || filePurpose;
         html += `<div class="slide-lead"><code class="t-path" style="font-size:28px; font-weight:700;">${escapeHTML(filePath)}</code>${fileDesc ? ` — ${renderRichText(fileDesc)}` : ''}</div>`;
         
-        // Directivas de configuración si existen
-        if (s.directives && s.directives.length > 0) {
-          html += `<div class="directives-grid">`;
-          s.directives.forEach(d => {
+        // Muestra de sintaxis, contenido de archivo o configuración
+        const fileContent = fileObj.content || s.content || s.sample?.content || (typeof s.sample === 'string' ? s.sample : '') || (typeof s.syntax === 'string' ? s.syntax : '');
+        if (fileContent || s.sample || s.syntax) {
+          let lines = [];
+          if (Array.isArray(fileContent)) lines = fileContent;
+          else if (typeof fileContent === 'string' && fileContent.trim()) lines = fileContent.split('\n');
+          else if (s.sample && s.sample.lines) lines = s.sample.lines;
+          else if (Array.isArray(s.syntax)) lines = s.syntax;
+
+          if (lines.length > 0) {
             html += `
-              <div class="directive-card">
-                <div class="directive-key">${escapeHTML(d.key || '')}</div>
-                <div class="directive-desc">${renderRichText(d.desc || d.detail || '')}</div>
+              <div class="term-wrapper" style="margin-top:12px; margin-bottom:16px;">
+                <div class="term-header">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
+                    <span>${escapeHTML(filePath || 'configuración')}</span>
+                  </div>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(Array.isArray(lines) ? lines.join('\n') : fileContent)}')">
+                    <svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar archivo
+                  </button>
+                </div>
+                <div class="term-code">`;
+            lines.forEach(line => {
+              const lStr = String(line);
+              if (lStr.trim().startsWith('#')) {
+                html += `<div><span class="t-cmt">${escapeHTML(lStr)}</span></div>`;
+              } else {
+                html += `<div>${escapeHTML(lStr)}</div>`;
+              }
+            });
+            html += `</div></div>`;
+          }
+        }
+
+        // Directivas o Viñetas explicativas (points)
+        const pointsList = s.points || s.directives || [];
+        if (pointsList.length > 0) {
+          html += `<div class="concept-grid">`;
+          pointsList.forEach(p => {
+            const pKey = p.text || p.key || p.title || '';
+            const pDesc = p.detail || p.desc || '';
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'file-text'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(pKey)}</div>
+                  ${pDesc ? `<div class="card-detail">${renderRichText(pDesc)}</div>` : ''}
+                </div>
               </div>
             `;
           });
           html += `</div>`;
         }
 
-        // Muestra de sintaxis o archivo
-        if (s.sample || s.syntax) {
-          let lines = [];
-          if (s.sample && s.sample.lines) lines = s.sample.lines;
-          else if (typeof s.syntax === 'string') lines = s.syntax.split('\n');
-          else if (Array.isArray(s.syntax)) lines = s.syntax;
-          else if (typeof s.sample === 'string') lines = s.sample.split('\n');
-
-          html += `
-            <div class="term-wrapper" style="margin-top:12px;">
-              <div class="term-header">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
-                  <span>${escapeHTML(filePath || 'config')}</span>
-                </div>
-              </div>
-              <div class="term-code">`;
-          lines.forEach(line => {
-            html += `<div>${escapeHTML(line)}</div>`;
-          });
-          html += `</div></div>`;
-        }
-
         // Consola o terminal complementario en slide file
         const fileTerm = s.terminal || s.console;
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
+        }
+
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
+        if (s.remember || s.look) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.look)}</span>
+            </div>
+          `;
         }
 
         if (s.writtenBy || s.readBy) {
@@ -1301,6 +1436,52 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'matrix') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.takeaway || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const headers = s.headers || s.cols || s.columns || s.matrix?.headers || [];
+        const rows = s.rows || s.matrix?.rows || [];
+        html += `<div class="matrix-container"><table class="slide-matrix"><thead><tr>`;
+        headers.forEach(h => html += `<th>${renderRichText(h)}</th>`);
+        html += `</tr></thead><tbody>`;
+        rows.forEach((row, ridx) => {
+          const isHl = s.highlight && (s.highlight.row === (ridx + 1) || s.highlight === (ridx + 1));
+          html += `<tr class="${isHl ? 'highlighted' : ''}">`;
+          let cells = [];
+          if (Array.isArray(row)) {
+            cells = row;
+          } else if (typeof row === 'object' && row !== null) {
+            if (row.head !== undefined && Array.isArray(row.cells)) {
+              cells = [row.head, ...row.cells];
+            } else if (Array.isArray(row.cells)) {
+              cells = row.cells;
+            } else {
+              cells = Object.values(row);
+            }
+          }
+          cells.forEach((cell, cidx) => {
+            html += `<td>${renderRichText(cell)}</td>`;
+          });
+          html += `</tr>`;
+        });
+        html += `</tbody></table></div>`;
+        if (s.remember || s.takeaway) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.takeaway)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
@@ -1338,7 +1519,12 @@
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         
         // Badge del manual oficial
-        const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        let pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
+        if (!pdfRef && scenarioText) {
+          const m = scenarioText.match(/P[áa]gina\s+oficial\s+(\d+(?:[–-]\d+)?)/i);
+          if (m) pdfRef = m[1];
+        }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
@@ -1348,7 +1534,6 @@
         `;
 
         // Planteamiento del problema (Escenario claro)
-        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
             <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
@@ -1367,7 +1552,7 @@
           `;
           if (steps.length > 0) {
             steps.forEach((st, idx) => {
-              const doText = st.do || st.task || st.step || '';
+              const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
                   <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
@@ -1401,12 +1586,16 @@
         if (steps.length > 0) {
           html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
-            const doText = st.do || st.task || st.step || '';
-            const lookText = st.look || st.cmd || st.code || '';
+            const doText = st.action || st.do || st.task || st.step || '';
+            const lookText = st.command || st.look || st.cmd || st.code || '';
+            const reasonText = st.reason || st.explain || '';
             html += `
-              <div style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
-                <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
-                ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+              <div style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
+                  <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
+                  ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+                </div>
+                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -1485,14 +1674,21 @@
         const options = s.options || [];
         options.forEach((opt, oidx) => {
           html += `
-            <button class="quiz-btn" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
+            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
               <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(opt)}</span>
             </button>
           `;
         });
         html += `</div>`;
-        html += `<div class="quiz-feedback" id="quiz-feedback-box"></div>`;
+        html += `
+          <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+              <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
+            </button>
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+        `;
       } else if (s.type === 'flashcards') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
@@ -1513,7 +1709,7 @@
             </div>
           </div>
           <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
-            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>Anterior</button>
+            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>Anterior</button>
             <span id="fc-counter" style="font-size:22px; font-weight:700; align-self:center;">1 / ${deck.length}</span>
             <button class="nav-btn" onclick="nextCard()">Siguiente<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
           </div>
@@ -1523,13 +1719,26 @@
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
         html += `<div class="concept-grid">`;
-        const items = s.items || s.points || s.cards || [];
-        items.forEach(item => {
-          const cardTitle = item.title || item.heading || item.key || (typeof item === 'string' ? item : item.text) || '';
-          const cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '') || '';
+        const items = s.takeaways || s.items || s.points || s.cards || [];
+        items.forEach((item, idx) => {
+          let cardTitle = '';
+          let cardDesc = '';
+          if (typeof item === 'string') {
+            const parts = item.split(': ');
+            if (parts.length > 1) {
+              cardTitle = parts[0];
+              cardDesc = parts.slice(1).join(': ');
+            } else {
+              cardTitle = `Punto Clave ${idx + 1}`;
+              cardDesc = item;
+            }
+          } else {
+            cardTitle = item.title || item.heading || item.key || item.text || `Clave ${idx + 1}`;
+            cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '');
+          }
           html += `
             <div class="concept-card">
-              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${item.icon || 'circle-check'}"/></svg></div>
+              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${(typeof item === 'object' && item.icon) ? item.icon : 'circle-check'}"/></svg></div>
               <div style="flex:1;">
                 <div class="card-text">${renderRichText(cardTitle)}</div>
                 ${cardDesc ? `<div class="card-detail">${renderRichText(cardDesc)}</div>` : ''}
@@ -1538,11 +1747,84 @@
           `;
         });
         html += `</div>`;
+
+        // Top 3 Comandos Clave (Soporta strings y objetos {cmd, desc})
         const top3 = s.top3 || s.commands || [];
         if (top3.length > 0) {
           html += `
-            <div style="margin-top:20px; padding:16px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:12px; font-size:22px;">
-              <strong style="color:var(--primary-ink);">Los comandos clave que no puedes olvidar:</strong> <span style="font-family:monospace; font-weight:700;">${renderRichText(top3.join(' · '))}</span>
+            <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
+              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
+              </div>
+              <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
+          `;
+          top3.forEach(t => {
+            if (typeof t === 'string') {
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
+                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                </div>
+              `;
+            } else {
+              const cmd = t.cmd || t.command || '';
+              const desc = t.desc || t.detail || '';
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 16px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  </div>
+                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                </div>
+              `;
+            }
+          });
+          html += `</div></div>`;
+        }
+
+        // Mapeo a práctica de laboratorio
+        if (s.practice) {
+          const pName = s.practice.name || 'Laboratorio Práctico Recomendado';
+          const pUrl = s.practice.url || '#';
+          const pDesc = s.practice.desc || 'Pon a prueba tus conocimientos en la máquina virtual.';
+          html += `
+            <div style="margin-top:14px; padding:16px 22px; background:#F0FDF4; border:2px solid #86EFAC; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#DCFCE7; color:#166534; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-wrench"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#166534;">${escapeHTML(pName)}</div>
+                  <div style="font-size:16px; color:#374151;">${renderRichText(pDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Web →
+              </a>
+            </div>
+          `;
+        }
+
+        // Mapeo a práctica global de fin de tema completo
+        if (s.global_practice) {
+          const gpName = s.global_practice.name || 'Práctica Global Integradora de Todo el Tema';
+          const gpUrl = s.global_practice.url || '#';
+          const gpDesc = s.global_practice.desc || 'Laboratorio final integrador con todos los comandos evaluados en este tema.';
+          html += `
+            <div style="margin-top:12px; padding:16px 22px; background:#FFFBEB; border:2px solid #F59E0B; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#FEF3C7; color:#92400E; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-shield"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#92400E;">🏆 ${escapeHTML(gpName)}</div>
+                  <div style="font-size:16px; color:#78350F;">${renderRichText(gpDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Global →
+              </a>
             </div>
           `;
         }
@@ -1761,23 +2043,53 @@
     }
     document.addEventListener('click', closePopovers);
 
+    function revealReviewAnswer(btn, correctIdx, why) {
+      const stageEl = document.getElementById('slide-content');
+      const buttons = stageEl.querySelectorAll('.quiz-btn');
+      buttons.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correctIdx) {
+          b.classList.add('correct');
+        }
+      });
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.style.display = 'block';
+      fb.style.background = 'var(--success-soft)';
+      fb.style.color = 'var(--success-ink)';
+      fb.style.border = '2px solid #86EFAC';
+      const letter = String.fromCharCode(65 + correctIdx);
+      fb.innerHTML = `<strong>✔ Respuesta oficial: Opción ${letter}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
+      if (btn) btn.style.display = 'none';
+    }
+
     function checkReviewAnswer(btn, chosen, correct, why) {
       const parent = btn.parentElement;
-      parent.querySelectorAll('.quiz-btn').forEach(b => b.disabled = true);
+      parent.querySelectorAll('.quiz-btn').forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correct) {
+          b.classList.add('correct');
+        }
+      });
       const isCorrect = chosen === correct;
-      btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+      if (!isCorrect) {
+        btn.classList.add('incorrect');
+      }
 
       const fb = document.getElementById('quiz-feedback-box');
       fb.style.display = 'block';
       if (isCorrect) {
         fb.style.background = 'var(--success-soft)';
         fb.style.color = 'var(--success-ink)';
-        fb.innerHTML = `<strong>✔ ¡Correcto!</strong> ${why}`;
+        fb.style.border = '2px solid #86EFAC';
+        fb.innerHTML = `<strong>✔ ¡Correcto! Opción ${String.fromCharCode(65 + chosen)}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       } else {
         fb.style.background = 'var(--danger-soft)';
         fb.style.color = 'var(--danger-ink)';
-        fb.innerHTML = `<strong>✖ Incorrecto.</strong> ${why}`;
+        fb.style.border = '2px solid #FCA5A5';
+        fb.innerHTML = `<strong>✖ Incorrecto.</strong> La opción correcta es la <strong>${String.fromCharCode(65 + correct)}</strong>.<br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       }
+      const revealBtn = document.querySelector('.btn-resolve-quiz');
+      if (revealBtn) revealBtn.style.display = 'none';
     }
 
     // Flashcard engine

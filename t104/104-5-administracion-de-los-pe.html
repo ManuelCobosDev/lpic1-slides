@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Diapositivas interactivas de aula para la certificación Linux Professional Institute LPIC-1 — Subtema 104.5: Administración de los permisos y los propietarios de los archivos.">
+  <title>104.5 Administración de los permisos y los propietarios de los archivos — LPIC-1</title>
+  <!-- Icons: Lucide v0.468.0 (ISC) https://lucide.dev -->
+  <style>
+    /* -------------------------------------------------------------
+       CSS TOKENS Y DISEÑO (slides-paleta-contenido y guidelines)
+       ------------------------------------------------------------- */
+    :root {
+      /* Fondo y superficies (TEMA CLARO SIEMPRE) */
+      --bg: #F8FAFC;
+      --stage-bg: #FFFFFF;
+      --surface: #FFFFFF;
+      --surface-alt: #F1F5F9;
+      
+      /* Textos y bordes */
+      --text: #0F172A;
+      --text-muted: #475569;
+      --text-faint: #64748B;
+      --text-faint-on-alt: #5B6B82;
+      --border: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --control-border: #64748B;
+      
+      /* Estados */
+      --primary: #2563EB;
+      --primary-soft: #DBEAFE;
+      --primary-ink: #1D4ED8;
+      
+      --success: #16A34A;
+      --success-soft: #DCFCE7;
+      --success-ink: #166534;
+      
+      --warning: #D97706;
+      --warning-soft: #FEF3C7;
+      --warning-ink: #92400E;
+      
+      --danger: #DC2626;
+      --danger-soft: #FEE2E2;
+      --danger-ink: #991B1B;
+      
+      --info: #0284C7;
+      --info-soft: #E0F2FE;
+      --info-ink: #075985;
+      
+      /* Categorías semánticas */
+      --cat-hardware-accent: #0F766E;
+      --cat-hardware-soft: #CCFBF1;
+      --cat-hardware-ink: #0F766E;
+      
+      --cat-boot-accent: #4338CA;
+      --cat-boot-soft: #E0E7FF;
+      --cat-boot-ink: #3730A3;
+      
+      --cat-services-accent: #6D28D9;
+      --cat-services-soft: #EDE9FE;
+      --cat-services-ink: #6D28D9;
+      
+      --cat-network-accent: #0E7490;
+      --cat-network-soft: #CFFAFE;
+      --cat-network-ink: #155E75;
+      
+      --cat-files-accent: #4D7C0F;
+      --cat-files-soft: #ECFCCB;
+      --cat-files-ink: #3F6212;
+      
+      --cat-kernel-accent: #BE185D;
+      --cat-kernel-soft: #FCE7F3;
+      --cat-kernel-ink: #BE185D;
+      
+      --cat-neutral-accent: #2563EB;
+      --cat-neutral-soft: #DBEAFE;
+      --cat-neutral-ink: #1D4ED8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      user-select: none;
+    }
+
+    /* Iconos SVG */
+    .ic {
+      width: 1.25em;
+      height: 1.25em;
+      flex: none;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: -0.2em;
+    }
+    .ic-sm { width: 24px; height: 24px; }
+    .ic-md { width: 32px; height: 32px; }
+    .ic-lg { width: 48px; height: 48px; }
+    .ic-xl { width: 72px; height: 72px; }
+
+    /* Barra superior de navegación */
+    #top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 52px;
+      background: #FFFFFF;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 100;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .nav-links { display: flex; align-items: center; gap: 20px; }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
+    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+
+    /* Contenedor del escenario (1920x1080) */
+    #app-container {
+      position: absolute;
+      top: 52px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      overflow: hidden;
+      background: var(--bg);
+      touch-action: pan-y pinch-zoom;
+    }
+    #stage-viewport {
+      flex: 1;
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: margin-right 0.25s ease;
+      touch-action: pan-y pinch-zoom;
+    }
+    #stage {
+      width: 1920px;
+      height: 1080px;
+      flex: none;
+      background: var(--stage-bg);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      border-radius: 20px;
+      border: 2px solid var(--border);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform-origin: center center;
+      touch-action: pan-y pinch-zoom;
+    }
+
+    /* Cabecera interna del escenario */
+    .stage-header {
+      height: 88px;
+      padding: 0 60px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: none;
+    }
+    .stage-header-left { display: flex; align-items: center; gap: 20px; }
+    .stage-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .stage-header-right { display: flex; align-items: center; gap: 20px; font-size: 22px; font-weight: 600; color: var(--text-muted); }
+    .ref-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      font-size: 20px;
+      color: var(--text-faint-on-alt);
+    }
+
+    /* Área de contenido del slide (1680 x 870 aprox) */
+    .slide-body {
+      flex: 1;
+      padding: 30px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .slide-body::-webkit-scrollbar { width: 8px; }
+    .slide-body::-webkit-scrollbar-track { background: transparent; }
+    .slide-body::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+    .slide-body::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+    .slide-title {
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .slide-lead {
+      font-size: 26px;
+      line-height: 1.35;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    /* Viñetas / Puntos clave (Concept) */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 6px;
+    }
+    .concept-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-left: 8px solid var(--cat-accent, var(--primary));
+      border-radius: 14px;
+      padding: 16px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    }
+    .concept-card .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--cat-soft, var(--primary-soft));
+      color: var(--cat-ink, var(--primary-ink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+    .concept-card .card-text { font-size: 24px; line-height: 1.35; font-weight: 600; color: var(--text); }
+    .concept-card .card-detail { font-size: 19px; color: var(--text-muted); margin-top: 4px; font-weight: 400; line-height: 1.35; }
+
+    /* Cajas Recuerda / Trampa / Callouts */
+    .callout-box {
+      margin-top: 10px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 20px;
+      font-weight: 600;
+      border: 2px solid transparent;
+      line-height: 1.35;
+    }
+    .callout-warning {
+      background: var(--warning-soft);
+      color: var(--warning-ink);
+      border-color: #FCD34D;
+    }
+    .callout-remember {
+      background: var(--cat-services-soft);
+      color: var(--cat-services-ink);
+      border-color: #DDD6FE;
+    }
+    .callout-info {
+      background: var(--info-soft);
+      color: var(--info-ink);
+      border-color: #BAE6FD;
+    }
+
+    /* Terminal y Comandos (slides-terminal-comandos) */
+    .term-wrapper {
+      margin: 10px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      background: var(--surface-alt);
+      overflow: hidden;
+    }
+    .term-header {
+      background: #E2E8F0;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #475569;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .term-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 2px solid var(--control-border);
+      background: #FFFFFF;
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-code {
+      padding: 14px 20px;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: clamp(16px, 1.2vw, 22px);
+      line-height: 1.38;
+      color: #0F172A;
+      white-space: pre-wrap;
+      user-select: text;
+      max-height: 340px;
+      overflow-y: auto;
+    }
+    .term-code::-webkit-scrollbar { width: 6px; }
+    .term-code::-webkit-scrollbar-track { background: transparent; }
+    .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+    .t-cmd { font-weight: 700; color: #0F172A; }
+    .t-flag { color: #1D4ED8; font-weight: 600; }
+    .t-arg { color: #9A3412; font-weight: 500; }
+    .t-path { color: #15803D; font-weight: 500; }
+    .t-str { color: #A21CAF; }
+    .t-cmt { color: #5B6B82; font-style: italic; }
+    .t-err { color: #B91C1C; font-weight: 600; }
+    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+
+    /* Chips de opciones interactivas */
+    .options-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 8px 0;
+    }
+    .opt-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: #FFFFFF;
+      border: 2px solid var(--control-border);
+      border-radius: 10px;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.1s, border-color 0.15s;
+    }
+    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 21px; font-weight: 700; }
+
+    /* Sintaxis y Directivas */
+    .syntax-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      background: var(--surface-alt);
+      border: 2px solid var(--border-strong);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+    .directives-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .directive-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-left: 6px solid var(--cat-accent, var(--primary));
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+    .directive-key {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1D4ED8;
+      margin-bottom: 4px;
+    }
+    .directive-desc {
+      font-size: 19px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Tablas (≤5x4) */
+    .table-container {
+      width: 100%;
+      margin: 20px 0;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+    table.slide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 26px;
+      text-align: left;
+    }
+    table.slide-table th {
+      background: var(--surface-alt);
+      color: var(--text);
+      padding: 16px 24px;
+      border-bottom: 2px solid var(--border-strong);
+      font-weight: 700;
+    }
+    table.slide-table td {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    table.slide-table tr:last-child td { border-bottom: none; }
+    table.slide-table tr.highlighted { background: #FEF3C7; }
+
+    /* Matrices comparativas y mapas de equivalencias */
+    .matrix-container {
+      width: 100%;
+      margin: 14px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      overflow-x: auto;
+      background: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+    table.slide-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(16px, 1.15vw, 20px);
+      text-align: left;
+    }
+    table.slide-matrix th {
+      background: var(--surface-alt);
+      color: var(--text);
+      padding: 12px 18px;
+      border-bottom: 2px solid var(--border-strong);
+      font-weight: 700;
+      font-size: clamp(17px, 1.2vw, 21px);
+      letter-spacing: -0.01em;
+    }
+    table.slide-matrix td {
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    table.slide-matrix tr:last-child td { border-bottom: none; }
+    table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
+    table.slide-matrix tr:hover td { background: #F1F5F9; }
+    table.slide-matrix tr.highlighted td { background: #FEF3C7; }
+    table.slide-matrix td:first-child { font-weight: 700; color: #1E293B; }
+
+    /* Ejercicios y Repasos */
+    .quiz-options { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+    .quiz-btn {
+      padding: 18px 24px;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      background: #FFFFFF;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .quiz-btn:hover { border-color: var(--primary); background: var(--surface-alt); }
+    .quiz-btn.correct { background: var(--success-soft); border-color: var(--success); color: var(--success-ink); }
+    .quiz-btn.incorrect { background: var(--danger-soft); border-color: var(--danger); color: var(--danger-ink); }
+    .quiz-feedback {
+      margin-top: 20px;
+      padding: 18px 24px;
+      border-radius: 14px;
+      font-size: 24px;
+      line-height: 1.4;
+      display: none;
+    }
+
+    /* Flashcards */
+    .flashcard-stage {
+      width: 720px;
+      height: 420px;
+      margin: 20px auto;
+      perspective: 1200px;
+      cursor: pointer;
+    }
+    .flashcard-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+      border-radius: 20px;
+      border: 3px solid var(--border-strong);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+    }
+    .flashcard-inner.flipped { transform: rotateY(180deg); }
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+      background: #FFFFFF;
+      border-radius: 18px;
+    }
+    .flashcard-back {
+      transform: rotateY(180deg);
+      background: var(--surface-alt);
+    }
+    .flashcard-title { font-size: 44px; font-weight: 800; color: var(--primary-ink); margin-bottom: 16px; }
+    .flashcard-desc { font-size: 30px; font-weight: 500; color: var(--text); line-height: 1.35; }
+
+    /* Barra inferior del escenario */
+    .stage-footer {
+      height: 72px;
+      padding: 0 60px;
+      border-top: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: none;
+      font-size: 20px;
+      color: var(--text-muted);
+    }
+    .progress-bar-container {
+      width: 380px;
+      height: 10px;
+      background: var(--border);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 0%;
+      transition: width 0.2s ease;
+    }
+
+    /* Panel del Docente (Notas) — ancho 420px empuja el escenario */
+    #teacher-panel {
+      position: fixed;
+      top: 52px;
+      right: 0;
+      bottom: 0;
+      width: 420px;
+      background: #FFFFFF;
+      border-left: 2px solid var(--border-strong);
+      box-shadow: -10px 0 30px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      z-index: 90;
+      overflow-y: auto;
+    }
+    #teacher-panel.open { transform: translateX(0); }
+    .panel-header {
+      padding: 20px 24px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .panel-body { padding: 24px; font-size: 20px; line-height: 1.5; color: var(--text); }
+    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 18px; }
+
+    /* Modales y Popovers */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #FFFFFF;
+      border-radius: 20px;
+      width: 900px;
+      max-width: 90vw;
+      max-height: 85vh;
+      overflow-y: auto;
+      border: 2px solid var(--border-strong);
+      box-shadow: 0 25px 50px rgba(15, 23, 42, 0.2);
+      padding: 36px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+    .popover {
+      position: absolute;
+      background: #FFFFFF;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+      padding: 18px 22px;
+      max-width: 360px;
+      z-index: 150;
+      font-size: 20px;
+      line-height: 1.4;
+      display: none;
+    }
+    .popover.open { display: block; }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transition: transform 0.25s ease;
+      z-index: 300;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* Fragments */
+    .frag { opacity: 0; transition: opacity 0.25s ease; }
+    .frag.on { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .frag { transition: none !important; }
+      #stage-viewport { transition: none !important; }
+      #teacher-panel { transition: none !important; }
+    }
+
+    /* Aviso para dispositivos móviles */
+    .mobile-notice {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #1E293B;
+      color: #F8FAFC;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      align-items: center;
+      gap: 10px;
+      z-index: 500;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    .mobile-notice-close {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 4px 8px;
+    }
+    @media (max-width: 900px) {
+      .mobile-notice { display: flex; }
+      #top-nav { top: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="i-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5" /> <line x1="12" x2="20" y1="19" y2="19" /></symbol>
+<symbol id="i-square-terminal" viewBox="0 0 24 24"><path d="m7 11 2-2-2-2" /> <path d="M11 13h4" /> <rect width="18" height="18" x="3" y="3" rx="2" ry="2" /></symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><rect width="16" height="16" x="4" y="4" rx="2" /> <rect width="6" height="6" x="9" y="9" rx="1" /> <path d="M15 2v2" /> <path d="M15 20v2" /> <path d="M2 15h2" /> <path d="M2 9h2" /> <path d="M20 15h2" /> <path d="M20 9h2" /> <path d="M9 2v2" /> <path d="M9 20v2" /></symbol>
+<symbol id="i-hard-drive" viewBox="0 0 24 24"><line x1="22" x2="2" y1="12" y2="12" /> <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /> <line x1="6" x2="6.01" y1="16" y2="16" /> <line x1="10" x2="10.01" y1="16" y2="16" /></symbol>
+<symbol id="i-memory-stick" viewBox="0 0 24 24"><path d="M6 19v-3" /> <path d="M10 19v-3" /> <path d="M14 19v-3" /> <path d="M18 19v-3" /> <path d="M8 11V9" /> <path d="M16 11V9" /> <path d="M12 11V9" /> <path d="M2 15h20" /> <path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z" /></symbol>
+<symbol id="i-microchip" viewBox="0 0 24 24"><path d="M18 12h2" /> <path d="M18 16h2" /> <path d="M18 20h2" /> <path d="M18 4h2" /> <path d="M18 8h2" /> <path d="M4 12h2" /> <path d="M4 16h2" /> <path d="M4 20h2" /> <path d="M4 4h2" /> <path d="M4 8h2" /> <path d="M8 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-1.5c-.276 0-.494.227-.562.495a2 2 0 0 1-3.876 0C9.994 2.227 9.776 2 9.5 2z" /></symbol>
+<symbol id="i-usb" viewBox="0 0 24 24"><circle cx="10" cy="7" r="1" /> <circle cx="4" cy="20" r="1" /> <path d="M4.7 19.3 19 5" /> <path d="m21 3-3 1 2 2Z" /> <path d="M9.26 7.68 5 12l2 5" /> <path d="m10 14 5 2 3.5-3.5" /> <path d="m18 12 1-1 1 1-1 1Z" /></symbol>
+<symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1" /> <rect x="2" y="16" width="6" height="6" rx="1" /> <rect x="9" y="2" width="6" height="6" rx="1" /> <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /> <path d="M12 12V8" /></symbol>
+<symbol id="i-wifi" viewBox="0 0 24 24"><path d="M12 20h.01" /> <path d="M2 8.82a15 15 0 0 1 20 0" /> <path d="M5 12.859a10 10 0 0 1 14 0" /> <path d="M8.5 16.429a5 5 0 0 1 7 0" /></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></symbol>
+<symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" /> <path d="M3 5V19A9 3 0 0 0 21 19V5" /> <path d="M3 12A9 3 0 0 0 21 12" /></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol>
+<symbol id="i-folder-open" viewBox="0 0 24 24"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" /></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /></symbol>
+<symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /></symbol>
+<symbol id="i-file-code" viewBox="0 0 24 24"><path d="M10 12.5 8 15l2 2.5" /> <path d="m14 12.5 2 2.5-2 2.5" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" /></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" /> <circle cx="12" cy="12" r="3" /></symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10" /> <path d="M18.4 6.6a9 9 0 1 1-12.77.04" /></symbol>
+<symbol id="i-power-off" viewBox="0 0 24 24"><path d="M18.36 6.64A9 9 0 0 1 20.77 15" /> <path d="M6.16 6.16a9 9 0 1 0 12.68 12.68" /> <path d="M12 2v4" /> <path d="m2 2 20 20" /></symbol>
+<symbol id="i-rotate-cw" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /></symbol>
+<symbol id="i-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3" /></symbol>
+<symbol id="i-square" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" /></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1" /> <rect x="6" y="4" width="4" height="16" rx="1" /></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></symbol>
+<symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4" /> <path d="m21 2-9.6 9.6" /> <circle cx="7.5" cy="15.5" r="5.5" /></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol>
+<symbol id="i-user-cog" viewBox="0 0 24 24"><circle cx="18" cy="15" r="3" /> <circle cx="9" cy="7" r="4" /> <path d="M10 15H6a4 4 0 0 0-4 4v2" /> <path d="m21.7 16.4-.9-.3" /> <path d="m15.2 13.9-.9-.3" /> <path d="m16.6 18.7.3-.9" /> <path d="m19.1 12.2.3-.9" /> <path d="m19.6 18.7-.4-1" /> <path d="m16.8 12.3-.4-1" /> <path d="m14.3 16.6 1-.4" /> <path d="m20.7 13.8 1-.4" /></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /> <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" /> <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" /> <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /> <path d="m3.3 7 8.7 5 8.7-5" /> <path d="M12 22V12" /></symbol>
+<symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7" /> <path d="m7.5 4.27 9 5.15" /></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="7 10 12 15 17 10" /> <line x1="12" x2="12" y1="15" y2="3" /></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="17 8 12 3 7 8" /> <line x1="12" x2="12" y1="3" y2="15" /></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /></symbol>
+<symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /> <path d="M9 18h6" /> <path d="M10 22h4" /></symbol>
+<symbol id="i-triangle-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></symbol>
+<symbol id="i-circle-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></symbol>
+<symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /></symbol>
+<symbol id="i-circle-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m15 9-6 6" /> <path d="m9 9 6 6" /></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol>
+<symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+<symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol>
+<symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14" /> <path d="m19 12-7 7-7-7" /></symbol>
+<symbol id="i-git-branch" viewBox="0 0 24 24"><line x1="6" x2="6" y1="3" y2="15" /> <circle cx="18" cy="6" r="3" /> <circle cx="6" cy="18" r="3" /> <path d="M18 9a9 9 0 0 1-9 9" /></symbol>
+<symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" /></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <polyline points="12 6 12 12 16 14" /></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" /> <line x1="4" x2="4" y1="22" y2="15" /></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" /> <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" /> <path d="M4 22h16" /> <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" /> <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" /> <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" /></symbol>
+<symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /> <path d="M20 3v4" /> <path d="M22 5h-4" /> <path d="M4 17v2" /> <path d="M5 18H3" /></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></symbol>
+<symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></symbol>
+<symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2" /> <line x1="8" x2="16" y1="21" y2="21" /> <line x1="12" x2="12" y1="17" y2="21" /></symbol>
+<symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5" /> <path d="M9 8V2" /> <path d="M15 8V2" /> <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></symbol>
+<symbol id="i-cable" viewBox="0 0 24 24"><path d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1" /> <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" /> <path d="M21 21v-2h-4" /> <path d="M3 5h4V3" /> <path d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3" /></symbol>
+<symbol id="i-circuit-board" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M11 9h4a2 2 0 0 0 2-2V3" /> <circle cx="9" cy="9" r="2" /> <path d="M7 21v-4a2 2 0 0 1 2-2h4" /> <circle cx="15" cy="15" r="2" /></symbol>
+<symbol id="i-hash" viewBox="0 0 24 24"><line x1="4" x2="20" y1="9" y2="9" /> <line x1="4" x2="20" y1="15" y2="15" /> <line x1="10" x2="8" y1="3" y2="21" /> <line x1="16" x2="14" y1="3" y2="21" /></symbol>
+<symbol id="i-scroll-text" viewBox="0 0 24 24"><path d="M15 12h-5" /> <path d="M15 8h-5" /> <path d="M19 17V5a2 2 0 0 0-2-2H4" /> <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" /></symbol>
+<symbol id="i-list-checks" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4" /> <path d="m3 7 2 2 4-4" /> <path d="M13 6h8" /> <path d="M13 12h8" /> <path d="M13 18h8" /></symbol>
+<symbol id="i-clipboard-check" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /> <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /> <path d="m9 14 2 2 4-4" /></symbol>
+<symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /> <path d="M22 10v6" /> <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></symbol>
+<symbol id="i-pencil" viewBox="0 0 24 24"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol>
+<symbol id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /></symbol>
+<symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3" /> <path d="M21 8V5a2 2 0 0 0-2-2h-3" /> <path d="M3 16v3a2 2 0 0 0 2 2h3" /> <path d="M16 21h3a2 2 0 0 0 2-2v-3" /></symbol>
+<symbol id="i-minimize" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3" /> <path d="M21 8h-3a2 2 0 0 1-2-2V3" /> <path d="M3 16h3a2 2 0 0 1 2 2v3" /> <path d="M16 21v-3a2 2 0 0 1 2-2h3" /></symbol>
+<symbol id="i-circle-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /> <path d="M12 17h.01" /></symbol>
+<symbol id="i-message-square-warning" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M12 7v2" /> <path d="M12 13h.01" /></symbol>
+<symbol id="i-bug-off" viewBox="0 0 24 24"><path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2" /> <path d="M14.12 3.88 16 2" /> <path d="M22 13h-4v-2a4 4 0 0 0-4-4h-1.3" /> <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /> <path d="m2 2 20 20" /> <path d="M7.7 7.7A4 4 0 0 0 6 11v3a6 6 0 0 0 11.13 3.13" /> <path d="M12 20v-8" /> <path d="M6 13H2" /> <path d="M3 21c0-2.1 1.7-3.9 3.8-4" /></symbol>
+<symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m4.9 4.9 14.2 14.2" /></symbol>
+<symbol id="i-octagon-alert" viewBox="0 0 24 24"><path d="M12 16h.01" /> <path d="M12 8v4" /> <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" /></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></symbol>
+<symbol id="i-folder-tree" viewBox="0 0 24 24"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M3 5v14a2 2 0 0 0 2 2h3" /><path d="M3 10h4" /></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14" /><line x1="4" x2="4" y1="10" y2="3" /><line x1="12" x2="12" y1="21" y2="12" /><line x1="12" x2="12" y1="8" y2="3" /><line x1="20" x2="20" y1="21" y2="16" /><line x1="20" x2="20" y1="12" y2="3" /><line x1="1" x2="7" y1="14" y2="14" /><line x1="9" x2="15" y1="8" y2="8" /><line x1="17" x2="23" y1="16" y2="16" /></symbol>
+<symbol id="i-slash" viewBox="0 0 24 24"><path d="M22 2 2 22" /></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></symbol>
+<symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="4" /></symbol>
+<symbol id="i-keyboard" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" ry="2" /><path d="M6 8h.001M10 8h.001M14 8h.001M18 8h.001M8 12h.001M12 12h.001M16 12h.001M7 16h10" /></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" /></symbol>
+<symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line x1="20" x2="8.12" y1="4" y2="15.88" /><line x1="14.47" x2="20" y1="14.48" y2="20" /><line x1="8.12" x2="12" y1="8.12" y2="12" /></symbol>
+<symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5v14" /></symbol>
+<symbol id="i-plus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></symbol>
+<symbol id="i-minus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /></symbol>
+<symbol id="i-check-square" viewBox="0 0 24 24"><path d="m9 11 3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></symbol>
+<symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></symbol>
+<symbol id="i-folder-check" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9 13 2 2 4-4" /></symbol>
+<symbol id="i-folder-plus" viewBox="0 0 24 24"><path d="M12 10v6" /><path d="M9 13h6" /><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol>
+<symbol id="i-folder-search" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><circle cx="11" cy="13" r="3" /><path d="m13.2 15.2 2.8 2.8" /></symbol>
+<symbol id="i-folder-x" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9.5 10.5 5 5" /><path d="m14.5 10.5-5 5" /></symbol>
+<symbol id="i-message-square" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></symbol>
+<symbol id="i-link-2" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2" /><path d="M15 7h2a5 5 0 1 1 0 10h-2" /><line x1="8" x2="16" y1="12" y2="12" /></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></symbol>
+<symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-archive" viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1" /><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></symbol>
+<symbol id="i-file-check" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></symbol>
+<symbol id="i-corner-down-right" viewBox="0 0 24 24"><polyline points="15 10 20 15 15 20" /><path d="M4 4v7a4 4 0 0 0 4 4h12" /></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" /><line x1="9" x2="9" y1="3" y2="18" /><line x1="15" x2="15" y1="6" y2="21" /></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+<symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /><path d="m18 2 4 4-4 4" /><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /><path d="m18 14 4 4-4 4" /></symbol>
+<symbol id="i-log-in" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" /></symbol>
+<symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></symbol>
+
+<!-- Aliases directos para nombres alternativos comunes -->
+<symbol id="i-alert-triangle" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-alert-circle" viewBox="0 0 24 24"><use href="#i-circle-alert" /></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><use href="#i-circle-check" /></symbol>
+<symbol id="i-help-circle" viewBox="0 0 24 24"><use href="#i-circle-help" /></symbol>
+<symbol id="i-broken-link" viewBox="0 0 24 24"><use href="#i-link" /></symbol>
+<symbol id="i-shield-alert" viewBox="0 0 24 24"><use href="#i-shield" /></symbol>
+<symbol id="i-edit-3" viewBox="0 0 24 24"><use href="#i-wrench" /></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" /><line x1="6" x2="6" y1="2" y2="4" /><line x1="10" x2="10" y1="2" y2="4" /><line x1="14" x2="14" y1="2" y2="4" /></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" /></symbol>
+<symbol id="i-skull" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1" /><circle cx="15" cy="12" r="1" /><path d="M8 20v2h8v-2" /><path d="m12.5 17-.5-1-.5 1h1z" /><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20" /></symbol>
+<symbol id="i-alert-octagon" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-asterisk" viewBox="0 0 24 24"><use href="#i-hash" /></symbol>
+<symbol id="i-brackets" viewBox="0 0 24 24"><use href="#i-square-terminal" /></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-dot" viewBox="0 0 24 24"><use href="#i-circle" /></symbol>
+<symbol id="i-download-cloud" viewBox="0 0 24 24"><use href="#i-download" /></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-fast-forward" viewBox="0 0 24 24"><use href="#i-play" /></symbol>
+<symbol id="i-git-commit" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-git-merge" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><use href="#i-power" /></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
+<symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
+</svg>
+
+
+  <div id="mobile-notice" class="mobile-notice">
+    <svg class="ic ic-sm" style="color:#60A5FA;"><use href="#i-monitor"/></svg>
+    <span>Optimizado para pantalla completa (1920×1080). Gira tu dispositivo en horizontal para una mejor experiencia.</span>
+    <button onclick="document.getElementById('mobile-notice').remove(); document.getElementById('top-nav').style.top='0';" class="mobile-notice-close" title="Cerrar">✕</button>
+  </div>
+
+  <!-- Barra superior fija -->
+  <header id="top-nav">
+    <div class="nav-links">
+      <a href="../index.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-menu"/></svg>Índice</a>
+      <a href="104-3-controlar-el-montaje-y-d.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>104.3</a>
+      <a href="104-6-crear-y-cambiar-enlaces.html" class="nav-btn">104.6<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></a>
+    </div>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <span style="font-size:16px; color:var(--text-muted);">LPIC-1 · 104.5</span>
+      <button class="nav-btn" onclick="toggleHelp()" title="Atajos (?)"><svg class="ic ic-sm"><use href="#i-circle-help"/></svg>Ayuda</button>
+      <button class="nav-btn" onclick="toggleOverview()" title="Vista general (O)"><svg class="ic ic-sm"><use href="#i-layers"/></svg>Vista general</button>
+      <button class="nav-btn primary" id="btn-notes" onclick="toggleTeacherNotes()" title="Notas del docente (N)"><svg class="ic ic-sm"><use href="#i-clipboard-check"/></svg>Notas (N)</button>
+    </div>
+  </header>
+
+  <!-- Contenedor general -->
+  <div id="app-container">
+    <main id="stage-viewport">
+      <div id="stage">
+        <!-- Contenido renderizado dinámicamente -->
+        <div class="stage-header">
+          <div class="stage-header-left">
+            <span class="stage-chip" id="chip-section"></span>
+            <span style="font-size:24px; font-weight:700;" id="header-topic-name"></span>
+          </div>
+          <div class="stage-header-right">
+            <span class="ref-badge" id="badge-ref"></span>
+            <span class="ref-badge" id="badge-weight"></span>
+          </div>
+        </div>
+
+        <div class="slide-body" id="slide-content">
+          <!-- Slide interactiva inyectada por JS -->
+        </div>
+
+        <div class="stage-footer">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg></button>
+            <span id="slide-counter" style="font-weight:700;">1 / 1</span>
+            <button class="nav-btn" onclick="nextStep()" title="Siguiente (→ / Espacio)" aria-label="Siguiente slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:16px;">
+            <button class="nav-btn" onclick="openErratasModal()" id="btn-erratas-chip" style="display:none;"><svg class="ic ic-sm"><use href="#i-message-square-warning"/></svg>Nota Oficial</button>
+            <span>Tema Claro · 1920×1080</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Panel del docente (Notas) -->
+    <aside id="teacher-panel">
+      <div class="panel-header">
+        <span>Notas del Docente</span>
+        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="panel-body">
+        <div class="panel-meta" id="panel-meta-info"></div>
+        <div id="panel-notes-content"></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Popover flotante anclado -->
+  <div class="popover" id="global-popover"></div>
+
+  <!-- Modal de Erratas -->
+  <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
+        <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
+        Notas y Erratas del Manual Oficial
+      </h2>
+      <div id="modal-erratas-body"></div>
+    </div>
+  </div>
+
+  <!-- Modal de Ayuda / Atajos -->
+  <div class="modal-overlay" id="modal-help" onclick="closeModals()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
+        <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
+        <div><kbd>←</kbd> / <kbd>Retroceso</kbd> : Anterior paso / slide</div>
+        <div><kbd>N</kbd> : Panel de notas del docente</div>
+        <div><kbd>O</kbd> : Vista general de diapositivas</div>
+        <div><kbd>F</kbd> : Pantalla completa</div>
+        <div><kbd>Esc</kbd> : Cerrar popovers y modales</div>
+        <div><kbd>?</kbd> : Esta ayuda</div>
+        <div><span style="font-weight:700;">👆 Deslizar (Swipe)</span> : Desplazar con el dedo (tablet / móvil)</div>
+      </div>
+      <div style="margin-top:32px; padding:18px 22px; background:var(--surface-alt); border-radius:12px; border:1px solid var(--border-strong); font-size:16px; line-height:1.5; color:var(--text-muted);">
+        <p style="margin-bottom:6px;"><strong>Material didáctico no oficial</strong> basado en los <em>LPI Learning Materials</em> del <a href="https://learning.lpi.org" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Linux Professional Institute</a>.</p>
+        <p style="margin-bottom:6px;">LPI® y LPIC-1® son marcas registradas de Linux Professional Institute, Inc. Este recurso didáctico no está afiliado ni respaldado por LPI.</p>
+        <p>Uso educativo bajo licencia <strong>Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional (CC BY-NC-ND 4.0)</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Vista General (Overview) -->
+  <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
+    <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
+      <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
+    </div>
+  </div>
+
+  <!-- Toast flotante -->
+  <div id="toast">
+    <svg class="ic ic-sm" style="color:#22C55E;"><use href="#i-check"/></svg>
+    <span id="toast-msg">Comando copiado</span>
+  </div>
+
+  <!-- -------------------------------------------------------------
+       DATOS DE LAS DIAPOSITIVAS (Inline)
+       ------------------------------------------------------------- -->
+  <script>
+    const SLIDES = [{"id": 1, "section": "104.5", "cat": "perm", "type": "cover", "title": "Administración de permisos y propietarios de archivos", "subtitle": "Modelo DAC, chmod (simbólico/octal), chown, chgrp, permisos especiales (SUID, SGID, Sticky) y umask (Modo Examen)", "ref": "487-488", "pdf": {"manual": "A", "pages": [487, 488], "figure": null}, "coverage": ["104.5-OBJ-001", "104.5-OBJ-002", "104.5-OBJ-003"], "meta": {"peso": 3, "paginas": "487–514", "duracion": "30 min"}, "icon": "shield", "notes": "Iniciamos el subtema 104.5 (peso 3). La seguridad de archivos es obligatoria en LPIC-1. Dominaremos el modelo de permisos Unix tradicional (r, w, x para usuario, grupo y otros), la asignación con chmod, chown y chgrp, los tres permisos especiales (SUID, SGID, Sticky Bit) y el cálculo matemático de la máscara umask."}, {"id": 2, "section": "104.5", "cat": "perm", "type": "concept", "title": "El Modelo DAC: Permisos en Archivos frente a Directorios", "lead": "¿Por qué un mismo permiso 'x' o 'w' significa cosas radicalmente distintas en un archivo o en una carpeta?", "ref": "488-490", "pdf": {"manual": "A", "pages": [488, 489, 490], "figure": null}, "coverage": ["104.5-CON-001"], "points": [{"icon": "file", "text": "Permisos sobre un Archivo Ordinario", "detail": "🎯 'r' (read) = leer el contenido del archivo. 'w' (write) = modificar o sobreescribir el contenido del archivo. 'x' (execute) = ejecutar el archivo como un programa o script."}, {"icon": "folder", "text": "Permisos sobre un Directorio (¡Diferencia de Examen!)", "detail": "🎯 'r' = listar los nombres de los archivos que contiene (con ls). 'w' = CREAR, BORRAR o RENOMBRAR archivos dentro de esa carpeta. 'x' = ATRAVESAR / ENTRAR en el directorio (hacer cd) y acceder a los inodos de sus archivos."}, {"icon": "alert-triangle", "text": "⚠️ La Gran Trampa de Borrado de Archivos", "detail": "🎯 Pregunta de Examen: ¿Quién tiene derecho a borrar un archivo? La capacidad de borrar un archivo NO DEPENDE de los permisos del archivo, sino de tener permiso 'w' en el DIRECTORIO PADRE donde reside el archivo."}], "remember": "🎯 Clave de Examen: Para poder entrar en una carpeta con 'cd' se necesita obligatoriamente permiso de ejecución 'x'; para borrar un archivo se necesita permiso de escritura 'w' en la carpeta.", "notes": "Muestra que si un archivo tiene permisos 0000 (sin permisos) pero la carpeta tiene 777, el usuario puede borrar el archivo sin problemas."}, {"id": 3, "section": "104.5", "cat": "perm", "type": "table", "title": "Correspondencia entre Notación Simbólica y Octal", "lead": "El sistema binario de 3 bits que define los permisos en el inodo:", "ref": "490-493", "pdf": {"manual": "A", "pages": [490, 491, 492, 493], "figure": null}, "coverage": ["104.5-CON-002"], "headers": ["Valor Octal", "Valor Binario (rwx)", "Cadena Simbólica", "Significado Operativo"], "rows": [["7", "111", "rwx", "Lectura (4) + Escritura (2) + Ejecución (1) = Control total."], ["6", "110", "rw-", "🎯 Lectura (4) + Escritura (2) = Permiso estándar de edición de archivos de datos."], ["5", "101", "r-x", "🎯 Lectura (4) + Ejecución (1) = Permiso estándar de lectura y travesía en directorios."], ["4", "100", "r--", "Solo lectura."], ["0", "000", "---", "Sin ningún permiso de acceso (acceso denegado)."], ["755", "111 101 101", "rwxr-xr-x", "🎯 Directorios estándar o programas ejecutables (root edita, todos leen y entran)."], ["644", "110 100 100", "rw-r--r--", "🎯 Archivos de configuración y documentos públicos (dueño edita, otros solo leen)."], ["700 / 600", "111 000 000", "rwx------ / rw-------", "🎯 Acceso privado exclusivo para el propietario (clave SSH id_rsa, swapfile)."]], "remember": "🎯 Clave de Conversión: r = 4, w = 2, x = 1. Para calcular el total basta sumar los valores: r + w = 6; r + x = 5; r + w + x = 7.", "notes": "Haz que los alumnos practiquen sumas mentales rápidas: rw-r--r-- es 4+2=6, 4=4, 4=4 -> 644."}, {"id": 4, "section": "104.5", "cat": "perm", "type": "command", "title": "Modificación de Permisos con chmod: Simbólico y Octal", "lead": "Ajustar permisos de acceso de forma quirúrgica en archivos y árboles completos:", "ref": "493-496", "pdf": {"manual": "A", "pages": [493, 494, 495, 496], "figure": null}, "coverage": ["104.5-CMD-001", "104.5-OPT-001"], "command": "chmod [-R] <modo_octal|modo_simbólico> <archivo_o_dir>", "purpose": "Change Mode: modificar los bits de permiso discrecionales en el inodo", "terminal": {"command": "touch script.sh; chmod 755 script.sh; chmod g-w,o-rwx script.sh; ls -l script.sh", "output": "-rwxr-x--- 1 alumno alumno 0 Oct 20 11:30 script.sh"}, "options": [{"flag": "chmod 755 <archivo>", "desc": "🎯 Modo Octal: fija los permisos exactos directos (ej: chmod 644 documento.txt)."}, {"flag": "Categorías en Modo Simbólico", "desc": "🎯 'u' = user (dueño); 'g' = group (grupo); 'o' = others (otros/resto del mundo); 'a' = all (todos, u+g+o)."}, {"flag": "Operadores Simbólicos", "desc": "🎯 '+' añade el permiso; '-' retira el permiso; '=' fija exactamente el permiso indicado sustituyendo el anterior."}, {"flag": "chmod u+x,g-w <archivo>", "desc": "Añade ejecución al dueño y retira escritura al grupo en un solo comando separado por comas."}, {"flag": "chmod -R <modo> <dir>", "desc": "🎯 Clave de Examen: Aplica la modificación de permisos de forma RECURSIVA a todo el directorio y sus contenidos."}, {"flag": "chmod a+X <dir>", "desc": "'X' (mayúscula) condicional: añade permiso de ejecución ÚNICAMENTE a directorios o a archivos que ya tenían 'x' previo."}], "remember": "🎯 Clave de Examen: 'chmod 755' = modo octal; 'chmod u=rwx,go=rx' = modo simbólico. Ambos consiguen el mismo resultado.", "notes": "Muestra la ventaja de 'chmod a+X' al procesar carpetas recursivas para no hacer ejecutables los documentos de texto por error."}, {"id": 5, "section": "104.5", "cat": "perm", "type": "concept", "title": "Los Tres Permisos Especiales: SUID, SGID y Sticky Bit", "lead": "¿Cómo permitir que un usuario ordinario cambie su contraseña si el archivo /etc/shadow solo lo puede escribir root?", "ref": "496-499", "pdf": {"manual": "A", "pages": [496, 497, 498, 499], "figure": null}, "coverage": ["104.5-CON-003"], "points": [{"icon": "shield-alert", "text": "1. SUID (Set User ID - Octal 4000)", "detail": "🎯 Se aplica sobre BINARIOS EJECUTABLES. Cuando un usuario ordinario ejecuta el programa, el proceso se ejecuta temporalmente con los privilegios del PROPIETARIO DEL ARCHIVO (habitualmente root). Ejemplo oficial: /usr/bin/passwd (para modificar /etc/shadow)."}, {"icon": "users", "text": "2. SGID (Set Group ID - Octal 2000)", "detail": "🎯 En binarios: ejecuta con privilegios del grupo del archivo. En DIRECTORIOS: 🎯 ¡Clave de Examen! Todo archivo o subcarpeta creado dentro HEREDA AUTOMÁTICAMENTE EL GRUPO del directorio padre (esencial para carpetas de trabajo colaborativo)."}, {"icon": "pin", "text": "3. Sticky Bit (Bit de Permanencia - Octal 1000)", "detail": "🎯 Se aplica sobre DIRECTORIOS COMPARTIDOS (como /tmp y /var/tmp). Permite a cualquiera crear archivos, pero IMPIDE que un usuario borre o renombre archivos de otros. Solo el dueño del archivo o root pueden borrarlo."}], "remember": "🎯 Los 3 Bits Especiales en Memoria: 4000 = SUID (ejecuta como dueño); 2000 = SGID (hereda grupo en directorios); 1000 = Sticky Bit (protege borrado en /tmp).", "notes": "Explica la analogía de la taquilla pública en /tmp gracias al Sticky Bit: todos pueden meter cosas, pero solo tú puedes llevarte lo tuyo."}, {"id": 6, "section": "104.5", "cat": "perm", "type": "table", "title": "Representación Simbólica: minúsculas (s, t) frente a MAYÚSCULAS (S, T)", "lead": "¿Por qué a veces se ve una 'S' o una 'T' mayúscula en ls -l y qué significa en el examen?", "ref": "499-502", "pdf": {"manual": "A", "pages": [499, 500, 501, 502], "figure": null}, "coverage": ["104.5-CON-004"], "headers": ["Permiso Especial", "Posición en ls -l", "Letra Minúscula (Correcto)", "Letra MAYÚSCULA (⚠️ Error de Configuración)"], "rows": [["SUID (4000)", "Campo 'x' del dueño (rws / rwS)", "🎯 's' minúscula: SUID activo Y tiene permiso 'x' de ejecución.", "🎯 'S' mayúscula: SUID activo pero ¡NO tiene permiso 'x'! (el binario no se puede ejecutar)."], ["SGID (2000)", "Campo 'x' del grupo (rws / rwS)", "🎯 's' minúscula: SGID activo Y tiene permiso 'x' de ejecución/travesía.", "🎯 'S' mayúscula: SGID activo pero ¡NO tiene permiso 'x'! en el grupo."], ["Sticky Bit (1000)", "Campo 'x' de otros (rwt / rwT)", "🎯 't' minúscula: Sticky activo Y tiene permiso 'x' de ejecución/travesía (/tmp).", "🎯 'T' mayúscula: Sticky activo pero ¡NO tiene permiso 'x'! para otros usuarios."]], "remember": "🎯 La Regla Nemotécnica Inflexible: Minúscula (s, t) = TIENE permiso de ejecución 'x'. MAYÚSCULA (S, T) = LE FALTA el permiso de ejecución 'x'.", "notes": "Pregunta típica de certificación: '¿Qué significa que un archivo tenga permisos -rwSr--r--?'. Respuesta: Tiene el bit SUID activo pero carece de permiso de ejecución para el dueño."}, {"id": 7, "section": "104.5", "cat": "perm", "type": "command", "title": "Asignación Práctica de Permisos Especiales con chmod", "lead": "¿Cómo configurar SUID, SGID y Sticky Bit en modo numérico y simbólico?", "ref": "502-504", "pdf": {"manual": "A", "pages": [502, 503, 504], "figure": null}, "coverage": ["104.5-CMD-001", "104.5-OPT-002"], "command": "chmod 4755 | chmod 2775 | chmod 1777 | chmod u+s | chmod g+s | chmod +t", "purpose": "Activar o desactivar bits de permisos especiales sobre binarios y directorios", "terminal": {"command": "mkdir /tmp/colaborativo; chmod 2775 /tmp/colaborativo; ls -ld /tmp/colaborativo /tmp", "output": "drwxrwsr-x 2 alumno alumno 4096 Oct 20 11:35 /tmp/colaborativo\ndrwxrwxrwt 9 root   root   4096 Oct 20 11:30 /tmp"}, "options": [{"flag": "chmod 4755 <binario> (o u+s)", "desc": "🎯 Asigna SUID: el primer dígito octal '4' activa SUID (ej: -rwsr-xr-x)."}, {"flag": "chmod 2775 <dir> (o g+s)", "desc": "🎯 Asigna SGID en directorio: el primer dígito '2' fuerza la herencia de grupo (ej: drwxrwsr-x)."}, {"flag": "chmod 1777 <dir> (o +t / o+t)", "desc": "🎯 Asigna Sticky Bit: el primer dígito '1' activa la protección de borrado en directorios compartidos (ej: drwxrwxrwt)."}, {"flag": "chmod u-s / g-s / -t", "desc": "🎯 Retira los permisos especiales en modo simbólico."}, {"flag": "chmod 0755 <archivo>", "desc": "El cero '0' inicial retira todos los permisos especiales restableciendo permisos estándar."}], "remember": "🎯 Los Tres Prefijos Octales de Examen: 4xxx para SUID; 2xxx para SGID; 1xxx para Sticky Bit.", "notes": "Muestra que si sumas SGID (2) y Sticky (1) sobre una carpeta, el prefijo es 3xxx (chmod 3777)."}, {"id": 8, "section": "104.5", "cat": "perm", "type": "command", "title": "Gestión de Propietarios y Grupos: chown y chgrp", "lead": "¿Cómo transferir la titularidad de archivos y carpetas a otros usuarios o equipos de trabajo?", "ref": "504-507", "pdf": {"manual": "A", "pages": [504, 505, 506, 507], "figure": null}, "coverage": ["104.5-CMD-002", "104.5-CMD-003", "104.5-OPT-003"], "command": "sudo chown [-R] <usuario>[:grupo] <archivo> | sudo chgrp [-R] <grupo> <archivo>", "purpose": "Cambiar el propietario (UID) y el grupo de pertenencia (GID) de archivos y directorios", "terminal": {"command": "sudo chown www-data:www-data /var/www/html; sudo chown -R alumno:devs /opt/proyecto; ls -ld /var/www/html", "output": "drwxr-xr-x 2 www-data www-data 4096 Oct 20 11:40 /var/www/html"}, "options": [{"flag": "chown <usuario> <archivo>", "desc": "🎯 Cambia únicamente el propietario del archivo."}, {"flag": "chown <usuario>:<grupo> <archivo>", "desc": "🎯 Clave de Examen: Cambia el propietario Y el grupo simultáneamente (también admite la sintaxis histórica con punto: 'usuario.grupo')."}, {"flag": "chown :<grupo> <archivo>", "desc": "Si se omite el usuario poniendo solo dos puntos, cambia únicamente el grupo (equivale a chgrp)."}, {"flag": "chown <usuario>: <archivo>", "desc": "Si pones dos puntos sin grupo, cambia al usuario y asigna automáticamente su grupo primario."}, {"flag": "chgrp <grupo> <archivo>", "desc": "🎯 Cambia exclusivamente el grupo propietario del archivo."}, {"flag": "-R, --recursive", "desc": "🎯 Clave de Examen: Aplica el cambio de propietario y grupo de forma recursiva a todo el árbol de subcarpetas."}, {"flag": "-h, --no-dereference", "desc": "🎯 Clave de Examen: Modifica el propietario del propio enlace simbólico en lugar del archivo al que apunta."}], "remember": "🎯 Clave de Examen: 'chown usuario:grupo archivo' cambia ambos en un solo paso; 'chown -h' modifica el dueño de un enlace simbólico.", "notes": "Recuerda que solo el superusuario root puede cambiar el propietario de un archivo con chown."}, {"id": 9, "section": "104.5", "cat": "perm", "type": "concept", "title": "La Máscara de Creación umask: Permisos por Defecto", "lead": "¿Por qué cuando creas un archivo con touch o una carpeta con mkdir nacen con unos permisos determinados?", "ref": "507-510", "pdf": {"manual": "A", "pages": [507, 508, 509, 510], "figure": null}, "coverage": ["104.5-CMD-004", "104.5-CON-005"], "points": [{"icon": "shield", "text": "Los Permisos Base Máximos Iniciales", "detail": "🎯 En Linux, los programas solicitan permisos máximos de partida: para ARCHIVOS ORDINARIOS la base es 666 (rw-rw-rw-, ningún archivo nace ejecutable por seguridad). Para DIRECTORIOS la base es 777 (rwxrwxrwx, para permitir entrar y listar)."}, {"icon": "scissors", "text": "umask: La máscara que RECORTA permisos", "detail": "🎯 umask define los bits que se DESACTIVAN (se sustraen) de los permisos base en el momento de crear el archivo. Los permisos resultantes se calculan mediante la operación lógica a nivel de bits: 'Permiso = Base AND NOT(umask)'."}, {"icon": "terminal", "text": "El comando umask en la consola", "detail": "'umask' sin argumentos muestra el valor actual (ej: 0022). 'umask 027' cambia la máscara para la sesión actual."}], "remember": "🎯 Permisos Base Oficiales: Archivos = 666 (rw-rw-rw-); Directorios = 777 (rwxrwxrwx). umask RESTA bits a esa base.", "notes": "Enseña a los alumnos que para la mayoría de casos ordinarios, basta con restar matemáticamente dígito a dígito."}, {"id": 10, "section": "104.5", "cat": "perm", "type": "table", "title": "Matriz de Valores umask Evaluados en el Examen", "lead": "El cálculo exacto paso a paso para resolver las preguntas matemáticas de umask:", "ref": "510-512", "pdf": {"manual": "A", "pages": [510, 511, 512], "figure": null}, "coverage": ["104.5-CON-006"], "headers": ["Valor umask", "Permisos en ARCHIVOS (Base 666 - umask)", "Permisos en DIRECTORIOS (Base 777 - umask)", "Propósito en Examen LPIC-1"], "rows": [["022 (o 0022)", "🎯 644 (rw-r--r--)", "🎯 755 (rwxr-xr-x)", "🎯 Máscara ESTÁNDAR de Linux: otros pueden leer pero no escribir."], ["002 (o 0002)", "664 (rw-rw-r--)", "775 (rwxrwxr-x)", "Entornos de desarrollo colaborativo con User Private Groups (UPG)."], ["027 (o 0027)", "🎯 640 (rw-r-----)", "🎯 750 (rwxr-x---)", "🎯 Entornos restringidos: el grupo lee pero 'otros' no tienen ningún acceso."], ["077 (o 0077)", "🎯 600 (rw-------)", "🎯 700 (rwx------)", "🎯 Máxima privacidad: solo el propietario tiene acceso; grupo y otros tienen 0."]], "remember": "🎯 La Regla Matemática de Examen con umask 027: Archivo = 666 - 027 = 640 (rw-r-----). Directorio = 777 - 027 = 750 (rwxr-x---).", "notes": "Alerta sobre el cálculo lógico si la máscara tiene un número impar como 023: 666 - 023 = 644 (porque el archivo no tenía bit '1' que quitar)."}, {"id": 11, "section": "104.5", "cat": "perm", "type": "file", "title": "Persistencia de umask: /etc/login.defs y Perfiles", "lead": "¿Dónde se configura la máscara umask para que se aplique a todos los usuarios del sistema?", "ref": "512-513", "pdf": {"manual": "A", "pages": [512, 513], "figure": null}, "coverage": ["104.5-FILE-002"], "file": "/etc/login.defs, /etc/profile y ~/.bashrc", "syntax": "UMASK 022 (en login.defs) | umask 027 (en bashrc)", "content": "# Archivo de configuración de cuentas: /etc/login.defs\nUMASK           022\n\n# En /etc/profile se aplica la lógica de User Private Groups (UPG):\nif [ $UID -gt 199 ] && [ \"`/usr/bin/id -gn`\" = \"`/usr/bin/id -un`\" ]; then\n    umask 002\nelse\n    umask 022\nfi\n\n# En ~/.bashrc cada usuario puede personalizar su propia máscara:\numask 027", "fields": [{"field": "/etc/login.defs", "desc": "🎯 Clave de Examen: Define la directiva 'UMASK' que se aplica durante el inicio de sesión y al crear usuarios con useradd."}, {"field": "/etc/profile", "desc": "Script global que ejecuta la orden 'umask' para todas las shells interactivas de login."}, {"field": "~/.bashrc o ~/.profile", "desc": "Permite a un usuario individual forzar su propia máscara (ej: umask 077 para máxima privacidad)."}], "remember": "🎯 Clave de Examen: La máscara global del sistema se define en la directiva 'UMASK' de /etc/login.defs y en /etc/profile.", "notes": "Muestra que si cambias la umask en la consola solo dura mientras dure esa sesión; para hacerla fija va en ~/.bashrc."}, {"id": 12, "section": "104.5", "cat": "perm", "type": "concept", "title": "Trampas Clásicas de Examen en Permisos y umask", "lead": "Los 3 errores conceptuales que más puntos restan en el objetivo 104.5:", "ref": "513-514", "pdf": {"manual": "A", "pages": [513, 514], "figure": null}, "coverage": ["104.5-WARN-001"], "points": [{"icon": "alert-triangle", "text": "1. Creer que un archivo nuevo puede nacer ejecutable con umask", "detail": "🎯 Pregunta trampa: '¿Qué umask debo poner para que los archivos creados con touch nazcan con permisos 755?'. ¡IMPOSIBLE! La base de archivos es 666 (no tiene bit 'x'). NINGÚN archivo nace ejecutable por umask; para hacerlo ejecutable es obligatorio usar 'chmod +x' a posteriori."}, {"icon": "alert-triangle", "text": "2. Confundir el orden de usuario y grupo en chown", "detail": "La sintaxis es 'chown usuario:grupo archivo'. Si escribes 'chown grupo:usuario archivo', chown intentará buscar un usuario llamado 'grupo' y fallará."}, {"icon": "alert-triangle", "text": "3. Creer que para borrar un archivo se necesita permiso en el archivo", "detail": "Aunque un archivo tenga permisos de solo lectura (r--r--r--) o incluso 000, cualquier usuario que tenga permiso de escritura 'w' en el directorio contenedor puede borrarlo sin problemas."}], "remember": "🎯 Mnemotecnia Rápida: Los archivos nunca nacen con 'x' por umask. Para borrar se mira la carpeta. En chown primero usuario, luego grupo.", "notes": "Repite estos tres conceptos antes de los ejercicios prácticos."}, {"id": 13, "section": "104.5", "cat": "perm", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: chmod y umask)", "ref": "Manual A - Pág 514", "pdf": {"manual": "A", "pages": [514], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 514): Un usuario tiene configurada la máscara 'umask 027'. ¿Cuáles serán los permisos exactos en notación octal y simbólica de un nuevo archivo creado con touch y de un nuevo directorio creado con mkdir?", "command": "Archivo: 640 (rw-r-----). Directorio: 750 (rwxr-x---)", "reason": "Para archivos: 666 - 027 = 640 (rw-r-----). Para directorios: 777 - 027 = 750 (rwxr-x---)."}, {"action": "Caso 2 (Oficial Pág 514): ¿Cuál es el comando exacto en modo simbólico para retirar los permisos de escritura al grupo y retirar absolutamente todos los permisos a otros en el archivo 'informe.txt' en una sola orden?", "command": "chmod g-w,o-rwx informe.txt (o chmod go-w,o-rx informe.txt)", "reason": "La notación simbólica permite combinar acciones en una lista separada por comas sin espacios."}, {"action": "Caso 3 (Oficial Pág 514): ¿Qué comando cambia el propietario a 'nginx' y el grupo a 'www-data' de todo el directorio '/var/www' y todos sus subdirectorios de forma recursiva?", "command": "sudo chown -R nginx:www-data /var/www", "reason": "La opción -R aplica la modificación recursiva y la sintaxis 'usuario:grupo' actualiza ambas identidades."}], "solution": {"explain": "umask 027 produce 640 y 750; chmod simbólico con comas; y chown -R para propiedad recursiva."}, "notes": "Recuerda que umask 027 es la máscara más recomendada en auditorías de seguridad."}, {"id": 14, "section": "104.5", "cat": "perm", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: Permisos Especiales)", "ref": "Manual A - Pág 514", "pdf": {"manual": "A", "pages": [514], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 514): Un administrador crea un directorio de proyectos compartidos '/srv/proyecto'. ¿Qué comando en modo octal asigna control total al dueño, lectura/escritura/herencia de grupo al grupo y ningún acceso a otros?", "command": "sudo chmod 2770 /srv/proyecto", "reason": "El primer dígito '2' activa el permiso especial SGID para que todos los ficheros nuevos hereden el grupo; '770' da rwx al dueño, rwx al grupo y nada a otros."}, {"action": "Caso 5 (Oficial Pág 514): Al listar un archivo se observa '-rwsr-xr-x 1 root root /usr/bin/passwd'. ¿Qué permiso especial tiene asignado y qué función cumple?", "command": "Tiene asignado el permiso SUID (Set User ID)", "reason": "La 's' en el lugar de la 'x' del propietario indica que cualquier usuario que lo ejecute asumirá temporalmente los privilegios del dueño (root) durante la ejecución."}], "solution": {"explain": "2770 configura colaboración perfecta con SGID; SUID en passwd permite elevar privilegios de forma controlada."}, "notes": "Muestra cómo en /srv/proyecto con 2770, si un usuario crea un archivo, el grupo asignado no es el suyo personal, sino el del directorio."}, {"id": 15, "section": "104.5", "cat": "perm", "type": "challenge", "title": "Retos de Exploración Oficiales (SUID, Enlaces y umask Impar)", "ref": "Manual A - Págs 514-515", "pdf": {"manual": "A", "pages": [514, 515], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un administrador configura 'umask 003'. ¿Con qué permisos octales exactos nacerá un nuevo archivo de texto creado con touch?\n2. Si ejecutas 'chmod 4644 binario.sh' y luego 'ls -l binario.sh', ¿qué letra aparecerá en la posición del permiso de ejecución del propietario y por qué?\n3. ¿Qué comando de auditoría con 'find' localiza todos los archivos del sistema que tengan activado el bit especial SUID pertenecientes a root?", "hint": "Recuerda: operación lógica AND NOT en umask impar; 'S' mayúscula cuando no hay 'x'; y find con -perm -4000.", "solution": {"explain": "1. Nacerá con permisos 664 (rw-rw-r--). Como los archivos parten de base 666 (no tienen bit 'x' de ejecución de valor 1), el '3' de la umask (que es 2+1) solo puede sustraer el bit '2' (escritura). Por tanto: 666 & ~003 = 664.\n2. Aparecerá una 'S' MAYÚSCULA (-rwSr--r--), porque el bit SUID está activo pero el dueño NO tiene permiso de ejecución (el modo 644 carece de 'x' para el dueño).\n3. Se ejecuta: sudo find / -perm -4000 -user root -type f 2>/dev/null"}, "notes": "El reto 1 y el reto 2 demuestran un dominio matemático y conceptual absoluto del sistema de permisos Unix."}, {"id": 16, "section": "104.5", "cat": "perm", "type": "review", "title": "Pregunta de Examen LPIC-1: Cálculo de Permisos con umask", "q": "Si un usuario tiene configurada en su entorno una máscara 'umask 027', ¿cuáles serán los permisos octales resultantes de un nuevo archivo ordinario creado con el comando 'touch prueba.txt'?", "options": ["750", "640", "644", "600"], "answer": 1, "why": "Los archivos ordinarios parten de unos permisos base máximos de 666 (rw-rw-rw-). Al aplicar una máscara umask de 027, se resta: (6-0=6), (6-2=4) y (6-7 -> el archivo no tiene bit de ejecución '1', por lo que solo se puede sustraer los bits '4' y '2', quedando en 0). Por tanto, los permisos octales son exactamente 640 (rw-r-----).", "notes": "Pregunta clásica e indispensable de certificación."}, {"id": 17, "section": "104.5", "cat": "perm", "type": "review", "title": "Pregunta de Examen LPIC-1: Bit Especial en Directorios Compartidos", "q": "¿Qué permiso especial debe configurarse sobre el directorio '/tmp' para permitir que todos los usuarios puedan crear y modificar sus propios archivos, pero impidiendo que borren los archivos creados por otros usuarios?", "options": ["Permiso SUID (Set User ID)", "Permiso SGID (Set Group ID)", "Sticky Bit (Bit de permanencia)", "Permiso inmutable (chattr +i)"], "answer": 2, "why": "El Sticky Bit (representado por el valor octal 1000 y la letra 't' al final de los permisos) se diseñó específicamente para directorios de uso común compartido (como /tmp). Garantiza que solo el propietario de un archivo o el superusuario root puedan eliminarlo o renombrarlo.", "notes": "Pregunta directa y fundamental sobre la seguridad de /tmp."}, {"id": 18, "section": "104.5", "cat": "perm", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Permisos y Propietarios 104.5", "deck": [{"front": "¿Cuáles son los permisos base máximos de archivos y de directorios?", "back": "666 para archivos (ninguno nace con 'x'); 777 para directorios."}, {"front": "¿Qué permisos produce 'umask 022' en un archivo y en un directorio?", "back": "644 en archivos (rw-r--r--); 755 en directorios (rwxr-xr-x)."}, {"front": "¿Qué permisos produce 'umask 027' en un archivo y en un directorio?", "back": "640 en archivos (rw-r-----); 750 en directorios (rwxr-x---)."}, {"front": "¿Qué valor octal tiene el permiso SUID y sobre qué se aplica?", "back": "Valor 4000 (se aplica sobre binarios para ejecutar con privilegios del dueño)."}, {"front": "¿Qué función cumple el permiso SGID (2000) en un directorio?", "back": "Hace que todos los archivos nuevos creados dentro hereden el grupo del directorio."}, {"front": "¿Qué función cumple el Sticky Bit (1000) en /tmp?", "back": "Impide que un usuario borre o renombre los archivos de otros usuarios."}, {"front": "¿Qué diferencia hay entre ver 's' minúscula o 'S' mayúscula en ls -l?", "back": "'s' minúscula = tiene 'x' de ejecución; 'S' mayúscula = le falta el permiso 'x'."}, {"front": "¿Qué comando cambia el propietario y el grupo a la vez?", "back": "chown usuario:grupo <archivo>."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 104.5."}, {"id": 19, "section": "104.5", "cat": "perm", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 104.5", "takeaways": ["Permisos Estándar: r=4, w=2, x=1. En directorios 'x' es entrar (cd) y 'w' es crear/borrar archivos. Modificación con chmod (755 o u+x,go-w).", "Permisos Especiales: 4000 SUID (ejecuta como dueño); 2000 SGID (hereda grupo en directorios); 1000 Sticky Bit (protege borrado en /tmp). Letras minúsculas si hay 'x', MAYÚSCULAS si falta 'x'.", "Propiedad: chown usuario:grupo archivo; chgrp para grupo solo; chown -R para recursivo.", "Máscara umask: Base 666 archivos y 777 directorios. umask 022 da 644/755; umask 027 da 640/750. Ningún archivo nace ejecutable por umask."], "top3": [{"cmd": "chmod 755 <script> && chmod 644 <config>", "desc": "Asigna permisos estándar profesionales a ejecutables y archivos de configuración."}, {"cmd": "chmod 2775 <directorio_compartido>", "desc": "Activa SGID para que todos los ficheros nuevos hereden automáticamente el grupo de trabajo."}, {"cmd": "sudo chown -R usuario:grupo /directorio", "desc": "Transfiere la titularidad completa de un árbol de directorios de forma recursiva."}], "practice": {"name": "Practica 104.5: Administración de Permisos y Propietarios de Archivos", "url": "../practicas/p-104-5-permisos-propietarios.html", "desc": "Aplica permisos octales y simbólicos con chmod, transfiere dueños y grupos con chown y chgrp, calcula la máscara umask y domina los permisos especiales SUID, SGID y Sticky Bit."}, "notes": "Concluimos el subtema 104.5. Los alumnos dominan ahora los permisos y la titularidad en Linux."}];
+    const ERRATAS = [];
+    const GLOSARIO = [{"id": "GLOS-104.5-001", "termino": "SUID (Set User ID)", "definicion": "Permiso especial de archivo ejecutable (bit octal 4000) que provoca que el proceso se ejecute con los privilegios del usuario propietario y no del usuario que lo invoca."}, {"id": "GLOS-104.5-002", "termino": "SGID (Set Group ID)", "definicion": "Permiso especial (bit octal 2000) que en ejecutables confiere permisos del grupo titular y en directorios fuerza que los archivos creados hereden el grupo del directorio."}, {"id": "GLOS-104.5-003", "termino": "Sticky Bit", "definicion": "Permiso especial (bit octal 1000) aplicado a directorios compartidos para impedir que los usuarios borren o renombren archivos de otros usuarios."}, {"id": "GLOS-104.5-004", "termino": "umask", "definicion": "Máscara de bits de entorno que desactiva permisos específicos de lectura, escritura y ejecución durante la creación de nuevos archivos y directorios."}, {"id": "GLOS-104.5-005", "termino": "chown", "definicion": "Comando administrativo que modifica el usuario propietario y el grupo de archivos y directorios en el sistema."}];
+    const META = {"topic": "104.5", "title": "Administración de los permisos y los propietarios de los archivos", "weight": 3, "description": "Modelo DAC, chmod (simbólico/octal), chown, chgrp, permisos especiales (SUID, SGID, Sticky) y umask (Alta Densidad LPIC-1)", "duracion": "30 min"};
+
+    /* -------------------------------------------------------------
+       MOTOR DE RENDERIZADO Y NAVEGACIÓN (Pure JS)
+       ------------------------------------------------------------- */
+    let currentSlideIdx = 0;
+    let currentFragStep = 0;
+    let maxFragStep = 0;
+    let teacherNotesOpen = false;
+
+    const stage = document.getElementById('stage');
+    const viewport = document.getElementById('stage-viewport');
+
+    function resizeStage() {
+      const topBarHeight = 52;
+      const notesWidth = teacherNotesOpen ? 420 : 0;
+      const availW = window.innerWidth - notesWidth;
+      const availH = window.innerHeight - topBarHeight;
+      const scale = Math.min((availW - 40) / 1920, (availH - 40) / 1080);
+      stage.style.transform = `scale(${Math.max(scale, 0.25)})`;
+    }
+    window.addEventListener('resize', resizeStage);
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Comando copiado al portapapeles");
+      }).catch(() => {
+        showToast("Copiado: " + text);
+      });
+    }
+
+    function getCatColors(cat) {
+      const map = {
+        'hardware': { accent: '#0F766E', soft: '#CCFBF1', ink: '#0F766E' },
+        'boot': { accent: '#4338CA', soft: '#E0E7FF', ink: '#3730A3' },
+        'services': { accent: '#6D28D9', soft: '#EDE9FE', ink: '#6D28D9' },
+        'network': { accent: '#0E7490', soft: '#CFFAFE', ink: '#155E75' },
+        'files': { accent: '#4D7C0F', soft: '#ECFCCB', ink: '#3F6212' },
+        'kernel': { accent: '#BE185D', soft: '#FCE7F3', ink: '#BE185D' },
+        'neutral': { accent: '#2563EB', soft: '#DBEAFE', ink: '#1D4ED8' }
+      };
+      return map[cat] || map['neutral'];
+    }
+
+    function renderSlide(idx) {
+      if (idx < 0 || idx >= SLIDES.length) return;
+      currentSlideIdx = idx;
+      window.location.hash = `#/${idx + 1}`;
+      closePopovers();
+
+      const s = SLIDES[idx];
+      const colors = getCatColors(s.cat || 'neutral');
+      stage.style.setProperty('--cat-accent', colors.accent);
+      stage.style.setProperty('--cat-soft', colors.soft);
+      stage.style.setProperty('--cat-ink', colors.ink);
+
+      // Metadatos de cabecera
+      const chip = document.getElementById('chip-section');
+      chip.textContent = s.section || (typeof META !== 'undefined' && META.topic) || '101.1';
+      chip.style.background = colors.soft;
+      chip.style.color = colors.ink;
+
+      document.getElementById('header-topic-name').textContent = (typeof META !== 'undefined' && META.title) ? META.title : '';
+      document.getElementById('badge-ref').textContent = s.ref ? `PDF p. ${s.ref}` : '';
+      const weightVal = (typeof META !== 'undefined' && META && META.weight) ? META.weight : (s.weight || (s.meta && s.meta.peso) || '');
+      document.getElementById('badge-weight').textContent = weightVal ? `Peso LPI: ${weightVal}` : '';
+
+      // Contador y progreso
+      document.getElementById('slide-counter').textContent = `${idx + 1} / ${SLIDES.length}`;
+      const pct = ((idx + 1) / SLIDES.length) * 100;
+      document.getElementById('progress-fill').style.width = `${pct}%`;
+
+      // Erratas chip
+      const errBtn = document.getElementById('btn-erratas-chip');
+      if (s.errata && s.errata.length > 0) {
+        errBtn.style.display = 'inline-flex';
+      } else {
+        errBtn.style.display = 'none';
+      }
+
+      // Renderizado del cuerpo según el tipo
+      const container = document.getElementById('slide-content');
+      container.innerHTML = buildSlideHTML(s, colors);
+
+      // Actualizar fragmentos
+      const frags = container.querySelectorAll('.frag');
+      maxFragStep = 0;
+      frags.forEach(el => {
+        const step = parseInt(el.getAttribute('data-step') || '1', 10);
+        if (step > maxFragStep) maxFragStep = step;
+      });
+      currentFragStep = 0;
+
+      // Actualizar panel docente
+      updateTeacherNotes(s);
+    }
+
+    function escapeHTML(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function renderRichText(str) {
+      if (str === null || str === undefined) return '';
+      let s = String(str);
+      // Markdown bold **text** -> <strong>text</strong>
+      s = s.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      // Markdown inline code `cmd` -> <code class="t-cmd">$1</code>
+      s = s.replace(/`([^`]+)`/g, '<code class="t-cmd">$1</code>');
+      
+      // If s contains safe HTML markup (strong, b, em, code, span, br)
+      if (/<[a-z/][\s\S]*>/i.test(s)) {
+        // Neutralize unsafe tags
+        s = s.replace(/<\/?(script|iframe|object|embed)[^>]*>/gi, '');
+        s = s.replace(/\son\w+="[^"]*"/gi, '');
+        s = s.replace(/\son\w+='[^']*'/gi, '');
+        return s;
+      }
+      return escapeHTML(s);
+    }
+
+    function escapeQuotes(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'")
+        .replace(/"/g, '&quot;')
+        .replace(/\r?\n/g, ' ');
+    }
+
+    function renderTerminalBox(term, title) {
+      if (!term) return '';
+      const termTitle = title || term.title || term.name || 'bash';
+      let lines = [];
+      let cmdToCopy = '';
+
+      if (term.lines && Array.isArray(term.lines)) {
+        lines = term.lines;
+        cmdToCopy = lines.find(l => l.t === 'cmd')?.v || termTitle;
+      } else if (term.command) {
+        cmdToCopy = term.command;
+        const prompt = term.prompt || '$ ';
+        lines.push({ t: 'cmd', v: term.command, prompt: prompt });
+        if (term.output) {
+          const outList = Array.isArray(term.output) ? term.output : String(term.output).split('\n');
+          outList.forEach(outLine => {
+            const trimmed = String(outLine).trim();
+            if (trimmed.startsWith('#')) {
+              lines.push({ t: 'cmt', v: outLine });
+            } else {
+              lines.push({ t: 'out', v: outLine });
+            }
+          });
+        }
+        if (term.comment) {
+          lines.push({ t: 'cmt', v: '# ' + term.comment });
+        }
+      } else if (typeof term === 'string') {
+        cmdToCopy = term;
+        lines.push({ t: 'cmd', v: term, prompt: '$ ' });
+      }
+
+      let h = `
+        <div class="term-wrapper">
+          <div class="term-header">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>
+              <span>${escapeHTML(termTitle)}</span>
+            </div>
+            <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmdToCopy)}')">
+              <svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar comando
+            </button>
+          </div>
+          <div class="term-code">`;
+      lines.forEach(l => {
+        if (l.t === 'cmd') {
+          const p = l.prompt || term.prompt || '$ ';
+          h += `<div><span class="t-prompt">${escapeHTML(p)} </span><span class="t-cmd">${escapeHTML(l.v)}</span></div>`;
+        } else if (l.t === 'hl') {
+          h += `<div><span class="t-hl">${escapeHTML(l.v)}</span></div>`;
+        } else if (l.t === 'err') {
+          h += `<div><span class="t-err">${escapeHTML(l.v)}</span></div>`;
+        } else if (l.t === 'cmt') {
+          h += `<div><span class="t-cmt">${escapeHTML(l.v)}</span></div>`;
+        } else {
+          h += `<div>${escapeHTML(l.v)}</div>`;
+        }
+      });
+      h += `</div></div>`;
+      return h;
+    }
+
+    function buildSlideHTML(s, colors) {
+      let html = '';
+      if (s.type === 'cover') {
+        html += `
+          <div style="text-align:center; max-width:1200px; margin:0 auto;">
+            <div style="width:110px; height:110px; margin:0 auto 24px; border-radius:28px; background:${colors.soft}; color:${colors.ink}; display:flex; align-items:center; justify-content:center;">
+              <svg class="ic ic-xl"><use href="#i-${s.icon || 'graduation-cap'}"/></svg>
+            </div>
+            <h1 style="font-size:72px; font-weight:800; line-height:1.15; margin-bottom:20px;">${escapeHTML(s.title)}</h1>
+            <p style="font-size:32px; color:var(--text-muted); margin-bottom:36px;">${escapeHTML(s.subtitle || '')}</p>
+            <div style="display:flex; justify-content:center; gap:20px; font-size:22px; font-weight:600;">
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Peso LPI: ${escapeHTML(s.meta?.peso || (typeof META !== 'undefined' && META.weight) || '')}</span>
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Páginas: ${escapeHTML(s.meta?.paginas || '')}</span>
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '30 min')}</span>
+            </div>
+          </div>
+        `;
+      } else if (s.type === 'concept') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.points && s.points.length > 0) {
+          html += `<div class="concept-grid">`;
+          s.points.forEach(p => {
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'check'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(p.text || p.title || '')}</div>
+                  ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
+                </div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+        if (s.console || s.terminal) {
+          html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
+        }
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'command') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const purpose = s.purpose || s.lead || s.desc || '';
+        if (purpose) html += `<div class="slide-lead">${renderRichText(purpose)}</div>`;
+        
+        // Barra de Sintaxis si existe
+        if (s.syntax) {
+          html += `
+            <div class="syntax-bar">
+              <span style="font-weight:700; color:var(--text-muted); font-size:19px;">Sintaxis:</span>
+              <code class="t-cmd" style="font-size:21px;">${escapeHTML(s.syntax)}</code>
+            </div>
+          `;
+        }
+
+        // Sintaxis y Chips de Opciones
+        if (s.options && s.options.length > 0) {
+          html += `<div class="options-row">`;
+          s.options.forEach(opt => {
+            const flag = opt.flag || opt.opt || opt.name || '';
+            const short = opt.short || opt.desc || opt.detail || '';
+            const detail = opt.detail || opt.desc || opt.description || '';
+            const example = opt.example || opt.sample || '';
+            html += `
+              <button class="opt-chip" onclick="showOptionDetail(event, '${escapeQuotes(flag)}', '${escapeQuotes(short)}', '${escapeQuotes(detail)}', '${escapeQuotes(example)}')">
+                ${flag ? `<span class="flag">${escapeHTML(flag)}</span>` : ''}
+                ${short && short !== flag ? `<span>${escapeHTML(short)}</span>` : ''}
+              </button>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        // Si tiene viñetas descriptivas
+        if (s.points && s.points.length > 0) {
+          html += `<div class="concept-grid">`;
+          s.points.forEach(p => {
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'check'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(p.text || p.title || '')}</div>
+                  ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
+                </div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        // Terminal con código
+        const termData = s.terminal || s.console;
+        if (termData) {
+          html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
+        if (s.remember || s.look) {
+          html += `
+            <div class="callout-box callout-remember">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.look)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'file') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const fileObj = (typeof s.file === 'object' && s.file !== null) ? s.file : {};
+        const filePath = fileObj.path || s.path || (typeof s.file === 'string' ? s.file : '');
+        const filePurpose = fileObj.purpose || s.purpose || '';
+        const fileDesc = fileObj.desc || s.desc || s.contains || s.lead || filePurpose;
+        html += `<div class="slide-lead"><code class="t-path" style="font-size:28px; font-weight:700;">${escapeHTML(filePath)}</code>${fileDesc ? ` — ${renderRichText(fileDesc)}` : ''}</div>`;
+        
+        // Muestra de sintaxis, contenido de archivo o configuración
+        const fileContent = fileObj.content || s.content || s.sample?.content || (typeof s.sample === 'string' ? s.sample : '') || (typeof s.syntax === 'string' ? s.syntax : '');
+        if (fileContent || s.sample || s.syntax) {
+          let lines = [];
+          if (Array.isArray(fileContent)) lines = fileContent;
+          else if (typeof fileContent === 'string' && fileContent.trim()) lines = fileContent.split('\n');
+          else if (s.sample && s.sample.lines) lines = s.sample.lines;
+          else if (Array.isArray(s.syntax)) lines = s.syntax;
+
+          if (lines.length > 0) {
+            html += `
+              <div class="term-wrapper" style="margin-top:12px; margin-bottom:16px;">
+                <div class="term-header">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
+                    <span>${escapeHTML(filePath || 'configuración')}</span>
+                  </div>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(Array.isArray(lines) ? lines.join('\n') : fileContent)}')">
+                    <svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar archivo
+                  </button>
+                </div>
+                <div class="term-code">`;
+            lines.forEach(line => {
+              const lStr = String(line);
+              if (lStr.trim().startsWith('#')) {
+                html += `<div><span class="t-cmt">${escapeHTML(lStr)}</span></div>`;
+              } else {
+                html += `<div>${escapeHTML(lStr)}</div>`;
+              }
+            });
+            html += `</div></div>`;
+          }
+        }
+
+        // Directivas o Viñetas explicativas (points)
+        const pointsList = s.points || s.directives || [];
+        if (pointsList.length > 0) {
+          html += `<div class="concept-grid">`;
+          pointsList.forEach(p => {
+            const pKey = p.text || p.key || p.title || '';
+            const pDesc = p.detail || p.desc || '';
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'file-text'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(pKey)}</div>
+                  ${pDesc ? `<div class="card-detail">${renderRichText(pDesc)}</div>` : ''}
+                </div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        // Consola o terminal complementario en slide file
+        const fileTerm = s.terminal || s.console;
+        if (fileTerm) {
+          html += renderTerminalBox(fileTerm, s.command || 'bash');
+        }
+
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
+        if (s.remember || s.look) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.look)}</span>
+            </div>
+          `;
+        }
+
+        if (s.writtenBy || s.readBy) {
+          html += `<div style="font-size:22px; color:var(--text-muted); margin-top:16px;">
+            ${s.writtenBy ? `<span>Escrito por: <strong>${escapeHTML(s.writtenBy)}</strong></span> · ` : ''}
+            ${s.readBy ? `<span>Leído por: <strong>${escapeHTML(Array.isArray(s.readBy) ? s.readBy.join(', ') : s.readBy)}</strong></span>` : ''}
+          </div>`;
+        }
+      } else if (s.type === 'table') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const takeaway = s.takeaway || s.lead || s.desc || '';
+        if (takeaway) html += `<div class="slide-lead">${renderRichText(takeaway)}</div>`;
+        const headers = s.headers || s.table?.headers || [];
+        const rows = s.rows || s.table?.rows || [];
+        html += `<div class="table-container"><table class="slide-table"><thead><tr>`;
+        headers.forEach(h => html += `<th>${renderRichText(h)}</th>`);
+        html += `</tr></thead><tbody>`;
+        rows.forEach((row, ridx) => {
+          const isHl = s.highlight && s.highlight.row === (ridx + 1);
+          html += `<tr class="${isHl ? 'highlighted' : ''}">`;
+          (Array.isArray(row) ? row : []).forEach(cell => html += `<td>${renderRichText(cell)}</td>`);
+          html += `</tr>`;
+        });
+        html += `</tbody></table></div>`;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'matrix') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.takeaway || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const headers = s.headers || s.cols || s.columns || s.matrix?.headers || [];
+        const rows = s.rows || s.matrix?.rows || [];
+        html += `<div class="matrix-container"><table class="slide-matrix"><thead><tr>`;
+        headers.forEach(h => html += `<th>${renderRichText(h)}</th>`);
+        html += `</tr></thead><tbody>`;
+        rows.forEach((row, ridx) => {
+          const isHl = s.highlight && (s.highlight.row === (ridx + 1) || s.highlight === (ridx + 1));
+          html += `<tr class="${isHl ? 'highlighted' : ''}">`;
+          let cells = [];
+          if (Array.isArray(row)) {
+            cells = row;
+          } else if (typeof row === 'object' && row !== null) {
+            if (row.head !== undefined && Array.isArray(row.cells)) {
+              cells = [row.head, ...row.cells];
+            } else if (Array.isArray(row.cells)) {
+              cells = row.cells;
+            } else {
+              cells = Object.values(row);
+            }
+          }
+          cells.forEach((cell, cidx) => {
+            html += `<td>${renderRichText(cell)}</td>`;
+          });
+          html += `</tr>`;
+        });
+        html += `</tbody></table></div>`;
+        if (s.remember || s.takeaway) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.takeaway)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'flow') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const steps = s.steps || s.nodes || s.diagram?.nodes || [];
+        if (steps.length > 0) {
+          html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
+          steps.forEach((st, idx) => {
+            const stitle = st.step || st.title || st.text || st.label || '';
+            const sdesc = st.desc || st.detail || st.sub || '';
+            html += `
+              <div class="concept-card" style="position:relative; display:flex; flex-direction:column; justify-content:space-between; border-left:6px solid var(--primary);">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+                  <span style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;">${st.num || idx + 1}</span>
+                  <div class="icon-box" style="margin:0;"><svg class="ic ic-md"><use href="#i-${st.icon || 'arrow-right'}"/></svg></div>
+                </div>
+                <div>
+                  <div style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
+                  <div style="font-size:18px; color:var(--text-muted); line-height:1.4;">${renderRichText(sdesc)}</div>
+                </div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+        if (s.callout) {
+          html += `
+            <div class="callout-box callout-${s.callout.type || 'info'}" style="margin-top:18px;">
+              <svg class="ic ic-md"><use href="#i-${s.callout.type === 'warning' ? 'triangle-alert' : (s.callout.type === 'danger' ? 'circle-x' : 'info')}"/></svg>
+              <span><strong>${escapeHTML(s.callout.title || 'Nota')}:</strong> ${renderRichText(s.callout.text || '')}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'exercise') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        
+        // Badge del manual oficial
+        let pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
+        if (!pdfRef && scenarioText) {
+          const m = scenarioText.match(/P[áa]gina\s+oficial\s+(\d+(?:[–-]\d+)?)/i);
+          if (m) pdfRef = m[1];
+        }
+        html += `
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
+              <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
+            </span>
+          </div>
+        `;
+
+        // Planteamiento del problema (Escenario claro)
+        html += `
+          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
+            <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
+            <div>${renderRichText(scenarioText)}</div>
+          </div>
+        `;
+
+        // Tareas / Pasos que deben resolver los alumnos (sin desvelar la respuesta)
+        const steps = s.steps || [];
+        const tasks = s.tasks || [];
+        if (steps.length > 0 || tasks.length > 0) {
+          html += `
+            <div style="margin-bottom:16px;">
+              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+          `;
+          if (steps.length > 0) {
+            steps.forEach((st, idx) => {
+              const doText = st.action || st.do || st.task || st.step || '';
+              html += `
+                <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
+                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span>${renderRichText(doText)}</span>
+                </div>
+              `;
+            });
+          } else {
+            tasks.forEach((t, idx) => {
+              html += `
+                <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
+                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span>${renderRichText(t)}</span>
+                </div>
+              `;
+            });
+          }
+          html += `</div></div>`;
+        }
+
+        // Botón docente interactivo para revelar resolución lineal y explicación
+        html += `
+          <div>
+            <button class="nav-btn primary btn-reveal-exercise" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+              <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar / Ocultar Resolución Guiada y Explicación
+            </button>
+            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+        `;
+
+        // Dentro del cuadro de resolución: pasos resueltos y comandos
+        if (steps.length > 0) {
+          html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
+          steps.forEach((st, idx) => {
+            const doText = st.action || st.do || st.task || st.step || '';
+            const lookText = st.command || st.look || st.cmd || st.code || '';
+            const reasonText = st.reason || st.explain || '';
+            html += `
+              <div style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
+                  <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
+                  ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+                </div>
+                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
+              </div>
+            `;
+          });
+        }
+
+        // Explicación de la solución ("Por qué")
+        const solText = s.solution?.explain || s.solution?.text || (typeof s.solution === 'string' ? s.solution : '');
+        if (solText) {
+          html += `
+            <div style="margin-top:6px; line-height:1.45;">
+              <strong style="color:var(--success-ink);">Por qué se resuelve así (Explicación docente):</strong><br>
+              <div style="margin-top:4px;">${renderRichText(solText)}</div>
+            </div>
+          `;
+        }
+
+        if (s.solution?.terminal) {
+          html += `<div style="width:100%; margin-top:10px;">${renderTerminalBox(s.solution.terminal, 'solución')}</div>`;
+        }
+
+        html += `</div></div>`;
+      } else if (s.type === 'challenge') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        
+        // Badge del manual oficial
+        const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        html += `
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--warning-ink); background:var(--warning-soft); border-color:#FCD34D; font-size:19px;">
+              <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
+            </span>
+          </div>
+        `;
+
+        // Enunciado y Escenario del reto
+        const scenario = s.scenario || s.prompt || s.lead || '';
+        const question = s.question || s.task || '';
+        html += `
+          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
+            <div style="font-size:16px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
+            <div>${renderRichText(scenario)}</div>
+            ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border);">${renderRichText(question)}</div>` : ''}
+          </div>
+        `;
+
+        if (s.hint) {
+          html += `
+            <div class="callout-box callout-info" style="margin-bottom:16px;">
+              <svg class="ic ic-md"><use href="#i-help-circle"/></svg>
+              <span><strong>Pista para los alumnos:</strong> ${renderRichText(s.hint)}</span>
+            </div>
+          `;
+        }
+
+        // Botón docente interactivo
+        const solText = s.solution?.explain || s.solution?.text || (typeof s.solution === 'string' ? s.solution : '');
+        html += `
+          <div>
+            <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+              <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar Solución y Razonamiento Docente
+            </button>
+            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+              <div style="display:flex; align-items:flex-start; gap:12px;">
+                <svg class="ic ic-md" style="margin-top:2px; flex:none;"><use href="#i-circle-check"/></svg>
+                <div style="line-height:1.45;"><strong>Solución y Razonamiento:</strong><br><span style="margin-top:4px; display:inline-block;">${renderRichText(solText)}</span></div>
+              </div>
+              ${s.solution?.terminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(s.solution.terminal, 'solución')}</div>` : ''}
+            </div>
+          </div>
+        `;
+      } else if (s.type === 'review') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const qText = s.q || s.question || s.prompt || 'Pregunta de repaso:';
+        html += `<div style="font-size:32px; font-weight:700; margin-bottom:24px;">${renderRichText(qText)}</div>`;
+        html += `<div class="quiz-options">`;
+        const options = s.options || [];
+        options.forEach((opt, oidx) => {
+          html += `
+            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
+              <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
+              <span>${renderRichText(opt)}</span>
+            </button>
+          `;
+        });
+        html += `</div>`;
+        html += `
+          <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+              <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
+            </button>
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+        `;
+      } else if (s.type === 'flashcards') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
+        const deck = s.deck || s.cards || [];
+        const firstFront = deck[0]?.front || deck[0]?.q || '';
+        const firstBack = deck[0]?.back || deck[0]?.a || '';
+        html += `
+          <div class="flashcard-stage" onclick="flipFlashcard(this)">
+            <div class="flashcard-inner" id="fc-inner">
+              <div class="flashcard-front">
+                <span class="ref-badge" style="margin-bottom:18px;">Anverso (Pregunta / Concepto)</span>
+                <div class="flashcard-title" id="fc-front-text">${renderRichText(firstFront)}</div>
+              </div>
+              <div class="flashcard-back">
+                <span class="ref-badge" style="margin-bottom:18px;">Reverso (Respuesta / Mnemotecnia)</span>
+                <div class="flashcard-desc" id="fc-back-text">${renderRichText(firstBack)}</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
+            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>Anterior</button>
+            <span id="fc-counter" style="font-size:22px; font-weight:700; align-self:center;">1 / ${deck.length}</span>
+            <button class="nav-btn" onclick="nextCard()">Siguiente<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
+          </div>
+        `;
+      } else if (s.type === 'summary') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        html += `<div class="concept-grid">`;
+        const items = s.takeaways || s.items || s.points || s.cards || [];
+        items.forEach((item, idx) => {
+          let cardTitle = '';
+          let cardDesc = '';
+          if (typeof item === 'string') {
+            const parts = item.split(': ');
+            if (parts.length > 1) {
+              cardTitle = parts[0];
+              cardDesc = parts.slice(1).join(': ');
+            } else {
+              cardTitle = `Punto Clave ${idx + 1}`;
+              cardDesc = item;
+            }
+          } else {
+            cardTitle = item.title || item.heading || item.key || item.text || `Clave ${idx + 1}`;
+            cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '');
+          }
+          html += `
+            <div class="concept-card">
+              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${(typeof item === 'object' && item.icon) ? item.icon : 'circle-check'}"/></svg></div>
+              <div style="flex:1;">
+                <div class="card-text">${renderRichText(cardTitle)}</div>
+                ${cardDesc ? `<div class="card-detail">${renderRichText(cardDesc)}</div>` : ''}
+              </div>
+            </div>
+          `;
+        });
+        html += `</div>`;
+
+        // Top 3 Comandos Clave (Soporta strings y objetos {cmd, desc})
+        const top3 = s.top3 || s.commands || [];
+        if (top3.length > 0) {
+          html += `
+            <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
+              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
+              </div>
+              <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
+          `;
+          top3.forEach(t => {
+            if (typeof t === 'string') {
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
+                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                </div>
+              `;
+            } else {
+              const cmd = t.cmd || t.command || '';
+              const desc = t.desc || t.detail || '';
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 16px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  </div>
+                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                </div>
+              `;
+            }
+          });
+          html += `</div></div>`;
+        }
+
+        // Mapeo a práctica de laboratorio
+        if (s.practice) {
+          const pName = s.practice.name || 'Laboratorio Práctico Recomendado';
+          const pUrl = s.practice.url || '#';
+          const pDesc = s.practice.desc || 'Pon a prueba tus conocimientos en la máquina virtual.';
+          html += `
+            <div style="margin-top:14px; padding:16px 22px; background:#F0FDF4; border:2px solid #86EFAC; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#DCFCE7; color:#166534; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-wrench"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#166534;">${escapeHTML(pName)}</div>
+                  <div style="font-size:16px; color:#374151;">${renderRichText(pDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Web →
+              </a>
+            </div>
+          `;
+        }
+
+        // Mapeo a práctica global de fin de tema completo
+        if (s.global_practice) {
+          const gpName = s.global_practice.name || 'Práctica Global Integradora de Todo el Tema';
+          const gpUrl = s.global_practice.url || '#';
+          const gpDesc = s.global_practice.desc || 'Laboratorio final integrador con todos los comandos evaluados en este tema.';
+          html += `
+            <div style="margin-top:12px; padding:16px 22px; background:#FFFBEB; border:2px solid #F59E0B; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#FEF3C7; color:#92400E; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-shield"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#92400E;">🏆 ${escapeHTML(gpName)}</div>
+                  <div style="font-size:16px; color:#78350F;">${renderRichText(gpDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Global →
+              </a>
+            </div>
+          `;
+        }
+      } else {
+        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        const lead = s.lead || s.desc || '';
+        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+      }
+      return html;
+    }
+
+    function updateTeacherNotes(s) {
+      document.getElementById('panel-meta-info').innerHTML = `
+        <div><strong>Slide ID:</strong> ${s.id} (${s.type})</div>
+        <div><strong>Página PDF:</strong> ${s.ref || '-'}</div>
+        <div><strong>Cobertura:</strong> ${s.coverage ? s.coverage.join(', ') : '-'}</div>
+      `;
+      document.getElementById('panel-notes-content').innerHTML = `
+        <p>${s.notes || '<em>Sin notas adicionales del docente para esta diapositiva.</em>'}</p>
+      `;
+    }
+
+    function toggleTeacherNotes() {
+      teacherNotesOpen = !teacherNotesOpen;
+      document.getElementById('teacher-panel').classList.toggle('open', teacherNotesOpen);
+      resizeStage();
+    }
+
+    function nextStep() {
+      if (currentFragStep < maxFragStep) {
+        currentFragStep++;
+        const el = document.querySelector(`.frag[data-step="${currentFragStep}"]`);
+        if (el) el.classList.add('on');
+      } else {
+        if (currentSlideIdx < SLIDES.length - 1) {
+          renderSlide(currentSlideIdx + 1);
+        }
+      }
+    }
+
+    function prevStep() {
+      if (currentFragStep > 0) {
+        const el = document.querySelector(`.frag[data-step="${currentFragStep}"]`);
+        if (el) el.classList.remove('on');
+        currentFragStep--;
+      } else {
+        if (currentSlideIdx > 0) {
+          renderSlide(currentSlideIdx - 1);
+        }
+      }
+    }
+
+    // Navegación por teclado
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextStep();
+      } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevStep();
+      } else if (e.key === 'Home') {
+        renderSlide(0);
+      } else if (e.key === 'End') {
+        renderSlide(SLIDES.length - 1);
+      } else if (e.key === 'n' || e.key === 'N') {
+        toggleTeacherNotes();
+      } else if (e.key === 'o' || e.key === 'O') {
+        toggleOverview();
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullScreen();
+      } else if (e.key === '?' || e.key === 'h' || e.key === 'H') {
+        toggleHelp();
+      } else if (e.key === 'Escape') {
+        closeModals();
+        closePopovers();
+      }
+    });
+
+    // Navegación táctil (Touch / Swipe para tablet y móvil)
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+    let touchIgnored = false;
+
+    const appContainer = document.getElementById('app-container');
+
+    if (appContainer) {
+      appContainer.addEventListener('touchstart', (e) => {
+        // Ignorar gestos multi-touch (como zoom con dos dedos)
+        if (e.touches.length !== 1) {
+          touchIgnored = true;
+          return;
+        }
+        touchIgnored = false;
+
+        // No navegar si hay un modal abierto (ayuda, erratas, vista general)
+        if (document.querySelector('.modal-overlay.open')) {
+          touchIgnored = true;
+          return;
+        }
+
+        // No navegar si se interactúa dentro del panel de notas del docente abierto
+        if (teacherNotesOpen && e.target.closest('#teacher-panel')) {
+          touchIgnored = true;
+          return;
+        }
+
+        // No interceptar toques en controles interactivos (botones, enlaces, quiz, chips, inputs)
+        if (e.target.closest('button, a, input, textarea, select, .quiz-btn, .opt-chip')) {
+          touchIgnored = true;
+          return;
+        }
+
+        // Respetar scroll horizontal en tablas anchas o bloques de código si lo tienen
+        const scrollableH = e.target.closest('.table-card, pre, .term-body');
+        if (scrollableH && scrollableH.scrollWidth > scrollableH.clientWidth + 15) {
+          touchIgnored = true;
+          return;
+        }
+
+        const touch = e.touches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+        touchStartTime = Date.now();
+      }, { passive: true });
+
+      appContainer.addEventListener('touchend', (e) => {
+        if (touchIgnored || e.changedTouches.length !== 1) return;
+
+        const touch = e.changedTouches[0];
+        const diffX = touch.clientX - touchStartX;
+        const diffY = touch.clientY - touchStartY;
+        const duration = Date.now() - touchStartTime;
+
+        // Gesto rápido (menos de 800 ms)
+        if (duration > 800) return;
+
+        // Desplazamiento horizontal predominante (mínimo 50px y 1.5 veces el vertical para no bloquear scroll vertical)
+        if (Math.abs(diffX) < 50 || Math.abs(diffX) < Math.abs(diffY) * 1.5) return;
+
+        // Si se desliza directamente sobre una flashcard, cambiar de tarjeta
+        const fcStage = e.target.closest('.flashcard-stage');
+        if (fcStage) {
+          const s = SLIDES[currentSlideIdx];
+          const deck = s?.deck || s?.cards || [];
+          if (diffX < 0) {
+            if (currentCardIdx < deck.length - 1) {
+              nextCard();
+            } else {
+              nextStep();
+            }
+          } else {
+            if (currentCardIdx > 0) {
+              prevCard();
+            } else {
+              prevStep();
+            }
+          }
+          return;
+        }
+
+        // Swipe izquierda (dedo hacia la izquierda) -> Siguiente paso / slide
+        // Swipe derecha (dedo hacia la derecha) -> Anterior paso / slide
+        if (diffX < 0) {
+          nextStep();
+        } else {
+          prevStep();
+        }
+      }, { passive: true });
+
+      appContainer.addEventListener('touchcancel', () => {
+        touchIgnored = true;
+      }, { passive: true });
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    function toggleHelp() {
+      document.getElementById('modal-help').classList.toggle('open');
+    }
+
+    function closeModals() {
+      document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+    }
+
+    function closePopovers() {
+      document.getElementById('global-popover').classList.remove('open');
+    }
+
+    function showOptionDetail(e, flag, short, detail, example) {
+      e.stopPropagation();
+      const popover = document.getElementById('global-popover');
+      let content = '';
+      if (flag) {
+        content += `<div style="font-weight:700; color:#1D4ED8; font-size:22px; margin-bottom:6px; font-family:monospace;">${escapeHTML(flag)}</div>`;
+      }
+      const descText = detail || short;
+      if (descText && descText !== flag) {
+        content += `<div style="margin-bottom:8px; font-size:20px; line-height:1.4;">${escapeHTML(descText)}</div>`;
+      }
+      if (example) {
+        content += `<div style="font-family:monospace; font-size:18px; background:var(--surface-alt); padding:6px 10px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
+      }
+      popover.innerHTML = content || '<div>Sin detalles adicionales</div>';
+      const rect = e.currentTarget.getBoundingClientRect();
+      popover.style.top = `${rect.bottom + 8}px`;
+      popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      popover.classList.add('open');
+    }
+    document.addEventListener('click', closePopovers);
+
+    function revealReviewAnswer(btn, correctIdx, why) {
+      const stageEl = document.getElementById('slide-content');
+      const buttons = stageEl.querySelectorAll('.quiz-btn');
+      buttons.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correctIdx) {
+          b.classList.add('correct');
+        }
+      });
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.style.display = 'block';
+      fb.style.background = 'var(--success-soft)';
+      fb.style.color = 'var(--success-ink)';
+      fb.style.border = '2px solid #86EFAC';
+      const letter = String.fromCharCode(65 + correctIdx);
+      fb.innerHTML = `<strong>✔ Respuesta oficial: Opción ${letter}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
+      if (btn) btn.style.display = 'none';
+    }
+
+    function checkReviewAnswer(btn, chosen, correct, why) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.quiz-btn').forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correct) {
+          b.classList.add('correct');
+        }
+      });
+      const isCorrect = chosen === correct;
+      if (!isCorrect) {
+        btn.classList.add('incorrect');
+      }
+
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.style.background = 'var(--success-soft)';
+        fb.style.color = 'var(--success-ink)';
+        fb.style.border = '2px solid #86EFAC';
+        fb.innerHTML = `<strong>✔ ¡Correcto! Opción ${String.fromCharCode(65 + chosen)}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
+      } else {
+        fb.style.background = 'var(--danger-soft)';
+        fb.style.color = 'var(--danger-ink)';
+        fb.style.border = '2px solid #FCA5A5';
+        fb.innerHTML = `<strong>✖ Incorrecto.</strong> La opción correcta es la <strong>${String.fromCharCode(65 + correct)}</strong>.<br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
+      }
+      const revealBtn = document.querySelector('.btn-resolve-quiz');
+      if (revealBtn) revealBtn.style.display = 'none';
+    }
+
+    // Flashcard engine
+    let currentCardIdx = 0;
+    function flipFlashcard(el) {
+      el.querySelector('.flashcard-inner').classList.toggle('flipped');
+    }
+    function updateCardView() {
+      const s = SLIDES[currentSlideIdx];
+      const deck = s.deck || [];
+      const c = deck[currentCardIdx];
+      document.getElementById('fc-inner').classList.remove('flipped');
+      document.getElementById('fc-front-text').textContent = c?.front || '';
+      document.getElementById('fc-back-text').textContent = c?.back || '';
+      document.getElementById('fc-counter').textContent = `${currentCardIdx + 1} / ${deck.length}`;
+    }
+    function nextCard() {
+      const deck = SLIDES[currentSlideIdx].deck || [];
+      if (currentCardIdx < deck.length - 1) {
+        currentCardIdx++;
+        updateCardView();
+      }
+    }
+    function prevCard() {
+      if (currentCardIdx > 0) {
+        currentCardIdx--;
+        updateCardView();
+      }
+    }
+
+    function openErratasModal() {
+      const s = SLIDES[currentSlideIdx];
+      const errList = (s.errata || []).map(id => ERRATAS[id] || { id, note: 'Nota técnica oficial' });
+      let html = '';
+      errList.forEach(e => {
+        html += `
+          <div style="margin-bottom:16px; padding:16px; background:var(--warning-soft); border-radius:10px; color:var(--warning-ink); font-size:22px;">
+            <div><strong>Errata / Nota ${e.id || ''}:</strong> ${e.original ? `El texto original indicaba "<em>${e.original}</em>".` : ''}</div>
+            <div style="margin-top:6px;"><strong>Corrección técnica:</strong> ${e.correct || e.note || ''}</div>
+          </div>
+        `;
+      });
+      document.getElementById('modal-erratas-body').innerHTML = html;
+      document.getElementById('modal-erratas').classList.add('open');
+    }
+
+    function toggleOverview() {
+      const grid = document.getElementById('overview-grid');
+      grid.innerHTML = '';
+      SLIDES.forEach((s, i) => {
+        const item = document.createElement('div');
+        item.style.padding = '14px';
+        item.style.border = '2px solid var(--border)';
+        item.style.borderRadius = '10px';
+        item.style.background = i === currentSlideIdx ? 'var(--primary-soft)' : '#FFFFFF';
+        item.style.cursor = 'pointer';
+        item.innerHTML = `
+          <div style="font-weight:700; font-size:16px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
+          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2;">${s.title}</div>
+        `;
+        item.onclick = () => {
+          closeModals();
+          renderSlide(i);
+        };
+        grid.appendChild(item);
+      });
+      document.getElementById('modal-overview').classList.add('open');
+    }
+
+    // Inicializar slide inicial desde hash URL o 0
+    window.addEventListener('load', () => {
+      resizeStage();
+      let initSlide = 0;
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length) initSlide = num;
+        }
+      }
+      renderSlide(initSlide);
+    });
+  </script>
+</body>
+</html>

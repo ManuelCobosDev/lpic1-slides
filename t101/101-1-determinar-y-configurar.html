@@ -454,6 +454,44 @@
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: #FEF3C7; }
 
+    /* Matrices comparativas y mapas de equivalencias */
+    .matrix-container {
+      width: 100%;
+      margin: 14px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      overflow-x: auto;
+      background: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+    table.slide-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(16px, 1.15vw, 20px);
+      text-align: left;
+    }
+    table.slide-matrix th {
+      background: var(--surface-alt);
+      color: var(--text);
+      padding: 12px 18px;
+      border-bottom: 2px solid var(--border-strong);
+      font-weight: 700;
+      font-size: clamp(17px, 1.2vw, 21px);
+      letter-spacing: -0.01em;
+    }
+    table.slide-matrix td {
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    table.slide-matrix tr:last-child td { border-bottom: none; }
+    table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
+    table.slide-matrix tr:hover td { background: #F1F5F9; }
+    table.slide-matrix tr.highlighted td { background: #FEF3C7; }
+    table.slide-matrix td:first-child { font-weight: 700; color: #1E293B; }
+
     /* Ejercicios y Repasos */
     .quiz-options { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
     .quiz-btn {
@@ -773,6 +811,67 @@
 <symbol id="i-bug-off" viewBox="0 0 24 24"><path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2" /> <path d="M14.12 3.88 16 2" /> <path d="M22 13h-4v-2a4 4 0 0 0-4-4h-1.3" /> <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /> <path d="m2 2 20 20" /> <path d="M7.7 7.7A4 4 0 0 0 6 11v3a6 6 0 0 0 11.13 3.13" /> <path d="M12 20v-8" /> <path d="M6 13H2" /> <path d="M3 21c0-2.1 1.7-3.9 3.8-4" /></symbol>
 <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m4.9 4.9 14.2 14.2" /></symbol>
 <symbol id="i-octagon-alert" viewBox="0 0 24 24"><path d="M12 16h.01" /> <path d="M12 8v4" /> <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" /></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></symbol>
+<symbol id="i-folder-tree" viewBox="0 0 24 24"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M3 5v14a2 2 0 0 0 2 2h3" /><path d="M3 10h4" /></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14" /><line x1="4" x2="4" y1="10" y2="3" /><line x1="12" x2="12" y1="21" y2="12" /><line x1="12" x2="12" y1="8" y2="3" /><line x1="20" x2="20" y1="21" y2="16" /><line x1="20" x2="20" y1="12" y2="3" /><line x1="1" x2="7" y1="14" y2="14" /><line x1="9" x2="15" y1="8" y2="8" /><line x1="17" x2="23" y1="16" y2="16" /></symbol>
+<symbol id="i-slash" viewBox="0 0 24 24"><path d="M22 2 2 22" /></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></symbol>
+<symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="4" /></symbol>
+<symbol id="i-keyboard" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" ry="2" /><path d="M6 8h.001M10 8h.001M14 8h.001M18 8h.001M8 12h.001M12 12h.001M16 12h.001M7 16h10" /></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" /></symbol>
+<symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line x1="20" x2="8.12" y1="4" y2="15.88" /><line x1="14.47" x2="20" y1="14.48" y2="20" /><line x1="8.12" x2="12" y1="8.12" y2="12" /></symbol>
+<symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5v14" /></symbol>
+<symbol id="i-plus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></symbol>
+<symbol id="i-minus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /></symbol>
+<symbol id="i-check-square" viewBox="0 0 24 24"><path d="m9 11 3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></symbol>
+<symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></symbol>
+<symbol id="i-folder-check" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9 13 2 2 4-4" /></symbol>
+<symbol id="i-folder-plus" viewBox="0 0 24 24"><path d="M12 10v6" /><path d="M9 13h6" /><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol>
+<symbol id="i-folder-search" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><circle cx="11" cy="13" r="3" /><path d="m13.2 15.2 2.8 2.8" /></symbol>
+<symbol id="i-folder-x" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9.5 10.5 5 5" /><path d="m14.5 10.5-5 5" /></symbol>
+<symbol id="i-message-square" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></symbol>
+<symbol id="i-link-2" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2" /><path d="M15 7h2a5 5 0 1 1 0 10h-2" /><line x1="8" x2="16" y1="12" y2="12" /></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></symbol>
+<symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-archive" viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1" /><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></symbol>
+<symbol id="i-file-check" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></symbol>
+<symbol id="i-corner-down-right" viewBox="0 0 24 24"><polyline points="15 10 20 15 15 20" /><path d="M4 4v7a4 4 0 0 0 4 4h12" /></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" /><line x1="9" x2="9" y1="3" y2="18" /><line x1="15" x2="15" y1="6" y2="21" /></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+<symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /><path d="m18 2 4 4-4 4" /><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /><path d="m18 14 4 4-4 4" /></symbol>
+<symbol id="i-log-in" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" /></symbol>
+<symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></symbol>
+
+<!-- Aliases directos para nombres alternativos comunes -->
+<symbol id="i-alert-triangle" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-alert-circle" viewBox="0 0 24 24"><use href="#i-circle-alert" /></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><use href="#i-circle-check" /></symbol>
+<symbol id="i-help-circle" viewBox="0 0 24 24"><use href="#i-circle-help" /></symbol>
+<symbol id="i-broken-link" viewBox="0 0 24 24"><use href="#i-link" /></symbol>
+<symbol id="i-shield-alert" viewBox="0 0 24 24"><use href="#i-shield" /></symbol>
+<symbol id="i-edit-3" viewBox="0 0 24 24"><use href="#i-wrench" /></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" /><line x1="6" x2="6" y1="2" y2="4" /><line x1="10" x2="10" y1="2" y2="4" /><line x1="14" x2="14" y1="2" y2="4" /></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" /></symbol>
+<symbol id="i-skull" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1" /><circle cx="15" cy="12" r="1" /><path d="M8 20v2h8v-2" /><path d="m12.5 17-.5-1-.5 1h1z" /><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20" /></symbol>
+<symbol id="i-alert-octagon" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-asterisk" viewBox="0 0 24 24"><use href="#i-hash" /></symbol>
+<symbol id="i-brackets" viewBox="0 0 24 24"><use href="#i-square-terminal" /></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-dot" viewBox="0 0 24 24"><use href="#i-circle" /></symbol>
+<symbol id="i-download-cloud" viewBox="0 0 24 24"><use href="#i-download" /></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-fast-forward" viewBox="0 0 24 24"><use href="#i-play" /></symbol>
+<symbol id="i-git-commit" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-git-merge" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><use href="#i-power" /></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
+<symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
 </svg>
 
 
@@ -819,7 +918,7 @@
 
         <div class="stage-footer">
           <div style="display:flex; align-items:center; gap:14px;">
-            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg></button>
+            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg></button>
             <span id="slide-counter" style="font-weight:700;">1 / 1</span>
             <button class="nav-btn" onclick="nextStep()" title="Siguiente (→ / Espacio)" aria-label="Siguiente slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
             <div class="progress-bar-container">
@@ -904,10 +1003,10 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "101.1", "cat": "hardware", "type": "cover", "title": "Ajustes de hardware del sistema", "subtitle": "Determinación, configuración y gestión de periféricos en Linux", "ref": "1-2", "pdf": {"manual": "A", "pages": [1, 2], "figure": null}, "coverage": ["101.1-OBJ-001", "101.1-OBJ-002"], "meta": {"peso": 2, "paginas": "1–18", "duracion": "90 min"}, "icon": "graduation-cap", "notes": "Tema fundamental de inicio de LPIC-1. El examen evalúa cómo Linux interactúa con el firmware del sistema, los buses y los módulos del kernel."}, {"id": 2, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Objetivos y áreas clave evaluadas", "lead": "El examen LPIC-1 evalúa seis competencias fundamentales:", "ref": "2", "pdf": {"manual": "A", "pages": [2], "figure": null}, "coverage": ["101.1-OBJ-003", "101.1-OBJ-004", "101.1-OBJ-005", "101.1-OBJ-006", "101.1-OBJ-007", "101.1-OBJ-008"], "points": [{"icon": "settings", "text": "Activar y desactivar los periféricos integrados", "detail": "Configuración en BIOS/UEFI de audio, red y puertos."}, {"icon": "hard-drive", "text": "Diferenciar tipos de almacenamiento masivo", "detail": "Identificar unidades IDE, SATA, NVMe y SCSI."}, {"icon": "circuit-board", "text": "Determinar los recursos de hardware asignados", "detail": "Comprobar interrupciones IRQ, DMA y puertos E/S."}, {"icon": "search", "text": "Herramientas de listar hardware y USB", "detail": "Uso de lspci, lsusb y conceptos de sysfs, udev y dbus."}], "remember": "Peso en examen: 2 preguntas directas.", "notes": "Explica a los alumnos que este objetivo combina conceptos de firmware con comandos de auditoría en la terminal."}, {"id": 3, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Firmware del sistema: BIOS y UEFI", "lead": "El firmware inicializa los componentes antes del kernel:", "ref": "3", "pdf": {"manual": "A", "pages": [3], "figure": null}, "coverage": ["101.1-CON-001", "101.1-CON-002", "101.1-CON-003"], "points": [{"icon": "microchip", "text": "Capa de abstracción de hardware estandarizada", "detail": "Permite que el sistema operativo funcione en diversas placas."}, {"icon": "cpu", "text": "BIOS clásico realiza la rutina POST", "detail": "Firmware heredado presente en arquitecturas x86 tradicionales."}, {"icon": "zap", "text": "UEFI sustituye al BIOS tradicional", "detail": "Ofrece arranque modular, mayor velocidad y seguridad moderna."}], "remember": "BIOS y UEFI operan antes de cargar Linux.", "notes": "El POST (Power-On Self-Test) comprueba la memoria y los dispositivos vitales antes de ceder el control."}, {"id": 4, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Acceso al firmware y memoria CMOS", "lead": "La configuración se almacena en memoria no volátil:", "ref": "3", "pdf": {"manual": "A", "pages": [3], "figure": null}, "coverage": ["101.1-CON-004", "101.1-KEY-001", "101.1-KEY-002", "101.1-KEY-003"], "points": [{"icon": "memory-stick", "text": "Memoria CMOS RAM con batería dedicada", "detail": "Conserva la fecha, hora y parámetros de arranque del equipo."}, {"icon": "key", "text": "Tecla Del para entrar al menú", "detail": "Atajo universal en la mayoría de placas de escritorio."}, {"icon": "key", "text": "Teclas F1, F2, F10, F11, F12", "detail": "Utilizadas según el fabricante para setup o menú de arranque."}, {"icon": "key", "text": "Tecla Esc para opciones de arranque", "detail": "Permite seleccionar el dispositivo de inicio temporal."}], "remember": "Si la batería CMOS falla, la fecha se reinicia.", "notes": "Destaca en clase que en máquinas legacy el menú de BIOS puede requerir combinaciones específicas."}, {"id": 5, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Gestión de periféricos integrados en placa", "lead": "El firmware permite habilitar o deshabilitar chips integrados:", "ref": "3", "pdf": {"manual": "A", "pages": [3], "figure": null}, "coverage": ["101.1-CON-005"], "points": [{"icon": "network", "text": "Controladores de red Ethernet y Wi-Fi", "detail": "Desactivar en BIOS para usar adaptadores PCI dedicados."}, {"icon": "activity", "text": "Dispositivos de audio integrado de placa", "detail": "Evita conflictos al instalar tarjetas de sonido profesionales."}, {"icon": "usb", "text": "Puertos USB y controladores serie", "detail": "Pueden restringirse en el firmware por seguridad física."}], "remember": "Un periférico deshabilitado en BIOS no emite IRQ.", "notes": "Si un dispositivo está deshabilitado en el firmware, Linux no lo detectará con lspci o lsusb."}, {"id": 6, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Modos de controlador: IDE, AHCI y RAID", "lead": "La interfaz de almacenamiento define cómo dialoga el kernel:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["101.1-CON-006"], "points": [{"icon": "hard-drive", "text": "Modo IDE emula interfaces de disco heredadas", "detail": "Utilizado por compatibilidad con sistemas operativos antiguos."}, {"icon": "hard-drive", "text": "Modo AHCI optimiza unidades de disco SATA", "detail": "Habilita encolado de comandos NCQ y conexión en caliente."}, {"icon": "layers", "text": "Modo RAID agrupa discos mediante firmware", "detail": "Combina múltiples unidades para tolerancia o rendimiento."}], "remember": "AHCI es el estándar recomendado para SATA.", "notes": "Cambiar de IDE a AHCI en BIOS tras la instalación puede requerir regenerar el initramfs."}, {"id": 7, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Dispositivos NVMe PCIe y recursos de hardware", "lead": "La alta velocidad aprovecha buses directos y asignación ACPI:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["101.1-CON-007", "101.1-CON-008", "101.1-CON-009"], "points": [{"icon": "zap", "text": "Unidades NVMe conectadas directamente al bus PCIe", "detail": "Reducen la latencia frente a las interfaces SATA tradicionales."}, {"icon": "circuit-board", "text": "Recursos de hardware: IRQ, DMA y puertos E/S", "detail": "Líneas de interrupción y canales de acceso directo a memoria."}, {"icon": "settings", "text": "Asignación dinámica de recursos mediante ACPI", "detail": "El estándar ACPI y APIC evitan conflictos de IRQ manuales."}], "remember": "NVMe no utiliza cables SATA: va sobre PCIe.", "notes": "ACPI configura automáticamente las interrupciones en los sistemas modernos mediante APIC."}, {"id": 8, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Módulos dinámicos en /lib/modules/", "lead": "Linux carga drivers dinámicos bajo demanda:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["101.1-CON-013", "101.1-FILE-001"], "points": [{"icon": "package", "text": "Controladores compilados como módulos binarios .ko", "detail": "Se cargan y descargan de la memoria sin reiniciar el sistema."}, {"icon": "folder", "text": "Organizados bajo la ruta /lib/modules/", "detail": "Cada versión instalada del kernel tiene su propio subdirectorio."}, {"icon": "cpu", "text": "Detección automática de hardware al arrancar", "detail": "El kernel enlaza los IDs de los dispositivos con sus módulos."}], "remember": "Ruta de drivers: /lib/modules/$(uname -r)/", "notes": "Los módulos permiten tener un kernel ligero que solo carga controladores para el hardware presente."}, {"id": 9, "section": "101.1", "cat": "hardware", "type": "command", "title": "lspci lista dispositivos del bus PCI", "purpose": "Muestra todos los dispositivos conectados al bus PCI y PCIe:", "ref": "5-6", "pdf": {"manual": "A", "pages": [5, 6], "figure": null}, "coverage": ["101.1-CON-010", "101.1-CMD-001"], "name": "lspci", "syntax": "lspci [OPCIONES]", "options": [{"flag": "-v", "short": "Modo detallado", "detail": "Muestra recursos, IRQ y memoria asignada.", "example": "lspci -v"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "lspci"}, {"t": "out", "v": "00:00.0 Host bridge: Intel Corporation 4th Gen Core Processor"}, {"t": "out", "v": "00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core"}, {"t": "hl", "v": "01:00.0 VGA compatible controller: NVIDIA Corporation GM107 [GeForce GTX 750 Ti]"}, {"t": "out", "v": "04:02.0 Network controller: Ralink corp. RT2561/RT61 802.11g PCI"}]}, "look": "Fíjate en el identificador inicial: bus:dispositivo.función (ej. 01:00.0).", "trap": "lspci solo inspecciona buses PCI/PCIe; no muestra dispositivos USB puros.", "notes": "Explica la notación bus:slot.function. Cada tarjeta tiene una dirección única en el bus."}, {"id": 10, "section": "101.1", "cat": "hardware", "type": "command", "title": "lspci -s y lspci -d filtran dispositivos", "purpose": "Aísla dispositivos específicos por ranura o identificador:", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["101.1-CON-011", "101.1-OPT-001", "101.1-OPT-002"], "name": "lspci", "syntax": "lspci [-s [[bus]:][slot][.[func]]] [-d [vendor]:[device]]", "options": [{"flag": "-s", "short": "Filtra por ranura", "detail": "Especifica bus:dispositivo.función.", "example": "lspci -s 01:00.0"}, {"flag": "-d", "short": "Filtra por vendor:device", "detail": "Identificadores numéricos del fabricante.", "example": "lspci -d 10de:1380"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "lspci -s 01:00.0"}, {"t": "out", "v": "01:00.0 VGA compatible controller: NVIDIA Corporation GM107 [GeForce GTX 750 Ti]"}, {"t": "cmd", "v": "lspci -d 10de:1380 -n"}, {"t": "hl", "v": "01:00.0 0300: 10de:1380 (rev a2)"}]}, "look": "10de identifica al fabricante NVIDIA; 1380 identifica el chip gráfico.", "trap": "No confundir -s (slot físico en bus) con -d (device ID del fabricante).", "notes": "Los IDs de vendor y device son números hexadecimales asignados por el consorcio PCI-SIG."}, {"id": 11, "section": "101.1", "cat": "hardware", "type": "command", "title": "lspci -k muestra el controlador en uso", "purpose": "Revela qué módulo del kernel gestiona el hardware:", "ref": "6-7", "pdf": {"manual": "A", "pages": [6, 7], "figure": null}, "coverage": ["101.1-OPT-006", "101.1-PKG-003"], "name": "lspci", "syntax": "lspci -k [-s ranura]", "options": [{"flag": "-k", "short": "Muestra driver del kernel", "detail": "Kernel driver in use y Kernel modules disponibles.", "example": "lspci -k -s 01:00.0"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "lspci -s 01:00.0 -k"}, {"t": "out", "v": "01:00.0 VGA compatible controller: NVIDIA Corporation GM107"}, {"t": "out", "v": "        Subsystem: Gigabyte Technology Co., Ltd Device 3658"}, {"t": "hl", "v": "        Kernel driver in use: nvidia"}, {"t": "hl", "v": "        Kernel modules: nouveau, nvidia_drm, nvidia"}]}, "look": "Compara el driver activo (nvidia) frente a los módulos alternativos (nouveau).", "trap": "Pregunta de examen habitual: ¿qué opción de lspci muestra el driver activo? Respuesta: -k.", "notes": "nouveau es el módulo de código abierto de la comunidad, mientras que nvidia es el privativo."}, {"id": 12, "section": "101.1", "cat": "hardware", "type": "command", "title": "lspci -v aumenta el nivel de detalle", "purpose": "Muestra capacidades avanzadas, memoria y latencias:", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["101.1-OPT-003"], "name": "lspci", "syntax": "lspci [-v]", "options": [{"flag": "-v", "short": "Detalle estándar", "detail": "Regiones I/O, memoria y número de IRQ.", "example": "lspci -v"}, {"flag": "-vv", "short": "Detalle muy alto + extra", "detail": "Nivel extendido (+ extra).", "example": "lspci -vv", "extra": true}, {"flag": "-vvv", "short": "Detalle máximo + extra", "detail": "Volcado exhaustivo (+ extra).", "example": "lspci -vvv", "extra": true}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "lspci -v -s 04:02.0"}, {"t": "out", "v": "04:02.0 Network controller: Ralink corp. RT2561/RT61 802.11g PCI"}, {"t": "out", "v": "        Subsystem: Linksys WPC54G v5"}, {"t": "hl", "v": "        Flags: bus master, slow devsel, latency 64, IRQ 19"}, {"t": "out", "v": "        Memory at f8000000 (32-bit, non-prefetchable) [size=8K]"}]}, "look": "Observa el valor IRQ 19 asignado al adaptador inalámbrico.", "trap": "El manual cita -v; los niveles -vv y -vvv son extensiones prácticas (+ extra).", "notes": "La opción -v muestra las interrupciones y direcciones de memoria mapeadas."}, {"id": 13, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Arquitectura y concentradores del bus USB", "lead": "El bus USB organiza los dispositivos en una topología jerárquica:", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["101.1-CON-012"], "points": [{"icon": "usb", "text": "Topología en árbol con concentradores raíz (root hub)", "detail": "Cada controlador de placa base inicia un bus independiente."}, {"icon": "git-branch", "text": "Soporte dinámico para conexión en caliente (hotplug)", "detail": "El kernel detecta al instante inserciones y extracciones."}, {"icon": "layers", "text": "Asignación dinámica de identificador de dispositivo", "detail": "Cada conexión incrementa el Device ID correlativamente."}], "remember": "Desconectar y reconectar incrementa el número de dispositivo.", "notes": "A diferencia de PCI, en USB la dirección física no es fija: cambia si se enchufa en otro puerto."}, {"id": 14, "section": "101.1", "cat": "hardware", "type": "command", "title": "lsusb lista los dispositivos USB", "purpose": "Inspecciona todos los buses y dispositivos USB conectados:", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["101.1-CMD-002"], "name": "lsusb", "syntax": "lsusb [OPCIONES]", "options": [{"flag": "-v", "short": "Modo verbose USB", "detail": "Muestra descriptores detallados de USB.", "example": "lsusb -v"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "lsusb"}, {"t": "out", "v": "Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub"}, {"t": "hl", "v": "Bus 001 Device 004: ID 046d:c52b Logitech, Inc. Unifying Receiver"}, {"t": "out", "v": "Bus 001 Device 003: ID 045e:0750 Microsoft Corp. Wired Keyboard 600"}, {"t": "out", "v": "Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub"}]}, "look": "Fíjate en ID 046d:c52b (046d = Logitech, c52b = Unifying Receiver).", "trap": "ID 1d6b corresponde siempre al Linux Foundation Root Hub virtual del kernel.", "notes": "El comando lsusb lee la información directamente del sistema de archivos virtual /sys/bus/usb."}, {"id": 15, "section": "101.1", "cat": "hardware", "type": "command", "title": "lsusb -s y lsusb -d filtran periféricos USB", "purpose": "Localiza dispositivos por bus:dispositivo o fabricante:", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["101.1-OPT-007", "101.1-OPT-008"], "name": "lsusb", "syntax": "lsusb [-s [[bus]:][devnum]] [-d [vendor]:[product]]", "options": [{"flag": "-s", "short": "Filtra por bus:dispositivo", "detail": "Especifica el número de bus y dispositivo.", "example": "lsusb -s 001:004"}, {"flag": "-d", "short": "Filtra por vendor:product", "detail": "Busca por identificador hexadecimal.", "example": "lsusb -d 046d:c52b"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "lsusb -s 1:4"}, {"t": "out", "v": "Bus 001 Device 004: ID 046d:c52b Logitech, Inc. Unifying Receiver"}, {"t": "cmd", "v": "lsusb -d 046d:"}, {"t": "hl", "v": "Bus 001 Device 004: ID 046d:c52b Logitech, Inc. Unifying Receiver"}]}, "look": "lsusb -d 046d: lista todos los dispositivos conectados de la marca Logitech.", "trap": "No requiere ceros iniciales en el filtro de bus (1:4 funciona igual que 001:004).", "notes": "Los fabricantes se listan en el archivo oficial /var/lib/usbutils/usb.ids."}, {"id": 16, "section": "101.1", "cat": "hardware", "type": "command", "title": "lsusb -v examina descriptores detallados", "purpose": "Inspecciona especificaciones de alimentación y endpoints:", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["101.1-OPT-009"], "name": "lsusb", "syntax": "lsusb -v [-s bus:dev]", "options": [{"flag": "-v", "short": "Modo verbose USB", "detail": "Detalla perfiles de energía, velocidad y clases.", "example": "lsusb -v -s 1:4"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "lsusb -v -s 1:4 | grep -E '(MaxPower|bcdUSB)'"}, {"t": "out", "v": "  bcdUSB               2.00"}, {"t": "hl", "v": "  MaxPower            98mA"}]}, "look": "Verifica MaxPower para diagnosticar problemas de falta de alimentación eléctrica.", "trap": "lsusb -v genera salidas muy largas; combínalo siempre con -s o grep.", "notes": "Si un dispositivo solicita más energía de la permitida por el hub, el kernel suspenderá el puerto."}, {"id": 17, "section": "101.1", "cat": "hardware", "type": "command", "title": "lsusb -t muestra la topología jerárquica en árbol", "purpose": "Mapea concentradores, puertos, controladores y velocidades:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["101.1-OPT-010", "101.1-CFG-009", "101.1-CFG-010"], "name": "lsusb", "syntax": "lsusb -t", "options": [{"flag": "-t", "short": "Topología en árbol", "detail": "Muestra Driver= y velocidad (480M, 5000M).", "example": "lsusb -t"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "lsusb -t"}, {"t": "out", "v": "/:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=dwc_otg/1p, 480M"}, {"t": "hl", "v": "    |__ Port 1: Dev 2, If 0, Class=Hub, Driver=hub/4p, 480M"}, {"t": "out", "v": "        |__ Port 1: Dev 3, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M"}]}, "look": "Observa Class=root_hub, Driver=hub y la velocidad de transferencia al final (480M).", "trap": "Pregunta de examen: ¿qué opción de lsusb muestra la relación jerárquica? Opción: -t.", "notes": "Permite comprobar qué módulo del kernel gestiona cada interfaz individual del dispositivo."}, {"id": 18, "section": "101.1", "cat": "hardware", "type": "command", "title": "lsmod lista módulos activos en memoria", "purpose": "Consulta el estado y dependencias de los drivers en ejecución:", "ref": "9-10", "pdf": {"manual": "A", "pages": [9, 10], "figure": null}, "coverage": ["101.1-CMD-003", "101.1-CON-014", "101.1-PKG-004"], "name": "lsmod", "syntax": "lsmod", "options": [{"flag": "lsmod", "short": "Lista módulos cargados", "detail": "Columnas: Module, Size y Used by.", "example": "lsmod"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "lsmod"}, {"t": "out", "v": "Module                  Size  Used by"}, {"t": "out", "v": "snd_hda_codec_realtek  51465  1"}, {"t": "hl", "v": "snd_hda_intel          44075  7"}]}, "look": "La tercera columna (Used by) muestra cuántos y qué otros módulos dependen de él.", "trap": "No puedes descargar un módulo si su contador en 'Used by' es mayor que 0.", "notes": "lsmod formatea de forma legible el contenido del archivo /proc/modules."}, {"id": 19, "section": "101.1", "cat": "hardware", "type": "file", "title": "/proc/modules contiene los módulos cargados", "path": "/proc/modules", "contains": "Información cruda de la memoria del kernel sobre los controladores cargados.", "writtenBy": "kernel", "readBy": ["lsmod"], "ref": "9", "pdf": {"manual": "A", "pages": [9], "figure": null}, "coverage": ["101.1-FILE-002"], "sample": {"lines": ["snd_hda_intel 44075 7 - Live 0xffffffffa0210000", "snd_pcm 81999 3 snd_hda_intel, Live 0xffffffffa0150000"]}, "notes": "Cada línea contiene el nombre del módulo, tamaño en memoria, instancias en uso y dirección física."}, {"id": 20, "section": "101.1", "cat": "hardware", "type": "command", "title": "modprobe carga módulos resolviendo dependencias", "purpose": "Carga un controlador y todos los módulos previos necesarios:", "ref": "10", "pdf": {"manual": "A", "pages": [10], "figure": null}, "coverage": ["101.1-CMD-004", "101.1-WARN-003"], "name": "modprobe", "syntax": "modprobe [OPCIONES] <nombre_módulo> [parámetros]", "options": [{"flag": "modprobe", "short": "Carga inteligente", "detail": "Consulta modules.dep y resuelve el árbol completo.", "example": "modprobe snd_hda_intel"}], "terminal": {"prompt": "#", "lines": [{"t": "cmd", "v": "modprobe -v snd_hda_intel"}, {"t": "out", "v": "insmod /lib/modules/.../snd-hda-core.ko"}, {"t": "hl", "v": "insmod /lib/modules/.../snd-hda-intel.ko"}]}, "look": "Fíjate en cómo modprobe llama internamente a insmod para cada dependencia requerida.", "trap": "insmod requiere la ruta exacta al archivo .ko; modprobe solo necesita el nombre del módulo.", "notes": "La base de datos de dependencias es generada por el comando depmod."}, {"id": 21, "section": "101.1", "cat": "hardware", "type": "command", "title": "modprobe -r descarga módulos de memoria", "purpose": "Elimina de forma segura un módulo y las dependencias no utilizadas:", "ref": "10", "pdf": {"manual": "A", "pages": [10], "figure": null}, "coverage": ["101.1-OPT-011"], "name": "modprobe", "syntax": "modprobe -r <módulo>", "options": [{"flag": "-r", "short": "Descarga de módulo", "detail": "Equivale a remove. Descarga dependencias sin uso.", "example": "modprobe -r snd_hda_intel"}, {"flag": "-v", "short": "Modo detallado + extra", "detail": "Muestra cada acción realizada (+ extra).", "example": "modprobe -v modulo", "extra": true}, {"flag": "-c", "short": "Vuelca configuración + extra", "detail": "Muestra alias y opciones combinadas (+ extra).", "example": "modprobe -c", "extra": true}], "terminal": {"prompt": "#", "lines": [{"t": "cmd", "v": "modprobe -r snd_hda_intel"}, {"t": "hl", "v": "rmmod snd_hda_intel"}, {"t": "out", "v": "rmmod snd_hda_core"}]}, "look": "El parámetro -r descarga en cascada todos los submódulos que queden huérfanos.", "trap": "Si el módulo está siendo usado por un proceso, modprobe -r fallará con 'Module is in use'.", "notes": "La opción -r es la única opción de modprobe explícitamente requerida por el manual."}, {"id": 22, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Herramientas de bajo nivel: insmod, rmmod, depmod", "lead": "Comandos directos sin resolución automática de dependencias:", "ref": "10", "pdf": {"manual": "A", "pages": [10], "figure": null}, "coverage": ["101.1-CMD-005", "101.1-CMD-006", "101.1-CMD-007"], "points": [{"icon": "download", "text": "insmod inserta un archivo .ko específico", "detail": "Requiere la ruta completa y falla si faltan dependencias."}, {"icon": "upload", "text": "rmmod elimina un módulo cargado", "detail": "Solo descarga el módulo nombrado, nunca sus dependencias."}, {"icon": "list-checks", "text": "depmod analiza dependencias y crea modules.dep", "detail": "Escanea /lib/modules/ y actualiza el mapa para modprobe."}], "remember": "Usa modprobe en administración diaria; insmod es de bajo nivel.", "notes": "depmod -a se ejecuta habitualmente tras compilar o instalar un nuevo kernel."}, {"id": 23, "section": "101.1", "cat": "hardware", "type": "file", "title": "Configuración persistente en /etc/modprobe.d/", "path": "/etc/modprobe.d/", "contains": "Archivos .conf modulares. Sustituye al archivo heredado /etc/modprobe.conf.", "writtenBy": "administrador", "readBy": ["modprobe"], "ref": "10-11", "pdf": {"manual": "A", "pages": [10, 11], "figure": null}, "coverage": ["101.1-FILE-003", "101.1-FILE-004", "101.1-FILE-005", "101.1-CFG-001", "101.1-CFG-002"], "sample": {"lines": ["# /etc/modprobe.d/blacklist.conf", "blacklist nouveau", "", "# /etc/modprobe.d/audio.conf", "options snd_hda_intel model=auto"]}, "notes": "El antiguo archivo monolítico /etc/modprobe.conf fue sustituido por el directorio modular /etc/modprobe.d/."}, {"id": 24, "section": "101.1", "cat": "hardware", "type": "command", "title": "modinfo muestra la información del módulo", "purpose": "Inspecciona autor, licencia, dependencias y parámetros aceptados:", "ref": "11", "pdf": {"manual": "A", "pages": [11], "figure": null}, "coverage": ["101.1-CMD-008"], "name": "modinfo", "syntax": "modinfo [OPCIONES] <nombre_módulo>", "options": [{"flag": "modinfo", "short": "Muestra metadatos", "detail": "Exhibe filename, license, description y parm.", "example": "modinfo nouveau"}], "terminal": {"prompt": "$", "lines": [{"t": "cmd", "v": "modinfo nouveau"}, {"t": "out", "v": "filename:       /lib/modules/.../nouveau.ko"}, {"t": "out", "v": "license:        GPL and additional rights"}, {"t": "out", "v": "description:    nVidia Riva/TNT/GeForce/Quadro/NForce"}, {"t": "hl", "v": "depends:        drm,drm_kms_helper,ttm,mxm-wmi"}, {"t": "hl", "v": "parm:           tv_disable:Disable TV-out detection (int)"}]}, "look": "Fíjate en la sección parm: para descubrir qué parámetros admite el driver.", "trap": "modinfo puede examinar módulos que NO están cargados en memoria.", "notes": "modinfo busca en /lib/modules/ o sobre un archivo .ko directo."}, {"id": 25, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Parámetros de configuración de módulos", "lead": "Valores configurables para ajustar el comportamiento del hardware:", "ref": "11", "pdf": {"manual": "A", "pages": [11], "figure": null}, "coverage": ["101.1-CFG-003", "101.1-CFG-004", "101.1-CFG-005", "101.1-CFG-006", "101.1-CFG-007", "101.1-CFG-008"], "points": [{"icon": "settings", "text": "fbcon_bpp define bits por píxel en consola", "detail": "Ajuste de profundidad de color en framebuffer."}, {"icon": "monitor", "text": "mst habilita multi-stream en DisplayPort", "detail": "Permite encadenar múltiples monitores por un cable."}, {"icon": "ban", "text": "tv_disable desactiva la detección de TV-out", "detail": "Evita sondeos lentos en salidas de vídeo analógicas."}, {"icon": "eye", "text": "ignorelid, duallink y hdmimhz para pantallas", "detail": "Ignoran sensor de tapa de portátil y fijan límites HDMI."}], "remember": "Los parámetros se pasan en modprobe o en /etc/modprobe.d/.", "notes": "Estos parámetros aparecen detallados en la página 11 del manual oficial con el módulo nouveau."}, {"id": 26, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Recursos del sistema en /proc/", "lead": "Archivos virtuales en memoria generados dinámicamente por el kernel:", "ref": "12", "pdf": {"manual": "A", "pages": [12], "figure": null}, "coverage": ["101.1-CON-015", "101.1-FILE-006", "101.1-FILE-007", "101.1-FILE-008", "101.1-FILE-009", "101.1-FILE-010", "101.1-WARN-004"], "points": [{"icon": "cpu", "text": "/proc/cpuinfo detalla los núcleos del procesador", "detail": "Frecuencia, modelo, flags de virtualización y caché."}, {"icon": "zap", "text": "/proc/interrupts lista interrupciones IRQ activas", "detail": "Muestra qué CPU atiende cada interrupción de hardware."}, {"icon": "layers", "text": "/proc/ioports lista los rangos de puertos E/S", "detail": "Direcciones de memoria I/O asignadas a periféricos."}, {"icon": "memory-stick", "text": "/proc/dma muestra los canales de acceso directo", "detail": "Canales de transferencia directa entre periféricos y RAM."}], "remember": "Los archivos de /proc tienen tamaño 0 bytes en disco.", "notes": "procfs es un pseudofilesystem: al leer de él, el kernel genera el texto al vuelo."}, {"id": 27, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Jerarquía de dispositivos en /sys/ (sysfs)", "lead": "Estructura unificada de dispositivos, buses y clases del kernel:", "ref": "12", "pdf": {"manual": "A", "pages": [12], "figure": null}, "coverage": ["101.1-CON-016", "101.1-FILE-011", "101.1-FILE-012", "101.1-FILE-013", "101.1-FILE-014"], "points": [{"icon": "circuit-board", "text": "/sys/bus/ organiza los dispositivos por bus", "detail": "Contiene subdirectorios para pci, usb, scsi, etc."}, {"icon": "layers", "text": "/sys/class/ agrupa por función operativa", "detail": "Agrupa por net (red), block (discos), sound (audio)."}, {"icon": "hard-drive", "text": "/sys/devices/ representa el árbol físico global", "detail": "Muestra la relación jerárquica de interconexión real."}], "remember": "sysfs expone la arquitectura real del hardware al espacio de usuario.", "notes": "sysfs se introdujo en Linux 2.6 para separar la información de procesos (/proc) de la del hardware."}, {"id": 28, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Nodos de dispositivo en /dev/", "lead": "Archivos especiales de comunicación con los controladores del kernel:", "ref": "12", "pdf": {"manual": "A", "pages": [12], "figure": null}, "coverage": ["101.1-CON-017", "101.1-CON-018", "101.1-FILE-015"], "points": [{"icon": "hard-drive", "text": "Dispositivos de bloque (b) con buffer de datos", "detail": "Discos duros, memorias USB, particiones (ej. /dev/sda)."}, {"icon": "square-terminal", "text": "Dispositivos de caracteres (c) flujo secuencial", "detail": "Terminales, teclado, ratón, puertos serie (ej. /dev/tty)."}, {"icon": "settings", "text": "Creados dinámicamente en RAM por devtmpfs y udev", "detail": "Los nodos aparecen y desaparecen al conectar hardware."}], "remember": "Los números major y minor definen driver y unidad.", "notes": "El tipo se identifica por el primer carácter en ls -l: 'b' para bloque, 'c' para carácter."}, {"id": 29, "section": "101.1", "cat": "hardware", "type": "concept", "title": "El subsistema dinámico de dispositivos udev", "lead": "Gestión reactiva en espacio de usuario ante cambios de hardware:", "ref": "13", "pdf": {"manual": "A", "pages": [13], "figure": null}, "coverage": ["101.1-CON-019", "101.1-PKG-001"], "points": [{"icon": "activity", "text": "El kernel emite eventos uevent por netlink", "detail": "Se generan cada vez que un dispositivo se conecta o desconecta."}, {"icon": "settings", "text": "El demonio udev escucha los eventos", "detail": "Gestiona dispositivos en espacio de usuario automáticamente."}, {"icon": "folder", "text": "Crea o elimina los nodos bajo /dev/", "detail": "Aplica permisos y enlaces simbólicos persistentes en tiempo real."}], "remember": "udev corre en espacio de usuario, no en el espacio de kernel.", "notes": "udev reemplazó a los antiguos sistemas estáticos MAKEDEV y al fallido devfs."}, {"id": 30, "section": "101.1", "cat": "hardware", "type": "file", "title": "Reglas de udev en /etc/udev/rules.d/", "path": "/etc/udev/rules.d/", "contains": "Reglas declarativas para nombrar dispositivos, fijar permisos y lanzar scripts.", "writtenBy": "administrador", "readBy": ["udev"], "ref": "13", "pdf": {"manual": "A", "pages": [13], "figure": null}, "coverage": ["101.1-CON-020", "101.1-FILE-016"], "sample": {"lines": ["# /etc/udev/rules.d/99-usb-serial.rules", "SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"0403\", SYMLINK+=\"modem_iot\"", "", "# Reglas del sistema residen en /lib/udev/rules.d/"]}, "notes": "Las reglas en /etc/udev/rules.d/ tienen prioridad sobre las de /lib/udev/rules.d/."}, {"id": 31, "section": "101.1", "cat": "hardware", "type": "concept", "title": "El bus de mensajes D-Bus (dbus)", "lead": "Comunicación entre procesos para eventos de hardware:", "ref": "13", "pdf": {"manual": "A", "pages": [13], "figure": null}, "coverage": ["101.1-CON-021", "101.1-PKG-002"], "points": [{"icon": "git-branch", "text": "Bus de sistema (system bus) y bus de sesión", "detail": "Transmite notificaciones de nuevo hardware a las aplicaciones."}, {"icon": "monitor", "text": "Integración con escritorios y gestores de archivos", "detail": "Permite que el entorno gráfico monte automáticamente memorias USB."}, {"icon": "shield", "text": "Control de políticas y seguridad mediante sockets", "detail": "Regula qué aplicaciones pueden acceder a funciones de hardware."}], "remember": "dbus notifica a las aplicaciones de usuario; udev administra /dev.", "notes": "D-Bus es la vía por la que el gestor de red NetworkManager o el escritorio detectan el cable conectado."}, {"id": 32, "section": "101.1", "cat": "hardware", "type": "table", "title": "Dispositivos SATA, SCSI y USB con sd", "takeaway": "Nombres oficiales para unidades de almacenamiento masivo:", "ref": "13", "pdf": {"manual": "A", "pages": [13], "figure": null}, "coverage": ["101.1-CON-022", "101.1-FILE-017", "101.1-FILE-018", "101.1-FILE-019", "101.1-FILE-020", "101.1-FILE-021", "101.1-FILE-022"], "headers": ["Unidad de disco", "Disco completo", "Partición 1", "Partición 2"], "rows": [["Primer disco", "/dev/sda", "/dev/sda1", "/dev/sda2"], ["Segundo disco", "/dev/sdb", "/dev/sdb1", "/dev/sdb2"]], "highlight": {"row": 1}, "notes": "Los kernels modernos asignan el prefijo sd a discos SATA, SCSI y unidades USB."}, {"id": 33, "section": "101.1", "cat": "hardware", "type": "table", "title": "Dispositivos NVMe, tarjetas SD, IDE y disquetes", "takeaway": "Nomenclatura para NVMe, SD, IDE heredado y disquete:", "ref": "13", "pdf": {"manual": "A", "pages": [13], "figure": null}, "coverage": ["101.1-FILE-023", "101.1-FILE-024", "101.1-FILE-025", "101.1-FILE-026", "101.1-FILE-027", "101.1-FILE-028", "101.1-FILE-029", "101.1-FILE-030", "101.1-FILE-031", "101.1-FILE-032", "101.1-FILE-033", "101.1-FILE-034", "101.1-FILE-035"], "headers": ["Tecnología", "Primer nodo", "Partición 1", "Partición 2"], "rows": [["NVMe PCIe", "/dev/nvme0n1", "/dev/nvme0n1p1", "/dev/nvme0n1p2"], ["Tarjeta SD 0", "/dev/mmcblk0", "/dev/mmcblk0p1", "/dev/mmcblk0p2"], ["Tarjeta SD 1", "-", "/dev/mmcblk1p1", "/dev/mmcblk1p2"], ["Canales IDE", "/dev/hda /dev/hdb", "/dev/hdc", "-"], ["Disquete", "/dev/fd0", "/dev/fd1", "-"]], "highlight": {"row": 1}, "notes": "En NVMe y MMC se utiliza la letra 'p' antes del número de partición (ej. nvme0n1p1)."}, {"id": 34, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Errata del manual: /dev/fdO frente a /dev/fd0", "lead": "El manual oficial contiene una errata tipográfica en la página 13:", "ref": "13", "pdf": {"manual": "A", "pages": [13], "figure": null}, "coverage": ["101.1-ERR-001"], "errata": ["E-001"], "points": [{"icon": "circle-x", "text": "El texto del PDF escribe /dev/fdO con letra 'O'", "detail": "Errata tipográfica presente en el manual oficial LPIC-1 v5.0."}, {"icon": "circle-check", "text": "La ruta real en el sistema es /dev/fd0", "detail": "Los dispositivos de disquete se numeran con dígitos: 0, 1, 2..."}], "remember": "En Linux los índices de unidades de disco siempre son números (0, 1, 2...).", "notes": "Registrado como errata E-001 en el sistema de calidad."}, {"id": 35, "section": "101.1", "cat": "hardware", "type": "exercise", "title": "Ejercicio guiado 1: Servidor no arranca tras SATA", "lead": "Escenario: Un servidor no arranca tras conectar un segundo disco SATA sin fallos.", "ref": "14, 17", "pdf": {"manual": "A", "pages": [14, 17], "figure": null}, "coverage": ["101.1-EX-001", "101.1-WARN-002"], "steps": [{"do": "Identifica la causa principal del fallo en el firmware", "look": "Prioridad de orden de arranque alterada en BIOS."}, {"do": "Accede a la utilidad de configuración de BIOS/UEFI", "look": "Pulsar Del, F2 o F12 durante el POST."}, {"do": "Reordena la secuencia de arranque", "look": "Fijar el disco original que contiene el bootloader como primera opción."}], "solution": {"explain": "Al conectar un segundo disco SATA en un puerto con menor numeración o por orden de detección de BIOS, el firmware puede cambiar automáticamente la prioridad de arranque e intentar cargar el bootloader desde el disco nuevo sin sistema."}, "notes": "Problema clásico en talleres y centros de datos al agregar almacenamiento secundario."}, {"id": 36, "section": "101.1", "cat": "hardware", "type": "exercise", "title": "Ejercicio guiado 2: Identificar modelo de GPU", "lead": "Escenario: Verificar el modelo real y driver de una tarjeta gráfica sin abrir el equipo.", "ref": "14, 17", "pdf": {"manual": "A", "pages": [14, 17], "figure": null}, "coverage": ["101.1-EX-002"], "steps": [{"do": "Ejecuta lspci filtrando por controlador de vídeo", "look": "Línea con VGA compatible controller."}, {"do": "Añade la opción -k para ver el driver activo", "look": "Kernel driver in use y Kernel modules."}], "solution": {"explain": "Ejecutando 'lspci -k' se obtiene tanto el identificador del fabricante (ej. NVIDIA Corporation GM107) como el driver actualmente en uso (ej. nvidia o nouveau)."}, "notes": "Permite resolver disputas con proveedores sobre si la GPU ensamblada coincide con la factura."}, {"id": 37, "section": "101.1", "cat": "hardware", "type": "exercise", "title": "Ejercicio guiado 3: Dispositivo en 03:00.0 con lspci", "lead": "Escenario: Identificar el módulo del kernel para un dispositivo en 03:00.0.", "ref": "14, 17", "pdf": {"manual": "A", "pages": [14, 17], "figure": null}, "coverage": ["101.1-EX-003", "101.1-ERR-002"], "errata": ["E-002"], "steps": [{"do": "Filtra por la ranura PCI específica con la opción -s", "look": "lspci -s 03:00.0"}, {"do": "Combina con -k o -v para ver el controlador en uso", "look": "lspci -s 03:00.0 -k o lspci -s 03:00.0 -v"}], "solution": {"explain": "El comando 'lspci -s 03:00.0 -k' o 'lspci -s 03:00.0 -v' revela el módulo en uso. (Nota: en la página 17 del manual oficial se corrigió la errata 'operatico' por 'operativo')."}, "notes": "El comando lspci -s 03:00.0 -k es la forma más rápida y precisa."}, {"id": 38, "section": "101.1", "cat": "hardware", "type": "exercise", "title": "Ejercicio guiado 4: Error Module in use", "lead": "Escenario: Al ejecutar modprobe -r bluetooth aparece 'FATAL: Module bluetooth is in use'.", "ref": "14, 17", "pdf": {"manual": "A", "pages": [14, 17], "figure": null}, "coverage": ["101.1-EX-004"], "steps": [{"do": "Consulta el recuento de uso del módulo con lsmod", "look": "Comprobar la tercera columna 'Used by' para bluetooth."}, {"do": "Identifica los procesos o submódulos dependientes", "look": "Detener el servicio bluetooth o descargar dependencias previas."}], "solution": {"explain": "El kernel prohíbe descargar módulos que estén siendo utilizados activamente por procesos o por otros módulos del kernel dependientes."}, "notes": "Concepto evaluado con frecuencia en el examen LPIC-1."}, {"id": 39, "section": "101.1", "cat": "hardware", "type": "challenge", "title": "Reto: Servidores legacy y teclado BIOS", "lead": "Servidores antiguos fallan al iniciar sin teclado físico conectado:", "ref": "15, 18", "pdf": {"manual": "A", "pages": [15, 18], "figure": null}, "coverage": ["101.1-EX-005", "101.1-WARN-001"], "criteria": ["Localizar en BIOS la opción 'Halt On'", "Cambiar 'All Errors' por 'All, But Keyboard' o 'No Errors'", "Guardar cambios en la CMOS RAM"], "minutes": 3, "solution": {"explain": "En BIOS legacy, el ajuste 'Halt On: All Errors' detiene el arranque si el teclado PS/2 o USB no está conectado. Debe cambiarse a 'All, But Keyboard' o 'No Errors'."}, "notes": "Común en servidores que operan como 'headless' (sin monitor ni teclado)."}, {"id": 40, "section": "101.1", "cat": "hardware", "type": "challenge", "title": "Reto: Ausencia de lspci en Raspberry Pi", "lead": "¿Por qué el comando lspci no muestra información en Raspberry Pi?", "ref": "15, 18", "pdf": {"manual": "A", "pages": [15, 18], "figure": null}, "coverage": ["101.1-EX-006"], "criteria": ["Analizar la arquitectura del SoC ARM", "Comprobar la existencia del bus PCI convencional", "Comprender la diferencia entre buses integrados en chip y buses PCI"], "minutes": 3, "solution": {"explain": "A diferencia de las computadoras x86, las placas basadas en ARM como Raspberry Pi carecen de un bus PCI convencional, por lo que el comando lspci no tiene utilidad en ellas."}, "notes": "Pregunta de reflexión del manual oficial sobre diversidad de arquitecturas."}, {"id": 41, "section": "101.1", "cat": "hardware", "type": "challenge", "title": "Reto: Disco USB en router /dev/sda", "lead": "¿Cómo se nombrará un disco duro USB conectado a un router Linux?", "ref": "15, 18", "pdf": {"manual": "A", "pages": [15, 18], "figure": null}, "coverage": ["101.1-EX-007"], "criteria": ["Identificar la emulación SCSI del kernel para unidades USB", "Determinar la ausencia de otros discos de bloque convencionales", "Deducir el nombre del archivo de dispositivo correspondiente"], "minutes": 3, "solution": {"explain": "Los kernels modernos de Linux gestionan los discos duros USB como dispositivos SCSI, por lo que el archivo resultante en /dev será /dev/sda al no existir otro disco de bloque convencional previo."}, "notes": "Aparece textualmente en las respuestas a ejercicios exploratorios de la página 18."}, {"id": 42, "section": "101.1", "cat": "hardware", "type": "challenge", "title": "Reto: Vulnerabilidad Meltdown en cpuinfo", "lead": "¿Cómo informa el kernel sobre la vulnerabilidad Meltdown de la CPU?", "ref": "15, 18", "pdf": {"manual": "A", "pages": [15, 18], "figure": null}, "coverage": ["101.1-EX-008"], "criteria": ["Consultar el archivo virtual /proc/cpuinfo", "Buscar la sección de errores conocidos de la CPU", "Identificar la línea 'bugs: cpu_meltdown'"], "minutes": 3, "solution": {"explain": "El archivo /proc/cpuinfo incluye una línea 'bugs:' que muestra los fallos conocidos de seguridad del procesador, como 'bugs: cpu_meltdown'."}, "notes": "Detalle técnico específico recogido en la respuesta 4 de la página 18 del manual."}, {"id": 43, "section": "101.1", "cat": "hardware", "type": "summary", "title": "Resumen del subtema 101.1: Hardware", "ref": "16", "pdf": {"manual": "A", "pages": [16], "figure": null}, "coverage": ["101.1-OBJ-001"], "items": [{"icon": "microchip", "text": "Firmware BIOS/UEFI controla arranque y periféricos integrados"}, {"icon": "circuit-board", "text": "lspci examina dispositivos, vendor IDs y driver activo (-k)"}, {"icon": "usb", "text": "lsusb lista buses y muestra árbol jerárquico (-t)"}, {"icon": "package", "text": "modprobe carga y descarga (-r) módulos resolviendo dependencias"}, {"icon": "folder", "text": "udev gestiona /dev dinámicamente según reglas en rules.d"}], "top3": ["lspci -k", "lsusb -t", "modprobe -r"], "notes": "Puntos de repaso rápido antes del examen de certificación."}, {"id": 44, "section": "101.1", "cat": "hardware", "type": "flashcards", "title": "Tarjetas de memorización: Comandos y Opciones", "ref": "5-13", "pdf": {"manual": "A", "pages": [5, 13], "figure": null}, "coverage": ["101.1-CMD-001", "101.1-CMD-002", "101.1-CMD-003", "101.1-CMD-004"], "deck": [{"front": "lspci -k", "back": "Muestra el driver y los módulos del kernel en uso para cada dispositivo PCI."}, {"front": "lsusb -t", "back": "Muestra la topología jerárquica del bus USB en forma de árbol con Class y Driver."}, {"front": "modprobe -r", "back": "Descarga de memoria un módulo y todas sus dependencias que no estén en uso."}, {"front": "lsmod", "back": "Muestra los módulos cargados en memoria leyendo de /proc/modules."}, {"front": "modinfo", "back": "Muestra información de un módulo: autor, licencia, dependencias y parámetros (parm)."}, {"front": "depmod", "back": "Genera el archivo modules.dep con el mapa de dependencias entre módulos."}, {"front": "/etc/modprobe.d/", "back": "Directorio donde se configuran alias, parámetros (options) y listas negras (blacklist)."}, {"front": "/proc/cpuinfo", "back": "Archivo virtual que detalla información sobre las CPUs y núcleos del sistema."}, {"front": "udev", "back": "Gestor de dispositivos que crea y elimina dinámicamente los nodos en /dev/."}, {"front": "Meltdown", "back": "Vulnerabilidad de CPU reflejada en la línea 'bugs:' de /proc/cpuinfo."}], "notes": "Pide a los alumnos que intenten responder mentalmente antes de voltear cada tarjeta."}];
+    const SLIDES = [{"id": 1, "section": "101.1", "cat": "hardware", "type": "cover", "title": "Ajustes de hardware del sistema", "subtitle": "Determinación, configuración y gestión de periféricos en Linux (Modo Examen)", "ref": "1-2", "pdf": {"manual": "A", "pages": [1, 2], "figure": null}, "coverage": ["101.1-OBJ-001", "101.1-OBJ-002"], "meta": {"peso": 2, "paginas": "1–18", "duracion": "30 min"}, "icon": "graduation-cap", "notes": "Comenzamos el Tema 101 con el objetivo 101.1 (peso 2). En esta lección aprenderemos cómo el sistema operativo Linux detecta, comunica y configura todos los componentes físicos del ordenador, desde el firmware BIOS/UEFI hasta los buses PCI/USB y los módulos dinámicos del kernel."}, {"id": 2, "section": "101.1", "cat": "hardware", "type": "concept", "title": "¿Cómo interactúa Linux con el Hardware?", "lead": "El sistema operativo no accede a los componentes a ciegas: sigue una jerarquía estricta de 4 capas desde el encendido hasta el espacio de usuario:", "ref": "2-3", "pdf": {"manual": "A", "pages": [2, 3], "figure": null}, "coverage": ["101.1-CON-001", "101.1-CON-002"], "points": [{"icon": "cpu", "text": "1. Firmware del Sistema (BIOS / UEFI)", "detail": "Inicializa los chips de la placa base, realiza el testeo POST y entrega el control de arranque al gestor de inicio."}, {"icon": "layers", "text": "2. Kernel y Módulos Dinámicos (/lib/modules)", "detail": "El núcleo Linux detecta la topología de buses y carga bajo demanda los controladores necesarios (drivers)."}, {"icon": "folder", "text": "3. Pseudo-sistemas /proc y /sys (sysfs)", "detail": "El kernel expone en memoria RAM el estado del hardware, asignaciones de interrupciones IRQ y jerarquías de dispositivos."}, {"icon": "settings", "text": "4. Espacio de Usuario: udev, D-Bus y /dev", "detail": "El demonio udev crea dinámicamente los archivos de dispositivo en /dev aplicando reglas automáticas ante eventos de conexión."}], "remember": "🎯 Clave de Examen: Todo archivo bajo /proc y /sys no ocupa espacio real en disco duro; son interfaces virtuales generadas al vuelo por el kernel.", "notes": "Explica a la clase que Linux trata todos los componentes de hardware como archivos. La ventaja es que podemos auditar cualquier dispositivo simplemente leyendo texto en la consola."}, {"id": 3, "section": "101.1", "cat": "hardware", "type": "table", "title": "Firmware del Sistema: BIOS frente a UEFI", "lead": "El examen compara constantemente las limitaciones del estándar heredado (Legacy BIOS) frente a las capacidades de UEFI:", "ref": "3-5", "pdf": {"manual": "A", "pages": [3, 4, 5], "figure": null}, "coverage": ["101.1-CON-003", "101.1-CON-004"], "headers": ["Característica", "BIOS Tradicional (Legacy)", "UEFI Moderno"], "rows": [["Esquema de Partición", "MBR (Máximo 4 particiones primarias)", "GPT (Hasta 128 particiones nativas)"], ["Límite de Disco", "2 TiB por unidad física", "9.4 ZB (Prácticamente ilimitado)"], ["Código de Arranque", "Primer sector de 512 bytes del disco (MBR)", "Archivos ejecutables EFI en partición ESP"], ["Partición Especial", "Ninguna obligatoria", "ESP (EFI System Partition, formateada en FAT32)"], ["Seguridad de Arranque", "Sin validación criptográfica", "Secure Boot (firmas digitales de kernels)"], ["Memoria de Ajustes", "CMOS alimentada por pila CR2032", "Memoria flash no volátil (NVRAM)"]], "remember": "🎯 Clave de Examen: La partición ESP debe usar estrictamente el sistema de archivos FAT16 o FAT32 (nunca ext4 ni NTFS) y se monta habitualmente en /boot/efi.", "notes": "Destaca que para entrar en la BIOS/UEFI durante el POST se pulsa Del/F2/F12. Si la pila de botón de la placa base se agota, la CMOS pierde la hora y la secuencia de arranque se desconfigura."}, {"id": 4, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Periféricos Integrados y Modos de Almacenamiento", "lead": "¿Qué opciones debemos configurar en el firmware antes de instalar o arrancar Linux?", "ref": "5-7", "pdf": {"manual": "A", "pages": [5, 6, 7], "figure": null}, "coverage": ["101.1-CON-005", "101.1-CON-006"], "points": [{"icon": "shield", "text": "Activación y desactivación de periféricos integrados", "detail": "Tarjetas de audio integradas, puertos serie/paralelo y adaptadores de red (NIC) pueden deshabilitarse en BIOS para ahorrar energía y evitar conflictos de IRQ."}, {"icon": "hard-drive", "text": "Modos de controlador SATA: IDE vs AHCI vs RAID", "detail": "IDE/Legacy emula controladoras PATA antiguas de 16 bits. AHCI activa Native Command Queuing (NCQ) y conexión en caliente (hotplug). RAID por hardware agrupa discos pero requiere drivers específicos."}, {"icon": "zap", "text": "Almacenamiento ultrarrápido NVMe sobre bus PCIe", "detail": "Las unidades NVMe (Non-Volatile Memory Express) van directamente al bus PCIe, superando el cuello de botella SATA (600 MB/s) y alcanzando varios GB/s."}, {"icon": "alert-triangle", "text": "Recursos heredados: IRQ, DMA y puertos E/S", "detail": "Las IRQ (peticiones de interrupción) van de 0 a 15 en PC heredados; si dos tarjetas antiguas comparten IRQ sin soporte de bus, provocan cuelgues del sistema."}], "remember": "🎯 Pregunta típica de examen: Si cambias una controladora SATA de modo IDE a AHCI en un sistema ya instalado, el kernel puede fallar al arrancar si carece del módulo AHCI en el initramfs.", "notes": "Explica la diferencia entre IDE clásico y AHCI moderno. Para NVMe, menciona que el kernel usa una nomenclatura distinta que veremos en breve."}, {"id": 5, "section": "101.1", "cat": "hardware", "type": "command", "title": "Auditoría del Bus PCI con lspci", "lead": "¿Qué hace lspci? Lee directamente la base de datos de dispositivos conectados a los buses PCI y PCI Express del ordenador:", "ref": "7-9", "pdf": {"manual": "A", "pages": [7, 8, 9], "figure": null}, "coverage": ["101.1-CMD-001", "101.1-CMD-002", "101.1-CMD-003", "101.1-CMD-004"], "command": "lspci", "purpose": "Inspeccionar tarjetas gráficas, controladoras de red, sonido y almacenamiento PCI", "terminal": {"command": "lspci -nnk -s 00:02.0", "output": "00:02.0 VGA compatible controller [0300]: Intel Corporation CometLake-S GT2 [UHD Graphics 630] [8086:9bc5] (rev 05)\n\tSubsystem: Dell Device [1028:099e]\n\tKernel driver in use: i915\n\tKernel modules: i915"}, "options": [{"flag": "-k", "desc": "🎯 Clave de Examen: Muestra el controlador activo del kernel (Kernel driver in use) y módulos disponibles."}, {"flag": "-v / -vv / -vvv", "desc": "Incrementa el nivel de detalle (interrupciones IRQ, rangos de memoria E/S y capacidades)."}, {"flag": "-s [[[[<domain>]:]<bus>]:][<slot>][.[<func>]]", "desc": "Filtra por dirección física del bus (ej: -s 00:02.0)."}, {"flag": "-d [<vendor>]:[<device>][:<class>]", "desc": "Filtra por identificador numérico de fabricante y modelo en hexadecimal (ej: -d 8086:9bc5)."}, {"flag": "-nn", "desc": "Muestra los nombres textuales junto a los códigos numéricos [vendor:device] entre corchetes."}, {"flag": "-t", "desc": "Muestra la topología de buses y puentes en formato de árbol jerárquico."}], "remember": "🎯 Truco de Examen: Cuando te pregunten qué comando y opción revela qué driver del kernel está gestionando tu tarjeta de red Ethernet o gráfica, la respuesta es siempre lspci -k.", "notes": "Haz leer a los alumnos la salida de la terminal: 'Kernel driver in use: i915'. Ese es el driver real cargado en el núcleo."}, {"id": 6, "section": "101.1", "cat": "hardware", "type": "command", "title": "Auditoría del Bus USB con lsusb", "lead": "¿Qué hace lsusb? Muestra todos los concentradores (hubs) y periféricos USB conectados a las controladoras del sistema:", "ref": "9-11", "pdf": {"manual": "A", "pages": [9, 10, 11], "figure": null}, "coverage": ["101.1-CMD-005", "101.1-CMD-006", "101.1-CMD-007", "101.1-CMD-008"], "command": "lsusb", "purpose": "Identificar teclados, ratones, pendrives, cámaras y concentradores USB", "terminal": {"command": "lsusb -t", "output": "/:  Bus 02.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/4p, 10000M\n/:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/10p, 480M\n    |__ Port 1: Dev 2, If 0, Class=Human Interface Device, Driver=usbhid, 12M\n    |__ Port 2: Dev 3, If 0, Class=Mass Storage, Driver=usb-storage, 480M"}, "options": [{"flag": "-t", "desc": "🎯 Clave de Examen: Muestra la topología jerárquica en árbol, indicando clase de dispositivo, driver y velocidad (ej: 480M = USB 2.0)."}, {"flag": "-v", "desc": "Detalle exhaustivo de descriptores de configuración USB (requiere sudo para ver números de serie completos)."}, {"flag": "-s [bus]:[devnum]", "desc": "Filtra por número de bus y número de dispositivo (ej: -s 001:002)."}, {"flag": "-d [vendor]:[product]", "desc": "Filtra por ID de fabricante y producto en hexadecimal (ej: -d 0781:5583)."}], "remember": "🎯 Diferencia vital para el examen: El identificador USB consta de dos bloques hex de 4 dígitos (VendorID:ProductID), por ejemplo '046d:c52b' (Logitech Unifying Receiver).", "notes": "Resalta el flag -t en la terminal: permite saber de un vistazo si un pendrive rápido está conectado a un puerto lento de 12M o a uno de 480M/5000M."}, {"id": 7, "section": "101.1", "cat": "hardware", "type": "command", "title": "Inspección de Módulos del Kernel: lsmod y modinfo", "lead": "Los módulos son controladores compilados que se cargan o descargan de la memoria RAM sin reiniciar el ordenador:", "ref": "11-13", "pdf": {"manual": "A", "pages": [11, 12, 13], "figure": null}, "coverage": ["101.1-CMD-009", "101.1-CMD-010"], "command": "lsmod | modinfo", "purpose": "Ver qué módulos están activos en memoria y consultar la ficha técnica de cualquier módulo", "terminal": {"command": "lsmod | head -n 4; echo '---'; modinfo -d e1000e", "output": "Module                  Size  Used by\ne1000e                299008  0\nptp                    24576  1 e1000e\nusb_storage            81920  1 uas\n---\nIntel(R) PRO/1000 Network Driver"}, "options": [{"flag": "lsmod", "desc": "Lee /proc/modules y formatea 3 columnas: Nombre del módulo, tamaño en bytes y módulos dependientes que lo usan."}, {"flag": "modinfo <módulo>", "desc": "Muestra autor, licencia, ruta del archivo .ko.xz, dependencias y parámetros configurables."}, {"flag": "-d <módulo>", "desc": "Muestra únicamente la descripción textual del módulo (description)."}, {"flag": "-p <módulo>", "desc": "Lista todos los parámetros que acepta el módulo con sus tipos de datos."}, {"flag": "-F field", "desc": "Filtra un campo específico de la cabecera (ej: filename, license, depends)."}], "remember": "🎯 Trampa de Examen: lsmod NO tiene flags complicados; lee directamente de /proc/modules. Para consultar la ficha de un módulo que NO está cargado en RAM, usas modinfo especificando su nombre.", "notes": "Enseña a leer la tercera columna de lsmod: si 'Used by' es mayor que 0 o lista otros nombres, el kernel bloqueará su descarga directa porque otros componentes dependen de él."}, {"id": 8, "section": "101.1", "cat": "hardware", "type": "command", "title": "Carga y Descarga de Módulos: modprobe e insmod", "lead": "¿Por qué nunca debes usar insmod en producción? Porque modprobe resuelve dependencias automáticamente:", "ref": "13-15", "pdf": {"manual": "A", "pages": [13, 14, 15], "figure": null}, "coverage": ["101.1-CMD-011", "101.1-CMD-012", "101.1-CMD-013"], "command": "modprobe", "purpose": "Insertar y remover módulos del kernel gestionando dependencias del archivo modules.dep", "terminal": {"command": "sudo modprobe -v -r usb_storage; sudo modprobe -v usb_storage", "output": "rmmod usb_storage\ninsmod /lib/modules/6.1.0/kernel/drivers/usb/storage/usb-storage.ko.xz"}, "options": [{"flag": "modprobe <nombre>", "desc": "Carga el módulo especificado y TODAS sus dependencias automáticamente."}, {"flag": "-r / --remove", "desc": "🎯 Clave de Examen: Descarga el módulo de memoria y sus dependencias no utilizadas."}, {"flag": "-v / --verbose", "desc": "Muestra los comandos internos de bajo nivel ejecutados."}, {"flag": "-c / --showconfig", "desc": "Vuelca la configuración consolidada de /etc/modprobe.d/ y /lib/modprobe.d/."}, {"flag": "insmod <ruta.ko>", "desc": "Herramienta de bajo nivel: Requiere la ruta exacta al archivo binario y NO resuelve dependencias."}, {"flag": "rmmod <nombre>", "desc": "Herramienta de bajo nivel: Descarga un módulo suelto; falla si tiene dependencias activas."}, {"flag": "depmod -a", "desc": "Analiza todos los módulos en /lib/modules/$(uname -r)/ y regenera el mapa modules.dep."}], "remember": "🎯 Pregunta de Examen: ¿Qué comando regenera el índice de dependencias tras compilar un nuevo driver? Respuesta: depmod (o depmod -a).", "notes": "Explica que modprobe busca en /lib/modules/$(uname -r)/modules.dep. Si compilas un driver a mano y ejecutas modprobe sin antes hacer depmod, el comando fallará con 'module not found'."}, {"id": 9, "section": "101.1", "cat": "hardware", "type": "file", "title": "Configuración Persistente: /etc/modprobe.d/", "lead": "¿Cómo pasamos parámetros a los drivers o impedimos que un módulo conflictivo se cargue al arrancar?", "ref": "15-16", "pdf": {"manual": "A", "pages": [15, 16], "figure": null}, "coverage": ["101.1-FIL-001"], "file": {"path": "/etc/modprobe.d/desactivar-nouveau.conf", "purpose": "Personalizar alias, parámetros de arranque y listas negras de módulos", "content": "# Bloquear el driver libre para instalar el propietario de NVIDIA\nblacklist nouveau\noptions nouveau modeset=0\nalias red-local e1000e"}, "points": [{"icon": "file-text", "text": "Directorio maestro y extensión obligatoria", "detail": "Todos los archivos de configuración en /etc/modprobe.d/ deben terminar obligatoriamente con la extensión .conf."}, {"icon": "slash", "text": "Directiva blacklist <módulo>", "detail": "🎯 Pregunta de Examen: Evita la carga automática del driver por udev, aunque no impide que el usuario lo cargue manualmente con modprobe."}, {"icon": "sliders", "text": "Directiva options <módulo> <parámetro>=<valor>", "detail": "Fija opciones estáticas que se aplicarán automáticamente cada vez que el kernel active dicho módulo."}, {"icon": "link", "text": "Directiva alias <apodo> <nombre_real>", "detail": "Permite asociar un nombre genérico a un módulo específico del fabricante."}], "remember": "🎯 Clave de Examen: Para consultar los parámetros que admite un módulo antes de escribirlos en .conf, ejecuta modinfo -p <módulo>.", "notes": "Muestra a los alumnos que los archivos de /etc/ son para el administrador, mientras que /lib/modprobe.d/ almacena los valores por defecto del sistema."}, {"id": 10, "section": "101.1", "cat": "hardware", "type": "table", "title": "Recursos de Hardware en el Pseudo-sistema /proc", "lead": "El kernel expone la asignación de líneas de comunicación del hardware mediante archivos de texto plano legibles en /proc:", "ref": "16-17", "pdf": {"manual": "A", "pages": [16, 17], "figure": null}, "coverage": ["101.1-FIL-002", "101.1-FIL-003", "101.1-FIL-004", "101.1-FIL-005"], "headers": ["Archivo en /proc", "Recurso Evaluado", "Qué información crítica contiene para el examen"], "rows": [["/proc/cpuinfo", "Procesador (CPU)", "Modelo, frecuencia, número de núcleos/hilos, tamaño de caché y flags de instrucciones (ej: vmx/svm para virtualización)."], ["/proc/interrupts", "Interrupciones (IRQ)", "Líneas de interrupción asignadas a cada CPU física y nombre del dispositivo/controlador que las gestiona."], ["/proc/ioports", "Puertos de E/S (I/O)", "Rangos de direcciones de memoria hexadecimales que la CPU utiliza para dialogar directamente con los periféricos."], ["/proc/dma", "Acceso Directo a Memoria", "Canales DMA asignados a periféricos rápidos para transferir datos a RAM sin sobrecargar a la CPU."], ["/proc/modules", "Módulos en RAM", "Módulos cargados actualmente (base de datos sin formato que lee el comando lsmod)."]], "remember": "🎯 Pregunta de Examen: ¿En qué archivo de /proc comprobarías si tu CPU soporta virtualización por hardware KVM? Respuesta: En /proc/cpuinfo, buscando el flag vmx (Intel) o svm (AMD).", "notes": "Haz énfasis en que estos archivos se leen con cat, grep o less. No se pueden editar con nano porque son estructuras de datos en memoria viva."}, {"id": 11, "section": "101.1", "cat": "hardware", "type": "concept", "title": "Jerarquía de Dispositivos: /sys (sysfs) y /dev", "lead": "¿Cuál es la diferencia exacta entre /sys y /dev? Esta distinción conceptual aparece en casi todas las convocatorias LPIC-1:", "ref": "17-18", "pdf": {"manual": "A", "pages": [17, 18], "figure": null}, "coverage": ["101.1-CON-007", "101.1-CON-008"], "points": [{"icon": "folder-tree", "text": "/sys (sysfs): La vista organizativa del Kernel", "detail": "Sistema de archivos virtual montado en /sys. Representa la topología jerárquica del hardware: buses, clases, drivers y atributos modificables de los dispositivos."}, {"icon": "hard-drive", "text": "/dev (Device Nodes): Los puntos de acceso de E/S", "detail": "Contiene los nodos de dispositivo reales mediante los cuales los programas leen y escriben datos hacia el hardware (ej: /dev/sda, /dev/tty1, /dev/urandom)."}, {"icon": "file-code", "text": "Dispositivos de Carácter (c) vs Dispositivos de Bloque (b)", "detail": "Los de Bloque transfieren datos en bloques direccionables con búfer de memoria (discos duros, SSD). Los de Carácter transfieren flujo secuencial byte a byte (teclados, terminales, ratón)."}, {"icon": "hash", "text": "Números Major y Minor", "detail": "El Major identifica el tipo de dispositivo/driver del kernel. El Minor distingue la unidad o partición individual concreta dentro de ese driver."}], "remember": "🎯 Regla Mnemotécnica: /sys es el plano del arquitecto (cómo está conectado el hardware); /dev es la puerta de entrada para usarlo.", "notes": "Pide a los alumnos que hagan 'ls -l /dev/sda': verán la letra 'b' al principio de los permisos y dos números (8, 0) que son el major y el minor."}, {"id": 12, "section": "101.1", "cat": "hardware", "type": "file", "title": "Gestión Dinámica de Nodos con udev y D-Bus", "lead": "¿Qué ocurre cuando conectas un pendrive USB en caliente (hotplug)?", "ref": "18", "pdf": {"manual": "A", "pages": [18], "figure": null}, "coverage": ["101.1-FIL-006", "101.1-CON-009"], "file": {"path": "/etc/udev/rules.d/99-usb-backup.rules", "purpose": "Crear enlaces simbólicos fijos y fijar permisos automáticos ante eventos hotplug", "content": "# Identificar disco por UUID de hardware y crear enlace permanente\nKERNEL==\"sd?\", SUBSYSTEM==\"block\", ATTRS{serial}==\"AA0401\", SYMLINK+=\"disco_seguridad\", MODE=\"0660\", GROUP=\"disk\""}, "points": [{"icon": "zap", "text": "El demonio udev (Userspace /dev)", "detail": "Escucha los uevents del kernel a través de netlink y crea o elimina instantáneamente los nodos correspondientes en /dev en espacio de usuario."}, {"icon": "folder-check", "text": "Reglas en /etc/udev/rules.d/ frente a /lib/udev/rules.d/", "detail": "🎯 Clave de Examen: Las reglas del administrador se crean en /etc/udev/rules.d/ y sobrescriben a las reglas por defecto del sistema ubicadas en /lib/udev/rules.d/."}, {"icon": "message-square", "text": "D-Bus (Desktop Bus): Mensajería entre procesos", "detail": "Bus de comunicación inter-proceso (IPC). Permite que aplicaciones gráficas reciban avisos del sistema (ej: montar automáticamente el pendrive en el escritorio)."}], "remember": "🎯 Clave de Examen: En las reglas de udev, el operador == compara valores, mientras que = o += asigna propiedades (como SYMLINK+= o MODE=).", "notes": "Enfatiza que udev solucionó el antiguo problema de Linux donde /dev tenía miles de nodos estáticos precreados aunque el hardware no existiera."}, {"id": 13, "section": "101.1", "cat": "hardware", "type": "table", "title": "Nomenclatura de Dispositivos en /dev y Erratas", "lead": "El examen exige reconocer inmediatamente a qué tipo de hardware físico apunta cualquier ruta bajo /dev:", "ref": "18-19", "pdf": {"manual": "A", "pages": [18, 19], "figure": null}, "coverage": ["101.1-CON-010"], "headers": ["Ruta en /dev", "Tipo de Almacenamiento", "Desglose de Nombres y Particiones"], "rows": [["/dev/sda, /dev/sdb2", "SATA, SCSI, SAS, USB", "sd = SCSI disk. La letra indica la unidad física (a, b, c); el número indica la partición (1, 2, ...)."], ["/dev/nvme0n1, nvme0n1p2", "SSD NVMe (PCIe)", "nvme0 = controladora 0; n1 = espacio de nombres (disco 1); p2 = partición 2."], ["/dev/mmcblk0, mmcblk0p1", "Tarjetas SD / eMMC", "mmcblk0 = tarjeta física 0; p1 = partición 1 (típico en Raspberry Pi)."], ["/dev/hda, /dev/hdb", "Discos IDE / PATA (Legacy)", "hda = canal primario maestro; hdb = canal primario esclavo; hdc = secundario maestro."], ["/dev/fd0", "Disquetera de 3.5 pulgadas", "⚠️ ERRATA OFICIAL DEL MANUAL: El manual escribe erróneamente /dev/fdO (con letra O) en vez de /dev/fd0 (cero)."]], "remember": "🎯 Alerta de Examen: ¡Ojo con las unidades NVMe! La partición siempre lleva el prefijo 'p' (nvme0n1p1), mientras que en discos SATA se pega directamente al disco (sda1).", "notes": "Muestra la errata del manual de LPIC-1 (fdO vs fd0) para que nadie falle una pregunta de test si aparece esa trampa de tipografía."}, {"id": 14, "section": "101.1", "cat": "hardware", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: Servidores y GPUs)", "ref": "14-15", "pdf": {"manual": "A", "pages": [14, 15], "figure": null}, "scenario": "Casos prácticos de diagnóstico de hardware basados en el Manual Oficial LPIC-1 (Páginas 14-15):", "steps": [{"action": "Caso 1: Un servidor no arranca tras instalar un disco duro SATA moderno en una placa antigua configurada en IDE Legacy.", "command": "Cambiar el modo SATA de IDE a AHCI en el menú de la BIOS/UEFI", "reason": "El modo IDE emula interfaces antiguas PATA de 16 bits sin soporte NCQ; AHCI activa el estándar nativo de alto rendimiento para unidades SATA modernas."}, {"action": "Caso 2: Encontrar el modelo exacto de la tarjeta gráfica instalada y averiguar qué controlador del kernel la está gestionando.", "command": "lspci -k | grep -A 3 -i vga", "reason": "El flag -k muestra la línea 'Kernel driver in use' debajo del dispositivo VGA, revelando si usa el controlador libre (nouveau/amdgpu) o propietario."}], "solution": {"explain": "Estos ejercicios evalúan la comprensión directa de las limitaciones del hardware en firmware y el dominio del flag -k de lspci para relacionar el hardware físico con el módulo del kernel activo."}, "notes": "Haz que los alumnos analicen por qué usamos grep -A 3: para ver las 3 líneas siguientes a la tarjeta gráfica y capturar el 'Kernel driver in use'."}, {"id": 15, "section": "101.1", "cat": "hardware", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: Filtros PCI y Módulos)", "ref": "15-16", "pdf": {"manual": "A", "pages": [15, 16], "figure": null}, "scenario": "Casos prácticos de gestión de módulos y filtrado por bus (Manual Oficial LPIC-1 Páginas 15-16):", "steps": [{"action": "Caso 3: Filtrar lspci para inspeccionar únicamente el dispositivo situado en la dirección de bus 03:00.0 con máximo detalle.", "command": "lspci -v -s 03:00.0", "reason": "La opción -s selecciona el slot de bus específico y -v incrementa la verbosidad mostrando memoria E/S e interrupciones IRQ."}, {"action": "Caso 4: Al ejecutar 'modprobe -r e1000e' el sistema responde 'FATAL: Module e1000e is in use'. ¿Cómo se diagnostica?", "command": "lsmod | grep e1000e", "reason": "La tercera columna de lsmod ('Used by') desvela qué otros módulos dependen de él o si la interfaz de red sigue activa en el sistema."}], "solution": {"explain": "El kernel protege la estabilidad del sistema impidiendo descargar módulos en uso. Para descargarlo, antes se debe apagar la interfaz con 'ip link set eth0 down' o descargar los submódulos dependientes."}, "notes": "Explica la seguridad que ofrece el kernel: jamás permitirá descargar un driver de disco o red que esté transmitiendo datos en ese instante."}, {"id": 16, "section": "101.1", "cat": "hardware", "type": "challenge", "title": "Retos de Exploración del Manual Oficial", "ref": "17", "pdf": {"manual": "A", "pages": [17], "figure": null}, "scenario": "Resuelve estos 4 retos de examen planteados en el manual oficial LPIC-1 (Página 17):\n1. ¿Por qué un servidor en un rack sin teclado físico puede fallar al arrancar la BIOS?\n2. En una Raspberry Pi o placa ARM embebida, ¿por qué el comando lspci no devuelve ninguna salida?\n3. Conectas un disco USB a un router Linux y se asigna como /dev/sda. ¿Por qué no es /dev/sdb?\n4. ¿En qué archivo de /proc comprobarías la mitigación de la vulnerabilidad Meltdown/Spectre?", "hint": "Recuerda: configuraciones Halt On en BIOS; buses SoC sin controlador PCI; orden de asignación sd en el arranque; y ficheros informativos de la CPU.", "solution": {"explain": "1. Fallo sin teclado: La BIOS tiene activada la opción clásica 'Halt On: All Errors (No keyboard present)'. Se soluciona configurando 'Halt On: No Errors' o modo Headless.\n2. Raspberry Pi: Las placas SoC ARM conectan sus periféricos (red, almacenamiento) mediante buses integrados directos o USB interno, careciendo de bus PCI físico.\n3. Router /dev/sda: El router carece de discos duros internos SATA; por tanto, el primer dispositivo de almacenamiento detectado por el kernel recibe siempre la primera letra libre: sda.\n4. Vulnerabilidad Meltdown: Se consulta en /proc/cpuinfo (en el campo 'bugs') o en el directorio /sys/devices/system/cpu/vulnerabilities/."}, "notes": "Estos retos demuestran la diferencia entre memorizar comandos y entender cómo Linux gestiona el hardware en entornos reales de producción."}, {"id": 17, "section": "101.1", "cat": "hardware", "type": "review", "title": "Pregunta de Examen LPIC-1: Auditoría de Hardware", "q": "¿Qué comando y opción muestra el controlador activo del kernel que está gestionando actualmente una tarjeta de red conectada al bus PCI?", "options": ["lsmod -v", "lspci -k", "modinfo -c", "dmesg --driver"], "answer": 1, "why": "lspci -k es la opción oficial evaluada en LPIC-1 que imprime la línea 'Kernel driver in use:' junto a cada dispositivo PCI. lsmod no tiene opción -v; modinfo muestra metadatos de archivos en disco, no el estado en vivo; y dmesg lee el buffer de arranque.", "notes": "Pregunta recurrente en el examen 101. Haz que toda la clase justifique por qué las opciones A, C y D son distractores."}, {"id": 18, "section": "101.1", "cat": "hardware", "type": "flashcards", "title": "Tarjetas de Memorización: Comandos y Rutas 101.1", "deck": [{"front": "¿Qué hace lspci -k?", "back": "Muestra el controlador activo del kernel (Kernel driver in use) y módulos compatibles para cada dispositivo PCI."}, {"front": "¿Qué comando muestra los dispositivos USB en estructura de árbol jerárquico?", "back": "lsusb -t (muestra la topología de buses, puertos, velocidad y drivers asociados)."}, {"front": "¿Diferencia fundamental entre modprobe e insmod?", "back": "modprobe resuelve dependencias automáticamente usando modules.dep; insmod requiere la ruta exacta al archivo .ko y no resuelve dependencias."}, {"front": "¿Qué comando regenera el archivo modules.dep?", "back": "depmod -a (escanea /lib/modules/$(uname -r)/ y actualiza el mapa de dependencias)."}, {"front": "¿Para qué sirve la directiva 'blacklist' en /etc/modprobe.d/*.conf?", "back": "Evita que udev cargue automáticamente un módulo conflictivo durante la detección de hardware."}, {"front": "¿Qué contiene /proc/interrupts?", "back": "La lista de interrupciones IRQ asignadas a cada CPU física y qué controlador/dispositivo las atiende."}, {"front": "¿Dónde crea el administrador sus reglas personalizadas de udev?", "back": "En /etc/udev/rules.d/*.rules (tienen prioridad sobre /lib/udev/rules.d/)."}, {"front": "¿Cuál es la nomenclatura en /dev de la partición 1 del primer SSD NVMe?", "back": "/dev/nvme0n1p1 (nvme0 = controladora 0, n1 = disco 1, p1 = partición 1)."}], "notes": "Pasa estas tarjetas con los alumnos antes de finalizar el subtema para asegurar la retención de los conceptos más preguntados."}, {"id": 19, "section": "101.1", "cat": "hardware", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 101.1", "takeaways": ["Firmware: BIOS Legacy limitada a MBR (2TB, 4 primarias); UEFI usa GPT (9.4ZB, 128 particiones) y partición ESP FAT32 en /boot/efi.", "Auditoría: lspci (-k para drivers, -s para slot, -d para ID vendor:device, -v verboso) y lsusb (-t para topología en árbol).", "Módulos: lsmod (lee /proc/modules), modinfo (parámetros y metadatos), modprobe (-r descarga, gestiona dependencias), depmod (regenera modules.dep).", "Configuración y Recursos: /etc/modprobe.d/*.conf (blacklist, options), /proc (cpuinfo, interrupts, ioports, dma), /sys (sysfs) y /dev (nodos de bloque b y carácter c creados por udev)."], "top3": [{"cmd": "lspci -k", "desc": "Revela el driver activo del kernel para periféricos PCI."}, {"cmd": "modprobe -r <módulo>", "desc": "Descarga limpia y segura de módulos con resolución de dependencias."}, {"cmd": "lsusb -t", "desc": "Inspección en árbol de la velocidad y jerarquía del bus USB."}], "practice": {"name": "Practica 101.1: Ajustes de Hardware, Buses y Módulos del Kernel", "url": "../practicas/p-101-1-ajustes-hardware.html", "desc": "Audita los dispositivos PCI y USB de tu VM Debian, inspecciona la jerarquía virtual en /proc y /sys, y gestiona módulos del kernel de forma segura con modprobe y modinfo."}, "notes": "Concluimos el subtema 101.1. Los alumnos ya dominan la interacción entre firmware, kernel y periféricos."}];
     const ERRATAS = [{"id": "E-001", "pdf": "pág. 13", "original": "/dev/fdO", "correct": "/dev/fd0", "kind": "técnica", "note": "El manual oficial indica '/dev/fdO, /dev/fd1' con una letra 'O' mayúscula en lugar de un dígito cero '0'. La ruta correcta en el sistema operativo Linux es /dev/fd0."}, {"id": "E-002", "pdf": "pág. 17", "original": "operatico", "correct": "operativo", "kind": "ortografía", "note": "El manual oficial indica 'núcleo de sistema operatico' en la respuesta al ejercicio guiado 3. La palabra correcta es 'operativo'."}];
     const GLOSARIO = [{"id": "PCI", "term": "PCI", "def": "Peripheral Component Interconnect: estándar de bus de conexión interna de componentes a la placa base.", "ref": "p. 5", "see": ["PCIe"]}, {"id": "USB", "term": "USB", "def": "Universal Serial Bus: estándar industrial de buses y cables para conexión de periféricos externos.", "ref": "p. 7", "see": ["Hub"]}, {"id": "BIOS", "term": "BIOS", "def": "Basic Input/Output System: firmware tradicional x86 que realiza el test POST e inicia el arranque.", "ref": "p. 3", "see": ["UEFI"]}, {"id": "UEFI", "term": "UEFI", "def": "Unified Extensible Firmware Interface: sucesor moderno del BIOS con soporte para discos mayores de 2 TB y arranque rápido.", "ref": "p. 3", "see": ["BIOS"]}, {"id": "udev", "term": "udev", "def": "Gestor de dispositivos del kernel Linux en espacio de usuario que crea nodos dinámicos en /dev/.", "ref": "p. 13", "see": ["dbus"]}, {"id": "dbus", "term": "D-Bus", "def": "Bus de mensajes de sistema que permite la comunicación entre programas y la notificación de eventos de hardware.", "ref": "p. 13", "see": ["udev"]}];
-    const META = {"course": "LPIC-1 v5.0", "topic": "101.1", "title": "Determinar y configurar los ajustes de hardware", "weight": 2, "pages": "1–18", "icons": "Lucide 0.468.0 (ISC)"};
+    const META = {"topic": "101.1", "title": "Ajustes de hardware del sistema", "weight": 2, "description": "Determinación, configuración y gestión de periféricos en Linux (Alta Densidad LPIC-1)", "duracion": "30 min"};
 
     /* -------------------------------------------------------------
        MOTOR DE RENDERIZADO Y NAVEGACIÓN (Pure JS)
@@ -1124,7 +1223,7 @@
             <div style="display:flex; justify-content:center; gap:20px; font-size:22px; font-weight:600;">
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Peso LPI: ${escapeHTML(s.meta?.peso || (typeof META !== 'undefined' && META.weight) || '')}</span>
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Páginas: ${escapeHTML(s.meta?.paginas || '')}</span>
-              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '45 min')}</span>
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '30 min')}</span>
             </div>
           </div>
         `;
@@ -1232,51 +1331,87 @@
         }
       } else if (s.type === 'file') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
-        const filePath = s.path || s.file || '';
-        const fileDesc = s.desc || s.contains || s.lead || s.purpose || '';
+        const fileObj = (typeof s.file === 'object' && s.file !== null) ? s.file : {};
+        const filePath = fileObj.path || s.path || (typeof s.file === 'string' ? s.file : '');
+        const filePurpose = fileObj.purpose || s.purpose || '';
+        const fileDesc = fileObj.desc || s.desc || s.contains || s.lead || filePurpose;
         html += `<div class="slide-lead"><code class="t-path" style="font-size:28px; font-weight:700;">${escapeHTML(filePath)}</code>${fileDesc ? ` — ${renderRichText(fileDesc)}` : ''}</div>`;
         
-        // Directivas de configuración si existen
-        if (s.directives && s.directives.length > 0) {
-          html += `<div class="directives-grid">`;
-          s.directives.forEach(d => {
+        // Muestra de sintaxis, contenido de archivo o configuración
+        const fileContent = fileObj.content || s.content || s.sample?.content || (typeof s.sample === 'string' ? s.sample : '') || (typeof s.syntax === 'string' ? s.syntax : '');
+        if (fileContent || s.sample || s.syntax) {
+          let lines = [];
+          if (Array.isArray(fileContent)) lines = fileContent;
+          else if (typeof fileContent === 'string' && fileContent.trim()) lines = fileContent.split('\n');
+          else if (s.sample && s.sample.lines) lines = s.sample.lines;
+          else if (Array.isArray(s.syntax)) lines = s.syntax;
+
+          if (lines.length > 0) {
             html += `
-              <div class="directive-card">
-                <div class="directive-key">${escapeHTML(d.key || '')}</div>
-                <div class="directive-desc">${renderRichText(d.desc || d.detail || '')}</div>
+              <div class="term-wrapper" style="margin-top:12px; margin-bottom:16px;">
+                <div class="term-header">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
+                    <span>${escapeHTML(filePath || 'configuración')}</span>
+                  </div>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(Array.isArray(lines) ? lines.join('\n') : fileContent)}')">
+                    <svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar archivo
+                  </button>
+                </div>
+                <div class="term-code">`;
+            lines.forEach(line => {
+              const lStr = String(line);
+              if (lStr.trim().startsWith('#')) {
+                html += `<div><span class="t-cmt">${escapeHTML(lStr)}</span></div>`;
+              } else {
+                html += `<div>${escapeHTML(lStr)}</div>`;
+              }
+            });
+            html += `</div></div>`;
+          }
+        }
+
+        // Directivas o Viñetas explicativas (points)
+        const pointsList = s.points || s.directives || [];
+        if (pointsList.length > 0) {
+          html += `<div class="concept-grid">`;
+          pointsList.forEach(p => {
+            const pKey = p.text || p.key || p.title || '';
+            const pDesc = p.detail || p.desc || '';
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'file-text'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(pKey)}</div>
+                  ${pDesc ? `<div class="card-detail">${renderRichText(pDesc)}</div>` : ''}
+                </div>
               </div>
             `;
           });
           html += `</div>`;
         }
 
-        // Muestra de sintaxis o archivo
-        if (s.sample || s.syntax) {
-          let lines = [];
-          if (s.sample && s.sample.lines) lines = s.sample.lines;
-          else if (typeof s.syntax === 'string') lines = s.syntax.split('\n');
-          else if (Array.isArray(s.syntax)) lines = s.syntax;
-          else if (typeof s.sample === 'string') lines = s.sample.split('\n');
-
-          html += `
-            <div class="term-wrapper" style="margin-top:12px;">
-              <div class="term-header">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
-                  <span>${escapeHTML(filePath || 'config')}</span>
-                </div>
-              </div>
-              <div class="term-code">`;
-          lines.forEach(line => {
-            html += `<div>${escapeHTML(line)}</div>`;
-          });
-          html += `</div></div>`;
-        }
-
         // Consola o terminal complementario en slide file
         const fileTerm = s.terminal || s.console;
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
+        }
+
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
+        if (s.remember || s.look) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.look)}</span>
+            </div>
+          `;
         }
 
         if (s.writtenBy || s.readBy) {
@@ -1301,6 +1436,52 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'matrix') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.takeaway || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const headers = s.headers || s.cols || s.columns || s.matrix?.headers || [];
+        const rows = s.rows || s.matrix?.rows || [];
+        html += `<div class="matrix-container"><table class="slide-matrix"><thead><tr>`;
+        headers.forEach(h => html += `<th>${renderRichText(h)}</th>`);
+        html += `</tr></thead><tbody>`;
+        rows.forEach((row, ridx) => {
+          const isHl = s.highlight && (s.highlight.row === (ridx + 1) || s.highlight === (ridx + 1));
+          html += `<tr class="${isHl ? 'highlighted' : ''}">`;
+          let cells = [];
+          if (Array.isArray(row)) {
+            cells = row;
+          } else if (typeof row === 'object' && row !== null) {
+            if (row.head !== undefined && Array.isArray(row.cells)) {
+              cells = [row.head, ...row.cells];
+            } else if (Array.isArray(row.cells)) {
+              cells = row.cells;
+            } else {
+              cells = Object.values(row);
+            }
+          }
+          cells.forEach((cell, cidx) => {
+            html += `<td>${renderRichText(cell)}</td>`;
+          });
+          html += `</tr>`;
+        });
+        html += `</tbody></table></div>`;
+        if (s.remember || s.takeaway) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.takeaway)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
@@ -1338,7 +1519,12 @@
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         
         // Badge del manual oficial
-        const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        let pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
+        if (!pdfRef && scenarioText) {
+          const m = scenarioText.match(/P[áa]gina\s+oficial\s+(\d+(?:[–-]\d+)?)/i);
+          if (m) pdfRef = m[1];
+        }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
@@ -1348,7 +1534,6 @@
         `;
 
         // Planteamiento del problema (Escenario claro)
-        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
             <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
@@ -1367,7 +1552,7 @@
           `;
           if (steps.length > 0) {
             steps.forEach((st, idx) => {
-              const doText = st.do || st.task || st.step || '';
+              const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
                   <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
@@ -1401,12 +1586,16 @@
         if (steps.length > 0) {
           html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
-            const doText = st.do || st.task || st.step || '';
-            const lookText = st.look || st.cmd || st.code || '';
+            const doText = st.action || st.do || st.task || st.step || '';
+            const lookText = st.command || st.look || st.cmd || st.code || '';
+            const reasonText = st.reason || st.explain || '';
             html += `
-              <div style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
-                <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
-                ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+              <div style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
+                  <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
+                  ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+                </div>
+                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -1485,14 +1674,21 @@
         const options = s.options || [];
         options.forEach((opt, oidx) => {
           html += `
-            <button class="quiz-btn" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
+            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
               <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(opt)}</span>
             </button>
           `;
         });
         html += `</div>`;
-        html += `<div class="quiz-feedback" id="quiz-feedback-box"></div>`;
+        html += `
+          <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+              <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
+            </button>
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+        `;
       } else if (s.type === 'flashcards') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
@@ -1513,7 +1709,7 @@
             </div>
           </div>
           <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
-            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>Anterior</button>
+            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>Anterior</button>
             <span id="fc-counter" style="font-size:22px; font-weight:700; align-self:center;">1 / ${deck.length}</span>
             <button class="nav-btn" onclick="nextCard()">Siguiente<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
           </div>
@@ -1523,13 +1719,26 @@
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
         html += `<div class="concept-grid">`;
-        const items = s.items || s.points || s.cards || [];
-        items.forEach(item => {
-          const cardTitle = item.title || item.heading || item.key || (typeof item === 'string' ? item : item.text) || '';
-          const cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '') || '';
+        const items = s.takeaways || s.items || s.points || s.cards || [];
+        items.forEach((item, idx) => {
+          let cardTitle = '';
+          let cardDesc = '';
+          if (typeof item === 'string') {
+            const parts = item.split(': ');
+            if (parts.length > 1) {
+              cardTitle = parts[0];
+              cardDesc = parts.slice(1).join(': ');
+            } else {
+              cardTitle = `Punto Clave ${idx + 1}`;
+              cardDesc = item;
+            }
+          } else {
+            cardTitle = item.title || item.heading || item.key || item.text || `Clave ${idx + 1}`;
+            cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '');
+          }
           html += `
             <div class="concept-card">
-              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${item.icon || 'circle-check'}"/></svg></div>
+              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${(typeof item === 'object' && item.icon) ? item.icon : 'circle-check'}"/></svg></div>
               <div style="flex:1;">
                 <div class="card-text">${renderRichText(cardTitle)}</div>
                 ${cardDesc ? `<div class="card-detail">${renderRichText(cardDesc)}</div>` : ''}
@@ -1538,11 +1747,84 @@
           `;
         });
         html += `</div>`;
+
+        // Top 3 Comandos Clave (Soporta strings y objetos {cmd, desc})
         const top3 = s.top3 || s.commands || [];
         if (top3.length > 0) {
           html += `
-            <div style="margin-top:20px; padding:16px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:12px; font-size:22px;">
-              <strong style="color:var(--primary-ink);">Los comandos clave que no puedes olvidar:</strong> <span style="font-family:monospace; font-weight:700;">${renderRichText(top3.join(' · '))}</span>
+            <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
+              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
+              </div>
+              <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
+          `;
+          top3.forEach(t => {
+            if (typeof t === 'string') {
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
+                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                </div>
+              `;
+            } else {
+              const cmd = t.cmd || t.command || '';
+              const desc = t.desc || t.detail || '';
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 16px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  </div>
+                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                </div>
+              `;
+            }
+          });
+          html += `</div></div>`;
+        }
+
+        // Mapeo a práctica de laboratorio
+        if (s.practice) {
+          const pName = s.practice.name || 'Laboratorio Práctico Recomendado';
+          const pUrl = s.practice.url || '#';
+          const pDesc = s.practice.desc || 'Pon a prueba tus conocimientos en la máquina virtual.';
+          html += `
+            <div style="margin-top:14px; padding:16px 22px; background:#F0FDF4; border:2px solid #86EFAC; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#DCFCE7; color:#166534; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-wrench"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#166534;">${escapeHTML(pName)}</div>
+                  <div style="font-size:16px; color:#374151;">${renderRichText(pDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Web →
+              </a>
+            </div>
+          `;
+        }
+
+        // Mapeo a práctica global de fin de tema completo
+        if (s.global_practice) {
+          const gpName = s.global_practice.name || 'Práctica Global Integradora de Todo el Tema';
+          const gpUrl = s.global_practice.url || '#';
+          const gpDesc = s.global_practice.desc || 'Laboratorio final integrador con todos los comandos evaluados en este tema.';
+          html += `
+            <div style="margin-top:12px; padding:16px 22px; background:#FFFBEB; border:2px solid #F59E0B; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#FEF3C7; color:#92400E; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-shield"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#92400E;">🏆 ${escapeHTML(gpName)}</div>
+                  <div style="font-size:16px; color:#78350F;">${renderRichText(gpDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Global →
+              </a>
             </div>
           `;
         }
@@ -1761,23 +2043,53 @@
     }
     document.addEventListener('click', closePopovers);
 
+    function revealReviewAnswer(btn, correctIdx, why) {
+      const stageEl = document.getElementById('slide-content');
+      const buttons = stageEl.querySelectorAll('.quiz-btn');
+      buttons.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correctIdx) {
+          b.classList.add('correct');
+        }
+      });
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.style.display = 'block';
+      fb.style.background = 'var(--success-soft)';
+      fb.style.color = 'var(--success-ink)';
+      fb.style.border = '2px solid #86EFAC';
+      const letter = String.fromCharCode(65 + correctIdx);
+      fb.innerHTML = `<strong>✔ Respuesta oficial: Opción ${letter}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
+      if (btn) btn.style.display = 'none';
+    }
+
     function checkReviewAnswer(btn, chosen, correct, why) {
       const parent = btn.parentElement;
-      parent.querySelectorAll('.quiz-btn').forEach(b => b.disabled = true);
+      parent.querySelectorAll('.quiz-btn').forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correct) {
+          b.classList.add('correct');
+        }
+      });
       const isCorrect = chosen === correct;
-      btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+      if (!isCorrect) {
+        btn.classList.add('incorrect');
+      }
 
       const fb = document.getElementById('quiz-feedback-box');
       fb.style.display = 'block';
       if (isCorrect) {
         fb.style.background = 'var(--success-soft)';
         fb.style.color = 'var(--success-ink)';
-        fb.innerHTML = `<strong>✔ ¡Correcto!</strong> ${why}`;
+        fb.style.border = '2px solid #86EFAC';
+        fb.innerHTML = `<strong>✔ ¡Correcto! Opción ${String.fromCharCode(65 + chosen)}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       } else {
         fb.style.background = 'var(--danger-soft)';
         fb.style.color = 'var(--danger-ink)';
-        fb.innerHTML = `<strong>✖ Incorrecto.</strong> ${why}`;
+        fb.style.border = '2px solid #FCA5A5';
+        fb.innerHTML = `<strong>✖ Incorrecto.</strong> La opción correcta es la <strong>${String.fromCharCode(65 + correct)}</strong>.<br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       }
+      const revealBtn = document.querySelector('.btn-resolve-quiz');
+      if (revealBtn) revealBtn.style.display = 'none';
     }
 
     // Flashcard engine

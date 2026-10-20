@@ -454,6 +454,44 @@
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: #FEF3C7; }
 
+    /* Matrices comparativas y mapas de equivalencias */
+    .matrix-container {
+      width: 100%;
+      margin: 14px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      overflow-x: auto;
+      background: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+    table.slide-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(16px, 1.15vw, 20px);
+      text-align: left;
+    }
+    table.slide-matrix th {
+      background: var(--surface-alt);
+      color: var(--text);
+      padding: 12px 18px;
+      border-bottom: 2px solid var(--border-strong);
+      font-weight: 700;
+      font-size: clamp(17px, 1.2vw, 21px);
+      letter-spacing: -0.01em;
+    }
+    table.slide-matrix td {
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    table.slide-matrix tr:last-child td { border-bottom: none; }
+    table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
+    table.slide-matrix tr:hover td { background: #F1F5F9; }
+    table.slide-matrix tr.highlighted td { background: #FEF3C7; }
+    table.slide-matrix td:first-child { font-weight: 700; color: #1E293B; }
+
     /* Ejercicios y Repasos */
     .quiz-options { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
     .quiz-btn {
@@ -773,6 +811,67 @@
 <symbol id="i-bug-off" viewBox="0 0 24 24"><path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2" /> <path d="M14.12 3.88 16 2" /> <path d="M22 13h-4v-2a4 4 0 0 0-4-4h-1.3" /> <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /> <path d="m2 2 20 20" /> <path d="M7.7 7.7A4 4 0 0 0 6 11v3a6 6 0 0 0 11.13 3.13" /> <path d="M12 20v-8" /> <path d="M6 13H2" /> <path d="M3 21c0-2.1 1.7-3.9 3.8-4" /></symbol>
 <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m4.9 4.9 14.2 14.2" /></symbol>
 <symbol id="i-octagon-alert" viewBox="0 0 24 24"><path d="M12 16h.01" /> <path d="M12 8v4" /> <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" /></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></symbol>
+<symbol id="i-folder-tree" viewBox="0 0 24 24"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M3 5v14a2 2 0 0 0 2 2h3" /><path d="M3 10h4" /></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14" /><line x1="4" x2="4" y1="10" y2="3" /><line x1="12" x2="12" y1="21" y2="12" /><line x1="12" x2="12" y1="8" y2="3" /><line x1="20" x2="20" y1="21" y2="16" /><line x1="20" x2="20" y1="12" y2="3" /><line x1="1" x2="7" y1="14" y2="14" /><line x1="9" x2="15" y1="8" y2="8" /><line x1="17" x2="23" y1="16" y2="16" /></symbol>
+<symbol id="i-slash" viewBox="0 0 24 24"><path d="M22 2 2 22" /></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></symbol>
+<symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="4" /></symbol>
+<symbol id="i-keyboard" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" ry="2" /><path d="M6 8h.001M10 8h.001M14 8h.001M18 8h.001M8 12h.001M12 12h.001M16 12h.001M7 16h10" /></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" /></symbol>
+<symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line x1="20" x2="8.12" y1="4" y2="15.88" /><line x1="14.47" x2="20" y1="14.48" y2="20" /><line x1="8.12" x2="12" y1="8.12" y2="12" /></symbol>
+<symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5v14" /></symbol>
+<symbol id="i-plus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></symbol>
+<symbol id="i-minus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /></symbol>
+<symbol id="i-check-square" viewBox="0 0 24 24"><path d="m9 11 3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></symbol>
+<symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></symbol>
+<symbol id="i-folder-check" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9 13 2 2 4-4" /></symbol>
+<symbol id="i-folder-plus" viewBox="0 0 24 24"><path d="M12 10v6" /><path d="M9 13h6" /><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol>
+<symbol id="i-folder-search" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><circle cx="11" cy="13" r="3" /><path d="m13.2 15.2 2.8 2.8" /></symbol>
+<symbol id="i-folder-x" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9.5 10.5 5 5" /><path d="m14.5 10.5-5 5" /></symbol>
+<symbol id="i-message-square" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></symbol>
+<symbol id="i-link-2" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2" /><path d="M15 7h2a5 5 0 1 1 0 10h-2" /><line x1="8" x2="16" y1="12" y2="12" /></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></symbol>
+<symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-archive" viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1" /><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></symbol>
+<symbol id="i-file-check" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></symbol>
+<symbol id="i-corner-down-right" viewBox="0 0 24 24"><polyline points="15 10 20 15 15 20" /><path d="M4 4v7a4 4 0 0 0 4 4h12" /></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" /><line x1="9" x2="9" y1="3" y2="18" /><line x1="15" x2="15" y1="6" y2="21" /></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+<symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /><path d="m18 2 4 4-4 4" /><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /><path d="m18 14 4 4-4 4" /></symbol>
+<symbol id="i-log-in" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" /></symbol>
+<symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></symbol>
+
+<!-- Aliases directos para nombres alternativos comunes -->
+<symbol id="i-alert-triangle" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-alert-circle" viewBox="0 0 24 24"><use href="#i-circle-alert" /></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><use href="#i-circle-check" /></symbol>
+<symbol id="i-help-circle" viewBox="0 0 24 24"><use href="#i-circle-help" /></symbol>
+<symbol id="i-broken-link" viewBox="0 0 24 24"><use href="#i-link" /></symbol>
+<symbol id="i-shield-alert" viewBox="0 0 24 24"><use href="#i-shield" /></symbol>
+<symbol id="i-edit-3" viewBox="0 0 24 24"><use href="#i-wrench" /></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" /><line x1="6" x2="6" y1="2" y2="4" /><line x1="10" x2="10" y1="2" y2="4" /><line x1="14" x2="14" y1="2" y2="4" /></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" /></symbol>
+<symbol id="i-skull" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1" /><circle cx="15" cy="12" r="1" /><path d="M8 20v2h8v-2" /><path d="m12.5 17-.5-1-.5 1h1z" /><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20" /></symbol>
+<symbol id="i-alert-octagon" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-asterisk" viewBox="0 0 24 24"><use href="#i-hash" /></symbol>
+<symbol id="i-brackets" viewBox="0 0 24 24"><use href="#i-square-terminal" /></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-dot" viewBox="0 0 24 24"><use href="#i-circle" /></symbol>
+<symbol id="i-download-cloud" viewBox="0 0 24 24"><use href="#i-download" /></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-fast-forward" viewBox="0 0 24 24"><use href="#i-play" /></symbol>
+<symbol id="i-git-commit" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-git-merge" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><use href="#i-power" /></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
+<symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
 </svg>
 
 
@@ -786,7 +885,7 @@
   <header id="top-nav">
     <div class="nav-links">
       <a href="../index.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-menu"/></svg>Índice</a>
-      <a href="../t102/102-6-linux-como-sistema-virtu.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>102.6</a>
+      <a href="../t102/102-6-linux-como-sistema-virtu.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>102.6</a>
       <a href="103-2-procesar-secuencias-de-t.html" class="nav-btn">103.2<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></a>
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
@@ -819,7 +918,7 @@
 
         <div class="stage-footer">
           <div style="display:flex; align-items:center; gap:14px;">
-            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg></button>
+            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg></button>
             <span id="slide-counter" style="font-weight:700;">1 / 1</span>
             <button class="nav-btn" onclick="nextStep()" title="Siguiente (→ / Espacio)" aria-label="Siguiente slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
             <div class="progress-bar-container">
@@ -904,10 +1003,10 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "103.1", "cat": "files", "type": "cover", "title": "Trabajar desde la línea de comandos en Linux", "subtitle": "Shell Bash, comandos esenciales, ayuda, historial y variables de entorno", "ref": "1-3", "pdf": {"manual": "A", "pages": [1, 2, 3], "figure": null}, "coverage": ["103.1-OBJ-001", "103.1-OBJ-002", "103.1-OBJ-003", "103.1-OBJ-004"], "meta": {"peso": 4, "paginas": "1–24", "duracion": "90 min"}, "icon": "terminal", "notes": "Iniciamos el Tema 103 (Comandos GNU y Unix) con el subtema 103.1, con peso 4 en el examen LPIC-101. Aborda la CLI, comandos de ayuda, historial, variables de entorno y entrecomillado."}, {"id": 2, "section": "103.1", "cat": "files", "type": "concept", "title": "Interfaz de línea de comandos frente a GUI", "lead": "El shell proporciona control total, rapidez y capacidad de automatización:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["103.1-CON-001"], "points": [{"icon": "terminal", "text": "La interfaz de texto o CLI prescinde de botones gráficos contextuales", "detail": "Los administradores interactúan directamente con el intérprete de órdenes mediante comandos y opciones."}, {"icon": "zap", "text": "Permite administrar servidores remotos con mínimo consumo de recursos del sistema", "detail": "No se requiere entorno de ventanas X11 ni consumo innecesario de memoria en servidores."}, {"icon": "layers", "text": "El shell Bash interpreta entradas de texto y ejecuta procesos del kernel", "detail": "Proporciona tuberías, redirecciones y secuencias de una línea para tareas de administración."}], "notes": "La transición desde una GUI hacia la línea de comandos requiere dominar herramientas clave para inspección y navegación."}, {"id": 3, "section": "103.1", "cat": "files", "type": "concept", "title": "Anatomía del prompt: usuario regular frente a root", "lead": "El símbolo terminal distingue los privilegios operativos dentro de la sesión:", "ref": "4-5", "pdf": {"manual": "A", "pages": [4, 5], "figure": null}, "coverage": ["103.1-CON-002", "103.1-CMD-004"], "points": [{"icon": "terminal", "text": "El símbolo de dólar indica sesión iniciada como usuario estándar sin privilegios", "detail": "El prompt habitual adopta el formato usuario@host:directorio$ protegiendo archivos críticos."}, {"icon": "shield", "text": "El símbolo de almohadilla identifica al superusuario administrativo root del sistema", "detail": "Cualquier orden ejecutada bajo # posee permisos totales sobre el kernel y archivos."}, {"icon": "key", "text": "El comando su permite cambiar de identidad y conmutar a root", "detail": "Al invocar su sin argumentos se solicita la contraseña del administrador para abrir una shell de root."}], "notes": "Es vital observar siempre el símbolo terminal antes de emitir órdenes destructivas sobre el sistema."}, {"id": 4, "section": "103.1", "cat": "files", "type": "command", "title": "Ubicación actual y creación básica de ficheros", "command": "pwd", "lead": "Comandos esenciales para ubicar la posición en disco y generar archivos:", "ref": "4-5", "pdf": {"manual": "A", "pages": [4, 5], "figure": null}, "coverage": ["103.1-CMD-001", "103.1-CMD-002", "103.1-FILE-001"], "syntax": "pwd [OPCIÓN] | touch [OPCIÓN] FICHERO...", "options": [{"opt": "pwd", "desc": "Print working directory: muestra la ruta absoluta del directorio de trabajo actual.", "extra": false}, {"opt": "touch newfile", "desc": "Crea un fichero vacío o actualiza marcas de tiempo de acceso y modificación.", "extra": false}], "console": {"command": "pwd && touch newfile", "output": ["/home/frank", ""], "comment": "pwd confirma que el usuario frank se encuentra en /home/frank al crear newfile."}, "notes": "pwd responde a la pregunta inmediata del administrador: ¿en qué directorio estoy trabajando ahora mismo?"}, {"id": 5, "section": "103.1", "cat": "files", "type": "command", "title": "Inspección de ficheros y directorios con ls", "command": "ls", "lead": "Lista los elementos contenidos dentro del directorio activo o una ruta dada:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["103.1-CMD-003"], "syntax": "ls [OPCIÓN]... [FICHERO]...", "options": [{"opt": "ls", "desc": "Lista nombres de ficheros y subdirectorios visibles ordenados alfabéticamente.", "extra": false}], "console": {"command": "ls", "output": ["newfile"], "comment": "El fichero vacío newfile generado con touch aparece reflejado en el directorio actual."}, "notes": "ls es uno de los comandos más invocados en entornos Unix y base fundamental para explorar el almacenamiento."}, {"id": 6, "section": "103.1", "cat": "files", "type": "command", "title": "Identificación del sistema y kernel con uname", "command": "uname", "lead": "Obtiene metadatos del núcleo, arquitectura de máquina y sistema operativo:", "ref": "5-7", "pdf": {"manual": "A", "pages": [5, 6, 7], "figure": null}, "coverage": ["103.1-CMD-005", "103.1-OPT-001", "103.1-OPT-002"], "syntax": "uname [OPCIÓN]...", "options": [{"opt": "-s, --kernel-name", "desc": "Imprime el nombre del kernel (comportamiento por defecto al no pasar opciones).", "extra": false}, {"opt": "-a, --all", "desc": "Imprime toda la información disponible del kernel, red, versión y arquitectura.", "extra": false}], "console": {"command": "uname -a", "output": ["Linux frank-VirtualBox 4.15.0-38-generic #41-Ubuntu SMP Wed Oct 10 10:59:38 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux"], "comment": "Salida completa de uname -a mostrando kernel, host, compilación y arquitectura de 64 bits."}, "notes": "Sin parámetros, uname devuelve únicamente 'Linux', que corresponde a la opción por defecto -s."}, {"id": 7, "section": "103.1", "cat": "files", "type": "table", "title": "Opciones completas de uname para hardware y kernel", "lead": "Parámetros documentados en la página de manual oficial para filtrar datos concretos:", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["103.1-OPT-003", "103.1-OPT-004", "103.1-OPT-005", "103.1-OPT-006", "103.1-OPT-007", "103.1-OPT-008", "103.1-OPT-009", "103.1-OPT-010", "103.1-OPT-011", "103.1-CMD-029"], "table": {"headers": ["Opción corta", "Opción larga", "Descripción del dato retornado", "Comando afín"], "rows": [["-n", "--nodename", "Nombre de nodo hostname de la interfaz de red", "-"], ["-r", "--kernel-release", "Versión de lanzamiento (release) del núcleo Linux", "-"], ["-v", "--kernel-version", "Versión de compilación y fecha del kernel", "-"], ["-m", "--machine", "Nombre de hardware de la máquina (x86_64, i686)", "arch"], ["-p", "--processor", "Tipo de procesador o 'unknown' si no es portable", "-"], ["-i", "--hardware-platform", "Plataforma de hardware o 'unknown'", "-"], ["-o", "--operating-system", "Nombre del sistema operativo (ej. GNU/Linux)", "-"], ["--help", "--help", "Muestra mensaje de ayuda de uso y finaliza", "-"], ["--version", "--version", "Muestra información de versión de coreutils y sale", "-"]]}, "notes": "La sección SEE ALSO del manual cita además arch(1), utilidad tradicional equivalente a uname -m."}, {"id": 8, "section": "103.1", "cat": "files", "type": "command", "title": "Sistema de manuales oficial de Linux: man", "command": "man", "lead": "Muestra la documentación formal integrada en el sistema para cualquier comando:", "ref": "5-7", "pdf": {"manual": "A", "pages": [5, 6, 7], "figure": null}, "coverage": ["103.1-CMD-006"], "syntax": "man [SECCIÓN] COMANDO", "points": [{"icon": "book-open", "text": "Presenta secciones estandarizadas como NAME, SYNOPSIS y DESCRIPTION detallada", "detail": "NAME contiene el nombre y resumen breve; SYNOPSIS especifica la sintaxis de invocación."}, {"icon": "list", "text": "Incluye secciones de OPTIONS, AUTHOR, REPORTING BUGS y COPYRIGHT", "detail": "Permite conocer licencias de software libre (GPLv3) y vías para reportar errores."}, {"icon": "search", "text": "Requiere conocer el nombre exacto de la orden para consultar el manual", "detail": "Se navega mediante el paginador less con teclas de desplazamiento y búsqueda con barra /."}], "notes": "man es la primera fuente de consulta recomendada en el examen LPIC-1 ante dudas sobre opciones."}, {"id": 9, "section": "103.1", "cat": "files", "type": "command", "title": "Búsqueda por palabra clave en manuales: apropos", "command": "apropos", "lead": "Busca cadenas de texto en los títulos y resúmenes de las páginas de manual:", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["103.1-CMD-007", "103.1-OPT-012"], "syntax": "apropos [OPCIÓN] PALABRA_CLAVE...", "options": [{"opt": "--usage", "desc": "Emite un mensaje muy breve con la sintaxis de uso de apropos y finaliza inmediatamente.", "extra": false}], "console": {"command": "apropos kernel", "output": ["systemd-udevd-kernel.socket (8) - Device event managing daemon", "uname (2)            - get name and information about current kernel", "urandom (4)          - kernel random number source devices"], "comment": "Localiza comandos vinculados con 'kernel' cuando el administrador no recuerda 'uname'."}, "notes": "apropos consulta la base de datos de whatis. Es imprescindible para descubrir herramientas desconocidas."}, {"id": 10, "section": "103.1", "cat": "files", "type": "command", "title": "Clasificación de comandos con type: binarios y builtins", "command": "type", "lead": "Determina cómo interpretará la shell un comando concreto antes de su ejecución:", "ref": "7-8", "pdf": {"manual": "A", "pages": [7, 8], "figure": null}, "coverage": ["103.1-CMD-008", "103.1-CON-004", "103.1-CMD-025", "103.1-CMD-026", "103.1-FILE-003"], "syntax": "type [OPCIÓN] NOMBRE...", "console": {"command": "type uname cp kill which", "output": ["uname is hashed (/bin/uname)", "cp is /bin/cp", "kill is a shell builtin", "which is /usr/bin/which"], "comment": "Distingue ficheros ejecutables externos (/bin/cp), comandos integrados (kill builtin) y órdenes en caché hash."}, "notes": "Los builtins residen en la memoria de Bash; los binarios externos existen en el sistema de archivos."}, {"id": 11, "section": "103.1", "cat": "files", "type": "concept", "title": "Optimización y tabla hash interna de comandos", "lead": "Bash acelera la invocación recordando las rutas de ejecutables ya encontrados:", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["103.1-CON-003", "103.1-CMD-010", "103.1-OPT-013", "103.1-FILE-002"], "points": [{"icon": "zap", "text": "Al ejecutar /bin/uname, Bash guarda su ruta en una tabla hash", "detail": "Evita recorrer repetidamente todos los directorios definidos en $PATH en invocaciones futuras."}, {"icon": "terminal", "text": "El comando type refleja dicho estado indicando que el comando está 'hashed'", "detail": "Un reinicio del sistema o un nuevo shell inicializa la tabla hash vacía de nuevo."}, {"icon": "settings", "text": "El comando interno hash -d olvida y purga entradas de caché", "detail": "Útil cuando se traslada un binario a otra ruta y el shell intenta ejecutar la ubicación anterior."}], "notes": "hash -r borra toda la tabla hash por completo; hash -d nombre elimina la entrada específica indicada."}, {"id": 12, "section": "103.1", "cat": "files", "type": "command", "title": "Localización de ejecutables en PATH con which", "command": "which", "lead": "Devuelve exclusivamente la ruta absoluta de ejecutables ubicados en la variable PATH:", "ref": "7-8", "pdf": {"manual": "A", "pages": [7, 8], "figure": null}, "coverage": ["103.1-CMD-009", "103.1-FILE-004"], "syntax": "which [OPCIÓN] NOMBRE...", "console": {"command": "which uname which", "output": ["/bin/uname", "/usr/bin/which"], "comment": "which ubica los archivos binarios /bin/uname y /usr/bin/which sin imprimir metadatos adicionales."}, "notes": "which es ideal para scripts de automatización porque devuelve directamente la ruta sin texto adicional."}, {"id": 13, "section": "103.1", "cat": "files", "type": "command", "title": "Documentación de comandos internos con help", "command": "help", "lead": "Proporciona ayuda rápida y sintaxis para comandos integrados (builtins) de Bash:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["103.1-CMD-011"], "syntax": "help [-dms] [PATRÓN]", "points": [{"icon": "help-circle", "text": "Comandos internos como cd, kill, history y set no tienen binarios propios externos", "detail": "Consultar man kill suele mostrar la página del binario externo en lugar del builtin propio."}, {"icon": "terminal", "text": "El comando help muestra la lista completa de órdenes integradas en Bash", "detail": "help comando detalla sintaxis de uso, modificadores disponibles y códigos de salida."}, {"icon": "check-circle", "text": "Constituye la referencia oficial directa del estándar GNU Bash en memoria", "detail": "No depende de la instalación o existencia de paquetes manpages adicionales."}], "notes": "Para comandos externos se usa man; para comandos integrados (builtins de shell) se recurre a help."}, {"id": 14, "section": "103.1", "cat": "files", "type": "command", "title": "Consulta y reutilización del historial con history", "command": "history", "lead": "Accede al registro secuencial de comandos emitidos durante las sesiones de trabajo:", "ref": "8-9", "pdf": {"manual": "A", "pages": [8, 9], "figure": null}, "coverage": ["103.1-CMD-012"], "syntax": "history [NÚMERO] | history -c", "points": [{"icon": "clock", "text": "Muestra cada comando acompañado de su número correlativo de secuencia temporal", "detail": "Los comandos ejecutados más recientemente se ubican al final del listado proyectado."}, {"icon": "zap", "text": "Permite reejecutar cualquier comando mediante el signo de admiración y su identificador", "detail": "Escribir !1605 reejecuta la línea exacta número 1605; !! reejecuta la orden inmediatamente anterior."}, {"icon": "search", "text": "Evita tener que reescribir complejos bloques de opciones y argumentos largos", "detail": "Ahorra tiempo de depuración e incrementa drásticamente la productividad administrativa."}], "notes": "El historial dinámico se mantiene en un buffer en memoria RAM durante la sesión activa del usuario."}, {"id": 15, "section": "103.1", "cat": "files", "type": "command", "title": "Búsqueda filtrada en el historial con grep", "command": "grep", "lead": "Combina tuberías para buscar patrones y comandos específicos en el historial:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["103.1-CMD-013", "103.1-CMD-027", "103.1-CMD-028"], "syntax": "history | grep [OPCIÓN] 'PATRÓN'", "console": {"command": "history | grep bash_history", "output": [" 1605 sudo find /home -name \".bash_history\" | xargs grep sudo"], "comment": "Devuelve la línea 1605 que contiene una búsqueda combinada con find y xargs sobre .bash_history."}, "notes": "La combinación de history con grep constituye una de las técnicas de auditoría más frecuentes en consola."}, {"id": 16, "section": "103.1", "cat": "files", "type": "file", "title": "Archivos de configuración ocultos en el perfil", "command": "ls -a", "lead": "Los archivos que inician con un punto almacenan preferencias y entornos de sesión:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["103.1-OPT-014", "103.1-FILE-006", "103.1-FILE-007", "103.1-FILE-008", "103.1-FILE-009"], "syntax": "ls -a [DIRECTORIO]", "console": {"command": "ls -a /home/frank", "output": [".  ..  .bash_history  .bash_logout  .bashrc  .profile  .ssh  newfile"], "comment": "ls -a revela archivos ocultos como ~/.bashrc, ~/.bash_logout, ~/.profile y el directorio ~/.ssh."}, "notes": "Sin el modificador -a (all), los archivos cuyo primer carácter sea un punto se omiten en la lista visual."}, {"id": 17, "section": "103.1", "cat": "files", "type": "file", "title": "Persistencia del historial en el archivo .bash_history", "command": "cat", "lead": "Mecanismo de sincronización entre la memoria viva de Bash y el almacenamiento en disco:", "ref": "8-9", "pdf": {"manual": "A", "pages": [8, 9], "figure": null}, "coverage": ["103.1-FILE-005", "103.1-CON-005", "103.1-WARN-002"], "points": [{"icon": "file-text", "text": "El archivo ~/.bash_history conserva cientos de comandos de sesiones previas finalizadas", "detail": "Permite mantener un registro histórico persistente a través de reinicios del sistema."}, {"icon": "triangle-alert", "text": "Los comandos de la sesión actual no se guardan en disco hasta salir", "detail": "Viven en la base dinámica en RAM; al cerrar sesión con exit se vuelcan a .bash_history."}, {"icon": "shield", "text": "Si el shell finaliza de forma abrupta, los últimos comandos pueden perderse", "detail": "El comando interno history -a permite forzar la escritura inmediata del buffer en disco."}], "notes": "Comprender la diferencia entre el buffer en memoria y el archivo .bash_history es una pregunta clásica del examen."}, {"id": 18, "section": "103.1", "cat": "files", "type": "flow", "title": "Navegación interactiva del historial en la terminal", "lead": "Métodos rápidos para recuperar, modificar y reejecutar comandos sin volver a teclear:", "ref": "9", "pdf": {"manual": "A", "pages": [9], "figure": null}, "coverage": ["103.1-CON-006"], "steps": [{"step": "1", "title": "Flecha Arriba", "desc": "Retrocede en el historial dinámico mostrando comandos ejecutados previamente."}, {"step": "2", "title": "Flecha Abajo", "desc": "Avanza hacia comandos más recientes hasta recuperar la línea vacía actual."}, {"step": "3", "title": "Edición en línea", "desc": "Permite corregir argumentos o modificar rutas con las teclas de flecha lateral."}, {"step": "4", "title": "Ejecución (Enter)", "desc": "Envía la orden seleccionada o modificada al shell para su ejecución inmediata."}], "notes": "Combinado con Ctrl+R (búsqueda inversa incremental), la navegación por flechas maximiza la fluidez en consola."}, {"id": 19, "section": "103.1", "cat": "files", "type": "exercise", "title": "Ejercicio Guiado 1: Localización del parámetro --usage", "lead": "Determinación de opciones de salida breve mediante el sistema de manuales:", "ref": "10, 13", "pdf": {"manual": "A", "pages": [10, 13], "figure": null}, "coverage": ["103.1-EX-001"], "task": "Utilice el sistema man para determinar cómo indicarle a apropos que envíe solo un mensaje corto de uso y luego salga.", "steps": ["Ejecute man apropos para acceder a la documentación oficial del comando.", "Desplácese hacia abajo por la sección 'OPTIONS' o pulse /--usage para localizar el término.", "Identifique la opción: el manual documenta formalmente el parámetro --usage.", "Pruebe en consola: ejecute apropos --usage para verificar la emisión de la sintaxis abreviada."], "solution": "Comando: man apropos -> localizar sección OPTIONS -> parámetro: apropos --usage.", "notes": "La opción --usage es común a utilidades de coreutils y man-db para mostrar resúmenes de invocación rápida."}, {"id": 20, "section": "103.1", "cat": "files", "type": "exercise", "title": "Ejercicio Guiado 2: Licencia de grep", "lead": "Auditoría de propiedad intelectual y licencias de software en páginas man:", "ref": "10, 13", "pdf": {"manual": "A", "pages": [10, 13], "figure": null}, "coverage": ["103.1-EX-002"], "task": "Utilice el sistema man para determinar qué licencia de copyright se asigna al comando grep.", "steps": ["Ejecute man grep en la terminal interactiva de Linux.", "Desplácese hacia el final del documento hasta la sección titulada 'COPYRIGHT'.", "Examine los metadatos legales: observará los derechos asignados a la Free Software Foundation.", "Compruebe la licencia específica: se distribuye bajo términos de la licencia GNU GPLv3+."], "solution": "Comando: man grep -> sección COPYRIGHT -> Free Software Foundation, Licencia GPLv3+.", "notes": "Casi todas las páginas de manual GNU incluyen autoría, sección de reporte de fallos y términos de licencia."}, {"id": 21, "section": "103.1", "cat": "files", "type": "exercise", "title": "Ejercicio Exploratorio 1: Release y arquitectura con uname", "lead": "Extracción selectiva de atributos del núcleo sin el exceso de texto de -a:", "ref": "11, 14", "pdf": {"manual": "A", "pages": [11, 14], "figure": null}, "coverage": ["103.1-EX-003"], "task": "Identifique la arquitectura de hardware y la versión del kernel de Linux en su computadora en un formato limpio.", "steps": ["Consulte man uname e identifique las opciones individuales para versión y arquitectura.", "Compruebe que -r imprime el kernel release (versión de lanzamiento, ej. 4.15.0-38-generic).", "Compruebe que -i imprime la plataforma de hardware (o -m para el nombre de máquina).", "Ejecute uname -r y uname -m en la terminal para obtener salidas claras e independientes."], "solution": "$ uname -r (versión del kernel)\n$ uname -i o uname -m (plataforma de hardware x86_64).", "notes": "En scripts, invocar parámetros específicos como uname -r es preferible a parsear la salida completa de -a."}, {"id": 22, "section": "103.1", "cat": "files", "type": "exercise", "title": "Ejercicio Exploratorio 2: Comparativa de historial y tail", "lead": "Verificación de la discrepancia temporal entre buffer dinámico y archivo en disco:", "ref": "11, 14", "pdf": {"manual": "A", "pages": [11, 14], "figure": null}, "coverage": ["103.1-EX-004", "103.1-CMD-030", "103.1-OPT-015"], "task": "Imprima las últimas veinte líneas de la base de datos history y del archivo ~/.bash_history para compararlos.", "steps": ["Ejecute history | tail -n 20 para ver los últimos veinte comandos del buffer en memoria viva.", "Ejecute tail -n 20 ~/.bash_history para inspeccionar las últimas veinte líneas grabadas en disco.", "Compare ambas salidas: notará que los comandos emitidos en la sesión abierta faltan en .bash_history.", "Cierre la sesión o ejecute history -a y compruebe cómo se sincroniza el fichero de disco."], "solution": "$ history | tail -n 20\n$ tail -n 20 ~/.bash_history (muestra diferencias hasta finalizar la sesión).", "notes": "tail -n permite limitar la cantidad exacta de líneas proyectadas desde el final de un flujo o archivo."}, {"id": 23, "section": "103.1", "cat": "files", "type": "exercise", "title": "Ejercicio Exploratorio 3: Dispositivos de bloque y bytes", "lead": "Descubrimiento de herramientas mediante búsqueda temática en descripciones:", "ref": "11, 14", "pdf": {"manual": "A", "pages": [11, 14], "figure": null}, "coverage": ["103.1-EX-005", "103.1-CMD-031", "103.1-OPT-016"], "task": "Use apropos para identificar la herramienta que muestra el tamaño de dispositivos de bloque en bytes.", "steps": ["Ejecute apropos 'block devices' o apropos 'block device' para identificar utilidades vinculadas.", "Localice en la lista de resultados el comando lsblk (list block devices).", "Consulte man lsblk e investigue en la sección OPTIONS la bandera para salida en bytes exactos.", "Compruebe la opción -b (--bytes) y ejecute lsblk -b para comprobar el tamaño numérico exacto."], "solution": "$ apropos 'block device' -> lsblk\n$ man lsblk -> opción -b (--bytes) -> $ lsblk -b.", "notes": "lsblk -b es fundamental cuando se necesitan cálculos exactos de particionado sin factores de redondeo humano."}, {"id": 24, "section": "103.1", "cat": "files", "type": "flashcards", "title": "Tarjetas nemotécnicas de examen (103.1)", "ref": "1-24", "pdf": {"manual": "B", "pages": [1, 24], "figure": null}, "coverage": ["103.1-MEM-001"], "deck": [{"front": "¿Cómo hacer que una variable de shell esté disponible para procesos hijos?", "back": "Usando el comando export:\nexport MI_VAR=\"valor\"\nSin export, la variable es local y solo visible en la shell actual."}, {"front": "Diferencia entre env, printenv y set", "back": "env y printenv : Muestran únicamente las variables de entorno exportadas.\nset : Muestra todas las variables (locales y de entorno) y funciones definidas en la shell."}, {"front": "Variables de control del historial de comandos Bash", "back": "HISTSIZE : Número máximo de comandos almacenados en la memoria de la sesión activa.\nHISTFILESIZE : Número máximo de comandos guardados en el archivo ~/.bash_history.\nHISTCONTROL=ignoredups : Evita registrar comandos duplicados consecutivos."}, {"front": "Comandos de expansión rápida de historial", "back": "!! : Repite el comando anterior completo (ej: sudo !!).\n!$ : Inserta el último argumento del comando anterior.\n!cadena : Ejecuta el comando más reciente que comenzó con 'cadena'.\n!numero : Ejecuta el comando con ese número de línea en history."}, {"front": "¿Para qué sirve el comando type en Bash?", "back": "Indica cómo interpretaría Bash un comando:\ntype -a comando distingue si es un alias, palabra reservada (keyword), función, comando interno (builtin) o ejecutable en disco en $PATH."}], "notes": "Tarjetas de memorización activa de alta frecuencia para el examen LPIC-1 del subtema 103.1."}, {"id": 25, "section": "103.1", "cat": "files", "type": "summary", "title": "Resumen de la Lección 1: Comandos y ayuda", "lead": "Puntos esenciales aprendidos sobre navegación, comandos y consulta:", "ref": "12", "pdf": {"manual": "A", "pages": [12], "figure": null}, "coverage": ["103.1-OBJ-003", "103.1-OBJ-004"], "cards": [{"icon": "terminal", "title": "Ubicación e Inspección", "desc": "pwd revela la ruta activa; touch crea ficheros; ls lista elementos y uname -a describe el kernel."}, {"icon": "book-open", "title": "Ayuda Integrada", "desc": "man muestra manuales completos; apropos busca por palabra clave y help asiste en comandos builtins."}, {"icon": "search", "title": "Clasificación de Órdenes", "desc": "type identifica si un comando es builtin, binario o hashed; which devuelve su ruta absoluta en PATH."}, {"icon": "clock", "title": "Historial de Comandos", "desc": "history muestra el buffer dinámico; ~/.bash_history almacena en disco al cerrar la sesión."}], "notes": "Concluimos la Lección 1. A continuación iniciamos la Lección 2 con variables de entorno, ámbito y entrecomillado."}, {"id": 26, "section": "103.1", "cat": "files", "type": "concept", "title": "Fundamentos de las variables de entorno en Linux", "lead": "Pares de clave-valor que configuran el comportamiento del sistema y aplicaciones:", "ref": "15", "pdf": {"manual": "A", "pages": [15], "figure": null}, "coverage": ["103.1-CON-007"], "points": [{"icon": "settings", "text": "Almacenan parámetros globales como rutas, usuario activo, idioma y terminal", "detail": "Cualquier proceso en ejecución consulta variables del entorno para adaptar su comportamiento."}, {"icon": "layers", "text": "Se transmiten de manera automática desde el proceso padre hacia procesos hijos", "detail": "Cuando una variable se exporta, todas las aplicaciones iniciadas desde el shell la heredan."}, {"icon": "shield", "text": "Permiten configurar directorios de búsqueda de ejecutables sin hardcodear rutas", "detail": "La variable PATH es el ejemplo primordial de variable de entorno en sistemas POSIX."}], "notes": "En LPIC-1 es esencial distinguir entre una variable de shell puramente local y una variable de entorno exportada."}, {"id": 27, "section": "103.1", "cat": "files", "type": "command", "title": "Inspección de variables del sistema con env", "command": "env", "lead": "Lista todas las variables de entorno exportadas activas en la sesión actual:", "ref": "15-16", "pdf": {"manual": "A", "pages": [15, 16], "figure": null}, "coverage": ["103.1-CMD-014", "103.1-CFG-002", "103.1-CFG-003", "103.1-CFG-004", "103.1-CFG-005", "103.1-CFG-006"], "syntax": "env [OPCIÓN]... [-] [NOMBRE=VALOR]... [COMANDO [ARG]...]", "console": {"command": "env", "output": ["DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus", "XDG_RUNTIME_DIR=/run/user/1000", "XAUTHORITY=/run/user/1000/gdm/Xauthority", "XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg", "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", "GJS_DEBUG_TOPICS=JS ERROR;JS LOG"], "comment": "env proyecta variables exportadas de sesión como sockets D-Bus, runtime XDG, XAUTHORITY y PATH."}, "notes": "env sólo proyecta variables exportadas; las variables locales del shell no aparecen en su salida."}, {"id": 28, "section": "103.1", "cat": "files", "type": "concept", "title": "La variable PATH: orden de búsqueda y jerarquía", "lead": "Secuencia ordenada de directorios donde el shell busca ejecutables binarios:", "ref": "15-16", "pdf": {"manual": "A", "pages": [15, 16], "figure": null}, "coverage": ["103.1-CFG-001", "103.1-CON-008", "103.1-FILE-010", "103.1-FILE-011", "103.1-FILE-012", "103.1-FILE-013", "103.1-FILE-014", "103.1-FILE-015", "103.1-FILE-016", "103.1-FILE-017", "103.1-FILE-018"], "points": [{"icon": "folder", "text": "Los directorios se concatenan delimitados exclusivamente por dos puntos (:)", "detail": "Ejemplo: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin."}, {"icon": "search", "text": "Bash examina las rutas de izquierda a derecha ejecutando la primera coincidencia", "detail": "Si un programa homónimo existe en /usr/local/bin y en /usr/bin, prevalece el primero."}, {"icon": "shield", "text": "Permite invocar programas sin necesidad de escribir su ruta absoluta completa", "detail": "Escribir uname ejecuta /bin/uname automáticamente sin teclear /bin/ cada vez."}], "notes": "Por motivos de seguridad, nunca se recomienda incluir el directorio actual (.) al inicio de PATH."}, {"id": 29, "section": "103.1", "cat": "files", "type": "command", "title": "Impresión y expansión de variables con echo", "command": "echo", "lead": "Emite cadenas de texto y expande el contenido referenciado de variables con $:", "ref": "16-17", "pdf": {"manual": "A", "pages": [16, 17], "figure": null}, "coverage": ["103.1-CMD-015"], "syntax": "echo [OPCIÓN]... [CADENA]...", "options": [{"opt": "$VARIABLE", "desc": "El prefijo de dólar indica a la shell que debe sustituir el nombre por su valor asignado.", "extra": false}], "console": {"command": "echo $PATH", "output": ["/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"], "comment": "echo evalúa el valor contenido dentro de la variable PATH e imprime la cadena resultante."}, "notes": "Si se teclea echo PATH sin el símbolo $, la shell imprimirá el texto literal 'PATH'."}, {"id": 30, "section": "103.1", "cat": "files", "type": "command", "title": "Definición y asignación de variables de shell locales", "command": "myvar=hello", "lead": "Asignación directa de pares clave-valor dentro de la sesión interactiva:", "ref": "16-17", "pdf": {"manual": "A", "pages": [16, 17], "figure": null}, "coverage": ["103.1-CFG-007"], "syntax": "NOMBRE=VALOR", "points": [{"icon": "edit", "text": "La asignación debe realizarse sin espacios en blanco alrededor del signo igual =", "detail": "Escribir myvar = hello genera un error porque Bash interpreta myvar como un comando."}, {"icon": "check-circle", "text": "La variable queda creada de forma inmediata en la memoria del shell actual", "detail": "echo $myvar devolverá hello de forma limpia dentro de la misma consola de trabajo."}, {"icon": "triangle-alert", "text": "Esta asignación básica produce únicamente una variable de shell puramente local", "detail": "No se hereda ni es visible por ningún comando secundario o proceso hijo ejecutado."}], "notes": "Los nombres de variables en Linux distinguen mayúsculas de minúsculas (case-sensitive)."}, {"id": 31, "section": "103.1", "cat": "files", "type": "concept", "title": "Ámbito de variables: Proceso padre y shells secundarios", "lead": "Aislamiento de variables locales entre procesos parent y subshells child:", "ref": "17", "pdf": {"manual": "A", "pages": [17], "figure": null}, "coverage": ["103.1-CMD-016", "103.1-CMD-017", "103.1-WARN-001"], "console": {"command": "myvar=hello && bash", "output": ["$ echo $myvar", "", "$ exit"], "comment": "Al invocar bash se abre un subshell hijo; echo $myvar no devuelve nada porque no fue exportada."}, "points": [{"icon": "layers", "text": "El shell que inicia la sesión actúa como proceso padre (parent process)", "detail": "Al teclear bash se genera un proceso hijo (child) con su propio espacio de memoria aislado."}, {"icon": "triangle-alert", "text": "Las variables locales de shell no se transfieren al subshell hijo", "detail": "Para que un hijo reciba el valor, la variable debe promoverse con el comando export."}, {"icon": "arrow-right", "text": "El comando exit finaliza el subshell retornando al proceso padre original", "detail": "Una vez de regreso en el shell padre, echo $myvar vuelve a proyectar su valor hello."}], "notes": "Esta separación garantiza que subprocesos no corrompan variables de sus programas invocadores."}, {"id": 32, "section": "103.1", "cat": "files", "type": "command", "title": "Exportación de variables a procesos secundarios: export", "command": "export", "lead": "Promueve variables de shell locales al entorno de variables globales:", "ref": "17", "pdf": {"manual": "A", "pages": [17], "figure": null}, "coverage": ["103.1-CMD-018"], "syntax": "export [NOMBRE[=VALOR]]...", "console": {"command": "export myvar && bash", "output": ["$ echo $myvar", "hello", "$ exit"], "comment": "Tras ejecutar export myvar, el subshell hijo recibe y proyecta el valor 'hello'."}, "points": [{"icon": "zap", "text": "Se puede exportar una variable previamente creada o asignar y exportar a la vez", "detail": "La sintaxis export VARIABLE=valor define la clave y la incorpora al entorno en una sola orden."}, {"icon": "shield", "text": "Cualquier programa, script o subshell ejecutado a continuación heredará la variable", "detail": "Indispensable para configurar variables como EDITOR, PAGER o rutas personalizadas."}], "notes": "Los cambios realizados por el hijo sobre una variable exportada no se propagan de vuelta al padre."}, {"id": 33, "section": "103.1", "cat": "files", "type": "command", "title": "Eliminación de variables de entorno y shell: unset", "command": "unset", "lead": "Elimina variables y funciones tanto del shell local como del entorno exportado:", "ref": "17-18", "pdf": {"manual": "A", "pages": [17, 18], "figure": null}, "coverage": ["103.1-CMD-019"], "syntax": "unset [-v] [-f] NOMBRE...", "console": {"command": "unset myvar && echo $myvar", "output": [""], "comment": "Al invocar unset sin el símbolo $, myvar se elimina de la memoria y echo devuelve cadena vacía."}, "points": [{"icon": "triangle-alert", "text": "Debe pasarse el nombre de la variable directamente sin anteponer el símbolo de dólar", "detail": "Si se teclea unset $myvar, Bash expandirá su valor y tratará de eliminar una variable llamada 'hello'."}, {"icon": "check-circle", "text": "Borra totalmente los valores y atributos asociados en la sesión en curso", "detail": "Deja la variable indefinida exactamente igual que si nunca hubiera existido."}], "notes": "unset se utiliza frecuentemente para restablecer entornos limpios antes de ejecutar pruebas."}, {"id": 34, "section": "103.1", "cat": "files", "type": "matrix", "title": "Comparativa técnica: comando set frente a comando env", "lead": "Distinción crucial de alcance entre variables de entorno y variables de shell:", "ref": "18", "pdf": {"manual": "A", "pages": [18], "figure": null}, "coverage": ["103.1-CMD-020", "103.1-CFG-008"], "matrix": {"headers": ["Característica", "Comando env", "Comando set"], "rows": [["Variables mostradas", "Únicamente variables de entorno exportadas", "Todas las variables (locales, exportadas y de shell)"], ["Funciones de shell", "No muestra funciones de Bash", "Incluye el código completo de todas las funciones"], ["Nuevas variables sin exportar", "Invisibles para env (env | grep mynewvar vacío)", "Visibles en set (set | grep mynewvar muestra valor)"], ["Naturaleza del comando", "Binario externo (/usr/bin/env)", "Comando interno incorporado de Bash (builtin)"], ["Ejecución con entorno limpio", "Soporta env -i para aislar procesos", "Gestiona banderas y opciones internas de Bash (set -e)"]]}, "notes": "Regla mnemotécnica: set ve TODO (entorno + variables locales + funciones); env sólo ve lo EXPORTADO."}, {"id": 35, "section": "103.1", "cat": "files", "type": "concept", "title": "Caracteres especiales y delimitación en Bash", "lead": "El shell interpreta ciertos símbolos como operadores y separadores léxicos:", "ref": "18-19", "pdf": {"manual": "A", "pages": [18, 19], "figure": null}, "coverage": ["103.1-CON-009"], "points": [{"icon": "terminal", "text": "Los caracteres alfanuméricos corrientes (a-z, 0-9) se interpretan de forma literal", "detail": "touch myfile genera un único archivo con dicho nombre sin intervención especial."}, {"icon": "triangle-alert", "text": "El espacio en blanco actúa por defecto como delimitador de argumentos independientes", "detail": "Escribir touch my big file indica a Bash que cree 3 ficheros distintos: my, big y file."}, {"icon": "shield", "text": "Para preservar espacios y símbolos reservados se debe aplicar entrecomillado o escape", "detail": "Comillas dobles, simples y barras invertidas evitan la separación léxica accidental."}], "notes": "Los espacios accidentales al borrar con rm pueden causar la pérdida catastrófica de múltiples archivos."}, {"id": 36, "section": "103.1", "cat": "files", "type": "command", "title": "Manejo de espacios mediante comillas y borrado", "command": "rm", "lead": "Demostración práctica del tratamiento de espacios múltiples con touch y rm:", "ref": "18-19", "pdf": {"manual": "A", "pages": [18, 19], "figure": null}, "coverage": ["103.1-CMD-021"], "syntax": "touch \"NOMBRE COMPLETO\" | rm 'NOMBRE COMPLETO'", "console": {"command": "touch \"my big file\" && ls && rm 'my big file'", "output": ["'my big file'"], "comment": "Las comillas dobles y simples fuerzan a Bash a interpretar la cadena completa como un único argumento."}, "points": [{"icon": "check-circle", "text": "touch \"my big file\" genera un único fichero con espacios en su nombre", "detail": "ls muestra 'my big file' delimitado entre comillas para indicar la presencia de espacios."}, {"icon": "trash", "text": "rm 'my big file' elimina el archivo único sin confundir palabras independientes", "detail": "rm my big file sin comillas intentaría borrar tres ficheros separados llamados my, big y file."}], "notes": "En scripts siempre es una buena práctica envolver variables entre comillas dobles: \"$archivo\"."}, {"id": 37, "section": "103.1", "cat": "files", "type": "table", "title": "Reglas de entrecomillado: simples, dobles y escape", "lead": "Mecanismos sintácticos para preservar el valor literal de caracteres en Bash:", "ref": "19", "pdf": {"manual": "A", "pages": [19], "figure": null}, "coverage": ["103.1-CON-009"], "table": {"headers": ["Mecanismo", "Sintaxis", "Comportamiento y excepciones", "Ejemplo práctico"], "rows": [["Comillas simples", "'texto'", "Literal estricto total: ningún carácter especial tiene significado", "'$myvar' -> imprime $myvar"], ["Comillas dobles", "\"texto\"", "Literal parcial: conserva espacios pero expande $, `, \\ y !", "\"$myvar\" -> imprime hello"], ["Barra invertida", "\\c", "Escapa el carácter siguiente anulando su función especial", "touch my\\ big\\ file -> crea 1 archivo"], ["Comillas inversas", "`cmd`", "Sustitución de comando: ejecuta la orden e inserta su salida", "`date` -> sustituye por fecha"]]}, "notes": "La regla de oro de Bash: comillas simples anulan toda expansión; comillas dobles permiten sustitución de variables."}, {"id": 38, "section": "103.1", "cat": "files", "type": "exercise", "title": "Ejercicio Guiado 1: Ampliación de PATH y script", "lead": "Modificación de variables de búsqueda y ejecución directa de un script propio:", "ref": "20, 23", "pdf": {"manual": "A", "pages": [20, 23], "figure": null}, "coverage": ["103.1-EX-006", "103.1-CMD-022", "103.1-OPT-017", "103.1-FILE-022", "103.1-FILE-023"], "task": "Use el comando export para agregar un nuevo directorio a su variable PATH y pruebe la ejecución de un script.", "steps": ["Amplíe la ruta temporalmente: export PATH=\"/home/frank/myfiles:$PATH\".", "Cree el archivo de script: touch myfiles/myscript.sh.", "Incorpore el shebang: echo '#!/bin/bash' >> myfiles/myscript.sh y la orden echo 'Hello'.", "Otorgue permisos de ejecución mediante chmod +x myfiles/myscript.sh.", "Invoque myscript.sh desde cualquier ubicación: el script se ejecutará directamente sin poner ruta."], "solution": "$ export PATH=\"$HOME/myfiles:$PATH\"\n$ chmod +x myfiles/myscript.sh\n$ myscript.sh -> Salida: Hello.", "notes": "La alteración de PATH en la terminal sólo dura mientras la sesión permanezca abierta."}, {"id": 39, "section": "103.1", "cat": "files", "type": "exercise", "title": "Ejercicio Guiado 2: unset PATH y rutas absolutas", "lead": "Impacto de la eliminación de PATH y necesidad de rutas absolutas completas:", "ref": "20, 23", "pdf": {"manual": "A", "pages": [20, 23], "figure": null}, "coverage": ["103.1-EX-007", "103.1-WARN-003", "103.1-WARN-004", "103.1-CMD-023", "103.1-CMD-024", "103.1-FILE-019", "103.1-FILE-020", "103.1-FILE-021"], "task": "Use unset para borrar PATH e intente ejecutar sudo cat /etc/shadow. ¿Qué ocurre y cómo se soluciona?", "steps": ["Ejecute unset PATH: el shell pierde la lista de directorios de búsqueda de ejecutables.", "Intente ejecutar sudo cat /etc/shadow: Bash responderá 'sudo: No such file or directory'.", "Invoque los programas mediante su ruta absoluta: /usr/bin/sudo /bin/cat /etc/shadow.", "El comando se ejecutará con éxito porque no depende de la resolución automática de PATH."], "solution": "Sin PATH, Bash no encuentra sudo ni cat. Se soluciona especificando rutas completas: /usr/bin/sudo /bin/cat /etc/shadow.", "notes": "El PDF oficial contiene una errata en p. 23 escribiendo /usr/bin/sudo/bin/cat/etc/shadow sin los espacios necesarios."}, {"id": 40, "section": "103.1", "cat": "files", "type": "exercise", "title": "Ejercicio Exploratorio 1: Caracteres especiales reservados", "lead": "Reconocimiento y catálogo completo de caracteres con función especial en Bash:", "ref": "21, 24", "pdf": {"manual": "A", "pages": [21, 24], "figure": null}, "coverage": ["103.1-EX-008"], "task": "Identifique la lista oficial de caracteres reservados por el shell Bash y su función sintáctica principal.", "steps": ["Operadores de flujo y tuberías: & (background), ; (separador secuencial), | (pipe).", "Comodines globbing: * (cero o más caracteres), ? (un solo carácter arbitrario).", "Delimitadores y agrupamiento: \" y ' (quoting), [ ] (rangos y tests), ( ) { } (subshells y bloques).", "Símbolos de expansión y sustitución: $ (variable), < > (redirecciones), # (comentarios), \\ (escape), ! (historial), ~ (home)."], "solution": "Lista oficial de caracteres especiales: & ; | * ? \" ' [ ] ( ) $ < > { } # / \\ ! ~.", "notes": "Cualquiera de estos símbolos requiere entrecomillado o barra invertida para ser tratado como texto literal."}, {"id": 41, "section": "103.1", "cat": "files", "type": "exercise", "title": "Ejercicio Exploratorio 2: Comportamiento de quoting y variables", "lead": "Demostración experimental de la diferencia entre comillas dobles y simples:", "ref": "21, 24", "pdf": {"manual": "A", "pages": [21, 24], "figure": null}, "coverage": ["103.1-EX-009"], "task": "Compare el resultado de evaluar una variable entre comillas dobles frente a comillas simples.", "steps": ["Defina una variable de prueba: mynewvar=goodbye.", "Evalúe la variable entre comillas dobles: echo \"$mynewvar\".", "Observe el resultado: Bash sustituye la variable por su contenido e imprime 'goodbye'.", "Evalúe la variable entre comillas simples: echo '$mynewvar'.", "Observe el resultado: Bash anula la expansión del dólar e imprime literalmente '$mynewvar'."], "solution": "$ echo \"$mynewvar\" -> goodbye\n$ echo '$mynewvar' -> $mynewvar.", "notes": "Comprender esta distinción es la base para redactar scripts correctos y superar preguntas clave de examen."}, {"id": 42, "section": "103.1", "cat": "files", "type": "challenge", "title": "Reto práctico: Auditoría de entorno, PATH e historial", "lead": "Escenario integrador para diagnosticar fallos de entorno en un servidor Linux:", "ref": "1-24", "pdf": {"manual": "A", "pages": [1, 24], "figure": null}, "coverage": ["103.1-CFG-001", "103.1-FILE-005", "103.1-CMD-014"], "task": "Un administrador junior reporta que no puede ejecutar 'cat' tras modificar variables y no recuerda qué tocó. ¿Cómo lo ayuda?", "steps": ["Diagnóstico: ejecute /usr/bin/env | /usr/bin/grep PATH para verificar si PATH fue desconfigurado o borrado.", "Comprobación de historial: examine las últimas acciones ejecutadas con /bin/cat ~/.bash_history o con la utilidad history.", "Restauración: restablezca la variable esencial mediante export PATH=/usr/bin:/bin:/usr/sbin:/sbin.", "Verificación: compruebe la localización correcta de cat invocando which cat y type cat."], "solution": "1) Inspeccionar PATH con rutas absolutas; 2) Rastrear ~/.bash_history; 3) Reexportar PATH estándar; 4) Validar con which.", "notes": "Los administradores de sistemas deben saber recuperarse de variables de entorno corruptas en cualquier momento."}, {"id": 43, "section": "103.1", "cat": "files", "type": "review", "title": "Autoevaluación tipo examen LPIC-1: Comandos y entorno", "lead": "Pregunta de certificación representativa del examen LPIC-1 101-500:", "ref": "1-24", "pdf": {"manual": "A", "pages": [1, 24], "figure": null}, "coverage": ["103.1-OBJ-001", "103.1-OBJ-003"], "question": "¿Cuál es la diferencia fundamental entre ejecutar el comando 'set' y el comando 'env' sin argumentos en Bash?", "options": ["env muestra todas las variables locales y funciones, mientras que set sólo muestra variables numéricas.", "set muestra todas las variables de shell, variables exportadas y funciones; env sólo muestra variables de entorno exportadas.", "set sólo funciona en modo superusuario (root) mientras que env puede ser ejecutado por cualquier usuario.", "env es un comando interno builtin de Bash mientras que set es un binario externo ubicado en /usr/bin/set."], "answer": 1, "why": "set es un comando interno de Bash que lista todas las variables locales, variables de entorno y funciones definidas. En contraste, env es un binario externo que proyecta exclusivamente las variables exportadas al entorno.", "notes": "Pregunta muy habitual en el examen LPIC-1 para evaluar la comprensión del ámbito de variables y comandos incorporados."}, {"id": 44, "section": "103.1", "cat": "files", "type": "summary", "title": "Resumen integral del subtema 103.1: Comandos y entorno", "lead": "Recapitulación exhaustiva de competencias y comandos del objetivo 103.1:", "ref": "1-24", "pdf": {"manual": "A", "pages": [1, 24], "figure": null}, "coverage": ["103.1-OBJ-001", "103.1-OBJ-002", "103.1-OBJ-003", "103.1-OBJ-004"], "cards": [{"icon": "terminal", "title": "Navegación y Ayuda", "desc": "pwd y ls para directorio; uname -a para kernel; man, apropos y help para documentación."}, {"icon": "clock", "title": "Historial de Comandos", "desc": "history y ~/.bash_history gestionan el buffer dinámico y el archivo persistente en disco."}, {"icon": "settings", "title": "Variables de Entorno", "desc": "PATH define directorios de búsqueda; export promueve variables a hijos; unset las elimina."}, {"icon": "shield", "title": "Entrecomillado y Quoting", "desc": "Comillas simples '' cancelan toda expansión; comillas dobles \"\" permiten evaluar $variables."}], "notes": "Con esta diapositiva completamos el 100% de los contenidos, comandos y ejercicios del subtema 103.1."}];
+    const SLIDES = [{"id": 1, "section": "103.1", "cat": "cmd", "type": "cover", "title": "Trabajar en la línea de comandos", "subtitle": "Shell Bash, prompt, uname, sistema man, type, historial, variables de entorno y quoting (Modo Examen)", "ref": "185-186", "pdf": {"manual": "A", "pages": [185, 186], "figure": null}, "coverage": ["103.1-OBJ-001", "103.1-OBJ-002", "103.1-OBJ-003", "103.1-OBJ-004"], "meta": {"peso": 4, "paginas": "185–214", "duracion": "30 min"}, "icon": "terminal", "notes": "Comenzamos el Tema 103 con el subtema 103.1 (peso 4). La línea de comandos es la herramienta central del administrador Linux. Dominaremos la navegación, el sistema de ayuda oficial man, la clasificación de comandos con type, el historial interactivo y la gestión de variables de entorno."}, {"id": 2, "section": "103.1", "cat": "cmd", "type": "concept", "title": "La Shell Bash y la Anatomía del Prompt", "lead": "¿Cómo interpreta la terminal las órdenes y qué nos revela el indicador de comandos?", "ref": "186-188", "pdf": {"manual": "A", "pages": [186, 187, 188], "figure": null}, "coverage": ["103.1-CON-001", "103.1-CON-002"], "points": [{"icon": "terminal", "text": "Bash (Bourne Again Shell): El intérprete estándar", "detail": "Es el programa que lee las líneas que tecleas, expande comodines y variables, y solicita al kernel la ejecución de los programas binarios o funciones internas."}, {"icon": "shield-alert", "text": "El símbolo final del prompt ($ frente a #)", "detail": "🎯 Clave de Examen: Si el prompt termina en '$', estás operando como usuario ordinario sin privilegios especiales. Si termina en '#', la sesión pertenece al superusuario root con privilegios totales sobre el sistema."}, {"icon": "folder", "text": "El carácter virgulilla (~)", "detail": "Representa de forma abreviada el directorio personal del usuario activo (/home/usuario o /root). Si ves 'usuario@servidor:~$' significa que estás en tu propio directorio de inicio."}], "remember": "🎯 Clave de Examen: Prompt '$' = usuario sin privilegios; Prompt '#' = superusuario root.", "notes": "Muestra a los alumnos cómo cambia el prompt al hacer 'sudo -i' pasando de $ a #."}, {"id": 3, "section": "103.1", "cat": "cmd", "type": "command", "title": "Identificación del Sistema y Navegación Básica", "lead": "¿Dónde estoy y sobre qué hardware y kernel se está ejecutando Linux?", "ref": "188-191", "pdf": {"manual": "A", "pages": [188, 189, 190, 191], "figure": null}, "coverage": ["103.1-CMD-001", "103.1-CMD-002", "103.1-OPT-001", "103.1-OPT-002"], "command": "uname -a | -r | -m | -n | pwd | cd", "purpose": "Imprimir información sobre el kernel, la arquitectura del hardware y navegar por directorios", "terminal": {"command": "uname -a; pwd; cd .. && pwd", "output": "Linux servidor01 5.10.0-18-amd64 #1 SMP Debian 5.10.140-1 x86_64 GNU/Linux\n/home/alumno\n/home"}, "options": [{"flag": "uname -a", "desc": "🎯 Imprime toda la información del sistema: nombre de kernel, hostname, versión, arquitectura y SO."}, {"flag": "uname -r", "desc": "🎯 Muestra exclusivamente la versión de release del kernel (ej: 5.10.0-18-amd64)."}, {"flag": "uname -m", "desc": "🎯 Muestra la arquitectura del hardware de la CPU (ej: x86_64, aarch64, i686)."}, {"flag": "uname -n", "desc": "Muestra el nombre de host de red (nodename) asignado al equipo."}, {"flag": "uname -s", "desc": "Muestra el nombre del sistema operativo del kernel (Linux)."}, {"flag": "pwd", "desc": "Print Working Directory: muestra la ruta absoluta del directorio de trabajo actual."}, {"flag": "cd [ruta]", "desc": "Cambia de directorio. Sin argumentos o con 'cd ~' regresa al HOME; 'cd -' regresa al directorio anterior."}], "remember": "🎯 Clave de Examen: 'uname -r' muestra la versión del kernel; 'uname -m' muestra la arquitectura del procesador.", "notes": "Recuerda que 'cd -' utiliza la variable $OLDPWD para regresar exactamente a la ruta donde estabas antes."}, {"id": 4, "section": "103.1", "cat": "cmd", "type": "command", "title": "El Sistema de Manuales Oficial: man, apropos y whatis", "lead": "La documentación oficial offline que tienes disponible incluso durante el examen:", "ref": "191-195", "pdf": {"manual": "A", "pages": [191, 192, 193, 194, 195], "figure": null}, "coverage": ["103.1-CMD-003", "103.1-CMD-004", "103.1-CMD-005"], "command": "man [sección] <tema> | apropos <palabra> | whatis <comando>", "purpose": "Leer páginas del manual del sistema o buscar comandos por palabras clave", "terminal": {"command": "whatis passwd; apropos -r '^passwd$'", "output": "passwd (1)           - change user password\npasswd (5)           - the password file\npasswd (1)           - change user password\npasswd (5)           - the password file"}, "options": [{"flag": "man <comando>", "desc": "Abre la página del manual del comando en el paginador less (usa 'q' para salir, '/' para buscar)."}, {"flag": "man 1 <tema>", "desc": "🎯 Sección 1 del manual: Comandos de usuario general y ejecutables (ej: man 1 passwd)."}, {"flag": "man 5 <tema>", "desc": "🎯 Sección 5 del manual: Formatos de archivos de configuración y convenciones (ej: man 5 passwd)."}, {"flag": "man 8 <tema>", "desc": "🎯 Sección 8 del manual: Comandos de administración del sistema exclusivos de root (ej: man 8 fdisk)."}, {"flag": "apropos <palabra>, man -k", "desc": "🎯 Clave de Examen: Busca la palabra clave en las descripciones de todos los manuales."}, {"flag": "whatis <comando>, man -f", "desc": "🎯 Muestra la descripción breve de 1 línea del comando consultando la base de datos de man."}], "remember": "🎯 Secciones Clave de Man en Examen: Sección 1 = Comandos de usuario; Sección 5 = Archivos de configuración (/etc/passwd, /etc/fstab); Sección 8 = Comandos de administración de root.", "notes": "Si un comando tiene página en la sección 1 y en la sección 5, 'man passwd' abrirá la sección 1 por defecto. Para ver el formato de /etc/passwd hay que forzar 'man 5 passwd'."}, {"id": 5, "section": "103.1", "cat": "cmd", "type": "command", "title": "Clasificación de Comandos: type, which, whereis y hash", "lead": "¿Cómo sabe Bash si una orden es un ejecutable en disco, un alias o una función interna?", "ref": "195-198", "pdf": {"manual": "A", "pages": [195, 196, 197, 198], "figure": null}, "coverage": ["103.1-CMD-006", "103.1-CMD-007", "103.1-CMD-008", "103.1-CMD-009"], "command": "type [-a|-t] <cmd> | which <cmd> | whereis <cmd> | hash", "purpose": "Averiguar la naturaleza exacta de un comando y su ubicación en el sistema", "terminal": {"command": "type cd; type ls; type -a echo; which ls", "output": "cd is a shell builtin\nls is aliased to `ls --color=auto`\necho is a shell builtin\necho is /usr/bin/echo\n/usr/bin/ls"}, "options": [{"flag": "type <comando>", "desc": "🎯 Clave de Examen: Describe si el comando es un 'builtin' (interno de la shell), un 'alias', una 'function' o un 'file' ejecutable en disco."}, {"flag": "type -a <comando>", "desc": "🎯 Muestra todas las ubicaciones y naturalezas del comando en el orden exacto en que Bash las ejecutaría."}, {"flag": "which <comando>", "desc": "🎯 Busca en los directorios listados en la variable $PATH y devuelve la ruta absoluta del primer binario ejecutable que coincida."}, {"flag": "whereis <comando>", "desc": "Localiza el binario, el código fuente y las páginas del manual de un comando en rutas estándar del sistema."}, {"flag": "hash [-r]", "desc": "Muestra la tabla hash en memoria donde Bash almacena las rutas de los programas ejecutados recientemente (-r limpia la tabla)."}], "remember": "🎯 Diferencia Vital de Examen: 'which' solo busca ejecutables en el disco según $PATH; si le preguntas por 'cd', no devolverá nada porque 'cd' es un comando interno (shell builtin). Para builtins debes usar 'type' o 'help'.", "notes": "Muestra a los alumnos que 'type cd' dice 'cd is a shell builtin', mientras que 'which cd' devuelve código de error o vacío."}, {"id": 6, "section": "103.1", "cat": "cmd", "type": "command", "title": "Gestión del Historial de Bash: history y Atajos de Teclado", "lead": "Reutilizar comandos anteriores para ahorrar tiempo y evitar errores tipográficos:", "ref": "198-202", "pdf": {"manual": "A", "pages": [198, 199, 200, 201, 202], "figure": null}, "coverage": ["103.1-CMD-010", "103.1-OPT-003"], "command": "history [-c] [-w] | !n | !! | !string | Ctrl+R", "purpose": "Inspeccionar, vaciar o volver a ejecutar comandos del historial de la sesión", "terminal": {"command": "history | tail -n 4; !-2", "output": " 1014  uname -r\n 1015  cat /etc/issue\n 1016  uptime\n 1017  history | tail -n 4\n# Reejecuta el comando 1016 (uptime):\n 09:50:12 up 2 days,  1:14,  1 user,  load average: 0.05, 0.03, 0.00"}, "options": [{"flag": "history", "desc": "Muestra la lista numerada de comandos ejecutados en la sesión actual."}, {"flag": "history -c", "desc": "🎯 Vacía (clear) el historial completo de comandos de la memoria de la sesión actual."}, {"flag": "history -w", "desc": "🎯 Escribe de forma inmediata el historial de la memoria en el archivo ~/.bash_history en disco."}, {"flag": "!N", "desc": "🎯 Vuelve a ejecutar el comando con el número de línea 'N' del historial (ej: !1015)."}, {"flag": "!-N", "desc": "Vuelve a ejecutar el comando ejecutado 'N' pasos atrás (ej: !-1 equivale a !!)."}, {"flag": "!!", "desc": "🎯 Clave de Examen: Vuelve a ejecutar el último comando tecleado (muy útil: 'sudo !!')."}, {"flag": "!cadena", "desc": "Vuelve a ejecutar el comando más reciente que empiece por 'cadena' (ej: '!apt')."}, {"flag": "Ctrl + R", "desc": "Búsqueda incremental inversa interactiva en el historial mientras escribes."}], "remember": "🎯 Clave de Examen: '!!' repite el último comando ejecutado; '!50' ejecuta la línea 50 del historial; 'history -c' limpia el búfer de memoria.", "notes": "Enseña el truco imprescindible de sysadmin: 'sudo !!' cuando olvidas poner sudo en un comando."}, {"id": 7, "section": "103.1", "cat": "cmd", "type": "file", "title": "Persistencia del Historial y Variables de Control", "lead": "¿Dónde se guarda el historial entre sesiones y cómo se controla su tamaño?", "ref": "202-204", "pdf": {"manual": "A", "pages": [202, 203, 204], "figure": null}, "coverage": ["103.1-FILE-001", "103.1-ENV-001"], "file": "~/.bash_history y variables HISTSIZE / HISTFILESIZE", "syntax": "export HISTSIZE=1000\nexport HISTFILESIZE=2000\nexport HISTCONTROL=ignoredups:erasedups", "content": "# Archivo de persistencia de comandos: ~/.bash_history\nuname -a\ncat /etc/passwd\napt-get update\n\n# En ~/.bashrc se configuran los límites:\nHISTSIZE=1000        # Número de comandos que se retienen en la memoria RAM de la sesión\nHISTFILESIZE=2000    # Número de comandos que se guardan físicamente en el archivo en disco\nHISTCONTROL=ignoreboth # Ignora comandos que empiecen por espacio y líneas duplicadas", "fields": [{"field": "~/.bash_history", "desc": "🎯 Archivo oculto en el HOME del usuario donde Bash escribe los comandos ejecutados al cerrar la sesión."}, {"field": "HISTSIZE", "desc": "🎯 Clave de Examen: Define la cantidad máxima de comandos que se guardan en la memoria RAM de la shell activa."}, {"field": "HISTFILESIZE", "desc": "🎯 Clave de Examen: Define la cantidad máxima de comandos que se conservan en el archivo ~/.bash_history del disco."}, {"field": "HISTTIMEFORMAT", "desc": "Formato para registrar fecha y hora de cada comando ejecutado en el historial."}, {"field": "Espacio inicial en comando", "desc": "Si HISTCONTROL=ignorespace o ignoreboth, teclear un comando con un espacio al principio evita que se guarde en el historial."}], "remember": "🎯 Diferencia Vital de Examen: HISTSIZE = memoria RAM; HISTFILESIZE = archivo físico en disco (~/.bash_history).", "notes": "Pide a los alumnos que memoricen cuál es cuál: SIZE para la RAM, FILESIZE para el disco."}, {"id": 8, "section": "103.1", "cat": "cmd", "type": "command", "title": "Variables de Entorno y Shell: echo, env, export y unset", "lead": "¿Cómo almacenar valores en variables y hacerlas visibles para los programas hijos?", "ref": "204-208", "pdf": {"manual": "A", "pages": [204, 205, 206, 207, 208], "figure": null}, "coverage": ["103.1-CMD-011", "103.1-CMD-012", "103.1-CMD-013", "103.1-CMD-014"], "command": "VAR=val | export VAR | env | printenv | unset VAR", "purpose": "Crear variables locales de shell, exportarlas como variables de entorno o eliminarlas", "terminal": {"command": "CURSO='LPIC-1'; export CURSO; echo $CURSO; unset CURSO; echo \"CURSO=$CURSO\"", "output": "LPIC-1\nCURSO="}, "options": [{"flag": "NOMBRE=valor", "desc": "🎯 Crea una variable de shell local. ⚠️ ¡Sin espacios alrededor del '='! Solo existe en la shell actual."}, {"flag": "echo $NOMBRE", "desc": "Muestra el valor de una variable anteponiendo el signo dólar '$'."}, {"flag": "export NOMBRE[=valor]", "desc": "🎯 Clave de Examen: Exporta la variable al entorno global para que cualquier proceso hijo o script herede su valor."}, {"flag": "env / printenv", "desc": "🎯 Muestra todas las variables de entorno actualmente exportadas en el sistema."}, {"flag": "set", "desc": "🎯 Muestra TODAS las variables (tanto las de entorno exportadas como las locales de shell) y funciones de Bash."}, {"flag": "unset NOMBRE", "desc": "🎯 Clave de Examen: Elimina y destruye la variable de la memoria (¡sin poner el signo '$' al nombrarla!)."}], "remember": "🎯 Regla de Oro: 'VAR=1' es local a la shell actual; 'export VAR' permite que los subprocesos y scripts hijos hereden su valor. 'unset VAR' la borra.", "notes": "Alerta de sintaxis: nunca uses espacios en 'VAR = val', Bash intentará ejecutar un comando llamado VAR con argumentos '=' y 'val'."}, {"id": 9, "section": "103.1", "cat": "cmd", "type": "concept", "title": "La Variable Maestra PATH y la Seguridad del Sistema", "lead": "¿Cómo sabe Linux dónde están los ejecutables sin necesidad de escribir /bin/ls cada vez?", "ref": "208-210", "pdf": {"manual": "A", "pages": [208, 209, 210], "figure": null}, "coverage": ["103.1-ENV-002"], "points": [{"icon": "folder-tree", "text": "Lista ordenada de directorios separada por dos puntos (:)", "detail": "Cuando escribes 'ls', Bash consulta en orden secuencial cada directorio listado en $PATH (ej: /usr/local/bin:/usr/bin:/bin) y ejecuta el primer binario que coincida."}, {"icon": "plus-circle", "text": "Ampliación de la variable PATH en scripts", "detail": "🎯 Clave de Examen: Para añadir una carpeta personal sin destruir las rutas del sistema, se concatena: 'export PATH=$PATH:/opt/scripts' o 'export PATH=/opt/scripts:$PATH'."}, {"icon": "shield-alert", "text": "⚠️ El peligro del directorio actual (.) en PATH", "detail": "🎯 Pregunta de Examen: NUNCA se debe incluir el punto '.' (directorio actual) al inicio del PATH, especialmente en root. Un atacante podría dejar un ejecutable malicioso llamado 'ls' en /tmp y root lo ejecutaría sin darse cuenta."}], "remember": "🎯 Clave de Examen: Si ejecutas 'unset PATH', el sistema NO encontrará comandos como 'ls' o 'cp'. Para ejecutarlos deberás escribir su ruta absoluta: /bin/ls.", "notes": "Muestra a los alumnos qué ocurre si haces 'export PATH=' y luego intentas ejecutar ls."}, {"id": 10, "section": "103.1", "cat": "cmd", "type": "table", "title": "Reglas de Entrecomillado y Quoting en Bash", "lead": "El mecanismo exacto que determina si un carácter especial se interpreta o se toma literal:", "ref": "210-212", "pdf": {"manual": "A", "pages": [210, 211, 212], "figure": null}, "coverage": ["103.1-CON-003"], "headers": ["Mecanismo", "Sintaxis", "Efecto sobre Variables ($) y Comandos (` ` / $())", "Ejemplo Práctico"], "rows": [["Comillas Simples", "'texto'", "🎯 Supresión TOTAL: desactiva el significado de TODOS los caracteres especiales. Todo se interpreta como texto literal.", "echo '$USER' imprime: $USER"], ["Comillas Dobles", "\"texto\"", "🎯 Supresión PARCIAL: conserva el significado de variables ($), sustitución de comandos ($() y ``) y escape (\\).", "echo \"Hola $USER\" imprime: Hola alumno"], ["Barra Invertida (Escape)", "\\carácter", "Desactiva el significado especial de un único carácter inmediato (espacios, $, comillas).", "echo \\$USER imprime: $USER"], ["Sustitución de Comandos", "$(cmd) o `cmd`", "Ejecuta el comando interno en una subshell y sustituye la expresión por su salida estándar.", "echo \"Hoy es $(date +%A)\""]], "remember": "🎯 La Pregunta Fija de Examen: 'echo '$VAR'' imprime literalmente $VAR; 'echo \"$VAR\"' expande e imprime el contenido de la variable.", "notes": "Dedica 5 minutos a asegurar que todos los alumnos comprenden la diferencia radical entre comillas simples y dobles."}, {"id": 11, "section": "103.1", "cat": "cmd", "type": "concept", "title": "Subshells y Ámbito de Variables: Proceso Padre e Hijo", "lead": "¿Por qué un script de bash no puede modificar las variables de la terminal que lo lanzó?", "ref": "212-214", "pdf": {"manual": "A", "pages": [212, 213, 214], "figure": null}, "coverage": ["103.1-CON-004"], "points": [{"icon": "git-branch", "text": "Herencia unidireccional de arriba hacia abajo", "detail": "Cuando una shell lanza un subproceso (ejecutando 'bash' o './script.sh'), el proceso hijo recibe una COPIA de todas las variables exportadas con 'export'."}, {"icon": "lock", "text": "Aislamiento del proceso padre", "detail": "Cualquier cambio que el proceso hijo haga sobre sus variables (crear, modificar, unset) muere cuando el hijo finaliza. NUNCA se propagan hacia atrás al proceso padre."}, {"icon": "play", "text": "Ejecución en el mismo entorno con 'source' o '.'", "detail": "🎯 Clave de Examen: Si quieres que un script modifique las variables de tu shell actual, no lo ejecutes con './script.sh': ejecútalo con 'source script.sh' o '. script.sh'."}], "remember": "🎯 Clave de Examen: './script.sh' crea una subshell hija que no afecta al padre; 'source script.sh' ejecuta en la misma shell afectando a sus variables.", "notes": "Muestra la diferencia entre ejecutar un script directamente y cargarlo con source."}, {"id": 12, "section": "103.1", "cat": "cmd", "type": "concept", "title": "Trampas Clásicas de Examen en la Línea de Comandos", "lead": "Los 4 errores que hacen suspender preguntas fáciles en el objetivo 103.1:", "ref": "214", "pdf": {"manual": "A", "pages": [214], "figure": null}, "coverage": ["103.1-WARN-001", "103.1-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Poner espacios al asignar variables", "detail": "🎯 Error fatal: 'A = 5' o 'A= 5'. En Bash es obligatorio escribir 'A=5' sin un solo espacio alrededor del signo igual."}, {"icon": "alert-triangle", "text": "2. Poner el signo '$' en el comando unset", "detail": "Para leer el valor usas '$VAR', pero para borrarla con unset se pasa el nombre pelado: 'unset VAR'. Si ejecutas 'unset $VAR', unset intentará borrar una variable cuyo nombre sea el contenido de VAR."}, {"icon": "alert-triangle", "text": "3. Sensibilidad a mayúsculas (Case Sensitivity)", "detail": "En Linux, 'PATH', 'Path' y 'path' son tres variables totalmente distintas. Los comandos y nombres de archivo son estrictamente sensibles a mayúsculas."}, {"icon": "alert-triangle", "text": "4. Confundir 'which' con 'type'", "detail": "'which' no encuentra comandos internos (builtins) como cd, exit o history. Para saber qué es cualquier comando siempre debes usar 'type'."}], "remember": "🎯 Mnemotecnia de Errores: Sin espacios en asignación (A=1); sin '$' al hacer unset (unset A); y 'type' siempre antes que 'which'.", "notes": "Repite estos 4 puntos antes de pasar al bloque de ejercicios."}, {"id": 13, "section": "103.1", "cat": "cmd", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: man, uname y type)", "ref": "Manual A - Pág 203", "pdf": {"manual": "A", "pages": [203], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 203): Un administrador necesita consultar la página del manual oficial del archivo de configuración del sistema de archivos '/etc/fstab'. ¿Qué comando exacto debe utilizar para evitar abrir un comando ejecutable?", "command": "man 5 fstab", "reason": "La sección 5 del manual de Linux contiene la documentación de los formatos de archivos de configuración y tablas del sistema."}, {"action": "Caso 2 (Oficial Pág 203): ¿Qué comando muestra exclusivamente la versión exacta del kernel de Linux cargado en memoria?", "command": "uname -r", "reason": "La opción -r (--kernel-release) imprime la versión de compilación del kernel (ej: 5.10.0-18-amd64)."}, {"action": "Caso 3 (Oficial Pág 203): ¿Qué comando determina si la orden 'cd' es un archivo ejecutable en disco o una función interna de la shell?", "command": "type cd", "reason": "El comando 'type' analiza la naturaleza del identificador y devolverá 'cd is a shell builtin'."}], "solution": {"explain": "man 5 para archivos de configuración, uname -r para versión de kernel y type para inspección de comandos internos."}, "notes": "Insiste en que 'man fstab' funciona porque no hay comando fstab, pero con 'passwd' fallaría sin el 5."}, {"id": 14, "section": "103.1", "cat": "cmd", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: Variables y PATH)", "ref": "Manual A - Pág 203", "pdf": {"manual": "A", "pages": [203], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 203): Crea una variable de shell llamada 'EMPRESA' con el valor 'EIGP' y expórtala en un solo paso para que los procesos secundarios puedan leerla.", "command": "export EMPRESA=\"EIGP\"", "reason": "El comando 'export' con la asignación integrada define el valor y lo marca simultáneamente en la tabla de entorno global."}, {"action": "Caso 5 (Oficial Pág 203): Añade el directorio '/usr/local/scripts' al final de la variable PATH respetando las rutas existentes.", "command": "export PATH=\"$PATH:/usr/local/scripts\"", "reason": "Concatena el contenido previo de $PATH seguido de dos puntos (:) y el nuevo directorio, exportando el resultado."}], "solution": {"explain": "La exportación de variables garantiza su disponibilidad en subprocesos, y la expansión de $PATH evita sobreescribir las rutas del sistema."}, "notes": "Recuerda a los alumnos: nunca hagas 'export PATH=/nuevo', siempre incluye '$PATH:'."}, {"id": 15, "section": "103.1", "cat": "cmd", "type": "challenge", "title": "Retos de Exploración Oficiales (Historial, Quoting y Subshells)", "ref": "Manual A - Págs 203-204", "pdf": {"manual": "A", "pages": [203, 204], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Si ejecutas 'unset PATH' en tu terminal y de inmediato intentas ejecutar 'ls', ¿qué ocurre y cómo puedes ejecutar ls sin reiniciar la sesión?\n2. ¿Cuál será la salida exacta en pantalla de ejecutar: echo \"El usuario es: $USER y la variable es: '$USER'\"?\n3. ¿Qué combinación de comandos y operadores del historial permite volver a ejecutar el último comando tecleado pero con permisos de superusuario?", "hint": "Recuerda: rutas absolutas; reglas de comillas dobles y simples anidadas; y el operador '!!'.", "solution": {"explain": "1. Bash devolverá 'bash: ls: No such file or directory' porque ya no sabe dónde buscarlo. Se ejecuta escribiendo su ruta absoluta: /bin/ls (o /usr/bin/ls).\n2. Como las comillas externas son dobles, ambas variables se expanden: 'El usuario es: alumno y la variable es: 'alumno''. Las comillas simples pierden su efecto protector al estar dentro de comillas dobles.\n3. Se ejecuta: 'sudo !!'."}, "notes": "El reto 2 demuestra el comportamiento de las comillas anidadas en Bash, una pregunta de alta dificultad habitual en LPIC-1."}, {"id": 16, "section": "103.1", "cat": "cmd", "type": "review", "title": "Pregunta de Examen LPIC-1: Quoting y Expansión de Variables", "q": "Dada la variable de entorno X='LPIC', ¿cuál de los siguientes comandos mostrará en la terminal el texto exacto '$X' en lugar del texto 'LPIC'?", "options": ["echo \"$X\"", "echo '$X'", "echo `echo $X`", "echo $(echo $X)"], "answer": 1, "why": "Las comillas simples (' ') suprimen por completo la interpretación de todos los caracteres especiales, incluido el signo de dólar ($). Por tanto, echo '$X' imprime literalmente la cadena de texto $X. Todas las demás opciones expanden la variable e imprimen 'LPIC'.", "notes": "Pregunta clásica de examen sobre el comportamiento de quoting."}, {"id": 17, "section": "103.1", "cat": "review", "title": "Pregunta de Examen LPIC-1: Secciones del Manual Oficial", "q": "¿Qué comando debe ejecutarse para acceder a la documentación oficial sobre el formato y las directivas del archivo de configuración '/etc/passwd' y no a la herramienta de cambio de contraseña?", "options": ["man passwd", "man 1 passwd", "man 5 passwd", "man 8 passwd"], "answer": 2, "why": "La sección 5 de los manuales del sistema está reservada específicamente para formatos de archivos de configuración y tablas del sistema. La sección 1 documenta el comando interactivo /usr/bin/passwd de cambio de contraseña.", "notes": "Pregunta fija de examen para evaluar la comprensión del árbol de manuales man.", "type": "review"}, {"id": 18, "section": "103.1", "cat": "cmd", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Línea de Comandos 103.1", "deck": [{"front": "¿Qué comando muestra la versión de compilación del kernel cargado?", "back": "uname -r."}, {"front": "¿Qué sección del manual 'man' documenta los archivos de configuración?", "back": "Sección 5 (ej: man 5 fstab, man 5 passwd)."}, {"front": "¿Qué comando busca en las descripciones breves de todos los manuales?", "back": "apropos <palabra> (o man -k <palabra>)."}, {"front": "¿Qué comando averigua si una orden es un builtin, un alias o un archivo?", "back": "type <comando>."}, {"front": "¿Qué operador del historial vuelve a ejecutar el último comando tecleado?", "back": "!! (dos signos de exclamación)."}, {"front": "¿Qué comando elimina por completo una variable de la memoria?", "back": "unset NOMBRE (sin poner el signo $)."}, {"front": "¿Qué comillas desactivan absolutamente TODAS las expansiones en Bash?", "back": "Las comillas simples (' ')."}, {"front": "¿Qué diferencia hay entre HISTSIZE y HISTFILESIZE?", "back": "HISTSIZE es para la memoria RAM de la sesión; HISTFILESIZE es para el archivo en disco (~/.bash_history)."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.1."}, {"id": 19, "section": "103.1", "cat": "cmd", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.1", "takeaways": ["Navegación e Identificación: uname -r para versión de kernel, uname -m para CPU, pwd y cd.", "Documentación: man (sección 1 comandos usuario, 5 archivos config, 8 administración), apropos (man -k) y whatis (man -f).", "Comandos: type determina la naturaleza (builtin frente a file en disco); which busca solo en $PATH.", "Historial y Variables: history, atajos !!, !N, variables HISTSIZE / HISTFILESIZE, export para proceso hijo y comillas simples (' ') para supresión total."], "top3": [{"cmd": "uname -r && uname -m", "desc": "Consulta la versión del kernel y la arquitectura del procesador."}, {"cmd": "man 5 <archivo>", "desc": "Abre la documentación técnica del formato de un archivo de configuración."}, {"cmd": "export PATH=\"$PATH:/nueva/ruta\"", "desc": "Añade un directorio al PATH sin destruir las rutas del sistema."}], "practice": {"name": "Practica 103.1: Trabajar desde la Línea de Comandos Bash", "url": "../practicas/p-103-1-linea-de-comandos.html", "desc": "Gestiona variables de entorno ($PATH, $HISTSIZE), crea alias duraderos, audita el historial con history e investiga el tipo de comandos con type y which."}, "notes": "Concluimos el subtema 103.1. Los alumnos dominan ahora los fundamentos esenciales de la línea de comandos."}];
     const ERRATAS = [{"id": "E-006", "page": 23, "original": "/usr/bin/sudo/bin/cat/etc/shadow", "corrected": "/usr/bin/sudo /bin/cat /etc/shadow", "explanation": "Faltan espacios de separación entre el comando sudo, el comando cat y la ruta del archivo /etc/shadow.", "type": "syntax"}];
     const GLOSARIO = [{"id": "GLOS-103.1-001", "termino": "Shell Bash", "definicion": "Bourne Again Shell. Intérprete de comandos estándar en sistemas Linux que procesa órdenes de usuario y scripts."}, {"id": "GLOS-103.1-002", "termino": "Builtin", "definicion": "Comando integrado directamente dentro del ejecutable del shell (como cd, kill, help, set), sin archivo binario externo."}, {"id": "GLOS-103.1-003", "termino": "PATH", "definicion": "Variable de entorno que contiene una lista ordenada de directorios separados por dos puntos (:) donde el shell busca programas ejecutables."}, {"id": "GLOS-103.1-004", "termino": "export", "definicion": "Orden de shell que promueve una variable local al entorno global, permitiendo que sea heredada por procesos secundarios e hijos."}, {"id": "GLOS-103.1-005", "termino": "Quoting", "definicion": "Mecanismo de preservación literal de caracteres especiales mediante comillas dobles, comillas simples o barras invertidas de escape."}];
-    const META = {"course": "LPIC-1 v5.0", "topic": "103.1", "title": "Trabajar desde la línea de comandos", "weight": 4, "pages": "1–24", "icons": "Lucide 0.468.0 (ISC)"};
+    const META = {"topic": "103.1", "title": "Trabajar en la línea de comandos", "weight": 4, "description": "Shell Bash, prompt, uname, sistema man, type, historial, variables de entorno y quoting (Alta Densidad LPIC-1)", "duracion": "30 min"};
 
     /* -------------------------------------------------------------
        MOTOR DE RENDERIZADO Y NAVEGACIÓN (Pure JS)
@@ -1124,7 +1223,7 @@
             <div style="display:flex; justify-content:center; gap:20px; font-size:22px; font-weight:600;">
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Peso LPI: ${escapeHTML(s.meta?.peso || (typeof META !== 'undefined' && META.weight) || '')}</span>
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Páginas: ${escapeHTML(s.meta?.paginas || '')}</span>
-              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '45 min')}</span>
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '30 min')}</span>
             </div>
           </div>
         `;
@@ -1232,51 +1331,87 @@
         }
       } else if (s.type === 'file') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
-        const filePath = s.path || s.file || '';
-        const fileDesc = s.desc || s.contains || s.lead || s.purpose || '';
+        const fileObj = (typeof s.file === 'object' && s.file !== null) ? s.file : {};
+        const filePath = fileObj.path || s.path || (typeof s.file === 'string' ? s.file : '');
+        const filePurpose = fileObj.purpose || s.purpose || '';
+        const fileDesc = fileObj.desc || s.desc || s.contains || s.lead || filePurpose;
         html += `<div class="slide-lead"><code class="t-path" style="font-size:28px; font-weight:700;">${escapeHTML(filePath)}</code>${fileDesc ? ` — ${renderRichText(fileDesc)}` : ''}</div>`;
         
-        // Directivas de configuración si existen
-        if (s.directives && s.directives.length > 0) {
-          html += `<div class="directives-grid">`;
-          s.directives.forEach(d => {
+        // Muestra de sintaxis, contenido de archivo o configuración
+        const fileContent = fileObj.content || s.content || s.sample?.content || (typeof s.sample === 'string' ? s.sample : '') || (typeof s.syntax === 'string' ? s.syntax : '');
+        if (fileContent || s.sample || s.syntax) {
+          let lines = [];
+          if (Array.isArray(fileContent)) lines = fileContent;
+          else if (typeof fileContent === 'string' && fileContent.trim()) lines = fileContent.split('\n');
+          else if (s.sample && s.sample.lines) lines = s.sample.lines;
+          else if (Array.isArray(s.syntax)) lines = s.syntax;
+
+          if (lines.length > 0) {
             html += `
-              <div class="directive-card">
-                <div class="directive-key">${escapeHTML(d.key || '')}</div>
-                <div class="directive-desc">${renderRichText(d.desc || d.detail || '')}</div>
+              <div class="term-wrapper" style="margin-top:12px; margin-bottom:16px;">
+                <div class="term-header">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
+                    <span>${escapeHTML(filePath || 'configuración')}</span>
+                  </div>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(Array.isArray(lines) ? lines.join('\n') : fileContent)}')">
+                    <svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar archivo
+                  </button>
+                </div>
+                <div class="term-code">`;
+            lines.forEach(line => {
+              const lStr = String(line);
+              if (lStr.trim().startsWith('#')) {
+                html += `<div><span class="t-cmt">${escapeHTML(lStr)}</span></div>`;
+              } else {
+                html += `<div>${escapeHTML(lStr)}</div>`;
+              }
+            });
+            html += `</div></div>`;
+          }
+        }
+
+        // Directivas o Viñetas explicativas (points)
+        const pointsList = s.points || s.directives || [];
+        if (pointsList.length > 0) {
+          html += `<div class="concept-grid">`;
+          pointsList.forEach(p => {
+            const pKey = p.text || p.key || p.title || '';
+            const pDesc = p.detail || p.desc || '';
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'file-text'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(pKey)}</div>
+                  ${pDesc ? `<div class="card-detail">${renderRichText(pDesc)}</div>` : ''}
+                </div>
               </div>
             `;
           });
           html += `</div>`;
         }
 
-        // Muestra de sintaxis o archivo
-        if (s.sample || s.syntax) {
-          let lines = [];
-          if (s.sample && s.sample.lines) lines = s.sample.lines;
-          else if (typeof s.syntax === 'string') lines = s.syntax.split('\n');
-          else if (Array.isArray(s.syntax)) lines = s.syntax;
-          else if (typeof s.sample === 'string') lines = s.sample.split('\n');
-
-          html += `
-            <div class="term-wrapper" style="margin-top:12px;">
-              <div class="term-header">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
-                  <span>${escapeHTML(filePath || 'config')}</span>
-                </div>
-              </div>
-              <div class="term-code">`;
-          lines.forEach(line => {
-            html += `<div>${escapeHTML(line)}</div>`;
-          });
-          html += `</div></div>`;
-        }
-
         // Consola o terminal complementario en slide file
         const fileTerm = s.terminal || s.console;
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
+        }
+
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
+        if (s.remember || s.look) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.look)}</span>
+            </div>
+          `;
         }
 
         if (s.writtenBy || s.readBy) {
@@ -1301,6 +1436,52 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'matrix') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.takeaway || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const headers = s.headers || s.cols || s.columns || s.matrix?.headers || [];
+        const rows = s.rows || s.matrix?.rows || [];
+        html += `<div class="matrix-container"><table class="slide-matrix"><thead><tr>`;
+        headers.forEach(h => html += `<th>${renderRichText(h)}</th>`);
+        html += `</tr></thead><tbody>`;
+        rows.forEach((row, ridx) => {
+          const isHl = s.highlight && (s.highlight.row === (ridx + 1) || s.highlight === (ridx + 1));
+          html += `<tr class="${isHl ? 'highlighted' : ''}">`;
+          let cells = [];
+          if (Array.isArray(row)) {
+            cells = row;
+          } else if (typeof row === 'object' && row !== null) {
+            if (row.head !== undefined && Array.isArray(row.cells)) {
+              cells = [row.head, ...row.cells];
+            } else if (Array.isArray(row.cells)) {
+              cells = row.cells;
+            } else {
+              cells = Object.values(row);
+            }
+          }
+          cells.forEach((cell, cidx) => {
+            html += `<td>${renderRichText(cell)}</td>`;
+          });
+          html += `</tr>`;
+        });
+        html += `</tbody></table></div>`;
+        if (s.remember || s.takeaway) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.takeaway)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
@@ -1338,7 +1519,12 @@
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         
         // Badge del manual oficial
-        const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        let pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
+        if (!pdfRef && scenarioText) {
+          const m = scenarioText.match(/P[áa]gina\s+oficial\s+(\d+(?:[–-]\d+)?)/i);
+          if (m) pdfRef = m[1];
+        }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
@@ -1348,7 +1534,6 @@
         `;
 
         // Planteamiento del problema (Escenario claro)
-        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
             <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
@@ -1367,7 +1552,7 @@
           `;
           if (steps.length > 0) {
             steps.forEach((st, idx) => {
-              const doText = st.do || st.task || st.step || '';
+              const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
                   <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
@@ -1401,12 +1586,16 @@
         if (steps.length > 0) {
           html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
-            const doText = st.do || st.task || st.step || '';
-            const lookText = st.look || st.cmd || st.code || '';
+            const doText = st.action || st.do || st.task || st.step || '';
+            const lookText = st.command || st.look || st.cmd || st.code || '';
+            const reasonText = st.reason || st.explain || '';
             html += `
-              <div style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
-                <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
-                ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+              <div style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
+                  <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
+                  ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+                </div>
+                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -1485,14 +1674,21 @@
         const options = s.options || [];
         options.forEach((opt, oidx) => {
           html += `
-            <button class="quiz-btn" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
+            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
               <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(opt)}</span>
             </button>
           `;
         });
         html += `</div>`;
-        html += `<div class="quiz-feedback" id="quiz-feedback-box"></div>`;
+        html += `
+          <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+              <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
+            </button>
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+        `;
       } else if (s.type === 'flashcards') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
@@ -1513,7 +1709,7 @@
             </div>
           </div>
           <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
-            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>Anterior</button>
+            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>Anterior</button>
             <span id="fc-counter" style="font-size:22px; font-weight:700; align-self:center;">1 / ${deck.length}</span>
             <button class="nav-btn" onclick="nextCard()">Siguiente<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
           </div>
@@ -1523,13 +1719,26 @@
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
         html += `<div class="concept-grid">`;
-        const items = s.items || s.points || s.cards || [];
-        items.forEach(item => {
-          const cardTitle = item.title || item.heading || item.key || (typeof item === 'string' ? item : item.text) || '';
-          const cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '') || '';
+        const items = s.takeaways || s.items || s.points || s.cards || [];
+        items.forEach((item, idx) => {
+          let cardTitle = '';
+          let cardDesc = '';
+          if (typeof item === 'string') {
+            const parts = item.split(': ');
+            if (parts.length > 1) {
+              cardTitle = parts[0];
+              cardDesc = parts.slice(1).join(': ');
+            } else {
+              cardTitle = `Punto Clave ${idx + 1}`;
+              cardDesc = item;
+            }
+          } else {
+            cardTitle = item.title || item.heading || item.key || item.text || `Clave ${idx + 1}`;
+            cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '');
+          }
           html += `
             <div class="concept-card">
-              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${item.icon || 'circle-check'}"/></svg></div>
+              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${(typeof item === 'object' && item.icon) ? item.icon : 'circle-check'}"/></svg></div>
               <div style="flex:1;">
                 <div class="card-text">${renderRichText(cardTitle)}</div>
                 ${cardDesc ? `<div class="card-detail">${renderRichText(cardDesc)}</div>` : ''}
@@ -1538,11 +1747,84 @@
           `;
         });
         html += `</div>`;
+
+        // Top 3 Comandos Clave (Soporta strings y objetos {cmd, desc})
         const top3 = s.top3 || s.commands || [];
         if (top3.length > 0) {
           html += `
-            <div style="margin-top:20px; padding:16px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:12px; font-size:22px;">
-              <strong style="color:var(--primary-ink);">Los comandos clave que no puedes olvidar:</strong> <span style="font-family:monospace; font-weight:700;">${renderRichText(top3.join(' · '))}</span>
+            <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
+              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
+              </div>
+              <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
+          `;
+          top3.forEach(t => {
+            if (typeof t === 'string') {
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
+                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                </div>
+              `;
+            } else {
+              const cmd = t.cmd || t.command || '';
+              const desc = t.desc || t.detail || '';
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 16px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  </div>
+                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                </div>
+              `;
+            }
+          });
+          html += `</div></div>`;
+        }
+
+        // Mapeo a práctica de laboratorio
+        if (s.practice) {
+          const pName = s.practice.name || 'Laboratorio Práctico Recomendado';
+          const pUrl = s.practice.url || '#';
+          const pDesc = s.practice.desc || 'Pon a prueba tus conocimientos en la máquina virtual.';
+          html += `
+            <div style="margin-top:14px; padding:16px 22px; background:#F0FDF4; border:2px solid #86EFAC; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#DCFCE7; color:#166534; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-wrench"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#166534;">${escapeHTML(pName)}</div>
+                  <div style="font-size:16px; color:#374151;">${renderRichText(pDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Web →
+              </a>
+            </div>
+          `;
+        }
+
+        // Mapeo a práctica global de fin de tema completo
+        if (s.global_practice) {
+          const gpName = s.global_practice.name || 'Práctica Global Integradora de Todo el Tema';
+          const gpUrl = s.global_practice.url || '#';
+          const gpDesc = s.global_practice.desc || 'Laboratorio final integrador con todos los comandos evaluados en este tema.';
+          html += `
+            <div style="margin-top:12px; padding:16px 22px; background:#FFFBEB; border:2px solid #F59E0B; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#FEF3C7; color:#92400E; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-shield"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#92400E;">🏆 ${escapeHTML(gpName)}</div>
+                  <div style="font-size:16px; color:#78350F;">${renderRichText(gpDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Global →
+              </a>
             </div>
           `;
         }
@@ -1761,23 +2043,53 @@
     }
     document.addEventListener('click', closePopovers);
 
+    function revealReviewAnswer(btn, correctIdx, why) {
+      const stageEl = document.getElementById('slide-content');
+      const buttons = stageEl.querySelectorAll('.quiz-btn');
+      buttons.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correctIdx) {
+          b.classList.add('correct');
+        }
+      });
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.style.display = 'block';
+      fb.style.background = 'var(--success-soft)';
+      fb.style.color = 'var(--success-ink)';
+      fb.style.border = '2px solid #86EFAC';
+      const letter = String.fromCharCode(65 + correctIdx);
+      fb.innerHTML = `<strong>✔ Respuesta oficial: Opción ${letter}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
+      if (btn) btn.style.display = 'none';
+    }
+
     function checkReviewAnswer(btn, chosen, correct, why) {
       const parent = btn.parentElement;
-      parent.querySelectorAll('.quiz-btn').forEach(b => b.disabled = true);
+      parent.querySelectorAll('.quiz-btn').forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correct) {
+          b.classList.add('correct');
+        }
+      });
       const isCorrect = chosen === correct;
-      btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+      if (!isCorrect) {
+        btn.classList.add('incorrect');
+      }
 
       const fb = document.getElementById('quiz-feedback-box');
       fb.style.display = 'block';
       if (isCorrect) {
         fb.style.background = 'var(--success-soft)';
         fb.style.color = 'var(--success-ink)';
-        fb.innerHTML = `<strong>✔ ¡Correcto!</strong> ${why}`;
+        fb.style.border = '2px solid #86EFAC';
+        fb.innerHTML = `<strong>✔ ¡Correcto! Opción ${String.fromCharCode(65 + chosen)}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       } else {
         fb.style.background = 'var(--danger-soft)';
         fb.style.color = 'var(--danger-ink)';
-        fb.innerHTML = `<strong>✖ Incorrecto.</strong> ${why}`;
+        fb.style.border = '2px solid #FCA5A5';
+        fb.innerHTML = `<strong>✖ Incorrecto.</strong> La opción correcta es la <strong>${String.fromCharCode(65 + correct)}</strong>.<br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       }
+      const revealBtn = document.querySelector('.btn-resolve-quiz');
+      if (revealBtn) revealBtn.style.display = 'none';
     }
 
     // Flashcard engine

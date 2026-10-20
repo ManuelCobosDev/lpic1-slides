@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="Portal de Prácticas Técnicas de Laboratorio para el curso y preparación de la certificación LPIC-1 v5.0.">
-  <title>Prácticas LPIC-1 — Laboratorio Guiado v2</title>
+  <meta name="description" content="Portal oficial de Laboratorios Prácticos Guiados por Subtema para la certificación LPIC-1 v5.0.">
+  <title>Prácticas Guiadas LPIC-1 — Laboratorio por Subtema</title>
   <style>
     
 :root {
@@ -133,6 +133,8 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></symbol>
 <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
 <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></symbol>
+<symbol id="i-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></symbol>
 <symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></symbol>
 <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></symbol>
 <symbol id="i-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></symbol>
@@ -145,7 +147,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
   <div class="container">
     <header style="margin-bottom: 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <a href="../index.html" style="display:inline-flex; align-items:center; gap:8px; font-weight:600; color:var(--text-muted);">
-        <svg class="ic"><use href="#i-arrow-left"/></svg> Volver a la Portada Principal
+        <svg class="ic"><use href="#i-arrow-left"/></svg> Volver al Índice Principal de Diapositivas
       </a>
       <button onclick="resetAllProgress()" style="background:none; border:none; color:var(--text-muted); font-size:14px; font-weight:600; cursor:pointer; text-decoration:underline;">
         Reiniciar mi progreso local
@@ -155,10 +157,10 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
     <div class="portal-hero">
       <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:20px;">
         <div>
-          <span class="badge badge-amber" style="margin-bottom:12px;">Material Oficial de Laboratorio · LPIC-1 v5.0</span>
-          <h1 style="font-size:36px; font-weight:800; margin-bottom:10px;">Prácticas Técnicas de Laboratorio</h1>
-          <p style="font-size:18px; color:var(--text-muted); max-width:750px;">
-            15 prácticas opcionales, lineales y sencillas de ≈ 1 h 30 min cada una. Diseñadas para ejecutarse sobre <strong>una única máquina virtual Debian 12</strong> con capturas de pantalla como evidencia.
+          <span class="badge badge-amber" style="margin-bottom:12px;">Metodología Aula Activa · LPIC-1 v5.0</span>
+          <h1 style="font-size:36px; font-weight:800; margin-bottom:10px;">Laboratorios Prácticos Guiados</h1>
+          <p style="font-size:18px; color:var(--text-muted); max-width:800px;">
+            Una práctica ágil de <strong>25–30 minutos</strong> por cada subtema oficial. Diseñadas para ejecutarse directamente en el aula sobre tu máquina virtual <strong>Debian 12 con snapshot <code>00-base-limpia</code></strong> justo después de cada bloque de diapositivas.
           </p>
         </div>
         <div style="display:flex; flex-direction:column; gap:12px;">
@@ -172,442 +174,805 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
       </div>
     </div>
 
-    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:20px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
       <div class="filters-bar" id="filtersBar">
-        <button class="filter-btn active" data-filter="all">Todos los temas</button>
-        <button class="filter-btn" data-filter="101">101 Arquitectura</button>
-        <button class="filter-btn" data-filter="102">102 Paquetes</button>
-        <button class="filter-btn" data-filter="103">103 Comandos</button>
-        <button class="filter-btn" data-filter="104">104 Dispositivos</button>
-        <button class="filter-btn" data-filter="105">105 Shell</button>
-        <button class="filter-btn" data-filter="107">107 Admin</button>
-        <button class="filter-btn" data-filter="108">108 Servicios</button>
-        <button class="filter-btn" data-filter="109">109 Redes</button>
+        <button class="filter-btn active" data-filter="all">Todos los temas (27)</button>
+        <button class="filter-btn" data-filter="101">Tema 101: Arquitectura</button>
+        <button class="filter-btn" data-filter="102">Tema 102: Paquetes</button>
+        <button class="filter-btn" data-filter="103">Tema 103: Comandos</button>
+        <button class="filter-btn" data-filter="104">Tema 104: Dispositivos</button>
+        <button class="filter-btn" data-filter="global" style="font-weight:700;">🏆 Prácticas Globales (4)</button>
       </div>
       <div>
-        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar por comando o palabra...">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar comando o tema...">
       </div>
     </div>
 
-    <div class="grid-practices" id="practicesGrid">
+    <div id="practicesSections">
       
-        <div class="card practice-card" data-topic="101" data-tags="P01 auditoría de hardware e inicio del sistema 101.1 101.2 101.3">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 01 · Clase 1 (19 Oct)</span>
-            <span class="badge badge-green">90 min</span>
+        <section class="topic-section" id="t101" style="margin-bottom:40px;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; border-bottom:2px solid var(--border-light); padding-bottom:8px;">
+            <span class="badge badge-gray" style="font-size:16px;">Tema 101</span>
+            <h2 style="font-size:26px; font-weight:800; color:var(--text);">Arquitectura del Sistema (4 Prácticas)</h2>
           </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p01-auditoria-hardware-inicio.html">Auditoría de Hardware e Inicio del Sistema</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">101.1</span> <span class="badge badge-blue">101.2</span> <span class="badge badge-blue">101.3</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P01">0 / 4</span>
+          <div class="grid-practices">
+            
+            <div class="card practice-card" data-topic="101" data-tags="101.1 p-101-1-ajustes-hardware ajustes de hardware, buses y módulos del kernel " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 101.1</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-101-1-ajustes-hardware.html" style="">Ajustes de Hardware, Buses y Módulos del Kernel</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Audita los dispositivos PCI y USB de tu VM Debian, inspecciona la jerarquía virtual en /proc y /sys, y gestiona módulos del kernel de forma segura con modprobe y modinfo.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-101.1">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-101.1"></div>
+                </div>
+              </div>
             </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P01"></div>
+            
+            <div class="card practice-card" data-topic="101" data-tags="101.2 p-101-2-arranque-sistema arranque del sistema, parámetros del kernel y registros " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 101.2</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-101-2-arranque-sistema.html" style="">Arranque del Sistema, Parámetros del Kernel y Registros</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Examina la secuencia de arranque de Linux desde el BIOS/UEFI hasta el espacio de usuario, audita dmesg y consulta el journal del arranque previo con journalctl.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-101.2">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-101.2"></div>
+                </div>
+              </div>
             </div>
+            
+            <div class="card practice-card" data-topic="101" data-tags="101.3 p-101-3-runlevels-targets-apagado cambio de runlevels, targets de systemd y apagado seguro " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 101.3</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-101-3-runlevels-targets-apagado.html" style="">Cambio de Runlevels, Targets de Systemd y Apagado Seguro</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Gestiona los estados de ejecución de systemd (targets) y SysVinit (runlevels), emite avisos masivos a usuarios con wall y programa apagados cancelables.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-101.3">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-101.3"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card practice-card" data-topic="101" data-tags="101.GLOBAL p-tema-101-global laboratorio global integrador — todo el tema 101: arquitectura del sistema global integrador tema-101" style="border: 2px solid #F59E0B; background: #FFFDF5; grid-column: 1 / -1; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.08);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Repaso Global Tema 101</span>
+                <span class="badge badge-amber">50 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-tema-101-global.html" style="color:#92400E;">Laboratorio Global Integrador — Todo el Tema 101: Arquitectura del Sistema</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Práctica global que integra todos los comandos del Tema 101: auditoría de hardware (lspci, lsusb, lsblk), jerarquías /proc y /sys, gestión de módulos (modprobe, lsmod), dmesg y journalctl, y control de estados/apagados con systemd y SysVinit.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 5 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 5 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-101.GLOBAL">0 / 5</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-101.GLOBAL"></div>
+                </div>
+              </div>
+            </div>
+            
           </div>
-        </div>
+        </section>
         
-        <div class="card practice-card" data-topic="102" data-tags="P02 diseño de almacenamiento y gestores de arranque 102.1 102.2">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 02 · Clase 2 (20 Oct)</span>
-            <span class="badge badge-green">90 min</span>
+        <section class="topic-section" id="t102" style="margin-bottom:40px;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; border-bottom:2px solid var(--border-light); padding-bottom:8px;">
+            <span class="badge badge-gray" style="font-size:16px;">Tema 102</span>
+            <h2 style="font-size:26px; font-weight:800; color:var(--text);">Instalación de Linux y Paquetes (7 Prácticas)</h2>
           </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p02-almacenamiento-arranque.html">Diseño de Almacenamiento y Gestores de Arranque</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">102.1</span> <span class="badge badge-blue">102.2</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P02">0 / 4</span>
+          <div class="grid-practices">
+            
+            <div class="card practice-card" data-topic="102" data-tags="102.1 p-102-1-particionado-disco diseño y esquema de particionado del disco duro " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 102.1</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-102-1-particionado-disco.html" style="">Diseño y Esquema de Particionado del Disco Duro</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Examina tablas de particiones MBR y GPT, analiza la memoria virtual de intercambio (swap) y planifica esquemas de particionado seguro para servidores.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-102.1">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-102.1"></div>
+                </div>
+              </div>
             </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P02"></div>
+            
+            <div class="card practice-card" data-topic="102" data-tags="102.2 p-102-2-gestor-arranque-grub instalación y configuración del gestor de arranque grub " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 102.2</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-102-2-gestor-arranque-grub.html" style="">Instalación y Configuración del Gestor de Arranque GRUB</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Domina la configuración de GRUB 2 mediante /etc/default/grub y /etc/grub.d/, comprende la regeneración de grub.cfg y compara su arquitectura con GRUB Legacy.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-102.2">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-102.2"></div>
+                </div>
+              </div>
             </div>
+            
+            <div class="card practice-card" data-topic="102" data-tags="102.3 p-102-3-librerias-compartidas gestión de librerías compartidas del sistema " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 102.3</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-102-3-librerias-compartidas.html" style="">Gestión de Librerías Compartidas del Sistema</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Rastrea dependencias dinámicas con ldd, administra la caché del enlazador con ldconfig y comprende el uso de /etc/ld.so.conf y LD_LIBRARY_PATH.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-102.3">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-102.3"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card practice-card" data-topic="102" data-tags="102.4 p-102-4-paquetes-debian gestión de paquetes debian con dpkg y apt " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 102.4</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-102-4-paquetes-debian.html" style="">Gestión de Paquetes Debian con DPKG y APT</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Gestiona paquetes a bajo nivel con dpkg (-i, -r, -P, -l, -L, -S, -c) y a alto nivel con apt y apt-cache, explorando repositorios en sources.list.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-102.4">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-102.4"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card practice-card" data-topic="102" data-tags="102.5 p-102-5-paquetes-rpm-yum gestión de paquetes rpm, yum, dnf y zypper " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 102.5</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-102-5-paquetes-rpm-yum.html" style="">Gestión de Paquetes RPM, YUM, DNF y Zypper</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Domina la sintaxis y opciones de examen de RPM, YUM, DNF y Zypper, e inspecciona archivos .rpm reales en Debian mediante rpm2cpio y cpio sin comprometer el sistema.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-102.5">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-102.5"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card practice-card" data-topic="102" data-tags="102.6 p-102-6-virtualizacion-cloud linux como sistema virtualizado y cloud " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 102.6</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-102-6-virtualizacion-cloud.html" style="">Linux como Sistema Virtualizado y Cloud</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Detecta el hipervisor con systemd-detect-virt, audita identificadores únicos de máquina en /etc/machine-id y analiza directivas de cloud-init.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-102.6">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-102.6"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card practice-card" data-topic="102" data-tags="102.GLOBAL p-tema-102-global laboratorio global integrador — todo el tema 102: instalación de linux y paquetes global integrador tema-102" style="border: 2px solid #F59E0B; background: #FFFDF5; grid-column: 1 / -1; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.08);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Repaso Global Tema 102</span>
+                <span class="badge badge-amber">60 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-tema-102-global.html" style="color:#92400E;">Laboratorio Global Integrador — Todo el Tema 102: Instalación de Linux y Paquetes</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Laboratorio integrador de todo el Tema 102: particionado en bucle MBR/GPT (fdisk/parted), inspección de GRUB 2 y /etc/default/grub, gestión de librerías dinámicas (ldd, ldconfig), ciclo de vida de paquetes Debian (dpkg, apt, apt-cache, apt-file), equivalencias RPM (rpm2cpio, zypper, dnf) y auditoría de virtualización y Cloud.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 5 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 5 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-102.GLOBAL">0 / 5</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-102.GLOBAL"></div>
+                </div>
+              </div>
+            </div>
+            
           </div>
-        </div>
+        </section>
         
-        <div class="card practice-card" data-topic="102" data-tags="P03 librerías dinámicas y gestión de paquetes debian y rpm 102.3 102.4 102.5">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 03 · Clase 3 (21 Oct)</span>
-            <span class="badge badge-green">90 min</span>
+        <section class="topic-section" id="t103" style="margin-bottom:40px;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; border-bottom:2px solid var(--border-light); padding-bottom:8px;">
+            <span class="badge badge-gray" style="font-size:16px;">Tema 103</span>
+            <h2 style="font-size:26px; font-weight:800; color:var(--text);">Comandos GNU y Unix (9 Prácticas)</h2>
           </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p03-librerias-paquetes.html">Librerías Dinámicas y Gestión de Paquetes Debian y RPM</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">102.3</span> <span class="badge badge-blue">102.4</span> <span class="badge badge-blue">102.5</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P03">0 / 4</span>
+          <div class="grid-practices">
+            
+            <div class="card practice-card" data-topic="103" data-tags="103.1 p-103-1-linea-de-comandos trabajar desde la línea de comandos bash " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 103.1</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-103-1-linea-de-comandos.html" style="">Trabajar desde la Línea de Comandos Bash</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Gestiona variables de entorno ($PATH, $HISTSIZE), crea alias duraderos, audita el historial con history e investiga el tipo de comandos con type y which.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-103.1">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-103.1"></div>
+                </div>
+              </div>
             </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P03"></div>
+            
+            <div class="card practice-card" data-topic="103" data-tags="103.2 p-103-2-filtros-de-texto procesar secuencias de texto con filtros " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 103.2</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-103-2-filtros-de-texto.html" style="">Procesar Secuencias de Texto con Filtros</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Domina el filtrado de flujos de texto en Linux usando cat, tac, head, tail, cut, sort, uniq, tr, wc y sed sobre datos reales del sistema.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-103.2">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-103.2"></div>
+                </div>
+              </div>
             </div>
+            
+            <div class="card practice-card" data-topic="103" data-tags="103.3 p-103-3-gestion-archivos gestión básica de archivos, compresión y empaquetado " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 103.3</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-103-3-gestion-archivos.html" style="">Gestión Básica de Archivos, Compresión y Empaquetado</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Copia, mueve y organiza árboles de archivos con cp, mv, mkdir y rm; crea y analiza paquetes comprimidos con tar (gzip, bzip2, xz) y utiliza cpio y dd.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-103.3">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-103.3"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card practice-card" data-topic="103" data-tags="103.4 p-103-4-redirecciones-tuberias flujos estándar, tuberías y redirecciones " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 103.4</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-103-4-redirecciones-tuberias.html" style="">Flujos Estándar, Tuberías y Redirecciones</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Domina los descriptores stdin (0), stdout (1) y stderr (2), redirige salidas y errores (>, >>, 2>, 2>&1, &>), bifurca con tee y automatiza con xargs.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-103.4">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-103.4"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card practice-card" data-topic="103" data-tags="103.5 p-103-5-procesos-senales crear, monitorizar y matar procesos " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 103.5</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-103-5-procesos-senales.html" style="">Crear, Monitorizar y Matar Procesos</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Gestiona procesos en primer y segundo plano (jobs, bg, fg, nohup), audita recursos con ps, top y pstree, y envía señales de terminación con kill y killall.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-103.5">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-103.5"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card practice-card" data-topic="103" data-tags="103.6 p-103-6-prioridades-nice-renice modificar la prioridad de procesos (nice y renice) " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 103.6</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-103-6-prioridades-nice-renice.html" style="">Modificar la Prioridad de Procesos (Nice y Renice)</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Aprende a graduar la prioridad en el planificador de la CPU con nice (-20 a +19), modifica procesos en vivo con renice y comprende las reglas de privilegios de root.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-103.6">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-103.6"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card practice-card" data-topic="103" data-tags="103.7 p-103-7-expresiones-regulares-grep expresiones regulares básicas y extendidas con grep " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 103.7</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-103-7-expresiones-regulares-grep.html" style="">Expresiones Regulares Básicas y Extendidas con Grep</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Domina los metacaracteres de expresiones regulares (^, $, ., *, [], [^], |, +, ?), busca patrones con grep (-i, -v, -n, -E) y diferencia BRE de ERE.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-103.7">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-103.7"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card practice-card" data-topic="103" data-tags="103.8 p-103-8-editor-vi edición básica de archivos con vi / vim " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 103.8</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-103-8-editor-vi.html" style="">Edición Básica de Archivos con vi / vim</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Navega entre los modos Normal, Inserción y Ex en vi; domina la edición rápida (dd, yy, p, u), búsquedas (/), sustituciones globales (:%s/old/new/g) y guardado (:wq, :q!, ZZ).
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-103.8">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-103.8"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card practice-card" data-topic="103" data-tags="103.GLOBAL p-tema-103-global laboratorio global integrador — todo el tema 103: comandos gnu y unix global integrador tema-103" style="border: 2px solid #F59E0B; background: #FFFDF5; grid-column: 1 / -1; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.08);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Repaso Global Tema 103</span>
+                <span class="badge badge-amber">60 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-tema-103-global.html" style="color:#92400E;">Laboratorio Global Integrador — Todo el Tema 103: Comandos GNU y Unix</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Laboratorio integrador de todo el Tema 103: configuración del entorno shell y aliases, pipeline completo de filtrado de texto (cut, sort, uniq, wc, tr), compresión de archivos (tar, gzip, xz), redirección avanzada y xargs, administración de procesos (ps, top, kill, renice), expresiones regulares con grep/sed y edición en Vi.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 5 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 5 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-103.GLOBAL">0 / 5</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-103.GLOBAL"></div>
+                </div>
+              </div>
+            </div>
+            
           </div>
-        </div>
+        </section>
         
-        <div class="card practice-card" data-topic="103" data-tags="P04 filtros de texto, tuberías y gestión básica de archivos 103.1 103.2 103.3 103.4">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 04 · Clase 4 (22 Oct)</span>
-            <span class="badge badge-green">90 min</span>
+        <section class="topic-section" id="t104" style="margin-bottom:40px;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; border-bottom:2px solid var(--border-light); padding-bottom:8px;">
+            <span class="badge badge-gray" style="font-size:16px;">Tema 104</span>
+            <h2 style="font-size:26px; font-weight:800; color:var(--text);">Dispositivos y Sistemas de Archivos (7 Prácticas)</h2>
           </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p04-filtros-archivos-redirecciones.html">Filtros de Texto, Tuberías y Gestión Básica de Archivos</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">103.1</span> <span class="badge badge-blue">103.2</span> <span class="badge badge-blue">103.3</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P04">0 / 4</span>
+          <div class="grid-practices">
+            
+            <div class="card practice-card" data-topic="104" data-tags="104.1 p-104-1-crear-particiones-archivos creación de particiones y sistemas de archivos " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 104.1</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-104-1-crear-particiones-archivos.html" style="">Creación de Particiones y Sistemas de Archivos</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Crea una unidad de disco virtual loopback de 200 MB para particionar con fdisk y dar formato de forma 100% segura con mkfs.ext4, mkfs.xfs, mkfs.vfat y mkswap sin arriesgar tu VM.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-104.1">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-104.1"></div>
+                </div>
+              </div>
             </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P04"></div>
+            
+            <div class="card practice-card" data-topic="104" data-tags="104.2 p-104-2-integridad-sistemas-archivos mantenimiento e integridad de sistemas de archivos " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 104.2</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-104-2-integridad-sistemas-archivos.html" style="">Mantenimiento e Integridad de Sistemas de Archivos</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Audita el espacio y los inodos disponibles con df (-h, -i) y du (-sh), inspecciona y modifica superbloques ext4 con tune2fs y dumpe2fs, y verifica la integridad con fsck.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-104.2">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-104.2"></div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        
-        <div class="card practice-card" data-topic="103" data-tags="P05 control de procesos, prioridades, expresiones regulares y vi 103.5 103.6 103.7 103.8">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 05 · Clase 5 (26 Oct)</span>
-            <span class="badge badge-green">90 min</span>
-          </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p05-procesos-regex-vi.html">Control de Procesos, Prioridades, Expresiones Regulares y vi</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">103.5</span> <span class="badge badge-blue">103.6</span> <span class="badge badge-blue">103.7</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P05">0 / 4</span>
+            
+            <div class="card practice-card" data-topic="104" data-tags="104.3 p-104-3-montaje-sistemas-archivos control del montaje y desmontaje de sistemas de archivos " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 104.3</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-104-3-montaje-sistemas-archivos.html" style="">Control del Montaje y Desmontaje de Sistemas de Archivos</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Monta y desmonta sistemas de archivos con mount y umount, aplica opciones de seguridad (ro, noexec, nosuid), domina los 6 campos de /etc/fstab y verifica con findmnt.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-104.3">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-104.3"></div>
+                </div>
+              </div>
             </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P05"></div>
+            
+            <div class="card practice-card" data-topic="104" data-tags="104.5 p-104-5-permisos-propietarios administración de permisos y propietarios de archivos " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 104.5</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-104-5-permisos-propietarios.html" style="">Administración de Permisos y Propietarios de Archivos</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Aplica permisos octales y simbólicos con chmod, transfiere dueños y grupos con chown y chgrp, calcula la máscara umask y domina los permisos especiales SUID, SGID y Sticky Bit.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-104.5">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-104.5"></div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        
-        <div class="card practice-card" data-topic="104" data-tags="P06 sistemas de archivos: creación, montaje persistente y mantenimiento 104.1 104.2 104.3">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 06 · Clase 6 (27 Oct)</span>
-            <span class="badge badge-green">90 min</span>
-          </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p06-sistemas-archivos-fstab.html">Sistemas de Archivos: Creación, Montaje Persistente y Mantenimiento</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">104.1</span> <span class="badge badge-blue">104.2</span> <span class="badge badge-blue">104.3</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P06">0 / 4</span>
+            
+            <div class="card practice-card" data-topic="104" data-tags="104.6 p-104-6-enlaces-duros-simbolicos crear y cambiar enlaces duros y simbólicos " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 104.6</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-104-6-enlaces-duros-simbolicos.html" style="">Crear y Cambiar Enlaces Duros y Simbólicos</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Crea enlaces duros (hard links) y enlaces simbólicos (soft links) con ln, inspecciona números de inodo con ls -i y stat, y experimenta los efectos de borrar el archivo origen.
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-104.6">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-104.6"></div>
+                </div>
+              </div>
             </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P06"></div>
+            
+            <div class="card practice-card" data-topic="104" data-tags="104.7 p-104-7-encontrar-archivos-fhs encontrar archivos del sistema y estructura fhs " >
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-blue">Subtema 104.7</span>
+                <span class="badge badge-green">30 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-104-7-encontrar-archivos-fhs.html" style="">Encontrar Archivos del Sistema y Estructura FHS</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Busca archivos en tiempo real con find por nombre, tipo, tamaño y permisos (-exec), utiliza locate y updatedb, y comprende la jerarquía del estándar FHS (/bin, /sbin, /etc, /usr, /var).
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-104.7">0 / 4</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-104.7"></div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        
-        <div class="card practice-card" data-topic="104" data-tags="P07 permisos especiales, enlaces, estructura fhs y entorno shell 104.5 104.6 104.7 105.1">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 07 · Clase 7 (28 Oct)</span>
-            <span class="badge badge-green">90 min</span>
-          </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p07-permisos-enlaces-fhs-shell.html">Permisos Especiales, Enlaces, Estructura FHS y Entorno Shell</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">104.5</span> <span class="badge badge-blue">104.6</span> <span class="badge badge-blue">104.7</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P07">0 / 4</span>
+            
+            <div class="card practice-card" data-topic="104" data-tags="104.GLOBAL p-tema-104-global laboratorio global integrador — todo el tema 104: dispositivos, sistemas de archivos y fhs global integrador tema-104" style="border: 2px solid #F59E0B; background: #FFFDF5; grid-column: 1 / -1; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.08);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Repaso Global Tema 104</span>
+                <span class="badge badge-amber">60 min</span>
+              </div>
+              <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
+                <a href="p-tema-104-global.html" style="color:#92400E;">Laboratorio Global Integrador — Todo el Tema 104: Dispositivos, Sistemas de Archivos y FHS</a>
+              </h3>
+              <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
+                Laboratorio integrador de todo el Tema 104: creación y mantenimiento de sistemas ext4 y XFS en volúmenes loop seguros (mkfs, tune2fs, dumpe2fs, e2fsck), montaje con opciones en /etc/fstab, permisos especiales (SUID, SGID, Sticky bit), enlaces duros y simbólicos (inodos) y localización de ficheros en el estándar FHS (find, locate, which, type).
+              </p>
+              <div style="font-size:14px; color:var(--text-muted); margin-bottom:14px; display:flex; gap:16px;">
+                <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 5 capturas</span>
+                <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 5 misiones guiadas</span>
+              </div>
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
+                <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                  <span>Progreso</span>
+                  <span id="prog-text-104.GLOBAL">0 / 5</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar-fill" id="prog-bar-104.GLOBAL"></div>
+                </div>
+              </div>
             </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P07"></div>
-            </div>
+            
           </div>
-        </div>
-        
-        <div class="card practice-card" data-topic="105" data-tags="P08 automatización con scripts bash y servidor gráfico x11 105.2 106.1 106.2 106.3">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 08 · Clase 8 (29 Oct)</span>
-            <span class="badge badge-green">90 min</span>
-          </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p08-scripts-bash-x11.html">Automatización con Scripts Bash y Servidor Gráfico X11</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">105.2</span> <span class="badge badge-blue">106.1</span> <span class="badge badge-blue">106.2</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P08">0 / 4</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P08"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card practice-card" data-topic="107" data-tags="P09 administración de cuentas, tareas programadas y sincronización horaria 107.1 107.2 107.3 108.1">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 09 · Clase 9 (03 Nov)</span>
-            <span class="badge badge-green">90 min</span>
-          </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p09-cuentas-cron-tiempo.html">Administración de Cuentas, Tareas Programadas y Sincronización Horaria</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">107.1</span> <span class="badge badge-blue">107.2</span> <span class="badge badge-blue">107.3</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P09">0 / 4</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P09"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card practice-card" data-topic="108" data-tags="P10 auditoría de registros del sistema, correo local e impresión 108.2 108.3 108.4">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 10 · Clase 10 (04 Nov)</span>
-            <span class="badge badge-green">90 min</span>
-          </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p10-registros-correo-impresion.html">Auditoría de Registros del Sistema, Correo Local e Impresión</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">108.2</span> <span class="badge badge-blue">108.3</span> <span class="badge badge-blue">108.4</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P10">0 / 4</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P10"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card practice-card" data-topic="109" data-tags="P11 configuración de red, resolución de problemas y seguridad básica 109.1 109.2 109.3 109.4 110.1 110.2 110.3">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 11 · Clase 11 (05 Nov)</span>
-            <span class="badge badge-green">90 min</span>
-          </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p11-redes-seguridad-cifrado.html">Configuración de Red, Resolución de Problemas y Seguridad Básica</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">109.1</span> <span class="badge badge-blue">109.2</span> <span class="badge badge-blue">109.3</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P11">0 / 4</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P11"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card practice-card" data-topic="102-M" data-tags="P12 autoevaluación teórico-práctica del módulo 102 105.1 105.2 106.1 107.1 108.2 109.2 110.1">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 12 · Clase 12 (10 Nov)</span>
-            <span class="badge badge-green">90 min</span>
-          </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p12-autoevaluacion-modulo-102.html">Autoevaluación Teórico-Práctica del Módulo 102</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">105.1</span> <span class="badge badge-blue">105.2</span> <span class="badge badge-blue">106.1</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 6 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P12">0 / 4</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P12"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card practice-card" data-topic="ALL" data-tags="P13 gran autoevaluación global lpic-1 (exámenes 101 + 102) 101.1 102.1 103.1 104.1 107.1 109.1">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 13 · Clase 13 (11 Nov)</span>
-            <span class="badge badge-green">90 min</span>
-          </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p13-autoevaluacion-global-lpic1.html">Gran Autoevaluación Global LPIC-1 (Exámenes 101 + 102)</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">101.1</span> <span class="badge badge-blue">102.1</span> <span class="badge badge-blue">103.1</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 6 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 5 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P13">0 / 5</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P13"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card practice-card" data-topic="FIX" data-tags="P14 taller break & fix: diagnóstico y resolución segura de incidencias 101.2 104.3 108.2 109.3">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 14 · Clase 14 (12 Nov)</span>
-            <span class="badge badge-green">90 min</span>
-          </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p14-break-and-fix-seguro.html">Taller Break & Fix: Diagnóstico y Resolución Segura de Incidencias</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">101.2</span> <span class="badge badge-blue">104.3</span> <span class="badge badge-blue">108.2</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 8 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P14">0 / 4</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P14"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card practice-card" data-topic="DOC" data-tags="P15 dossier de evidencias y síntesis técnica lpic-1 101.1 102.1 103.1 104.1 105.1 107.1 109.1 110.1">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-            <span class="badge badge-gray">Práctica 15 · Clase 15 (12 Nov)</span>
-            <span class="badge badge-green">90 min</span>
-          </div>
-          <h2 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-            <a href="p15-dossier-evidencias.html">Dossier de Evidencias y Síntesis Técnica LPIC-1</a>
-          </h2>
-          <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="badge badge-blue">101.1</span> <span class="badge badge-blue">102.1</span> <span class="badge badge-blue">103.1</span>
-          </div>
-          <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px; display:flex; gap:16px;">
-            <span><svg class="ic ic-sm"><use href="#i-camera"/></svg> 6 capturas</span>
-            <span><svg class="ic ic-sm"><use href="#i-terminal"/></svg> 4 pasos guiados</span>
-          </div>
-          <div style="margin-top:auto; padding-top:12px; border-top:1px solid var(--border-light);">
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
-              <span>Progreso</span>
-              <span id="prog-text-P15">0 / 4</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar-fill" id="prog-bar-P15"></div>
-            </div>
-          </div>
-        </div>
+        </section>
         
     </div>
 
     <footer class="site-footer" style="margin-top:64px; text-align:center; padding-top:24px; border-top:2px solid var(--border-light); font-size:14px; color:var(--text-muted);">
-      <p>Material de laboratorio didáctico no oficial alineado con los objetivos LPIC-1 (Exámenes 101-500 y 102-500). Prohibida su venta comercial.</p>
+      <p>Material didáctico interactivo no oficial alineado al 100% con los Objetivos Oficiales LPIC-1 (Exámenes 101-500 y 102-500). Sin dependencias externas.</p>
     </footer>
   </div>
 
   <div id="toast"><svg class="ic"><use href="#i-circle-check"/></svg> ¡Acción realizada con éxito!</div>
 
   <script>
-    // Live Search and Filters
     const searchInput = document.getElementById('searchInput');
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.practice-card');
+    const sections = document.querySelectorAll('.topic-section');
 
     function applyFilter() {
       const query = searchInput.value.toLowerCase().trim();
       const activeBtn = document.querySelector('.filter-btn.active');
       const topicFilter = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
 
-      cards.forEach(card => {
-        const topic = card.getAttribute('data-topic');
-        const tags = card.getAttribute('data-tags');
-        const matchesTopic = (topicFilter === 'all' || topic === topicFilter || tags.includes(topicFilter));
-        const matchesQuery = !query || tags.includes(query);
-        card.style.display = (matchesTopic && matchesQuery) ? 'flex' : 'none';
-        card.style.flexDirection = 'column';
+      sections.forEach(sec => {
+        const secTopic = sec.id.replace('t', '');
+        let visibleInSec = 0;
+        const secCards = sec.querySelectorAll('.practice-card');
+
+        secCards.forEach(card => {
+          const topic = card.getAttribute('data-topic');
+          const tags = card.getAttribute('data-tags');
+          const matchesTopic = (topicFilter === 'all' || topic === topicFilter || (topicFilter === 'global' && tags.includes('global')));
+          const matchesQuery = !query || tags.includes(query);
+
+          if (matchesTopic && matchesQuery) {
+            card.style.display = 'flex';
+            card.style.flexDirection = 'column';
+            visibleInSec++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        sec.style.display = visibleInSec > 0 ? 'block' : 'none';
       });
     }
 
@@ -621,19 +986,18 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 
     searchInput.addEventListener('input', applyFilter);
 
-    // Sync localStorage progress
     function updateProgress() {
       try {
         cards.forEach(card => {
-          const tag = card.getAttribute('data-tags').split(' ')[0];
-          const stored = localStorage.getItem('lpic1_prog_' + tag);
+          const sub = card.getAttribute('data-tags').split(' ')[0];
+          const stored = localStorage.getItem('lpic1_prog_' + sub);
           if (stored) {
             const data = JSON.parse(stored);
-            const total = data.total || 4;
+            const total = 4;
             const done = data.done || 0;
-            const percent = Math.round((done / total) * 100);
-            const bar = document.getElementById('prog-bar-' + tag);
-            const text = document.getElementById('prog-text-' + tag);
+            const percent = Math.min(100, Math.round((done / total) * 100));
+            const bar = document.getElementById('prog-bar-' + sub);
+            const text = document.getElementById('prog-text-' + sub);
             if (bar) bar.style.width = percent + '%';
             if (text) text.textContent = done + ' / ' + total + (percent === 100 ? ' (Completada)' : '');
           }

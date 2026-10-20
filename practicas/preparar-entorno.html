@@ -109,7 +109,6 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
   .card { box-shadow: none; border-color: #94A3B8; }
 }
 
-    .stepper-header { margin-bottom: 24px; }
     .step-box { background: var(--surface); border: 2px solid var(--border-light); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
     .step-box h2 { font-size: 22px; font-weight: 700; margin-bottom: 12px; display:flex; align-items:center; gap:10px; }
     .step-num { background: var(--primary); color:#FFF; width: 32px; height: 32px; border-radius: 50%; display:inline-flex; align-items:center; justify-content:center; font-size: 16px; font-weight:700; }
@@ -130,6 +129,8 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></symbol>
 <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
 <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></symbol>
+<symbol id="i-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></symbol>
 <symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></symbol>
 <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></symbol>
 <symbol id="i-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></symbol>
@@ -150,11 +151,10 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
     <div class="card" style="border-left: 6px solid var(--primary);">
       <h1 style="font-size:32px; font-weight:800; margin-bottom:8px;">Preparación del Entorno Único de Laboratorio</h1>
       <p style="font-size:18px; color:var(--text-muted);">
-        Configurarás <strong>una sola máquina virtual Debian 12 (bookworm)</strong> que servirá para realizar las 15 prácticas del curso. No necesitarás instalar otros sistemas operativos ni añadir discos virtuales secundarios.
+        Configurarás <strong>una sola máquina virtual Debian 12 (bookworm)</strong> que servirá para realizar todas las prácticas de clase. No necesitarás instalar otros sistemas operativos ni hardware secundario.
       </p>
     </div>
 
-    <!-- Paso 1 -->
     <div class="step-box">
       <h2><span class="step-num">1</span> Requisitos y Descargas Oficiales</h2>
       <p style="margin-bottom:12px;">Tu equipo anfitrión necesita: <strong>4 GB de RAM libres</strong>, <strong>25 GB de disco</strong> y virtualización activada (VT-x / AMD-V).</p>
@@ -173,7 +173,6 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
       </div>
     </div>
 
-    <!-- Paso 2 -->
     <div class="step-box">
       <h2><span class="step-num">2</span> Creación de la Máquina Virtual</h2>
       <p>Abre tu hipervisor y pulsa en <strong>Nueva Máquina Virtual</strong> con estos parámetros:</p>
@@ -186,7 +185,6 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
       </ul>
     </div>
 
-    <!-- Paso 3 -->
     <div class="step-box">
       <h2><span class="step-num">3</span> Instalación Guiada de Debian 12</h2>
       <p>Inicia la VM con la ISO montada y sigue el asistente:</p>
@@ -201,7 +199,6 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
       </div>
     </div>
 
-    <!-- Paso 4 -->
     <div class="step-box">
       <h2><span class="step-num">4</span> Configuración Post-Instalación (5 min)</h2>
       <p>Inicia sesión en la VM y ejecuta como <code>root</code> para configurar permisos <code>sudo</code>:</p>
@@ -210,14 +207,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash (como root)
           <button class="copy-btn" onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
         </figcaption>
-        <pre><code><span class="t-prompt"># </span><span class="t-cmd">apt</span> <span class="t-flag">update</span> && <span class="t-cmd">apt</span> <span class="t-flag">install</span> <span class="t-flag">-y</span> <span class="t-arg">sudo</span> <span class="t-arg">curl</span> <span class="t-arg">pciutils</span> <span class="t-arg">usbutils</span> <span class="t-arg">kmod</span> <span class="t-arg">procps</span> <span class="t-arg">util-linux</span>
+        <pre><code><span class="t-prompt"># </span><span class="t-cmd">apt</span> <span class="t-flag">update</span> && <span class="t-cmd">apt</span> <span class="t-flag">install</span> <span class="t-flag">-y</span> <span class="t-arg">sudo</span> <span class="t-arg">curl</span> <span class="t-arg">pciutils</span> <span class="t-arg">usbutils</span> <span class="t-arg">kmod</span> <span class="t-arg">procps</span> <span class="t-arg">util-linux</span> <span class="t-arg">xfsprogs</span> <span class="t-arg">plocate</span>
 <span class="t-prompt"># </span><span class="t-cmd">usermod</span> <span class="t-flag">-aG</span> <span class="t-arg">sudo</span> <span class="t-arg">alumno</span>
 <span class="t-prompt"># </span><span class="t-cmd">exit</span></code></pre>
       </figure>
       <p style="font-size:15px; color:var(--text-muted);">Para portapapeles bidireccional en VirtualBox: <em>Dispositivos</em> → <em>Portapapeles compartido</em> → <em>Bidireccional</em>.</p>
     </div>
 
-    <!-- Paso 5 -->
     <div class="step-box" style="border: 2px solid var(--success);">
       <h2><span class="step-num" style="background:var(--success);">5</span> La Instantánea Imprescindible: <code>00-base-limpia</code></h2>
       <p>Apaga la máquina virtual y toma un snapshot en tu hipervisor:</p>
@@ -236,7 +232,6 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
       </div>
     </div>
 
-    <!-- Paso 6 -->
     <div class="step-box" id="capturas">
       <h2><span class="step-num">6</span> Guía Oficial de Capturas de Pantalla</h2>
       <p>Atajos rápidos para capturar la ventana activa de tu terminal:</p>
@@ -246,29 +241,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <li><strong>Linux</strong>: <kbd>Shift</kbd> + <kbd>Impr Pant</kbd> o Flameshot</li>
         <li><strong>VirtualBox</strong>: <kbd>Host</kbd> + <kbd>E</kbd> (menú <em>Entrada</em> → <em>Tomar captura</em>)</li>
       </ul>
-      <p>Nombra siempre los archivos con el formato: <code>PNN-Cn-nombre.png</code> (ej. <code>P01-C1-hardware-cpu.png</code>).</p>
-    </div>
-
-    <!-- Paso 7 -->
-    <div class="step-box">
-      <h2><span class="step-num">7</span> Solución de Problemas Frecuentes</h2>
-      <details class="accordion-item">
-        <summary>Error: "alumno is not in the sudoers file"</summary>
-        <div class="accordion-body">
-          Entra con <code>su -</code> (con la clave de root asignada) y ejecuta <code>usermod -aG sudo alumno</code>. Luego sal con <code>exit</code> y vuelve a iniciar sesión con <code>alumno</code>.
-        </div>
-      </details>
-      <details class="accordion-item">
-        <summary>La máquina virtual no tiene conexión a Internet</summary>
-        <div class="accordion-body">
-          Asegúrate de que en la configuración de red de la VM el adaptador está en modo <strong>NAT</strong>. Dentro de Debian ejecuta <code>ip a</code> para verificar que tiene una IP asignada (ej. 10.0.2.15).
-        </div>
-      </details>
+      <p>Nombra siempre los archivos con el formato especificado en cada práctica (ej: <code>101-1-C1-lspci.png</code>).</p>
     </div>
 
     <div style="text-align:center; margin: 40px 0;">
-      <a href="p01-auditoria-hardware-inicio.html" style="display:inline-flex; align-items:center; gap:10px; background:var(--primary); color:#FFF; padding:14px 28px; border-radius:10px; font-weight:700; font-size:18px;">
-        Empezar Práctica 1: Auditoría de Hardware e Inicio <svg class="ic"><use href="#i-arrow-right"/></svg>
+      <a href="p-101-1-ajustes-hardware.html" style="display:inline-flex; align-items:center; gap:10px; background:var(--primary); color:#FFF; padding:14px 28px; border-radius:10px; font-weight:700; font-size:18px;">
+        Empezar Práctica 101.1: Ajustes de Hardware <svg class="ic"><use href="#i-arrow-right"/></svg>
       </a>
     </div>
     <footer class="site-footer" style="margin-top:64px; text-align:center; padding:24px 20px; border-top:2px solid var(--border-light); font-size:14px; color:var(--text-muted);">
@@ -279,14 +257,43 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
   <div id="toast"><svg class="ic"><use href="#i-circle-check"/></svg> Comando copiado al portapapeles</div>
 
   <script>
-    function copySnippet(btn) {
-      const pre = btn.closest('.term').querySelector('pre');
-      const text = pre.innerText.replace(/^[$#]\s+/gm, '');
-      navigator.clipboard.writeText(text).then(() => {
-        const toast = document.getElementById('toast');
+    function showToast() {
+      const toast = document.getElementById('toast');
+      if (toast) {
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 2000);
-      });
+      }
+    }
+
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+      } catch (e) {}
+      document.body.removeChild(ta);
+      showToast();
+    }
+
+    function copySnippet(btn) {
+      if (btn.getAttribute('data-confirm') === 'true') {
+        if (!confirm('⚠️ Este comando altera el estado de ejecución o apaga el sistema. ¿Deseas copiarlo?')) return;
+      }
+      const pre = btn.closest('.term').querySelector('pre');
+      const text = pre.innerText.replace(/^[$#]\s+/gm, '');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast();
+        }).catch(() => {
+          fallbackCopy(text);
+        });
+      } else {
+        fallbackCopy(text);
+      }
     }
   </script>
 </body>

@@ -454,6 +454,44 @@
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: #FEF3C7; }
 
+    /* Matrices comparativas y mapas de equivalencias */
+    .matrix-container {
+      width: 100%;
+      margin: 14px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      overflow-x: auto;
+      background: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+    table.slide-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(16px, 1.15vw, 20px);
+      text-align: left;
+    }
+    table.slide-matrix th {
+      background: var(--surface-alt);
+      color: var(--text);
+      padding: 12px 18px;
+      border-bottom: 2px solid var(--border-strong);
+      font-weight: 700;
+      font-size: clamp(17px, 1.2vw, 21px);
+      letter-spacing: -0.01em;
+    }
+    table.slide-matrix td {
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    table.slide-matrix tr:last-child td { border-bottom: none; }
+    table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
+    table.slide-matrix tr:hover td { background: #F1F5F9; }
+    table.slide-matrix tr.highlighted td { background: #FEF3C7; }
+    table.slide-matrix td:first-child { font-weight: 700; color: #1E293B; }
+
     /* Ejercicios y Repasos */
     .quiz-options { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
     .quiz-btn {
@@ -773,6 +811,67 @@
 <symbol id="i-bug-off" viewBox="0 0 24 24"><path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2" /> <path d="M14.12 3.88 16 2" /> <path d="M22 13h-4v-2a4 4 0 0 0-4-4h-1.3" /> <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /> <path d="m2 2 20 20" /> <path d="M7.7 7.7A4 4 0 0 0 6 11v3a6 6 0 0 0 11.13 3.13" /> <path d="M12 20v-8" /> <path d="M6 13H2" /> <path d="M3 21c0-2.1 1.7-3.9 3.8-4" /></symbol>
 <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m4.9 4.9 14.2 14.2" /></symbol>
 <symbol id="i-octagon-alert" viewBox="0 0 24 24"><path d="M12 16h.01" /> <path d="M12 8v4" /> <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" /></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></symbol>
+<symbol id="i-folder-tree" viewBox="0 0 24 24"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M3 5v14a2 2 0 0 0 2 2h3" /><path d="M3 10h4" /></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14" /><line x1="4" x2="4" y1="10" y2="3" /><line x1="12" x2="12" y1="21" y2="12" /><line x1="12" x2="12" y1="8" y2="3" /><line x1="20" x2="20" y1="21" y2="16" /><line x1="20" x2="20" y1="12" y2="3" /><line x1="1" x2="7" y1="14" y2="14" /><line x1="9" x2="15" y1="8" y2="8" /><line x1="17" x2="23" y1="16" y2="16" /></symbol>
+<symbol id="i-slash" viewBox="0 0 24 24"><path d="M22 2 2 22" /></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></symbol>
+<symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="4" /></symbol>
+<symbol id="i-keyboard" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" ry="2" /><path d="M6 8h.001M10 8h.001M14 8h.001M18 8h.001M8 12h.001M12 12h.001M16 12h.001M7 16h10" /></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" /></symbol>
+<symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line x1="20" x2="8.12" y1="4" y2="15.88" /><line x1="14.47" x2="20" y1="14.48" y2="20" /><line x1="8.12" x2="12" y1="8.12" y2="12" /></symbol>
+<symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5v14" /></symbol>
+<symbol id="i-plus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></symbol>
+<symbol id="i-minus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /></symbol>
+<symbol id="i-check-square" viewBox="0 0 24 24"><path d="m9 11 3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></symbol>
+<symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></symbol>
+<symbol id="i-folder-check" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9 13 2 2 4-4" /></symbol>
+<symbol id="i-folder-plus" viewBox="0 0 24 24"><path d="M12 10v6" /><path d="M9 13h6" /><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol>
+<symbol id="i-folder-search" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><circle cx="11" cy="13" r="3" /><path d="m13.2 15.2 2.8 2.8" /></symbol>
+<symbol id="i-folder-x" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9.5 10.5 5 5" /><path d="m14.5 10.5-5 5" /></symbol>
+<symbol id="i-message-square" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></symbol>
+<symbol id="i-link-2" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2" /><path d="M15 7h2a5 5 0 1 1 0 10h-2" /><line x1="8" x2="16" y1="12" y2="12" /></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></symbol>
+<symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-archive" viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1" /><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></symbol>
+<symbol id="i-file-check" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></symbol>
+<symbol id="i-corner-down-right" viewBox="0 0 24 24"><polyline points="15 10 20 15 15 20" /><path d="M4 4v7a4 4 0 0 0 4 4h12" /></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" /><line x1="9" x2="9" y1="3" y2="18" /><line x1="15" x2="15" y1="6" y2="21" /></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+<symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /><path d="m18 2 4 4-4 4" /><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /><path d="m18 14 4 4-4 4" /></symbol>
+<symbol id="i-log-in" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" /></symbol>
+<symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></symbol>
+
+<!-- Aliases directos para nombres alternativos comunes -->
+<symbol id="i-alert-triangle" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-alert-circle" viewBox="0 0 24 24"><use href="#i-circle-alert" /></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><use href="#i-circle-check" /></symbol>
+<symbol id="i-help-circle" viewBox="0 0 24 24"><use href="#i-circle-help" /></symbol>
+<symbol id="i-broken-link" viewBox="0 0 24 24"><use href="#i-link" /></symbol>
+<symbol id="i-shield-alert" viewBox="0 0 24 24"><use href="#i-shield" /></symbol>
+<symbol id="i-edit-3" viewBox="0 0 24 24"><use href="#i-wrench" /></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" /><line x1="6" x2="6" y1="2" y2="4" /><line x1="10" x2="10" y1="2" y2="4" /><line x1="14" x2="14" y1="2" y2="4" /></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" /></symbol>
+<symbol id="i-skull" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1" /><circle cx="15" cy="12" r="1" /><path d="M8 20v2h8v-2" /><path d="m12.5 17-.5-1-.5 1h1z" /><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20" /></symbol>
+<symbol id="i-alert-octagon" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-asterisk" viewBox="0 0 24 24"><use href="#i-hash" /></symbol>
+<symbol id="i-brackets" viewBox="0 0 24 24"><use href="#i-square-terminal" /></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-dot" viewBox="0 0 24 24"><use href="#i-circle" /></symbol>
+<symbol id="i-download-cloud" viewBox="0 0 24 24"><use href="#i-download" /></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-fast-forward" viewBox="0 0 24 24"><use href="#i-play" /></symbol>
+<symbol id="i-git-commit" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-git-merge" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><use href="#i-power" /></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
+<symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
 </svg>
 
 
@@ -786,7 +885,7 @@
   <header id="top-nav">
     <div class="nav-links">
       <a href="../index.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-menu"/></svg>Índice</a>
-      <a href="103-3-administracion-basica-de.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>103.3</a>
+      <a href="103-3-administracion-basica-de.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>103.3</a>
       <a href="103-5-crear-supervisar-y-matar.html" class="nav-btn">103.5<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></a>
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
@@ -819,7 +918,7 @@
 
         <div class="stage-footer">
           <div style="display:flex; align-items:center; gap:14px;">
-            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg></button>
+            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg></button>
             <span id="slide-counter" style="font-weight:700;">1 / 1</span>
             <button class="nav-btn" onclick="nextStep()" title="Siguiente (→ / Espacio)" aria-label="Siguiente slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
             <div class="progress-bar-container">
@@ -904,10 +1003,10 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "103.4", "cat": "files", "type": "cover", "title": "Secuencias de texto, tuberías y redireccionamientos", "subtitle": "Canales estándar stdin, stdout y stderr, tuberías y procesamiento por lotes con xargs", "ref": "1", "pdf": {"manual": "A", "pages": [1], "figure": null}, "coverage": ["103.4-OBJ-001", "103.4-OBJ-002", "103.4-OBJ-003", "103.4-OBJ-004", "103.4-OBJ-005", "103.4-OBJ-006", "103.4-OBJ-007"], "meta": {"peso": 4, "paginas": "1–23", "duracion": "75 min"}, "icon": "terminal", "notes": "Comenzamos el subtema 103.4 con peso 4 en LPIC-1. Estudiaremos descriptores estándar, redirecciones, Here Docs, tuberías con tee, sustitución de comandos y xargs."}, {"id": 2, "section": "103.4", "cat": "files", "type": "concept", "title": "Descriptores de archivos en sistemas Linux", "lead": "Identificadores enteros que asocian canales de datos a procesos en ejecución:", "ref": "2-3", "pdf": {"manual": "A", "pages": [2, 3], "figure": null}, "coverage": ["103.4-CON-001"], "points": [{"icon": "layers", "text": "Descriptor 0 corresponde a la entrada estándar stdin del sistema", "detail": "Por defecto lee caracteres desde el teclado físico de la terminal interactiva."}, {"icon": "terminal", "text": "Descriptor 1 corresponde a la salida estándar stdout para resultados", "detail": "Canal primario donde los programas emiten su respuesta inteligible regular."}, {"icon": "triangle-alert", "text": "Descriptor 2 corresponde al canal de error estándar stderr", "detail": "Canal reservado para diagnósticos y mensajes de fallo sin contaminar stdout."}], "notes": "Los programas no necesitan saber el medio físico de origen o destino; solo interactúan con números enteros asignados."}, {"id": 3, "section": "103.4", "cat": "files", "type": "concept", "title": "Dispositivos de comunicación en dev", "lead": "Nodos especiales del sistema de ficheros que exponen los descriptores estándar:", "ref": "3", "pdf": {"manual": "A", "pages": [3], "figure": null}, "coverage": ["103.4-CON-002", "103.4-FILE-001", "103.4-FILE-002", "103.4-FILE-003"], "points": [{"icon": "file-text", "text": "/dev/stdin apunta al canal de entrada estándar del proceso actual", "detail": "Representa un enlace simbólico dinámico hacia el descriptor numérico 0."}, {"icon": "file-text", "text": "/dev/stdout proporciona acceso directo al canal de salida estándar", "detail": "Representa un enlace simbólico dinámico hacia el descriptor numérico 1."}, {"icon": "file-text", "text": "/dev/stderr expone la vía hacia el canal de error estándar", "detail": "Representa un enlace simbólico dinámico hacia el descriptor numérico 2."}], "notes": "Los tres dispositivos permiten a cualquier script o comando tratar las secuencias estándar como rutas normales de archivo."}, {"id": 4, "section": "103.4", "cat": "files", "type": "flow", "title": "Flujo de canales de entrada y salida", "lead": "Interacción habitual entre el hardware, el proceso y los descriptores estándar:", "ref": "2-3", "pdf": {"manual": "A", "pages": [2, 3], "figure": null}, "coverage": ["103.4-CON-001", "103.4-FILE-005", "103.4-FILE-007"], "steps": [{"num": 1, "title": "Entrada (stdin 0)", "desc": "El teclado envía secuencias de texto al descriptor 0 del proceso en ejecución."}, {"num": 2, "title": "Procesamiento", "desc": "El comando transforma los datos leídos de /proc/cpuinfo para emitir resultados."}, {"num": 3, "title": "Salida (stdout 1)", "desc": "Los resultados regulares viajan por el descriptor 1 hacia la pantalla o /tmp/cpu.txt."}, {"num": 4, "title": "Error (stderr 2)", "desc": "Cualquier anomalía o aviso se canaliza independientemente por el descriptor 2."}], "notes": "Separar stdout y stderr evita que los errores queden atrapados dentro de datos estructurados para procesamiento posterior."}, {"id": 5, "section": "103.4", "cat": "files", "type": "concept", "title": "Descriptores numéricos personalizados en programas", "lead": "Posibilidad de abrir canales de datos con enteros superiores a dos:", "ref": "5-6", "pdf": {"manual": "A", "pages": [5, 6], "figure": null}, "coverage": ["103.4-CMD-007", "103.4-FILE-008"], "console": {"command": "gcc -o fd fd.c && ./fd 3</tmp/error.txt 4>&1", "output": ["cat: /proc/cpu_info: No such file or directory"], "comment": "Programa compilado con gcc que lee de descriptor 3 y escribe hacia descriptor 4."}, "points": [{"icon": "settings", "text": "Los procesos pueden abrir descriptores 3 o 4 para flujos auxiliares", "detail": "Permite separar canales de datos sin parsear argumentos de línea de órdenes."}, {"icon": "zap", "text": "La sintaxis 3<> permite abrir un descriptor para lectura y escritura", "detail": "El operador bidireccional vincula el fichero a ambos sentidos de comunicación."}], "notes": "El código en C compilado con gcc muestra cómo vincular canales específicos con 3< /tmp/error.txt y 4>&1."}, {"id": 6, "section": "103.4", "cat": "files", "type": "concept", "title": "Inspección de descriptores abiertos en proc", "lead": "Auditoría en tiempo real de los ficheros y sockets asociados a un proceso:", "ref": "9, 12", "pdf": {"manual": "A", "pages": [9, 12], "figure": null}, "coverage": ["103.4-CMD-012", "103.4-OPT-027", "103.4-FILE-009"], "console": {"command": "ls -l /proc/PID/fd/", "output": ["lrwx------ 1 root root 64 Oct 18 10:00 0 -> /dev/pts/0", "lrwx------ 1 root root 64 Oct 18 10:00 1 -> /dev/pts/0", "lrwx------ 1 root root 64 Oct 18 10:00 2 -> /var/log/nginx/error.log"], "comment": "ls -l expone los enlaces simbólicos de cada descriptor hacia su fichero destino."}, "points": [{"icon": "folder", "text": "El kernel expone enlaces simbólicos en /proc/PID/fd/ para cada descriptor abierto", "detail": "PID representa el identificador numérico único del proceso en ejecución."}, {"icon": "search", "text": "Permite descubrir qué ficheros o registros mantiene bloqueados un servicio", "detail": "Comando clave en auditorías de sistemas y depuración avanzada de servidores."}], "notes": "En el ejercicio exploratorio se consulta ls -l /proc/1234/fd para comprobar los logs abiertos por nginx."}, {"id": 7, "section": "103.4", "cat": "files", "type": "command", "title": "Redirección de salida estándar a archivos", "command": "cat", "lead": "Reasignación de la salida estándar para escribir en disco en lugar de pantalla:", "ref": "3", "pdf": {"manual": "A", "pages": [3], "figure": null}, "coverage": ["103.4-CMD-003", "103.4-CON-003", "103.4-CFG-001", "103.4-FILE-005", "103.4-FILE-007"], "syntax": "COMANDO > ARCHIVO_DESTINO", "options": [{"opt": ">", "desc": "Redirige stdout hacia un fichero. Sobrescribe el destino si ya existía.", "extra": false}, {"opt": "1>", "desc": "Forma explícita idéntica a >, especificando el descriptor 1 de salida.", "extra": false}], "console": {"command": "cat /proc/cpuinfo > /tmp/cpu.txt", "output": [], "comment": "La salida de cat se graba directamente en /tmp/cpu.txt sin proyectar nada en pantalla."}, "notes": "Sintaxis oficial: Redirecciones: > >> < << <<< 2>&1 &>. Al omitir el número anterior a >, Bash asume 1."}, {"id": 8, "section": "103.4", "cat": "files", "type": "command", "title": "Redirección del canal de error estándar", "command": "cat", "lead": "Captura y aislamiento de mensajes de diagnóstico y fallos mediante el descriptor 2:", "ref": "3-4", "pdf": {"manual": "A", "pages": [3, 4], "figure": null}, "coverage": ["103.4-CMD-003", "103.4-FILE-006", "103.4-FILE-008"], "syntax": "COMANDO 2> ARCHIVO_ERROR", "options": [{"opt": "2>", "desc": "Redirige exclusivamente los mensajes emitidos por el descriptor 2 (stderr).", "extra": false}], "console": {"command": "cat /proc/cpu_info 2> /tmp/error.txt && cat /tmp/error.txt", "output": ["cat: /proc/cpu_info: No such file or directory"], "comment": "El error generado por la ruta inexistente se guarda en /tmp/error.txt."}, "notes": "Los programas bien diseñados en Unix envían información informativa a stdout y errores a stderr."}, {"id": 9, "section": "103.4", "cat": "files", "type": "command", "title": "Redirección simultánea de salida y errores", "command": "cat", "lead": "Canalización conjunta de ambos descriptores hacia un único fichero destino:", "ref": "3-4", "pdf": {"manual": "A", "pages": [3, 4], "figure": null}, "coverage": ["103.4-WARN-001", "103.4-FILE-016"], "syntax": "COMANDO &> ARCHIVO | COMANDO >& ARCHIVO", "options": [{"opt": "&>", "desc": "Redirige conjuntamente tanto stdout (1) como stderr (2) al mismo objetivo.", "extra": false}, {"opt": ">&", "desc": "Sintaxis alternativa admitida por Bash con el mismo efecto que &>.", "extra": false}], "console": {"command": "cat /proc/cpuinfo /proc/cpu_info &> log.txt", "output": [], "comment": "log.txt recibe tanto el volcado correcto de CPU como el mensaje de error."}, "notes": "¡CUIDADO! No colocar ningún espacio junto al ampersand: &> es redirección; & > ejecuta en segundo plano."}, {"id": 10, "section": "103.4", "cat": "files", "type": "command", "title": "Reasignación entre descriptores de archivos", "command": "cat", "lead": "Duplicación de flujos de salida entre canales numéricos en la línea de órdenes:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["103.4-CON-004", "103.4-FILE-016"], "syntax": "COMANDO > log.txt 2>&1 | COMANDO 1>&2", "options": [{"opt": "2>&1", "desc": "Redirige el canal 2 (stderr) hacia donde apunta actualmente el canal 1 (stdout).", "extra": false}, {"opt": "1>&2", "desc": "Redirige el canal 1 (stdout) hacia el canal de error 2 (stderr).", "extra": false}], "console": {"command": "cat /proc/cpuinfo /proc/cpu_info > log.txt 2>&1", "output": [], "comment": "stdout se abre hacia log.txt y 2>&1 envía stderr hacia la misma diana."}, "notes": "El orden importa: > log.txt 2>&1 funciona porque 1 ya apunta al archivo cuando 2 se acopla a él."}, {"id": 11, "section": "103.4", "cat": "files", "type": "command", "title": "Descarte de datos y adición continua", "command": "cat", "lead": "Uso del agujero negro /dev/null y adición con doble mayor que >>:", "ref": "4-5", "pdf": {"manual": "A", "pages": [4, 5], "figure": null}, "coverage": ["103.4-FILE-004", "103.4-FILE-008"], "syntax": "COMANDO 2> /dev/null | COMANDO 2>> ARCHIVO", "options": [{"opt": "/dev/null", "desc": "Dispositivo especial que descarta todos los bytes escritos sin guardarlos.", "extra": false}, {"opt": ">>", "desc": "Modo append: añade datos al final del fichero sin truncar el contenido previo.", "extra": false}], "console": {"command": "cat /proc/cpu_info 2>> /tmp/error.txt", "output": [], "comment": "El error se acumula al final de /tmp/error.txt sin borrar lo registrado antes."}, "notes": "/dev/null es escribible por cualquier usuario del sistema y nunca almacena datos ni se satura."}, {"id": 12, "section": "103.4", "cat": "files", "type": "command", "title": "Prevención de sobreescritura con noclobber", "command": "set", "lead": "Configuración del shell para blindar archivos existentes frente a sobreescritura accidental:", "ref": "4, 8, 11", "pdf": {"manual": "A", "pages": [4, 8, 11], "figure": null}, "coverage": ["103.4-CON-005", "103.4-CMD-004", "103.4-OPT-001", "103.4-OPT-002", "103.4-OPT-003", "103.4-OPT-004", "103.4-WARN-002"], "syntax": "set -o noclobber | set -C | set +o noclobber | set +C", "options": [{"opt": "set -o noclobber", "desc": "Activa la protección impidiendo que > sobrescriba ficheros existentes.", "extra": false}, {"opt": "set -C", "desc": "Forma abreviada para habilitar la opción de protección noclobber.", "extra": false}, {"opt": "set +o noclobber", "desc": "Desactiva la protección noclobber permitiendo sobrescrituras normales.", "extra": false}, {"opt": "set +C", "desc": "Forma abreviada para inhabilitar la protección noclobber en la sesión.", "extra": false}], "console": {"command": "set -o noclobber && echo test > /tmp/error.txt", "output": ["-bash: /tmp/error.txt: cannot overwrite existing file"], "comment": "Bash aborta la operación con un error protector cuando noclobber está activo."}, "notes": "Para forzar sobreescritura con noclobber activo en Bash se emplea la sintaxis >|."}, {"id": 13, "section": "103.4", "cat": "files", "type": "command", "title": "Reasignación del canal de entrada estándar", "command": "uniq", "lead": "Suministro de contenidos desde un fichero hacia la entrada de un programa con <:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["103.4-CMD-005", "103.4-OPT-005", "103.4-FILE-008"], "syntax": "COMANDO < ARCHIVO | COMANDO 0< ARCHIVO", "options": [{"opt": "<", "desc": "Redirige el contenido de un fichero hacia el stdin (descriptor 0) del proceso.", "extra": false}, {"opt": "-c", "desc": "Opción de uniq para prefijar cada línea con el número de repeticiones.", "extra": false}], "console": {"command": "uniq -c < /tmp/error.txt", "output": ["      2 cat: /proc/cpu_info: No such file or directory"], "comment": "uniq procesa el flujo que entra por stdin como si hubiese sido tecleado."}, "notes": "Los datos fluyen de derecha a izquierda: el archivo a la derecha abastece al descriptor 0 a la izquierda."}, {"id": 14, "section": "103.4", "cat": "files", "type": "concept", "title": "Bloques de texto con Here Document", "lead": "Mecanismo para introducir texto multilínea interactivo directamente desde el script:", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["103.4-CON-006", "103.4-CMD-006", "103.4-OPT-006"], "console": {"command": "wc -c <<EOF\nHow many characters\nin this Here document?\nEOF", "output": ["43"], "comment": "wc -c cuenta los 43 caracteres suministrados entre los delimitadores EOF."}, "points": [{"icon": "terminal", "text": "El operador << inicia la entrada multilínea hasta encontrar el delimitador", "detail": "EOF es el delimitador tradicional, pero puede emplearse cualquier palabra."}, {"icon": "settings", "text": "La línea de cierre debe contener únicamente la etiqueta delimitadora sin espacios", "detail": "Cualquier espacio o carácter extra impedirá que Bash detecte el final del bloque."}], "notes": "wc -c calcula el total de bytes recibidos por stdin a través del bloque Here Document."}, {"id": 15, "section": "103.4", "cat": "files", "type": "command", "title": "Here Document combinado con salida estándar", "command": "cat", "lead": "Generación de secuencias con delimitador personalizado dirigidas a la pantalla:", "ref": "8, 11", "pdf": {"manual": "A", "pages": [8, 11], "figure": null}, "coverage": ["103.4-CMD-003", "103.4-FILE-002"], "syntax": "cat <<. > /dev/stdout", "console": {"command": "cat <<. > /dev/stdout\nLínea enviada a pantalla\n.", "output": ["Línea enviada a pantalla"], "comment": "El delimitador es un punto en solitario y la salida se canaliza a /dev/stdout."}, "points": [{"icon": "zap", "text": "Cualquier carácter arbitrario puede actuar como delimitador de cierre", "detail": "En este caso un único punto '.' en su propia línea cierra el modo de entrada."}, {"icon": "terminal", "text": "La redirección a /dev/stdout imprime el bloque de texto en el monitor", "detail": "Demuestra la equivalencia funcional entre descriptores numéricos y rutas dev."}], "notes": "Pregunta de examen frecuente: ¿Qué hace cat <<. > /dev/stdout? Entra en Heredoc hasta un punto y sale a pantalla."}, {"id": 16, "section": "103.4", "cat": "files", "type": "command", "title": "Cadenas de entrada única con Here String", "command": "bc", "lead": "Transmisión de una cadena directa de una línea al stdin mediante el operador <<<:", "ref": "7, 9, 12", "pdf": {"manual": "A", "pages": [7, 9, 12], "figure": null}, "coverage": ["103.4-CMD-011", "103.4-CFG-002"], "syntax": "bc <<< \"scale=6; 1/3\"", "console": {"command": "bc <<< \"scale=6; 1/3\"", "output": [".333333"], "comment": "scale=6; 1/3 fija seis decimales y evalúa un tercio en precisión exacta."}, "points": [{"icon": "terminal", "text": "El operador <<< envía una sola cadena al stdin del proceso receptor", "detail": "Evita tener que crear tuberías con echo para suministrar datos elementales."}, {"icon": "settings", "text": "Las cadenas con espacios o puntos y coma deben entrecomillarse obligatoriamente", "detail": "De no poner comillas, solo la primera palabra se enviará como Here String."}], "notes": "La calculadora básica bc requiere parámetros como scale=6; 1/3 para operaciones de punto flotante."}, {"id": 17, "section": "103.4", "cat": "files", "type": "table", "title": "Tabla comparativa de operadores de redirección", "lead": "Redirecciones: > >> < << <<< 2>&1 &> y operadores oficiales de flujos:", "ref": "3-7", "pdf": {"manual": "A", "pages": [3, 4, 5, 6, 7], "figure": null}, "coverage": ["103.4-CFG-001", "103.4-CON-003", "103.4-CON-004"], "table": {"headers": ["Operador", "Descriptor", "Efecto", "Comportamiento"], "rows": [["> o 1>", "stdout (1)", "Redirige salida estándar", "Sobrescribe archivo destino"], ["2>", "stderr (2)", "Redirige error estándar", "Aísla fallos en archivo aparte"], [">> o 2>>", "1 o 2", "Modo adición (append)", "Concatena al final sin truncar"], ["&> o >&", "1 y 2", "Redirige ambos canales", "Salida y errores juntos"], ["2>&1", "stderr a stdout", "Duplica descriptor de error", "Envía 2 a donde apunte 1"], ["< o 0<", "stdin (0)", "Redirige entrada estándar", "Lee datos desde archivo"], ["<<DELIM", "stdin (0)", "Here Document multilínea", "Finaliza con DELIM aislado"], ["<<<", "stdin (0)", "Here String de una línea", "Pasa cadena entrecomillada"]]}, "notes": "Redirecciones: > >> < << <<< 2>&1 &>. Memorizar esta tabla es vital para el examen LPIC-101."}, {"id": 18, "section": "103.4", "cat": "files", "type": "exercise", "title": "Ejercicios guiados de volcado y descriptores", "lead": "Resolución de ejercicios oficiales de la Lección 1 del manual LPIC-1:", "ref": "8, 11", "pdf": {"manual": "A", "pages": [8, 11], "figure": null}, "coverage": ["103.4-EX-001", "103.4-EX-002", "103.4-CMD-008", "103.4-FILE-010", "103.4-FILE-021"], "task": "1) Enviar el bloque /dev/sdc a sdc.img con cat. 2) Identificar el canal en date 1> now.txt.", "solution": "1) cat /dev/sdc > sdc.img\n2) Canal de salida estándar (stdout o descriptor 1)", "explanation": "cat maneja datos binarios brutos desde bloques. date 1> now.txt redirige explícitamente el stdout."}, {"id": 19, "section": "103.4", "cat": "files", "type": "exercise", "title": "Ejercicios guiados de opciones y Heredoc", "lead": "Comprobación de opciones de shell y sintaxis de finalización en Here Document:", "ref": "8, 11", "pdf": {"manual": "A", "pages": [8, 11], "figure": null}, "coverage": ["103.4-EX-003", "103.4-EX-004"], "task": "3) ¿Cómo desactivar noclobber en la sesión actual? 4) ¿Qué genera cat <<. > /dev/stdout?", "solution": "3) set +C o set +o noclobber\n4) Modo Heredoc que finaliza con '.' e imprime en stdout", "explanation": "El signo '+' desactiva opciones en set. El delimitador personalizado '.' imprime directo a pantalla."}, {"id": 20, "section": "103.4", "cat": "files", "type": "exercise", "title": "Ejercicios exploratorios de fallos y null", "lead": "Análisis de errores sintácticos habituales y comportamiento de dispositivos especiales:", "ref": "9, 12", "pdf": {"manual": "A", "pages": [9, 12], "figure": null}, "coverage": ["103.4-EX-005", "103.4-EX-006"], "task": "1) ¿Dónde redirige cat /proc/cpu_info 2>1? 2) ¿Afecta noclobber a los descartes en /dev/null?", "solution": "1) Crea un archivo llamado '1' en el directorio actual.\n2) No; /dev/null es un dispositivo especial inmune.", "explanation": "Para redirigir a un descriptor se exige el ampersand (2>&1). noclobber solo protege ficheros regulares."}, {"id": 21, "section": "103.4", "cat": "files", "type": "exercise", "title": "Ejercicios de sha1sum proc y bc", "lead": "Prácticas de laboratorio con variables, descriptores y cálculo numérico:", "ref": "9, 12", "pdf": {"manual": "A", "pages": [9, 12], "figure": null}, "coverage": ["103.4-EX-007", "103.4-EX-008", "103.4-EX-009", "103.4-CMD-009", "103.4-CMD-010", "103.4-OPT-007"], "task": "3) Variable a sha1sum. 4) Logs de nginx en proc. 5) Enviar scale=6 a bc con Here String.", "solution": "3) echo -n \"$USER\" | sha1sum\n4) ls -l /proc/1234/fd\n5) bc <<< \"scale=6; 1/3\"", "explanation": "echo -n evita el salto de línea. /proc/1234/fd muestra enlaces a logs. <<< envía la cadena a bc."}, {"id": 22, "section": "103.4", "cat": "files", "type": "flashcards", "title": "Tarjetas nemotécnicas de examen (103.4)", "ref": "1-23", "pdf": {"manual": "B", "pages": [1, 23], "figure": null}, "coverage": ["103.4-MEM-001"], "deck": [{"front": "Descriptores de archivo estándar en Linux", "back": "0 = stdin (Entrada estándar, teclado)\n1 = stdout (Salida estándar, terminal)\n2 = stderr (Salida de errores, terminal)"}, {"front": "¿Cómo redirigir tanto stdout como stderr al mismo destino?", "back": "Sintaxis estándar POSIX: comando > salida.txt 2>&1\nSintaxis simplificada Bash: comando &> salida.txt"}, {"front": "Diferencia entre > y >>", "back": "> sobrescribe el archivo destino (lo trunca a 0 bytes si ya existía).\n>> añade la salida al final del archivo existente (append)."}, {"front": "¿Para qué sirve el comando tee?", "back": "Duplica el flujo de stdin: lo muestra por la salida estándar y lo guarda simultáneamente en uno o más ficheros.\ntee -a añade al fichero en lugar de sobrescribir.\nUso típico: comando | sudo tee /etc/archivo.conf"}, {"front": "¿Cómo procesar argumentos con espacios de forma segura usando xargs?", "back": "find /ruta -type f -print0 | xargs -0 comando\n-print0 genera nombres separados por el byte nulo (\\0) y xargs -0 los lee evitando colisiones con espacios o comillas."}, {"front": "¿Qué es /dev/null y cómo se utiliza?", "back": "Dispositivo especial que descarta todos los datos escritos en él y devuelve EOF al leer.\ncomando 2> /dev/null (descarta los mensajes de error)\ncomando &> /dev/null (ejecuta silenciosamente descartando salida y errores)"}], "notes": "Tarjetas de memorización activa de alta frecuencia para el examen LPIC-1 del subtema 103.4."}, {"id": 23, "section": "103.4", "cat": "files", "type": "summary", "title": "Resumen de descriptores y redirecciones", "lead": "Hitos clave aprendidos en la primera parte de secuencias de texto:", "ref": "10", "pdf": {"manual": "A", "pages": [10], "figure": null}, "coverage": ["103.4-OBJ-003"], "points": [{"icon": "terminal", "text": "Los descriptores 0, 1 y 2 representan stdin, stdout y stderr", "detail": "Asociados respectivamente al teclado y a la pantalla por omisión."}, {"icon": "zap", "text": "Los operadores > y >> reasignan salidas a ficheros en disco", "detail": "noclobber (set -o noclobber / set -C) evita sobreescrituras catastróficas."}, {"icon": "layers", "text": "Here Document (<<) y Here String (<<<) suministran datos directamente", "detail": "Sin recurrir a ficheros intermedios ni depender del teclado."}], "notes": "Concluimos la Lección 1. A continuación abordamos la Lección 2 con tuberías, tee, sustitución y xargs."}, {"id": 24, "section": "103.4", "cat": "files", "type": "concept", "title": "Tuberías y filosofía modular de Unix", "lead": "Canalización de procesos independientes para componer flujos de datos complejos:", "ref": "13-14", "pdf": {"manual": "A", "pages": [13, 14], "figure": null}, "coverage": ["103.4-CON-007", "103.4-OBJ-004"], "points": [{"icon": "terminal", "text": "La tubería | conecta la salida de un comando con otro", "detail": "Los procesos se ejecutan simultáneamente en memoria comunicados por un búfer."}, {"icon": "zap", "text": "Los datos fluyen de izquierda a derecha a través de la tubería", "detail": "Cada utilidad cumple una función única especializada según la filosofía Unix."}, {"icon": "settings", "text": "El destino de una tubería es siempre otro proceso, nunca un archivo", "detail": "A diferencia de las redirecciones, no interactúa con rutas de disco directamente."}], "notes": "Una tubería solo transfiere stdout por defecto. Si el comando previo falla, su stderr no entra al pipe."}, {"id": 25, "section": "103.4", "cat": "files", "type": "command", "title": "Encadenamiento de procesos mediante tuberías", "command": "grep", "lead": "Composición de pipelines encadenando múltiples filtros especializados:", "ref": "14", "pdf": {"manual": "A", "pages": [14], "figure": null}, "coverage": ["103.4-CMD-013", "103.4-CMD-005", "103.4-CMD-006"], "syntax": "COMANDO1 | COMANDO2 | COMANDO3", "console": {"command": "cat /proc/cpuinfo | grep 'model name' | uniq", "output": ["model name      : Intel(R) Xeon(R) CPU           X5355  @ 2.66GHz"], "comment": "cat emite texto, grep filtra líneas coincidentes y uniq suprime repeticiones."}, "points": [{"icon": "search", "text": "wc cuenta líneas, palabras y bytes recibidos a través del pipe", "detail": "Ejemplo: cat /proc/cpuinfo | wc contabiliza el fichero sin tocar el disco."}, {"icon": "zap", "text": "El encadenamiento no tiene límite teórico en el shell de Linux", "detail": "Permite resolver consultas complejas combinando comandos estándar."}], "notes": "En sistemas multinúcleo con decenas de CPUs, grep | uniq resume la información en una única línea limpia."}, {"id": 26, "section": "103.4", "cat": "files", "type": "concept", "title": "Combinación de tuberías con redirección", "lead": "Optimización de secuencias eliminando comandos intermedios innecesarios:", "ref": "14", "pdf": {"manual": "A", "pages": [14], "figure": null}, "coverage": ["103.4-FILE-005", "103.4-CMD-013"], "console": {"command": "grep 'model name' < /proc/cpuinfo | uniq", "output": ["model name      : Intel(R) Xeon(R) CPU           X5355  @ 2.66GHz"], "comment": "grep recibe el archivo por redirección de entrada < y canaliza su salida a uniq."}, "points": [{"icon": "zap", "text": "Se puede alimentar al primer comando con < y encadenarlo con |", "detail": "Ahorra un proceso cat intermedio haciendo el pipeline más eficiente."}, {"icon": "terminal", "text": "La última etapa del pipeline puede redirigirse a disco con >", "detail": "Ejemplo: grep ... | uniq > salida.txt graba el filtrado final."}], "notes": "Redirección de entrada al principio y de salida al final es un patrón de diseño fundamental en Linux."}, {"id": 27, "section": "103.4", "cat": "files", "type": "command", "title": "Bifurcación de flujos de salida con tee", "command": "tee", "lead": "Duplicación de la entrada estándar hacia la pantalla y hacia ficheros a la vez:", "ref": "14-15", "pdf": {"manual": "A", "pages": [14, 15], "figure": null}, "coverage": ["103.4-CMD-001", "103.4-CON-008", "103.4-OBJ-006", "103.4-FILE-017"], "syntax": "COMANDO | tee ARCHIVO", "console": {"command": "grep 'model name' </proc/cpuinfo | uniq | tee cpu_model.txt", "output": ["model name      : Intel(R) Xeon(R) CPU           X5355  @ 2.66GHz"], "comment": "El resultado se muestra en pantalla y a la vez se guarda en cpu_model.txt."}, "points": [{"icon": "terminal", "text": "tee actúa como una 'T' de fontanería dividiendo el flujo en dos", "detail": "Una rama continúa hacia stdout (pantalla) y otra se escribe en el archivo."}, {"icon": "layers", "text": "Permite continuar encadenando más tuberías tras la llamada a tee", "detail": "Ejemplo: comando | tee log.txt | grep aviso continúa procesando datos."}], "notes": "tee es una utilidad obligatoria de LPIC-1 (peso 4) destacada explícitamente en el programa oficial."}, {"id": 28, "section": "103.4", "cat": "files", "type": "command", "title": "Adición sin sobreescritura con tee a", "command": "tee", "lead": "Preservación del contenido existente en archivos de registro mediante modo append:", "ref": "15", "pdf": {"manual": "A", "pages": [15], "figure": null}, "coverage": ["103.4-OPT-008", "103.4-FILE-016"], "syntax": "COMANDO | tee -a ARCHIVO", "options": [{"opt": "-a, --append", "desc": "Añade la salida al final del archivo sin truncar el contenido previo.", "extra": false}], "console": {"command": "echo \"Nuevo registro de evento\" | tee -a log.txt", "output": ["Nuevo registro de evento"], "comment": "log.txt conserva las líneas anteriores y añade la nueva al final."}, "notes": "Por defecto tee sobrescribe el fichero destino; para acumular eventos en logs se debe usar siempre -a."}, {"id": 29, "section": "103.4", "cat": "files", "type": "command", "title": "Captura de errores estándar en tuberías", "command": "make", "lead": "Técnica obligatoria para canalizar mensajes de error a través de pipes con tee:", "ref": "15", "pdf": {"manual": "A", "pages": [15], "figure": null}, "coverage": ["103.4-CON-009", "103.4-CMD-014", "103.4-WARN-003", "103.4-FILE-016"], "syntax": "COMANDO 2>&1 | tee log.txt", "console": {"command": "make 2>&1 | tee log.txt", "output": ["make: *** No targets specified and no makefile found.  Stop."], "comment": "2>&1 redirige stderr a stdout ANTES de la tubería para que tee capture el fallo."}, "points": [{"icon": "triangle-alert", "text": "Una tubería simple no captura stderr; el fichero quedaría vacío sin 2>&1", "detail": "Sin redirección previa, el error saldría a pantalla pero no se guardaría."}, {"icon": "terminal", "text": "La secuencia 2>&1 | asegura que errores y avisos queden registrados en log.txt", "detail": "Imprescindible en compilaciones largas o tareas de administración desatendidas."}], "notes": "Pregunta clásica de examen: ¿Por qué make | tee log.txt crea un fichero vacío ante un error? Porque stderr no entra al pipe."}, {"id": 30, "section": "103.4", "cat": "files", "type": "concept", "title": "Sustitución de comandos en el shell", "lead": "Evaluación de instrucciones para incrustar su salida estándar como argumento:", "ref": "15-16", "pdf": {"manual": "A", "pages": [15, 16], "figure": null}, "coverage": ["103.4-CON-010", "103.4-OBJ-005"], "points": [{"icon": "terminal", "text": "La sintaxis $(comando) es el estándar POSIX moderno recomendado por LPI", "detail": "Permite anidamientos complejos de instrucciones sin escapes confusos."}, {"icon": "settings", "text": "Las comillas inversas `comando` constituyen la forma tradicional heredada de Unix", "detail": "Siguen estando soportadas pero dificultan el anidamiento entre sí."}, {"icon": "zap", "text": "El shell ejecuta la orden interna sustituyendo la expresión por su salida", "detail": "Los saltos de línea de la salida se sustituyen por espacios en blanco."}], "notes": "Sustitución de comandos: útil para crear carpetas con fechas automáticas o poblar variables de entorno."}, {"id": 31, "section": "103.4", "cat": "files", "type": "command", "title": "Asignación de variables con sustitución", "command": "uname", "lead": "Captura dinámica de valores del sistema en variables de sesión de Bash:", "ref": "15-16", "pdf": {"manual": "A", "pages": [15, 16], "figure": null}, "coverage": ["103.4-CMD-008", "103.4-CMD-015", "103.4-CMD-016", "103.4-CMD-017", "103.4-OPT-009"], "syntax": "mkdir $(date +%Y-%m-%d) && OS=$(uname -o)", "options": [{"opt": "uname -o", "desc": "Muestra el nombre del sistema operativo (habitualmente GNU/Linux).", "extra": false}], "console": {"command": "mkdir $(date +%Y-%m-%d) && OS=`uname -o` && echo $OS", "output": ["GNU/Linux"], "comment": "rmdir y mkdir demuestran el uso de carpetas con nombres basados en fecha."}, "notes": "date +%Y-%m-%d genera cadenas tipo 2019-09-05 para respaldo organizado por fechas."}, {"id": 32, "section": "103.4", "cat": "files", "type": "concept", "title": "Procesamiento por lotes mediante xargs", "lead": "Conversión de líneas procedentes de stdin en argumentos de línea de órdenes:", "ref": "16", "pdf": {"manual": "A", "pages": [16], "figure": null}, "coverage": ["103.4-CMD-002", "103.4-CON-011"], "points": [{"icon": "terminal", "text": "Muchos comandos esperan argumentos en su CLI sin aceptar datos por stdin", "detail": "xargs actúa de puente leyendo de la tubería y ejecutando el comando destino."}, {"icon": "zap", "text": "Evita el error 'Argument list too long' en expansiones gigantescas de ficheros", "detail": "Divide listas masivas en lotes óptimos tolerados por el kernel del sistema."}, {"icon": "settings", "text": "Por defecto añade todos los elementos al final del comando invocado", "detail": "Acepta opciones para modular el número de argumentos por cada ejecución."}], "notes": "xargs es el intermediario esencial para integrar búsquedas de find con utilidades de compresión o análisis."}, {"id": 33, "section": "103.4", "cat": "files", "type": "command", "title": "Ejecución de comandos con xargs find", "command": "xargs", "lead": "Paso de rutas encontradas hacia utilidades de diagnóstico gráfico como identify:", "ref": "16", "pdf": {"manual": "A", "pages": [16], "figure": null}, "coverage": ["103.4-CMD-018", "103.4-OPT-026", "103.4-CMD-019", "103.4-OPT-015", "103.4-FILE-012"], "syntax": "find /usr/share/icons -name 'debian*' | xargs identify -format \"%f: %wx%h\\n\"", "console": {"command": "find /usr/share/icons -name 'debian*' | xargs identify -format \"%f: %wx%h\\n\"", "output": ["debian-swirl.svg: 48x48", "debian-swirl.png: 22x22", "debian-swirl.png: 32x32"], "comment": "xargs suministra cada icono encontrado como argumento a identify de ImageMagick."}, "notes": "-format es una opción de identify (ImageMagick), no de xargs. find busca en /usr/share/icons."}, {"id": 34, "section": "103.4", "cat": "files", "type": "command", "title": "Control de argumentos por invocación en xargs", "command": "xargs", "lead": "Segmentación de la carga de trabajo en grupos limitados de argumentos o líneas:", "ref": "17", "pdf": {"manual": "A", "pages": [17], "figure": null}, "coverage": ["103.4-OPT-010", "103.4-OPT-011", "103.4-OPT-018"], "syntax": "xargs -n CANTIDAD COMANDO | xargs -L LINEAS COMANDO", "options": [{"opt": "-n NUM", "desc": "Usa como máximo NUM argumentos por cada invocación del comando destino.", "extra": false}, {"opt": "-L NUM", "desc": "Usa a lo sumo NUM líneas de entrada por cada ejecución de la orden.", "extra": false}], "console": {"command": "find . -name '*.txt' | xargs -n 1 wc -l", "output": ["15 file1.txt", "42 file2.txt"], "comment": "find -exec ejecuta por elemento; xargs -n 1 lanza wc individual por argumento."}, "notes": "find tiene su propia opción -exec; no obstante, xargs -n es útil cuando el comando no admite listas masivas."}, {"id": 35, "section": "103.4", "cat": "files", "type": "command", "title": "Manejo seguro de espacios con print0 y 0", "command": "xargs", "lead": "Uso de bytes nulos \\0 como delimitadores para blindar nombres con espacios:", "ref": "17", "pdf": {"manual": "A", "pages": [17], "figure": null}, "coverage": ["103.4-CON-012", "103.4-OPT-012", "103.4-OPT-014", "103.4-OPT-016", "103.4-OPT-017", "103.4-CMD-020", "103.4-CMD-021", "103.4-OPT-020", "103.4-WARN-004"], "syntax": "find . -name '*avi' -print0 -o -name '*mp4' -print0 | xargs -0 du | sort -n", "options": [{"opt": "find -print0", "desc": "Separa los resultados con byte nulo \\0 en lugar de saltos de línea.", "extra": false}, {"opt": "xargs -0", "desc": "Interpreta \\0 como delimitador de entrada tolerando espacios en nombres.", "extra": false}, {"opt": "sort -n", "desc": "Ordena numéricamente la salida de du por peso ocupado en disco.", "extra": false}], "console": {"command": "find . -mindepth 1 -name '*.mp4' -print0 | xargs -0 du -h", "output": ["250M    ./Mi Video Vacaciones.mp4"], "comment": "find -mindepth y xargs -0 gestionan sin fallos los espacios en los nombres de archivo."}, "notes": "¡CRÍTICO! Si una ruta contiene espacios, xargs sin -0 la separaría en palabras rotas causando fallos graves."}, {"id": 36, "section": "103.4", "cat": "files", "type": "command", "title": "Sustitución de posición de argumentos con xargs", "command": "xargs", "lead": "Ubicación personalizada de los argumentos recibidos dentro del comando destino:", "ref": "17", "pdf": {"manual": "A", "pages": [17], "figure": null}, "coverage": ["103.4-OPT-013", "103.4-CMD-022"], "syntax": "find . -name '*.avi' -print0 | xargs -0 -I PATH mv PATH ./destino/", "options": [{"opt": "-I CADENA", "desc": "Reemplaza las apariciones de CADENA por el argumento leído en stdin.", "extra": false}], "console": {"command": "find . -mindepth 2 -name '*.avi' -print0 | xargs -0 -I PATH mv PATH ./", "output": [], "comment": "mv requiere el origen antes del destino; PATH sitúa el fichero en la posición justa."}, "notes": "Por omisión xargs sitúa los argumentos al final de la orden; con -I se ubican en cualquier posición deseada."}, {"id": 37, "section": "103.4", "cat": "files", "type": "command", "title": "Integración de find con tar mediante tuberías", "command": "tar", "lead": "Empaquetado de flujos delimitados por byte nulo con las opciones -T y --null:", "ref": "19, 23", "pdf": {"manual": "A", "pages": [19, 23], "figure": null}, "coverage": ["103.4-CMD-026", "103.4-OPT-019", "103.4-OPT-021", "103.4-OPT-022", "103.4-OPT-023", "103.4-OPT-024", "103.4-FILE-013", "103.4-FILE-015"], "syntax": "find /etc -type f -print0 | tar -cJ -f /srv/backup/etc.tar.xz --null -T -", "options": [{"opt": "-T -", "desc": "Indica a tar que lea la lista de rutas a empaquetar desde stdin (-).", "extra": false}, {"opt": "--null", "desc": "Instruye a tar a procesar nombres delimitados por byte nulo procedentes de find.", "extra": false}, {"opt": "-cJ -f", "desc": "Crea archivo empaquetado (-c) con compresión xz (-J) en el fichero especificado (-f).", "extra": false}], "console": {"command": "find /etc -type f -print0 | tar -cJ -f /srv/backup/etc.tar.xz --null -T -", "output": [], "comment": "Empaqueta todo /etc en /srv/backup/etc.tar.xz tolerando espacios de forma segura."}, "notes": "La combinación find -print0 y tar --null -T - es el estándar absoluto para copias de seguridad libres de errores."}, {"id": 38, "section": "103.4", "cat": "files", "type": "exercise", "title": "Ejercicios guiados de tuberías y sed", "lead": "Resolución de ejercicios prácticos oficiales de la Lección 2 del manual LPIC-1:", "ref": "18, 21", "pdf": {"manual": "A", "pages": [18, 21], "figure": null}, "coverage": ["103.4-EX-010", "103.4-EX-011", "103.4-EX-012", "103.4-CMD-023"], "task": "1) Guardar date en TODAY. 2) Canalizar TODAY a sed. 3) Enviar date a sed con Here String.", "solution": "1) TODAY=$(date +%Y-%m-%d)\n2) echo $TODAY | sed s/-/./g\n3) sed s/-/./g <<< $(date +%Y-%m-%d)", "explanation": "La sustitución $(...) almacena la fecha. El pipe | transfiere la variable. <<< alimenta sed directamente."}, {"id": 39, "section": "103.4", "cat": "files", "type": "exercise", "title": "Ejercicio guiado de xargs y convert", "lead": "Procesamiento por lotes de imágenes listadas en archivo de texto:", "ref": "18, 21-22", "pdf": {"manual": "A", "pages": [18, 21, 22], "figure": null}, "coverage": ["103.4-EX-013", "103.4-CMD-024", "103.4-OPT-025", "103.4-FILE-018"], "task": "Redimensionar al 25% hacia small/ las imágenes listadas en filelist.txt usando xargs.", "solution": "xargs -I IMG convert IMG -resize 25% small/IMG < filelist.txt", "explanation": "xargs -I IMG sustituye la etiqueta IMG en las dos posiciones exigidas por convert."}, {"id": 40, "section": "103.4", "cat": "files", "type": "exercise", "title": "Ejercicios de dd con tee y empaquetado", "lead": "Bifurcación de flujos de respaldo y manejo de rutas con espacios:", "ref": "19, 23", "pdf": {"manual": "A", "pages": [19, 23], "figure": null}, "coverage": ["103.4-EX-014", "103.4-EX-015", "103.4-CMD-025", "103.4-FILE-011", "103.4-FILE-019", "103.4-FILE-020"], "task": "1) Unir dd < /dev/sda1 y sha1sum con tee. 2) Opciones en find y tar para rutas con espacios.", "solution": "1) dd < /dev/sda1 | tee sda1.img | sha1sum > sda1.sha1\n2) find -print0 y tar --null -T -", "explanation": "tee bifurca la imagen a disco y calcula su hash en vuelo. El byte nulo evita desbordamientos en nombres."}, {"id": 41, "section": "103.4", "cat": "files", "type": "exercise", "title": "Ejercicio de redirección remota con ssh", "lead": "Transmisión de archivos comprimidos hacia un servidor remoto sin guardado local:", "ref": "19, 23", "pdf": {"manual": "A", "pages": [19, 23], "figure": null}, "coverage": ["103.4-EX-016", "103.4-CMD-027", "103.4-FILE-014"], "task": "Canalizar etc.tar.gz hacia /srv/backup/etc.tar.gz en user@storage a través de ssh.", "solution": "cat etc.tar.gz | ssh user@storage \"cat > /srv/backup/etc.tar.gz\"\no: ssh user@storage \"cat > /srv/backup/etc.tar.gz\" < etc.tar.gz", "explanation": "ssh conecta la entrada local con el stdin del proceso cat remoto, grabando en disco remoto en tiempo real."}, {"id": 42, "section": "103.4", "cat": "files", "type": "review", "title": "Preguntas tipo examen LPIC-1 sobre flujos", "lead": "Batería de validación de conocimientos sobre el objetivo 103.4:", "ref": "1-23", "pdf": {"manual": "A", "pages": [1, 23], "figure": null}, "coverage": ["103.4-OBJ-003", "103.4-OBJ-004", "103.4-OBJ-005", "103.4-OBJ-006"], "question": "¿Cuál de las siguientes órdenes redirige conjuntamente tanto la salida estándar como el error estándar al archivo 'registro.txt'?", "options": ["comando &> registro.txt", "comando 1>2 registro.txt", "comando >> registro.txt 2>1", "comando | registro.txt"], "answer": 0, "why": "El operador &> (o su sintaxis alternativa > archivo 2>&1) redirige simultáneamente los descriptores 1 (stdout) y 2 (stderr) hacia el mismo destino sin riesgo de enviar el proceso a segundo plano.", "notes": "Dominar la sintaxis de redirección y las opciones de tee y xargs asegura el pleno de preguntas en este objetivo."}, {"id": 43, "section": "103.4", "cat": "files", "type": "summary", "title": "Resumen global de secuencias de texto y flujos", "lead": "Visión consolidada del subtema 103.4 (Peso 4 en el examen LPIC-101):", "ref": "20", "pdf": {"manual": "A", "pages": [20], "figure": null}, "coverage": ["103.4-OBJ-001", "103.4-OBJ-007"], "points": [{"icon": "terminal", "text": "Los descriptores 0, 1 y 2 canalizan stdin, stdout y stderr", "detail": "Redirigibles con >, <, >>, 2>, 2>&1, Here Document (<<) y Here String (<<<)."}, {"icon": "zap", "text": "Las tuberías | conectan procesos simultáneos de izquierda a derecha", "detail": "tee duplica flujos a pantalla y disco; la opción -a evita truncar el registro."}, {"icon": "layers", "text": "La sustitución $(...) y xargs suministran salidas como argumentos", "detail": "xargs con -0 e -I PATH maneja rutas con espacios y posicionamiento exacto."}], "notes": "¡Subtema 103.4 finalizado! Todos los comandos (tee, xargs, cat, set, uniq, wc, find) y opciones cubiertos al 100%."}];
+    const SLIDES = [{"id": 1, "section": "103.4", "cat": "stream", "type": "cover", "title": "Uso de flujos, tuberías y redirecciones", "subtitle": "stdin, stdout, stderr, redirecciones (>, >>, <, <<), noclobber, tuberías (|), tee y xargs (Modo Examen)", "ref": "281-282", "pdf": {"manual": "A", "pages": [281, 282], "figure": null}, "coverage": ["103.4-OBJ-001", "103.4-OBJ-002", "103.4-OBJ-003", "103.4-OBJ-004"], "meta": {"peso": 4, "paginas": "281–310", "duracion": "30 min"}, "icon": "git-merge", "notes": "Iniciamos el subtema 103.4 (peso 4). Controlar el flujo de datos entre procesos y archivos es el corazón de la administración en Linux. Aprenderemos la gestión de los tres canales estándar (0, 1, 2), los operadores de redirección, la protección noclobber, la bifurcación con tee y el procesamiento por lotes con xargs."}, {"id": 2, "section": "103.4", "cat": "stream", "type": "concept", "title": "Descriptores Estándar en Linux: stdin, stdout y stderr", "lead": "¿Cómo se comunica cualquier proceso con el mundo exterior?", "ref": "282-284", "pdf": {"manual": "A", "pages": [282, 283, 284], "figure": null}, "coverage": ["103.4-CON-001"], "points": [{"icon": "log-in", "text": "Descriptor 0 (stdin - Standard Input)", "detail": "🎯 Entrada estándar: canal por donde el programa lee datos. Por defecto está conectado al teclado físico del usuario."}, {"icon": "log-out", "text": "Descriptor 1 (stdout - Standard Output)", "detail": "🎯 Salida estándar: canal por donde el programa emite sus resultados normales cuando todo funciona. Por defecto está conectado a la pantalla de la terminal."}, {"icon": "alert-circle", "text": "Descriptor 2 (stderr - Standard Error)", "detail": "🎯 Error estándar: canal independiente reservado exclusivamente para mensajes de diagnóstico, errores y advertencias. Por defecto también se muestra en la pantalla, pero viaja por un canal separado de stdout."}], "remember": "🎯 Clave Mnemotécnica de Examen: 0 = stdin (entrada/teclado); 1 = stdout (salida normal/pantalla); 2 = stderr (mensajes de error).", "notes": "Explica que cada proceso en Linux tiene su propia carpeta en /proc/$$/fd/ con enlaces simbólicos 0, 1 y 2."}, {"id": 3, "section": "103.4", "cat": "stream", "type": "command", "title": "Redirección de Salida Estándar y Descarte en /dev/null", "lead": "Desviar la salida normal de un comando hacia un archivo o silenciarla por completo:", "ref": "284-287", "pdf": {"manual": "A", "pages": [284, 285, 286, 287], "figure": null}, "coverage": ["103.4-CMD-001", "103.4-OPT-001", "103.4-OPT-002"], "command": "cmd > archivo | cmd >> archivo | cmd > /dev/null", "purpose": "Sobreescribir o concatenar el flujo de salida estándar (stdout / 1) en archivos", "terminal": {"command": "uname -r > kernel.txt; uptime >> kernel.txt; cat kernel.txt", "output": "5.10.0-18-amd64\n 10:15:20 up 2 days,  1:39,  1 user,  load average: 0.02, 0.01, 0.00"}, "options": [{"flag": "> archivo (o 1> archivo)", "desc": "🎯 Sobreescribe (overwrite): crea el archivo si no existe; SI YA EXISTÍA, BORRA SU CONTENIDO PREVIO por completo y escribe la nueva salida."}, {"flag": ">> archivo (o 1>> archivo)", "desc": "🎯 Concatena / Añade (append): crea el archivo si no existe; si ya existía, escribe los nuevos datos al final SIN borrar nada."}, {"flag": "> /dev/null", "desc": "🎯 Clave de Examen: El 'agujero negro' de Linux: un dispositivo especial de caracteres que descarta de forma instantánea y silenciosa todo lo que se escriba en él."}], "remember": "🎯 Clave de Examen: '>' sobrescribe el archivo borrando lo anterior; '>>' añade al final conservando los datos previos.", "notes": "Muestra que si no se indica número antes del '>', Bash asume implícitamente el descriptor 1 (stdout)."}, {"id": 4, "section": "103.4", "cat": "stream", "type": "command", "title": "Redirección de Errores y Fusión de Flujos: 2>, 2>&1 y &>", "lead": "¿Cómo capturar errores en un archivo o fusionar la salida normal y los errores juntos?", "ref": "287-290", "pdf": {"manual": "A", "pages": [287, 288, 289, 290], "figure": null}, "coverage": ["103.4-CMD-002", "103.4-OPT-003", "103.4-OPT-004"], "command": "cmd 2> errores.log | cmd > salida.log 2>&1 | cmd &> todo.log", "purpose": "Aislar los mensajes de error (descriptor 2) o unificarlos con la salida estándar", "terminal": {"command": "ls /root /tmp > salida.txt 2> errores.txt; cat errores.txt", "output": "ls: cannot open directory '/root': Permission denied"}, "options": [{"flag": "2> archivo", "desc": "🎯 Clave de Examen: Redirige ÚNICAMENTE los mensajes de error (stderr) al archivo, dejando la salida normal en la pantalla."}, {"flag": "2>> archivo", "desc": "Añade los mensajes de error al final del archivo sin sobreescribir."}, {"flag": "2> /dev/null", "desc": "🎯 Muy usado en examen: Silencia todos los errores (ej: 'find / -name hosts 2> /dev/null' oculta errores de 'Permission denied')."}, {"flag": "> archivo 2>&1", "desc": "🎯 Clave Absoluta de Examen: Redirige stdout al archivo y luego redirige stderr (2) al mismo destino que stdout (1). Ambos flujos se guardan juntos."}, {"flag": "&> archivo (o >& archivo)", "desc": "Sintaxis moderna de Bash equivalente a '> archivo 2>&1': captura salida y errores en un único fichero."}], "remember": "🎯 Trampa Clásica de Examen: En '> archivo 2>&1', el orden importa. Primero se redirige '>' a dónde va la salida, y luego '2>&1' copia ese destino. Si pones '2>&1 > archivo', no funcionará igual.", "notes": "Esta sintaxis '> archivo 2>&1' es una de las preguntas fijas más repetidas en LPIC-1."}, {"id": 5, "section": "103.4", "cat": "stream", "type": "command", "title": "Protección contra Sobreescritura: set -o noclobber", "lead": "¿Cómo evitar que un administrador borre por accidente un archivo crítico con un simple '>'?", "ref": "290-292", "pdf": {"manual": "A", "pages": [290, 291, 292], "figure": null}, "coverage": ["103.4-CMD-003", "103.4-OPT-005"], "command": "set -o noclobber | set +o noclobber | cmd >| archivo", "purpose": "Activar la protección de shell que impide sobreescribir archivos existentes con el operador >", "terminal": {"command": "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt", "output": "bash: kernel.txt: cannot overwrite existing file\nforzado"}, "options": [{"flag": "set -o noclobber (o set -C)", "desc": "🎯 Clave de Examen: Activa la protección: si intentas redirigir con '>' hacia un archivo que ya existe, Bash aborta la operación con error."}, {"flag": ">| archivo (operador clobber)", "desc": "🎯 Clave de Examen: Salto temporal: fuerza la sobreescritura del archivo incluso aunque noclobber esté activado."}, {"flag": "set +o noclobber (o set +C)", "desc": "🎯 Desactiva la protección permitiendo de nuevo la sobreescritura normal con '>'."}, {"flag": ">> (concatenación)", "desc": "El operador '>>' NO se ve afectado por noclobber, ya que concatenar datos nunca destruye los datos existentes."}], "remember": "🎯 Mnemotecnia de Flags en set: '-o' (con signo menos) ACTIVA una opción; '+o' (con signo más) DESACTIVA la opción.", "notes": "Explica la aparente contradicción de Bash: el signo menos activa y el signo más desactiva."}, {"id": 6, "section": "103.4", "cat": "stream", "type": "command", "title": "Redirección de Entrada y Here Documents: <, << y <<<", "lead": "Alimentar comandos desde archivos de texto o bloques embebidos en scripts:", "ref": "292-295", "pdf": {"manual": "A", "pages": [292, 293, 294, 295], "figure": null}, "coverage": ["103.4-CMD-004", "103.4-OPT-006", "103.4-OPT-007"], "command": "cmd < archivo | cmd <<DELIM ... DELIM | cmd <<< 'cadena'", "purpose": "Redirigir el canal de entrada estándar (stdin / 0) desde ficheros, bloques multilínea o cadenas", "terminal": {"command": "wc -l < /etc/passwd; cat <<EOF\nLinea 1\nLinea 2\nEOF", "output": "28\nLinea 1\nLinea 2"}, "options": [{"flag": "< archivo", "desc": "🎯 Redirige la entrada estándar desde un archivo (ej: 'wc -l < archivo.txt' cuenta líneas sin imprimir el nombre del archivo)."}, {"flag": "<< DELIMITADOR (Here Document)", "desc": "🎯 Clave de Examen: Pasa un bloque multilínea de texto directamente a un comando hasta encontrar una línea que contenga únicamente la palabra DELIMITADOR (suele usarse EOF o FIN)."}, {"flag": "<< 'DELIMITADOR'", "desc": "Si el delimitador va entrecomillado, se desactiva la expansión de variables dentro del bloque multilínea."}, {"flag": "<<< 'cadena' (Here String)", "desc": "Pasa una única cadena de texto directamente a la entrada estándar del comando (ej: 'bc <<< 5+3')."}], "remember": "🎯 Clave de Examen: '<<EOF' (Here Document) se utiliza en scripts bash para generar archivos de configuración o pasar menús interactivos sin intervención de usuario.", "notes": "Muestra cómo 'cat <<EOF > config.txt' permite redactar un archivo entero dentro de un script de instalación."}, {"id": 7, "section": "103.4", "cat": "stream", "type": "command", "title": "Tuberías (Pipes): Encadenamiento Directo en Memoria", "lead": "Conectar la salida estándar de un programa directamente a la entrada del siguiente:", "ref": "295-298", "pdf": {"manual": "A", "pages": [295, 296, 297, 298], "figure": null}, "coverage": ["103.4-CMD-005"], "command": "comando1 | comando2 | comando3", "purpose": "Encadenar procesos conectando el descriptor 1 (stdout) del primero al descriptor 0 (stdin) del segundo", "terminal": {"command": "cat /etc/passwd | cut -d: -f7 | sort | uniq -c | sort -nr | head -n 3", "output": "     25 /usr/sbin/nologin\n      2 /bin/bash\n      1 /bin/sync"}, "options": [{"flag": "Operador tubería (|)", "desc": "🎯 Conecta el stdout del comando de la izquierda al stdin del comando de la derecha. El intercambio ocurre en la memoria RAM (búfer de kernel) sin crear ningún archivo temporal en disco."}, {"flag": "Ejecución concurrente", "desc": "Ambos procesos se ejecutan al mismo tiempo; el segundo comando procesa los datos en streaming a medida que el primero los va generando."}, {"flag": "⚠️ Exclusión de stderr", "desc": "🎯 Clave de Examen: Una tubería ordinaria '|' solo transporta stdout (1). Los mensajes de error (2) NO entran en la tubería y salen directamente a la pantalla a menos que se redirijan con '2>&1 |' o con '|&'."}, {"flag": "|& (pipe de error de Bash)", "desc": "Atajo de Bash moderno para redirigir simultáneamente stdout y stderr hacia la tubería siguiente."}], "remember": "🎯 Clave de Examen: La tubería '|' solo transporta la salida estándar (1). Si el primer comando da un error (2), el error se proyecta en la pantalla y el segundo comando no recibe nada.", "notes": "Explica la elegancia de Unix: en lugar de guardar archivos intermedios temp1.txt, temp2.txt, la tubería lo procesa todo en la memoria."}, {"id": 8, "section": "103.4", "cat": "stream", "type": "command", "title": "Bifurcación de Flujos con tee: Pantalla y Disco a la Vez", "lead": "¿Cómo ver el progreso en tiempo real en la pantalla y guardarlo en un archivo simultáneamente?", "ref": "298-301", "pdf": {"manual": "A", "pages": [298, 299, 300, 301], "figure": null}, "coverage": ["103.4-CMD-006", "103.4-OPT-008"], "command": "cmd | tee [-a] <archivo> [archivo2...]", "purpose": "Duplicar el flujo de datos: envía una copia a la salida estándar (pantalla) y otra copia a uno o varios archivos", "terminal": {"command": "echo 'Instalacion completada' | tee -a /tmp/instalacion.log", "output": "Instalacion completada\n# El mensaje se ha mostrado en pantalla Y se ha guardado en /tmp/instalacion.log."}, "options": [{"flag": "tee <archivo>", "desc": "🎯 Escribe los datos en el archivo indicado (sobrescribiéndolo) y simultáneamente los reproduce en stdout."}, {"flag": "tee -a, --append", "desc": "🎯 Clave de Examen: Modo concatenación: añade los datos al final del archivo sin borrar lo existente."}, {"flag": "sudo tee <archivo_root>", "desc": "🎯 Truco Clásico de Sysadmin: Permite escribir en archivos protegidos de root dentro de una tubería: 'echo \"1\" | sudo tee /proc/sys/net/ipv4/ip_forward'."}], "remember": "🎯 Clave de Examen: 'tee' actúa como una 'T' de fontanería: divide el flujo en dos direcciones (hacia la pantalla y hacia el archivo). Para no sobreescribir se usa 'tee -a'.", "notes": "Muestra por qué 'sudo echo ... > /etc/protegido' falla (porque la redirección la hace la shell ordinaria, no sudo) y cómo 'tee' con sudo lo soluciona."}, {"id": 9, "section": "103.4", "cat": "stream", "type": "command", "title": "Sustitución de Comandos: $(cmd) frente a `cmd`", "lead": "¿Cómo insertar la salida de un comando como argumento dentro de otra orden?", "ref": "301-303", "pdf": {"manual": "A", "pages": [301, 302, 303], "figure": null}, "coverage": ["103.4-CON-002"], "command": "comando $(subcomando) | comando `subcomando`", "purpose": "Ejecutar una orden en una subshell y reemplazar la expresión por el resultado obtenido", "terminal": {"command": "tar -czf backup-$(date +%F).tar.gz /etc/issue; ls -l backup-*.tar.gz", "output": "-rw-r--r-- 1 alumno alumno 175 Oct 20 10:25 backup-2026-10-20.tar.gz"}, "options": [{"flag": "$(comando)", "desc": "🎯 Sintaxis estándar recomendada por POSIX y LPIC: permite anidamiento limpio y es altamente legible (ej: 'tar -czf backup-$(date +%Y%m%d).tar.gz')."}, {"flag": "`comando` (Backticks / Acentos graves)", "desc": "Sintaxis histórica de Unix heredada del shell Bourne original. Más difícil de leer y muy compleja de anidar."}, {"flag": "Anidamiento", "desc": "Con $(), anidar es trivial: 'echo $(basename $(pwd))'. Con backticks requiere escapar: '`basename \\`pwd\\``'."}], "remember": "🎯 Clave de Examen: Ambas sintaxis son equivalentes en ejecución, pero '$()' es la recomendada oficialmente por LPI debido a su soporte de anidamiento.", "notes": "Muestra cómo crear copias con sello temporal usando 'cp archivo archivo.$(date +%F)'."}, {"id": 10, "section": "103.4", "cat": "stream", "type": "command", "title": "Procesamiento por Lotes con xargs", "lead": "¿Qué hacer cuando un comando no acepta datos por tubería y exige argumentos de línea de comandos?", "ref": "303-306", "pdf": {"manual": "A", "pages": [303, 304, 305, 306], "figure": null}, "coverage": ["103.4-CMD-007", "103.4-OPT-009", "103.4-OPT-010"], "command": "cmd_origen | xargs [-n <N>] [-I {}] <cmd_destino>", "purpose": "Construir y ejecutar líneas de comando leyendo argumentos desde la entrada estándar", "terminal": {"command": "echo 'archivo1 archivo2 archivo3' | xargs touch; ls -l archivo[1-3]", "output": "-rw-r--r-- 1 alumno alumno 0 Oct 20 10:30 archivo1\n-rw-r--r-- 1 alumno alumno 0 Oct 20 10:30 archivo2\n-rw-r--r-- 1 alumno alumno 0 Oct 20 10:30 archivo3"}, "options": [{"flag": "xargs <comando>", "desc": "Lee elementos de stdin separados por espacios o saltos de línea y los pasa como argumentos al comando final."}, {"flag": "-n <N>", "desc": "🎯 Clave de Examen: Limita a un máximo de N argumentos por cada ejecución del comando destino (ej: 'xargs -n 1' ejecuta el comando una vez por cada elemento)."}, {"flag": "-I <marcador>", "desc": "🎯 Reemplazo posicional: sustituye el marcador (habitualmente '{}') en el comando destino (ej: 'cat lista.txt | xargs -I {} cp {} /backup/{}')."}, {"flag": "-p, --interactive", "desc": "Pregunta interactivamente al usuario si desea ejecutar la orden antes de cada invocación."}, {"flag": "-r, --no-run-if-empty", "desc": "Si la entrada estándar está completamente vacía, no ejecuta el comando destino."}], "remember": "🎯 Problema que resuelve xargs: Comandos como 'rm', 'cp' o 'kill' no leen de stdin; necesitan argumentos en su línea de órdenes. 'xargs' convierte líneas de stdin en argumentos.", "notes": "Explica la diferencia entre 'cat lista.txt | rm' (falla totalmente) y 'cat lista.txt | xargs rm' (funciona a la perfección)."}, {"id": 11, "section": "103.4", "cat": "stream", "type": "command", "title": "Manejo Seguro de Espacios: find -print0 y xargs -0", "lead": "¿Qué ocurre si un archivo contiene espacios en blanco en su nombre al procesarlo con xargs?", "ref": "306-308", "pdf": {"manual": "A", "pages": [306, 307, 308], "figure": null}, "coverage": ["103.4-CMD-007", "103.4-OPT-011"], "command": "find <ruta> -print0 | xargs -0 <comando>", "purpose": "Procesar ficheros de forma 100% segura delimitándolos con el byte nulo (\\0) en lugar de espacios", "terminal": {"command": "touch 'informe confidencial.pdf'; find . -name '*.pdf' -print0 | xargs -0 ls -l", "output": "-rw-r--r-- 1 alumno alumno 0 Oct 20 10:35 ./informe confidencial.pdf"}, "options": [{"flag": "El problema de los espacios", "desc": "⚠️ Si un archivo se llama 'mi foto.jpg', un 'xargs rm' ordinario intentará borrar dos archivos: 'mi' y 'foto.jpg', borrando datos incorrectos o fallando."}, {"flag": "find -print0", "desc": "🎯 Clave de Examen: Imprime cada ruta encontrada terminada por el carácter nulo ASCII 0 (\\0) en lugar de un salto de línea."}, {"flag": "xargs -0, --null", "desc": "🎯 Clave de Examen: Indica a xargs que los elementos de entrada están delimitados por el carácter nulo (\\0), tratando los espacios y comillas como texto literal."}, {"flag": "Sinergia Indestructible", "desc": "🎯 La combinación 'find ... -print0 | xargs -0 ...' es el estándar corporativo obligatorio para scripts en producción."}], "remember": "🎯 Pregunta Fija de Examen LPIC-1: ¿Qué par de opciones se utilizan juntas para procesar archivos con espacios de forma segura? -> 'find -print0' combinado con 'xargs -0'.", "notes": "Pide a los alumnos que memoricen el número cero: -print0 en find y -0 en xargs."}, {"id": 12, "section": "103.4", "cat": "stream", "type": "table", "title": "Tabla Maestra de Operadores de Redirección", "lead": "El mapa conceptual definitivo de redirecciones y descriptores para el examen:", "ref": "308", "pdf": {"manual": "A", "pages": [308], "figure": null}, "coverage": ["103.4-CON-001"], "headers": ["Operador", "Descriptor Afectado", "Función y Comportamiento", "Ejemplo Práctico"], "rows": [[">", "stdout (1)", "Sobreescribe el archivo con la salida normal.", "ls > lista.txt"], [">>", "stdout (1)", "Añade la salida normal al final del archivo.", "echo 'ok' >> registro.log"], ["2>", "stderr (2)", "Guarda los mensajes de error en un archivo.", "find / -name x 2> errores.log"], ["2>>", "stderr (2)", "Añade los mensajes de error al final del archivo.", "backup.sh 2>> errores.log"], ["> arch 2>&1", "stdout y stderr", "🎯 Fusiona salida y errores en el mismo archivo.", "make > compilacion.log 2>&1"], ["&>", "stdout y stderr", "Sintaxis moderna de Bash para fusionar flujos.", "systemctl status nginx &> log.txt"], ["<", "stdin (0)", "Lee la entrada estándar desde un archivo.", "sort < desordenado.txt"], ["<< EOF", "stdin (0)", "Pasa un bloque multilínea (Here Document).", "cat <<EOF > config.txt"], [">|", "stdout (1)", "🎯 Sobreescribe forzando aunque noclobber esté activo.", "echo 'forzar' >| protegido.txt"], ["|", "stdout -> stdin", "Conecta procesos en memoria RAM por tubería.", "ps aux | grep nginx"]], "remember": "🎯 Regla de Oro: Sin número es descriptor 1; con el '2' es descriptor de errores; con '&' se fusionan ambos.", "notes": "Usa esta diapositiva como chuleta de repaso rápido antes del examen."}, {"id": 13, "section": "103.4", "cat": "stream", "type": "concept", "title": "Trampas Clásicas de Examen en Flujos y Redirecciones", "lead": "Los 3 fallos que más se repiten en las preguntas de flujos:", "ref": "309", "pdf": {"manual": "A", "pages": [309], "figure": null}, "coverage": ["103.4-WARN-001", "103.4-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Creer que la tubería captura los errores", "detail": "🎯 En 'comando_erroneo | grep error', el mensaje de error sale directamente a la pantalla y grep no recibe nada, porque los errores viajan por stderr (2) y la tubería solo transporta stdout (1). Para que entre en la tubería se debe usar '2>&1 |' o '|&'."}, {"icon": "alert-triangle", "text": "2. Orden invertido en la fusión de descriptores", "detail": "'2>&1 > archivo' NO fusiona ambos en el archivo. Hace que stderr vaya a donde apuntaba stdout en ese momento (la pantalla) y luego envía stdout al archivo. La forma correcta SIEMPRE es '> archivo 2>&1'."}, {"icon": "alert-triangle", "text": "3. Redirigir entrada y salida al mismo archivo", "detail": "⚠️ Si ejecutas 'sort archivo.txt > archivo.txt', la shell truncará el archivo a 0 bytes ANTES de que sort pueda leerlo, destruyendo todos tus datos. Siempre se debe escribir en un archivo temporal."}], "remember": "🎯 Mnemotecnia Rápida: Los errores no entran en la tubería por defecto; '> arch 2>&1' siempre en ese orden; y nunca redirijas con '>' sobre el mismo archivo que estás leyendo.", "notes": "Advierte a la clase sobre el peligro de 'cat arch > arch': vacía el archivo instantáneamente."}, {"id": 14, "section": "103.4", "cat": "stream", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Descriptores y Errores)", "ref": "Manual A - Pág 309", "pdf": {"manual": "A", "pages": [309], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 309): Ejecuta una búsqueda de todos los archivos llamados 'config' en el sistema completo ('/') guardando la salida exitosa en 'encontrados.txt' y descartando por completo todos los mensajes de 'Permission denied'.", "command": "find / -name config > encontrados.txt 2> /dev/null", "reason": "La redirección '>' desvía stdout al archivo deseado y '2> /dev/null' silencia los errores arrojándolos al agujero negro."}, {"action": "Caso 2 (Oficial Pág 309): ¿Cuál es el comando exacto para compilar un programa con 'make' guardando tanto la salida estándar como los posibles errores en un mismo archivo de log llamado 'build.log'?", "command": "make > build.log 2>&1 (o make &> build.log)", "reason": "Redirige la salida normal a build.log y fusiona el canal 2 (stderr) con el canal 1 (stdout)."}, {"action": "Caso 3 (Oficial Pág 309): Tienes activada la opción 'set -o noclobber' y necesitas sobreescribir el archivo existente 'salida.txt'. ¿Qué operador de redirección debes utilizar?", "command": "echo 'datos' >| salida.txt", "reason": "El operador '>|' (clobber) elude temporalmente la protección de noclobber forzando la sobreescritura."}], "solution": {"explain": "2> /dev/null limpia salidas ruidosas; > arch 2>&1 captura auditorías completas; y >| desbloquea sobreescrituras controladas."}, "notes": "Enseña cómo verificar que encontrados.txt solo contiene rutas y ningún mensaje de error."}, {"id": 15, "section": "103.4", "cat": "stream", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: tee y xargs)", "ref": "Manual A - Pág 309", "pdf": {"manual": "A", "pages": [309], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 309): Ejecuta una comprobación del espacio en disco con 'df -h' mostrando el resultado en pantalla y al mismo tiempo añadiéndolo al final del archivo '/var/log/disco.log'.", "command": "df -h | tee -a /var/log/disco.log", "reason": "El comando 'tee' bifurca la salida hacia la terminal y hacia el fichero, y '-a' añade sin sobreescribir."}, {"action": "Caso 5 (Oficial Pág 309): Utiliza 'find' y 'xargs' para localizar todos los archivos con extensión '.tmp' en '/tmp' y eliminarlos con 'rm' de forma segura ante posibles nombres con espacios.", "command": "find /tmp -type f -name '*.tmp' -print0 | xargs -0 rm -f", "reason": "-print0 separa los resultados con bytes nulos y xargs -0 los procesa interpretando los espacios como texto plano."}], "solution": {"explain": "tee -a asegura persistencia sin perder visibilidad en vivo; find -print0 con xargs -0 garantiza robustez frente a espacios en blanco."}, "notes": "Recuerda que tee sin -a borraría el log anterior."}, {"id": 16, "section": "103.4", "cat": "stream", "type": "challenge", "title": "Retos de Exploración Oficiales (Here Document y Flujos Complejos)", "ref": "Manual A - Págs 309-310", "pdf": {"manual": "A", "pages": [309, 310], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un script de instalación debe generar un archivo de configuración '/etc/app.conf' con 3 directivas sin abrir un editor de texto interactivo. ¿Qué estructura con 'cat' y 'Here Document' debe emplear?\n2. ¿Cómo pasarías una lista de 100 usuarios en un archivo 'usuarios.txt' para crear sus carpetas en '/home' invocando el comando 'mkdir' de 1 en 1 usando xargs?\n3. ¿Qué operador conecta la salida de errores (stderr) directamente a una tubería sin usar archivos intermedios en una shell Bash moderna?", "hint": "Recuerda: cat <<EOF > /etc/app.conf; xargs -n 1; y el operador |&.", "solution": {"explain": "1. Se ejecuta:\ncat <<EOF > /etc/app.conf\nPORT=8080\nDEBUG=false\nTIMEOUT=30\nEOF\n2. Se ejecuta: cat usuarios.txt | xargs -n 1 -I {} mkdir /home/{}\n3. Se utiliza el operador: '|&' (o '2>&1 |')."}, "notes": "Here Document es la técnica más limpia para generar archivos de configuración dentro de scripts de despliegue."}, {"id": 17, "section": "103.4", "cat": "stream", "type": "review", "title": "Pregunta de Examen LPIC-1: Redirección Simultánea de Salida y Errores", "q": "¿Cuál de los siguientes comandos redirigirá TANTO la salida estándar (stdout) COMO la salida de errores (stderr) del programa 'miprograma' hacia el archivo 'salida.txt'?", "options": ["miprograma > salida.txt 2> salida.txt", "miprograma 2>&1 > salida.txt", "miprograma > salida.txt 2>&1", "miprograma >> salida.txt < 2"], "answer": 2, "why": "La construcción '> salida.txt 2>&1' primero desvía la salida estándar (descriptor 1) hacia el archivo 'salida.txt' y a continuación redirige el descriptor de error (descriptor 2) hacia donde apunta el descriptor 1 en ese instante (hacia el propio archivo).", "notes": "Pregunta clásica e indispensable de certificación."}, {"id": 18, "section": "103.4", "cat": "stream", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Flujos y Redirecciones 103.4", "deck": [{"front": "¿Qué número de descriptor de archivo corresponde a stdin, stdout y stderr?", "back": "0 = stdin (entrada), 1 = stdout (salida normal), 2 = stderr (errores)."}, {"front": "¿Qué diferencia hay entre '>' y '>>'?", "back": "'>' sobrescribe el archivo borrando lo anterior; '>>' añade al final sin borrar."}, {"front": "¿Cómo silenciar todos los mensajes de error de un comando?", "back": "Añadiendo '2> /dev/null' al final del comando."}, {"front": "¿Cómo redirigir salida y errores juntos al mismo archivo?", "back": "cmd > archivo 2>&1 (o cmd &> archivo)."}, {"front": "¿Qué comando activa la protección que impide sobreescribir archivos con '>'?", "back": "set -o noclobber."}, {"front": "¿Qué operador fuerza la sobreescritura cuando noclobber está activo?", "back": ">| (operador clobber)."}, {"front": "¿Qué comando bifurca un flujo enviándolo a pantalla y guardándolo en archivo?", "back": "tee (o tee -a para añadir)."}, {"front": "¿Qué opciones combinadas de find y xargs manejan espacios con seguridad?", "back": "find -print0 | xargs -0."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.4."}, {"id": 19, "section": "103.4", "cat": "stream", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.4", "takeaways": ["Descriptores: 0 stdin, 1 stdout, 2 stderr. /dev/null como vertedero de datos.", "Redirecciones: > sobreescribe, >> añade, 2> para errores, > arch 2>&1 para fusionar, < para entrada, <<EOF para Here Document multilínea.", "Protección: set -o noclobber impide destruir ficheros con >; el operador >| elude la protección.", "Tuberías y Procesamiento: | conecta procesos en memoria RAM; tee [-a] bifurca a pantalla y disco; $(cmd) para sustitución de comandos; xargs [-n|-0] para convertir flujos en argumentos seguros."], "top3": [{"cmd": "cmd > log.txt 2>&1", "desc": "Redirige salida normal y errores juntos al mismo archivo."}, {"cmd": "find / -name archivo 2> /dev/null", "desc": "Silencia los errores de permiso denegado durante búsquedas."}, {"cmd": "find . -type f -print0 | xargs -0 cmd", "desc": "Procesa archivos por lotes de forma 100% inmune a nombres con espacios."}], "practice": {"name": "Practica 103.4: Flujos Estándar, Tuberías y Redirecciones", "url": "../practicas/p-103-4-redirecciones-tuberias.html", "desc": "Domina los descriptores stdin (0), stdout (1) y stderr (2), redirige salidas y errores (>, >>, 2>, 2>&1, &>), bifurca con tee y automatiza con xargs."}, "notes": "Concluimos el subtema 103.4 y finalizamos la primera mitad del Tema 103."}];
     const ERRATAS = [{"id": "ERR-103.4-01", "section": "103.4", "ref": "p. 14", "manual_says": "comando > archivo 2> archivo redirige stdout y stderr de forma segura.", "reality": "Abrir el mismo archivo dos veces con '>' provoca colisiones de escritura entre descriptores. Lo correcto es comando > archivo 2>&1 o comando &> archivo.", "exam_tip": "No marques respuestas con redirecciones duplicadas concurrentes sin duplicación de descriptores (2>&1)."}];
     const GLOSARIO = [{"id": "pipe", "term": "Pipeline (Tubería |)", "def": "Mecanismo IPC de Unix que conecta la salida estándar de un proceso con la entrada estándar de otro.", "ref": "p. 1-6"}, {"id": "redirection", "term": "Redirección (<, >, >>)", "def": "Operador de la shell que desvía los flujos estándar (stdin, stdout, stderr) hacia o desde archivos.", "ref": "p. 7-15"}, {"id": "tee", "term": "tee", "def": "Comando en T que replica la entrada estándar hacia la pantalla y a uno o más ficheros a la vez.", "ref": "p. 16-20"}, {"id": "xargs", "term": "xargs", "def": "Utilidad que lee elementos de la entrada estándar y construye líneas de comando para ejecutarlas.", "ref": "p. 21-28"}, {"id": "dev-null", "term": "/dev/null", "def": "Dispositivo de caracteres especial que descarta toda la información que se escribe en él.", "ref": "p. 12-14"}];
-    const META = {"course": "LPIC-1 v5.0", "topic": "103.4", "title": "Uso de secuencias de texto, tuberías y redireccionamientos", "weight": 4, "pages": "1–23", "icons": "Lucide 0.468.0 (ISC)"};
+    const META = {"topic": "103.4", "title": "Uso de secuencias de texto, tuberías y redireccionamientos", "weight": 4, "description": "stdin, stdout, stderr, redirecciones (>, >>, <, <<), noclobber, tuberías (|), tee y xargs (Alta Densidad LPIC-1)", "duracion": "30 min"};
 
     /* -------------------------------------------------------------
        MOTOR DE RENDERIZADO Y NAVEGACIÓN (Pure JS)
@@ -1124,7 +1223,7 @@
             <div style="display:flex; justify-content:center; gap:20px; font-size:22px; font-weight:600;">
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Peso LPI: ${escapeHTML(s.meta?.peso || (typeof META !== 'undefined' && META.weight) || '')}</span>
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Páginas: ${escapeHTML(s.meta?.paginas || '')}</span>
-              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '45 min')}</span>
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '30 min')}</span>
             </div>
           </div>
         `;
@@ -1232,51 +1331,87 @@
         }
       } else if (s.type === 'file') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
-        const filePath = s.path || s.file || '';
-        const fileDesc = s.desc || s.contains || s.lead || s.purpose || '';
+        const fileObj = (typeof s.file === 'object' && s.file !== null) ? s.file : {};
+        const filePath = fileObj.path || s.path || (typeof s.file === 'string' ? s.file : '');
+        const filePurpose = fileObj.purpose || s.purpose || '';
+        const fileDesc = fileObj.desc || s.desc || s.contains || s.lead || filePurpose;
         html += `<div class="slide-lead"><code class="t-path" style="font-size:28px; font-weight:700;">${escapeHTML(filePath)}</code>${fileDesc ? ` — ${renderRichText(fileDesc)}` : ''}</div>`;
         
-        // Directivas de configuración si existen
-        if (s.directives && s.directives.length > 0) {
-          html += `<div class="directives-grid">`;
-          s.directives.forEach(d => {
+        // Muestra de sintaxis, contenido de archivo o configuración
+        const fileContent = fileObj.content || s.content || s.sample?.content || (typeof s.sample === 'string' ? s.sample : '') || (typeof s.syntax === 'string' ? s.syntax : '');
+        if (fileContent || s.sample || s.syntax) {
+          let lines = [];
+          if (Array.isArray(fileContent)) lines = fileContent;
+          else if (typeof fileContent === 'string' && fileContent.trim()) lines = fileContent.split('\n');
+          else if (s.sample && s.sample.lines) lines = s.sample.lines;
+          else if (Array.isArray(s.syntax)) lines = s.syntax;
+
+          if (lines.length > 0) {
             html += `
-              <div class="directive-card">
-                <div class="directive-key">${escapeHTML(d.key || '')}</div>
-                <div class="directive-desc">${renderRichText(d.desc || d.detail || '')}</div>
+              <div class="term-wrapper" style="margin-top:12px; margin-bottom:16px;">
+                <div class="term-header">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
+                    <span>${escapeHTML(filePath || 'configuración')}</span>
+                  </div>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(Array.isArray(lines) ? lines.join('\n') : fileContent)}')">
+                    <svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar archivo
+                  </button>
+                </div>
+                <div class="term-code">`;
+            lines.forEach(line => {
+              const lStr = String(line);
+              if (lStr.trim().startsWith('#')) {
+                html += `<div><span class="t-cmt">${escapeHTML(lStr)}</span></div>`;
+              } else {
+                html += `<div>${escapeHTML(lStr)}</div>`;
+              }
+            });
+            html += `</div></div>`;
+          }
+        }
+
+        // Directivas o Viñetas explicativas (points)
+        const pointsList = s.points || s.directives || [];
+        if (pointsList.length > 0) {
+          html += `<div class="concept-grid">`;
+          pointsList.forEach(p => {
+            const pKey = p.text || p.key || p.title || '';
+            const pDesc = p.detail || p.desc || '';
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'file-text'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(pKey)}</div>
+                  ${pDesc ? `<div class="card-detail">${renderRichText(pDesc)}</div>` : ''}
+                </div>
               </div>
             `;
           });
           html += `</div>`;
         }
 
-        // Muestra de sintaxis o archivo
-        if (s.sample || s.syntax) {
-          let lines = [];
-          if (s.sample && s.sample.lines) lines = s.sample.lines;
-          else if (typeof s.syntax === 'string') lines = s.syntax.split('\n');
-          else if (Array.isArray(s.syntax)) lines = s.syntax;
-          else if (typeof s.sample === 'string') lines = s.sample.split('\n');
-
-          html += `
-            <div class="term-wrapper" style="margin-top:12px;">
-              <div class="term-header">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
-                  <span>${escapeHTML(filePath || 'config')}</span>
-                </div>
-              </div>
-              <div class="term-code">`;
-          lines.forEach(line => {
-            html += `<div>${escapeHTML(line)}</div>`;
-          });
-          html += `</div></div>`;
-        }
-
         // Consola o terminal complementario en slide file
         const fileTerm = s.terminal || s.console;
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
+        }
+
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
+        if (s.remember || s.look) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.look)}</span>
+            </div>
+          `;
         }
 
         if (s.writtenBy || s.readBy) {
@@ -1301,6 +1436,52 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'matrix') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.takeaway || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const headers = s.headers || s.cols || s.columns || s.matrix?.headers || [];
+        const rows = s.rows || s.matrix?.rows || [];
+        html += `<div class="matrix-container"><table class="slide-matrix"><thead><tr>`;
+        headers.forEach(h => html += `<th>${renderRichText(h)}</th>`);
+        html += `</tr></thead><tbody>`;
+        rows.forEach((row, ridx) => {
+          const isHl = s.highlight && (s.highlight.row === (ridx + 1) || s.highlight === (ridx + 1));
+          html += `<tr class="${isHl ? 'highlighted' : ''}">`;
+          let cells = [];
+          if (Array.isArray(row)) {
+            cells = row;
+          } else if (typeof row === 'object' && row !== null) {
+            if (row.head !== undefined && Array.isArray(row.cells)) {
+              cells = [row.head, ...row.cells];
+            } else if (Array.isArray(row.cells)) {
+              cells = row.cells;
+            } else {
+              cells = Object.values(row);
+            }
+          }
+          cells.forEach((cell, cidx) => {
+            html += `<td>${renderRichText(cell)}</td>`;
+          });
+          html += `</tr>`;
+        });
+        html += `</tbody></table></div>`;
+        if (s.remember || s.takeaway) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.takeaway)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
@@ -1338,7 +1519,12 @@
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         
         // Badge del manual oficial
-        const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        let pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
+        if (!pdfRef && scenarioText) {
+          const m = scenarioText.match(/P[áa]gina\s+oficial\s+(\d+(?:[–-]\d+)?)/i);
+          if (m) pdfRef = m[1];
+        }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
@@ -1348,7 +1534,6 @@
         `;
 
         // Planteamiento del problema (Escenario claro)
-        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
             <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
@@ -1367,7 +1552,7 @@
           `;
           if (steps.length > 0) {
             steps.forEach((st, idx) => {
-              const doText = st.do || st.task || st.step || '';
+              const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
                   <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
@@ -1401,12 +1586,16 @@
         if (steps.length > 0) {
           html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
-            const doText = st.do || st.task || st.step || '';
-            const lookText = st.look || st.cmd || st.code || '';
+            const doText = st.action || st.do || st.task || st.step || '';
+            const lookText = st.command || st.look || st.cmd || st.code || '';
+            const reasonText = st.reason || st.explain || '';
             html += `
-              <div style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
-                <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
-                ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+              <div style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
+                  <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
+                  ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+                </div>
+                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -1485,14 +1674,21 @@
         const options = s.options || [];
         options.forEach((opt, oidx) => {
           html += `
-            <button class="quiz-btn" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
+            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
               <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(opt)}</span>
             </button>
           `;
         });
         html += `</div>`;
-        html += `<div class="quiz-feedback" id="quiz-feedback-box"></div>`;
+        html += `
+          <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+              <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
+            </button>
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+        `;
       } else if (s.type === 'flashcards') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
@@ -1513,7 +1709,7 @@
             </div>
           </div>
           <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
-            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>Anterior</button>
+            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>Anterior</button>
             <span id="fc-counter" style="font-size:22px; font-weight:700; align-self:center;">1 / ${deck.length}</span>
             <button class="nav-btn" onclick="nextCard()">Siguiente<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
           </div>
@@ -1523,13 +1719,26 @@
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
         html += `<div class="concept-grid">`;
-        const items = s.items || s.points || s.cards || [];
-        items.forEach(item => {
-          const cardTitle = item.title || item.heading || item.key || (typeof item === 'string' ? item : item.text) || '';
-          const cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '') || '';
+        const items = s.takeaways || s.items || s.points || s.cards || [];
+        items.forEach((item, idx) => {
+          let cardTitle = '';
+          let cardDesc = '';
+          if (typeof item === 'string') {
+            const parts = item.split(': ');
+            if (parts.length > 1) {
+              cardTitle = parts[0];
+              cardDesc = parts.slice(1).join(': ');
+            } else {
+              cardTitle = `Punto Clave ${idx + 1}`;
+              cardDesc = item;
+            }
+          } else {
+            cardTitle = item.title || item.heading || item.key || item.text || `Clave ${idx + 1}`;
+            cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '');
+          }
           html += `
             <div class="concept-card">
-              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${item.icon || 'circle-check'}"/></svg></div>
+              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${(typeof item === 'object' && item.icon) ? item.icon : 'circle-check'}"/></svg></div>
               <div style="flex:1;">
                 <div class="card-text">${renderRichText(cardTitle)}</div>
                 ${cardDesc ? `<div class="card-detail">${renderRichText(cardDesc)}</div>` : ''}
@@ -1538,11 +1747,84 @@
           `;
         });
         html += `</div>`;
+
+        // Top 3 Comandos Clave (Soporta strings y objetos {cmd, desc})
         const top3 = s.top3 || s.commands || [];
         if (top3.length > 0) {
           html += `
-            <div style="margin-top:20px; padding:16px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:12px; font-size:22px;">
-              <strong style="color:var(--primary-ink);">Los comandos clave que no puedes olvidar:</strong> <span style="font-family:monospace; font-weight:700;">${renderRichText(top3.join(' · '))}</span>
+            <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
+              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
+              </div>
+              <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
+          `;
+          top3.forEach(t => {
+            if (typeof t === 'string') {
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
+                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                </div>
+              `;
+            } else {
+              const cmd = t.cmd || t.command || '';
+              const desc = t.desc || t.detail || '';
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 16px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  </div>
+                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                </div>
+              `;
+            }
+          });
+          html += `</div></div>`;
+        }
+
+        // Mapeo a práctica de laboratorio
+        if (s.practice) {
+          const pName = s.practice.name || 'Laboratorio Práctico Recomendado';
+          const pUrl = s.practice.url || '#';
+          const pDesc = s.practice.desc || 'Pon a prueba tus conocimientos en la máquina virtual.';
+          html += `
+            <div style="margin-top:14px; padding:16px 22px; background:#F0FDF4; border:2px solid #86EFAC; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#DCFCE7; color:#166534; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-wrench"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#166534;">${escapeHTML(pName)}</div>
+                  <div style="font-size:16px; color:#374151;">${renderRichText(pDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Web →
+              </a>
+            </div>
+          `;
+        }
+
+        // Mapeo a práctica global de fin de tema completo
+        if (s.global_practice) {
+          const gpName = s.global_practice.name || 'Práctica Global Integradora de Todo el Tema';
+          const gpUrl = s.global_practice.url || '#';
+          const gpDesc = s.global_practice.desc || 'Laboratorio final integrador con todos los comandos evaluados en este tema.';
+          html += `
+            <div style="margin-top:12px; padding:16px 22px; background:#FFFBEB; border:2px solid #F59E0B; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#FEF3C7; color:#92400E; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-shield"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#92400E;">🏆 ${escapeHTML(gpName)}</div>
+                  <div style="font-size:16px; color:#78350F;">${renderRichText(gpDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Global →
+              </a>
             </div>
           `;
         }
@@ -1761,23 +2043,53 @@
     }
     document.addEventListener('click', closePopovers);
 
+    function revealReviewAnswer(btn, correctIdx, why) {
+      const stageEl = document.getElementById('slide-content');
+      const buttons = stageEl.querySelectorAll('.quiz-btn');
+      buttons.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correctIdx) {
+          b.classList.add('correct');
+        }
+      });
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.style.display = 'block';
+      fb.style.background = 'var(--success-soft)';
+      fb.style.color = 'var(--success-ink)';
+      fb.style.border = '2px solid #86EFAC';
+      const letter = String.fromCharCode(65 + correctIdx);
+      fb.innerHTML = `<strong>✔ Respuesta oficial: Opción ${letter}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
+      if (btn) btn.style.display = 'none';
+    }
+
     function checkReviewAnswer(btn, chosen, correct, why) {
       const parent = btn.parentElement;
-      parent.querySelectorAll('.quiz-btn').forEach(b => b.disabled = true);
+      parent.querySelectorAll('.quiz-btn').forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correct) {
+          b.classList.add('correct');
+        }
+      });
       const isCorrect = chosen === correct;
-      btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+      if (!isCorrect) {
+        btn.classList.add('incorrect');
+      }
 
       const fb = document.getElementById('quiz-feedback-box');
       fb.style.display = 'block';
       if (isCorrect) {
         fb.style.background = 'var(--success-soft)';
         fb.style.color = 'var(--success-ink)';
-        fb.innerHTML = `<strong>✔ ¡Correcto!</strong> ${why}`;
+        fb.style.border = '2px solid #86EFAC';
+        fb.innerHTML = `<strong>✔ ¡Correcto! Opción ${String.fromCharCode(65 + chosen)}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       } else {
         fb.style.background = 'var(--danger-soft)';
         fb.style.color = 'var(--danger-ink)';
-        fb.innerHTML = `<strong>✖ Incorrecto.</strong> ${why}`;
+        fb.style.border = '2px solid #FCA5A5';
+        fb.innerHTML = `<strong>✖ Incorrecto.</strong> La opción correcta es la <strong>${String.fromCharCode(65 + correct)}</strong>.<br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       }
+      const revealBtn = document.querySelector('.btn-resolve-quiz');
+      if (revealBtn) revealBtn.style.display = 'none';
     }
 
     // Flashcard engine

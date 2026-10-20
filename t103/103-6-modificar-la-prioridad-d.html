@@ -454,6 +454,44 @@
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: #FEF3C7; }
 
+    /* Matrices comparativas y mapas de equivalencias */
+    .matrix-container {
+      width: 100%;
+      margin: 14px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      overflow-x: auto;
+      background: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+    table.slide-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(16px, 1.15vw, 20px);
+      text-align: left;
+    }
+    table.slide-matrix th {
+      background: var(--surface-alt);
+      color: var(--text);
+      padding: 12px 18px;
+      border-bottom: 2px solid var(--border-strong);
+      font-weight: 700;
+      font-size: clamp(17px, 1.2vw, 21px);
+      letter-spacing: -0.01em;
+    }
+    table.slide-matrix td {
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    table.slide-matrix tr:last-child td { border-bottom: none; }
+    table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
+    table.slide-matrix tr:hover td { background: #F1F5F9; }
+    table.slide-matrix tr.highlighted td { background: #FEF3C7; }
+    table.slide-matrix td:first-child { font-weight: 700; color: #1E293B; }
+
     /* Ejercicios y Repasos */
     .quiz-options { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
     .quiz-btn {
@@ -773,6 +811,67 @@
 <symbol id="i-bug-off" viewBox="0 0 24 24"><path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2" /> <path d="M14.12 3.88 16 2" /> <path d="M22 13h-4v-2a4 4 0 0 0-4-4h-1.3" /> <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /> <path d="m2 2 20 20" /> <path d="M7.7 7.7A4 4 0 0 0 6 11v3a6 6 0 0 0 11.13 3.13" /> <path d="M12 20v-8" /> <path d="M6 13H2" /> <path d="M3 21c0-2.1 1.7-3.9 3.8-4" /></symbol>
 <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m4.9 4.9 14.2 14.2" /></symbol>
 <symbol id="i-octagon-alert" viewBox="0 0 24 24"><path d="M12 16h.01" /> <path d="M12 8v4" /> <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" /></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></symbol>
+<symbol id="i-folder-tree" viewBox="0 0 24 24"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M3 5v14a2 2 0 0 0 2 2h3" /><path d="M3 10h4" /></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14" /><line x1="4" x2="4" y1="10" y2="3" /><line x1="12" x2="12" y1="21" y2="12" /><line x1="12" x2="12" y1="8" y2="3" /><line x1="20" x2="20" y1="21" y2="16" /><line x1="20" x2="20" y1="12" y2="3" /><line x1="1" x2="7" y1="14" y2="14" /><line x1="9" x2="15" y1="8" y2="8" /><line x1="17" x2="23" y1="16" y2="16" /></symbol>
+<symbol id="i-slash" viewBox="0 0 24 24"><path d="M22 2 2 22" /></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></symbol>
+<symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="4" /></symbol>
+<symbol id="i-keyboard" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" ry="2" /><path d="M6 8h.001M10 8h.001M14 8h.001M18 8h.001M8 12h.001M12 12h.001M16 12h.001M7 16h10" /></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" /></symbol>
+<symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line x1="20" x2="8.12" y1="4" y2="15.88" /><line x1="14.47" x2="20" y1="14.48" y2="20" /><line x1="8.12" x2="12" y1="8.12" y2="12" /></symbol>
+<symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5v14" /></symbol>
+<symbol id="i-plus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></symbol>
+<symbol id="i-minus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /></symbol>
+<symbol id="i-check-square" viewBox="0 0 24 24"><path d="m9 11 3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></symbol>
+<symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></symbol>
+<symbol id="i-folder-check" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9 13 2 2 4-4" /></symbol>
+<symbol id="i-folder-plus" viewBox="0 0 24 24"><path d="M12 10v6" /><path d="M9 13h6" /><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol>
+<symbol id="i-folder-search" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><circle cx="11" cy="13" r="3" /><path d="m13.2 15.2 2.8 2.8" /></symbol>
+<symbol id="i-folder-x" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9.5 10.5 5 5" /><path d="m14.5 10.5-5 5" /></symbol>
+<symbol id="i-message-square" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></symbol>
+<symbol id="i-link-2" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2" /><path d="M15 7h2a5 5 0 1 1 0 10h-2" /><line x1="8" x2="16" y1="12" y2="12" /></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></symbol>
+<symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-archive" viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1" /><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></symbol>
+<symbol id="i-file-check" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></symbol>
+<symbol id="i-corner-down-right" viewBox="0 0 24 24"><polyline points="15 10 20 15 15 20" /><path d="M4 4v7a4 4 0 0 0 4 4h12" /></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" /><line x1="9" x2="9" y1="3" y2="18" /><line x1="15" x2="15" y1="6" y2="21" /></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+<symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /><path d="m18 2 4 4-4 4" /><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /><path d="m18 14 4 4-4 4" /></symbol>
+<symbol id="i-log-in" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" /></symbol>
+<symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></symbol>
+
+<!-- Aliases directos para nombres alternativos comunes -->
+<symbol id="i-alert-triangle" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-alert-circle" viewBox="0 0 24 24"><use href="#i-circle-alert" /></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><use href="#i-circle-check" /></symbol>
+<symbol id="i-help-circle" viewBox="0 0 24 24"><use href="#i-circle-help" /></symbol>
+<symbol id="i-broken-link" viewBox="0 0 24 24"><use href="#i-link" /></symbol>
+<symbol id="i-shield-alert" viewBox="0 0 24 24"><use href="#i-shield" /></symbol>
+<symbol id="i-edit-3" viewBox="0 0 24 24"><use href="#i-wrench" /></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" /><line x1="6" x2="6" y1="2" y2="4" /><line x1="10" x2="10" y1="2" y2="4" /><line x1="14" x2="14" y1="2" y2="4" /></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" /></symbol>
+<symbol id="i-skull" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1" /><circle cx="15" cy="12" r="1" /><path d="M8 20v2h8v-2" /><path d="m12.5 17-.5-1-.5 1h1z" /><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20" /></symbol>
+<symbol id="i-alert-octagon" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-asterisk" viewBox="0 0 24 24"><use href="#i-hash" /></symbol>
+<symbol id="i-brackets" viewBox="0 0 24 24"><use href="#i-square-terminal" /></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-dot" viewBox="0 0 24 24"><use href="#i-circle" /></symbol>
+<symbol id="i-download-cloud" viewBox="0 0 24 24"><use href="#i-download" /></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-fast-forward" viewBox="0 0 24 24"><use href="#i-play" /></symbol>
+<symbol id="i-git-commit" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-git-merge" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><use href="#i-power" /></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
+<symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
 </svg>
 
 
@@ -786,7 +885,7 @@
   <header id="top-nav">
     <div class="nav-links">
       <a href="../index.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-menu"/></svg>Índice</a>
-      <a href="103-5-crear-supervisar-y-matar.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>103.5</a>
+      <a href="103-5-crear-supervisar-y-matar.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>103.5</a>
       <a href="103-7-realizar-busquedas-en-ar.html" class="nav-btn">103.7<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></a>
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
@@ -819,7 +918,7 @@
 
         <div class="stage-footer">
           <div style="display:flex; align-items:center; gap:14px;">
-            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg></button>
+            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg></button>
             <span id="slide-counter" style="font-weight:700;">1 / 1</span>
             <button class="nav-btn" onclick="nextStep()" title="Siguiente (→ / Espacio)" aria-label="Siguiente slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
             <div class="progress-bar-container">
@@ -904,10 +1003,10 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "103.6", "cat": "services", "type": "cover", "title": "Modificar la prioridad de ejecución de los procesos", "subtitle": "Gestión del planificador de Linux, valores nice, utilidades renice y monitorización de prioridades", "badge": "Tema 103 · Peso 2", "ref": "1-13", "pdf": {"manual": "A", "pages": [1, 2], "figure": null}, "coverage": ["103.6-CON-001"], "goals": ["Comprender la prioridad predeterminada con la que se crea cualquier proceso en Linux (120).", "Dominar la escala de valores nice (-20 a 19) y las restricciones de privilegios de usuario.", "Ejecutar programas con prioridad modificada mediante nice y alterar procesos vivos con renice.", "Interpretar correctamente las escalas de prioridad en ps (PRI) y top (PR), incluidos procesos en tiempo real."], "notes": "El subtema 103.6 es fundamental para la administración de servidores donde conviven servicios críticos y tareas de fondo.", "meta": {"peso": 2, "paginas": "1–13"}}, {"id": 2, "section": "103.6", "cat": "services", "type": "concept", "title": "Sistemas multitarea y multiprocesamiento", "takeaway": "La multitarea comparte el tiempo de CPU entre múltiples procesos para optimizar el rendimiento global:", "ref": "2-3", "pdf": {"manual": "A", "pages": [2, 3], "figure": null}, "coverage": ["103.6-CON-001"], "bullets": [{"icon": "cpu", "text": "Sistemas multitarea y multiprocesamiento", "detail": "Permiten que decenas o cientos de programas residan simultáneamente en memoria y se turnen el uso de los núcleos de cálculo."}, {"icon": "zap", "text": "Simultaneidad real vs concurrencia temporal", "detail": "La simultaneidad estricta requiere varios núcleos físicos; con un único núcleo se crea la ilusión mediante alternancia ultra rápida."}, {"icon": "layers", "text": "Aprovechamiento de los tiempos muertos de E/S", "detail": "Como la CPU es órdenes de magnitud más rápida que los discos y la red, conmuta a otros programas mientras espera datos externos."}], "remember": "Un sistema multitarea moderno nunca deja la CPU inactiva si existen programas esperando en cola.", "notes": "Linux implementa multiprocesamiento simétrico (SMP) aprovechando de forma balanceada todos los procesadores físicos y lógicos."}, {"id": 3, "section": "103.6", "cat": "services", "type": "flow", "title": "Multitarea preventiva (Preemptive Multitasking)", "takeaway": "El kernel tiene autoridad absoluta para interrumpir y expulsar procesos en ejecución:", "ref": "2, 3, 7, 11", "pdf": {"manual": "A", "pages": [2, 7, 11], "figure": null}, "coverage": ["103.6-CON-002", "103.6-EX-001"], "steps": [{"step": "1", "title": "Proceso en ejecución", "desc": "Un proceso de baja prioridad se encuentra haciendo uso de la CPU durante su cuanto de tiempo asignado."}, {"step": "2", "title": "Evento prioritario", "desc": "Llega a la cola un proceso con mayor prioridad (o despierta un proceso esperando datos urgentes)."}, {"step": "3", "title": "Interrupción preventiva", "desc": "Multitarea preventiva preemptive: el kernel expulsa al proceso actual guardando su contexto exacto."}, {"step": "4", "title": "Conmutación y ejecución", "desc": "El proceso más prioritario toma el control del procesador inmediatamente sin demoras."}], "notes": "A diferencia de la multitarea cooperativa antigua, en Linux ningún programa puede monopolizar la CPU indefinidamente."}, {"id": 4, "section": "103.6", "cat": "services", "type": "concept", "title": "El planificador del kernel (Scheduler) y la cola de ejecución", "takeaway": "El planificador determina qué proceso se ejecuta, en qué procesador y durante cuántos milisegundos:", "ref": "3-4", "pdf": {"manual": "A", "pages": [3, 4], "figure": null}, "coverage": ["103.6-CON-003", "103.6-CON-004", "103.6-CON-005"], "bullets": [{"icon": "server", "text": "Planificador de procesos scheduler", "detail": "Componente central del kernel responsable de garantizar equidad, interactividad ágil y máximo rendimiento de cálculo."}, {"icon": "list", "text": "Cola dinámica de procesos listos run queue", "detail": "Estructura interna donde se mantienen los procesos listos para ejecutarse (en estado R o Runnable)."}, {"icon": "sliders", "text": "Políticas de planificación de Linux", "detail": "Linux distingue entre políticas de reparto de tiempo normal (SCHED_OTHER / CFS) y políticas deterministas de tiempo real."}], "remember": "Los ajustes de nice y renice actúan únicamente sobre los procesos bajo políticas de planificación normales.", "notes": "El planificador estándar de Linux para procesos normales es CFS (Completely Fair Scheduler), basado en un árbol rojo-negro."}, {"id": 5, "section": "103.6", "cat": "services", "type": "concept", "title": "Espectro de prioridades estáticas del kernel: 0 a 139", "takeaway": "El núcleo Linux divide internamente sus prioridades en dos rangos estrictamente diferenciados:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["103.6-CON-006", "103.6-CON-007", "103.6-WARN-003"], "bullets": [{"icon": "shield", "text": "Prioridades estáticas de 0 a 139", "detail": "Rango global de prioridades del kernel. Regla de oro: menor número significa mayor prioridad."}, {"icon": "zap", "text": "Rango de tiempo real: 0 a 99", "detail": "Reservado para controladores críticos del sistema, hilos de migración del kernel y tareas que exigen latencia determinista."}, {"icon": "user", "text": "39 niveles de prioridad normal: 100 a 139", "detail": "Espacio donde conviven todas las aplicaciones de usuario, demonios del sistema y servidores estándar."}], "remember": "Menor número significa mayor prioridad. El valor 0 es la máxima prioridad posible; 139 es la mínima prioridad.", "notes": "Los procesos en tiempo real siempre desplazan a los procesos normales, independientemente del valor nice que tengan estos últimos."}, {"id": 6, "section": "103.6", "cat": "services", "type": "command", "title": "Prioridad estándar en /proc/1/sched", "purpose": "Comprueba el valor de prioridad estática asignado por defecto al primer proceso del sistema:", "command": "grep", "syntax": "grep ^prio /proc/<PID>/sched", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["103.6-CON-008", "103.6-CMD-005", "103.6-FILE-001", "103.6-FILE-002", "103.6-FILE-003"], "options": [{"flag": "^prio", "short": "Filtrar línea de prioridad", "detail": "Busca la línea inicial con la métrica prio dentro del archivo virtual de planificación.", "example": "grep ^prio /proc/1/sched"}], "terminal": {"prompt": "carol@host:~$ ", "command": "grep ^prio /proc/1/sched", "output": ["prio                   :       120", "# La prioridad estandar 120 es el punto neutro de inicio de cualquier proceso normal en Linux.", "# Desde /proc/ se consulta en tiempo real la estructura interna expuesta por el kernel."]}, "notes": "El archivo /proc/1/sched expone las estadísticas del planificador para el PID 1 (systemd o init)."}, {"id": 7, "section": "103.6", "cat": "services", "type": "concept", "title": "El concepto de Niceness: escala de -20 a 19", "takeaway": "El valor nice expresa cuán «amable» o considerado es un proceso con los demás en la cola de ejecución:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["103.6-CON-009", "103.6-CON-010", "103.6-WARN-002"], "bullets": [{"icon": "smile", "text": "Escala de valores nice de -20 a 19", "detail": "Valor 0 es el neutro por defecto. Los valores positivos (+1 a +19) son más amables: ceden tiempo a otros procesos."}, {"icon": "alert-triangle", "text": "Valores negativos (-1 a -20): menos amables", "detail": "Exigen mayor porcentaje de tiempo de CPU. El valor -20 representa la máxima agresividad y prioridad en procesos normales."}, {"icon": "lock", "text": "Regla de privilegios para nice negativo", "detail": "Solo el usuario root puede asignar valores nice por debajo de cero o reducir el nice de un proceso existente."}], "remember": "Un usuario común solo puede hacer sus procesos «más amables» (aumentar nice). Solo root puede hacerlos «menos amables» (bajar nice).", "notes": "Si un usuario normal intenta ejecutar renice -10 o nice -n -5, recibirá de inmediato el error: Permission denied."}, {"id": 8, "section": "103.6", "cat": "services", "type": "matrix", "title": "Mapeo de escalas: Kernel vs Nice vs ps vs top", "takeaway": "Cómo se traduce un mismo nivel de prioridad entre las diferentes herramientas de Linux:", "ref": "4, 5", "pdf": {"manual": "A", "pages": [4, 5], "figure": null}, "coverage": ["103.6-CON-008", "103.6-CON-009", "103.6-CON-011", "103.6-CON-012", "103.6-WARN-004"], "headers": ["Nivel / Rol", "Kernel (/proc)", "Valor Nice", "ps (Columna PRI)", "top (Columna PR)"], "rows": [["Prioridad Máxima Normal", "100", "-20", "60", "0"], ["Prioridad Alta Normal", "110", "-10", "70", "10"], ["Prioridad Estándar (Base)", "120", "0", "80", "20"], ["Prioridad Reducida (nice)", "130", "+10", "90", "30"], ["Prioridad Mínima Normal", "139", "+19", "99", "39"], ["Tiempo Real (RT)", "0 .. 99", "N/A", "-40 .. 59", "rt o negativo"]], "notes": "Fórmula ps: PRI_ps = PRI_kernel - 40 (por tanto, 120 - 40 = 80). Fórmula top normal: PR_top = 20 + Nice (por tanto, 20 + 0 = 20)."}, {"id": 9, "section": "103.6", "cat": "services", "type": "command", "title": "Inspección de prioridades con ps -el y ps -Al", "purpose": "Muestra todos los procesos del sistema con sus columnas de prioridad interna (PRI) y valor nice (NI):", "command": "ps", "syntax": "ps -el  # o ps -Al", "ref": "4, 7, 8", "pdf": {"manual": "A", "pages": [4, 7, 8], "figure": null}, "coverage": ["103.6-CMD-003", "103.6-OPT-005", "103.6-OPT-006", "103.6-CON-011", "103.6-EX-003"], "options": [{"flag": "-el", "short": "ps -el", "detail": "Selecciona todos los procesos (-e) y los formatea en lista extendida larga (-l).", "example": "ps -el | head -n 6"}, {"flag": "-Al", "short": "ps -Al", "detail": "Sintaxis idéntica a -el (-A equivale a -e para todos los procesos).", "example": "ps -Al"}], "terminal": {"prompt": "root@host:~# ", "command": "ps -el | head -n 6", "output": ["F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD", "4 S     0     1     0  0  80   0 -  9292 -      ?        00:00:00 systemd", "1 S     0     2     0  0  80   0 -     0 -      ?        00:00:02 kthreadd", "1 I     0     3     2  0  60 -20 -     0 -      ?        00:00:00 rcu_gp", "1 S     0    12     2  0 -40   - -     0 -      ?        00:00:08 migration/0", "# En ps: Columna PRI muestra prioridad desplazada (-40). Columna NI muestra valor nice."]}, "notes": "En este listado, el PID 12 con PRI -40 corresponde a un hilo de tiempo real del kernel con máxima prioridad."}, {"id": 10, "section": "103.6", "cat": "services", "type": "command", "title": "Columnas a medida y ordenación con ps", "purpose": "Filtra columnas clave y ordena los procesos según su consumo de CPU para detectar cuellos de botella:", "command": "ps", "syntax": "ps -e -o columnas --sort=criterio", "ref": "5, 9, 13", "pdf": {"manual": "A", "pages": [5, 9, 13], "figure": null}, "coverage": ["103.6-OPT-007", "103.6-OPT-008", "103.6-OPT-009", "103.6-CMD-007", "103.6-EX-005"], "options": [{"flag": "-e", "short": "ps -e", "detail": "Selecciona todos los procesos del sistema para la inspección.", "example": "ps -e"}, {"flag": "-o", "short": "ps -o", "detail": "Define un formato de salida personalizado con columnas separadas por comas.", "example": "ps -e -o pid,ni,pri,pcpu,comm"}, {"flag": "--sort", "short": "--sort", "detail": "Ordena el informe; --sort=pcpu ordena ascendente y --sort=-pcpu descendente.", "example": "ps -el --sort=pcpu"}], "terminal": {"prompt": "carol@host:~$ ", "command": "ps -e -o user,uid,comm,pid,pri,ni,pcpu --sort=-pcpu | head -n 5", "output": ["USER       UID COMMAND           PID PRI  NI %CPU", "root         0 compilation      4120  80   0 78.4", "carol     1000 ffmpeg           4250  90  10 45.1", "root         0 Xorg              820  80   0  5.2", "carol     1000 bash             1240  80   0  0.1"]}, "notes": "La opción --sort=pcpu (sin signo menos) ordena de menor a mayor uso de CPU; con signo menos ordena de mayor a menor."}, {"id": 11, "section": "103.6", "cat": "services", "type": "command", "title": "Supervisión interactiva en top: Columnas PR y NI", "purpose": "Supervisa en directo las métricas de prioridad y el comportamiento dinámico de los procesos:", "command": "top", "syntax": "top", "ref": "5, 6, 7, 11", "pdf": {"manual": "A", "pages": [5, 6, 7, 11], "figure": null}, "coverage": ["103.6-CMD-004", "103.6-CON-012", "103.6-CON-013", "103.6-EX-002"], "options": [{"flag": "PR", "short": "Columna PR", "detail": "Prioridad en top: 0 a 39 para procesos normales; rt o número negativo para tiempo real.", "example": "PR = 20 (nice 0)"}, {"flag": "NI", "short": "Columna NI", "detail": "Valor nice actual del proceso (-20 a 19).", "example": "NI = 0"}], "terminal": {"prompt": "carol@host:~$ ", "command": "top -b -n 1 | head -n 14", "output": ["top - 11:55:21 up 23:38,  1 user,  load average: 0,10, 0,04, 0,05", "Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie", "%Cpu(s):  0,5 us,  0,3 sy,  0,0 ni, 99,0 id,  0,0 wa,  0,2 hi,  0,0 si,  0,0 st", "  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND", "    1 root      20   0   74232   7904   6416 S   0,0   0,2   0:00.12 systemd", "   12 root      rt   0       0      0      0 S   0,0   0,0   0:08.17 migration/0", "   16 root      rt   0       0      0      0 S   0,0   0,0   0:11.79 migration/1", " 2164 carol     20   0  145000  12400   8200 R  12,5   0,3   1:20.00 render"]}, "notes": "Los PIDs 12 y 16 muestran PR 'rt': esto identifica inequívocamente a los procesos con prioridad de tiempo real."}, {"id": 12, "section": "103.6", "cat": "services", "type": "command", "title": "Lanzar procesos con prioridad modificada: nice", "purpose": "Inicia un nuevo programa con un valor de cortesía distinto al predeterminado:", "command": "nice", "syntax": "nice [-n incremento] comando [argumentos...]", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["103.6-CMD-001", "103.6-OPT-001", "103.6-CMD-006", "103.6-WARN-001"], "options": [{"flag": "-n", "short": "nice -n", "detail": "Indica explícitamente el valor nice numérico a sumar o asignar al comando.", "example": "nice -n 15 tar czf home_backup.tar.gz /home"}], "terminal": {"prompt": "carol@host:~$ ", "command": "nice -n 15 tar czf home_backup.tar.gz /home &", "output": ["[1] 4810", "carol@host:~$ ps -o pid,ni,pri,comm -p 4810", "  PID  NI PRI COMMAND", " 4810  15  95 tar", "# tar se ejecuta con NI = 15; no interferirá con los procesos interactivos del usuario."]}, "notes": "TRAMPA DE EXAMEN: Si se invoca 'nice comando' sin la opción -n, el valor nice por defecto que se aplica es +10 (no 0 ni -10)."}, {"id": 13, "section": "103.6", "cat": "services", "type": "command", "title": "Modificar procesos vivos por PID: renice -p", "purpose": "Cambia inmediatamente la prioridad de un proceso que ya se encuentra en ejecución:", "command": "renice", "syntax": "renice [-n] prioridad [-p] PID...", "ref": "5, 8, 12", "pdf": {"manual": "A", "pages": [5, 8, 12], "figure": null}, "coverage": ["103.6-CMD-002", "103.6-OPT-002", "103.6-WARN-002", "103.6-EX-004"], "options": [{"flag": "-p", "short": "renice -p", "detail": "Interpreta los argumentos siguientes como identificadores de proceso PID.", "example": "renice -10 -p 2164"}], "terminal": {"prompt": "root@host:~# ", "command": "renice -10 -p 2164", "output": ["2164 (process ID) old priority 0, new priority -10", "# Como root, es posible otorgar prioridad negativa (-10).", "# Si un usuario normal intenta: renice -10 21704", "# Resultado: renice: failed to set priority for 21704 (process ID): Permission denied"]}, "notes": "renice sobrescribe directamente el valor absoluto de nice (en el ejemplo fija -10), a diferencia de las versiones históricas que sumaban."}, {"id": 14, "section": "103.6", "cat": "services", "type": "command", "title": "Modificar prioridades por grupo o usuario: renice -g y -u", "purpose": "Aplica cambios masivos de prioridad a todos los procesos pertenecientes a un grupo o usuario:", "command": "renice", "syntax": "renice prioridad [-g grupo] [-u usuario]", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["103.6-OPT-003", "103.6-OPT-004"], "options": [{"flag": "-g", "short": "renice -g", "detail": "Modifica todos los procesos asociados al grupo especificado.", "example": "renice +5 -g users"}, {"flag": "-u", "short": "renice -u", "detail": "Modifica todos los procesos cuyo propietario sea el usuario indicado.", "example": "renice +10 -u backup_user"}], "terminal": {"prompt": "root@host:~# ", "command": "renice +5 -g users", "output": ["1000 (group ID) old priority 0, new priority 5", "# Eleva en cinco puntos el valor nice de todos los procesos del grupo 'users',", "# liberando recursos de CPU para las tareas administrativas prioritarias."]}, "notes": "Los cambios masivos con -g y -u son una práctica excelente para rebajar tareas de usuarios de laboratorio sin matarlas."}, {"id": 15, "section": "103.6", "cat": "services", "type": "flow", "title": "Modificación interactiva de prioridad en top: atajo r", "purpose": "Flujo de trabajo para modificar la prioridad de un proceso directamente desde la pantalla de top:", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["103.6-OPT-010"], "steps": [{"step": "1", "title": "Pulsar la tecla r", "desc": "En la interfaz interactiva de top, pulsar la tecla 'r'. Aparece el mensaje: PID to renice [default pid = 1]."}, {"step": "2", "title": "Introducir el PID objetivo", "desc": "Escribir el PID del proceso al que se desea alterar la prioridad (o pulsar Enter para el predeterminado) y confirmar."}, {"step": "3", "title": "Asignar nuevo valor nice", "desc": "Aparece: Renice PID <pid> to value. Introducir el nuevo valor nice (por ejemplo: 10 o -5) y pulsar Enter."}, {"step": "4", "title": "Actualización inmediata", "desc": "top actualiza en su siguiente refresco las columnas PR y NI del proceso seleccionado."}], "notes": "Si un usuario sin privilegios root intenta introducir un valor nice negativo en top, la acción será rechazada silenciosamente."}, {"id": 16, "section": "103.6", "cat": "services", "type": "command", "title": "Herramienta avanzada de planificación: schedtool", "purpose": "Consulta y ajusta políticas de planificación de CPU avanzadas y prioridades en tiempo real:", "command": "schedtool", "syntax": "schedtool [opciones] PID", "ref": "9, 13", "pdf": {"manual": "A", "pages": [9, 13], "figure": null}, "coverage": ["103.6-CMD-008", "103.6-OPT-011", "103.6-OPT-012", "103.6-EX-006"], "options": [{"flag": "-R", "short": "schedtool -R", "detail": "Establece la política de planificación de tiempo real Round-Robin (SCHED_RR).", "example": "schedtool -R -p 89 1750"}, {"flag": "-p", "short": "schedtool -p", "detail": "Fija la prioridad estática de tiempo real del proceso.", "example": "schedtool -R -p 89 1750"}], "terminal": {"prompt": "root@host:~# ", "command": "schedtool 1750 ; schedtool -R -p 89 1750", "output": ["PID  1750: PRIO   0, POLICY N: SCHED_NORMAL, NICE   0, AFFINITY 0xf", "# schedtool 1750 muestra la política actual y máscara de afinidad de CPU.", "# schedtool -R -p 89 1750 conmuta el proceso a política SCHED_RR con prioridad estática 89."]}, "notes": "La prioridad 89 en schedtool corresponde en la fórmula de top a PR = -1 - 89 = -90 (o valor rt)."}, {"id": 17, "section": "103.6", "cat": "services", "type": "table", "title": "Comparativa de herramientas de prioridad en Linux", "takeaway": "Diferencias clave entre nice, renice y el comando interactivo top:", "ref": "5-6", "pdf": {"manual": "A", "pages": [5, 6], "figure": null}, "coverage": ["103.6-CMD-001", "103.6-CMD-002", "103.6-CMD-004", "103.6-WARN-001"], "headers": ["Herramienta", "Momento de uso", "Objetivo / Sintaxis", "Valor por defecto", "Privilegios root"], "rows": [["nice", "Al iniciar el proceso", "nice -n <val> comando", "+10 (si se omite -n)", "Solo para nice < 0"], ["renice", "En tiempo de ejecución", "renice <val> -p <PID>", "Requiere valor explícito", "Solo para nice < 0 o reducir nice"], ["top (r)", "Interactivo en directo", "Pulsar r -> PID -> Valor", "PID 1 predeterminado", "Solo para nice < 0"], ["schedtool", "Avanzado / Tiempo real", "schedtool -R -p <prio> PID", "Informativo si no hay flags", "Obligatorio para tiempo real"]], "notes": "Recuerda: nice crea un proceso nuevo; renice y top modifican un proceso que ya existe."}, {"id": 18, "section": "103.6", "cat": "services", "type": "exercise", "title": "Ejercicio 1: Multitarea preventiva y prelación de procesos", "goal": "Comprender la dinámica de desalojo de CPU cuando compiten procesos de distinta prioridad:", "ref": "7, 11", "pdf": {"manual": "A", "pages": [7, 11], "figure": null}, "coverage": ["103.6-EX-001", "103.6-CON-002"], "task": "¿Qué sucede en un sistema multitarea preventivo cuando un proceso de menor prioridad ocupa la CPU y entra en cola un proceso de mayor prioridad?", "solution": "El proceso de menor prioridad es interrumpido de inmediato (preempted), su estado de ejecución se congela en la cola y el kernel asigna la CPU al proceso más prioritario.", "hints": ["Piensa en el significado del término 'preventivo' (preemptive).", "El proceso en ejecución no necesita colaborar ni consentir voluntariamente su expulsión."], "notes": "Esta propiedad garantiza que las tareas críticas de red o el entorno gráfico sigan respondiendo fluidamente aunque haya cálculos pesados de fondo."}, {"id": 19, "section": "103.6", "cat": "services", "type": "exercise", "title": "Ejercicio 2: Detección de procesos de tiempo real en top", "goal": "Identificar procesos con políticas especiales de tiempo real en salidas de monitorización:", "ref": "7, 11", "pdf": {"manual": "A", "pages": [7, 11], "figure": null}, "coverage": ["103.6-EX-002", "103.6-CON-013"], "task": "Dada la siguiente salida de top, ¿qué PIDs tienen prioridades de tiempo real?\n\nPID USER PR NI COMMAND\n  1 root 20  0 systemd\n 12 root rt  0 migration/0\n 14 root 20  0 cpuhp/0\n 16 root rt  0 migration/1\n 17 root 20  0 ksoftirqd/1", "solution": "Los PIDs 12 y 16. La columna PR exhibe 'rt', lo que indica que están configurados bajo políticas de planificación en tiempo real (SCHED_FIFO o SCHED_RR).", "hints": ["Observa los valores no numéricos en la columna PR.", "La abreviatura 'rt' significa Real-Time."], "notes": "Los hilos migration del kernel se encargan de balancear tareas entre núcleos y exigen ejecución de tiempo real sin retardos."}, {"id": 20, "section": "103.6", "cat": "services", "type": "exercise", "title": "Ejercicio 3: Identificación de máxima prioridad en ps -el", "goal": "Comparar prioridades relativas a partir de las columnas PRI y NI de ps:", "ref": "7, 8, 12", "pdf": {"manual": "A", "pages": [7, 8, 12], "figure": null}, "coverage": ["103.6-EX-003", "103.6-WARN-003", "103.6-OPT-005"], "task": "Considere los siguientes procesos de una lista ps -el:\n\nPID PRI  NI CMD\n  1  80   0 systemd\n  3  60 -20 rcu_gp\n  9  80   0 ksoftirqd/0\n 12 -40   - migration/0\n 15  80   0 cpuhp/1\n\n¿Qué PID tiene la mayor prioridad de ejecución?", "solution": "El PID 12 tiene la mayor prioridad de todas (PRI = -40, tiempo real). Entre los procesos normales, el PID 3 tiene la mayor prioridad (PRI = 60, NI = -20). En la escala del kernel, a menor valor numérico, mayor es la prioridad.", "hints": ["Recuerda siempre la regla: menor número = mayor prioridad.", "Un valor negativo en PRI (-40) es menor que 60 u 80."], "notes": "Pregunta clásica de examen: intentan confundir al opositor haciendo creer que valores más altos dan más prioridad."}, {"id": 21, "section": "103.6", "cat": "services", "type": "exercise", "title": "Ejercicio 4: Diagnóstico de error Permission denied en renice", "goal": "Comprender los límites de seguridad en la asignación de prioridades de usuario:", "ref": "8, 12", "pdf": {"manual": "A", "pages": [8, 12], "figure": null}, "coverage": ["103.6-EX-004", "103.6-WARN-002", "103.6-CON-010"], "task": "Un usuario ejecuta:\n$ renice -10 21704\nrenice: failed to set priority for 21704 (process ID): Permission denied\n\n¿Cuál es la causa exacta del error?", "solution": "El comando fue ejecutado por un usuario sin privilegios root. En Linux, únicamente el superusuario root tiene autorización para asignar valores nice negativos (en este caso -10) o para reducir el valor nice (aumentar la prioridad) de cualquier proceso.", "hints": ["Observa el prompt '$' indicando usuario no privilegiado.", "El valor solicitado es -10 (alta prioridad)."], "notes": "Los usuarios normales solo pueden ejecutar renice con valores más altos que el actual (ceder prioridad a otros)."}, {"id": 22, "section": "103.6", "cat": "services", "type": "exercise", "title": "Ejercicio 5: Ordenación de procesos por CPU con ps", "goal": "Dominar el filtrado y ordenación de procesos para auditorías de rendimiento:", "ref": "9, 13", "pdf": {"manual": "A", "pages": [9, 13], "figure": null}, "coverage": ["103.6-EX-005", "103.6-OPT-009"], "task": "¿Qué parámetro de la opción --sort del comando ps -el ordenará los procesos por porcentaje de uso de CPU de forma ascendente (de menor a mayor)?", "solution": "ps -el --sort=pcpu\nEl criterio 'pcpu' ordena de forma ascendente. Si se deseara orden descendente (de mayor consumo a menor), se antepone un signo menos: --sort=-pcpu.", "hints": ["El nombre de la columna para porcentaje de procesador es pcpu.", "El orden por defecto sin signos especiales es ascendente."], "notes": "ps admite ordenar por múltiples columnas simultáneamente separándolas por comas (por ejemplo: --sort=-pcpu,+pid)."}, {"id": 23, "section": "103.6", "cat": "services", "type": "review", "title": "Pregunta de Examen: Valor nice por defecto de nice", "question": "Un administrador ejecuta el comando 'nice backup.sh' sin especificar ninguna opción adicional. ¿Con qué valor nice se ejecutará el script?", "options": ["Con valor nice 0, idéntico al estándar del sistema.", "Con valor nice +10, reduciendo su prioridad respecto a procesos normales.", "Con valor nice -10, aumentando su prioridad para terminar antes.", "Con valor nice +19, otorgándole la prioridad mínima posible."], "answer": 1, "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["103.6-WARN-001", "103.6-EX-007"], "explanation": "Por diseño histórico en Unix y Linux, el comando 'nice' ejecutado sin la opción -n añade automáticamente +10 al valor nice estándar (es decir, fija nice = 10), asumiendo que el usuario desea que el programa no entorpezca el sistema.", "notes": "Muchos aspirantes fallan pensando que nice sin argumentos no hace nada (nice 0). Es una de las preguntas trampa más habituales de LPIC-1."}, {"id": 24, "section": "103.6", "cat": "services", "type": "review", "title": "Pregunta de Examen: Rango completo de valores nice", "question": "¿Cuál es el rango formal de valores de prioridad 'nice' configurables en el sistema operativo Linux?", "options": ["De 0 a 139.", "De 0 a 39.", "De -20 a 19.", "De -40 a 99."], "answer": 2, "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["103.6-CON-009", "103.6-EX-007"], "explanation": "El valor nice abarca exactamente de -20 (máxima prioridad) a 19 (mínima prioridad), sumando 40 niveles en total. El rango 0 a 139 corresponde a las prioridades del kernel, y -40 a 99 es la escala visual que presenta ps.", "notes": "Memoriza: -20 es el más agresivo (menos agradable) y +19 es el más cortés (más agradable)."}, {"id": 25, "section": "103.6", "cat": "services", "type": "flashcards", "title": "Flashcards de Memorización: Prioridades y Comandos", "ref": "1-13", "pdf": {"manual": "A", "pages": [1, 2, 4, 5, 6], "figure": null}, "coverage": ["103.6-EX-008"], "cards": [{"front": "¿Cuál es la prioridad estática estándar que el kernel asigna a un proceso normal?", "back": "120 (consultable en /proc/<PID>/sched)."}, {"front": "¿Qué significa un valor nice de -20?", "back": "Máxima prioridad dentro de los procesos normales. Solo asignable por el usuario root."}, {"front": "¿Qué valor nice asigna el comando 'nice' si no se usa la opción -n?", "back": "Valor +10 (reduce la prioridad del comando ejecutado)."}, {"front": "¿Cómo se calcula la prioridad mostrada en la columna PRI de 'ps -el'?", "back": "PRI_ps = PRI_kernel - 40. Para la prioridad estándar 120, ps muestra 80."}, {"front": "¿Qué tecla interactiva permite cambiar la prioridad de un proceso dentro de top?", "back": "La tecla 'r' (renice). Solicita el PID y a continuación el nuevo valor nice."}, {"front": "¿Qué indica el valor 'rt' en la columna PR de top?", "back": "Indica que el proceso tiene asignada una prioridad de tiempo real (Real-Time)."}], "notes": "Repasa estas flashcards antes del examen para afianzar las correspondencias numéricas instantáneamente."}, {"id": 26, "section": "103.6", "cat": "services", "type": "summary", "title": "Resumen del Subtema 103.6: Prioridades de Ejecución", "takeaway": "Puntos esenciales para el examen LPIC-1 sobre el control de prioridades de procesos:", "ref": "10", "pdf": {"manual": "A", "pages": [10], "figure": null}, "coverage": ["103.6-CON-001", "103.6-CON-006", "103.6-CON-009", "103.6-CMD-001", "103.6-CMD-002"], "points": ["Multitarea preventiva: el kernel puede expulsar a cualquier proceso de menor prioridad cuando uno más prioritario está listo.", "Escala interna: el kernel usa prioridades de 0 a 139 (0-99 para tiempo real; 100-139 para normales). La base normal es 120.", "Escala Nice: va de -20 (máxima prioridad) a +19 (mínima). El valor neutro predeterminado es 0.", "Privilegios: solo root puede fijar valores nice negativos o reducir el nice de un proceso (aumentar su prioridad).", "nice: lanza un nuevo programa con nice modificado. Si no se indica -n, suma +10 por defecto.", "renice: altera en caliente procesos en ejecución mediante -p (PID), -g (grupo) o -u (usuario).", "ps y top: ps muestra PRI (desplazada -40) y NI. top muestra PR (20 para base, 'rt' para tiempo real) y permite renice con 'r'."], "notes": "Con este resumen se concluyen todos los objetivos oficiales del LPI para el subtema 103.6."}];
+    const SLIDES = [{"id": 1, "section": "103.6", "cat": "proc", "type": "cover", "title": "Modificar la prioridad de ejecución de procesos", "subtitle": "Multitarea preventiva, escala de niceness (-20 a 19), ps -el, top, nice y renice (Modo Examen)", "ref": "345-346", "pdf": {"manual": "A", "pages": [345, 346], "figure": null}, "coverage": ["103.6-OBJ-001", "103.6-OBJ-002"], "meta": {"peso": 2, "paginas": "345–360", "duracion": "30 min"}, "icon": "sliders", "notes": "Iniciamos el subtema 103.6 (peso 2). En servidores de producción no todos los procesos tienen la misma urgencia: una base de datos crítica debe tener preferencia sobre una copia de seguridad pesada. Aprenderemos cómo el kernel planifica la CPU y cómo manipular la escala de 'amabilidad' (niceness) mediante nice y renice."}, {"id": 2, "section": "103.6", "cat": "proc", "type": "concept", "title": "Multitarea Preventiva y el Planificador del Kernel", "lead": "¿Cómo reparte Linux el tiempo de CPU entre cientos de procesos simultáneos?", "ref": "346-348", "pdf": {"manual": "A", "pages": [346, 347, 348], "figure": null}, "coverage": ["103.6-CON-001"], "points": [{"icon": "cpu", "text": "Multitarea Preventiva (Preemptive Multitasking)", "detail": "El kernel de Linux tiene el control absoluto sobre la CPU. Asigna a cada proceso una pequeña cuota de tiempo (time slice). Cuando la cuota expira, el kernel desaloja al proceso y cede la CPU al siguiente, garantizando que ningún programa bloquee el sistema."}, {"icon": "shuffle", "text": "El Planificador CFS (Completely Fair Scheduler)", "detail": "El algoritmo del kernel calcula dinámicamente qué proceso debe ejecutarse en función del tiempo de CPU consumido y de su factor de prioridad asignado."}, {"icon": "sliders", "text": "Ajuste manual de prioridades", "detail": "El administrador puede influir en la decisión del planificador modificando el valor de 'Niceness' (amabilidad) de los procesos."}], "remember": "🎯 Clave de Examen: Linux utiliza multitarea preventiva: el kernel decide cuándo expulsar un proceso de la CPU basándose en su prioridad.", "notes": "Explica que un solo núcleo de CPU alterna tan rápido entre procesos que da la ilusión de que todos se ejecutan al mismo tiempo."}, {"id": 3, "section": "103.6", "cat": "proc", "type": "concept", "title": "La Escala de Niceness: de -20 a +19", "lead": "¿Qué significa ser 'amable' (nice) con la CPU en el estándar de Linux?", "ref": "348-350", "pdf": {"manual": "A", "pages": [348, 349, 350], "figure": null}, "coverage": ["103.6-CON-002"], "points": [{"icon": "zap", "text": "Valor -20: MÁXIMA Prioridad (Menos amable)", "detail": "🎯 El proceso es muy egoísta ('poco amable' con los demás). Exige la mayor cuota de CPU posible. Se reserva para servicios ultra-críticos de tiempo real."}, {"icon": "minus-circle", "text": "Valor 0: Prioridad Estándar por Defecto", "detail": "🎯 Todos los procesos ordinarios del sistema nacen con un valor de niceness fijado en 0 por defecto."}, {"icon": "coffee", "text": "Valor +19: MÍNIMA Prioridad (Más amable)", "detail": "🎯 El proceso es extremadamente cortés y generoso ('muy amable'). Solo consume CPU cuando ningún otro proceso la está utilizando (ideal para backups, renders o minería)."}], "remember": "🎯 La Regla Mnemotécnica de Oro: Cuanto más negativo sea el número (-20), MÁS prioridad tiene; cuanto más positivo (+19), MENOS prioridad tiene.", "notes": "Haz que los alumnos repitan: 'Nice alto = prioridad baja; Nice bajo = prioridad alta'."}, {"id": 4, "section": "103.6", "cat": "proc", "type": "table", "title": "Mapeo de Escalas: Kernel Priority (PR) frente a Niceness (NI)", "lead": "¿Por qué en 'top' se ven números como 20 o 0 y en 'ps' números negativos?", "ref": "350-352", "pdf": {"manual": "A", "pages": [350, 351, 352], "figure": null}, "coverage": ["103.6-CON-003"], "headers": ["Concepto", "Escala de Valores", "Fórmula de Mapeo Interno", "Interpretación en Examen"], "rows": [["Niceness (NI)", "🎯 -20 a +19 (40 niveles)", "Valor fijado por el usuario con nice / renice", "Escala de configuración del administrador."], ["Kernel Priority (PR)", "0 a 139 (140 niveles)", "🎯 Para procesos normales: PR = 20 + NI", "Escala interna que maneja el planificador del kernel."], ["Prioridad Normal (NI = 0)", "PR = 20 + 0 = 20", "nice = 0 -> PR = 20 en 'top'", "Prioridad estándar de cualquier programa al arrancar."], ["Máxima Prioridad (NI = -20)", "PR = 20 + (-20) = 0", "nice = -20 -> PR = 0 en 'top'", "Máxima preferencia de CPU en procesos no RT."], ["Mínima Prioridad (NI = 19)", "PR = 20 + 19 = 39", "nice = 19 -> PR = 39 en 'top'", "Mínima preferencia de CPU."], ["Tiempo Real (RT)", "0 a 99 (en kernel)", "Aparece como 'rt' o número negativo en top", "Procesos del kernel con prioridad superior a todo."]], "remember": "🎯 Fórmula Matemática de Examen: PR = 20 + NI. Si un proceso tiene nice de -5, su prioridad en top será PR = 15. Si tiene nice de +10, su PR será 30.", "notes": "Pregunta típica de examen: 'Si un proceso tiene NI = -10, ¿qué valor de PR muestra top?'. Respuesta: 10 (20 + (-10) = 10)."}, {"id": 5, "section": "103.6", "cat": "proc", "type": "command", "title": "Inspección de Prioridades con ps: -l y Columnas Personalizadas", "lead": "¿Cómo consultar el valor NI y la prioridad de los procesos desde la consola?", "ref": "352-354", "pdf": {"manual": "A", "pages": [352, 353, 354], "figure": null}, "coverage": ["103.6-CMD-001", "103.6-OPT-001"], "command": "ps -el | ps -Al | ps -o pid,ni,pri,cmd", "purpose": "Inspeccionar las columnas NI (Niceness) y PRI (Prioridad del kernel) en listas de procesos", "terminal": {"command": "ps -o pid,ni,pri,cmd -C bash,sleep", "output": "  PID  NI PRI CMD\n28415   0  19 bash\n31520  10   9 sleep 500"}, "options": [{"flag": "ps -l (o ps -el)", "desc": "🎯 Clave de Examen: Modo formato largo (long): incluye las columnas obligatorias 'PRI' (prioridad) y 'NI' (niceness)."}, {"flag": "ps -Al", "desc": "Muestra todos los procesos del sistema en formato largo."}, {"flag": "ps -o <columnas>", "desc": "🎯 Formato personalizado: define exactamente qué campos mostrar (ej: 'ps -o pid,user,ni,cmd')."}, {"flag": "ps aux (columna STAT)", "desc": "🎯 Recuerda: Si STAT contiene '<', el proceso tiene nice negativo (alta prioridad); si contiene 'N', tiene nice positivo (baja prioridad)."}], "remember": "🎯 Clave de Examen: 'ps -l' añade las columnas PRI y NI; en 'ps aux', la columna STAT muestra '<' para alta prioridad y 'N' para baja prioridad.", "notes": "Muestra a los alumnos que en ps -l tradicional, la escala PRI puede variar según la versión, pero NI siempre es el valor exacto de -20 a 19."}, {"id": 6, "section": "103.6", "cat": "proc", "type": "command", "title": "Supervisión Interactiva en top: Columnas PR, NI y atajo 'r'", "lead": "Modificar la prioridad de cualquier proceso en vivo sin salir de la pantalla:", "ref": "354-356", "pdf": {"manual": "A", "pages": [354, 355, 356], "figure": null}, "coverage": ["103.6-CMD-002", "103.6-OPT-002"], "command": "top (dentro de top pulsar la tecla 'r')", "purpose": "Supervisar las columnas de prioridad y ejecutar renice interactivamente", "terminal": {"command": "top -b -n 1 | grep -E '(PID|nginx)' | head -n 3", "output": "    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\n   1418 root      20   0   55140   5210   4100 S   0.0   0.1   0:00.02 nginx\n   1419 www-data  20   0   55680   5800   4200 S   0.0   0.1   0:00.00 nginx"}, "options": [{"flag": "Columna PR en top", "desc": "Prioridad dinámica que el kernel está aplicando en este momento."}, {"flag": "Columna NI en top", "desc": "🎯 Valor de niceness estático asignado al proceso (-20 a 19)."}, {"flag": "Atajo de teclado 'r'", "desc": "🎯 Clave de Examen: Activa la función 'Renice'. top solicita: 'PID to renice:' -> escribes el PID -> pulsa Enter -> solicita: 'Renice PID 1419 to value:' -> introduces el nuevo nice y pulsa Enter."}], "remember": "🎯 Clave de Examen: En el monitor 'top', la tecla 'r' ejecuta la acción de renice para alterar la prioridad de un proceso en vivo.", "notes": "Explica que un usuario ordinario dentro de top solo podrá aumentar el valor de NI de sus propios procesos; para valores negativos se necesita ejecutar top como root."}, {"id": 7, "section": "103.6", "cat": "proc", "type": "command", "title": "Lanzar Procesos con Prioridad Modificada: nice", "lead": "¿Cómo arrancar un nuevo programa fijando su amabilidad desde el primer segundo?", "ref": "356-358", "pdf": {"manual": "A", "pages": [356, 357, 358], "figure": null}, "coverage": ["103.6-CMD-003", "103.6-OPT-003"], "command": "nice [-n <incremento>] <comando> [argumentos...]", "purpose": "Ejecutar un nuevo proceso asignándole un valor de niceness diferente al estándar 0", "terminal": {"command": "nice -n 15 tar -czf backup.tar.gz /var/log &; nice tar -czf test.tar.gz /tmp &", "output": "[1] 32110\n[2] 32115\n# El primer tar arranca con nice 15; el segundo tar arranca con nice 10 (por defecto)."}, "options": [{"flag": "nice (sin opciones)", "desc": "🎯 Clave Absoluta de Examen: Si ejecutas 'nice comando' sin especificar número, por defecto AÑADE +10 al valor nice (arranca con nice = 10)."}, {"flag": "nice -n <valor> <cmd>", "desc": "🎯 Sintaxis estándar recomendada por POSIX y LPIC (ej: 'nice -n 5 script.sh' o 'nice -n -10 script.sh')."}, {"flag": "nice -<valor> <cmd> (Histórica)", "desc": "⚠️ ¡Trampa Clásica! En sintaxis histórica: 'nice -5 cmd' asigna nice +5; para asignar un valor negativo había que poner doble guión: 'nice --10 cmd' asigna nice -10."}, {"flag": "nice (sin comando)", "desc": "Muestra el valor de niceness de la shell actual (devolverá 0)."}], "remember": "🎯 La Gran Pregunta de Certificación: ¿Qué valor de nice se asigna si ejecutas 'nice comando' sin ningún argumento? Respuesta: 10.", "notes": "Asegúrate de que todos los alumnos entiendan por qué 'nice --5 comando' tiene dos guiones: el primero indica opción, el segundo es el signo negativo del número."}, {"id": 8, "section": "103.6", "cat": "proc", "type": "concept", "title": "Reglas de Privilegios de Nice: Usuario frente a Root", "lead": "¿Qué puede y qué NO puede hacer un usuario estándar con las prioridades de sus procesos?", "ref": "358-359", "pdf": {"manual": "A", "pages": [358, 359], "figure": null}, "coverage": ["103.6-CON-004", "103.6-WARN-001"], "points": [{"icon": "user", "text": "Usuario Ordinario: Solo puede ser 'más amable' (reducir prioridad)", "detail": "🎯 Un usuario estándar solo puede fijar valores de nice positivos (de 0 a 19). Puede voluntariamente ceder tiempo de CPU asignando prioridades más bajas a sus tareas."}, {"icon": "shield-alert", "text": "Usuario Ordinario: ¡NO puede aumentar su propia prioridad!", "detail": "🎯 Clave de Examen: Un usuario sin privilegios NUNCA puede asignar un nice negativo (de -1 a -20). Si intenta ejecutar 'nice -n -5 comando', el sistema devolverá: 'nice: cannot set niceness: Permission denied'."}, {"icon": "shield-check", "text": "Superusuario Root: Privilegios absolutos en ambas direcciones", "detail": "🎯 Solo el usuario root puede asignar valores negativos de alta prioridad (-20 a -1) y puede subir o bajar la prioridad de los procesos de cualquier usuario del sistema."}], "remember": "🎯 Clave de Examen: Para asignar un valor de nice negativo (-1 a -20) se requieren OBLIGATORIAMENTE privilegios de superusuario root.", "notes": "Muestra cómo un alumno intentando hacer 'nice -n -2' recibe 'Permission denied'."}, {"id": 9, "section": "103.6", "cat": "proc", "type": "command", "title": "Modificar Procesos en Ejecución: renice", "lead": "¿Cómo cambiar la prioridad de un proceso que ya está corriendo en el servidor?", "ref": "359-360", "pdf": {"manual": "A", "pages": [359, 360], "figure": null}, "coverage": ["103.6-CMD-004", "103.6-OPT-004", "103.6-OPT-005"], "command": "renice [-n] <nuevo_nice> -p <PID> | -u <usuario> | -g <PGID>", "purpose": "Ajustar el valor absoluto de niceness de uno o varios procesos activos", "terminal": {"command": "sudo renice -n -5 -p 1419; renice +10 -u alumno", "output": "1419 (process ID) old priority 0, new priority -5\n1000 (user ID) old priority 0, new priority 10"}, "options": [{"flag": "renice -n <valor> -p <PID>", "desc": "🎯 Clave de Examen: Fija el valor ABSOLUTO de nice del proceso (ej: 'renice -n 5 -p 2840' fija su nice en 5 exactos, no suma)."}, {"flag": "renice <valor> <PID>", "desc": "Sintaxis clásica: el primer argumento numérico es el nuevo nice y el segundo es el PID."}, {"flag": "renice -u <usuario>", "desc": "🎯 Clave de Examen: Modifica de un solo golpe la prioridad de TODOS los procesos pertenecientes al usuario indicado."}, {"flag": "renice -g <PGID>", "desc": "Modifica la prioridad de todos los procesos del grupo de procesos (Process Group ID)."}, {"flag": "⚠️ La Trampa de renice", "desc": "🎯 Un usuario ordinario puede usar renice para pasar su proceso de nice 5 a nice 10, pero ¡NUNCA puede volver a bajarlo de 10 a 5! Una vez cedida la prioridad, solo root puede devolvérsela."}], "remember": "🎯 Diferencia Vital: 'nice' se usa para arrancar un proceso nuevo; 'renice' se usa para modificar procesos que ya están vivos.", "notes": "Recalca que 'renice' fija el valor absoluto, a diferencia de algunos comandos que suman o restan."}, {"id": 10, "section": "103.6", "cat": "proc", "type": "concept", "title": "Sintaxis Histórica y Notaciones Trampa de Nice", "lead": "El motivo por el cual tanta gente suspende preguntas de sintaxis en el objetivo 103.6:", "ref": "360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "coverage": ["103.6-WARN-002"], "points": [{"icon": "alert-triangle", "text": "¿Qué significa 'nice -5 comando'?", "detail": "🎯 En la sintaxis antigua, el guión '-' no es un signo menos matemático, sino el indicador de opción. Por tanto, 'nice -5 comando' significa: asignar nice de +5 (amabilidad positiva, menor prioridad)."}, {"icon": "alert-triangle", "text": "¿Qué significa 'nice --5 comando'?", "detail": "🎯 El primer guión es el indicador de opción y el segundo es el signo negativo. Por tanto, 'nice --5 comando' significa: asignar nice de -5 (alta prioridad, solo root)."}, {"icon": "check-circle", "text": "La solución moderna de POSIX", "detail": "Para evitar esta terrible ambigüedad, el estándar actual exige usar '-n': 'nice -n 5 comando' para +5, y 'nice -n -5 comando' para -5."}], "remember": "🎯 Pregunta Trampa de Examen: 'nice -10' = +10 de nice; 'nice --10' = -10 de nice. Con '-n' es explícito: 'nice -n -10'.", "notes": "Pide a los alumnos que señalen este punto con una estrella en sus apuntes."}, {"id": 11, "section": "103.6", "cat": "proc", "type": "file", "title": "Límites del Sistema: /etc/security/limits.conf", "lead": "¿Dónde se configura qué usuarios pueden asignar prioridades negativas sin ser root?", "ref": "360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "coverage": ["103.6-FILE-001"], "file": "/etc/security/limits.conf (Módulo PAM pam_limits)", "syntax": "<dominio> <tipo> <item> <valor>", "content": "# Archivo de configuración: /etc/security/limits.conf\n# Permite a los desarrolladores del grupo 'devs' asignar nice negativo hasta -10\n@devs           hard    nice            -10\n@devs           soft    nice            -5\n\n# Permite al usuario 'audio' prioridades de tiempo real para baja latencia\naudio           hard    rtprio          95\naudio           soft    rtprio          90", "fields": [{"field": "<dominio>", "desc": "Nombre de usuario (ej: alumno), grupo anteponiendo arroba (@devs) o comodín para todos (*)."}, {"field": "soft frente a hard", "desc": "🎯 'soft' es el límite por defecto que el usuario puede aumentar hasta el límite 'hard'. El límite 'hard' solo puede ser ampliado por root."}, {"field": "item: nice / priority", "desc": "🎯 Clave de Examen: 'nice' define el valor mínimo (más negativo) de niceness que el usuario tiene permitido autoasignarse."}, {"field": "item: rtprio", "desc": "Define la máxima prioridad de tiempo real (Real-Time) permitida para procesos de audio o control industrial."}], "remember": "🎯 Clave de Examen: Para que un usuario ordinario pueda usar prioridades negativas sin sudo, debe configurarse la directiva 'nice' en /etc/security/limits.conf.", "notes": "Explica que este archivo lo procesa el módulo pam_limits.so durante el login del usuario."}, {"id": 12, "section": "103.6", "cat": "proc", "type": "table", "title": "Comparativa Maestra: nice frente a renice", "lead": "El cuadro resumen que diferencia a ambas herramientas para no dudar en el examen:", "ref": "360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "coverage": ["103.6-CMD-003", "103.6-CMD-004"], "headers": ["Característica", "Comando nice", "Comando renice"], "rows": [["Momento de Aplicación", "🎯 Al LANZAR un proceso nuevo (arranque).", "🎯 Sobre procesos que YA ESTÁN en ejecución (en caliente)."], ["Identificador requerido", "Requiere el comando ejecutable (ej: nice tar ...)", "Requiere el PID (-p), usuario (-u) o grupo (-g)."], ["Valor por Defecto", "🎯 Suma +10 si no se indica número.", "NO tiene valor por defecto (exige indicar el nuevo nice)."], ["Tipo de Asignación", "Relativo o absoluto.", "🎯 Siempre asigna el valor ABSOLUTO fijado."], ["Privilegios de Usuario Ordinario", "Puede lanzar de 0 a 19.", "🎯 Puede aumentar su nice (de 5 a 10), pero ¡NUNCA reducirlo! (no puede volver de 10 a 5)."], ["Privilegios de Root", "Valores negativos (-20 a -1) y positivos.", "Cualquier valor (-20 a 19) sobre cualquier proceso de cualquier usuario."]], "remember": "🎯 Regla de Oro: 'nice' para procesos por nacer; 'renice' para procesos vivos.", "notes": "Esta tabla responde directamente al menos 2 preguntas teóricas del examen 101-500."}, {"id": 13, "section": "103.6", "cat": "proc", "type": "concept", "title": "Trampas Clásicas de Examen en Prioridades", "lead": "Los 3 errores conceptuales que más puntos restan en el objetivo 103.6:", "ref": "360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "coverage": ["103.6-WARN-001", "103.6-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Creer que +19 es la máxima prioridad", "detail": "🎯 El error más común de los novatos: pensar que 19 es mayor que -20 y por tanto corre más rápido. ¡TOTALMENTE AL REVÉS! Cuanto mayor es el número, más 'amable' es el proceso y MENOS CPU recibe."}, {"icon": "alert-triangle", "text": "2. Creer que un usuario puede recuperar prioridad con renice", "detail": "Si un usuario ejecuta 'renice +15 -p 1200' para bajar su proceso, y luego intenta 'renice +5 -p 1200', el comando FALLARÁ con 'Permission denied'. Una vez que un usuario normal cede prioridad, solo root puede volver a aumentarla."}, {"icon": "alert-triangle", "text": "3. Olvidar que nice por defecto suma 10", "detail": "'nice comando' NO arranca con nice 0 (nice 0 es el arranque normal sin el comando nice). 'nice comando' arranca con nice +10."}], "remember": "🎯 Mnemotecnia Rápida: -20 = máxima velocidad (solo root); +19 = mínima velocidad; nice a secas = 10; renice no tiene marcha atrás para usuarios normales.", "notes": "Repasa estos tres puntos antes de comenzar los ejercicios."}, {"id": 14, "section": "103.6", "cat": "proc", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Escalas y Mapeo)", "ref": "Manual A - Pág 360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 360): ¿Cuál es el rango numérico completo de valores de 'niceness' que pueden asignarse a un proceso en Linux y cuál de los extremos representa la máxima prioridad de CPU?", "command": "Rango de -20 a +19. El valor -20 representa la máxima prioridad.", "reason": "La escala de amabilidad consta de 40 niveles; los valores negativos representan menor amabilidad (mayor agresividad por la CPU) y los positivos representan mayor cortesía."}, {"action": "Caso 2 (Oficial Pág 360): Un proceso en el monitor 'top' tiene un valor de Niceness de NI = -5. Según la fórmula del kernel (PR = 20 + NI), ¿qué valor numérico exacto mostrará la columna PR?", "command": "PR = 15", "reason": "20 + (-5) = 15. En la escala interna de prioridades del kernel para procesos CFS ordinarios, 15 indica una preferencia elevada respecto al valor estándar 20."}, {"action": "Caso 3 (Oficial Pág 360): ¿Qué opción del comando 'ps' permite visualizar en la consola las columnas de prioridad del kernel (PRI) y valor nice (NI)?", "command": "ps -l (o ps -el / ps -Al)", "reason": "La opción -l (long format) incluye obligatoriamente los campos de estado y planificación del proceso."}], "solution": {"explain": "-20 a 19 con -20 máxima velocidad; fórmula PR = 20 + NI; y ps -l para inspección de columnas."}, "notes": "Muestra que si un proceso tiene NI = 0, en top su PR es exactamente 20."}, {"id": 15, "section": "103.6", "cat": "proc", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: nice y renice)", "ref": "Manual A - Pág 360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 360): Un usuario estándar ejecuta 'nice -n -10 backup.sh' y recibe el mensaje de error 'nice: cannot set niceness: Permission denied'. ¿A qué se debe y cómo se soluciona?", "command": "Se debe a que los valores de nice negativos requieren permisos de superusuario. Se soluciona ejecutándolo con root: 'sudo nice -n -10 ./backup.sh'", "reason": "Los usuarios sin privilegios tienen estrictamente prohibido aumentar la prioridad de sus procesos para evitar monopolizar la CPU."}, {"action": "Caso 5 (Oficial Pág 360): ¿Cuál es el comando exacto para fijar el valor de niceness a 15 de todos los procesos que pertenecen al usuario 'invitado' en un solo paso?", "command": "sudo renice -n 15 -u invitado", "reason": "El subcomando '-u' de renice aplica el nuevo valor a la totalidad de procesos cuyo propietario sea el usuario especificado."}], "solution": {"explain": "Valores negativos requieren root; renice -u aplica modificaciones masivas por cuenta de usuario."}, "notes": "Recuerda que renice -u es muy útil cuando un usuario ha lanzado muchas tareas que están saturando el servidor."}, {"id": 16, "section": "103.6", "cat": "proc", "type": "challenge", "title": "Retos de Exploración Oficiales (Comportamiento de nice y top)", "ref": "Manual A - Pág 360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Si un administrador arranca una copia pesada ejecutando exactamente 'nice tar -czf backup.tar.gz /var', ¿con qué valor de niceness exacto nacerá el proceso tar?\n2. Estás monitorizando el sistema con 'top' y detectas un script que consume el 99% de CPU con PID 8420. ¿Qué teclas exactas debes pulsar dentro de top para cambiar su prioridad a nice 19 sin cerrar el monitor?\n3. ¿Puede un usuario ordinario que ha lanzado un script con 'nice -n 10 script.sh' usar luego el comando renice para devolverlo a nice 0?", "hint": "Recuerda: valor por defecto de nice a secas; tecla 'r' en top; y regla de irreversibilidad para usuarios normales.", "solution": {"explain": "1. Nacerá con nice = 10 (el comando nice sin argumentos añade 10 al valor base 0).\n2. Se pulsa la tecla 'r', se teclea el PID '8420' y Enter, y luego se introduce '19' y Enter.\n3. ¡NO! Un usuario ordinario no puede aumentar la prioridad de un proceso (pasar de 10 a 0 es un aumento de prioridad). Dará error 'Permission denied' a menos que lo ejecute root."}, "notes": "El reto 3 ilustra una de las trampas más sutiles de la administración de sistemas."}, {"id": 17, "section": "103.6", "cat": "proc", "type": "review", "title": "Pregunta de Examen LPIC-1: Valor por Defecto de nice", "q": "Si un usuario ejecuta en la consola de comandos la orden 'nice updatedb' sin especificar ningún flag adicional, ¿con qué valor de niceness se ejecutará el comando?", "options": ["0", "5", "10", "19"], "answer": 2, "why": "Por especificación estándar, cuando el comando 'nice' se invoca sin el parámetro '-n', aplica un incremento predeterminado de +10 al valor de niceness del proceso hijo. Por tanto, el comando se ejecutará con nice = 10.", "notes": "Pregunta clásica de certificación que todo candidato debe acertar sin dudar."}, {"id": 18, "section": "103.6", "cat": "proc", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Prioridades de Proceso 103.6", "deck": [{"front": "¿Cuál es el rango de valores de nice en Linux?", "back": "De -20 (máxima prioridad) a +19 (mínima prioridad)."}, {"front": "¿Qué valor de niceness tienen los procesos normales por defecto?", "back": "El valor 0."}, {"front": "¿Qué valor de niceness asigna 'nice comando' sin opciones?", "back": "El valor 10 (añade +10 al valor actual)."}, {"front": "¿Quién puede asignar valores de nice negativos (-1 a -20)?", "back": "Únicamente el superusuario root."}, {"front": "¿Qué comando modifica la prioridad de un proceso que ya está corriendo?", "back": "renice (ej: renice -n 5 -p <PID>)."}, {"front": "¿Qué fórmula relaciona la prioridad en top (PR) con el niceness (NI)?", "back": "PR = 20 + NI."}, {"front": "¿Qué tecla de 'top' permite cambiar la prioridad de un proceso?", "back": "La tecla 'r' (renice)."}, {"front": "¿Qué letra en la columna STAT de 'ps aux' indica un nice de alta prioridad?", "back": "El carácter '<' (alta prioridad); la letra 'N' indica baja prioridad."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.6."}, {"id": 19, "section": "103.6", "cat": "proc", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.6", "takeaways": ["Escala de Niceness: de -20 (máxima prioridad) a +19 (mínima prioridad), con 0 como estándar. Cuanto más negativo, más CPU recibe.", "Fórmula de Mapeo: PR = 20 + NI en top. Un nice de -5 se muestra como PR = 15.", "nice vs renice: nice lanza procesos nuevos (nice sin argumentos aplica +10); renice modifica procesos vivos (renice -n <val> -p <PID>).", "Permisos: Usuarios normales solo pueden reducir prioridad (valores positivos de 0 a 19) y no pueden revertir renices previos. Valores negativos exigen root."], "top3": [{"cmd": "nice -n 19 <comando>", "desc": "Lanza un proceso en segundo plano con mínima prioridad de CPU para no ralentizar el servidor."}, {"cmd": "renice -n -5 -p <PID>", "desc": "Aumenta la prioridad de un proceso crítico en ejecución (requiere sudo)."}, {"cmd": "ps -o pid,ni,pri,cmd -p <PID>", "desc": "Verifica los valores exactos de niceness y prioridad asignados a un proceso."}], "practice": {"name": "Practica 103.6: Modificar la Prioridad de Procesos (Nice y Renice)", "url": "../practicas/p-103-6-prioridades-nice-renice.html", "desc": "Aprende a graduar la prioridad en el planificador de la CPU con nice (-20 a +19), modifica procesos en vivo con renice y comprende las reglas de privilegios de root."}, "notes": "Concluimos el subtema 103.6. Los alumnos dominan ahora la planificación y prioridades de procesos."}];
     const ERRATAS = [{"id": "ERR-103.6-01", "section": "103.6", "ref": "p. 11", "manual_says": "Cualquier usuario puede asignar un nice de -5 a sus procesos.", "reality": "Solo root (superusuario) puede asignar valores negativos de nice (aumentar prioridad de CPU). Los usuarios normales solo pueden subir el nice (0 a 19).", "exam_tip": "Pregunta típica de examen: si un usuario normal ejecuta renice -5 1234, fallará por falta de permisos."}];
     const GLOSARIO = [{"id": "nice", "term": "nice / NI", "def": "Valor de prioridad de CPU de un proceso en Linux (-20 máxima prioridad, 19 mínima prioridad, 0 por defecto).", "ref": "p. 1-8"}, {"id": "renice", "term": "renice", "def": "Comando para alterar el valor de nice de uno o más procesos que ya se encuentran en ejecución.", "ref": "p. 9-14"}, {"id": "top", "term": "top", "def": "Herramienta interactiva de monitorización de procesos en tiempo real, uso de CPU y memoria.", "ref": "p. 15-20"}, {"id": "ps", "term": "ps", "def": "Comando que muestra una instantánea estática de los procesos activos en el sistema.", "ref": "p. 5-12"}];
-    const META = {"topic": "103.6", "title": "Modificar la prioridad de ejecución de los procesos", "weight": 2, "course": "LPIC-1 v5.0", "dates": "19 oct – 12 nov 2026", "icons": "Lucide 0.468.0 (ISC)", "pages": "1–13"};
+    const META = {"topic": "103.6", "title": "Modificar la prioridad de ejecución de los procesos", "weight": 2, "description": "Multitarea preventiva, escala de niceness (-20 a 19), ps -el, top, nice y renice (Alta Densidad LPIC-1)", "duracion": "30 min"};
 
     /* -------------------------------------------------------------
        MOTOR DE RENDERIZADO Y NAVEGACIÓN (Pure JS)
@@ -1124,7 +1223,7 @@
             <div style="display:flex; justify-content:center; gap:20px; font-size:22px; font-weight:600;">
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Peso LPI: ${escapeHTML(s.meta?.peso || (typeof META !== 'undefined' && META.weight) || '')}</span>
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Páginas: ${escapeHTML(s.meta?.paginas || '')}</span>
-              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '45 min')}</span>
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '30 min')}</span>
             </div>
           </div>
         `;
@@ -1232,51 +1331,87 @@
         }
       } else if (s.type === 'file') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
-        const filePath = s.path || s.file || '';
-        const fileDesc = s.desc || s.contains || s.lead || s.purpose || '';
+        const fileObj = (typeof s.file === 'object' && s.file !== null) ? s.file : {};
+        const filePath = fileObj.path || s.path || (typeof s.file === 'string' ? s.file : '');
+        const filePurpose = fileObj.purpose || s.purpose || '';
+        const fileDesc = fileObj.desc || s.desc || s.contains || s.lead || filePurpose;
         html += `<div class="slide-lead"><code class="t-path" style="font-size:28px; font-weight:700;">${escapeHTML(filePath)}</code>${fileDesc ? ` — ${renderRichText(fileDesc)}` : ''}</div>`;
         
-        // Directivas de configuración si existen
-        if (s.directives && s.directives.length > 0) {
-          html += `<div class="directives-grid">`;
-          s.directives.forEach(d => {
+        // Muestra de sintaxis, contenido de archivo o configuración
+        const fileContent = fileObj.content || s.content || s.sample?.content || (typeof s.sample === 'string' ? s.sample : '') || (typeof s.syntax === 'string' ? s.syntax : '');
+        if (fileContent || s.sample || s.syntax) {
+          let lines = [];
+          if (Array.isArray(fileContent)) lines = fileContent;
+          else if (typeof fileContent === 'string' && fileContent.trim()) lines = fileContent.split('\n');
+          else if (s.sample && s.sample.lines) lines = s.sample.lines;
+          else if (Array.isArray(s.syntax)) lines = s.syntax;
+
+          if (lines.length > 0) {
             html += `
-              <div class="directive-card">
-                <div class="directive-key">${escapeHTML(d.key || '')}</div>
-                <div class="directive-desc">${renderRichText(d.desc || d.detail || '')}</div>
+              <div class="term-wrapper" style="margin-top:12px; margin-bottom:16px;">
+                <div class="term-header">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
+                    <span>${escapeHTML(filePath || 'configuración')}</span>
+                  </div>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(Array.isArray(lines) ? lines.join('\n') : fileContent)}')">
+                    <svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar archivo
+                  </button>
+                </div>
+                <div class="term-code">`;
+            lines.forEach(line => {
+              const lStr = String(line);
+              if (lStr.trim().startsWith('#')) {
+                html += `<div><span class="t-cmt">${escapeHTML(lStr)}</span></div>`;
+              } else {
+                html += `<div>${escapeHTML(lStr)}</div>`;
+              }
+            });
+            html += `</div></div>`;
+          }
+        }
+
+        // Directivas o Viñetas explicativas (points)
+        const pointsList = s.points || s.directives || [];
+        if (pointsList.length > 0) {
+          html += `<div class="concept-grid">`;
+          pointsList.forEach(p => {
+            const pKey = p.text || p.key || p.title || '';
+            const pDesc = p.detail || p.desc || '';
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'file-text'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(pKey)}</div>
+                  ${pDesc ? `<div class="card-detail">${renderRichText(pDesc)}</div>` : ''}
+                </div>
               </div>
             `;
           });
           html += `</div>`;
         }
 
-        // Muestra de sintaxis o archivo
-        if (s.sample || s.syntax) {
-          let lines = [];
-          if (s.sample && s.sample.lines) lines = s.sample.lines;
-          else if (typeof s.syntax === 'string') lines = s.syntax.split('\n');
-          else if (Array.isArray(s.syntax)) lines = s.syntax;
-          else if (typeof s.sample === 'string') lines = s.sample.split('\n');
-
-          html += `
-            <div class="term-wrapper" style="margin-top:12px;">
-              <div class="term-header">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
-                  <span>${escapeHTML(filePath || 'config')}</span>
-                </div>
-              </div>
-              <div class="term-code">`;
-          lines.forEach(line => {
-            html += `<div>${escapeHTML(line)}</div>`;
-          });
-          html += `</div></div>`;
-        }
-
         // Consola o terminal complementario en slide file
         const fileTerm = s.terminal || s.console;
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
+        }
+
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
+        if (s.remember || s.look) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.look)}</span>
+            </div>
+          `;
         }
 
         if (s.writtenBy || s.readBy) {
@@ -1301,6 +1436,52 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'matrix') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.takeaway || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const headers = s.headers || s.cols || s.columns || s.matrix?.headers || [];
+        const rows = s.rows || s.matrix?.rows || [];
+        html += `<div class="matrix-container"><table class="slide-matrix"><thead><tr>`;
+        headers.forEach(h => html += `<th>${renderRichText(h)}</th>`);
+        html += `</tr></thead><tbody>`;
+        rows.forEach((row, ridx) => {
+          const isHl = s.highlight && (s.highlight.row === (ridx + 1) || s.highlight === (ridx + 1));
+          html += `<tr class="${isHl ? 'highlighted' : ''}">`;
+          let cells = [];
+          if (Array.isArray(row)) {
+            cells = row;
+          } else if (typeof row === 'object' && row !== null) {
+            if (row.head !== undefined && Array.isArray(row.cells)) {
+              cells = [row.head, ...row.cells];
+            } else if (Array.isArray(row.cells)) {
+              cells = row.cells;
+            } else {
+              cells = Object.values(row);
+            }
+          }
+          cells.forEach((cell, cidx) => {
+            html += `<td>${renderRichText(cell)}</td>`;
+          });
+          html += `</tr>`;
+        });
+        html += `</tbody></table></div>`;
+        if (s.remember || s.takeaway) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.takeaway)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
@@ -1338,7 +1519,12 @@
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         
         // Badge del manual oficial
-        const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        let pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
+        if (!pdfRef && scenarioText) {
+          const m = scenarioText.match(/P[áa]gina\s+oficial\s+(\d+(?:[–-]\d+)?)/i);
+          if (m) pdfRef = m[1];
+        }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
@@ -1348,7 +1534,6 @@
         `;
 
         // Planteamiento del problema (Escenario claro)
-        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
             <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
@@ -1367,7 +1552,7 @@
           `;
           if (steps.length > 0) {
             steps.forEach((st, idx) => {
-              const doText = st.do || st.task || st.step || '';
+              const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
                   <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
@@ -1401,12 +1586,16 @@
         if (steps.length > 0) {
           html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
-            const doText = st.do || st.task || st.step || '';
-            const lookText = st.look || st.cmd || st.code || '';
+            const doText = st.action || st.do || st.task || st.step || '';
+            const lookText = st.command || st.look || st.cmd || st.code || '';
+            const reasonText = st.reason || st.explain || '';
             html += `
-              <div style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
-                <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
-                ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+              <div style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
+                  <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
+                  ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+                </div>
+                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -1485,14 +1674,21 @@
         const options = s.options || [];
         options.forEach((opt, oidx) => {
           html += `
-            <button class="quiz-btn" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
+            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
               <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(opt)}</span>
             </button>
           `;
         });
         html += `</div>`;
-        html += `<div class="quiz-feedback" id="quiz-feedback-box"></div>`;
+        html += `
+          <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+              <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
+            </button>
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+        `;
       } else if (s.type === 'flashcards') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
@@ -1513,7 +1709,7 @@
             </div>
           </div>
           <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
-            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>Anterior</button>
+            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>Anterior</button>
             <span id="fc-counter" style="font-size:22px; font-weight:700; align-self:center;">1 / ${deck.length}</span>
             <button class="nav-btn" onclick="nextCard()">Siguiente<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
           </div>
@@ -1523,13 +1719,26 @@
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
         html += `<div class="concept-grid">`;
-        const items = s.items || s.points || s.cards || [];
-        items.forEach(item => {
-          const cardTitle = item.title || item.heading || item.key || (typeof item === 'string' ? item : item.text) || '';
-          const cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '') || '';
+        const items = s.takeaways || s.items || s.points || s.cards || [];
+        items.forEach((item, idx) => {
+          let cardTitle = '';
+          let cardDesc = '';
+          if (typeof item === 'string') {
+            const parts = item.split(': ');
+            if (parts.length > 1) {
+              cardTitle = parts[0];
+              cardDesc = parts.slice(1).join(': ');
+            } else {
+              cardTitle = `Punto Clave ${idx + 1}`;
+              cardDesc = item;
+            }
+          } else {
+            cardTitle = item.title || item.heading || item.key || item.text || `Clave ${idx + 1}`;
+            cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '');
+          }
           html += `
             <div class="concept-card">
-              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${item.icon || 'circle-check'}"/></svg></div>
+              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${(typeof item === 'object' && item.icon) ? item.icon : 'circle-check'}"/></svg></div>
               <div style="flex:1;">
                 <div class="card-text">${renderRichText(cardTitle)}</div>
                 ${cardDesc ? `<div class="card-detail">${renderRichText(cardDesc)}</div>` : ''}
@@ -1538,11 +1747,84 @@
           `;
         });
         html += `</div>`;
+
+        // Top 3 Comandos Clave (Soporta strings y objetos {cmd, desc})
         const top3 = s.top3 || s.commands || [];
         if (top3.length > 0) {
           html += `
-            <div style="margin-top:20px; padding:16px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:12px; font-size:22px;">
-              <strong style="color:var(--primary-ink);">Los comandos clave que no puedes olvidar:</strong> <span style="font-family:monospace; font-weight:700;">${renderRichText(top3.join(' · '))}</span>
+            <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
+              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
+              </div>
+              <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
+          `;
+          top3.forEach(t => {
+            if (typeof t === 'string') {
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
+                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                </div>
+              `;
+            } else {
+              const cmd = t.cmd || t.command || '';
+              const desc = t.desc || t.detail || '';
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 16px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  </div>
+                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                </div>
+              `;
+            }
+          });
+          html += `</div></div>`;
+        }
+
+        // Mapeo a práctica de laboratorio
+        if (s.practice) {
+          const pName = s.practice.name || 'Laboratorio Práctico Recomendado';
+          const pUrl = s.practice.url || '#';
+          const pDesc = s.practice.desc || 'Pon a prueba tus conocimientos en la máquina virtual.';
+          html += `
+            <div style="margin-top:14px; padding:16px 22px; background:#F0FDF4; border:2px solid #86EFAC; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#DCFCE7; color:#166534; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-wrench"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#166534;">${escapeHTML(pName)}</div>
+                  <div style="font-size:16px; color:#374151;">${renderRichText(pDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Web →
+              </a>
+            </div>
+          `;
+        }
+
+        // Mapeo a práctica global de fin de tema completo
+        if (s.global_practice) {
+          const gpName = s.global_practice.name || 'Práctica Global Integradora de Todo el Tema';
+          const gpUrl = s.global_practice.url || '#';
+          const gpDesc = s.global_practice.desc || 'Laboratorio final integrador con todos los comandos evaluados en este tema.';
+          html += `
+            <div style="margin-top:12px; padding:16px 22px; background:#FFFBEB; border:2px solid #F59E0B; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#FEF3C7; color:#92400E; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-shield"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#92400E;">🏆 ${escapeHTML(gpName)}</div>
+                  <div style="font-size:16px; color:#78350F;">${renderRichText(gpDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Global →
+              </a>
             </div>
           `;
         }
@@ -1761,23 +2043,53 @@
     }
     document.addEventListener('click', closePopovers);
 
+    function revealReviewAnswer(btn, correctIdx, why) {
+      const stageEl = document.getElementById('slide-content');
+      const buttons = stageEl.querySelectorAll('.quiz-btn');
+      buttons.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correctIdx) {
+          b.classList.add('correct');
+        }
+      });
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.style.display = 'block';
+      fb.style.background = 'var(--success-soft)';
+      fb.style.color = 'var(--success-ink)';
+      fb.style.border = '2px solid #86EFAC';
+      const letter = String.fromCharCode(65 + correctIdx);
+      fb.innerHTML = `<strong>✔ Respuesta oficial: Opción ${letter}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
+      if (btn) btn.style.display = 'none';
+    }
+
     function checkReviewAnswer(btn, chosen, correct, why) {
       const parent = btn.parentElement;
-      parent.querySelectorAll('.quiz-btn').forEach(b => b.disabled = true);
+      parent.querySelectorAll('.quiz-btn').forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correct) {
+          b.classList.add('correct');
+        }
+      });
       const isCorrect = chosen === correct;
-      btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+      if (!isCorrect) {
+        btn.classList.add('incorrect');
+      }
 
       const fb = document.getElementById('quiz-feedback-box');
       fb.style.display = 'block';
       if (isCorrect) {
         fb.style.background = 'var(--success-soft)';
         fb.style.color = 'var(--success-ink)';
-        fb.innerHTML = `<strong>✔ ¡Correcto!</strong> ${why}`;
+        fb.style.border = '2px solid #86EFAC';
+        fb.innerHTML = `<strong>✔ ¡Correcto! Opción ${String.fromCharCode(65 + chosen)}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       } else {
         fb.style.background = 'var(--danger-soft)';
         fb.style.color = 'var(--danger-ink)';
-        fb.innerHTML = `<strong>✖ Incorrecto.</strong> ${why}`;
+        fb.style.border = '2px solid #FCA5A5';
+        fb.innerHTML = `<strong>✖ Incorrecto.</strong> La opción correcta es la <strong>${String.fromCharCode(65 + correct)}</strong>.<br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       }
+      const revealBtn = document.querySelector('.btn-resolve-quiz');
+      if (revealBtn) revealBtn.style.display = 'none';
     }
 
     // Flashcard engine

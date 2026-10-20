@@ -454,6 +454,44 @@
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: #FEF3C7; }
 
+    /* Matrices comparativas y mapas de equivalencias */
+    .matrix-container {
+      width: 100%;
+      margin: 14px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      overflow-x: auto;
+      background: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+    table.slide-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(16px, 1.15vw, 20px);
+      text-align: left;
+    }
+    table.slide-matrix th {
+      background: var(--surface-alt);
+      color: var(--text);
+      padding: 12px 18px;
+      border-bottom: 2px solid var(--border-strong);
+      font-weight: 700;
+      font-size: clamp(17px, 1.2vw, 21px);
+      letter-spacing: -0.01em;
+    }
+    table.slide-matrix td {
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    table.slide-matrix tr:last-child td { border-bottom: none; }
+    table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
+    table.slide-matrix tr:hover td { background: #F1F5F9; }
+    table.slide-matrix tr.highlighted td { background: #FEF3C7; }
+    table.slide-matrix td:first-child { font-weight: 700; color: #1E293B; }
+
     /* Ejercicios y Repasos */
     .quiz-options { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
     .quiz-btn {
@@ -773,6 +811,67 @@
 <symbol id="i-bug-off" viewBox="0 0 24 24"><path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2" /> <path d="M14.12 3.88 16 2" /> <path d="M22 13h-4v-2a4 4 0 0 0-4-4h-1.3" /> <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /> <path d="m2 2 20 20" /> <path d="M7.7 7.7A4 4 0 0 0 6 11v3a6 6 0 0 0 11.13 3.13" /> <path d="M12 20v-8" /> <path d="M6 13H2" /> <path d="M3 21c0-2.1 1.7-3.9 3.8-4" /></symbol>
 <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m4.9 4.9 14.2 14.2" /></symbol>
 <symbol id="i-octagon-alert" viewBox="0 0 24 24"><path d="M12 16h.01" /> <path d="M12 8v4" /> <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" /></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></symbol>
+<symbol id="i-folder-tree" viewBox="0 0 24 24"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M3 5v14a2 2 0 0 0 2 2h3" /><path d="M3 10h4" /></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14" /><line x1="4" x2="4" y1="10" y2="3" /><line x1="12" x2="12" y1="21" y2="12" /><line x1="12" x2="12" y1="8" y2="3" /><line x1="20" x2="20" y1="21" y2="16" /><line x1="20" x2="20" y1="12" y2="3" /><line x1="1" x2="7" y1="14" y2="14" /><line x1="9" x2="15" y1="8" y2="8" /><line x1="17" x2="23" y1="16" y2="16" /></symbol>
+<symbol id="i-slash" viewBox="0 0 24 24"><path d="M22 2 2 22" /></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></symbol>
+<symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="4" /></symbol>
+<symbol id="i-keyboard" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" ry="2" /><path d="M6 8h.001M10 8h.001M14 8h.001M18 8h.001M8 12h.001M12 12h.001M16 12h.001M7 16h10" /></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" /></symbol>
+<symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line x1="20" x2="8.12" y1="4" y2="15.88" /><line x1="14.47" x2="20" y1="14.48" y2="20" /><line x1="8.12" x2="12" y1="8.12" y2="12" /></symbol>
+<symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5v14" /></symbol>
+<symbol id="i-plus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></symbol>
+<symbol id="i-minus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /></symbol>
+<symbol id="i-check-square" viewBox="0 0 24 24"><path d="m9 11 3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></symbol>
+<symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></symbol>
+<symbol id="i-folder-check" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9 13 2 2 4-4" /></symbol>
+<symbol id="i-folder-plus" viewBox="0 0 24 24"><path d="M12 10v6" /><path d="M9 13h6" /><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol>
+<symbol id="i-folder-search" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><circle cx="11" cy="13" r="3" /><path d="m13.2 15.2 2.8 2.8" /></symbol>
+<symbol id="i-folder-x" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9.5 10.5 5 5" /><path d="m14.5 10.5-5 5" /></symbol>
+<symbol id="i-message-square" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></symbol>
+<symbol id="i-link-2" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2" /><path d="M15 7h2a5 5 0 1 1 0 10h-2" /><line x1="8" x2="16" y1="12" y2="12" /></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></symbol>
+<symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-archive" viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1" /><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></symbol>
+<symbol id="i-file-check" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></symbol>
+<symbol id="i-corner-down-right" viewBox="0 0 24 24"><polyline points="15 10 20 15 15 20" /><path d="M4 4v7a4 4 0 0 0 4 4h12" /></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" /><line x1="9" x2="9" y1="3" y2="18" /><line x1="15" x2="15" y1="6" y2="21" /></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+<symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /><path d="m18 2 4 4-4 4" /><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /><path d="m18 14 4 4-4 4" /></symbol>
+<symbol id="i-log-in" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" /></symbol>
+<symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></symbol>
+
+<!-- Aliases directos para nombres alternativos comunes -->
+<symbol id="i-alert-triangle" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-alert-circle" viewBox="0 0 24 24"><use href="#i-circle-alert" /></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><use href="#i-circle-check" /></symbol>
+<symbol id="i-help-circle" viewBox="0 0 24 24"><use href="#i-circle-help" /></symbol>
+<symbol id="i-broken-link" viewBox="0 0 24 24"><use href="#i-link" /></symbol>
+<symbol id="i-shield-alert" viewBox="0 0 24 24"><use href="#i-shield" /></symbol>
+<symbol id="i-edit-3" viewBox="0 0 24 24"><use href="#i-wrench" /></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" /><line x1="6" x2="6" y1="2" y2="4" /><line x1="10" x2="10" y1="2" y2="4" /><line x1="14" x2="14" y1="2" y2="4" /></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" /></symbol>
+<symbol id="i-skull" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1" /><circle cx="15" cy="12" r="1" /><path d="M8 20v2h8v-2" /><path d="m12.5 17-.5-1-.5 1h1z" /><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20" /></symbol>
+<symbol id="i-alert-octagon" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-asterisk" viewBox="0 0 24 24"><use href="#i-hash" /></symbol>
+<symbol id="i-brackets" viewBox="0 0 24 24"><use href="#i-square-terminal" /></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-dot" viewBox="0 0 24 24"><use href="#i-circle" /></symbol>
+<symbol id="i-download-cloud" viewBox="0 0 24 24"><use href="#i-download" /></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-fast-forward" viewBox="0 0 24 24"><use href="#i-play" /></symbol>
+<symbol id="i-git-commit" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-git-merge" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><use href="#i-power" /></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
+<symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
 </svg>
 
 
@@ -786,7 +885,7 @@
   <header id="top-nav">
     <div class="nav-links">
       <a href="../index.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-menu"/></svg>Índice</a>
-      <a href="../t101/101-3-cambiar-los-niveles-de-e.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>101.3</a>
+      <a href="../t101/101-3-cambiar-los-niveles-de-e.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>101.3</a>
       <a href="102-2-instalar-un-gestor-de-ar.html" class="nav-btn">102.2<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></a>
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
@@ -819,7 +918,7 @@
 
         <div class="stage-footer">
           <div style="display:flex; align-items:center; gap:14px;">
-            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg></button>
+            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg></button>
             <span id="slide-counter" style="font-weight:700;">1 / 1</span>
             <button class="nav-btn" onclick="nextStep()" title="Siguiente (→ / Espacio)" aria-label="Siguiente slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
             <div class="progress-bar-container">
@@ -904,10 +1003,10 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "102.1", "cat": "files", "type": "cover", "title": "Diseño del esquema de particionado del disco", "subtitle": "Estrategias de particionado, puntos de montaje, Swap y LVM", "ref": "1-3", "pdf": {"manual": "A", "pages": [1, 2, 3], "figure": null}, "coverage": ["102.1-OBJ-001", "102.1-OBJ-002", "102.1-OBJ-003", "102.1-OBJ-004"], "meta": {"peso": 2, "paginas": "1–14", "duracion": "90 min"}, "icon": "hard-drive", "notes": "Iniciamos el Tema 102 (Instalación de Linux y gestión de paquetes) con el subtema 102.1. Abarca el diseño óptimo de particiones, puntos de montaje, swap y fundamentos de LVM."}, {"id": 2, "section": "102.1", "cat": "files", "type": "concept", "title": "Discos, particiones y sistemas de archivos", "lead": "Relación entre almacenamiento físico, divisiones lógicas y ficheros:", "ref": "3-4", "pdf": {"manual": "A", "pages": [3, 4], "figure": null}, "coverage": ["102.1-OBJ-001"], "points": [{"icon": "hard-drive", "text": "El disco es un contenedor físico de datos", "detail": "Dispositivos de bloque mecánicos, SSD o NVMe que almacenan bloques brutos."}, {"icon": "layers", "text": "La partición es un subconjunto lógico del disco", "detail": "Actúa como una cerca lógica para compartimentar el sistema operativo y los usuarios."}, {"icon": "file-text", "text": "La tabla de particiones almacena sectores de inicio y fin", "detail": "Define el tipo, primer y último sector y metadatos de cada partición física."}, {"icon": "folder", "text": "El sistema de archivos estructura la información interna", "detail": "Describe cómo se organizan los directorios, metadatos y datos de cada archivo."}], "remember": "Disco = físico · Partición = división lógica · Sistema de archivos = estructura de datos.", "notes": "Aclarar a los alumnos que las particiones tradicionales no pueden abarcar múltiples discos físicos sin LVM."}, {"id": 3, "section": "102.1", "cat": "files", "type": "concept", "title": "Puntos de montaje y raíz del sistema", "lead": "Cómo se integra un sistema de archivos en el árbol único de Linux:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["102.1-FILE-001", "102.1-CMD-001", "102.1-WARN-004"], "points": [{"icon": "folder", "text": "El punto de montaje une el sistema al árbol", "detail": "Adjunta un sistema de archivos a un directorio específico del árbol unificado."}, {"icon": "terminal", "text": "El comando mount realiza la conexión del dispositivo", "detail": "Asocia la partición de almacenamiento con el directorio destino en el sistema."}, {"icon": "layers", "text": "El sistema de archivos / raíz es el origen", "detail": "Todo el árbol jerárquico de directorios desciende del directorio raíz /."}, {"icon": "triangle-alert", "text": "El punto de montaje debe existir previamente antes de montar", "detail": "Si el directorio contiene archivos previos, quedan ocultos hasta desmontar la partición."}], "remember": "Montar oculta el contenido previo del directorio hasta que se desmonte.", "notes": "Advertir del peligro de montar accidentalmente sobre directorios con datos activos."}, {"id": 4, "section": "102.1", "cat": "files", "type": "concept", "title": "Montaje de dispositivos en mnt y media", "lead": "Convenciones oficiales para montar medios extraíbles y manuales:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["102.1-FILE-013", "102.1-FILE-014", "102.1-FILE-015", "102.1-FILE-016"], "points": [{"icon": "folder", "text": "El directorio /mnt se destina a montajes manuales", "detail": "Ubicación estándar y recomendada para montajes manuales temporales del sysadmin."}, {"icon": "hard-drive", "text": "Puntos heredados en /mnt/cdrom y /mnt/floppy", "detail": "Puntos de montaje preconfigurados tradicionalmente para medios ópticos y disquetes."}, {"icon": "usb", "text": "El directorio /media recibe medios extraíbles del usuario", "detail": "Punto de montaje estándar moderno para unidades flash USB y lectores de tarjetas."}, {"icon": "monitor", "text": "Montaje automático en subdirectorio de usuario y etiqueta", "detail": "Los escritorios montan en rutas con formato /media/USER/LABEL automáticamente."}], "remember": "/mnt = montaje manual del administrador · /media = montaje automático de extraíbles.", "notes": "Pregunta de examen 100% segura: ¿Dónde se recomienda montar manualmente? En /mnt."}, {"id": 5, "section": "102.1", "cat": "files", "type": "concept", "title": "Estrategias de separación de particiones", "lead": "Motivos fundamentales para distribuir directorios en particiones independientes:", "ref": "5, 7", "pdf": {"manual": "A", "pages": [5, 7], "figure": null}, "coverage": ["102.1-OBJ-002"], "points": [{"icon": "shield-check", "text": "Estabilidad aislando directorios de crecimiento descontrolado", "detail": "Evita que un desborde en logs o descargas colapse el sistema de archivos raíz."}, {"icon": "wrench", "text": "Mantenimiento y reinstalación sin tocar datos de usuario", "detail": "Permite formatear o reinstalar el sistema operativo preservando /home intacto."}, {"icon": "zap", "text": "Optimización de rendimiento combinando discos SSD y HDD", "detail": "El sistema raíz en discos SSD rápidos y grandes volúmenes en discos HDD económicos."}, {"icon": "lock", "text": "Seguridad mediante opciones de montaje restrictivas", "detail": "Permite aplicar directivas como noexec, nosuid o ro a particiones específicas."}], "remember": "Separar particiones garantiza estabilidad, seguridad y flexibilidad de mantenimiento.", "notes": "Enseñar a los alumnos a justificar siempre el particionado en función del caso de uso."}, {"id": 6, "section": "102.1", "cat": "files", "type": "concept", "title": "La partición de arranque boot y GRUB", "lead": "Almacenamiento de archivos críticos del núcleo y gestor de arranque:", "ref": "5-6", "pdf": {"manual": "A", "pages": [5, 6], "figure": null}, "coverage": ["102.1-FILE-010", "102.1-FILE-011", "102.1-OBJ-003"], "points": [{"icon": "hard-drive", "text": "Contiene el kernel, initramfs y cargador de arranque", "detail": "Generalmente montada en /boot y con sistema de archivos estándar compatible."}, {"icon": "folder", "text": "Archivos del gestor GRUB almacenados en /boot/grub", "detail": "Aloja módulos de arranque, fuentes y el archivo de configuración grub.cfg."}, {"icon": "shield", "text": "Garantiza arranque ante fallos en la raíz", "detail": "Permite iniciar el kernel incluso si el sistema raíz está dañado o cifrado."}, {"icon": "wrench", "text": "Imprescindible con raíces cifradas o compresión no soportada", "detail": "El firmware o GRUB pueden necesitar leer /boot sin soporte de cifrado avanzado."}], "remember": "Archivos de GRUB residen en /boot/grub; la partición se monta en /boot.", "notes": "Pregunta guiada 1 del manual: Los archivos de GRUB se almacenan en /boot/grub."}, {"id": 7, "section": "102.1", "cat": "files", "type": "concept", "title": "Límite del cilindro 1024 en BIOS", "lead": "Restricción histórica de direccionamiento CHS en arquitecturas IBM PC:", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["102.1-CFG-003", "102.1-CFG-004", "102.1-CFG-005", "102.1-WARN-001"], "points": [{"icon": "triangle-alert", "text": "Límite CHS de 1024 cilindros equivalente a 528 MB", "detail": "1024 cilindros × 256 cabezas × 63 sectores limitaba el direccionamiento BIOS a 528 MB."}, {"icon": "arrow-down", "text": "La partición de arranque debe terminar antes del cilindro 1024", "detail": "Asegura que el firmware BIOS clásico siempre pueda leer los sectores del kernel."}, {"icon": "activity", "text": "LBA superó el límite pero se mantiene por compatibilidad", "detail": "Logical Block Addressing permite discos grandes, pero la regla se evalúa en LPI."}, {"icon": "box", "text": "Tamaño estándar recomendado de /boot alrededor de 300 MB", "detail": "Suficiente para almacenar varios núcleos de Linux, initramfs y archivos de GRUB."}], "remember": "Regla clásica LPI: /boot debe ubicarse antes del cilindro 1024 (528 MB).", "notes": "Pregunta fija de examen: ¿Dónde debe terminar la partición de arranque? Antes del cilindro 1024."}, {"id": 8, "section": "102.1", "cat": "files", "type": "concept", "title": "Partición del sistema EFI para UEFI", "lead": "La partición dedicada al arranque en plataformas modernas con UEFI:", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["102.1-FILE-012"], "points": [{"icon": "hard-drive", "text": "ESP almacena cargadores EFI de todos los sistemas instalados", "detail": "Archivos binarios .efi ejecutados directamente por el firmware de la placa base."}, {"icon": "file-code", "text": "Formateada obligatoriamente en un sistema de archivos FAT", "detail": "El estándar UEFI exige compatibilidad con variantes FAT12, FAT16 o FAT32."}, {"icon": "folder", "text": "En sistemas Linux se monta habitualmente en /boot/efi", "detail": "Punto canónico donde las herramientas de instalación depositan las imágenes EFI."}, {"icon": "layers", "text": "Generalmente se ubica como la primera partición del disco", "detail": "Facilita la detección por parte del firmware de múltiples fabricantes."}], "remember": "La partición EFI (ESP) está formateada en FAT y se monta en /boot/efi.", "notes": "Pregunta guiada 3 del manual: La partición EFI se monta típicamente en /boot/efi."}, {"id": 9, "section": "102.1", "cat": "files", "type": "concept", "title": "Identificadores de partición ESP: GPT y MBR", "lead": "Códigos identificadores de la partición EFI según el tipo de tabla:", "ref": "6, 11, 14", "pdf": {"manual": "A", "pages": [6, 11, 14], "figure": null}, "coverage": ["102.1-CFG-001", "102.1-CFG-002"], "points": [{"icon": "hash", "text": "GUID en tablas GPT es C12A7328-F81F-11D2-BA4B-00A0C93EC93B", "detail": "Identificador único universal que marca la partición como EFI System Partition."}, {"icon": "key", "text": "Identificador de tipo en esquema MBR es 0xEF", "detail": "Código hexadecimal de tipo de partición utilizado en discos particionados con MBR."}, {"icon": "check", "text": "Ambos formatos son reconocidos automáticamente por UEFI", "detail": "Permite compatibilidad de firmware tanto en discos modernos GPT como en MBR."}, {"icon": "layers", "text": "Indispensable para entornos con arranque dual o multi-SO", "detail": "Cada sistema operativo convive con su propio directorio dentro de la ESP."}], "remember": "En GPT el GUID es C12A7328-F81F-11D2-BA4B-00A0C93EC93B; en MBR el tipo es 0xEF.", "notes": "Pregunta exploratoria 3: ¿Cuál es el ID de partición EFI en MBR? 0xEF."}, {"id": 10, "section": "102.1", "cat": "files", "type": "concept", "title": "Partición de inicio home y directorio root", "lead": "Ubicación de datos personales, configuraciones y excepciones:", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["102.1-FILE-008", "102.1-FILE-009"], "points": [{"icon": "users", "text": "El directorio /home aloja los directorios personales de usuarios", "detail": "Estructura estándar tipo /home/john con documentos, descargas y preferencias."}, {"icon": "user", "text": "El directorio de inicio del administrador root es /root", "detail": "Excepción crucial: no reside bajo /home para estar disponible en reparaciones."}, {"icon": "hard-drive", "text": "Separar /home facilita reinstalaciones del sistema operativo", "detail": "Se puede actualizar o formatear la raíz sin perder los datos personales de nadie."}, {"icon": "activity", "text": "Dimensionamiento variable según el perfil de usuario del equipo", "detail": "Poco espacio para ofimática básica, mucho más para diseño, vídeo o desarrollo."}], "remember": "Usuarios en /home/usuario; pero el superusuario root reside en /root.", "notes": "Pregunta trampa común: ¿El home de root es /home/root? ¡Falso! Es /root en la raíz."}, {"id": 11, "section": "102.1", "cat": "files", "type": "concept", "title": "Datos variables en var y subdirectorios", "lead": "Estructura interna del directorio /var para datos cambiantes:", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["102.1-FILE-002", "102.1-FILE-003", "102.1-FILE-004", "102.1-FILE-005"], "points": [{"icon": "folder", "text": "El directorio /var contiene datos que crecen y se reducen", "detail": "Archivos donde el sistema debe tener capacidad de escritura continua."}, {"icon": "file-text", "text": "Registros del sistema almacenados en el subdirectorio /var/log", "detail": "Bitácoras de eventos del kernel, syslog, auth, apache y otros servicios."}, {"icon": "clock", "text": "Archivos temporales conservados entre arranques en /var/tmp", "detail": "A diferencia de /tmp en RAM, /var/tmp preserva archivos temporales persistentes."}, {"icon": "database", "text": "Datos de caché de aplicaciones en el directorio /var/cache", "detail": "Repositorios de paquetes (apt, yum), páginas preprocesadas e índices."}], "remember": "/var/log (logs) · /var/tmp (temporales persistentes) · /var/cache (datos en caché).", "notes": "Explicar la diferencia entre /tmp (volátil) y /var/tmp (permanente entre reinicios)."}, {"id": 12, "section": "102.1", "cat": "files", "type": "concept", "title": "Servicios en var y prevención de pánicos", "lead": "Aislamiento de servicios y protección contra desbordamiento de disco:", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["102.1-FILE-006", "102.1-FILE-007", "102.1-WARN-002"], "points": [{"icon": "server", "text": "Servidor web Apache almacena sus datos en /var/www/html", "detail": "Ubicación por defecto para ficheros HTML, scripts y recursos servidos."}, {"icon": "database", "text": "Base de datos MySQL aloja tablas en /var/lib/mysql", "detail": "Directorio predeterminado donde residen los datos y esquemas de MySQL y MariaDB."}, {"icon": "triangle-alert", "text": "Llenado de /var sin partición separada provoca Kernel Panic", "detail": "Si /var comparte partición con / y se llena, el núcleo colapsa y corrompe datos."}, {"icon": "shield-check", "text": "Una partición /var separada aísla la raíz de caídas", "detail": "Permite que el sistema siga respondiendo administrativamente aunque /var esté al 100%."}], "remember": "Separar /var previene Kernel Panic por logs o bases de datos desbordadas.", "notes": "Causa real de incidentes graves en producción: un bucle de logs llena la raíz si no hay partición /var."}, {"id": 13, "section": "102.1", "cat": "files", "type": "concept", "title": "Espacio de intercambio y comando mkswap", "lead": "Memoria virtual en almacenamiento masivo para páginas del kernel:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["102.1-CMD-002", "102.1-WARN-003"], "points": [{"icon": "layers", "text": "Intercambia páginas de memoria RAM al disco ante uso intensivo", "detail": "Permite al sistema operativo liberar memoria física trasladando páginas inactivas."}, {"icon": "terminal", "text": "El comando mkswap formatea y prepara el área de intercambio", "detail": "Establece la firma y estructura requerida antes de activar con swapon."}, {"icon": "ban", "text": "La partición swap no se puede montar como directorio normal", "detail": "No contiene un sistema de archivos jerárquico accesible para explorar archivos."}, {"icon": "refresh-cw", "text": "Soporte para múltiples particiones y archivos de intercambio", "detail": "El núcleo puede balancear entre varios dispositivos o ficheros de swap."}], "remember": "Swap se inicializa con mkswap y nunca se monta como un directorio común.", "notes": "Los alumnos deben saber que swap no es un directorio y que el acceso directo corrompe datos."}, {"id": 14, "section": "102.1", "cat": "files", "type": "table", "title": "Recomendaciones oficiales de swap en Red Hat", "takeaway": "Reglas de dimensionamiento recomendadas para Red Hat Enterprise Linux 7:", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["102.1-OBJ-001"], "headers": ["Cantidad de RAM", "Swap Recomendado", "Swap con Hibernación", "Consideración"], "rows": [["< 2 GB de RAM", "2x cantidad de RAM", "3x cantidad de RAM", "Regla clásica"], ["2 – 8 GB de RAM", "Mismo tamaño que RAM", "2x cantidad de RAM", "Equilibrado"], ["8 – 64 GB de RAM", "Al menos 4 GB", "1.5x cantidad de RAM", "Servidores estándar"], ["> 64 GB de RAM", "Al menos 4 GB", "No Recomendado", "Cargas críticas / SAP"]], "notes": "La regla antigua de 'siempre el doble de RAM' ya no se aplica en servidores con cientos de gigabytes."}, {"id": 15, "section": "102.1", "cat": "files", "type": "concept", "title": "Archivos de intercambio swap files", "lead": "Ampliación dinámica de memoria virtual sin modificar la tabla de particiones:", "ref": "8, 11, 14", "pdf": {"manual": "A", "pages": [8, 11, 14], "figure": null}, "coverage": ["102.1-CFG-012"], "points": [{"icon": "file", "text": "Linux admite archivos de intercambio en lugar de particiones fijas", "detail": "Un archivo regular reservado en disco puede operar como espacio de swap."}, {"icon": "zap", "text": "Permite aumentar rápidamente el espacio de intercambio disponible", "detail": "Solución inmediata ante picos imprevistos de memoria sin tener que reparticionar."}, {"icon": "wrench", "text": "Se crea con dd o fallocate y se estructura con mkswap", "detail": "Se le asignan permisos estrictos 600 y se activa con el comando swapon."}, {"icon": "check", "text": "Rendimiento prácticamente idéntico al de una partición dedicada", "detail": "Los sistemas de archivos modernos evitan fragmentación y ofrecen alta velocidad."}], "remember": "Pregunta exploratoria 4: Para aumentar swap rápidamente sin particionar, usar swap files.", "notes": "Los archivos de intercambio son el estándar predeterminado en instalaciones modernas de Ubuntu y Fedora."}, {"id": 16, "section": "102.1", "cat": "files", "type": "concept", "title": "Fundamentos y ventajas de LVM", "lead": "Logical Volume Management como capa de virtualización de almacenamiento:", "ref": "8-9", "pdf": {"manual": "A", "pages": [8, 9], "figure": null}, "coverage": ["102.1-OBJ-004"], "points": [{"icon": "layers", "text": "Virtualización de almacenamiento que supera las particiones tradicionales", "detail": "Agrupa discos y particiones para gestionar el espacio como un pool común."}, {"icon": "refresh-cw", "text": "Permite redimensionar volúmenes lógicos en caliente", "detail": "Aumentar o reducir espacio sin necesidad de migrar datos ni reiniciar el servidor."}, {"icon": "hard-drive", "text": "Capacidad de abarcar múltiples discos físicos diferentes", "detail": "Un único volumen lógico puede extenderse a través de varios discos duros o arreglos."}, {"icon": "shield-check", "text": "Soporte nativo de instantáneas snapshots y duplicación", "detail": "Facilita copias de seguridad consistentes en sistemas de producción en vivo."}], "remember": "LVM independiza los sistemas de archivos de los límites de los discos físicos.", "notes": "En 102.1 se evalúan los conceptos y componentes de LVM; la administración de comandos se profundiza más adelante."}, {"id": 17, "section": "102.1", "cat": "files", "type": "flow", "title": "Arquitectura de LVM: PV, VG y LV", "lead": "Estructura jerárquica de componentes en Logical Volume Management:", "ref": "9", "pdf": {"manual": "A", "pages": [9], "figure": null}, "coverage": ["102.1-CFG-006", "102.1-CFG-007", "102.1-CFG-008"], "steps": [{"num": 1, "icon": "hard-drive", "title": "Physical Volume (PV)", "desc": "Dispositivo de bloque base: partición o RAID físico inicializado para LVM."}, {"num": 2, "icon": "box", "title": "Volume Group (VG)", "desc": "Agrupación de uno o más PVs como un gran depósito o pool unificado."}, {"num": 3, "icon": "layers", "title": "Logical Volume (LV)", "desc": "Volumen lógico creado a partir del VG, equivalente a una partición flexible."}, {"num": 4, "icon": "folder", "title": "Filesystem y Montaje", "desc": "Formateado con mkfs (ext4/xfs) y montado normalmente en el árbol de Linux."}], "callout": {"type": "info", "title": "Jerarquía LVM", "text": "Discos físicos -> Physical Volumes (PV) -> Volume Group (VG) -> Logical Volumes (LV) -> Filesystem."}, "notes": "Hacer que los alumnos dibujen esta jerarquía de 4 niveles en sus cuadernos."}, {"id": 18, "section": "102.1", "cat": "files", "type": "concept", "title": "Extensiones físicas y lógicas en LVM", "lead": "Las unidades atómicas de asignación de almacenamiento en LVM:", "ref": "9, 11, 14", "pdf": {"manual": "A", "pages": [9, 11, 14], "figure": null}, "coverage": ["102.1-CFG-009", "102.1-CFG-010", "102.1-CFG-011"], "points": [{"icon": "hash", "text": "La unidad más pequeña dentro de un Volume Group es el extent", "detail": "Fragmentos indivisibles de tamaño fijo que componen los volúmenes del grupo."}, {"icon": "hard-drive", "text": "Physical Extents (PE) son extensiones en volúmenes físicos", "detail": "Bloques mínimos asignables en los Physical Volumes (4 MB por defecto)."}, {"icon": "layers", "text": "Logical Extents (LE) son extensiones en volúmenes lógicos", "detail": "Generalmente cada LE se mapea directamente a un PE físico disponible."}, {"icon": "wrench", "text": "Tamaño del LV definido por tamaño de PE por número de extents", "detail": "Aumentar un LV consiste en asignarle más extensiones libres del Volume Group."}], "remember": "Tamaño de LV = tamaño de PE (4 MB por defecto) × número de extensiones.", "notes": "Preguntas exploratorias 1 y 2: la unidad mínima es el extent; el tamaño es PE × número de extents."}, {"id": 19, "section": "102.1", "cat": "files", "type": "concept", "title": "Dispositivos LVM y creación en dev", "lead": "Identificación de dispositivos de bloque LVM y montaje en el sistema:", "ref": "9", "pdf": {"manual": "A", "pages": [9], "figure": null}, "coverage": ["102.1-FILE-017", "102.1-FILE-018", "102.1-CMD-003"], "points": [{"icon": "folder", "text": "Dispositivos creados en /dev con ruta /dev/VGNAME/LVNAME", "detail": "El sistema operativo reconoce el volumen lógico como un dispositivo de bloque regular."}, {"icon": "terminal", "text": "Formateo con utilidades estándares como mkfs.ext4", "detail": "Permite crear sistemas de ficheros ext4, xfs o btrfs sobre el volumen lógico."}, {"icon": "file-text", "text": "Montaje permanente registrando la ruta en /etc/fstab", "detail": "Se añade una entrada estándar en /etc/fstab para montarlo en cada inicio del sistema."}, {"icon": "check", "text": "Transparencia absoluta para las aplicaciones y usuarios", "detail": "Los programas leen y escriben sin distinguir si es una partición fija o un LV."}], "remember": "Los volúmenes lógicos se exponen en /dev/VGNAME/LVNAME.", "notes": "Explicar que VGNAME es el nombre del Volume Group y LVNAME el nombre asignado al Logical Volume."}, {"id": 20, "section": "102.1", "cat": "files", "type": "table", "title": "Esquemas recomendados según el rol del servidor", "takeaway": "Directrices de particionado adaptadas al uso previsto del equipo:", "ref": "5-8", "pdf": {"manual": "A", "pages": [5, 6, 7, 8], "figure": null}, "coverage": ["102.1-OBJ-002"], "headers": ["Rol del Sistema", "Particiones Críticas", "Prioridad de Espacio", "Justificación Técnica"], "rows": [["Servidor Web (Apache)", "/var, /var/log, /", "/var/www/html", "Aislar contenidos y bitácoras de acceso"], ["Servidor Base de Datos", "/var/lib/mysql, /", "/var/lib/mysql", "Prevenir colapso de raíz por transacciones"], ["Estación Multiusuario", "/home, /, swap", "/home", "Proteger datos personales y cuotas de usuario"], ["Enrutador / Cortafuegos", "/, /var/log", "/var/log", "Registros exhaustivos de tráfico y seguridad"]], "notes": "Adaptar el esquema al rol es el Objetivo 102.1-OBJ-002 oficial de LPI."}, {"id": 21, "section": "102.1", "cat": "files", "type": "exercise", "title": "Ejercicio guiado 1: Archivos para GRUB", "lead": "En sistemas Linux, ¿dónde se almacenan los archivos para el gestor de arranque GRUB?", "ref": "10, 13", "pdf": {"manual": "A", "pages": [10, 13], "figure": null}, "coverage": ["102.1-EX-001"], "steps": [{"do": "1. Identificar el punto de montaje de la partición de arranque", "look": "La partición se monta en /boot."}, {"do": "2. Localizar el subdirectorio del cargador GRUB", "look": "Los ficheros de GRUB residen en /boot/grub."}], "solution": {"explain": "En /boot/grub (o /boot/grub2 en distribuciones de la familia Red Hat). La partición de arranque generalmente se monta en /boot."}, "notes": "Pregunta guiada 1 del manual oficial."}, {"id": 22, "section": "102.1", "cat": "files", "type": "exercise", "title": "Ejercicio guiado 2: Límite del cilindro 1024", "lead": "¿Dónde debe terminar la partición de arranque para garantizar que una PC siempre pueda cargar el kernel?", "ref": "10, 13", "pdf": {"manual": "A", "pages": [10, 13], "figure": null}, "coverage": ["102.1-EX-002"], "steps": [{"do": "1. Recordar la limitación de la BIOS tradicional IBM PC", "look": "Direccionamiento CHS máximo de 1024 cilindros (528 MB)."}, {"do": "2. Establecer la cota superior obligatoria", "look": "Antes del cilindro 1024 del disco duro."}], "solution": {"explain": "Antes del cilindro 1024 (equivalente a los primeros 528 MB del disco), asegurando máxima compatibilidad con firmwares BIOS antiguos."}, "notes": "Pregunta guiada 2 del manual oficial."}, {"id": 23, "section": "102.1", "cat": "files", "type": "exercise", "title": "Ejercicio guiado 3: Punto de montaje EFI", "lead": "¿Dónde se suele montar la partición del sistema EFI (ESP) en un sistema Linux?", "ref": "10, 13", "pdf": {"manual": "A", "pages": [10, 13], "figure": null}, "coverage": ["102.1-EX-003"], "steps": [{"do": "1. Identificar el directorio padre de arranque", "look": "El directorio es /boot."}, {"do": "2. Identificar el subdirectorio específico para UEFI", "look": "Se monta en /boot/efi."}], "solution": {"explain": "En /boot/efi. Es la ubicación estándar donde Linux monta la partición FAT que almacena los cargadores de arranque UEFI."}, "notes": "Pregunta guiada 3 del manual oficial."}, {"id": 24, "section": "102.1", "cat": "files", "type": "exercise", "title": "Ejercicio guiado 4: Montaje manual en mnt", "lead": "Al montar manualmente un sistema de archivos, ¿en qué directorio se debe montar normalmente?", "ref": "10, 13", "pdf": {"manual": "A", "pages": [10, 13], "figure": null}, "coverage": ["102.1-EX-004"], "steps": [{"do": "1. Distinguir entre montajes automáticos y manuales", "look": "Automáticos van a /media; manuales a /mnt."}, {"do": "2. Definir el directorio de buena práctica", "look": "En /mnt (aunque técnicamente se pueda montar en cualquier parte)."}], "solution": {"explain": "En /mnt. Sin embargo, esto no es obligatorio; técnicamente se puede montar una partición en cualquier directorio existente que se desee."}, "notes": "Pregunta guiada 4 del manual oficial."}, {"id": 25, "section": "102.1", "cat": "files", "type": "challenge", "title": "Ejercicio exploratorio 1: Unidad mínima en LVM", "scenario": "Al planificar el almacenamiento de un servidor con LVM, es necesario conocer cómo se divide internamente el espacio:", "ref": "11, 14", "pdf": {"manual": "A", "pages": [11, 14], "figure": null}, "coverage": ["102.1-EX-005"], "question": "¿Cuál es la unidad más pequeña dentro de un grupo de volúmenes (Volume Group)?", "hint": "Son fragmentos de tamaño fijo que se asignan a volúmenes lógicos.", "solution": {"explain": "Los grupos de volúmenes se subdividen en extensiones (extents), concretamente Physical Extents (PE) de tamaño fijo (4 MB por defecto)."}, "notes": "Pregunta exploratoria 1 del manual oficial."}, {"id": 26, "section": "102.1", "cat": "files", "type": "challenge", "title": "Ejercicio exploratorio 2: Cálculo de Logical Volume", "scenario": "Un administrador crea un Logical Volume (LV) y necesita calcular con precisión el espacio total adjudicado:", "ref": "11, 14", "pdf": {"manual": "A", "pages": [11, 14], "figure": null}, "coverage": ["102.1-EX-006"], "question": "¿Cómo se define exactamente el tamaño de un volumen lógico en LVM?", "hint": "Relaciona la cantidad de extensiones con el tamaño de cada extensión física.", "solution": {"explain": "Por el tamaño de las extensiones físicas (PE, 4 MB por defecto) multiplicado por el número de extensiones en el volumen."}, "notes": "Pregunta exploratoria 2 del manual oficial."}, {"id": 27, "section": "102.1", "cat": "files", "type": "challenge", "title": "Ejercicio exploratorio 3: Tipo ESP en MBR", "scenario": "Un equipo arranca con UEFI pero utiliza un disco particionado con el esquema tradicional MBR en lugar de GPT:", "ref": "11, 14", "pdf": {"manual": "A", "pages": [11, 14], "figure": null}, "coverage": ["102.1-EX-007"], "question": "En un disco formateado con el esquema de partición MBR, ¿cuál es el ID de la partición del sistema EFI?", "hint": "Es un código hexadecimal de dos dígitos que identifica a la ESP.", "solution": {"explain": "El ID es 0xEF (en GPT utiliza el GUID C12A7328-F81F-11D2-BA4B-00A0C93EC93B)."}, "notes": "Pregunta exploratoria 3 del manual oficial. Pregunta muy habitual de examen."}, {"id": 28, "section": "102.1", "cat": "files", "type": "challenge", "title": "Ejercicio exploratorio 4: Archivos de intercambio", "scenario": "Un servidor experimenta un pico repentino de consumo de memoria y no dispone de particiones libres para swap:", "ref": "11, 14", "pdf": {"manual": "A", "pages": [11, 14], "figure": null}, "coverage": ["102.1-EX-008"], "question": "Además de las particiones de intercambio, ¿cómo puede aumentar rápidamente el espacio de intercambio en un sistema Linux?", "hint": "Se pueden crear archivos dedicados dentro de cualquier sistema de archivos montado.", "solution": {"explain": "Se pueden usar archivos de intercambio (swap files), creándolos con dd/fallocate, estructurándolos con mkswap y activándolos con swapon sin necesidad de reparticionar."}, "notes": "Pregunta exploratoria 4 del manual oficial."}, {"id": 29, "section": "102.1", "cat": "files", "type": "flashcards", "title": "Tarjetas nemotécnicas de examen (102.1)", "ref": "1-14", "pdf": {"manual": "A", "pages": [1, 14], "figure": null}, "coverage": ["102.1-MEM-001"], "deck": [{"front": "¿Cuáles son las limitaciones de una tabla de particiones MBR?", "back": "Máximo 4 particiones primarias (o 3 primarias + 1 extendida con lógicas).\nLímite de tamaño de disco de 2 TiB con sectores de 512 bytes."}, {"front": "¿Qué ventajas aporta la tabla GPT frente a MBR?", "back": "Soporta discos de hasta 8 ZiB.\nPor defecto hasta 128 particiones primarias sin necesidad de particiones lógicas.\nCopia de seguridad de la cabecera al final del disco y sumas CRC32 de integridad."}, {"front": "Partición ESP (EFI System Partition)", "back": "Formato FAT32 (vfat).\nPunto de montaje estándar /boot/efi.\nCódigo de tipo GPT C12A7328-F81F-11D2-BA4B-00A0C93EC93B (tipo EF en fdisk)."}, {"front": "¿Por qué separar /var y /home en particiones distintas de la raíz /?", "back": "/var contiene logs y colas que pueden crecer descontroladamente y colapsar la raíz.\n/home preserva los datos de los usuarios en reinstalaciones del sistema operativo."}, {"front": "Espacio Swap recomendado en Linux", "back": "Sin hibernación: 2 a 4 GB suele ser suficiente en sistemas modernos.\nCon hibernación (Suspend to Disk): al menos igual a la memoria RAM + margen operativo."}], "notes": "Tarjetas de memorización activa de alta frecuencia para el examen LPIC-1 del subtema 102.1."}, {"id": 30, "section": "102.1", "cat": "files", "type": "summary", "title": "Resumen y mnemotecnias del subtema 102.1", "ref": "12", "pdf": {"manual": "A", "pages": [12], "figure": null}, "coverage": ["102.1-OBJ-001", "102.1-OBJ-002", "102.1-OBJ-003", "102.1-OBJ-004"], "items": [{"icon": "hard-drive", "text": "<strong>Partición /boot:</strong> Termina antes del cilindro 1024 (528 MB) en BIOS. Aloja /boot/grub. Tamaño recomendado ~300 MB."}, {"icon": "file-code", "text": "<strong>Partición EFI (ESP):</strong> Formato FAT. Montada en /boot/efi. Tipo 0xEF en MBR y GUID C12A7328-F81F-11D2-BA4B-00A0C93EC93B en GPT."}, {"icon": "folder", "text": "<strong>Separación de /var:</strong> Previene Kernel Panic aislando /var/log, /var/tmp, /var/www/html y /var/lib/mysql de la raíz /."}, {"icon": "layers", "text": "<strong>LVM:</strong> PV -> VG -> LV. Unidad mínima: extensiones (extents/PE, 4 MB). Dispositivos en /dev/VGNAME/LVNAME."}], "top3": ["/boot antes del cilindro 1024", "ESP en /boot/efi (tipo 0xEF)", "Tamaño LV = PE (4 MB) × extents"], "notes": "Cheat sheet de repaso para examen oficial LPIC-1 (Objetivo 102.1)."}];
+    const SLIDES = [{"id": 1, "section": "102.1", "cat": "install", "type": "cover", "title": "Diseño del esquema de particionado", "subtitle": "Jerarquía de almacenamiento, puntos de montaje, particiones estándar, Swap y LVM (Modo Examen)", "ref": "55-56", "pdf": {"manual": "A", "pages": [55, 56], "figure": null}, "coverage": ["102.1-OBJ-001", "102.1-OBJ-002"], "meta": {"peso": 2, "paginas": "55–74", "duracion": "30 min"}, "icon": "hard-drive", "notes": "Comenzamos el Tema 102 con el objetivo 102.1 (peso 2). Diseñar un esquema de particionado profesional es la decisión arquitectónica más crítica antes de instalar Linux. Una mala partición puede saturar el sistema y provocar caídas de servicios."}, {"id": 2, "section": "102.1", "cat": "install", "type": "concept", "title": "Discos, Particiones y Puntos de Montaje", "lead": "¿Cómo organiza Linux el almacenamiento físico en una jerarquía lógica de árbol?", "ref": "56-58", "pdf": {"manual": "A", "pages": [56, 57, 58], "figure": null}, "coverage": ["102.1-CON-001", "102.1-CON-002"], "points": [{"icon": "folder-tree", "text": "Un árbol único invertido desde la raíz (/)", "detail": "A diferencia de Windows (C:, D:), Linux unifica todos los discos en un único árbol jerárquico. Cualquier partición secundaria se 'injerta' en un directorio vacío llamado 'punto de montaje'."}, {"icon": "archive", "text": "Puntos de montaje temporales: /mnt frente a /media", "detail": "🎯 Clave de Examen: /mnt se reserva para montajes manuales temporales realizados por el administrador (ej: un disco de rescate). /media se usa para montajes automáticos de medios extraíbles por el entorno gráfico (pendrives, CD-ROMs)."}, {"icon": "shield-alert", "text": "¿Por qué separar particiones en servidores?", "detail": "Si todo reside en una única partición raíz (/), un usuario llenando /home o un ataque DoS llenando los logs en /var saturará el disco al 100%, bloqueando al kernel y tumbando el servidor."}], "remember": "🎯 Diferencia de Examen: /mnt = montaje manual del administrador; /media = montaje automático del escritorio para periféricos extraíbles.", "notes": "Explica a la clase que un punto de montaje oculta temporalmente el contenido previo de ese directorio mientras el dispositivo esté montado."}, {"id": 3, "section": "102.1", "cat": "install", "type": "table", "title": "Particiones Estándar: /boot, /home y la ESP de UEFI", "lead": "El examen pregunta qué directorios conviene separar en particiones independientes y por qué motivos técnicos:", "ref": "58-61", "pdf": {"manual": "A", "pages": [58, 59, 60, 61], "figure": null}, "coverage": ["102.1-CON-003", "102.1-CON-004", "102.1-CON-005"], "headers": ["Partición / Directorio", "Propósito en el Examen", "Reglas y Advertencias Críticas"], "rows": [["/boot", "Kernel (vmlinuz), initramfs y archivos de GRUB.", "🎯 Debe ser accesible por la BIOS/UEFI. En discos BIOS heredados debía situarse antes del cilindro 1024 (primeros 528 MB o 8.4 GB de disco). Tamaño típico: 500 MB - 1 GB."], ["ESP (/boot/efi)", "Partición del Sistema EFI para arranques UEFI.", "🎯 Obligatoriamente formateada en FAT16/FAT32. En MBR tiene el código de tipo 0xEF; en GPT el GUID c12a7328-f81f-11d2-ba4b-00a0c93ec93b. Tamaño: 100 - 512 MB."], ["/home", "Datos personales y configuraciones de los usuarios.", "🎯 Permite reinstalar o actualizar la distribución Linux formateando la raíz (/) sin perder jamás los documentos ni perfiles de usuario."], ["/root", "Directorio personal del superusuario root.", "⚠️ ¡NUNCA debe estar en una partición separada! Debe residir siempre en la raíz (/) para permitir iniciar sesión en modo rescate monousuario."]], "remember": "🎯 Trampa Clásica de Examen: ¿Debe /root separarse en su propia partición? ¡NO! Si /root está separado y el sistema arranca en modo monousuario sin montar particiones secundarias, root no podrá iniciar sesión.", "notes": "Destaca la diferencia entre /home (partición separada muy recomendada) y /root (siempre dentro de la partición raíz física)."}, {"id": 4, "section": "102.1", "cat": "install", "type": "table", "title": "Particiones de Datos Variables: /var, /tmp y /opt", "lead": "¿Dónde se concentran los riesgos de llenado de disco en servidores de producción?", "ref": "61-63", "pdf": {"manual": "A", "pages": [61, 62, 63], "figure": null}, "coverage": ["102.1-CON-006", "102.1-CON-007"], "headers": ["Directorio", "Contenido y Función", "Riesgo Técnico de No Separarlo"], "rows": [["/var", "Datos dinámicos y variables: logs (/var/log), colas de correo (/var/spool/mail) y bases de datos (/var/lib/mysql).", "🎯 Si los logs crecen descontroladamente por un ataque y /var no está separado, llenarán la partición raíz tumbando el sistema operativo entero."], ["/tmp", "Archivos temporales creados por programas y usuarios.", "Puede montarse en memoria RAM como tmpfs o en partición separada con opciones noexec/nosuid para evitar que usuarios ejecuten malware."], ["/var/tmp", "Archivos temporales que deben sobrevivir a reinicios.", "A diferencia de /tmp (que se limpia al apagar), los archivos en /var/tmp se conservan indefinidamente."], ["/opt y /usr/local", "Software de terceros que no proviene de los paquetes oficiales de la distribución.", "Permite aislar aplicaciones propietarias (ej: bases de datos Oracle o software compilado)."]], "remember": "🎯 Clave de Examen: En servidores de correo o bases de datos, separar /var (o /var/log) en su propia partición física es una norma obligatoria de seguridad.", "notes": "Muestra a los alumnos que la separación de /var es una de las mejores prácticas de administración de sistemas que evalúa LPIC-1."}, {"id": 5, "section": "102.1", "cat": "install", "type": "command", "title": "Espacio de Intercambio (Swap): Particiones y Archivos", "lead": "¿Qué es la memoria Swap y qué métodos existen para crearla y activarla en Linux?", "ref": "63-66", "pdf": {"manual": "A", "pages": [63, 64, 65, 66], "figure": null}, "coverage": ["102.1-CMD-001", "102.1-CMD-002", "102.1-CON-008"], "command": "mkswap | swapon | swapoff", "purpose": "Formatear, activar y supervisar la memoria virtual de intercambio en disco", "terminal": {"command": "sudo mkswap /dev/sdb2; sudo swapon /dev/sdb2; swapon --show", "output": "Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)\nno label, UUID=e9a1b2c3-4d5e-6f7a-8b9c-0d1e2f3a4b5c\nNAME      TYPE      SIZE USED PRIO\n/dev/sdb2 partition   4G   0B   -2"}, "options": [{"flag": "mkswap <dispositivo|archivo>", "desc": "🎯 Clave de Examen: Prepara la partición o archivo de intercambio escribiendo la firma y metadatos de swap de Linux."}, {"flag": "-L <etiqueta>", "desc": "Asigna una etiqueta textual a la partición swap."}, {"flag": "-U <UUID>", "desc": "Fija un UUID explícito para la partición de intercambio."}, {"flag": "swapon <dispositivo|archivo>", "desc": "Activa el dispositivo o archivo de swap para que el kernel empiece a utilizarlo."}, {"flag": "swapon -a", "desc": "Activa todos los dispositivos de swap declarados en el archivo /etc/fstab."}, {"flag": "swapoff <dispositivo|archivo>", "desc": "Desactiva el espacio de intercambio volcando las páginas activas de vuelta a la memoria RAM física."}, {"flag": "swapon --show / free -h", "desc": "Muestra el estado, tipo, tamaño y porcentaje de uso de todas las áreas de swap activas."}], "remember": "🎯 Clave de Examen: Para crear un archivo swap file sin particionar: 1. Crear archivo con dd (ej: dd if=/dev/zero of=/swapfile bs=1M count=2048); 2. Fijar permisos estrictos (chmod 600 /swapfile); 3. Formatear con mkswap /swapfile; 4. Activar con swapon /swapfile.", "notes": "Enseña el orden obligatorio: sin chmod 600 el kernel emite alertas de seguridad. Sin mkswap, swapon fallará indicando firma inválida."}, {"id": 6, "section": "102.1", "cat": "install", "type": "table", "title": "Directrices de Tamaño de Swap e Hibernación", "lead": "¿Cuánta memoria Swap necesita un sistema según las directrices oficiales?", "ref": "66-67", "pdf": {"manual": "A", "pages": [66, 67], "figure": null}, "coverage": ["102.1-CON-009"], "headers": ["Memoria RAM Física", "Swap Recomendada (Sin Hibernación)", "Swap Recomendada (Con Hibernación)"], "rows": [["≤ 2 GB de RAM", "2 veces la cantidad de RAM (ej: 1 GB RAM -> 2 GB Swap)", "3 veces la cantidad de RAM"], ["De 2 GB a 8 GB de RAM", "Igual a la cantidad de RAM (ej: 4 GB RAM -> 4 GB Swap)", "2 veces la cantidad de RAM (ej: 4 GB RAM -> 8 GB Swap)"], ["De 8 GB a 64 GB de RAM", "De 4 GB a 0.5 veces la cantidad de RAM", "1.5 veces la cantidad de RAM"], ["> 64 GB de RAM", "Mínimo 4 GB fijos (la RAM sobra para procesos normales)", "No recomendada la hibernación en servidores masivos"]], "remember": "🎯 Clave de Examen: La hibernación (Suspend to Disk) requiere obligatoriamente que el tamaño de la Swap sea IGUAL O SUPERIOR a la memoria RAM física, para poder almacenar el volcado completo de la memoria antes del corte eléctrico.", "notes": "Explica a la clase que en sistemas modernos con 64 GB de RAM no se pone el doble de swap (128 GB) salvo que se requiera hibernación o cargas de cálculo enormes."}, {"id": 7, "section": "102.1", "cat": "install", "type": "flow", "title": "Arquitectura de LVM: PV, VG y LV", "lead": "¿Por qué el particionado estático es problemático y cómo lo soluciona Logical Volume Manager?", "ref": "67-70", "pdf": {"manual": "A", "pages": [67, 68, 69, 70], "figure": null}, "coverage": ["102.1-CON-010"], "steps": [{"step": "1. Physical Volumes (PV)", "desc": "🎯 Discos duros o particiones físicas (ej: /dev/sda2, /dev/sdb1) inicializados con el comando 'pvcreate'. En MBR llevan el tipo 0x8e; en GPT el tipo 8e00."}, {"step": "2. Volume Group (VG)", "desc": "🎯 Grupo de volúmenes creado con 'vgcreate'. Agrupa uno o varios PVs en una 'piscina común' de almacenamiento virtual. Divide el espacio en Physical Extents (PE, bloques de 4 MB por defecto)."}, {"step": "3. Logical Volumes (LV)", "desc": "🎯 Volúmenes lógicos creados con 'lvcreate' dentro del VG. Funcionan como particiones virtuales elásticas. Se pueden redimensionar (expandir o reducir) en caliente sin reiniciar."}, {"step": "4. Acceso en /dev", "desc": "Los volúmenes lógicos se exponen al sistema operativo bajo dos rutas equivalentes: /dev/NombreVG/NombreLV o /dev/mapper/NombreVG-NombreLV."}], "remember": "🎯 Concepto de Examen: La unidad mínima de asignación en LVM es el Physical Extent (PE), cuyo tamaño predeterminado es 4 MiB. Un Logical Volume siempre debe ser un múltiplo exacto del tamaño del PE.", "notes": "Dibuja en la pizarra mental: Discos físicos -> Gran saco común (VG) -> Rebanadas elásticas (LV). Esa es la esencia de LVM."}, {"id": 8, "section": "102.1", "cat": "install", "type": "table", "title": "Esquemas de Particionado Recomendados por Rol", "lead": "¿Cómo diseñar el esquema según el destino del equipo?", "ref": "70-71", "pdf": {"manual": "A", "pages": [70, 71], "figure": null}, "coverage": ["102.1-CON-011"], "headers": ["Tipo de Sistema", "Particiones Mínimas Recomendadas", "Justificación Técnica para el Administrador"], "rows": [["Estación de Trabajo / Portátil", "/ (raíz), /boot/efi (si es UEFI), /home y swap.", "Aísla documentos personales (/home) para permitir formateos limpios del sistema operativo."], ["Servidor Web / Base de Datos", "/, /boot, /var (o /var/log), /home y swap.", "Protege la raíz contra saturación por registros de accesos masivos o crecimiento de tablas SQL."], ["Servidor Compartido Multi-usuario", "/, /boot, /home, /var, /tmp y swap.", "Impide que usuarios normales bloqueen el servidor subiendo archivos gigantes o llenando /tmp."], ["Enrutador / Cortafuegos Embebido", "/ (en solo lectura ro), /var/log y swap.", "Minimiza la escritura en tarjetas flash y aísla logs de seguridad en partición propia."]], "remember": "🎯 Clave de Examen: Siempre que un rol maneje datos que crecen sin control predecible (servidor web, correo, bases de datos), la partición /var debe estar físicamente separada.", "notes": "Pregunta de reflexión a los alumnos: ¿Qué pasaría en un servidor web si /var no está separado y sufres un ataque DoS? Los logs llenarían el disco y el servidor se caería por completo."}, {"id": 9, "section": "102.1", "cat": "install", "type": "concept", "title": "LVM Avanzado: Redimensionamiento y Snapshots", "lead": "¿Por qué todas las empresas eligen LVM sobre particiones estáticas tradicionales?", "ref": "69-71", "pdf": {"manual": "A", "pages": [69, 70, 71], "figure": null}, "coverage": ["102.1-CON-012"], "points": [{"icon": "maximize", "text": "Expansión en caliente con lvextend", "detail": "Permite aumentar el tamaño de un Logical Volume sobre la marcha sin desmontar el sistema de archivos (ej: lvextend -L +10G -r /dev/vg0/datos, donde -r redimensiona ext4/XFS automáticamente)."}, {"icon": "camera", "text": "Instantáneas de solo lectura (Snapshots)", "detail": "Crea una imagen congelada en el tiempo del volumen lógico usando Copy-on-Write (CoW). Ideal para realizar copias de seguridad consistentes de bases de datos mientras siguen operando."}, {"icon": "layers", "text": "Agregación de discos físicos con vgextend", "detail": "Si el Volume Group se queda sin espacio, basta con insertar un nuevo disco duro, inicializarlo con pvcreate y añadirlo a la piscina con 'vgextend vg0 /dev/sdc'."}], "remember": "🎯 Clave de Examen: Para que un disco pueda formar parte de un grupo LVM, primero debe inicializarse con pvcreate. Su tipo de partición en MBR es 0x8e.", "notes": "Explica la enorme ventaja de LVM: nunca más tendrás que preocuparte por si te quedaste corto en el tamaño de una partición."}, {"id": 10, "section": "102.1", "cat": "install", "type": "command", "title": "Comandos Esenciales de Inspección de LVM", "lead": "El trío de comandos de visualización rápida en LVM:", "ref": "70-71", "pdf": {"manual": "A", "pages": [70, 71], "figure": null}, "coverage": ["102.1-CMD-003", "102.1-CMD-004", "102.1-CMD-005"], "command": "pvs / pvdisplay | vgs / vgdisplay | lvs / lvdisplay", "purpose": "Inspeccionar volúmenes físicos, grupos y volúmenes lógicos en formato resumido o detallado", "terminal": {"command": "sudo vgs; echo '---'; sudo lvs", "output": "VG   #PV #LV #SN Attr   VSize   VFree \nvg0    2   2   0 wz--n- <99.98g 19.98g\n---\nLV   VG  Attr       LSize  Pool Origin Data%  Meta%\nroot vg0 -wi-ao---- 60.00g\nhome vg0 -wi-ao---- 20.00g"}, "options": [{"flag": "pvs / vgs / lvs", "desc": "🎯 Clave de Examen: Formato compacto de 1 línea por objeto. Ideal para inspección rápida en consola o scripts."}, {"flag": "pvdisplay / vgdisplay / lvdisplay", "desc": "Formato detallado en bloques con UUID, tamaño de PE, estado de asignación y rutas de dispositivo."}, {"flag": "pvcreate <dispositivo>", "desc": "Inicializa un disco o partición como volumen físico de LVM."}, {"flag": "vgcreate <nombre> <pv1> [pv2...]", "desc": "Crea un grupo de volúmenes unificando los volúmenes físicos indicados."}, {"flag": "lvcreate -L <tamaño> -n <nombre> <vg>", "desc": "Crea un volumen lógico con el tamaño especificado (ej: lvcreate -L 20G -n datos vg0)."}], "remember": "🎯 Clave de Examen: 'pvs/vgs/lvs' para resúmenes rápidos; 'pvdisplay/vgdisplay/lvdisplay' para detalles completos.", "notes": "Muestra a los alumnos la salida de vgs: VSize es el tamaño total; VFree es el espacio libre aún disponible para crear nuevos LVs."}, {"id": 11, "section": "102.1", "cat": "install", "type": "concept", "title": "Resumen de Buenas Prácticas de Particionado", "lead": "Las 4 reglas de oro del arquitecto de almacenamiento Linux para aprobar el examen y diseñar en producción:", "ref": "71", "pdf": {"manual": "A", "pages": [71], "figure": null}, "coverage": ["102.1-CON-013"], "points": [{"icon": "check-circle", "text": "1. Mantener /boot y ESP fuera de LVM", "detail": "Tanto la partición ESP de UEFI como /boot deben ser particiones estándar (no LVM complejo) para garantizar que el firmware y GRUB puedan leer el kernel sin controladores adicionales."}, {"icon": "check-circle", "text": "2. Separar siempre /var en servidores", "detail": "Evita el bloqueo de la raíz (/) aislando logs, bases de datos y colas de correo en su propio espacio."}, {"icon": "check-circle", "text": "3. No sobredimensionar la Swap innecesariamente", "detail": "Si no hay hibernación, entre 2 y 4 GB de Swap son suficientes en servidores con mucha RAM. Si se requiere hibernación, Swap ≥ RAM."}, {"icon": "check-circle", "text": "4. Dejar siempre espacio libre sin asignar en el VG", "detail": "En LVM, no asignes el 100% del Volume Group al principio. Guarda un 20% libre para poder crear snapshots de backup o ampliar volúmenes cuando haga falta."}], "remember": "🎯 Regla Mnemotécnica: /boot simple para arrancar, /var separado para no petar, y LVM con espacio libre para maniobrar.", "notes": "Esta diapositiva sintetiza la filosofía de administración que busca LPI en sus candidatos certificados."}, {"id": 12, "section": "102.1", "cat": "install", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: GRUB y Cilindro 1024)", "ref": "71", "pdf": {"manual": "A", "pages": [71], "figure": null}, "scenario": "Casos prácticos sobre el gestor de arranque y restricciones históricas de BIOS (Manual Oficial LPIC-1 Página 71):", "steps": [{"action": "Caso 1: ¿Qué archivos mínimos debe contener la partición /boot para que el gestor GRUB pueda arrancar el sistema operativo?", "command": "El ejecutable del kernel (vmlinuz), el sistema de archivos temporal (initramfs/initrd) y la configuración de GRUB (/boot/grub/)", "reason": "GRUB necesita acceder al kernel y al initramfs para cargarlos en memoria RAM antes de que el kernel tome el control de los discos."}, {"action": "Caso 2: En placas base antiguas con BIOS Legacy, ¿por qué la partición /boot debía ubicarse obligatoriamente al principio del disco?", "command": "Por la limitación del cilindro 1024 en la interfaz BIOS INT 13h tradicional", "reason": "Las llamadas antiguas de la BIOS no podían direccionar sectores más allá de los primeros 528 MB (o 8.4 GB con extensiones LBA iniciales); si el kernel estaba fuera de ese rango, la máquina no arrancaba."}], "solution": {"explain": "El examen incluye preguntas sobre el cilindro 1024 para evaluar si el candidato comprende las restricciones de compatibilidad del firmware BIOS clásico."}, "notes": "Explica que hoy en día con UEFI y LBA de 64 bits esta restricción no existe, pero en el examen 101 se pregunta la razón histórica del cilindro 1024."}, {"id": 13, "section": "102.1", "cat": "install", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: Puntos de Montaje y EFI)", "ref": "72", "pdf": {"manual": "A", "pages": [72], "figure": null}, "scenario": "Casos prácticos de montaje y partición ESP (Manual Oficial LPIC-1 Página 72):", "steps": [{"action": "Caso 3: ¿En qué punto de montaje estándar debe montarse la partición ESP (EFI System Partition) en un sistema Linux moderno?", "command": "/boot/efi", "reason": "Es la ruta universal donde GRUB y las herramientas de actualización (grub-install) depositan los archivos ejecutables .efi (ej: /boot/efi/EFI/debian/)."}, {"action": "Caso 4: Un administrador necesita conectar un disco duro externo temporalmente para hacer una copia de seguridad manual. ¿Dónde debe montarlo?", "command": "En /mnt (ej: /mnt o /mnt/backup)", "reason": "El estándar FHS estipula que /mnt es para montajes manuales temporales del administrador, mientras que /media es para montajes automáticos del sistema."}], "solution": {"explain": "La jerarquía estándar FHS define estrictamente los propósitos de /boot/efi, /mnt y /media para mantener la interoperabilidad entre distribuciones."}, "notes": "Recuerda a los alumnos: /mnt para el admin, /media para el sistema automático."}, {"id": 14, "section": "102.1", "cat": "install", "type": "challenge", "title": "Retos de Exploración del Manual Oficial (LVM, ESP y Swap)", "ref": "72-73", "pdf": {"manual": "A", "pages": [72, 73], "figure": null}, "scenario": "Resuelve estos 4 retos de examen planteados en el manual oficial LPIC-1 (Páginas 72-73):\n1. ¿Cuál es la unidad mínima de asignación en LVM y qué tamaño tiene por defecto?\n2. Si un Volume Group tiene Physical Extents de 8 MiB, ¿puede crearse un Logical Volume de 50 MiB exactos?\n3. ¿Qué código hexadecimal de tipo de partición se asigna a la partición ESP si se utiliza una tabla MBR heredada?\n4. ¿Qué comando se utiliza para crear un archivo de intercambio de 1 GB de ceros antes de formatearlo con mkswap?", "hint": "Recuerda: Physical Extents; alineación de múltiplos en LVM; código EFI en MBR; y comandos dd o fallocate.", "solution": {"explain": "1. Es el Physical Extent (PE) y su tamaño predeterminado es de 4 MiB.\n2. NO, porque 50 no es divisible entre 8. El tamaño asignado se redondeará al múltiplo más cercano: 7 extents = 56 MiB o 6 extents = 48 MiB.\n3. En tabla MBR, la partición ESP utiliza el identificador hexadecimal 0xEF (en GPT utiliza el GUID c12a7328-f81f-11d2-ba4b-00a0c93ec93b).\n4. Se crea con: dd if=/dev/zero of=/swapfile bs=1M count=1024 (o fallocate -l 1G /swapfile)."}, "notes": "El cálculo de múltiplos de PE en LVM es una pregunta matemática clásica en los exámenes LPIC."}, {"id": 15, "section": "102.1", "cat": "install", "type": "review", "title": "Pregunta de Examen LPIC-1: Particionado y FHS", "q": "¿Cuál de los siguientes directorios NO debe colocarse NUNCA en una partición separada del sistema de archivos raíz (/)?", "options": ["/var", "/home", "/root", "/boot"], "answer": 2, "why": "/root es el directorio del superusuario. Si estuviera en una partición separada y el sistema arrancara en modo monousuario de rescate (donde solo se monta la partición raíz /), el usuario root no tendría disponible su directorio de inicio ni sus archivos de configuración básicos.", "notes": "Pregunta recurrente de examen. Todos los alumnos deben comprender por qué /root no se separa."}, {"id": 16, "section": "102.1", "cat": "install", "type": "review", "title": "Pregunta de Examen LPIC-1: Memoria de Intercambio (Swap)", "q": "¿Qué comando inicializa y escribe las estructuras de datos necesarias en una partición o archivo para que pueda ser utilizado como memoria de intercambio?", "options": ["swapon -f", "mkswap", "format --swap", "swapinit"], "answer": 1, "why": "mkswap es el comando estándar oficial que formatea el área de intercambio (escribe la firma 'SWAPSPACE2' y el UUID). swapon activa el área una vez formateada, mientras que format y swapinit no existen en Linux.", "notes": "Pregunta directa de examen. Cuidado con no confundir mkswap (formatea) con swapon (activa)."}, {"id": 17, "section": "102.1", "cat": "install", "type": "review", "title": "Pregunta de Examen LPIC-1: LVM y Physical Extents", "q": "Un administrador crea un Volume Group con un tamaño de Physical Extent (PE) fijado en 16 MiB. ¿Cuál de los siguientes tamaños de Logical Volume podrá crearse con éxito sin errores de redondeo?", "options": ["100 MiB", "128 MiB", "150 MiB", "200 MiB"], "answer": 1, "why": "En LVM, el tamaño de un Logical Volume debe ser un múltiplo exacto del tamaño del Physical Extent. 128 MiB es exactamente 8 PEs de 16 MiB (16 × 8 = 128). Ninguno de los otros valores es divisible entre 16.", "notes": "Pregunta matemática típica de LVM en la certificación."}, {"id": 18, "section": "102.1", "cat": "install", "type": "flashcards", "title": "Tarjetas de Memorización: Particionado y LVM 102.1", "deck": [{"front": "¿Dónde debe montarse la partición ESP en sistemas UEFI?", "back": "En /boot/efi (formateada obligatoriamente en FAT16 o FAT32)."}, {"front": "¿Qué diferencia a /mnt de /media según el estándar FHS?", "back": "/mnt es para montajes manuales temporales del administrador; /media es para medios extraíbles automáticos (USB, CD)."}, {"front": "¿Por qué debe separarse /var en servidores de producción?", "back": "Para evitar que el crecimiento de logs (/var/log) o bases de datos llene la raíz (/) y bloquee el sistema operativo."}, {"front": "¿Por qué /root nunca debe estar en una partición separada?", "back": "Porque en modo rescate monousuario solo se monta la raíz (/), y root debe tener acceso inmediato a su perfil."}, {"front": "¿Qué comando formatea una partición swap y cuál la activa?", "back": "mkswap la formatea; swapon la activa."}, {"front": "¿Qué permiso obligatorio debe tener un archivo swapfile por seguridad?", "back": "Permisos 0600 (lectura y escritura exclusivas para el usuario root: chmod 600 /swapfile)."}, {"front": "¿Cuáles son los 3 niveles de abstracción de LVM?", "back": "1. PV (Physical Volume) -> 2. VG (Volume Group) -> 3. LV (Logical Volume)."}, {"front": "¿Qué es un Physical Extent (PE) en LVM y cuánto mide por defecto?", "back": "Es la unidad mínima de asignación de espacio en un VG y mide 4 MiB por defecto."}], "notes": "Repasa las tarjetas para fijar los conceptos clave antes de continuar."}, {"id": 19, "section": "102.1", "cat": "install", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 102.1", "takeaways": ["Estructura: Árbol único desde /. /mnt para montajes manuales del admin; /media para montajes automáticos de medios extraíbles.", "Particiones: /boot contiene kernel e initramfs. ESP montada en /boot/efi formateada en FAT32. /home separada para usuarios. /var separada en servidores.", "Swap: Formateada con mkswap y activada con swapon. Para hibernación debe ser ≥ RAM. Archivos swap creados con dd y chmod 600.", "LVM: PV (discos/particiones físicas) -> VG (piscina de espacio dividida en PE de 4 MiB) -> LV (volúmenes lógicos elásticos). Comandos pvs, vgs, lvs."], "top3": [{"cmd": "mkswap /dev/sdX && swapon /dev/sdX", "desc": "Formatea y activa una partición de memoria de intercambio."}, {"cmd": "swapon --show", "desc": "Muestra el estado, tamaño y prioridad de las áreas de swap activas."}, {"cmd": "lvs / vgs / pvs", "desc": "Inspección rápida del estado de almacenamiento en LVM."}], "practice": {"name": "Practica 102.1: Diseño y Esquema de Particionado del Disco Duro", "url": "../practicas/p-102-1-particionado-disco.html", "desc": "Examina tablas de particiones MBR y GPT, analiza la memoria virtual de intercambio (swap) y planifica esquemas de particionado seguro para servidores."}, "notes": "Concluimos el subtema 102.1. Los alumnos dominan ahora los esquemas de particionado y la arquitectura LVM."}];
     const ERRATAS = [{"id": "ERR-102.1-01", "section": "102.1", "ref": "p. 4-8", "manual_says": "fdisk solo soporta esquemas de particionado MBR.", "reality": "Las versiones modernas de util-linux fdisk soportan GPT, pero para el examen LPIC-1 se debe asociar estrictamente fdisk con MBR y gdisk/parted con GPT.", "exam_tip": "Trampa de examen: asociar siempre fdisk a MBR (DOS) y gdisk a GPT."}];
     const GLOSARIO = [{"id": "partition", "term": "partición", "def": "División lógica de un dispositivo de almacenamiento físico delimitada por una tabla de particiones."}, {"id": "mount-point", "term": "punto de montaje", "def": "Directorio del árbol de archivos de Linux al cual se conecta un sistema de archivos para acceder a su contenido."}, {"id": "esp", "term": "ESP", "def": "EFI System Partition, partición formateada en FAT donde el firmware UEFI busca los cargadores de arranque."}, {"id": "lvm", "term": "LVM", "def": "Logical Volume Management, mecanismo de virtualización de almacenamiento que permite agrupar y redimensionar volúmenes lógicamente."}];
-    const META = {"course": "LPIC-1 v5.0", "topic": "102.1", "title": "Diseño del esquema de particionado del disco duro", "weight": 2, "pages": "1–14", "icons": "Lucide 0.468.0 (ISC)"};
+    const META = {"topic": "102.1", "title": "Diseño del esquema de particionado", "weight": 2, "description": "Jerarquía de almacenamiento, puntos de montaje, particiones estándar, Swap y LVM (Alta Densidad LPIC-1)", "duracion": "30 min"};
 
     /* -------------------------------------------------------------
        MOTOR DE RENDERIZADO Y NAVEGACIÓN (Pure JS)
@@ -1124,7 +1223,7 @@
             <div style="display:flex; justify-content:center; gap:20px; font-size:22px; font-weight:600;">
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Peso LPI: ${escapeHTML(s.meta?.peso || (typeof META !== 'undefined' && META.weight) || '')}</span>
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Páginas: ${escapeHTML(s.meta?.paginas || '')}</span>
-              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '45 min')}</span>
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '30 min')}</span>
             </div>
           </div>
         `;
@@ -1232,51 +1331,87 @@
         }
       } else if (s.type === 'file') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
-        const filePath = s.path || s.file || '';
-        const fileDesc = s.desc || s.contains || s.lead || s.purpose || '';
+        const fileObj = (typeof s.file === 'object' && s.file !== null) ? s.file : {};
+        const filePath = fileObj.path || s.path || (typeof s.file === 'string' ? s.file : '');
+        const filePurpose = fileObj.purpose || s.purpose || '';
+        const fileDesc = fileObj.desc || s.desc || s.contains || s.lead || filePurpose;
         html += `<div class="slide-lead"><code class="t-path" style="font-size:28px; font-weight:700;">${escapeHTML(filePath)}</code>${fileDesc ? ` — ${renderRichText(fileDesc)}` : ''}</div>`;
         
-        // Directivas de configuración si existen
-        if (s.directives && s.directives.length > 0) {
-          html += `<div class="directives-grid">`;
-          s.directives.forEach(d => {
+        // Muestra de sintaxis, contenido de archivo o configuración
+        const fileContent = fileObj.content || s.content || s.sample?.content || (typeof s.sample === 'string' ? s.sample : '') || (typeof s.syntax === 'string' ? s.syntax : '');
+        if (fileContent || s.sample || s.syntax) {
+          let lines = [];
+          if (Array.isArray(fileContent)) lines = fileContent;
+          else if (typeof fileContent === 'string' && fileContent.trim()) lines = fileContent.split('\n');
+          else if (s.sample && s.sample.lines) lines = s.sample.lines;
+          else if (Array.isArray(s.syntax)) lines = s.syntax;
+
+          if (lines.length > 0) {
             html += `
-              <div class="directive-card">
-                <div class="directive-key">${escapeHTML(d.key || '')}</div>
-                <div class="directive-desc">${renderRichText(d.desc || d.detail || '')}</div>
+              <div class="term-wrapper" style="margin-top:12px; margin-bottom:16px;">
+                <div class="term-header">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
+                    <span>${escapeHTML(filePath || 'configuración')}</span>
+                  </div>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(Array.isArray(lines) ? lines.join('\n') : fileContent)}')">
+                    <svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar archivo
+                  </button>
+                </div>
+                <div class="term-code">`;
+            lines.forEach(line => {
+              const lStr = String(line);
+              if (lStr.trim().startsWith('#')) {
+                html += `<div><span class="t-cmt">${escapeHTML(lStr)}</span></div>`;
+              } else {
+                html += `<div>${escapeHTML(lStr)}</div>`;
+              }
+            });
+            html += `</div></div>`;
+          }
+        }
+
+        // Directivas o Viñetas explicativas (points)
+        const pointsList = s.points || s.directives || [];
+        if (pointsList.length > 0) {
+          html += `<div class="concept-grid">`;
+          pointsList.forEach(p => {
+            const pKey = p.text || p.key || p.title || '';
+            const pDesc = p.detail || p.desc || '';
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'file-text'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(pKey)}</div>
+                  ${pDesc ? `<div class="card-detail">${renderRichText(pDesc)}</div>` : ''}
+                </div>
               </div>
             `;
           });
           html += `</div>`;
         }
 
-        // Muestra de sintaxis o archivo
-        if (s.sample || s.syntax) {
-          let lines = [];
-          if (s.sample && s.sample.lines) lines = s.sample.lines;
-          else if (typeof s.syntax === 'string') lines = s.syntax.split('\n');
-          else if (Array.isArray(s.syntax)) lines = s.syntax;
-          else if (typeof s.sample === 'string') lines = s.sample.split('\n');
-
-          html += `
-            <div class="term-wrapper" style="margin-top:12px;">
-              <div class="term-header">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
-                  <span>${escapeHTML(filePath || 'config')}</span>
-                </div>
-              </div>
-              <div class="term-code">`;
-          lines.forEach(line => {
-            html += `<div>${escapeHTML(line)}</div>`;
-          });
-          html += `</div></div>`;
-        }
-
         // Consola o terminal complementario en slide file
         const fileTerm = s.terminal || s.console;
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
+        }
+
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
+        if (s.remember || s.look) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.look)}</span>
+            </div>
+          `;
         }
 
         if (s.writtenBy || s.readBy) {
@@ -1301,6 +1436,52 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'matrix') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.takeaway || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const headers = s.headers || s.cols || s.columns || s.matrix?.headers || [];
+        const rows = s.rows || s.matrix?.rows || [];
+        html += `<div class="matrix-container"><table class="slide-matrix"><thead><tr>`;
+        headers.forEach(h => html += `<th>${renderRichText(h)}</th>`);
+        html += `</tr></thead><tbody>`;
+        rows.forEach((row, ridx) => {
+          const isHl = s.highlight && (s.highlight.row === (ridx + 1) || s.highlight === (ridx + 1));
+          html += `<tr class="${isHl ? 'highlighted' : ''}">`;
+          let cells = [];
+          if (Array.isArray(row)) {
+            cells = row;
+          } else if (typeof row === 'object' && row !== null) {
+            if (row.head !== undefined && Array.isArray(row.cells)) {
+              cells = [row.head, ...row.cells];
+            } else if (Array.isArray(row.cells)) {
+              cells = row.cells;
+            } else {
+              cells = Object.values(row);
+            }
+          }
+          cells.forEach((cell, cidx) => {
+            html += `<td>${renderRichText(cell)}</td>`;
+          });
+          html += `</tr>`;
+        });
+        html += `</tbody></table></div>`;
+        if (s.remember || s.takeaway) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.takeaway)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
@@ -1338,7 +1519,12 @@
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         
         // Badge del manual oficial
-        const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        let pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
+        if (!pdfRef && scenarioText) {
+          const m = scenarioText.match(/P[áa]gina\s+oficial\s+(\d+(?:[–-]\d+)?)/i);
+          if (m) pdfRef = m[1];
+        }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
@@ -1348,7 +1534,6 @@
         `;
 
         // Planteamiento del problema (Escenario claro)
-        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
             <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
@@ -1367,7 +1552,7 @@
           `;
           if (steps.length > 0) {
             steps.forEach((st, idx) => {
-              const doText = st.do || st.task || st.step || '';
+              const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
                   <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
@@ -1401,12 +1586,16 @@
         if (steps.length > 0) {
           html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
-            const doText = st.do || st.task || st.step || '';
-            const lookText = st.look || st.cmd || st.code || '';
+            const doText = st.action || st.do || st.task || st.step || '';
+            const lookText = st.command || st.look || st.cmd || st.code || '';
+            const reasonText = st.reason || st.explain || '';
             html += `
-              <div style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
-                <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
-                ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+              <div style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
+                  <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
+                  ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+                </div>
+                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -1485,14 +1674,21 @@
         const options = s.options || [];
         options.forEach((opt, oidx) => {
           html += `
-            <button class="quiz-btn" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
+            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
               <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(opt)}</span>
             </button>
           `;
         });
         html += `</div>`;
-        html += `<div class="quiz-feedback" id="quiz-feedback-box"></div>`;
+        html += `
+          <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+              <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
+            </button>
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+        `;
       } else if (s.type === 'flashcards') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
@@ -1513,7 +1709,7 @@
             </div>
           </div>
           <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
-            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>Anterior</button>
+            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>Anterior</button>
             <span id="fc-counter" style="font-size:22px; font-weight:700; align-self:center;">1 / ${deck.length}</span>
             <button class="nav-btn" onclick="nextCard()">Siguiente<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
           </div>
@@ -1523,13 +1719,26 @@
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
         html += `<div class="concept-grid">`;
-        const items = s.items || s.points || s.cards || [];
-        items.forEach(item => {
-          const cardTitle = item.title || item.heading || item.key || (typeof item === 'string' ? item : item.text) || '';
-          const cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '') || '';
+        const items = s.takeaways || s.items || s.points || s.cards || [];
+        items.forEach((item, idx) => {
+          let cardTitle = '';
+          let cardDesc = '';
+          if (typeof item === 'string') {
+            const parts = item.split(': ');
+            if (parts.length > 1) {
+              cardTitle = parts[0];
+              cardDesc = parts.slice(1).join(': ');
+            } else {
+              cardTitle = `Punto Clave ${idx + 1}`;
+              cardDesc = item;
+            }
+          } else {
+            cardTitle = item.title || item.heading || item.key || item.text || `Clave ${idx + 1}`;
+            cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '');
+          }
           html += `
             <div class="concept-card">
-              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${item.icon || 'circle-check'}"/></svg></div>
+              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${(typeof item === 'object' && item.icon) ? item.icon : 'circle-check'}"/></svg></div>
               <div style="flex:1;">
                 <div class="card-text">${renderRichText(cardTitle)}</div>
                 ${cardDesc ? `<div class="card-detail">${renderRichText(cardDesc)}</div>` : ''}
@@ -1538,11 +1747,84 @@
           `;
         });
         html += `</div>`;
+
+        // Top 3 Comandos Clave (Soporta strings y objetos {cmd, desc})
         const top3 = s.top3 || s.commands || [];
         if (top3.length > 0) {
           html += `
-            <div style="margin-top:20px; padding:16px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:12px; font-size:22px;">
-              <strong style="color:var(--primary-ink);">Los comandos clave que no puedes olvidar:</strong> <span style="font-family:monospace; font-weight:700;">${renderRichText(top3.join(' · '))}</span>
+            <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
+              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
+              </div>
+              <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
+          `;
+          top3.forEach(t => {
+            if (typeof t === 'string') {
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
+                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                </div>
+              `;
+            } else {
+              const cmd = t.cmd || t.command || '';
+              const desc = t.desc || t.detail || '';
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 16px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  </div>
+                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                </div>
+              `;
+            }
+          });
+          html += `</div></div>`;
+        }
+
+        // Mapeo a práctica de laboratorio
+        if (s.practice) {
+          const pName = s.practice.name || 'Laboratorio Práctico Recomendado';
+          const pUrl = s.practice.url || '#';
+          const pDesc = s.practice.desc || 'Pon a prueba tus conocimientos en la máquina virtual.';
+          html += `
+            <div style="margin-top:14px; padding:16px 22px; background:#F0FDF4; border:2px solid #86EFAC; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#DCFCE7; color:#166534; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-wrench"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#166534;">${escapeHTML(pName)}</div>
+                  <div style="font-size:16px; color:#374151;">${renderRichText(pDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Web →
+              </a>
+            </div>
+          `;
+        }
+
+        // Mapeo a práctica global de fin de tema completo
+        if (s.global_practice) {
+          const gpName = s.global_practice.name || 'Práctica Global Integradora de Todo el Tema';
+          const gpUrl = s.global_practice.url || '#';
+          const gpDesc = s.global_practice.desc || 'Laboratorio final integrador con todos los comandos evaluados en este tema.';
+          html += `
+            <div style="margin-top:12px; padding:16px 22px; background:#FFFBEB; border:2px solid #F59E0B; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#FEF3C7; color:#92400E; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-shield"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#92400E;">🏆 ${escapeHTML(gpName)}</div>
+                  <div style="font-size:16px; color:#78350F;">${renderRichText(gpDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Global →
+              </a>
             </div>
           `;
         }
@@ -1761,23 +2043,53 @@
     }
     document.addEventListener('click', closePopovers);
 
+    function revealReviewAnswer(btn, correctIdx, why) {
+      const stageEl = document.getElementById('slide-content');
+      const buttons = stageEl.querySelectorAll('.quiz-btn');
+      buttons.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correctIdx) {
+          b.classList.add('correct');
+        }
+      });
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.style.display = 'block';
+      fb.style.background = 'var(--success-soft)';
+      fb.style.color = 'var(--success-ink)';
+      fb.style.border = '2px solid #86EFAC';
+      const letter = String.fromCharCode(65 + correctIdx);
+      fb.innerHTML = `<strong>✔ Respuesta oficial: Opción ${letter}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
+      if (btn) btn.style.display = 'none';
+    }
+
     function checkReviewAnswer(btn, chosen, correct, why) {
       const parent = btn.parentElement;
-      parent.querySelectorAll('.quiz-btn').forEach(b => b.disabled = true);
+      parent.querySelectorAll('.quiz-btn').forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correct) {
+          b.classList.add('correct');
+        }
+      });
       const isCorrect = chosen === correct;
-      btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+      if (!isCorrect) {
+        btn.classList.add('incorrect');
+      }
 
       const fb = document.getElementById('quiz-feedback-box');
       fb.style.display = 'block';
       if (isCorrect) {
         fb.style.background = 'var(--success-soft)';
         fb.style.color = 'var(--success-ink)';
-        fb.innerHTML = `<strong>✔ ¡Correcto!</strong> ${why}`;
+        fb.style.border = '2px solid #86EFAC';
+        fb.innerHTML = `<strong>✔ ¡Correcto! Opción ${String.fromCharCode(65 + chosen)}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       } else {
         fb.style.background = 'var(--danger-soft)';
         fb.style.color = 'var(--danger-ink)';
-        fb.innerHTML = `<strong>✖ Incorrecto.</strong> ${why}`;
+        fb.style.border = '2px solid #FCA5A5';
+        fb.innerHTML = `<strong>✖ Incorrecto.</strong> La opción correcta es la <strong>${String.fromCharCode(65 + correct)}</strong>.<br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       }
+      const revealBtn = document.querySelector('.btn-resolve-quiz');
+      if (revealBtn) revealBtn.style.display = 'none';
     }
 
     // Flashcard engine

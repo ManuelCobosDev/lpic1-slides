@@ -89,7 +89,7 @@
 
     <div class="search-bar-wrap">
       <input type="text" id="err-filter" class="search-input" placeholder="🔍 Buscar por término, manual, realidad o trampa de examen..." onkeyup="filterErratas()">
-      <div class="counter-badge" id="err-counter">19 erratas registradas</div>
+      <div class="counter-badge" id="err-counter">21 erratas registradas</div>
     </div>
 
     <div id="err-container">
@@ -664,6 +664,67 @@
               </div>
             </div>
             </section>
+        <section class="topic-section" id="t104">
+          <div class="topic-header">
+            <h2>Tema 104: Dispositivos, sistemas de archivos Linux y FHS</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">104.1</span>
+                <h3>Creación de particiones y sistemas de archivos</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">E-104.1-001</span>
+                    <span class="errata-ref">Manual p. </span>
+                    <a href="t104/104-1-creacion-de-particiones.html" class="errata-link">Ir a Diapositivas 104.1 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>mkfs.btrfs /dev/sda1 /dev/sdb1 -m raid1</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">104.2</span>
+                <h3>Mantener la integridad de los sistemas de archivos</h3>
+                <span class="cmd-count-badge">1 avisos de examen</span>
+              </div>
+              <div class="errata-list">
+            
+                <div class="errata-card">
+                  <div class="errata-top">
+                    <span class="errata-id-badge">E-104.2-001</span>
+                    <span class="errata-ref">Manual p. </span>
+                    <a href="t104/104-2-mantener-la-integridad-d.html" class="errata-link">Ir a Diapositivas 104.2 →</a>
+                  </div>
+                  <div class="errata-box box-manual">
+                    <span class="box-tag tag-warning">⚠️ Lo que dice / confunde el manual:</span>
+                    <div>Utilice el parámetro -n, como en xfs -n, seguido del dispositivo correspondiente.</div>
+                  </div>
+                  <div class="errata-box box-reality">
+                    <span class="box-tag tag-success">✅ Realidad técnica en Linux y examen LPIC-1:</span>
+                    <div></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>
+            </section>
     </div>
     
     <footer class="site-footer">
@@ -692,7 +753,7 @@
         const hasVisible = Array.from(sec.querySelectorAll('.subtopic-block')).some(b => b.style.display !== 'none');
         sec.style.display = hasVisible ? '' : 'none';
       });
-      document.getElementById('err-counter').textContent = q ? `${visibleCount} erratas encontradas` : '19 erratas registradas';
+      document.getElementById('err-counter').textContent = q ? `${visibleCount} erratas encontradas` : '21 erratas registradas';
     }
   </script>
 </body>

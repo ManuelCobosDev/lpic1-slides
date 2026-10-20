@@ -454,6 +454,44 @@
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: #FEF3C7; }
 
+    /* Matrices comparativas y mapas de equivalencias */
+    .matrix-container {
+      width: 100%;
+      margin: 14px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      overflow-x: auto;
+      background: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+    table.slide-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(16px, 1.15vw, 20px);
+      text-align: left;
+    }
+    table.slide-matrix th {
+      background: var(--surface-alt);
+      color: var(--text);
+      padding: 12px 18px;
+      border-bottom: 2px solid var(--border-strong);
+      font-weight: 700;
+      font-size: clamp(17px, 1.2vw, 21px);
+      letter-spacing: -0.01em;
+    }
+    table.slide-matrix td {
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    table.slide-matrix tr:last-child td { border-bottom: none; }
+    table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
+    table.slide-matrix tr:hover td { background: #F1F5F9; }
+    table.slide-matrix tr.highlighted td { background: #FEF3C7; }
+    table.slide-matrix td:first-child { font-weight: 700; color: #1E293B; }
+
     /* Ejercicios y Repasos */
     .quiz-options { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
     .quiz-btn {
@@ -773,6 +811,67 @@
 <symbol id="i-bug-off" viewBox="0 0 24 24"><path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2" /> <path d="M14.12 3.88 16 2" /> <path d="M22 13h-4v-2a4 4 0 0 0-4-4h-1.3" /> <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /> <path d="m2 2 20 20" /> <path d="M7.7 7.7A4 4 0 0 0 6 11v3a6 6 0 0 0 11.13 3.13" /> <path d="M12 20v-8" /> <path d="M6 13H2" /> <path d="M3 21c0-2.1 1.7-3.9 3.8-4" /></symbol>
 <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m4.9 4.9 14.2 14.2" /></symbol>
 <symbol id="i-octagon-alert" viewBox="0 0 24 24"><path d="M12 16h.01" /> <path d="M12 8v4" /> <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" /></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></symbol>
+<symbol id="i-folder-tree" viewBox="0 0 24 24"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z" /><path d="M3 5v14a2 2 0 0 0 2 2h3" /><path d="M3 10h4" /></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14" /><line x1="4" x2="4" y1="10" y2="3" /><line x1="12" x2="12" y1="21" y2="12" /><line x1="12" x2="12" y1="8" y2="3" /><line x1="20" x2="20" y1="21" y2="16" /><line x1="20" x2="20" y1="12" y2="3" /><line x1="1" x2="7" y1="14" y2="14" /><line x1="9" x2="15" y1="8" y2="8" /><line x1="17" x2="23" y1="16" y2="16" /></symbol>
+<symbol id="i-slash" viewBox="0 0 24 24"><path d="M22 2 2 22" /></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></symbol>
+<symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="4" /></symbol>
+<symbol id="i-keyboard" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" ry="2" /><path d="M6 8h.001M10 8h.001M14 8h.001M18 8h.001M8 12h.001M12 12h.001M16 12h.001M7 16h10" /></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" /></symbol>
+<symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line x1="20" x2="8.12" y1="4" y2="15.88" /><line x1="14.47" x2="20" y1="14.48" y2="20" /><line x1="8.12" x2="12" y1="8.12" y2="12" /></symbol>
+<symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5v14" /></symbol>
+<symbol id="i-plus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></symbol>
+<symbol id="i-minus-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /></symbol>
+<symbol id="i-check-square" viewBox="0 0 24 24"><path d="m9 11 3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></symbol>
+<symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></symbol>
+<symbol id="i-folder-check" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9 13 2 2 4-4" /></symbol>
+<symbol id="i-folder-plus" viewBox="0 0 24 24"><path d="M12 10v6" /><path d="M9 13h6" /><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol>
+<symbol id="i-folder-search" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><circle cx="11" cy="13" r="3" /><path d="m13.2 15.2 2.8 2.8" /></symbol>
+<symbol id="i-folder-x" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9.5 10.5 5 5" /><path d="m14.5 10.5-5 5" /></symbol>
+<symbol id="i-message-square" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></symbol>
+<symbol id="i-link-2" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2" /><path d="M15 7h2a5 5 0 1 1 0 10h-2" /><line x1="8" x2="16" y1="12" y2="12" /></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></symbol>
+<symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-archive" viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1" /><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></symbol>
+<symbol id="i-file-check" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></symbol>
+<symbol id="i-corner-down-right" viewBox="0 0 24 24"><polyline points="15 10 20 15 15 20" /><path d="M4 4v7a4 4 0 0 0 4 4h12" /></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" /><line x1="9" x2="9" y1="3" y2="18" /><line x1="15" x2="15" y1="6" y2="21" /></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+<symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /><path d="m18 2 4 4-4 4" /><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /><path d="m18 14 4 4-4 4" /></symbol>
+<symbol id="i-log-in" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" /></symbol>
+<symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></symbol>
+
+<!-- Aliases directos para nombres alternativos comunes -->
+<symbol id="i-alert-triangle" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-alert-circle" viewBox="0 0 24 24"><use href="#i-circle-alert" /></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><use href="#i-circle-check" /></symbol>
+<symbol id="i-help-circle" viewBox="0 0 24 24"><use href="#i-circle-help" /></symbol>
+<symbol id="i-broken-link" viewBox="0 0 24 24"><use href="#i-link" /></symbol>
+<symbol id="i-shield-alert" viewBox="0 0 24 24"><use href="#i-shield" /></symbol>
+<symbol id="i-edit-3" viewBox="0 0 24 24"><use href="#i-wrench" /></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" /><line x1="6" x2="6" y1="2" y2="4" /><line x1="10" x2="10" y1="2" y2="4" /><line x1="14" x2="14" y1="2" y2="4" /></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" /></symbol>
+<symbol id="i-skull" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1" /><circle cx="15" cy="12" r="1" /><path d="M8 20v2h8v-2" /><path d="m12.5 17-.5-1-.5 1h1z" /><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20" /></symbol>
+<symbol id="i-alert-octagon" viewBox="0 0 24 24"><use href="#i-triangle-alert" /></symbol>
+<symbol id="i-asterisk" viewBox="0 0 24 24"><use href="#i-hash" /></symbol>
+<symbol id="i-brackets" viewBox="0 0 24 24"><use href="#i-square-terminal" /></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-dot" viewBox="0 0 24 24"><use href="#i-circle" /></symbol>
+<symbol id="i-download-cloud" viewBox="0 0 24 24"><use href="#i-download" /></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
+<symbol id="i-fast-forward" viewBox="0 0 24 24"><use href="#i-play" /></symbol>
+<symbol id="i-git-commit" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-git-merge" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><use href="#i-power" /></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
+<symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
 </svg>
 
 
@@ -786,7 +885,7 @@
   <header id="top-nav">
     <div class="nav-links">
       <a href="../index.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-menu"/></svg>Índice</a>
-      <a href="102-2-instalar-un-gestor-de-ar.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>102.2</a>
+      <a href="102-2-instalar-un-gestor-de-ar.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>102.2</a>
       <a href="102-4-gestion-de-paquetes-debi.html" class="nav-btn">102.4<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></a>
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
@@ -819,7 +918,7 @@
 
         <div class="stage-footer">
           <div style="display:flex; align-items:center; gap:14px;">
-            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg></button>
+            <button class="nav-btn" onclick="prevStep()" title="Anterior (←)" aria-label="Anterior slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg></button>
             <span id="slide-counter" style="font-weight:700;">1 / 1</span>
             <button class="nav-btn" onclick="nextStep()" title="Siguiente (→ / Espacio)" aria-label="Siguiente slide" style="padding:4px 10px;"><svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
             <div class="progress-bar-container">
@@ -904,10 +1003,10 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "102.3", "cat": "files", "type": "cover", "title": "Gestión de librerías compartidas en Linux", "subtitle": "Identificación de sonames, resolución de dependencias, ldconfig y LD_LIBRARY_PATH", "ref": "1-3", "pdf": {"manual": "A", "pages": [1, 2, 3], "figure": null}, "coverage": ["102.3-OBJ-001", "102.3-OBJ-002", "102.3-OBJ-003"], "meta": {"peso": 1, "paginas": "1–14", "duracion": "60 min"}, "icon": "layers", "notes": "Iniciamos el subtema 102.3 del examen 101. Abarca bibliotecas compartidas, enlazador dinámico ld.so, archivo de caché /etc/ld.so.cache, ldd y variables de entorno."}, {"id": 2, "section": "102.3", "cat": "files", "type": "concept", "title": "Concepto central de las bibliotecas compartidas", "lead": "Colecciones de código compilado reutilizable utilizadas por múltiples programas:", "ref": "2-3", "pdf": {"manual": "A", "pages": [2, 3], "figure": null}, "coverage": ["102.3-CON-001"], "points": [{"icon": "layers", "text": "Conocidas como shared libraries o shared objects reutilizables", "detail": "Contienen funciones y clases comunes que evitan duplicar código en el disco."}, {"icon": "hard-drive", "text": "Reducen significativamente el tamaño físico de los ejecutables", "detail": "El binario final no incluye el código de la biblioteca, solo referencias."}, {"icon": "cpu", "text": "Optimizan el uso de memoria RAM en ejecución", "detail": "El kernel carga solo una copia de la biblioteca compartida para todos los procesos."}, {"icon": "package", "text": "Facilitan la actualización de seguridad de funciones centrales", "detail": "Actualizar una biblioteca corrige la vulnerabilidad para todos los programas enlazados."}], "remember": "Un único objeto compartido en memoria sirve a decenas de programas activos.", "notes": "Comparar con las DLL de Windows para fijar el concepto analógico."}, {"id": 3, "section": "102.3", "cat": "files", "type": "flow", "title": "Fases de construcción: Del código al ejecutable", "lead": "Dos pasos imprescindibles en la construcción de binarios:", "ref": "3", "pdf": {"manual": "A", "pages": [3], "figure": null}, "coverage": ["102.3-CON-002"], "steps": [{"icon": "file-code", "title": "Código fuente", "desc": "Archivos de texto con código en C, C++ u otros lenguajes de alto nivel."}, {"icon": "cpu", "title": "Compilador", "desc": "Convierte el código fuente en código máquina dentro de archivos de objeto (.o)."}, {"icon": "link", "title": "Enlazador (Linker)", "desc": "Combina los object files y vincula las bibliotecas de forma estática o dinámica."}, {"icon": "box", "title": "Ejecutable final", "desc": "Binario listo para ser ejecutado con enlace estático incrustado o dinámico externo."}], "notes": "Destacar la función del linker: statically (estáticamente) o dynamically (dinámicamente)."}, {"id": 4, "section": "102.3", "cat": "files", "type": "matrix", "title": "Comparativa: Bibliotecas estáticas frente a compartidas", "lead": "Diferencias críticas de diseño, tamaño y dependencias:", "ref": "3-4", "pdf": {"manual": "A", "pages": [3, 4], "figure": null}, "coverage": ["102.3-CON-001", "102.3-CON-004", "102.3-WARN-002"], "headers": ["Característica", "Bibliotecas Estáticas (.a)", "Bibliotecas Compartidas (.so)"], "rows": [["Momento de fusión", "Enlace en compilación (incrustada)", "Tiempo de ejecución (runtime)"], ["Extensión de archivo", ".a (ejemplo: libpthread.a)", ".so (ejemplo: libpthread.so.0)"], ["Dependencias runtime", "Ninguna (código embebido)", "Obligatorias en el sistema"], ["Tamaño del ejecutable", "Mucho más pesado y voluminoso", "Muy ligero y compacto"], ["Presencia en sistema", "Solo al compilar, ausente en usuario", "Imprescindible en producción"]], "notes": "Advertencia: Las bibliotecas estáticas (.a) pueden no estar presentes en sistemas finales de usuario."}, {"id": 5, "section": "102.3", "cat": "files", "type": "concept", "title": "Anatomía y estructura estándar del soname", "lead": "Patrón formal de denominación para objetos compartidos:", "ref": "3", "pdf": {"manual": "A", "pages": [3], "figure": null}, "coverage": ["102.3-CON-003", "102.3-FILE-015"], "points": [{"icon": "bookmark", "text": "Prefijo obligatorio habitual lib seguido del nombre", "detail": "Identifica la librería funcional (ejemplo: libpthread, libc, libfuse)."}, {"icon": "box", "text": "Sufijo constante so que indica shared object", "detail": "Distingue los objetos compartidos dinámicos de los estáticos (.a)."}, {"icon": "hash", "text": "Número de versión mayor al final del archivo", "detail": "Garantiza compatibilidad de interfaz binaria (ABI) entre versiones."}, {"icon": "file-text", "text": "Ejemplo canónico oficial del manual libpthread.so.0", "detail": "Nombre: libpthread | Sufijo: so | Versión: 0."}], "remember": "Patrón soname: lib + [nombre] + .so + .[versión]", "notes": "Pregunta de examen frecuente: descomponer o reconocer las partes de un soname."}, {"id": 6, "section": "102.3", "cat": "files", "type": "table", "title": "Bibliotecas compartidas representativas en Linux", "lead": "Librerías estándar citadas en el temario oficial LPIC-1:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["102.3-FILE-013"], "headers": ["Biblioteca", "Propósito Funcional", "Ejemplo de Archivo"], "rows": [["glibc", "Biblioteca central GNU C del sistema", "libc.so.6"], ["libreadline", "Edición de línea de comandos (vi/Emacs)", "libreadline.so.7"], ["libcrypt", "Funciones de cifrado, hash y codificación", "libcrypt.so.1"], ["libcurl", "Transferencia multiprotocolo de archivos", "libcurl.so.4"], ["libfuse", "Sistemas de archivos en espacio de usuario", "libfuse.so.2"]], "notes": "glibc es la biblioteca fundamental que prácticamente todo binario dinámico necesita."}, {"id": 7, "section": "102.3", "cat": "files", "type": "concept", "title": "Enlaces simbólicos y versionado de librerías", "lead": "Desacoplamiento entre nombres genéricos y versiones exactas:", "ref": "4, 6", "pdf": {"manual": "A", "pages": [4, 6], "figure": null}, "coverage": ["102.3-CON-005", "102.3-CMD-009", "102.3-OPT-005", "102.3-FILE-013"], "points": [{"icon": "link", "text": "Los sonames genéricos son enlaces simbólicos al binario real", "detail": "Permiten actualizar la versión menor sin romper los ejecutables compilados."}, {"icon": "terminal", "text": "Inspección con ls -l muestra el destino exacto", "detail": "ls -l /lib/x86_64-linux-gnu/libc.so.6 apunta hacia libc-2.24.so."}, {"icon": "refresh-cw", "text": "ldconfig crea y mantiene automáticamente estos enlaces", "detail": "Escanea directorios y enlaza el soname a la versión más reciente instalada."}, {"icon": "check", "text": "Asegura estabilidad del sistema ante actualizaciones menores", "detail": "El programa solicita libc.so.6 y el sistema resuelve transparentemente el parche."}], "remember": "libc.so.6 es un enlace simbólico que apunta al archivo real versionado.", "notes": "Mostrar el comando: ls -l /lib/x86_64-linux-gnu/libc.so.6 -> libc-2.24.so"}, {"id": 8, "section": "102.3", "cat": "files", "type": "concept", "title": "Ubicaciones estándar de librerías del sistema", "lead": "Directorios donde el sistema almacena las bibliotecas compartidas:", "ref": "4", "pdf": {"manual": "A", "pages": [4], "figure": null}, "coverage": ["102.3-OBJ-002", "102.3-FILE-004", "102.3-FILE-005", "102.3-FILE-006", "102.3-FILE-007", "102.3-FILE-008"], "points": [{"icon": "folder", "text": "/lib aloja bibliotecas críticas para el arranque inicial", "detail": "Imprescindibles para que los binarios de /bin y /sbin funcionen sin /usr montado."}, {"icon": "folder", "text": "/lib32 y /lib64 separan arquitecturas de bits", "detail": "Permiten convivencia de binarios de 32 y 64 bits en la misma máquina."}, {"icon": "folder", "text": "/usr/lib almacena bibliotecas de aplicaciones del sistema", "detail": "Utilizadas por programas regulares de usuario instalados por la distribución."}, {"icon": "folder", "text": "/usr/local/lib contiene bibliotecas compiladas localmente", "detail": "Software instalado manualmente por el administrador que no proviene de paquetes oficiales."}], "remember": "Jerarquía: /lib (críticas de arranque), /usr/lib (sistema) y /usr/local/lib (locales).", "notes": "Pregunta de examen: ¿dónde se colocan las librerías del administrador? En /usr/local/lib."}, {"id": 9, "section": "102.3", "cat": "files", "type": "concept", "title": "Arquitectura Multiarch en sistemas modernos", "lead": "Coexistencia de múltiples arquitecturas en directorios especializados:", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["102.3-CON-006", "102.3-FILE-011", "102.3-FILE-012"], "points": [{"icon": "cpu", "text": "Multiarch permite ejecutar binarios de distintas arquitecturas simultáneamente", "detail": "Común en distribuciones basadas en Debian y Ubuntu para soportar x86_64 e i386."}, {"icon": "folder", "text": "Directorio /lib/x86_64-linux-gnu para librerías esenciales de 64 bits", "detail": "Ruta específica de la tupla de arquitectura para evitar colisiones de archivos."}, {"icon": "folder", "text": "Directorio /usr/lib/x86_64-linux-gnu para software general del sistema", "detail": "Aloja las librerías de usuario para la arquitectura x86-64."}, {"icon": "settings", "text": "Se configuran mediante archivos modulares en ld.so.conf.d", "detail": "El archivo x86_64-linux-gnu.conf contiene estas rutas para ldconfig."}], "remember": "Multiarch usa subdirectorios con tripletas como x86_64-linux-gnu.", "notes": "Comprender por qué en las rutas actuales se ve x86_64-linux-gnu en lugar de solo /lib."}, {"id": 10, "section": "102.3", "cat": "files", "type": "concept", "title": "El enlazador dinámico ld.so en runtime", "lead": "El programa del sistema responsable de cargar las librerías compartidas:", "ref": "4, 8", "pdf": {"manual": "A", "pages": [4, 8], "figure": null}, "coverage": ["102.3-CON-007", "102.3-FILE-014"], "points": [{"icon": "play", "text": "ld.so o ld-linux.so se invoca automáticamente al ejecutar un programa", "detail": "Interpreta las cabeceras ELF del binario para localizar sus dependencias."}, {"icon": "search", "text": "Consulta primero la caché optimizada en /etc/ld.so.cache", "detail": "Evita recorrer todo el sistema de archivos buscando en cada ejecución."}, {"icon": "memory-stick", "text": "Mapea los objetos compartidos en el espacio de memoria", "detail": "Asigna las direcciones virtuales donde residirán las funciones requeridas."}, {"icon": "file-code", "text": "Archivo en sistemas de 64 bits /lib64/ld-linux-x86-64.so.2", "detail": "Es a su vez una librería dinámica ejecutable que arranca el proceso."}], "remember": "ld.so y ld-linux.so resuelven las dependencias durante la ejecución.", "notes": "Destacar que si una dependencia falta, ld.so aborta la ejecución con un error inmediato."}, {"id": 11, "section": "102.3", "cat": "files", "type": "file", "title": "Configuración central en /etc/ld.so.conf", "path": "/etc/ld.so.conf", "contains": "Directorio y directivas para especificar rutas de bibliotecas compartidas", "ref": "1, 4, 5, 11", "pdf": {"manual": "A", "pages": [1, 4, 5, 11], "figure": null}, "coverage": ["102.3-FILE-001", "102.3-CFG-002", "102.3-CMD-010"], "writtenBy": "Sysadmin o paquetes del sistema", "readBy": ["ldconfig"], "sample": {"lines": ["# Configuración principal de rutas de librerías:", "include /etc/ld.so.conf.d/*.conf"]}, "notes": "En sistemas actuales contiene habitualmente la directiva include para cargar archivos de /etc/ld.so.conf.d/."}, {"id": 12, "section": "102.3", "cat": "files", "type": "file", "title": "Directorio modular /etc/ld.so.conf.d/", "path": "/etc/ld.so.conf.d/", "contains": "Archivos individuales *.conf con rutas absolutas a directorios de librerías", "ref": "5", "pdf": {"manual": "A", "pages": [5], "figure": null}, "coverage": ["102.3-FILE-002", "102.3-FILE-009", "102.3-FILE-010"], "writtenBy": "Paquetes de software y administradores", "readBy": ["ldconfig"], "sample": {"lines": ["# /etc/ld.so.conf.d/x86_64-linux-gnu.conf", "# Multiarch support", "/lib/x86_64-linux-gnu", "/usr/lib/x86_64-linux-gnu", "", "# /etc/ld.so.conf.d/libc.conf", "/usr/local/lib"]}, "notes": "Cada paquete o aplicación añade su archivo .conf sin modificar el archivo principal ld.so.conf."}, {"id": 13, "section": "102.3", "cat": "files", "type": "concept", "title": "El archivo binario /etc/ld.so.cache", "lead": "Índice binario de alto rendimiento para búsqueda inmediata de bibliotecas:", "ref": "5, 6", "pdf": {"manual": "A", "pages": [5, 6], "figure": null}, "coverage": ["102.3-FILE-003", "102.3-WARN-001"], "points": [{"icon": "zap", "text": "Almacena la lista compilada y ordenada de todas las librerías", "detail": "Permite al enlazador dinámico ld.so resolver rutas en microsegundos."}, {"icon": "refresh-cw", "text": "Se actualiza exclusivamente ejecutando el comando ldconfig", "detail": "Si se añade una librería o archivo .conf, no tendrá efecto hasta regenerar la caché."}, {"icon": "shield", "text": "Propiedad de root y con permisos de escritura restringidos", "detail": "Para modificarlo o invocar ldconfig se requiere ser root o usar sudo."}, {"icon": "file-code", "text": "Es un archivo binario que no puede editarse con editores de texto", "detail": "Para consultar su contenido se utiliza la opción ldconfig -p."}], "remember": "Modificar archivos en /etc/ld.so.conf.d/ exige ejecutar ldconfig como root.", "notes": "Pregunta clásica: ¿qué comando hay que ejecutar tras crear /etc/ld.so.conf.d/mylib.conf? ldconfig."}, {"id": 14, "section": "102.3", "cat": "files", "type": "command", "title": "ldconfig: Enlaces dinámicos y caché", "syntax": "ldconfig [opciones]", "purpose": "Configura los enlaces dinámicos en runtime y actualiza la caché /etc/ld.so.cache:", "name": "ldconfig", "ref": "1, 5, 6, 11, 13", "pdf": {"manual": "A", "pages": [1, 5, 6, 11, 13], "figure": null}, "coverage": ["102.3-CMD-002", "102.3-CMD-011", "102.3-WARN-001"], "terminal": {"prompt": "# ", "command": "ldconfig", "lines": [{"t": "cmt", "v": "# Ejecución como superusuario tras modificar rutas:"}, {"t": "cmd", "v": "sudo ldconfig"}, {"t": "cmt", "v": "# Sin salida si se ejecuta con éxito y sin errores"}]}, "options": [{"flag": "ldconfig", "short": "Comando principal", "detail": "Lee /etc/ld.so.conf, crea enlaces simbólicos y reconstruye /etc/ld.so.cache."}, {"flag": "sudo", "short": "Privilegios root", "detail": "Indispensable porque /etc/ld.so.cache pertenece exclusivamente a root."}], "notes": "Debe ejecutarse cada vez que se agregan o actualizan archivos de configuración de bibliotecas."}, {"id": 15, "section": "102.3", "cat": "files", "type": "command", "title": "ldconfig -v: Diagnóstico detallado de enlaces", "syntax": "ldconfig -v, --verbose", "purpose": "Muestra los números de versión, nombres de directorio y enlaces simbólicos creados:", "name": "ldconfig", "ref": "5, 6", "pdf": {"manual": "A", "pages": [5, 6], "figure": null}, "coverage": ["102.3-OPT-001", "102.3-FILE-016"], "terminal": {"prompt": "$ ", "command": "sudo ldconfig -v", "lines": [{"t": "cmd", "v": "sudo ldconfig -v"}, {"t": "out", "v": "/usr/local/lib:"}, {"t": "out", "v": "/lib/x86_64-linux-gnu:"}, {"t": "out", "v": "    libfuse.so.2 -> libfuse.so.2.9.7"}, {"t": "out", "v": "    libidn.so.11 -> libidn.so.11.6.16"}, {"t": "out", "v": "    libparted.so.2 -> libparted.so.2.0.1"}]}, "options": [{"flag": "-v", "short": "Modo verbose", "detail": "Imprime directorios escaneados y enlaces simbólicos actualizados."}, {"flag": "--verbose", "short": "Forma larga", "detail": "Equivalente completo para inspección y depuración del sistema."}], "notes": "Permite verificar cómo libfuse.so.2 se vincula con su archivo real libfuse.so.2.9.7."}, {"id": 16, "section": "102.3", "cat": "files", "type": "command", "title": "ldconfig -p: Inspección de la caché", "syntax": "ldconfig -p, --print-cache", "purpose": "Imprime las listas de directorios y bibliotecas candidatas en la caché actual:", "name": "ldconfig", "ref": "6", "pdf": {"manual": "A", "pages": [6], "figure": null}, "coverage": ["102.3-OPT-002", "102.3-FILE-003", "102.3-FILE-016"], "terminal": {"prompt": "$ ", "command": "sudo ldconfig -p | grep libfuse", "lines": [{"t": "cmd", "v": "sudo ldconfig -p"}, {"t": "out", "v": "1094 libs found in the cache `/etc/ld.so.cache'"}, {"t": "out", "v": "    libzvbi.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libzvbi.so.0"}, {"t": "out", "v": "    libzmq.so.5 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libzmq.so.5"}, {"t": "cmt", "v": "# Filtrar una biblioteca específica con grep:"}, {"t": "cmd", "v": "sudo ldconfig -p | grep libfuse"}, {"t": "out", "v": "    libfuse.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfuse.so.2"}]}, "options": [{"flag": "-p", "short": "Print cache", "detail": "Vuelca en texto legible todas las bibliotecas indexadas en /etc/ld.so.cache."}, {"flag": "--print-cache", "short": "Forma larga", "detail": "Permite verificar si una librería está registrada y en qué ruta exacta."}], "notes": "Comando clave para diagnosticar si el enlazador dinámico tiene indexada una librería."}, {"id": 17, "section": "102.3", "cat": "files", "type": "concept", "title": "La variable de entorno LD_LIBRARY_PATH", "lead": "Mecanismo para añadir rutas de bibliotecas de forma temporal y flexible:", "ref": "1, 6, 7, 11", "pdf": {"manual": "A", "pages": [1, 6, 7, 11], "figure": null}, "coverage": ["102.3-CFG-001", "102.3-WARN-003"], "points": [{"icon": "zap", "text": "Añade directorios de búsqueda sin modificar /etc/ld.so.conf", "detail": "Ideal para entornos de desarrollo, pruebas o librerías no estándar de usuario."}, {"icon": "list-checks", "text": "Sintaxis de directorios separados por dos puntos (:)", "detail": "Funciona idénticamente a la variable PATH utilizada para ejecutables."}, {"icon": "shield-check", "text": "Tiene prioridad sobre las rutas del sistema y de caché", "detail": "El enlazador dinámico buscará primero en los directorios de LD_LIBRARY_PATH."}, {"icon": "clock", "text": "Ámbito limitado a la sesión del shell actual", "detail": "Desaparece al cerrar la terminal a menos que se configure en scripts de inicio."}], "remember": "LD_LIBRARY_PATH es para las librerías lo que PATH es para los ejecutables.", "notes": "Concepto recurrente en exámenes LPIC-1: variable usada para rutas dinámicas en sesión."}, {"id": 18, "section": "102.3", "cat": "files", "type": "command", "title": "Configuración y comprobación de rutas temporales", "syntax": "LD_LIBRARY_PATH=/ruta  |  export LD_LIBRARY_PATH=...", "purpose": "Define rutas de bibliotecas en el shell actual y las exporta a subprocesos:", "name": "export", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["102.3-CMD-003", "102.3-CMD-007", "102.3-CFG-001", "102.3-FILE-022"], "terminal": {"prompt": "$ ", "command": "export LD_LIBRARY_PATH=/usr/local/mylib", "lines": [{"t": "cmt", "v": "# Asignación en la sesión de shell local:"}, {"t": "cmd", "v": "LD_LIBRARY_PATH=/usr/local/mylib"}, {"t": "cmt", "v": "# Comprobar su valor con echo:"}, {"t": "cmd", "v": "echo $LD_LIBRARY_PATH"}, {"t": "out", "v": "/usr/local/mylib"}, {"t": "cmt", "v": "# Exportar a todos los procesos secundarios:"}, {"t": "cmd", "v": "export LD_LIBRARY_PATH=/usr/local/mylib"}]}, "options": [{"flag": "export", "short": "Propagar a subshells", "detail": "Hace que los programas hijos heredados ejecuten con la variable activa."}, {"flag": "echo", "short": "Imprimir variable", "detail": "echo $LD_LIBRARY_PATH muestra el contenido actual asignado."}], "notes": "Si solo se asigna sin export, los binarios ejecutados desde el shell no heredarán la variable."}, {"id": 19, "section": "102.3", "cat": "files", "type": "command", "title": "Limpieza de variables con unset", "syntax": "unset LD_LIBRARY_PATH", "purpose": "Elimina completamente la variable de entorno de la sesión de shell:", "name": "unset", "ref": "7, 11", "pdf": {"manual": "A", "pages": [7, 11], "figure": null}, "coverage": ["102.3-CMD-004", "102.3-CFG-001"], "terminal": {"prompt": "$ ", "command": "unset LD_LIBRARY_PATH", "lines": [{"t": "cmt", "v": "# Eliminar la variable de entorno:"}, {"t": "cmd", "v": "unset LD_LIBRARY_PATH"}, {"t": "cmt", "v": "# Comprobar que ya no existe (salida vacía):"}, {"t": "cmd", "v": "echo $LD_LIBRARY_PATH"}]}, "options": [{"flag": "unset", "short": "Eliminar variable", "detail": "Borra la variable de la memoria del shell, volviendo al comportamiento estándar."}], "notes": "Comando oficial para deshacer los cambios temporales de LD_LIBRARY_PATH."}, {"id": 20, "section": "102.3", "cat": "files", "type": "file", "title": "Persistencia en scripts de inicio de Bash", "path": "/etc/bash.bashrc / ~/.bashrc", "contains": "Instrucciones de exportación para mantener LD_LIBRARY_PATH de forma permanente", "ref": "7", "pdf": {"manual": "A", "pages": [7], "figure": null}, "coverage": ["102.3-FILE-017", "102.3-FILE-018", "102.3-CFG-001"], "writtenBy": "Administrador o usuario final", "readBy": ["Bash en login o apertura de terminal"], "sample": {"lines": ["# Configurar ruta permanente en ~/.bashrc o /etc/bash.bashrc:", "export LD_LIBRARY_PATH=/usr/local/mylib:$LD_LIBRARY_PATH"]}, "notes": "Para que sea global a todos los usuarios: /etc/bash.bashrc. Para el usuario individual: ~/.bashrc."}, {"id": 21, "section": "102.3", "cat": "files", "type": "command", "title": "ldd: Análisis de dependencias de ejecutables", "syntax": "ldd /ruta/al/programa", "purpose": "Imprime las bibliotecas requeridas y las direcciones de memoria hexadecimales:", "name": "ldd", "ref": "1, 7, 8, 12, 13", "pdf": {"manual": "A", "pages": [1, 7, 8, 12, 13], "figure": null}, "coverage": ["102.3-CMD-001", "102.3-FILE-021"], "terminal": {"prompt": "$ ", "command": "ldd /usr/bin/git", "lines": [{"t": "cmd", "v": "ldd /usr/bin/git"}, {"t": "out", "v": "    linux-vdso.so.1 =>  (0x00007ffcbb310000)"}, {"t": "out", "v": "    libpcre.so.3 => /lib/x86_64-linux-gnu/libpcre.so.3 (0x00007f18241eb000)"}, {"t": "out", "v": "    libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f1823fd1000)"}, {"t": "out", "v": "    libresolv.so.2 => /lib/x86_64-linux-gnu/libresolv.so.2 (0x00007f1823db6000)"}, {"t": "out", "v": "    libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f18235c7000)"}]}, "options": [{"flag": "ldd", "short": "List dynamic dependencies", "detail": "Examina cabeceras ELF e invoca el cargador para simular la resolución."}], "notes": "Muestra cada librería requerida, su archivo resuelto en el disco y su dirección de carga en memoria."}, {"id": 22, "section": "102.3", "cat": "files", "type": "command", "title": "ldd con objetos compartidos del sistema", "syntax": "ldd /ruta/a/la/biblioteca.so", "purpose": "Inspecciona dependencias encadenadas entre las propias librerías compartidas:", "name": "ldd", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["102.3-CMD-001", "102.3-FILE-013", "102.3-FILE-014"], "terminal": {"prompt": "$ ", "command": "ldd /lib/x86_64-linux-gnu/libc.so.6", "lines": [{"t": "cmd", "v": "ldd /lib/x86_64-linux-gnu/libc.so.6"}, {"t": "out", "v": "    /lib64/ld-linux-x86-64.so.2 (0x00007fbfed578000)"}, {"t": "out", "v": "    linux-vdso.so.1 (0x00007fffb7bf5000)"}]}, "options": [{"flag": "/lib64/ld-linux-x86-64.so.2", "short": "Enlazador dinámico", "detail": "Dependencia obligatoria encargada de gestionar la carga en runtime."}, {"flag": "linux-vdso.so.1", "short": "Kernel virtual DSO", "detail": "Objeto compartido virtual proporcionado directamente por el kernel Linux."}], "notes": "Las propias bibliotecas pueden depender a su vez de otras bibliotecas compartidas."}, {"id": 23, "section": "102.3", "cat": "files", "type": "command", "title": "ldd -u: Dependencias no utilizadas", "syntax": "ldd -u, --unused /ruta/al/programa", "purpose": "Detecta dependencias directas enlazadas que el binario no necesita realmente:", "name": "ldd", "ref": "8", "pdf": {"manual": "A", "pages": [8], "figure": null}, "coverage": ["102.3-OPT-003", "102.3-WARN-004", "102.3-FILE-021"], "terminal": {"prompt": "$ ", "command": "ldd -u /usr/bin/git", "lines": [{"t": "cmd", "v": "ldd -u /usr/bin/git"}, {"t": "out", "v": "Unused direct dependencies:"}, {"t": "out", "v": "    /lib/x86_64-linux-gnu/libz.so.1"}, {"t": "out", "v": "    /lib/x86_64-linux-gnu/libpthread.so.0"}, {"t": "out", "v": "    /lib/x86_64-linux-gnu/librt.so.1"}]}, "options": [{"flag": "-u", "short": "Unused dependencies", "detail": "Imprime las librerías etiquetadas como NEEDED pero no consumidas en código."}, {"flag": "--unused", "short": "Forma larga", "detail": "Equivalente completo para auditoría de optimización de binarios."}], "notes": "Ocurre por opciones genéricas del linker al compilar; permanecen marcadas como NEEDED en el ELF."}, {"id": 24, "section": "102.3", "cat": "files", "type": "concept", "title": "Formato binario ELF y etiquetas NEEDED", "lead": "Estructura interna que almacena los metadatos de vinculación:", "ref": "8, 12", "pdf": {"manual": "A", "pages": [8, 12], "figure": null}, "coverage": ["102.3-CON-008", "102.3-CMD-005"], "points": [{"icon": "file-code", "text": "ELF significa Executable and Linkable Format en Linux", "detail": "Estándar para ejecutables, archivos de objeto (.o) y librerías compartidas (.so)."}, {"icon": "bookmark", "text": "La sección dinámica contiene entradas de tipo NEEDED", "detail": "Lista explícita con cada soname imprescindible para ejecutar el binario."}, {"icon": "search", "text": "readelf muestra los metadatos y secciones del archivo ELF", "detail": "Utilidad de GNU Binutils para inspeccionar cabeceras, tablas de símbolos y segmentos."}, {"icon": "file-code", "text": "SONAME embebido declara la compatibilidad de la librería", "detail": "Garantiza que el enlazador vincule con la versión mayor exacta requerida."}], "remember": "ELF es el formato estándar y NEEDED lista las dependencias obligatorias.", "notes": "readelf y objdump permiten explorar estas estructuras en profundidad."}, {"id": 25, "section": "102.3", "cat": "files", "type": "command", "title": "objdump -p y which para cabeceras", "syntax": "objdump -p, --private-headers /ruta/al/binario", "purpose": "Imprime información detallada de cabeceras privadas en archivos objeto ELF:", "name": "objdump", "ref": "8, 10, 12, 14", "pdf": {"manual": "A", "pages": [8, 10, 12, 14], "figure": null}, "coverage": ["102.3-CMD-006", "102.3-CMD-008", "102.3-OPT-004", "102.3-FILE-019", "102.3-FILE-020"], "terminal": {"prompt": "$ ", "command": "objdump -p /bin/bash | grep NEEDED", "lines": [{"t": "cmt", "v": "# Localizar binario con which:"}, {"t": "cmd", "v": "which objdump"}, {"t": "out", "v": "/usr/bin/objdump"}, {"t": "cmt", "v": "# Extraer dependencias NEEDED con objdump -p:"}, {"t": "cmd", "v": "objdump -p /bin/bash | grep NEEDED"}, {"t": "out", "v": "  NEEDED               libtinfo.so.5"}, {"t": "out", "v": "  NEEDED               libdl.so.2"}, {"t": "out", "v": "  NEEDED               libc.so.6"}]}, "options": [{"flag": "-p", "short": "Private headers", "detail": "Muestra información específica de formato incluyendo NEEDED y SONAME."}, {"flag": "--private-headers", "short": "Forma larga", "detail": "Equivalente para inspeccionar metadatos de dependencias y versiones de librerías."}], "notes": "Utilizado en los ejercicios del manual oficial para verificar dependencias y sonames directamente."}, {"id": 26, "section": "102.3", "cat": "files", "type": "exercise", "title": "Ejercicio Guiado: Descomposición de sonames oficiales", "lead": "Descomponga los nombres de bibliotecas en sus tres componentes canónicos:", "ref": "9, 13", "pdf": {"manual": "A", "pages": [9, 13], "figure": null}, "coverage": ["102.3-EX-001"], "question": "Identifique Nombre de biblioteca, Sufijo so y Número de versión para cada caso:\n1. linux-vdso.so.1\n2. libprocps.so.6\n3. libdl.so.2\n4. libc.so.6\n5. libsystemd.so.0\n6. ld-linux-x86-64.so.2", "hint": "Recuerde el patrón: [Nombre de biblioteca] + [.so] + [Número de versión].", "solution": "1. linux-vdso.so.1 -> Nombre: linux-vdso | Sufijo: so | Versión: 1\n2. libprocps.so.6 -> Nombre: libprocps | Sufijo: so | Versión: 6\n3. libdl.so.2 -> Nombre: libdl | Sufijo: so | Versión: 2\n4. libc.so.6 -> Nombre: libc | Sufijo: so | Versión: 6\n5. libsystemd.so.0 -> Nombre: libsystemd | Sufijo: so | Versión: 0\n6. ld-linux-x86-64.so.2 -> Nombre: ld-linux-x86-64 | Sufijo: so | Versión: 2", "notes": "Solución oficial de la página 100 del manual LPIC-1."}, {"id": 27, "section": "102.3", "cat": "files", "type": "exercise", "title": "Ejercicio Guiado: Registrar nueva librería compartida", "lead": "Configuración permanente de una nueva ruta de librerías para una aplicación:", "ref": "9, 13", "pdf": {"manual": "A", "pages": [9, 13], "figure": null}, "coverage": ["102.3-EX-002", "102.3-FILE-022", "102.3-FILE-002", "102.3-CMD-002"], "question": "Ha desarrollado un software y desea agregar /opt/lib/mylib al sistema creando mylib.conf:\n1. ¿En qué directorio debe almacenar este archivo?\n2. ¿Qué comando debe ejecutar para que los cambios sean totalmente efectivos?", "hint": "Piense en el directorio modular de configuración y el comando que reconstruye /etc/ld.so.cache.", "solution": "1. Directorio destino: /etc/ld.so.conf.d\n   Se crea el archivo: /etc/ld.so.conf.d/mylib.conf con la línea: /opt/lib/mylib\n\n2. Comando para activar los cambios: ldconfig (ejecutado como root con sudo).\n   Esto actualiza los enlaces simbólicos y el fichero de caché binario /etc/ld.so.cache.", "notes": "Pregunta frecuente en el examen: saber la ruta /etc/ld.so.conf.d y el comando ldconfig."}, {"id": 28, "section": "102.3", "cat": "files", "type": "exercise", "title": "Ejercicio Guiado: Listar dependencias de kill", "lead": "Consulta de dependencias en un binario estándar del sistema:", "ref": "9, 13", "pdf": {"manual": "A", "pages": [9, 13], "figure": null}, "coverage": ["102.3-EX-003", "102.3-FILE-019", "102.3-CMD-001"], "question": "¿Qué comando usaría para listar las bibliotecas compartidas requeridas por el comando kill?", "hint": "ldd requiere la ruta absoluta al binario ejecutable.", "solution": "Comando: ldd /bin/kill\n\nExplicación: ldd inspecciona el binario ELF en /bin/kill e imprime todas sus dependencias dinámicas (libc.so.6, etc.) junto con sus direcciones de carga en memoria.", "notes": "Solución oficial de la página 100 del manual LPIC-1."}, {"id": 29, "section": "102.3", "cat": "files", "type": "exercise", "title": "Ejercicio Exploratorio: objdump y glibc", "lead": "Extracción de dependencias y sonames directamente desde cabeceras ELF:", "ref": "10, 14", "pdf": {"manual": "A", "pages": [10, 14], "figure": null}, "coverage": ["102.3-EX-004", "102.3-EX-005", "102.3-EX-006", "102.3-CMD-006", "102.3-OPT-004", "102.3-FILE-013", "102.3-FILE-020"], "question": "Escriba los comandos con objdump -p y grep para:\n1. Imprimir las dependencias NEEDED de glibc (/lib/x86_64-linux-gnu/libc.so.6)\n2. Imprimir el SONAME de glibc\n3. Imprimir las dependencias NEEDED de Bash (/bin/bash)", "hint": "Filtre por las palabras clave en mayúsculas: NEEDED y SONAME.", "solution": "1. Dependencias de glibc:\n   objdump -p /lib/x86_64-linux-gnu/libc.so.6 | grep NEEDED\n\n2. SONAME de glibc:\n   objdump -p /lib/x86_64-linux-gnu/libc.so.6 | grep SONAME\n\n3. Dependencias de Bash:\n   objdump -p /bin/bash | grep NEEDED", "notes": "Solución oficial de la página 101 del manual LPIC-1."}, {"id": 30, "section": "102.3", "cat": "files", "type": "challenge", "title": "Reto: Reparación de librería no encontrada", "lead": "Solucione un error de 'error while loading shared libraries':", "ref": "1-14", "pdf": {"manual": "A", "pages": [1, 2, 6, 7], "figure": null}, "coverage": ["102.3-EX-008"], "scenario": "Un desarrollador ha instalado una aplicación propia en /opt/myapp/bin/app. Al ejecutarla, falla con el error:\n'error while loading shared libraries: libcustom.so.1: cannot open shared object file: No such file or directory'.\nLa biblioteca existe en /opt/myapp/lib/libcustom.so.1.", "tasks": ["Diagnosticar las dependencias faltantes con ldd.", "Habilitar temporalmente la biblioteca en la sesión actual para pruebas inmediatas.", "Hacer que el sistema la cargue permanentemente para todos los usuarios."], "solution": "1. Diagnóstico: ldd /opt/myapp/bin/app (mostrará 'libcustom.so.1 => not found').\n2. Solución temporal: export LD_LIBRARY_PATH=/opt/myapp/lib\n3. Solución permanente:\n   a) echo '/opt/myapp/lib' | sudo tee /etc/ld.so.conf.d/myapp.conf\n   b) sudo ldconfig\n   c) Verificar con: sudo ldconfig -p | grep libcustom", "notes": "Excelente caso práctico que integra todos los conceptos del tema 102.3."}, {"id": 31, "section": "102.3", "cat": "files", "type": "review", "title": "Repaso de autoevaluación tipo examen", "lead": "Pregunta de opción múltiple representativa del examen LPIC-1 101-500:", "ref": "1-14", "pdf": {"manual": "A", "pages": [1, 5, 6, 7], "figure": null}, "coverage": ["102.3-EX-007"], "question": "¿Qué comando actualiza el archivo /etc/ld.so.cache tras añadir un archivo en /etc/ld.so.conf.d/?", "options": ["ldd", "ldconfig", "ld.so", "update-ld"], "answer": 1, "why": "ldconfig lee /etc/ld.so.conf y /etc/ld.so.conf.d/*.conf, regenerando la caché /etc/ld.so.cache y los enlaces simbólicos.", "notes": "Comprobar los aciertos con los estudiantes para reforzar antes del cierre."}, {"id": 32, "section": "102.3", "cat": "files", "type": "flashcards", "title": "Tarjetas nemotécnicas de examen (102.3)", "ref": "1-14", "pdf": {"manual": "A", "pages": [1, 14], "figure": null}, "coverage": ["102.3-MEM-001"], "deck": [{"front": "¿Qué es el soname de una biblioteca compartida?", "back": "Nombre lógico del enlazador con formato: lib[nombre].so.[versión_mayor].\nPermite compatibilidad binaria entre versiones menores que mantienen la API."}, {"front": "Función del comando ldd", "back": "Muestra las librerías dinámicas requeridas por un binario y sus rutas resueltas.\nOpción ldd -u detecta dependencias no utilizadas por el ejecutable."}, {"front": "¿Qué archivos configuran las rutas de librerías del sistema?", "back": "/etc/ld.so.conf y los ficheros modulares en el directorio /etc/ld.so.conf.d/*.conf."}, {"front": "Función del comando ldconfig", "back": "Crea enlaces simbólicos y reconstruye la caché binaria /etc/ld.so.cache.\nldconfig -p lista todas las librerías actualmente indexadas en la caché."}, {"front": "¿Para qué se usa la variable LD_LIBRARY_PATH?", "back": "Define directorios prioritarios donde el enlazador dinámico buscará librerías en tiempo de ejecución antes que en las rutas del sistema."}], "notes": "Tarjetas de memorización activa de alta frecuencia para el examen LPIC-1 del subtema 102.3."}, {"id": 33, "section": "102.3", "cat": "files", "type": "summary", "title": "Resumen ejecutivo del subtema 102.3", "lead": "Conceptos y comandos indispensables para el examen LPIC-1:", "ref": "1-14", "pdf": {"manual": "A", "pages": [1, 11, 12], "figure": null}, "coverage": ["102.3-OBJ-001", "102.3-OBJ-002", "102.3-OBJ-003"], "points": [{"icon": "layers", "title": "Sonames y Bibliotecas Dinámicas", "desc": "Formato lib[nombre].so.[versión]. libc.so.6 es un enlace simbólico a la versión real."}, {"icon": "folder", "title": "Rutas y Configuración", "desc": "/lib, /usr/lib, /usr/local/lib configuradas en /etc/ld.so.conf y /etc/ld.so.conf.d/*.conf."}, {"icon": "refresh-cw", "title": "ldconfig y /etc/ld.so.cache", "desc": "Crea enlaces simbólicos y reconstruye la caché binaria. Requiere permisos de root."}, {"icon": "zap", "title": "LD_LIBRARY_PATH y ldd", "desc": "LD_LIBRARY_PATH para rutas temporales; ldd para listar dependencias dinámicas y ldd -u no usadas."}], "notes": "Con esto concluimos el subtema 102.3. Siguiente subtema: 102.4 Gestión de paquetes Debian."}];
+    const SLIDES = [{"id": 1, "section": "102.3", "cat": "libs", "type": "cover", "title": "Gestión de librerías compartidas en Linux", "subtitle": "Bibliotecas estáticas vs dinámicas, sonames, /etc/ld.so.conf, ldconfig y ldd (Modo Examen)", "ref": "101-102", "pdf": {"manual": "A", "pages": [101, 102], "figure": null}, "coverage": ["102.3-OBJ-001", "102.3-OBJ-002"], "meta": {"peso": 1, "paginas": "101–116", "duracion": "30 min"}, "icon": "layers", "notes": "Comenzamos el subtema 102.3 (peso 1). Las librerías compartidas (shared libraries) son bloques de código reutilizables fundamentales para el funcionamiento de Linux. Aprenderemos cómo las busca el kernel, cómo se registran en caché y cómo diagnosticar dependencias rotas."}, {"id": 2, "section": "102.3", "cat": "libs", "type": "concept", "title": "Librerías Estáticas (.a) frente a Compartidas (.so)", "lead": "¿Cuál es la diferencia fundamental entre compilar en estático o usar bibliotecas dinámicas?", "ref": "102-104", "pdf": {"manual": "A", "pages": [102, 103, 104], "figure": null}, "coverage": ["102.3-CON-001", "102.3-CON-002"], "points": [{"icon": "archive", "text": "Bibliotecas Estáticas (.a - Archive)", "detail": "El código de la librería se incrusta físicamente dentro del ejecutable en tiempo de compilación. Ventaja: El programa es autónomo y no depende de archivos externos. Desventaja: Ejecutables enormes y gasto excesivo de memoria RAM."}, {"icon": "layers", "text": "Bibliotecas Compartidas / Dinámicas (.so - Shared Object)", "detail": "🎯 El estándar de Linux: El ejecutable solo contiene referencias. La librería se carga en RAM una sola vez y todos los programas la comparten simultáneamente. Permite actualizar la librería para parchear fallos de seguridad sin recompilar los programas."}], "remember": "🎯 Clave de Examen: Extensión de bibliotecas estáticas: .a (archive); extensión de bibliotecas compartidas: .so (shared object).", "notes": "Muestra que si 50 programas usan la librería glibc y fuera estática, tendríamos 50 copias idénticas en disco y en memoria RAM. Con .so solo hay 1 copia en RAM compartida."}, {"id": 3, "section": "102.3", "cat": "libs", "type": "flow", "title": "Anatomía del soname y Versionado de Librerías", "lead": "¿Cómo gestiona Linux las actualizaciones de librerías sin romper programas antiguos?", "ref": "104-106", "pdf": {"manual": "A", "pages": [104, 105, 106], "figure": null}, "coverage": ["102.3-CON-003"], "steps": [{"step": "1. Nombre Real (Real Name)", "desc": "El archivo binario físico compilado en disco: libnombre.so.mayor.menor.revisión (ej: libm.so.6.0.0 o libssl.so.1.1)."}, {"step": "2. soname (Shared Object Name)", "desc": "🎯 Enlace simbólico que solo incluye la versión mayor de compatibilidad binaria ABI (ej: libm.so.6). Es el nombre que se incrusta dentro de los ejecutables al compilar."}, {"step": "3. Linker Name", "desc": "Enlace simbólico sin números de versión (ej: libm.so -> libm.so.6) utilizado exclusivamente por el compilador gcc al crear nuevos programas (-lm)."}], "remember": "🎯 Clave de Examen: Si cambia la versión MAYOR (ej: libssl.so.1 -> libssl.so.2), se rompe la compatibilidad binaria (ABI) y los programas antiguos deben recompilarse. Si solo cambia la menor (libssl.so.1.1 -> 1.2), son compatibles.", "notes": "Enseña a la clase el trío de nombres: el binario real, el soname que usan los programas compilados y el linker name que usa el compilador."}, {"id": 4, "section": "102.3", "cat": "libs", "type": "concept", "title": "Ubicaciones Estándar y Arquitectura Multiarch", "lead": "¿Dónde busca el sistema las librerías compartidas por defecto?", "ref": "106-107", "pdf": {"manual": "A", "pages": [106, 107], "figure": null}, "coverage": ["102.3-CON-004"], "points": [{"icon": "folder", "text": "Rutas estándar históricas de Linux", "detail": "/lib y /usr/lib (para librerías del sistema y paquetes de la distribución) y /usr/local/lib (para librerías compiladas manualmente por el administrador)."}, {"icon": "cpu", "text": "Rutas de 64 bits en RHEL/CentOS/Fedora", "detail": "Usa /lib64 y /usr/lib64 para binarios de 64 bits, reservando /lib y /usr/lib para compatibilidad de 32 bits."}, {"icon": "folder-tree", "text": "Arquitectura Multiarch en Debian/Ubuntu", "detail": "Usa subdirectorios con tripletas de arquitectura (ej: /lib/x86_64-linux-gnu/, /usr/lib/x86_64-linux-gnu/ o /usr/lib/arm-linux-gnueabihf/), permitiendo instalar librerías de 32 y 64 bits a la vez sin colisiones."}], "remember": "🎯 Clave de Examen: Las dos únicas rutas que el enlazador dinámico consulta SIEMPRE sin necesidad de configuración adicional son /lib y /usr/lib.", "notes": "Explica la diferencia entre distros basadas en Red Hat (/lib64) y distros basadas en Debian (multiarch con tripletas)."}, {"id": 5, "section": "102.3", "cat": "libs", "type": "file", "title": "Configuración Central: /etc/ld.so.conf y /etc/ld.so.conf.d/", "lead": "¿Cómo indicamos al sistema que busque librerías en directorios no estándar (ej: /opt/oracle/lib)?", "ref": "107-108", "pdf": {"manual": "A", "pages": [107, 108], "figure": null}, "coverage": ["102.3-FIL-001"], "file": {"path": "/etc/ld.so.conf", "purpose": "Listar rutas adicionales donde residen bibliotecas compartidas", "content": "# Archivo maestro /etc/ld.so.conf\ninclude /etc/ld.so.conf.d/*.conf\n/usr/local/lib"}, "points": [{"icon": "folder-check", "text": "Directorio modular /etc/ld.so.conf.d/", "detail": "🎯 Clave de Examen: En lugar de editar el archivo maestro /etc/ld.so.conf, los paquetes y administradores crean archivos con extensión .conf dentro de /etc/ld.so.conf.d/ (ej: x86_64-linux-gnu.conf)."}, {"icon": "refresh-cw", "text": "Requisito obligatorio de actualización", "detail": "🎯 Regla de Examen: Editar /etc/ld.so.conf o añadir un archivo en /etc/ld.so.conf.d/ NO tiene efecto inmediato. Se debe ejecutar obligatoriamente el comando 'ldconfig' para regenerar la caché binaria."}], "remember": "🎯 Clave de Examen: Si añades una ruta a /etc/ld.so.conf y no ejecutas 'ldconfig', los programas seguirán fallando con error de librería no encontrada.", "notes": "Pregunta típica de examen: ¿Qué comando se debe ejecutar tras modificar /etc/ld.so.conf? Respuesta: ldconfig."}, {"id": 6, "section": "102.3", "cat": "libs", "type": "command", "title": "El Comando ldconfig y la Caché /etc/ld.so.cache", "lead": "¿Por qué Linux no escanea los discos duros cada vez que abres un programa? Porque usa una caché binaria:", "ref": "108-110", "pdf": {"manual": "A", "pages": [108, 109, 110], "figure": null}, "coverage": ["102.3-CMD-001", "102.3-FIL-002"], "command": "ldconfig", "purpose": "Crear enlaces simbólicos de sonames y compilar la caché binaria /etc/ld.so.cache", "terminal": {"command": "sudo ldconfig; ldconfig -p | grep libssl | head -n 2", "output": "libssl.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libssl.so.3\nlibssl.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libssl.so"}, "options": [{"flag": "ldconfig (sin argumentos)", "desc": "Relee /etc/ld.so.conf, crea enlaces de sonames necesarios y regenera el archivo binario /etc/ld.so.cache."}, {"flag": "-p / --print-cache", "desc": "🎯 Clave de Examen: Imprime en pantalla la lista completa de todas las librerías indexadas en la caché actual /etc/ld.so.cache."}, {"flag": "-v / --verbose", "desc": "Muestra cada directorio escaneado y los enlaces simbólicos creados o actualizados."}, {"flag": "-f <archivo>", "desc": "Utiliza un archivo de configuración alternativo en lugar de /etc/ld.so.conf."}, {"flag": "-C <archivo_cache>", "desc": "Genera la caché binaria en una ruta alternativa en vez de /etc/ld.so.cache."}], "remember": "🎯 Pregunta Fija de Examen: ¿Qué comando y opción muestra todas las librerías compartidas actualmente indexadas en la caché del enlazador dinámico? Respuesta: ldconfig -p.", "notes": "Enseña la opción -p: 'p' de Print. Vuelca la caché binaria /etc/ld.so.cache a texto legible."}, {"id": 7, "section": "102.3", "cat": "libs", "type": "command", "title": "Rutas Temporales con LD_LIBRARY_PATH", "lead": "¿Cómo probar una versión beta de una librería o ejecutar un software sin ser superusuario root?", "ref": "110-111", "pdf": {"manual": "A", "pages": [110, 111], "figure": null}, "coverage": ["102.3-ENV-001"], "command": "export LD_LIBRARY_PATH=/ruta1:/ruta2", "purpose": "Variable de entorno que antepone directorios personalizados antes de consultar /etc/ld.so.cache", "terminal": {"command": "export LD_LIBRARY_PATH=/home/usuario/libs_test:$LD_LIBRARY_PATH\n./mi_programa_beta\nunset LD_LIBRARY_PATH", "output": "[Programa ejecutado con las librerías de prueba exitosamente]"}, "options": [{"flag": "LD_LIBRARY_PATH", "desc": "🎯 Lista de directorios separados por dos puntos (:) donde el cargador dinámico busca librerías ANTES de mirar en /etc/ld.so.cache."}, {"flag": "unset LD_LIBRARY_PATH", "desc": "Borra la variable para restaurar el comportamiento normal del sistema."}, {"flag": "Riesgo de Seguridad", "desc": "🎯 Clave de Examen: Por motivos de seguridad, el enlazador dinámico IGNORA la variable LD_LIBRARY_PATH en ejecutables que tengan activo el bit SUID o SGID."}], "remember": "🎯 Clave de Examen: LD_LIBRARY_PATH solo afecta a la sesión de terminal actual y no requiere permisos de root. ¡Es ignorada por programas con permisos SUID para evitar escaladas de privilegios!", "notes": "Explica a la clase por qué no se debe poner LD_LIBRARY_PATH de forma global en /etc/profile: puede romper binarios del sistema si sobreescribe librerías críticas."}, {"id": 8, "section": "102.3", "cat": "libs", "type": "command", "title": "Auditoría de Dependencias con ldd", "lead": "¿Qué comando utilizas cuando un programa falla al abrirse con 'error while loading shared libraries'?", "ref": "111-112", "pdf": {"manual": "A", "pages": [111, 112], "figure": null}, "coverage": ["102.3-CMD-002"], "command": "ldd /ruta/al/ejecutable", "purpose": "Listar todas las bibliotecas compartidas requeridas por un programa y qué ruta física las provee", "terminal": {"command": "ldd /bin/cat", "output": "\tlinux-vdso.so.1 (0x00007ffdf1fc4000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f59e9c00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f59e9e1f000)"}, "options": [{"flag": "ldd <binario>", "desc": "🎯 Clave de Examen: Muestra cada librería requerida (NEEDED), la flecha '=>' con la ruta resuelta en disco y la dirección virtual de memoria."}, {"flag": "not found", "desc": "🎯 Alerta de Diagnóstico: Si aparece 'libfoo.so => not found', indica que la librería no está instalada o falta su ruta en /etc/ld.so.conf."}, {"flag": "-v / --verbose", "desc": "Muestra información detallada incluyendo los requisitos de versión de símbolos específicos de cada librería."}, {"flag": "-u / --unused", "desc": "Muestra dependencias enlazadas que el programa no utiliza directamente."}, {"flag": "-d / --data-relocs", "desc": "Realiza reubicaciones de datos e informa de símbolos desaparecidos."}], "remember": "🎯 Pregunta Clásica de Examen: ¿Qué comando te dice qué librerías necesita un binario para funcionar? Respuesta: ldd.", "notes": "Muestra la primera línea 'linux-vdso.so.1': es una librería virtual inyectada directamente por el kernel en RAM para llamadas al sistema rápidas."}, {"id": 9, "section": "102.3", "cat": "libs", "type": "command", "title": "Inspección de Binarios ELF con objdump -p", "lead": "¿Cómo sabe ldd qué librerías necesita un programa sin ejecutarlo?", "ref": "112-113", "pdf": {"manual": "A", "pages": [112, 113], "figure": null}, "coverage": ["102.3-CMD-003"], "command": "objdump -p /ruta/al/binario | grep NEEDED", "purpose": "Examinar las cabeceras internas del formato ejecutable estándar de Linux (ELF)", "terminal": {"command": "objdump -p /bin/ls | grep NEEDED", "output": "  NEEDED               libselinux.so.1\n  NEEDED               libc.so.6"}, "options": [{"flag": "-p / --private-headers", "desc": "🎯 Clave de Examen: Vuelca todas las cabeceras privadas del formato ELF, incluyendo la sección dinámica con las etiquetas NEEDED y el soname interno."}, {"flag": "Etiqueta NEEDED", "desc": "Especifica el soname exacto que el enlazador dinámico (ld.so) debe buscar obligatoriamente al arrancar el proceso."}, {"flag": "-T / --dynamic-syms", "desc": "Muestra la tabla de símbolos dinámicos exportados e importados."}, {"flag": "readelf -d <binario>", "desc": "Comando alternativo oficial para inspeccionar la sección dinámica de ejecutables ELF."}], "remember": "🎯 Diferencia de Examen: ldd ejecuta el cargador dinámico para simular la resolución completa; objdump -p lee estáticamente las etiquetas NEEDED del archivo ELF.", "notes": "Destaca la etiqueta NEEDED: es la lista de la compra que el compilador dejó escrita dentro del binario."}, {"id": 10, "section": "102.3", "cat": "libs", "type": "concept", "title": "El Enlazador Dinámico ld.so y Orden de Búsqueda", "lead": "¿Cuál es el orden estricto de resolución que sigue Linux al abrir cualquier programa?", "ref": "113", "pdf": {"manual": "A", "pages": [113], "figure": null}, "coverage": ["102.3-CON-005"], "points": [{"icon": "compass", "text": "1. Rutas RPATH / RUNPATH", "detail": "Rutas incrustadas dentro del propio binario durante la compilación (si existen)."}, {"icon": "terminal", "text": "2. Variable LD_LIBRARY_PATH", "detail": "🎯 Rutas temporales de la sesión de usuario (salvo que el binario tenga permisos SUID/SGID)."}, {"icon": "database", "text": "3. Caché binaria /etc/ld.so.cache", "detail": "🎯 Índice generado por ldconfig a partir de /etc/ld.so.conf y /etc/ld.so.conf.d/."}, {"icon": "folder", "text": "4. Directorios estándar predeterminados", "detail": "🎯 /lib y /usr/lib (y sus equivalentes de 64 bits o multiarch)."}], "remember": "🎯 Secuencia de Examen: Si una librería está en /usr/lib y en una ruta de LD_LIBRARY_PATH, el sistema cargará SIEMPRE la de LD_LIBRARY_PATH por tener mayor prioridad.", "notes": "Haz que los alumnos repasen este orden de 4 pasos: RPATH -> LD_LIBRARY_PATH -> /etc/ld.so.cache -> /lib y /usr/lib."}, {"id": 11, "section": "102.3", "cat": "libs", "type": "table", "title": "Librerías Fundamentales del Sistema en el Examen", "lead": "El examen LPIC-1 cita varias librerías de sistema que debes saber identificar:", "ref": "113-114", "pdf": {"manual": "A", "pages": [113, 114], "figure": null}, "coverage": ["102.3-CON-006"], "headers": ["Librería Compartida", "Nombre en Linux", "Función Esencial para el Sistema"], "rows": [["GNU C Library (glibc)", "libc.so.6", "🎯 La librería más crítica de Linux: llamadas al sistema, gestión de memoria (malloc), E/S y cadenas."], ["Librería Matemática", "libm.so.6", "Funciones matemáticas avanzadas (seno, coseno, raíces cuadradas). Se enlaza con -lm."], ["Hilos POSIX (pthreads)", "libpthread.so.0", "Gestión de subprocesos e hilos de ejecución concurrentes multihilo."], ["Autenticación PAM", "libpam.so.0", "Pluggable Authentication Modules: autenticación de usuarios (login, sshd, sudo)."], ["Cifrado y Seguridad", "libcrypt.so.1 / libssl.so", "Cifrado de contraseñas y protocolos criptográficos TLS/SSL."]], "remember": "🎯 Dato de Examen: Prácticamente todos los programas dinámicos de Linux se enlazan con libc.so.6.", "notes": "Muestra que si libc.so.6 se borra o corrompe, NINGÚN comando del sistema (ni ls, ni cp, ni bash) podrá ejecutarse."}, {"id": 12, "section": "102.3", "cat": "libs", "type": "concept", "title": "Resolución de Problemas: Errores Comunes de Librerías", "lead": "Guía rápida para diagnosticar y solucionar cualquier fallo de dependencias en el examen y en la vida real:", "ref": "115-116", "pdf": {"manual": "A", "pages": [115, 116], "figure": null}, "coverage": ["102.3-CON-007"], "points": [{"icon": "alert-circle", "text": "1. Identificar la librería que falta", "detail": "Ejecuta 'ldd /ruta/al/programa' y busca la línea que termina en '=> not found'."}, {"icon": "search", "text": "2. Averiguar si existe en el disco", "detail": "Usa 'find /usr -name libnombre*' o busca qué paquete la provee con 'apt-file search' o 'yum whatprovides'."}, {"icon": "settings", "text": "3. Si la librería está instalada pero no se encuentra", "detail": "Añade su directorio a un archivo en /etc/ld.so.conf.d/ y ejecuta 'sudo ldconfig'."}, {"icon": "check-square", "text": "4. Comprobar que ldconfig la ha indexado", "detail": "Ejecuta 'ldconfig -p | grep libnombre' y verifica que aparece la flecha hacia la ruta correcta."}], "remember": "🎯 Flujo Metódico: ldd (diagnostica) -> locate/apt-file (encuentra) -> /etc/ld.so.conf.d/ (configura) -> ldconfig (activa).", "notes": "Este diagrama mental permite resolver cualquier avería de librerías en cuestión de segundos."}, {"id": 13, "section": "102.3", "cat": "libs", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: sonames y ldconfig)", "ref": "113-114", "pdf": {"manual": "A", "pages": [113, 114], "figure": null}, "scenario": "Casos prácticos sobre versionado y registro de librerías (Manual Oficial LPIC-1 Páginas 113-114):", "steps": [{"action": "Caso 1: En disco existe el archivo 'libpng16.so.16.37.0'. ¿Cuál es su soname y cuál su linker name?", "command": "soname: libpng16.so.16 ; Linker name: libpng16.so", "reason": "El soname conserva la versión mayor (16) para compatibilidad de ejecutables compilados; el linker name no lleva números para gcc."}, {"action": "Caso 2: Has instalado una base de datos en /opt/bd/lib. ¿Qué dos pasos son obligatorios para que el sistema encuentre sus librerías?", "command": "1. Crear /etc/ld.so.conf.d/bd.conf con la línea '/opt/bd/lib' ; 2. Ejecutar 'sudo ldconfig'", "reason": "ldconfig debe leer el nuevo archivo de configuración y actualizar la caché binaria /etc/ld.so.cache."}], "solution": {"explain": "Sin ejecutar ldconfig, el enlazador dinámico jamás consultará la nueva ruta en /opt."}, "notes": "Enfatiza el paso 2: en el 80% de los errores reales de administración, la gente se olvida de ejecutar ldconfig."}, {"id": 14, "section": "102.3", "cat": "libs", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: ldd y objdump)", "ref": "114-115", "pdf": {"manual": "A", "pages": [114, 115], "figure": null}, "scenario": "Casos prácticos de auditoría de dependencias (Manual Oficial LPIC-1 Páginas 114-115):", "steps": [{"action": "Caso 3: ¿Qué comando te muestra todas las librerías compartidas de las que depende el comando /bin/kill?", "command": "ldd /bin/kill", "reason": "ldd invoca al enlazador dinámico simulando la carga e imprime la lista de librerías y rutas resueltas."}, {"action": "Caso 4: Averiguar qué librerías necesita un binario inspeccionando exclusivamente sus cabeceras ELF sin ejecutarlo.", "command": "objdump -p /bin/kill | grep NEEDED  (o readelf -d /bin/kill)", "reason": "objdump -p extrae directamente las etiquetas NEEDED almacenadas en la sección dinámica del binario ELF."}], "solution": {"explain": "ldd es la herramienta estándar rápida; objdump -p es la herramienta forense segura para binarios sospechosos."}, "notes": "Muestra que ldd puede llegar a ejecutar código del binario en ciertas condiciones; objdump es puramente estático."}, {"id": 15, "section": "102.3", "cat": "libs", "type": "challenge", "title": "Retos de Exploración del Manual Oficial", "ref": "115", "pdf": {"manual": "A", "pages": [115], "figure": null}, "scenario": "Resuelve estos 4 retos de examen planteados en el manual oficial LPIC-1 (Página 115):\n1. Un programa devuelve 'error while loading shared libraries: libcrypto.so.1.1: cannot open shared object file: No such file or directory'. ¿Qué 3 comprobaciones debes realizar?\n2. ¿Por qué la variable LD_LIBRARY_PATH no funciona al ejecutar comandos como 'sudo' o 'passwd'?\n3. ¿Cómo comprobarías si la librería libncurses está registrada actualmente en la caché del sistema sin abrir ningún archivo?\n4. Si actualizas glibc a una versión menor más moderna, ¿es necesario recompilar todos los programas del sistema?", "hint": "Recuerda: find/locate de la librería; permisos SUID en binarios; comando ldconfig -p; y compatibilidad de versiones menores en sonames.", "solution": {"explain": "1. Comprobar: a) Si la librería está instalada en disco (find / -name libcrypto.so.1.1); b) Si su ruta está en /etc/ld.so.conf.d/; c) Si se ejecutó ldconfig para actualizar la caché.\n2. Porque sudo y passwd tienen el bit SUID activo: por seguridad, el cargador ld.so ignora LD_LIBRARY_PATH para evitar que un atacante inyecte una librería falsa y obtenga root.\n3. Con el comando: ldconfig -p | grep libncurses.\n4. NO, porque las actualizaciones de versión menor respetan la compatibilidad binaria hacia atrás (mismo soname libc.so.6)."}, "notes": "Preguntas directas de examen. La restricción de SUID en LD_LIBRARY_PATH es un clásico de seguridad."}, {"id": 16, "section": "102.3", "cat": "libs", "type": "review", "title": "Pregunta de Examen LPIC-1: ldconfig y Caché", "q": "¿Qué comando y opción muestra el contenido actual de la caché binaria de librerías compartidas /etc/ld.so.cache?", "options": ["ldconfig -p", "ldd --cache", "cat /etc/ld.so.cache", "ldconfig -c"], "answer": 0, "why": "ldconfig -p (--print-cache) imprime el contenido de /etc/ld.so.cache formateado en texto. cat no sirve porque el archivo es binario; ldd no tiene opción --cache; y -c en ldconfig se usa para especificar un archivo de configuración alternativo.", "notes": "Pregunta clásica. Recuerda: ldconfig -p (Print cache)."}, {"id": 17, "section": "102.3", "cat": "libs", "type": "review", "title": "Pregunta de Examen LPIC-1: Variables de Entorno de Librerías", "q": "¿Qué variable de entorno puede utilizar un usuario en su sesión para indicar al enlazador dinámico que busque librerías en un directorio personal antes de consultar la caché del sistema?", "options": ["LIBPATH", "LD_LIBRARY_PATH", "SHARED_LIB_PATH", "PATH_LIBRARIES"], "answer": 1, "why": "LD_LIBRARY_PATH es la variable de entorno estándar reconocida por ld.so en Linux. LIBPATH se utiliza en AIX, mientras que las otras son nombres inventados.", "notes": "Pregunta fija de examen. Memorizar el nombre exacto: LD_LIBRARY_PATH."}, {"id": 18, "section": "102.3", "cat": "libs", "type": "flashcards", "title": "Tarjetas de Memorización: Librerías Compartidas (102.3)", "deck": [{"front": "¿Qué extensión tienen las librerías estáticas y cuál las compartidas?", "back": "Estáticas: .a (archive). Compartidas / dinámicas: .so (shared object)."}, {"front": "¿Qué archivo binario consulta ld.so para localizar rápidamente las librerías?", "back": "/etc/ld.so.cache (generado por ldconfig)."}, {"front": "¿En qué archivo o directorio se añaden rutas permanentes de librerías?", "back": "En /etc/ld.so.conf y en archivos .conf dentro de /etc/ld.so.conf.d/."}, {"front": "¿Qué comando actualiza /etc/ld.so.cache tras modificar /etc/ld.so.conf?", "back": "sudo ldconfig"}, {"front": "¿Qué hace el comando 'ldconfig -p'?", "back": "Imprime en pantalla la lista de librerías indexadas en /etc/ld.so.cache."}, {"front": "¿Qué comando analiza las librerías compartidas requeridas por un ejecutable?", "back": "ldd /ruta/al/binario"}, {"front": "¿Qué variable define rutas de librerías temporales para la sesión actual?", "back": "LD_LIBRARY_PATH"}, {"front": "¿Por qué LD_LIBRARY_PATH es ignorada en ejecutables SUID?", "back": "Por seguridad, para impedir que un usuario inyecte código malicioso y obtenga privilegios de root."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno dominio de los conceptos de librerías."}, {"id": 19, "section": "102.3", "cat": "libs", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 102.3", "takeaways": ["Concepto: Librerías estáticas (.a) vs dinámicas (.so). soname define la compatibilidad binaria (ABI) mayor.", "Rutas y Configuración: Rutas por defecto /lib y /usr/lib. Rutas adicionales en /etc/ld.so.conf y /etc/ld.so.conf.d/*.conf.", "Caché y Herramientas: ldconfig compila la caché binaria /etc/ld.so.cache. ldconfig -p muestra su contenido.", "Auditoría y Variables: ldd muestra dependencias en vivo. objdump -p lee etiquetas NEEDED. LD_LIBRARY_PATH fija rutas temporales (ignorada en binarios SUID)."], "top3": [{"cmd": "ldd /ruta/al/binario", "desc": "Muestra las dependencias de librerías compartidas y detecta componentes 'not found'."}, {"cmd": "sudo ldconfig", "desc": "Regenera la caché /etc/ld.so.cache y crea enlaces simbólicos de sonames."}, {"cmd": "ldconfig -p", "desc": "Imprime todas las librerías compartidas actualmente indexadas en la caché del sistema."}], "practice": {"name": "Practica 102.3: Gestión de Librerías Compartidas del Sistema", "url": "../practicas/p-102-3-librerias-compartidas.html", "desc": "Rastrea dependencias dinámicas con ldd, administra la caché del enlazador con ldconfig y comprende el uso de /etc/ld.so.conf y LD_LIBRARY_PATH."}, "notes": "Finalizamos el subtema 102.3. Un subtema corto pero con preguntas muy directas que no se deben fallar."}];
     const ERRATAS = [{"id": "ERR-102.3-01", "section": "102.3", "ref": "p. 7", "manual_says": "ldconfig actualiza /etc/ld.so.conf al ejecutarse.", "reality": "ldconfig NO modifica /etc/ld.so.conf; LEE ese archivo y sus subdirectorios para regenerar la caché binaria /etc/ld.so.cache.", "exam_tip": "En el examen LPIC-1 preguntan qué archivo es regenerado por ldconfig: la respuesta correcta siempre es /etc/ld.so.cache."}];
     const GLOSARIO = [{"id": "soname", "term": "soname", "def": "Nombre canónico de una biblioteca compartida con formato lib[nombre].so.[versión_mayor].", "ref": "p. 1-4"}, {"id": "ld.so", "term": "ld.so / ld-linux.so", "def": "Enlazador y cargador dinámico del sistema que busca y carga las bibliotecas compartidas al arrancar un ejecutable.", "ref": "p. 4-8"}, {"id": "ldconfig", "term": "ldconfig", "def": "Programa de administración que escanea los directorios de librerías y reconstruye /etc/ld.so.cache.", "ref": "p. 5-7"}, {"id": "ldd", "term": "ldd", "def": "Utilidad que analiza las cabeceras ELF de un ejecutable e imprime las librerías compartidas de las que depende.", "ref": "p. 8-10"}, {"id": "LD_LIBRARY_PATH", "term": "LD_LIBRARY_PATH", "def": "Variable de entorno con lista de directorios donde buscar bibliotecas antes que en las rutas estándar del sistema.", "ref": "p. 10-12"}];
-    const META = {"course": "LPIC-1 v5.0", "topic": "102.3", "title": "Gestión de librerías compartidas", "weight": 1, "pages": "1–14", "icons": "Lucide 0.468.0 (ISC)"};
+    const META = {"topic": "102.3", "title": "Gestión de librerías compartidas", "weight": 1, "description": "Bibliotecas estáticas vs dinámicas, sonames, /etc/ld.so.conf, ldconfig y ldd (Alta Densidad LPIC-1)", "duracion": "30 min"};
 
     /* -------------------------------------------------------------
        MOTOR DE RENDERIZADO Y NAVEGACIÓN (Pure JS)
@@ -1124,7 +1223,7 @@
             <div style="display:flex; justify-content:center; gap:20px; font-size:22px; font-weight:600;">
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Peso LPI: ${escapeHTML(s.meta?.peso || (typeof META !== 'undefined' && META.weight) || '')}</span>
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Páginas: ${escapeHTML(s.meta?.paginas || '')}</span>
-              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '45 min')}</span>
+              <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '30 min')}</span>
             </div>
           </div>
         `;
@@ -1232,51 +1331,87 @@
         }
       } else if (s.type === 'file') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
-        const filePath = s.path || s.file || '';
-        const fileDesc = s.desc || s.contains || s.lead || s.purpose || '';
+        const fileObj = (typeof s.file === 'object' && s.file !== null) ? s.file : {};
+        const filePath = fileObj.path || s.path || (typeof s.file === 'string' ? s.file : '');
+        const filePurpose = fileObj.purpose || s.purpose || '';
+        const fileDesc = fileObj.desc || s.desc || s.contains || s.lead || filePurpose;
         html += `<div class="slide-lead"><code class="t-path" style="font-size:28px; font-weight:700;">${escapeHTML(filePath)}</code>${fileDesc ? ` — ${renderRichText(fileDesc)}` : ''}</div>`;
         
-        // Directivas de configuración si existen
-        if (s.directives && s.directives.length > 0) {
-          html += `<div class="directives-grid">`;
-          s.directives.forEach(d => {
+        // Muestra de sintaxis, contenido de archivo o configuración
+        const fileContent = fileObj.content || s.content || s.sample?.content || (typeof s.sample === 'string' ? s.sample : '') || (typeof s.syntax === 'string' ? s.syntax : '');
+        if (fileContent || s.sample || s.syntax) {
+          let lines = [];
+          if (Array.isArray(fileContent)) lines = fileContent;
+          else if (typeof fileContent === 'string' && fileContent.trim()) lines = fileContent.split('\n');
+          else if (s.sample && s.sample.lines) lines = s.sample.lines;
+          else if (Array.isArray(s.syntax)) lines = s.syntax;
+
+          if (lines.length > 0) {
             html += `
-              <div class="directive-card">
-                <div class="directive-key">${escapeHTML(d.key || '')}</div>
-                <div class="directive-desc">${renderRichText(d.desc || d.detail || '')}</div>
+              <div class="term-wrapper" style="margin-top:12px; margin-bottom:16px;">
+                <div class="term-header">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
+                    <span>${escapeHTML(filePath || 'configuración')}</span>
+                  </div>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(Array.isArray(lines) ? lines.join('\n') : fileContent)}')">
+                    <svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar archivo
+                  </button>
+                </div>
+                <div class="term-code">`;
+            lines.forEach(line => {
+              const lStr = String(line);
+              if (lStr.trim().startsWith('#')) {
+                html += `<div><span class="t-cmt">${escapeHTML(lStr)}</span></div>`;
+              } else {
+                html += `<div>${escapeHTML(lStr)}</div>`;
+              }
+            });
+            html += `</div></div>`;
+          }
+        }
+
+        // Directivas o Viñetas explicativas (points)
+        const pointsList = s.points || s.directives || [];
+        if (pointsList.length > 0) {
+          html += `<div class="concept-grid">`;
+          pointsList.forEach(p => {
+            const pKey = p.text || p.key || p.title || '';
+            const pDesc = p.detail || p.desc || '';
+            html += `
+              <div class="concept-card">
+                <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'file-text'}"/></svg></div>
+                <div style="flex:1;">
+                  <div class="card-text">${renderRichText(pKey)}</div>
+                  ${pDesc ? `<div class="card-detail">${renderRichText(pDesc)}</div>` : ''}
+                </div>
               </div>
             `;
           });
           html += `</div>`;
         }
 
-        // Muestra de sintaxis o archivo
-        if (s.sample || s.syntax) {
-          let lines = [];
-          if (s.sample && s.sample.lines) lines = s.sample.lines;
-          else if (typeof s.syntax === 'string') lines = s.syntax.split('\n');
-          else if (Array.isArray(s.syntax)) lines = s.syntax;
-          else if (typeof s.sample === 'string') lines = s.sample.split('\n');
-
-          html += `
-            <div class="term-wrapper" style="margin-top:12px;">
-              <div class="term-header">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <svg class="ic ic-sm"><use href="#i-file-code"/></svg>
-                  <span>${escapeHTML(filePath || 'config')}</span>
-                </div>
-              </div>
-              <div class="term-code">`;
-          lines.forEach(line => {
-            html += `<div>${escapeHTML(line)}</div>`;
-          });
-          html += `</div></div>`;
-        }
-
         // Consola o terminal complementario en slide file
         const fileTerm = s.terminal || s.console;
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
+        }
+
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
+        if (s.remember || s.look) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.look)}</span>
+            </div>
+          `;
         }
 
         if (s.writtenBy || s.readBy) {
@@ -1301,6 +1436,52 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+      } else if (s.type === 'matrix') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.takeaway || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const headers = s.headers || s.cols || s.columns || s.matrix?.headers || [];
+        const rows = s.rows || s.matrix?.rows || [];
+        html += `<div class="matrix-container"><table class="slide-matrix"><thead><tr>`;
+        headers.forEach(h => html += `<th>${renderRichText(h)}</th>`);
+        html += `</tr></thead><tbody>`;
+        rows.forEach((row, ridx) => {
+          const isHl = s.highlight && (s.highlight.row === (ridx + 1) || s.highlight === (ridx + 1));
+          html += `<tr class="${isHl ? 'highlighted' : ''}">`;
+          let cells = [];
+          if (Array.isArray(row)) {
+            cells = row;
+          } else if (typeof row === 'object' && row !== null) {
+            if (row.head !== undefined && Array.isArray(row.cells)) {
+              cells = [row.head, ...row.cells];
+            } else if (Array.isArray(row.cells)) {
+              cells = row.cells;
+            } else {
+              cells = Object.values(row);
+            }
+          }
+          cells.forEach((cell, cidx) => {
+            html += `<td>${renderRichText(cell)}</td>`;
+          });
+          html += `</tr>`;
+        });
+        html += `</tbody></table></div>`;
+        if (s.remember || s.takeaway) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:14px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember || s.takeaway)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
@@ -1338,7 +1519,12 @@
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         
         // Badge del manual oficial
-        const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        let pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
+        if (!pdfRef && scenarioText) {
+          const m = scenarioText.match(/P[áa]gina\s+oficial\s+(\d+(?:[–-]\d+)?)/i);
+          if (m) pdfRef = m[1];
+        }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
@@ -1348,7 +1534,6 @@
         `;
 
         // Planteamiento del problema (Escenario claro)
-        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
             <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
@@ -1367,7 +1552,7 @@
           `;
           if (steps.length > 0) {
             steps.forEach((st, idx) => {
-              const doText = st.do || st.task || st.step || '';
+              const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
                   <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
@@ -1401,12 +1586,16 @@
         if (steps.length > 0) {
           html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
-            const doText = st.do || st.task || st.step || '';
-            const lookText = st.look || st.cmd || st.code || '';
+            const doText = st.action || st.do || st.task || st.step || '';
+            const lookText = st.command || st.look || st.cmd || st.code || '';
+            const reasonText = st.reason || st.explain || '';
             html += `
-              <div style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
-                <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
-                ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+              <div style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
+                  <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
+                  ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+                </div>
+                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -1485,14 +1674,21 @@
         const options = s.options || [];
         options.forEach((opt, oidx) => {
           html += `
-            <button class="quiz-btn" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
+            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
               <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(opt)}</span>
             </button>
           `;
         });
         html += `</div>`;
-        html += `<div class="quiz-feedback" id="quiz-feedback-box"></div>`;
+        html += `
+          <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+              <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
+            </button>
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+        `;
       } else if (s.type === 'flashcards') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
@@ -1513,7 +1709,7 @@
             </div>
           </div>
           <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
-            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-right" style="transform:rotate(180deg);"/></svg>Anterior</button>
+            <button class="nav-btn" onclick="prevCard()"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>Anterior</button>
             <span id="fc-counter" style="font-size:22px; font-weight:700; align-self:center;">1 / ${deck.length}</span>
             <button class="nav-btn" onclick="nextCard()">Siguiente<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></button>
           </div>
@@ -1523,13 +1719,26 @@
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
         html += `<div class="concept-grid">`;
-        const items = s.items || s.points || s.cards || [];
-        items.forEach(item => {
-          const cardTitle = item.title || item.heading || item.key || (typeof item === 'string' ? item : item.text) || '';
-          const cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '') || '';
+        const items = s.takeaways || s.items || s.points || s.cards || [];
+        items.forEach((item, idx) => {
+          let cardTitle = '';
+          let cardDesc = '';
+          if (typeof item === 'string') {
+            const parts = item.split(': ');
+            if (parts.length > 1) {
+              cardTitle = parts[0];
+              cardDesc = parts.slice(1).join(': ');
+            } else {
+              cardTitle = `Punto Clave ${idx + 1}`;
+              cardDesc = item;
+            }
+          } else {
+            cardTitle = item.title || item.heading || item.key || item.text || `Clave ${idx + 1}`;
+            cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '');
+          }
           html += `
             <div class="concept-card">
-              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${item.icon || 'circle-check'}"/></svg></div>
+              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${(typeof item === 'object' && item.icon) ? item.icon : 'circle-check'}"/></svg></div>
               <div style="flex:1;">
                 <div class="card-text">${renderRichText(cardTitle)}</div>
                 ${cardDesc ? `<div class="card-detail">${renderRichText(cardDesc)}</div>` : ''}
@@ -1538,11 +1747,84 @@
           `;
         });
         html += `</div>`;
+
+        // Top 3 Comandos Clave (Soporta strings y objetos {cmd, desc})
         const top3 = s.top3 || s.commands || [];
         if (top3.length > 0) {
           html += `
-            <div style="margin-top:20px; padding:16px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:12px; font-size:22px;">
-              <strong style="color:var(--primary-ink);">Los comandos clave que no puedes olvidar:</strong> <span style="font-family:monospace; font-weight:700;">${renderRichText(top3.join(' · '))}</span>
+            <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
+              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
+              </div>
+              <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
+          `;
+          top3.forEach(t => {
+            if (typeof t === 'string') {
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
+                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                </div>
+              `;
+            } else {
+              const cmd = t.cmd || t.command || '';
+              const desc = t.desc || t.detail || '';
+              html += `
+                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 16px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  </div>
+                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                </div>
+              `;
+            }
+          });
+          html += `</div></div>`;
+        }
+
+        // Mapeo a práctica de laboratorio
+        if (s.practice) {
+          const pName = s.practice.name || 'Laboratorio Práctico Recomendado';
+          const pUrl = s.practice.url || '#';
+          const pDesc = s.practice.desc || 'Pon a prueba tus conocimientos en la máquina virtual.';
+          html += `
+            <div style="margin-top:14px; padding:16px 22px; background:#F0FDF4; border:2px solid #86EFAC; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#DCFCE7; color:#166534; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-wrench"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#166534;">${escapeHTML(pName)}</div>
+                  <div style="font-size:16px; color:#374151;">${renderRichText(pDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Web →
+              </a>
+            </div>
+          `;
+        }
+
+        // Mapeo a práctica global de fin de tema completo
+        if (s.global_practice) {
+          const gpName = s.global_practice.name || 'Práctica Global Integradora de Todo el Tema';
+          const gpUrl = s.global_practice.url || '#';
+          const gpDesc = s.global_practice.desc || 'Laboratorio final integrador con todos los comandos evaluados en este tema.';
+          html += `
+            <div style="margin-top:12px; padding:16px 22px; background:#FFFBEB; border:2px solid #F59E0B; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:48px; height:48px; border-radius:12px; background:#FEF3C7; color:#92400E; display:flex; align-items:center; justify-content:center; flex:none;">
+                  <svg class="ic ic-md"><use href="#i-shield"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#92400E;">🏆 ${escapeHTML(gpName)}</div>
+                  <div style="font-size:16px; color:#78350F;">${renderRichText(gpDesc)}</div>
+                </div>
+              </div>
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+                Abrir Práctica Global →
+              </a>
             </div>
           `;
         }
@@ -1761,23 +2043,53 @@
     }
     document.addEventListener('click', closePopovers);
 
+    function revealReviewAnswer(btn, correctIdx, why) {
+      const stageEl = document.getElementById('slide-content');
+      const buttons = stageEl.querySelectorAll('.quiz-btn');
+      buttons.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correctIdx) {
+          b.classList.add('correct');
+        }
+      });
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.style.display = 'block';
+      fb.style.background = 'var(--success-soft)';
+      fb.style.color = 'var(--success-ink)';
+      fb.style.border = '2px solid #86EFAC';
+      const letter = String.fromCharCode(65 + correctIdx);
+      fb.innerHTML = `<strong>✔ Respuesta oficial: Opción ${letter}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
+      if (btn) btn.style.display = 'none';
+    }
+
     function checkReviewAnswer(btn, chosen, correct, why) {
       const parent = btn.parentElement;
-      parent.querySelectorAll('.quiz-btn').forEach(b => b.disabled = true);
+      parent.querySelectorAll('.quiz-btn').forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === correct) {
+          b.classList.add('correct');
+        }
+      });
       const isCorrect = chosen === correct;
-      btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+      if (!isCorrect) {
+        btn.classList.add('incorrect');
+      }
 
       const fb = document.getElementById('quiz-feedback-box');
       fb.style.display = 'block';
       if (isCorrect) {
         fb.style.background = 'var(--success-soft)';
         fb.style.color = 'var(--success-ink)';
-        fb.innerHTML = `<strong>✔ ¡Correcto!</strong> ${why}`;
+        fb.style.border = '2px solid #86EFAC';
+        fb.innerHTML = `<strong>✔ ¡Correcto! Opción ${String.fromCharCode(65 + chosen)}</strong><br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       } else {
         fb.style.background = 'var(--danger-soft)';
         fb.style.color = 'var(--danger-ink)';
-        fb.innerHTML = `<strong>✖ Incorrecto.</strong> ${why}`;
+        fb.style.border = '2px solid #FCA5A5';
+        fb.innerHTML = `<strong>✖ Incorrecto.</strong> La opción correcta es la <strong>${String.fromCharCode(65 + correct)}</strong>.<br><div style="margin-top:8px; line-height:1.45;"><strong>Por qué (Razonamiento de Examen):</strong> ${renderRichText(why)}</div>`;
       }
+      const revealBtn = document.querySelector('.btn-resolve-quiz');
+      if (revealBtn) revealBtn.style.display = 'none';
     }
 
     // Flashcard engine

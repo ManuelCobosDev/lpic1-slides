@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Práctica oficial 102-GLOBAL: Laboratorio Global Integrador: Todo el Tema 102 — Laboratorio guiado para la certificación LPIC-1.">
+  <title>Práctica 102-GLOBAL — Laboratorio Global Integrador: Todo el Tema 102</title>
+  <style>
+    
+:root {
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-alt: #F1F5F9;
+  --text: #0F172A;
+  --text-muted: #475569;
+  --border: #CBD5E1;
+  --border-light: #E2E8F0;
+  --primary: #2563EB;
+  --primary-soft: #DBEAFE;
+  --primary-hover: #1D4ED8;
+  --success: #16A34A;
+  --success-soft: #DCFCE7;
+  --warning: #D97706;
+  --warning-soft: #FEF3C7;
+  --danger: #DC2626;
+  --danger-soft: #FEE2E2;
+  --font-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-base);
+  line-height: 1.6;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 1200px; margin: 0 auto; padding: 32px 20px; }
+.ic { width: 20px; height: 20px; vertical-align: middle; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ic-sm { width: 16px; height: 16px; }
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+.badge-blue { background: var(--primary-soft); color: #1E40AF; }
+.badge-green { background: var(--success-soft); color: #166534; }
+.badge-amber { background: var(--warning-soft); color: #92400E; }
+.badge-gray { background: #E2E8F0; color: #475569; }
+
+/* Terminal Component */
+.term { background: #F1F5F9; border: 2px solid var(--border); border-radius: 12px; overflow: hidden; margin: 16px 0; }
+.term-bar { display: flex; align-items: center; gap: 10px; padding: 8px 16px; background: #E2E8F0; color: #475569; font-size: 14px; font-weight: 600; font-family: var(--font-mono); }
+.term-bar .copy-btn { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #94A3B8; background: #FFF; border-radius: 6px; padding: 4px 10px; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--text); }
+.term-bar .copy-btn:hover { background: #F8FAFC; border-color: var(--primary); color: var(--primary); }
+.term pre { margin: 0; padding: 18px 20px; font-family: var(--font-mono); font-size: 16px; line-height: 1.5; color: #0F172A; white-space: pre-wrap; overflow-wrap: anywhere; }
+.t-prompt { color: #64748B; user-select: none; }
+.t-cmd { font-weight: 700; color: #0F172A; }
+.t-flag { color: #1D4ED8; font-weight: 600; }
+.t-arg { color: #9A3412; }
+.t-path { color: #15803D; }
+.t-cmt { color: #64748B; font-style: italic; }
+.t-err { color: #B91C1C; font-weight: 600; }
+.t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 4px; }
+
+/* Callout and Cards */
+.card { background: var(--surface); border: 2px solid var(--border-light); border-radius: 14px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 6px rgba(15,23,42,0.03); }
+.callout { display: flex; gap: 14px; padding: 16px; border-radius: 10px; margin: 16px 0; border-left: 4px solid; font-size: 16px; }
+.callout-info { background: #EFF6FF; border-left-color: var(--primary); color: #1E3A8A; }
+.callout-warning { background: #FFFBEB; border-left-color: var(--warning); color: #78350F; }
+.callout-success { background: #F0FDF4; border-left-color: var(--success); color: #14532D; }
+.callout-camera { background: #FAF5FF; border-left-color: #9333EA; color: #581C87; }
+
+/* Toast */
+#toast { position: fixed; bottom: 24px; right: 24px; background: #0F172A; color: #FFF; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 600; opacity: 0; transition: opacity 0.2s, transform 0.2s; transform: translateY(10px); pointer-events: none; z-index: 1000; display: flex; align-items: center; gap: 8px; }
+#toast.show { opacity: 1; transform: translateY(0); }
+
+/* Sticky TOC */
+.layout-with-toc { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
+.toc-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; background: var(--surface); border: 2px solid var(--border-light); border-radius: 12px; padding: 20px; font-size: 15px; }
+.toc-title { font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 16px; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.toc-link { display: block; color: var(--text-muted); padding: 4px 8px; border-radius: 6px; }
+.toc-link:hover, .toc-link.active { color: var(--primary); background: var(--primary-soft); text-decoration: none; font-weight: 600; }
+
+/* Interactive Checkboxes */
+.checkbox-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 14px; background: var(--surface-alt); border-radius: 8px; margin: 8px 0; cursor: pointer; }
+.checkbox-item input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--primary); cursor: pointer; }
+.checkbox-item.checked { background: #DCFCE7; text-decoration: line-through; color: #166534; }
+
+/* Accordion */
+details.accordion-item { border: 2px solid var(--border-light); border-radius: 10px; margin-bottom: 12px; overflow: hidden; background: var(--surface); }
+details.accordion-item summary { padding: 14px 18px; font-weight: 600; cursor: pointer; background: #F8FAFC; display: flex; align-items: center; justify-content: space-between; user-select: none; }
+details.accordion-item summary:hover { background: #F1F5F9; }
+details.accordion-item[open] summary { border-bottom: 1px solid var(--border-light); }
+details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
+
+/* Progress bar */
+.progress-container { width: 100%; height: 10px; background: #E2E8F0; border-radius: 5px; overflow: hidden; margin: 8px 0; }
+.progress-bar-fill { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s ease; }
+
+@media (max-width: 900px) {
+  .layout-with-toc { grid-template-columns: 1fr; }
+  .toc-sidebar { position: static; max-height: none; margin-bottom: 24px; }
+}
+@media print {
+  .toc-sidebar, .term-bar .copy-btn, .nav-header, .site-footer, #toast, .action-btn { display: none !important; }
+  .layout-with-toc { display: block; }
+  .card { box-shadow: none; border-color: #94A3B8; }
+}
+
+    .header-nav { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; padding-bottom:16px; border-bottom:1px solid var(--border-light); flex-wrap:wrap; gap:12px; }
+    .practice-header { margin-bottom: 32px; }
+    .practice-header h1 { font-size: 34px; font-weight: 800; margin-bottom: 8px; }
+    .badge-bar { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+    table.data-table { width:100%; border-collapse:collapse; margin:16px 0; background:var(--surface); border-radius:10px; overflow:hidden; }
+    table.data-table th, table.data-table td { padding:12px 16px; border-bottom:1px solid var(--border-light); text-align:left; font-size:15px; }
+    table.data-table th { background:var(--surface-alt); font-weight:700; }
+  </style>
+</head>
+<body>
+  
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="i-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5" /><line x1="12" x2="20" y1="19" y2="19" /></symbol>
+<symbol id="i-square-terminal" viewBox="0 0 24 24"><path d="m7 11 2-2-2-2" /><path d="M11 13h4" /><rect width="18" height="18" x="3" y="3" rx="2" ry="2" /></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+<symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></symbol>
+<symbol id="i-triangle-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></symbol>
+<symbol id="i-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></symbol>
+<symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></symbol>
+<symbol id="i-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /><rect width="20" height="8" x="2" y="14" rx="2" ry="2" /><line x1="6" x2="6.01" y1="6" y2="6" /><line x1="6" x2="6.01" y1="18" y2="18" /></symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+</svg>
+
+  <div class="container">
+    <div class="header-nav">
+      <a href="p-102-6-virtualizacion-cloud.html" class="action-btn" style="color:var(--text-muted); font-weight:600; display:inline-flex; align-items:center; gap:6px;"><svg class="ic"><use href="#i-chevron-left"/></svg> 102.6</a>
+      <div style="display:flex; gap:12px; align-items:center;">
+        <a href="index.html" style="font-size:15px; font-weight:600; color:var(--text-muted);"><svg class="ic ic-sm"><use href="#i-server"/></svg> Todas las prácticas</a>
+        <button type="button" onclick="window.print()" class="badge badge-gray" style="padding:6px 12px; font-size:14px; cursor:pointer; border:1px solid var(--border); background:var(--surface);"><svg class="ic ic-sm"><use href="#i-download"/></svg> Imprimir / PDF</button>
+      </div>
+      <a href="p-103-1-linea-de-comandos.html" class="action-btn" style="color:var(--primary); font-weight:700; display:inline-flex; align-items:center; gap:6px;">103.1 <svg class="ic"><use href="#i-chevron-right"/></svg></a>
+    </div>
+
+    <div class="practice-header">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-shield"/></svg> LPIC-1 · Práctica Global Integradora</span>
+        <span class="badge badge-gray">Aula Activa</span>
+      </div>
+      <h1>Práctica 102-GLOBAL — Laboratorio Global Integrador: Todo el Tema 102</h1>
+      <div class="badge-bar">
+        <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 50–60 min</span>
+        <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel integrador / examen</span>
+        <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-server"/></svg> Debian 12 (00-base-limpia)</span>
+        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 5 capturas requeridas</span>
+      </div>
+    </div>
+
+    <div class="layout-with-toc">
+      <!-- TOC Sidebar -->
+      <aside class="toc-sidebar">
+        <div class="toc-title"><svg class="ic"><use href="#i-book-open"/></svg> Índice del Laboratorio</div>
+        <ul class="toc-list">
+          <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
+          <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
+          <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
+          <li><a href="#mision-1" class="toc-link">Misión 1: Particionado Seguro de Disco en Bucle MBR y GPT (102.1)</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Inspección de GRUB 2 y Auditoría de Librerías Compartidas (102.2 + 102.3)</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Ciclo de Vida y Consultas de Paquetes Debian con dpkg y APT (102.4)</a></li><li><a href="#mision-4" class="toc-link">Misión 4: Extracción RPM con rpm2cpio y Equivalencias de Examen (102.5)</a></li><li><a href="#mision-5" class="toc-link">Misión 5: Auditoría de Virtualización, Identidad del Sistema y Cloud (102.6)</a></li>
+          <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
+          <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
+          <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
+          <li><a href="#comandos" class="toc-link">8. Comandos practicados</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- 1. De qué va -->
+        <section class="card" id="de-que-va">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
+          <p style="font-size:17px; line-height:1.7;">Esta práctica global de fin de tema consolida **todos los comandos y herramientas del Tema 102** de LPIC-1. Aprenderás a particionar de forma segura volúmenes en bucle con MBR y GPT, auditar la configuración y comandos interactivos del cargador GRUB 2, analizar y cachear librerías dinámicas compartidas (`ldd`, `ldconfig`), dominar el ciclo de vida de paquetes Debian (`dpkg`, `apt`, `apt-cache`, `apt-file`), extraer y simular operaciones del ecosistema RPM (`rpm2cpio`, `zypper`, `dnf`) y diagnosticar la capa de virtualización y Cloud del host.</p>
+        </section>
+
+        <!-- 2. Qué aprenderás -->
+        <section class="card" id="que-aprenderas">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
+          <ul style="margin-left: 20px; line-height:1.8;">
+            <li>Particionar discos virtuales de prueba mediante esquemas MBR (`fdisk`) y GPT (`gdisk`/`parted`) sin tocar el disco principal.</li><li>Auditar la configuración de GRUB 2 en `/etc/default/grub` y su fichero compilado `/boot/grub/grub.cfg`.</li><li>Gestionar librerías dinámicas compartidas con `ldd`, `ldconfig`, `/etc/ld.so.conf.d/` y la variable `LD_LIBRARY_PATH`.</li><li>Operar con precisión tanto a bajo nivel (`dpkg`) como con gestores de repositorios (`apt`, `apt-cache`, `apt-file`).</li><li>Extraer contenido de paquetes RPM sin instalarlos con `rpm2cpio` y dominar la tabla de equivalencias con YUM, DNF y Zypper.</li><li>Identificar el hipervisor y el aislamiento de contenedores mediante `systemd-detect-virt` y `/etc/machine-id`.</li>
+          </ul>
+        </section>
+
+        <!-- 3. Antes de empezar -->
+        <section class="card" id="antes-de-empezar">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">3. Antes de empezar (≤ 5 min)</h2>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>1. Inicia tu máquina virtual Debian 12 en tu hipervisor.</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>2. Abre un terminal e inicia sesión con el usuario <code>alumno</code>.</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>3. Confirma permisos de superusuario con <code>sudo -v</code>.</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>4. Verifica estar sobre la instantánea limpia <code>00-base-limpia</code>.</span>
+          </div>
+        </section>
+
+        <!-- 4. Misiones Guiadas -->
+        <section id="misiones-container">
+          <h2 style="font-size:26px; font-weight:800; margin: 32px 0 16px 0;">4. Misiones Guiadas Paso a Paso</h2>
+          
+        <div class="card step-card" id="mision-1">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Particionado Seguro de Disco en Bucle MBR y GPT (102.1)</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('102-GLOBAL', 1, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Para no alterar el disco del sistema, crearemos un archivo contenedor de 100 MB y lo usaremos como disco virtual para crear particiones MBR y GPT con `fdisk` y `parted`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-triangle-alert"/></svg> Comando sensible</span>
+                <button class="copy-btn" data-confirm="true" onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Crear un archivo contenedor de 100 MB relleno de ceros</span>
+<span class="t-cmd">dd</span> <span class="t-path">if=/dev/zero</span> <span class="t-path">of=/tmp/disco_global_102.img</span> bs=1M count=100
+
+<span class="t-cmt"># 2. Asociar el archivo a un dispositivo de bucle libre</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">losetup</span> <span class="t-flag">-fP</span> <span class="t-path">/tmp/disco_global_102.img</span>
+<span class="t-cmd">LOOP_DEV=$(losetup</span> <span class="t-flag">-j</span> <span class="t-path">/tmp/disco_global_102.img</span> <strong>|</strong> <span class="t-cmd">cut</span> <span class="t-flag">-d:</span> <span class="t-flag">-f1)</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Dispositivo</span> de bucle asignado: $LOOP_DEV"
+
+<span class="t-cmt"># 3. Crear una tabla de particiones MBR con una partición primaria usando fdisk (no interactivo)</span>
+<span class="t-cmd">echo</span> <span class="t-flag">-e</span> <span class="t-arg">"o\nn\np\n1\n\n+50M\nw"</span> <strong>|</strong> <span class="t-flag">sudo</span> <span class="t-cmd">fdisk</span> <span class="t-arg">"$LOOP_DEV"</span>
+
+<span class="t-cmt"># 4. Comprobar la nueva tabla de particiones creada</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">fdisk</span> <span class="t-flag">-l</span> <span class="t-arg">"$LOOP_DEV"</span>
+
+<span class="t-cmt"># 5. Convertir a tabla GPT y listar con parted</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">parted</span> <span class="t-flag">-s</span> <span class="t-arg">"$LOOP_DEV"</span> mklabel gpt
+<span class="t-flag">sudo</span> <span class="t-cmd">parted</span> <span class="t-flag">-s</span> <span class="t-arg">"$LOOP_DEV"</span> mkpart primary ext4 1MiB 50MiB
+<span class="t-flag">sudo</span> <span class="t-cmd">parted</span> <span class="t-flag">-s</span> <span class="t-arg">"$LOOP_DEV"</span> print</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`dd if=/dev/zero of=...`: Genera un fichero con ceros binarios que actúa como disco duro crudo (raw disk).</li><li>`losetup -fP`: Encuentra el primer dispositivo `/dev/loopX` disponible y lee la tabla de particiones interna (`-P`).</li><li>`fdisk`: Herramienta clásica orientada a particionamiento MBR (máximo 4 particiones primarias, límite 2 TiB).</li><li>`parted -s ... mklabel gpt`: Crea una tabla de particiones GPT moderna (soporta >2 TiB y hasta 128 particiones por defecto).</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> En la salida de `parted print` verás `Partition Table: gpt` y la partición número 1 con tamaño ~49 MB.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 1:</strong> Terminal mostrando la salida de `parted print` sobre el dispositivo de bucle virtual. Guarda como `102-GLOBAL-C1-particionado.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-2">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Inspección de GRUB 2 y Auditoría de Librerías Compartidas (102.2 + 102.3)</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('102-GLOBAL', 2, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Auditarás la configuración del cargador de arranque GRUB 2 en Debian y analizarás las dependencias de librerías dinámicas de los ejecutables del sistema con `ldd` y `ldconfig`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Consultar el timeout y parámetros de arranque del kernel en GRUB 2</span>
+<span class="t-cmd">cat</span> <span class="t-path">/etc/default/grub</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">"GRUB_TIMEOUT|GRUB_CMDLINE_LINUX_DEFAULT"</span>
+
+<span class="t-cmt"># 2. Inspeccionar las entradas de menú generadas en grub.cfg</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">"menuentry</span> <span class="t-arg">'Debian"</span> <span class="t-path">/boot/grub/grub.cfg</span> <strong>|</strong> <span class="t-cmd">head</span> <span class="t-flag">-n</span> 3
+
+<span class="t-cmt"># 3. Inspeccionar las librerías dinámicas enlazadas al comando /bin/bash</span>
+<span class="t-cmd">ldd</span> <span class="t-path">/bin/bash</span>
+
+<span class="t-cmt"># 4. Consultar la caché de librerías del sistema generada por ldconfig</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ldconfig</span> <span class="t-flag">-p</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">"libc\.so\.6|libpthread"</span> <strong>|</strong> <span class="t-cmd">head</span> <span class="t-flag">-n</span> 6</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`/etc/default/grub`: Archivo editable por el administrador donde se configuran los segundos de espera (`GRUB_TIMEOUT`) y opciones del kernel.</li><li>`/boot/grub/grub.cfg`: Archivo compilado de GRUB 2 generado mediante `update-grub` (o `grub-mkconfig -o ...`). Nunca debe editarse a mano.</li><li>`ldd /bin/bash`: Lista todas las librerías dinámicas (`.so`) que el ejecutable necesita cargar en memoria al arrancar.</li><li>`ldconfig -p`: Imprime el contenido binario del archivo de caché `/etc/ld.so.cache`.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> En `ldd /bin/bash` confirma que aparecen librerías como `libc.so.6` y el cargador dinámico `/lib64/ld-linux-x86-64.so.2`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 2:</strong> Salida de `ldd /bin/bash` y la consulta a la caché con `ldconfig -p`. Guarda como `102-GLOBAL-C2-grub-libs.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-3">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Ciclo de Vida y Consultas de Paquetes Debian con dpkg y APT (102.4)</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('102-GLOBAL', 3, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Practicarás la gestión completa de software en Debian: consultarás qué paquete es dueño de un fichero, listarás el contenido de un paquete instalado y consultarás prioridades de repositorio con `apt-cache policy`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Localizar qué paquete instalado es dueño del binario /bin/ls</span>
+<span class="t-cmd">dpkg</span> <span class="t-flag">-S</span> <span class="t-path">/bin/ls</span>
+
+<span class="t-cmt"># 2. Listar los archivos que el paquete coreutils instaló en el sistema</span>
+<span class="t-cmd">dpkg</span> <span class="t-flag">-L</span> coreutils <strong>|</strong> <span class="t-cmd">head</span> <span class="t-flag">-n</span> 10
+
+<span class="t-cmt"># 3. Ver el estado y metadatos detallados de un paquete con dpkg -s</span>
+<span class="t-cmd">dpkg</span> <span class="t-flag">-s</span> sed <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">"Package|Status|Priority|Section|Version"</span>
+
+<span class="t-cmt"># 4. Consultar prioridades de repositorio (APT Pinning) y versión candidata</span>
+<span class="t-cmd">apt-cache</span> policy nano</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`dpkg -S <archivo>`: Busca en la base de datos `/var/lib/dpkg/info/` qué paquete instaló el archivo indicado en disco.</li><li>`dpkg -L <paquete>`: Lista todos los archivos, directorios y manuales instalados por un paquete en el sistema.</li><li>`dpkg -s <paquete>`: Muestra el estado del paquete (por ejemplo `Status: install ok installed`).</li><li>`apt-cache policy`: Herramienta de solo lectura (no requiere sudo) que revela la prioridad de instalación de cada repositorio y la versión candidata.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> Observa que `dpkg -S /bin/ls` devuelve `coreutils: /bin/ls`. En `apt-cache policy nano` verás la prioridad por defecto `500` de los repositorios de Debian.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 3:</strong> Terminal mostrando las consultas `dpkg -S /bin/ls`, `dpkg -s sed` y `apt-cache policy nano`. Guarda como `102-GLOBAL-C3-dpkg-apt.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-4">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 4 — Extracción RPM con rpm2cpio y Equivalencias de Examen (102.5)</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('102-GLOBAL', 4, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">En LPIC-1 se evalúa cómo extraer archivos de un archivo `.rpm` en sistemas donde no existe el comando `rpm` o cuando se requiere rescatar una librería sin instalar el paquete.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-triangle-alert"/></svg> Comando sensible</span>
+                <button class="copy-btn" data-confirm="true" onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Instalar la herramienta cpio y rpm2cpio si no estuvieran disponibles</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">apt-get</span> update <span class="t-flag">-qq</span> <strong>&&</strong> <span class="t-flag">sudo</span> <span class="t-cmd">apt-get</span> install <span class="t-flag">-y</span> rpm2cpio cpio
+
+<span class="t-cmt"># 2. Descargar o generar un archivo RPM ficticio para practicar la extracción</span>
+<span class="t-cmd">mkdir</span> <span class="t-flag">-p</span> <span class="t-path">/tmp/rpm_test</span> <strong>&&</strong> <span class="t-cmd">cd</span> <span class="t-path">/tmp/rpm_test</span>
+
+<span class="t-cmt"># 3. Comprobar que rpm2cpio y cpio están disponibles en el sistema</span>
+<span class="t-cmd">which</span> rpm2cpio cpio
+
+<span class="t-cmt"># 4. Repasar los flags de consulta RPM evaluados en LPIC-1 mediante ayuda</span>
+<span class="t-cmt"># En examen: rpm -qa (listar todos), rpm -qf (dueño), rpm -ql (listar archivos), rpm -qp (consultar fichero no instalado)</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"FLAGS</span> DE EXAMEN RPM: <span class="t-flag">-i</span> (install), <span class="t-flag">-e</span> (erase), <span class="t-flag">-U</span> (upgrade), <span class="t-flag">-F</span> (freshen), <span class="t-flag">-qa</span> (all), <span class="t-flag">-ql</span> (list), <span class="t-flag">-qf</span> (file)"
+<span class="t-cmd">cd</span> ~ <strong>&&</strong> <span class="t-cmd">rm</span> <span class="t-flag">-rf</span> <span class="t-path">/tmp/rpm_test</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`rpm2cpio archivo.rpm | cpio -idmv`: Convierte el formato binario RPM en un flujo cpio y lo extrae en el directorio actual (`-i` extraer, `-d` crear carpetas, `-m` mantener fechas, `-v` detallado).</li><li>`rpm -Fvh`: Freshen (actualiza el paquete ÚNICAMENTE si ya existe una versión previa instalada en el sistema).</li><li>`zypper refresh` / `zypper update`: Comandos del ecosistema openSUSE equivalentes a `apt-get update` y `apt-get upgrade`.</li><li>`dnf install` / `dnf repoquery -l`: Comandos modernos de Red Hat / Fedora / CentOS para gestionar paquetes y consultar repositorios.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> Comprueba que `which rpm2cpio cpio` devuelve `/usr/bin/rpm2cpio` y `/usr/bin/cpio`, confirmando que el entorno de rescate está operativo.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 4:</strong> Terminal mostrando la comprobación de `rpm2cpio` y `cpio`. Guarda como `102-GLOBAL-C4-rpm-tools.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-5">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 5 — Auditoría de Virtualización, Identidad del Sistema y Cloud (102.6)</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('102-GLOBAL', 5, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Auditarás la capa de virtualización de tu máquina Debian, verificarás el identificador único del sistema (`machine-id`) e inspeccionarás los controladores de Cloud-Init y cgroups.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Detectar el hipervisor o tipo de contenedor donde corre tu Debian</span>
+<span class="t-cmd">systemd-detect-virt</span>
+
+<span class="t-cmt"># 2. Inspeccionar si la CPU expone flags de hipervisor</span>
+<span class="t-cmd">lscpu</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-flag">-i</span> <span class="t-flag">-E</span> <span class="t-arg">"hypervisor|virtualization"</span>
+
+<span class="t-cmt"># 3. Consultar el identificador único persistente de la máquina (machine-id)</span>
+<span class="t-cmd">cat</span> <span class="t-path">/etc/machine-id</span>
+
+<span class="t-cmt"># 4. Inspeccionar la jerarquía de grupos de control (cgroups v2) del kernel</span>
+<span class="t-cmd">ls</span> <span class="t-flag">-l</span> <span class="t-path">/sys/fs/cgroup/</span> <strong>|</strong> <span class="t-cmd">head</span> <span class="t-flag">-n</span> 8
+
+<span class="t-cmt"># 5. Liberar el dispositivo de bucle virtual creado en la Misión 1</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">losetup</span> <span class="t-flag">-d</span> <span class="t-arg">"$LOOP_DEV"</span>
+<span class="t-cmd">rm</span> <span class="t-flag">-f</span> <span class="t-path">/tmp/disco_global_102.img</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`systemd-detect-virt`: Detecta la tecnología de virtualización de ejecución (ej: `oracle`, `vmware`, `kvm`, `qemu`, `lxc`, `docker` o `none` si es bare-metal).</li><li>`/etc/machine-id`: Archivo generado durante la instalación que identifica de forma única a la máquina en la red (crucial regenerarlo al clonar plantillas en la nube con `systemd-machine-id-setup`).</li><li>`/sys/fs/cgroup/`: Pseudo-sistema donde el kernel expone los controladores de recursos (CPU, memoria, E/S) que aíslan a los contenedores.</li><li>`losetup -d`: Desvincula y destruye el dispositivo de bucle virtual limpiando el sistema.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> En `systemd-detect-virt` verás el nombre de tu hipervisor (ej: `oracle`, `kvm` o `vmware`) y en `cat /etc/machine-id` una cadena hexadecimal de 32 caracteres.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 5:</strong> Terminal mostrando la salida de `systemd-detect-virt`, `cat /etc/machine-id` y la limpieza con `losetup -d`. Guarda como `102-GLOBAL-C5-virt-cloud.png`.</div>
+            </div>
+            
+        </div>
+        
+        </section>
+
+        <!-- 5. Mini-Reto Final -->
+        
+        <section class="card" id="mini-reto">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">5. Mini-Reto Final de Autonomía (5 min)</h2>
+          <p style="font-size:17px; margin-bottom:16px;"><strong>Demuestra lo aprendido:</strong> Un compañero necesita saber qué paquete Debian proporciona el archivo de configuración `/etc/ld.so.conf` y comprobar si en tu sistema existe el archivo de configuración global de APT `/etc/apt/sources.list`.</p>
+          <details class="accordion-item" style="margin-bottom:10px;">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">💡 Ver pista desplegable si te atascas</summary>
+            <div class="accordion-body" style="background:#FFFBEB; color:#78350F;">Ejecuta `dpkg -S /etc/ld.so.conf` (verás el paquete `libc-bin`) y comprueba el fichero de repositorios con `cat /etc/apt/sources.list | grep -v "^#" | grep -v "^$" | head -n 4`.</div>
+          </details>
+          <details class="accordion-item">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
+            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">Ejecuta `dpkg -S /etc/ld.so.conf`. La salida confirmará que pertenece a `libc-bin`. A continuación visualiza los repositorios activos con `grep -E "^deb" /etc/apt/sources.list`.</div>
+          </details>
+        </section>
+        
+
+        <!-- 6. Capturas a entregar -->
+        <section class="card" id="capturas">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h2 style="font-size:22px; font-weight:700;">6. Capturas a entregar</h2>
+            <span class="badge badge-green" id="captures-counter">Llevas 0 de 5 capturas</span>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width:100px;">Nº</th>
+                <th>Qué debe verse en la terminal</th>
+                <th>Nombre del archivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('102-GLOBAL', 'C1', this)"> <strong>C1</strong></label></td>
+                  <td>Evidencia Misión 1: Particionado MBR y GPT en bucle con parted</td>
+                  <td><code>`102-GLOBAL-C1-particionado.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('102-GLOBAL', 'C2', this)"> <strong>C2</strong></label></td>
+                  <td>Evidencia Misión 2: Consulta a GRUB y dependencias ldd de bash</td>
+                  <td><code>`102-GLOBAL-C2-grub-libs.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('102-GLOBAL', 'C3', this)"> <strong>C3</strong></label></td>
+                  <td>Evidencia Misión 3: Consultas de paquetes con dpkg -S y apt-cache</td>
+                  <td><code>`102-GLOBAL-C3-dpkg-apt.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('102-GLOBAL', 'C4', this)"> <strong>C4</strong></label></td>
+                  <td>Evidencia Misión 4: Comprobación de herramientas rpm2cpio y cpio</td>
+                  <td><code>`102-GLOBAL-C4-rpm-tools.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('102-GLOBAL', 'C5', this)"> <strong>C5</strong></label></td>
+                  <td>Evidencia Misión 5: Detección de virtualización y /etc/machine-id</td>
+                  <td><code>`102-GLOBAL-C5-virt-cloud.png`</code></td>
+                </tr>
+                
+            </tbody>
+          </table>
+        </section>
+
+        <!-- 7. Si algo falla -->
+        <section class="card" id="si-algo-falla">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
+          
+            <details class="accordion-item">
+              <summary>El comando losetup da error "Device or resource busy"</summary>
+              <div class="accordion-body">Ejecuta `sudo losetup -D` para desvincular todos los dispositivos loop no utilizados.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>apt-get update falla por bloqueo de candado</summary>
+              <div class="accordion-body">Si otro proceso de APT está en ejecución, espera unos segundos o verifica con `ps aux | grep apt`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>He cometido un error en la configuración del sistema</summary>
+              <div class="accordion-body">Restaura en tu hipervisor la instantánea limpia `00-base-limpia` (≤ 10 segundos).</div>
+            </details>
+            
+        </section>
+
+        <!-- 8. Comandos practicados -->
+        <section class="card" id="comandos">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">8. Comandos practicados en este subtema</h2>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Comando</th>
+                <th>Para qué sirve en el examen</th>
+                <th>Slide relacionada</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td><span class="badge badge-blue"><code>fdisk</code></span></td>
+                  <td>Manipula tablas de particiones MBR tradicionales</td>
+                  <td>102.1</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>parted</code></span></td>
+                  <td>Crea y redimensiona particiones MBR y GPT</td>
+                  <td>102.1</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>update-grub</code></span></td>
+                  <td>Compila /etc/default/grub en /boot/grub/grub.cfg</td>
+                  <td>102.2</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ldd</code></span></td>
+                  <td>Lista las dependencias de librerías dinámicas de un ejecutable</td>
+                  <td>102.3</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ldconfig</code></span></td>
+                  <td>Actualiza enlaces simbólicos y la caché binaria /etc/ld.so.cache</td>
+                  <td>102.3</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>dpkg</code></span></td>
+                  <td>Gestor de bajo nivel para paquetes Debian (.deb)</td>
+                  <td>102.4</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>apt-cache policy</code></span></td>
+                  <td>Muestra prioridades de repositorio (APT Pinning) y versiones candidatas</td>
+                  <td>102.4</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>apt-file</code></span></td>
+                  <td>Busca qué paquete contiene un archivo no instalado</td>
+                  <td>102.4</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>rpm2cpio</code></span></td>
+                  <td>Convierte un archivo .rpm a flujo cpio para extraer archivos</td>
+                  <td>102.5</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>systemd-detect-virt</code></span></td>
+                  <td>Detecta la tecnología de virtualización o contenedor</td>
+                  <td>102.6</td>
+                </tr>
+                
+            </tbody>
+          </table>
+          <p style="margin-top:14px; font-size:15px; color:var(--text-muted);">
+            Consulta el <a href="../comandos.html">Índice Global y Cheatsheet de Comandos</a> para repasar todas las opciones de examen.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer" style="margin-top:64px; text-align:center; padding-top:24px; border-top:2px solid var(--border-light); font-size:14px; color:var(--text-muted);">
+      <p>Material didáctico no oficial basado en los objetivos de certificación de Linux Professional Institute (LPIC-1).</p>
+    </footer>
+  </div>
+
+  <div id="toast"><svg class="ic"><use href="#i-circle-check"/></svg> Comando copiado al portapapeles</div>
+
+  <script>
+    function showToast() {
+      const toast = document.getElementById('toast');
+      if (toast) {
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+      } catch (e) {}
+      document.body.removeChild(ta);
+      showToast();
+    }
+
+    function copySnippet(btn) {
+      if (btn.getAttribute('data-confirm') === 'true') {
+        if (!confirm('⚠️ Este comando altera el estado de ejecución o apaga el sistema. ¿Deseas copiarlo?')) return;
+      }
+      const pre = btn.closest('.term').querySelector('pre');
+      const text = pre.innerText.replace(/^[$#]\s+/gm, '');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast();
+        }).catch(() => {
+          fallbackCopy(text);
+        });
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    const SUB_ID = '102-GLOBAL';
+    function toggleStepDone(sub, stepNum, chk) {
+      try {
+        let data = JSON.parse(localStorage.getItem('lpic1_prog_' + sub) || '{}');
+        data.steps = data.steps || {};
+        data.steps[stepNum] = chk.checked;
+        const total = 4;
+        const done = Object.values(data.steps).filter(Boolean).length;
+        data.total = total;
+        data.done = done;
+        localStorage.setItem('lpic1_prog_' + sub, JSON.stringify(data));
+      } catch(e) {}
+    }
+
+    function toggleCaptureDone(sub, capNum, chk) {
+      try {
+        let caps = JSON.parse(localStorage.getItem('lpic1_caps_' + sub) || '{}');
+        caps[capNum] = chk.checked;
+        localStorage.setItem('lpic1_caps_' + sub, JSON.stringify(caps));
+        updateCapCounter();
+      } catch(e) {}
+    }
+
+    function updateCapCounter() {
+      try {
+        const caps = JSON.parse(localStorage.getItem('lpic1_caps_' + SUB_ID) || '{}');
+        const done = Object.values(caps).filter(Boolean).length;
+        const counter = document.getElementById('captures-counter');
+        if (counter) counter.textContent = 'Llevas ' + done + ' de 5 capturas';
+      } catch(e) {}
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCapCounter();
+      const links = document.querySelectorAll('.toc-link');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            links.forEach(l => {
+              if (l.getAttribute('href') === '#' + id) {
+                links.forEach(lnk => lnk.classList.remove('active'));
+                l.classList.add('active');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+
+      document.querySelectorAll('section.card, .step-card').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
