@@ -1,0 +1,3214 @@
+/* LPIC-1 101-500 Official Question Bank (120 Questions) */
+window.PREGUNTAS_LPIC_101 = [
+  {
+    "id": 1,
+    "num": 1,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which type of file system is created by mkfs when it is executed with the block device name only and without any additional parameters?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "XFS",
+      "VFAT",
+      "ext2",
+      "ext3",
+      "ext4"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "ext2",
+    "explanation": "Según la documentación man 8 mkfs, cuando mkfs se invoca sin especificar el tipo de sistema de archivos mediante el parámetro -t , utiliza por defecto ext2 por razones históricas de compatibilidad con versiones anteriores de util-linux ."
+  },
+  {
+    "id": 2,
+    "num": 2,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which umask value ensures that new directories can be read, written and listed by their owning user, read and listed by their owning group and are not accessible at all for everyone else?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "0750",
+      "0027",
+      "0036",
+      "7640",
+      "0029"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "0027",
+    "explanation": "Los permisos base por defecto para la creación de directorios en Linux son 0777 ( rwxrwxrwx ). Queremos que el propietario tenga lectura, escritura y ejecución/listado ( rwx = 7), el grupo lectura y ejecución/listado ( r-x = 5) y otros ningún permiso ( --- = 0), lo que equivale a 0750 . La máscara umask sustrae bits a los permisos base: 0777 - 0750 = 0027 ."
+  },
+  {
+    "id": 3,
+    "num": 3,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which is the default percentage of reserved space for the root user on new ext4 filesystems?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "10%",
+      "3%",
+      "15%",
+      "0%",
+      "5%"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "5%",
+    "explanation": "De acuerdo con la documentación de mke2fs ( man 8 mke2fs , opción -m reserved-blocks-percentage ), el porcentaje de bloques del sistema de archivos reservado por defecto para el superusuario ( root ) es del 5% . Esto evita que el sistema colapse si los usuarios llenan el disco y reduce la fragmentación."
+  },
+  {
+    "id": 4,
+    "num": 4,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which of the following is true when a file system, which is neither listed in /etc/fstab nor known to system, is mounted manually?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "systemd ignores any manual mounts which are not done using the systemctl mount command.",
+      "The command systemctl mountsync can be used to create a mount unit based on the existing mount.",
+      "systemd automatically generates a mount unit and monitors the mount point without changing it.",
+      "Unless a systemd mou nt unit is created, systemd unmounts the file system after a short period of time.",
+      "systemctl unmount must be used to remove the mount because system opens a file descriptor on the mount point."
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "systemd automatically generates a mount unit and monitors the mount point without changing it.",
+    "explanation": "Según man 5 systemd.mount , systemd monitoriza /proc/self/mountinfo de forma continua. Cuando un sistema de archivos se monta manualmente con el comando mount , systemd genera dinámicamente en tiempo de ejecución una unidad .mount asociada y supervisa el punto de montaje sin alterar su estado."
+  },
+  {
+    "id": 5,
+    "num": 5,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which program updates the database that is used by the locate command? (Specify ONLY the command without any path or parameters).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "updatedb"
+    ],
+    "correct_text": "updatedb",
+    "explanation": "El comando locate consulta una base de datos precompilada de nombres de archivos en lugar de leer el disco en tiempo real. El binario encargado de crear y actualizar dicha base de datos es updatedb ( man 8 updatedb )."
+  },
+  {
+    "id": 6,
+    "num": 6,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "What does the command mount --bind do?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "It makes the contents of one directory available in another directory.",
+      "It mounts all available filesystems to the current directory.",
+      "It mounts all user mountable filesystems to the user's home directory.",
+      "It mounts all file systems listed in /etc/fstab which have the option userbind set.",
+      "It permanently mounts a regular file to a directory."
+    ],
+    "correct_indices": [
+      0
+    ],
+    "fill_answers": [],
+    "correct_text": "It makes the contents of one directory available in another directory.",
+    "explanation": "Según man 8 mount , la opción --bind (o -B ) vuelve a montar parte de la jerarquía de archivos existente en otro punto del sistema de archivos, haciendo que el contenido de un directorio sea accesible de forma simultánea desde ambos lugares."
+  },
+  {
+    "id": 7,
+    "num": 7,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "In order to display all currently mounted filesystems, which of the following commands could be used? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "cat /proc/self/mounts",
+      "free",
+      "lsmounts",
+      "mount",
+      "cat /proc/filesystems"
+    ],
+    "correct_indices": [
+      0,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "cat /proc/self/mounts y mount",
+    "explanation": "Ejecutar mount sin argumentos lista todos los sistemas de archivos montados actualmente. Del mismo modo, el archivo virtual /proc/self/mounts (al que enlaza /proc/mounts ) expone directamente desde el kernel todos los sistemas montados en el espacio de nombres actual. ( /proc/filesystems solo muestra los tipos de sistemas de archivos soportados por el kernel, no los montados)."
+  },
+  {
+    "id": 8,
+    "num": 8,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which command displays the current disk space usage for all mounted file systems? (Specify ONLY the command without any path or parameters.)",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "df"
+    ],
+    "correct_text": "df",
+    "explanation": "El comando df ( disk free , man 1 df ) informa sobre la cantidad de espacio en disco usado y disponible en todos los sistemas de archivos actualmente montados."
+  },
+  {
+    "id": 9,
+    "num": 9,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which chown command changes the ownership to dave and the group to staff on a file named data.txt?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "chown dave/staff data.txt",
+      "chown -u dave -g staff data.txt",
+      "chown --user dave --group staff data.txt",
+      "chown dave+staff data.txt",
+      "chown dave:staff data.txt"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "chown dave:staff data.txt",
+    "explanation": "La sintaxis estándar de chown ( man 1 chown ) para modificar simultáneamente el usuario y el grupo propietarios separa ambos nombres mediante dos puntos ( usuario:grupo )."
+  },
+  {
+    "id": 10,
+    "num": 10,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "When considering the use of hard links, what are valid reasons not to use hard links?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "Hard links are not available on all Linux systems because traditional filesystems, such as ext4, donot support them.",
+      "Each hard link has individual ownership, permissions and ACLs which can lead to unintended disclosure of file conten t.",
+      "Hard links are specific to one filesystem and cannot point to files on another filesystem.",
+      "If users other than root should be able to create hard links, suln has to be installed and configured.",
+      "When a h ard linked file is changed, a copy of the file is created and consumes additional space."
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "Hard links are specific to one filesystem and cannot point to files on another filesystem.",
+    "explanation": "Un enlace duro ( hard link ) es una entrada de directorio que apunta directamente a un número de inodo. Dado que cada sistema de archivos gestiona su propia tabla de inodos de forma independiente, es imposible que un enlace duro cruce límites entre distintas particiones o sistemas de archivos ( man 1 ln )."
+  },
+  {
+    "id": 11,
+    "num": 11,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "In compliance with the FHS, in which of the directories are man pages found?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "/opt/man/",
+      "/usr/doc/",
+      "/usr/share/man/",
+      "/var/pkg/man",
+      "/var/man/"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "/usr/share/man/",
+    "explanation": "El estándar de jerarquía del sistema de archivos ( FHS ) establece que las páginas de manual son datos independientes de la arquitectura y, por tanto, deben residir en /usr/share/man/ ."
+  },
+  {
+    "id": 12,
+    "num": 12,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What is the process ID number of the init process on a System V init based system?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "-1",
+      "0",
+      "1",
+      "It is different witheach reboot",
+      "It is set to the current run level"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "1",
+    "explanation": "El proceso init es el primer proceso de espacio de usuario ejecutado por el kernel tras el arranque y el padre directo o indirecto de todos los demás procesos; el kernel le asigna siempre el PID 1 ( man 8 init )."
+  },
+  {
+    "id": 13,
+    "num": 13,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which daemon handles power management events on a Linux system?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "acpid",
+      "batteryd",
+      "pwrmgntd",
+      "psd",
+      "inetd"
+    ],
+    "correct_indices": [
+      0
+    ],
+    "fill_answers": [],
+    "correct_text": "acpid",
+    "explanation": "acpid ( Advanced Configuration and Power Interface event daemon ) es el demonio encargado de escuchar y despachar eventos de gestión de energía del hardware (como pulsar el botón de encendido, cerrar la tapa del portátil o cambios en la batería) hacia el espacio de usuario ( man 8 acpid )."
+  },
+  {
+    "id": 14,
+    "num": 14,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following statements are true about the boot sequence of a PC using a BIOS? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "Some parts of the boot process can be configured from the BIOS.",
+      "Linux does not require the assistance of the BIOS to boot a computer.",
+      "The BIOS boot process starts only if secondary storage, such as the hard disk, is functional.",
+      "The BIOS initiates the boot process after turning the computer on.",
+      "The BIOS is started by loading hardware drivers from secondary storage, such as the hard di sk."
+    ],
+    "correct_indices": [
+      0,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "Some parts of the boot process can be configured from the BIOS. y The BIOS initiates the boot process after turning the computer on.",
+    "explanation": "Al encender el ordenador, el firmware BIOS se ejecuta desde la memoria no volátil de la placa base, realiza el POST ( Power-On Self-Test ) e inicia la secuencia de arranque. Además, desde la interfaz de configuración de la BIOS se pueden ajustar parámetros del arranque como el orden de los dispositivos ( boot order )."
+  },
+  {
+    "id": 15,
+    "num": 15,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What is true regarding UEFI firmware? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "It can read and interpret partition tables.",
+      "It can use and read certain file systems.",
+      "It stores its entire configuration on the /boot/ partition.",
+      "It is stored in a special area within the GPT metadata.",
+      "It is loaded from a fixed boot disk position."
+    ],
+    "correct_indices": [
+      0,
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "It can read and interpret partition tables. y It can use and read certain file systems.",
+    "explanation": "A diferencia del BIOS tradicional (que solo lee el sector físico MBR), el firmware UEFI es capaz de entender tablas de particiones (tanto GPT como MBR) y leer sistemas de archivos directamente (específicamente FAT12, FAT16 y FAT32 en la partición del sistema EFI o ESP) para ejecutar archivos binarios .efi ."
+  },
+  {
+    "id": 16,
+    "num": 16,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "When is the content of the kernel ring buffer reset? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "When the ring buffer is explicitly reset using the command dmesg --clear.",
+      "When the ring buffer is read using dmesg without any additional parameters.",
+      "When a configurable amount of time, 15 minutes by default, has passed.",
+      "When the kernel loads a previously unloaded kernel module .",
+      "When the system is shut down or rebooted."
+    ],
+    "correct_indices": [
+      0,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "When the ring buffer is explicitly reset using the command dmesg --clear. y When the system is shut down or rebooted.",
+    "explanation": "El kernel ring buffer se almacena en memoria RAM volátil, por lo que su contenido desaparece cuando el sistema se apaga o reinicia. Asimismo, se puede vaciar manualmente en cualquier momento ejecutando dmesg --clear (o dmesg -C ), según man 1 dmesg ."
+  },
+  {
+    "id": 17,
+    "num": 17,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What is the first program the Linux kernel starts at boot time when using System V init?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "/lib/init.so",
+      "/proc/sys/kernel/init",
+      "/etc/rc.d/rcinit",
+      "/sbin/init",
+      "/boot/init"
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "/sbin/init",
+    "explanation": "En sistemas basados en SysVinit, una vez montado el sistema de archivos raíz, el kernel busca y ejecuta por defecto el binario /sbin/init ."
+  },
+  {
+    "id": 18,
+    "num": 18,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "A Debian package creates several files during its installation. Which of the following commands searches for packages owning the file /etc/debian_version?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "apt-get search /etc/debian_version",
+      "apt -r /etc/debian_version",
+      "find /etc/debian_version -dpkg",
+      "dpkg -S /etc/debian_version",
+      "apt-file /etc/debian_version"
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "dpkg -S /etc/debian_version",
+    "explanation": "Según man 1 dpkg , la opción -S (o --search ) busca un nombre de archivo o patrón en la base de datos de paquetes instalados y devuelve qué paquete es propietario de dicho archivo."
+  },
+  {
+    "id": 19,
+    "num": 19,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following directories on a 64 bit Linux system typically contain shared libraries? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "~/.lib64/",
+      "/usr/lib64/",
+      "/var/lib64/",
+      "/lib64/",
+      "/opt/lib64/"
+    ],
+    "correct_indices": [
+      1,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "/usr/lib64/ y /lib64/",
+    "explanation": "De acuerdo con el estándar FHS, las bibliotecas compartidas esenciales de 64 bits para el arranque y para los binarios de /bin y /sbin se almacenan en /lib64/ , mientras que las bibliotecas compartidas para las aplicaciones de /usr/bin y /usr/sbin se ubican en /usr/lib64/ ."
+  },
+  {
+    "id": 20,
+    "num": 20,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following files exist in a standard GRUB 2 installation? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "/boot/grub/stages/stage0",
+      "/boot/grub/i386-pc/lvm.mod",
+      "/boot/grub/fstab",
+      "/boot/grub/grub.cfg",
+      "/boot/grub/linux/vmlinuz"
+    ],
+    "correct_indices": [
+      1,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "/boot/grub/i386-pc/lvm.mod y /boot/grub/grub.cfg",
+    "explanation": "En GRUB 2 ya no existen los antiguos archivos stage1 / stage2 de GRUB Legacy; en su lugar utiliza un archivo de configuración principal llamado /boot/grub/grub.cfg y carga módulos dinámicos ( .mod ) organizados por arquitectura (como /boot/grub/i386-pc/lvm.mod )."
+  },
+  {
+    "id": 21,
+    "num": 21,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following commands installs all packages with a name ending with the string foo?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "zypper get \" foo\"",
+      "zypper update \"foo?\"",
+      "zypper force \"foo \"",
+      "zypper install \"*foo\"",
+      "zypper add \".*foo\""
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "* zypper install \" foo\"",
+    "explanation": "En SUSE/openSUSE, el gestor de paquetes zypper utiliza el subcomando install (o in ) y soporta comodines de tipo glob ( * y ? ). \"*foo\" coincide con cualquier paquete cuyonombre termine en foo ( man 8 zypper )."
+  },
+  {
+    "id": 22,
+    "num": 22,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following properties of a Linux system should be changed when a virtual machine is cloned? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "The partitioning scheme",
+      "The file system",
+      "The D-Bus Machine ID",
+      "The permissions of /root/",
+      "The SSH host keys"
+    ],
+    "correct_indices": [
+      2,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "The D-Bus Machine ID y The SSH host keys",
+    "explanation": "Al clonar una máquina virtual, los identificadores criptográficos y de sistema únicos deben regenerarse para evitar conflictos de red, problemas de gestión y fallos de seguridad. Específicamente, se deben regenerar las claves de host SSH ( /etc/ssh/ssh_host_* ) y el identificador único de máquina de D-Bus/systemd ( /etc/machine-id o /var/lib/dbus/machine-id )."
+  },
+  {
+    "id": 23,
+    "num": 23,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following commands installs GRUB 2 into the master boot record on the third hard disk?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "grub2 install /dev/sdc",
+      "grub-mkrescue /dev/sdc",
+      "grub-mbrinstall /dev/sdc",
+      "grub-setup /dev/sdc",
+      "grub-install /dev/sdc"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "grub-install /dev/sdc",
+    "explanation": "En Linux, los discos SCSI/SATA se nombran secuencialmente: /dev/sda (primero), /dev/sdb (segundo) y /dev/sdc (tercero). El comando para instalar el cargador de arranque GRUB en el MBR del disco es grub-install /dev/sdc ( man 8 grub-install )."
+  },
+  {
+    "id": 24,
+    "num": 24,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following partition types is used for Linux swap spaces when partitioning hard disk drives?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "7",
+      "82",
+      "83",
+      "8e",
+      "fd"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "82",
+    "explanation": "En las tablas de particiones MBR ( fdisk ), los identificadores hexadecimales estándar de Linux son: 82 para Linux swap , 83 para sistemas de archivos nativos de Linux, 8e para Linux LVM y fd para Linux RAID autodetect ( 7 es HPFS/NTFS/exFAT)."
+  },
+  {
+    "id": 25,
+    "num": 25,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "What is true regarding the configuration of yum? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "Changes to the repository configuration become active after running yum confupdate.",
+      "Changes to the yum configuration become active after restarting the yumd service.",
+      "The configuration of package repositories can be divided into multiple files.",
+      "Repository configurations can include variables such as $basearch or $releasever.",
+      "In case /etc/yum.repos.d/ contains files, /et c/yum.conf is ignored."
+    ],
+    "correct_indices": [
+      2,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "The configuration of package repositories can be divided into multiple files. y Repository configurations can include variables such as $basearch or $releasever.",
+    "explanation": "Según man 5 yum.conf , yum lee su configuración global de /etc/yum.conf y permite dividir las definiciones de repositorios en múltiples archivos .repo dentro de /etc/yum.repos.d/ . Además, soporta variables dinámicas integradas como $releasever (versión de la distribución) y $basearch (arquitectura base del sistema)."
+  },
+  {
+    "id": 26,
+    "num": 26,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which command uninstalls a package but keeps its configuration files in case the package is re-installed?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "dpkg -s pkgname",
+      "dpkg -L pkgname",
+      "dpkg -P pkgname",
+      "dpkg -v pkgname",
+      "dpkg -r pkgname"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "dpkg -r pkgname",
+    "explanation": "Según man 1 dpkg , la opción -r (o --remove ) elimina todos los archivos de un paquete instalado excepto los archivos de configuración ( conffiles ), mientras que -P ( --purge ) elimina todo, incluidos los archivos de configuración."
+  },
+  {
+    "id": 27,
+    "num": 27,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following commands lists the dependencies of the RPM package file foo.rpm?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "rpm -qpR foo.rpm",
+      "rpm -dep foo",
+      "rpm -ld foo.rpm",
+      "rpm -R foo.rpm",
+      "rpm -pD foo"
+    ],
+    "correct_indices": [
+      0
+    ],
+    "fill_answers": [],
+    "correct_text": "rpm -qpR foo.rpm",
+    "explanation": "En rpm ( man 8 rpm ), -q inicia una consulta ( query ), -p indica que la consulta se realiza sobre un archivo de paquete .rpm (no instalado en la base de datos local) y -R ( --requires ) lista los paquetes o capacidades de los que depende."
+  },
+  {
+    "id": 28,
+    "num": 28,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "What is the maximum niceness value that a regular user can assign to a process with the nice command when executing a new process?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "9",
+      "15",
+      "19",
+      "49",
+      "99"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "19",
+    "explanation": "Los valores de niceness en Linux van desde -20 (máxima prioridad de planificación) hasta 19 (mínima prioridad de planificación). Los usuarios normales solo pueden disminuir la prioridad de sus procesos asignando valores positivos hasta el máximo de 19 ( man 1 nice )."
+  },
+  {
+    "id": 29,
+    "num": 29,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which of the following commands list all files and directories within the /tmp/ directory and its subdirectories which are owned by the user root? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "find /tmp -user root -print",
+      "find -path /tmp -uid root",
+      "find /tmp -uid root -print",
+      "find /tmp -user root",
+      "find -path /tmp -user root -print"
+    ],
+    "correct_indices": [
+      0,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "find /tmp -user root -print y find /tmp -user root",
+    "explanation": "En find ( man 1 find ), el primer argumento posicional es la ruta de búsqueda ( /tmp ), seguido del predicado -user root (que busca por nombre de propietario; -uid requeriría un número entero como 0 ). La acción por defecto si no se especifica ninguna es -print , por lo que poner -print explícitamente ono ponerlo produce exactamente el mismo resultado válido."
+  },
+  {
+    "id": 30,
+    "num": 30,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following are valid stream redirection operators within Bash? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "#>",
+      "%>",
+      ">>>",
+      "2>&1"
+    ],
+    "correct_indices": [
+      0,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "y 2>&1",
+    "explanation": "En Bash ( man 1 bash ), es el operador estándar de redirección de entrada, y 2>&1 redirige el descriptor de archivo 2 ( standard error ) al mismo destino al que apunta el descriptor 1 ( standard output ). El operador >>> no existe en Bash (existe para here-strings )."
+  },
+  {
+    "id": 31,
+    "num": 31,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following vi commands deletes two lines, the current and the following line?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "d2",
+      "2d",
+      "2dd",
+      "dd2",
+      "de12"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "2dd",
+    "explanation": "En el modonormal de vi / vim , el comando para eliminar una línea completa es dd . Al anteponer el multiplicador numérico 2 ( 2dd ), la operación se aplica a 2 líneas consecutivas empezando por la línea actual (también es válido d2d , pero de las opciones dadas solo 2dd es correcta)."
+  },
+  {
+    "id": 32,
+    "num": 32,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "From a Bash shell, which of the following commands directly execute the instructions from the file /usr/local/bin/runme.sh without starting a subshell? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "source /usr/local/bin/runme.sh",
+      "/usr/local/bin/runme.sh",
+      "/bin/bash /usr/local/bin/runme.sh",
+      ". /usr/local/bin/runme.sh",
+      "run /usr/local/bin/runme.sh"
+    ],
+    "correct_indices": [
+      0,
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "source /usr/local/bin/runme.sh y . /usr/local/bin/runme.sh",
+    "explanation": "En Bash, el comando interno . (punto) y su sinónimo source leen y ejecutan los comandos del archivo especificado dentro del entorno de la shell actual sin crear un proceso hijo ( subshell )."
+  },
+  {
+    "id": 33,
+    "num": 33,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which program runs a command in specific intervals and refreshes the display of the program's output? (Specify ONLY the command without any path or parameters.)",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "watch"
+    ],
+    "correct_text": "watch",
+    "explanation": "El comando watch ( man 1 watch ) ejecuta un programa periódicamente (cada 2 segundos por defecto) mostrando su salida a pantalla completa para poder observar sus cambios a lo largo del tiempo."
+  },
+  {
+    "id": 34,
+    "num": 34,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Immediately after deleting 3 lines of text in vi and moving the cursor to a different line, which single character command will insert the deleted content below the current line?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "i (lowercase)",
+      "p (lowercase)",
+      "P (uppercase)",
+      "U (uppercase)",
+      "u (lowercase)"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "p (lowercase)",
+    "explanation": "En vi , eliminar líneas las guarda en el registro (búfer) por defecto. El comando p (minúscula, put ) pega el contenido de líneas completas justo debajo de la línea actual, mientras que P (mayúscula) lo pega por encima."
+  },
+  {
+    "id": 35,
+    "num": 35,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands changes all CR-LF line breaks in the text file userlist.txt to Linux standard LF line breaks and stores the result in newlist.txt?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "tr -d '\\r' < userlist.txt > newlist.txt",
+      "tr -c '\\n\\r' '' < userlist.txt > newlist.txt",
+      "tr '\\r\\n' '' < userlist.txt > newlist.txt",
+      "tr '\\r' '\\n' < userlist.txt > newlist.txt",
+      "tr -s '/^M/^J/' userlist.txt newlist.txt"
+    ],
+    "correct_indices": [
+      0
+    ],
+    "fill_answers": [],
+    "correct_text": "tr -d '\\r' < userlist.txt > newlist.txt",
+    "explanation": "Los saltos de línea DOS/Windows se componen de Retorno de Carro ( \\r , CR) seguido de Salto de Línea ( \\n , LF), mientras que Linux usa únicamente \\n (LF). El comando tr lee exclusivamente de la entrada estándar ( ), elimina ( -d ) los caracteres \\r y redirige la salida a newlist.txt ."
+  },
+  {
+    "id": 36,
+    "num": 36,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which command must be entered before exiting vi to save the current file as filea.txt?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "%s filea.txt",
+      "%w filea.txt",
+      ":save filea.txt",
+      ":w filea.txt",
+      ":s filea.txt"
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": ":w filea.txt",
+    "explanation": "En el modo de línea de comandos de vi , :w ( write ) guarda el contenido del búfer actual con el nombre de archivo especificado."
+  },
+  {
+    "id": 37,
+    "num": 37,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands displays the output of the foo command on the screen and also writes it to a file called /tmp/foodata?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "foo",
+      "less /tmp/foodata",
+      "foo",
+      "cp /tmp/foodata",
+      "foo > /tmp/foodata",
+      "foo",
+      "tee /tmp/foodata",
+      "foo > stdout >> /tmp/foodata"
+    ],
+    "correct_indices": [
+      6
+    ],
+    "fill_answers": [],
+    "correct_text": "foo | tee /tmp/foodata",
+    "explanation": "El comando tee ( man 1 tee ) lee de la entrada estándar y escribe simultáneamente tanto en la salida estándar (pantalla) como en uno o más archivos especificados."
+  },
+  {
+    "id": 38,
+    "num": 38,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "What output will be displayed when the user fred executes the following command? echo 'fred $USER'",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "fred fred",
+      "red /home/fred/",
+      "'fred $USER'",
+      "fred $USER",
+      "'fred fred'"
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "fred $USER",
+    "explanation": "El comando evalúa la instrucción con comillas simples echo 'fred $USER'. En Bash, las comillas simples impiden la interpolación de variables y caracteres especiales, por lo que la cadena se muestra literalmente: fred $USER."
+  },
+  {
+    "id": 39,
+    "num": 39,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands displays the path to the executable file that would be executed when the command foo is invoked?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "lsattr foo",
+      "apropos foo",
+      "locate foo",
+      "whatis foo",
+      "which foo"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "which foo",
+    "explanation": "El comando which ( man 1 which ) busca en los directorios definidos en la variable de entorno $PATH y devuelve la ruta completa del ejecutable que se invocaría al escribir dicho comando."
+  },
+  {
+    "id": 40,
+    "num": 40,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "When redirecting the output of find to the xargs command, what option to find is useful if the filenames contain spaces?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "-rep-space",
+      "printnul",
+      "-nospace",
+      "-ignore-space",
+      "-print0"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "-print0",
+    "explanation": "Por defecto, xargs usa espacios y saltos de línea como delimitadores, lo que falla si los nombres de archivo contienen espacios. La opción -print0 de find separa los resultados mediante un carácter nulo ( NUL ), que se combina con xargs -0 ."
+  },
+  {
+    "id": 41,
+    "num": 41,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands can be used to determine how long the system has been running? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "uptime",
+      "up",
+      "time --up",
+      "uname -u",
+      "top"
+    ],
+    "correct_indices": [
+      0,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "uptime y top",
+    "explanation": "El comando uptime muestra directamente el tiempo que lleva encendido el sistema. Asimismo, la primera línea de cabecera del comando interactivo top muestra exactamente la misma información de tiempo de actividad ( uptime )."
+  },
+  {
+    "id": 42,
+    "num": 42,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "What is true regarding the command ls > files if files does not exist?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "The output of ls is printed to the terminal.",
+      "files is created and contains the output of ls.",
+      "An error message is shown and ls is not executed.",
+      "The command files is executed and receives the output of ls.",
+      "Any output of ls is discarde d."
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "files is created and contains the output of ls.",
+    "explanation": "El operador de redirección > redirige la salida estándar a un archivo. Si el archivo de destinono existe, la shell lo crea automáticamente antes de ejecutar el comando y vuelca en él la salida."
+  },
+  {
+    "id": 43,
+    "num": 43,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which wildcards will match the following filenames? (Choose two.) ttyS0 ttyS1 ttyS2",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "ttyS[1-5]",
+      "tty?[0-5]",
+      "tty*2",
+      "tty[A-Z][012]",
+      "tty[Ss][02]"
+    ],
+    "correct_indices": [
+      1,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "tty?[0-5] y tty[A-Z][012]",
+    "explanation": "tty?[0-5] : ? coincide con cualquier carácter individual ( S ), y [0-5] coincide con 0 , 1 y 2 . tty[A-Z][012] : [A-Z] coincide con S , y [012] coincide con 0 , 1 y 2 . Las demás opciones fallan porque excluyen el 0 ( [1-5] ), el 1 ( [02] ), o solo coinciden con el terminado en 2 ( tty*2 )."
+  },
+  {
+    "id": 44,
+    "num": 44,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands redirects the output of ls to standard error?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "ls >-1",
+      "ls ls",
+      ">&2",
+      "ls >>2",
+      "ls",
+      "error"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "ls >&2",
+    "explanation": "En Bash, el descriptor de archivo por defecto para la redirección de salida > es 1 ( stdout ), y 2 corresponde a stderr ( standard error ). Por tanto, >&2 (equivalente a 1>&2 ) redirige la salida estándar hacia el descriptor de error estándar."
+  },
+  {
+    "id": 45,
+    "num": 45,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following commands displays the contents of a gzip compressed tar archive?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "gzip archive.tgz",
+      "tar xvf -",
+      "tar -fzt archive.tgz",
+      "gzip -d archive.tgz",
+      "tar tvf -",
+      "tar cf archive.tgz",
+      "tar ztf archive.tgz"
+    ],
+    "correct_indices": [
+      6
+    ],
+    "fill_answers": [],
+    "correct_text": "tar ztf archive.tgz",
+    "explanation": "En tar (man 1 tar), z filtra el archivo a través de gzip, t (list) muestra el listado de contenidos sin extraerlos y f especifica el nombre del archivo (archive.tgz). Ten en cuenta que la alternativa tar -fzt archive.tgz fallaría porque la opción f espera inmediatamente detrás el nombre del archivo."
+  },
+  {
+    "id": 46,
+    "num": 46,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which of the following commands prints a list of usernames (first column) and their primary group (fourth column) from the /etc/passwd file?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "fmt -f 1,4 /etc/passwd",
+      "cut -d : -f 1,4 /etc/passwd",
+      "sort -t : -k 1,4 /etc/passwd",
+      "paste -f 1,4 /etc/passwd",
+      "split -c 1,4 /etc/passwd"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "cut -d : -f 1,4 /etc/passwd",
+    "explanation": "El comando cut extrae columnas de archivos de texto. La opción -d : define los dos puntos como delimitador de campos, y -f 1,4 selecciona el primer y cuarto campo de cada línea ( man 1 cut )."
+  },
+  {
+    "id": 47,
+    "num": 47,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following regular expressions represents a single upper-case letter?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      ":UPPER:",
+      "[A-Z]",
+      "!a-z",
+      "%C",
+      "{AZ}"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "[A-Z]",
+    "explanation": "En expresiones regulares, los corchetes [] definen una clase de caracteres que coincide con un único carácter contenido en el rango especificado. [A-Z] coincide con cualquier letra mayúscula individual de la A a la Z. (La clase POSIX :upper: requeriría doble corchete [[:upper:]] )."
+  },
+  {
+    "id": 48,
+    "num": 48,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which command is used to start another command with a given nice level? (Specify ONLY the command without any path or parameters.)",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "nice"
+    ],
+    "correct_text": "nice",
+    "explanation": "El comando nice ( man 1 nice ) ejecuta un programa con una prioridad de planificación ( niceness ) modificada desde su inicio."
+  },
+  {
+    "id": 49,
+    "num": 49,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Given a log file loga.log with timestamps of the format DD/MM/YYYY:hh:mm:ss, which command filters out all log entries in the time period between 8:00 am and 8:59 am?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "grep -E ':08:[0-9]+:[0-9]+' loga.log",
+      "grep -E ':08:[0-9]+' loga.log",
+      "grep -E loga.log ':08:[0-9]+:[0-9]+'",
+      "grep loga.log ':08:[0-9]:[0-9]'",
+      "grep -E ':08:[0-9]+:[0-9]+' loga.log"
+    ],
+    "correct_indices": [
+      0
+    ],
+    "fill_answers": [],
+    "correct_text": "grep -E ':08:[0-9]+:[0-9]+' loga.log",
+    "explanation": "La opción -E activa expresiones regulares extendidas (necesarias para el cuantificador + , que significa \"uno o más dígitos\"). El patrón :08:[0-9]+:[0-9]+ busca la hora 08 seguida de cualquier minuto y segundo entre 08:00:00 y 08:59:59 , seguido del nombre del archivo loga.log ."
+  },
+  {
+    "id": 50,
+    "num": 50,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Instead of supplying an explicit device in /etc/fstab for mounting, what other options may be used to identify the intended partition? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "LABEL",
+      "ID",
+      "FIND",
+      "NAME",
+      "UUID"
+    ],
+    "correct_indices": [
+      0,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "LABEL y UUID",
+    "explanation": "Según man 5 fstab , el primer campo puede identificar el dispositivo de bloques mediante su ruta ( /dev/sda1 ), su etiqueta de sistema de archivos ( LABEL= ) o su identificador único universal ( UUID= )."
+  },
+  {
+    "id": 51,
+    "num": 51,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "A yum repository can declare sets of related packages. Which yum command installs all packages belonging to the group admintools?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "yum pkgsel --install admintools",
+      "yum install admintools/*",
+      "yum groupinstall admintools",
+      "yum taskinstall admintools",
+      "yum collection install admintools"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "yum groupinstall admintools",
+    "explanation": "De acuerdo con man 8 yum , el subcomando groupinstall (o group install ) se utiliza para instalar todos los paquetes pertenecientes a un grupo definido en el repositorio."
+  },
+  {
+    "id": 52,
+    "num": 52,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "What directory contains configuration files for additional yum repositories? (Specify the full path to the directory.)",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "/etc/yum.repos.d"
+    ],
+    "correct_text": "/etc/yum.repos.d (también aceptado /etc/yum.repos.d/ )",
+    "explanation": "Según man 5 yum.conf , por defecto yum almacena y lee los archivos de configuración de repositorios adicionales ( .repo ) en el directorio /etc/yum.repos.d ."
+  },
+  {
+    "id": 53,
+    "num": 53,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following commands installs the GRUB boot files into the currently active file systems and the boot loader into the first partition of the first disk?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "grub-install /dev/sda",
+      "grub-install /dev/sda1",
+      "grub-install current /dev/sda0",
+      "grub-install /dev/sda0",
+      "grub-install current /dev/sda1"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "grub-install /dev/sda1",
+    "explanation": "En la nomenclatura de discos de Linux, el primer disco es /dev/sda y su primera partición se numera empezando en 1: /dev/sda1 ."
+  },
+  {
+    "id": 54,
+    "num": 54,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following files are found in the /boot/ file system? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "Linux kernel images",
+      "Bash shell binaries",
+      "systemd target and service units",
+      "Initial ramdisk images",
+      "fsck binaries"
+    ],
+    "correct_indices": [
+      0,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "Linux kernel images y Initial ramdisk images",
+    "explanation": "Según el FHS, el directorio /boot/ contiene todo lonecesario para el proceso de arranque antes de que el kernel inicie los programas de espacio de usuario, incluyendo las imágenes del kernel ( vmlinuz-* ) y las imágenes del disco RAM inicial ( initrd.img-* o initramfs-* )."
+  },
+  {
+    "id": 55,
+    "num": 55,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which file defines the network locations from where the Debian package manager downloads software packages?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "/etc/dpkg/dpkg.cfg",
+      "/etc/apt/apt.conf.d",
+      "/etc/apt/apt.conf",
+      "/etc/dpkg/dselect.cfg",
+      "/etc/apt/sources.list"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "/etc/apt/sources.list",
+    "explanation": "En sistemas basados en Debian, APT lee la lista de repositorios de red desde /etc/apt/sources.list (y archivos adicionales en /etc/apt/sources.list.d/ ), según man 5 sources.list ."
+  },
+  {
+    "id": 56,
+    "num": 56,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "When removing a package on a system using dpkg package management, which dpkg option ensures configuration files are removed as well?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "--clean",
+      "--purge",
+      "--vacuum",
+      "--remove",
+      "--declare"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "--purge",
+    "explanation": "En dpkg ( man 1 dpkg ), la opción --purge (o -P ) elimina por completo un paquete instalado, incluyendo todos sus archivos de configuración."
+  },
+  {
+    "id": 57,
+    "num": 57,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following statements are correct when comparing Linux containers with traditional virtual machines (e.g. LXC vs. KVM)? (Choose three.)",
+    "type": "multiple",
+    "pick_count": 3,
+    "options": [
+      "Containers are a lightweight virtualization method where the kernel controls process isolation and resource management.",
+      "Fully v irtualized machines can run any operating system for a specific hardware architecture within the virtua l machine.",
+      "Containers are completely decoupled from the host system's physical hardware and can only use emulate d virtual hardware devices.",
+      "The guest environment for fully virtualized machines is created by a hypervisor which provides virtual and emulated hardware devices.",
+      "Containers on the same host can use different operating systems, as the container hypervisor creates separate kernel execution."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "Containers are a lightweight virtualization method where the kernel controls process isolation and resource management. Fully virtualized machines can run any operating system for a specific hardware architecture within the virtual machine. The guest environment for fully virtualized machines is created by a hypervisor which provides virtual and emulated hardware devices.",
+    "explanation": "Los contenedores comparten el mismo kernel del sistema anfitrión y utilizan mecanismos del kernel ( namespaces y cgroups ) para aislar procesos y gestionar recursos. En cambio, las máquinas virtuales completas utilizan un hipervisor (como KVM/QEMU) que emula hardware y permite ejecutar cualquier sistema operativo con su propio kernel independiente."
+  },
+  {
+    "id": 58,
+    "num": 58,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "The installation of a local Debian package failed due to unsatisfied dependencies. Which of the following commands installs missing dependencies and completes the interrupted package installation?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "dpkg --fix --all",
+      "apt-get autoinstall",
+      "dpkg-reconfigure --all",
+      "apt-get all",
+      "apt-get install -f"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "apt-get install -f",
+    "explanation": "Según man 8 apt-get , la opción -f (o --fix-broken ) intenta corregir un sistema con dependencias rotas descargando los paquetes faltantes y completando la configuración pendiente."
+  },
+  {
+    "id": 59,
+    "num": 59,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands are valid in the GRUB 2 configuration file? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "menuentry",
+      "uefi",
+      "pxe-ifconfig",
+      "insmod",
+      "kpartx"
+    ],
+    "correct_indices": [
+      0,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "menuentry e insmod",
+    "explanation": "Dentro de /boot/grub/grub.cfg , la directiva menuentry define cada una de las entradas del menú de arranque, e insmod carga módulos dinámicos de GRUB (como soporte para LVM, RAID o sistemas de archivos)."
+  },
+  {
+    "id": 60,
+    "num": 60,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "What is the purpose of the ldd command?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "I t lists which shared libraries a binary needs to run.",
+      "It installs and updates installed shared libraries.",
+      "It turns a dynamically linked binary into a static binary.",
+      "It defines which version of a library should be used by default.",
+      "It runs a binary with an alternate library search path."
+    ],
+    "correct_indices": [
+      0
+    ],
+    "fill_answers": [],
+    "correct_text": "It lists which shared libraries a binary needs to run.",
+    "explanation": "Según man 1 ldd ( list dynamic dependencies ), este comando imprime las bibliotecas compartidas requeridas por cada programa o biblioteca compartida especificada en la línea de comandos."
+  },
+  {
+    "id": 61,
+    "num": 61,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "What can the Logical Volume Manager (LVM) be used for? (Choose three.)",
+    "type": "multiple",
+    "pick_count": 3,
+    "options": [
+      "To create snapshots.",
+      "To dynamically change the size of logical volumes.",
+      "To dynamically create or delete logical volumes.",
+      "To create RAID 9 arrays.",
+      "To encrypt logical volumes."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "To create snapshots. , To dynamically change the size of logical volumes. y To dynamically create or delete logical volumes.",
+    "explanation": "LVM permite crear, redimensionar y eliminar volúmenes lógicos en caliente, así como tomar instantáneas ( snapshots ) del estado de un volumen. No existe un nivel \"RAID 9\", y el cifrado de bloques en Linux lo realiza LUKS/ dm-crypt , no LVM por sí mismo."
+  },
+  {
+    "id": 62,
+    "num": 62,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "What are the main differences between GPT and MBR partition tables regarding maximum number and size of partitions? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "M BR can handle partition sizes up to 4 TB, whereas GPT supports partition sizes up to 128 ZB.",
+      "By default, GPT can manage up to 128 partitions while MBR only supports four primary partitions.",
+      "By default, GPT can manage up to 64 partitions while MBR only supports 16 primary partitions.",
+      "MBR can handle partition sizes u p to 2.2 TB, whereas GPT supports sizes up to 9.4 ZB.",
+      "Both GPT and MBR support up to four primary partitio ns, each with up to 4096 TB."
+    ],
+    "correct_indices": [
+      1,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "By default, GPT can manage up to 128 partitions while MBR only supports four primary partitions. y MBR can handle partition sizes up to 2.2 TB, whereas GPT supports sizes up to 9.4 ZB.",
+    "explanation": "MBR utiliza direcciones de bloque de 32 bits (con sectores de 512 bytes tiene un límite de 2 32 × 512 &nbsp;bytes ≈ 2.2 &nbsp;TB 2^{32} \\times 512 \\text{ bytes} \\approx 2.2 \\text{ TB} 2 32 × 512 &nbsp;bytes ≈ 2.2 &nbsp;TB ) y su estructura solo permite 4 particiones primarias. GPT utiliza direcciones de 64 bits (soportando hasta 2 64 × 512 &nbsp;bytes ≈ 9.4 &nbsp;ZB 2^{64} \\times 512 \\text{ bytes} \\approx 9.4 \\text{ ZB} 2 64 × 512 &nbsp;bytes ≈ 9.4 &nbsp;ZB ) y reserva espacio por defecto para 128 particiones sin necesidad de particiones extendidas."
+  },
+  {
+    "id": 63,
+    "num": 63,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "A backup software heavily uses hard links between files which have not been changed in between two backup runs. Which benefits are realized due to these hard links? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "The old backups can be moved to slow backup media, such as tapes, while still serving as hard link target in new backups.",
+      "The backup r uns faster because hard links are asynchronous operations, postponing the copy operation to a later po int in time.",
+      "The backup is guaranteed to be uncharged because a hard linked file cannot be modified after its creation.",
+      "The b ackup consumes less space because the hard links point to the same data o n disk instead of storing redundan t copies.",
+      "The backup runs faster because, instead of copying the data of each file, hard links only change file syst em metadata."
+    ],
+    "correct_indices": [
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "The backup consumes less space because the hard links point to the same data on disk instead of storing redundant copies. y The backup runs faster because, instead of copying the data of each file, hard links only change file system meta dat.",
+    "explanation": "Al crear enlaces duros para archivos no modificados (técnica habitual en herramientas como rsync --link-dest ), no se duplican los bloques de datos en disco, ahorrando espacio, y la operación es casi instantánea porque solo añade una entrada de directorio e incrementa el contador de enlaces en el inodo (metadatos)."
+  },
+  {
+    "id": 64,
+    "num": 64,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which file from the /proc/ file system contains a list of all currently mounted devices? (Specify the full name of the file, including path.)",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "/proc/mounts",
+      "/proc/self/mounts"
+    ],
+    "correct_text": "/proc/mounts (también es válido /proc/self/mounts )",
+    "explanation": "Según man 5 proc , /proc/mounts (enlace simbólico a /proc/self/mounts ) proporciona una lista de todos los sistemas de archivos actualmente montados en el sistema."
+  },
+  {
+    "id": 65,
+    "num": 65,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "How many fields are in a syntactically correct line of /etc/fstab?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "6",
+    "explanation": "De acuerdo con man 5 fstab , cada línea consta de 6 campos separados por espacios o tabuladores: 1) Dispositivo ( fs_spec ), 2) Punto de montaje ( fs_file ), 3) Tipo de sistema de archivos ( fs_vfstype ), 4) Opciones de montaje ( fs_mntops ), 5) Frecuencia de volcado dump ( fs_freq ) y 6) Orden de chequeo fsck ( fs_passno )."
+  },
+  {
+    "id": 66,
+    "num": 66,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Running chmod 640 filea.txt as a regular user doesn't update filea.txt's permission. What might be a reason why chmod cannot modify the permissions? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "filea.txt is owned by another user and a regular user cannot change the permissions of another user's file.",
+      "filea.txt is a symbolic link whose permissions are a fixed value which cannot be charged.",
+      "f ilea.txt has the sticky bit set and a regular user cannot remove this permission.",
+      "filea.txt is a hard link whose permissions are inherited from the target and cannot be set directly.",
+      "filea.txt has the SetUID bit set which imposes the restriction that only the root user can make changes to the f ile."
+    ],
+    "correct_indices": [
+      0,
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "filea.txt is owned by another user and a regular user cannot change the permissions of another user's file. y filea.txt is a symbolic link whose permissions are a fixed value which cannot be charged.",
+    "explanation": "Solo el propietario del archivo o el usuario root pueden cambiar los permisos de un archivo. Además, los enlaces simbólicos tienen siempre permisos ficticios ( lrwxrwxrwx ) que no pueden modificarse ( chmod actúa sobre el archivo destino, o si este no es propiedad del usuario o está roto, los permisos del enlace en sí nunca cambian)."
+  },
+  {
+    "id": 67,
+    "num": 67,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following Linux filesystems preallocate a fixed number of inodes when creating a new filesystem instead of generating them as needed? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "JFS",
+      "ext3",
+      "XFS",
+      "ext2",
+      "procfs"
+    ],
+    "correct_indices": [
+      1,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "ext3 y ext2",
+    "explanation": "Los sistemas de archivos de la familia Extended ( ext2 , ext3 , ext4 ) crean una tabla estática de inodos durante el formateo ( mkfs ), por lo que el número máximo de inodos queda fijado al crear el sistema de archivos (a diferencia de XFS, JFS o Btrfs, que asignan inodos de forma dinámica)."
+  },
+  {
+    "id": 68,
+    "num": 68,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands sets the SetUID permission on the executable /bin/foo?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "chmod 4755 /bin/foo",
+      "chmod 1755 /bin/foo",
+      "chmod u-s /bin/foo",
+      "chmod 755+s /bin/foo",
+      "chmod 2755 /bin/foo"
+    ],
+    "correct_indices": [
+      0
+    ],
+    "fill_answers": [],
+    "correct_text": "chmod 4755 /bin/foo",
+    "explanation": "En notación octal, el primer dígito de cuatro cifras corresponde a los permisos especiales: 4 para SetUID (SUID), 2 para SetGID (SGID) y 1 para el Sticky bit . Por tanto, 4755 activa el bit SetUID junto con los permisos rwxr-xr-x ."
+  },
+  {
+    "id": 69,
+    "num": 69,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which of the following commands can be used to display the inode number of a given file? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "inode",
+      "ln",
+      "ls",
+      "cp",
+      "stat"
+    ],
+    "correct_indices": [
+      2,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "ls y stat",
+    "explanation": "El comando ls con la opción -i ( ls -i ) muestra el número de inodo de cada archivo, y el comando stat muestra información detallada del inodo del archivo, incluyendo su número de inodo exacto."
+  },
+  {
+    "id": 70,
+    "num": 70,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "After a power outage, the XFS file system of /dev/sda3 is inconsistent. How can the existing file system errors be fixed?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "B y using mount -f to force a mount of the file system.",
+      "By running xfsck on the file system.",
+      "By mounting the file system with the option xfs_repair.",
+      "By running xfsadmin repair on the file system.",
+      "By running xfs_repair on the file system."
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "By running xfs_repair on the file system.",
+    "explanation": "La herramienta especializada para comprobar y reparar un sistema de archivos XFS dañado o inconsistente (desmontado) es xfs_repair ( man 8 xfs_repair )."
+  },
+  {
+    "id": 71,
+    "num": 71,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which of the following properties of an existing file changes when a hard link pointing to that file is created?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "File size",
+      "Link count",
+      "Modify timestamp",
+      "Inode number",
+      "Permissions"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "Link count",
+    "explanation": "Cuando se crea un enlace duro con ln , no se modifica el contenido del archivo (por lo que el tamaño y el modify timestamp mtime no cambian, aunque sí cambia el change timestamp ctime ), sino que el contador de enlaces ( link count ) almacenado en el inodo se incrementa en 1."
+  },
+  {
+    "id": 72,
+    "num": 72,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Following the Filesystem Hierarchy Standard (FHS), where should binaries that have been compiled by the system administrator be placed in order to be made available to all users on the system? (Specify the full path to the directory.)",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "/usr/local/bin"
+    ],
+    "correct_text": "/usr/local/bin (también aceptado /usr/local/bin/ )",
+    "explanation": "Según el FHS, la jerarquía /usr/local/ está reservada para el software instalado localmente por el administrador del sistema (para evitar que sea sobrescrito por actualizaciones del gestor de paquetes), y los ejecutables para todos los usuarios deben ubicarse en /usr/local/bin ."
+  },
+  {
+    "id": 73,
+    "num": 73,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands show how the shell handles a specific command?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "where",
+      "type",
+      "stat",
+      "case",
+      "fileinfo"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "type",
+    "explanation": "El comando interno de Bash type indica cómo interpretaría la shell un nombre de comando si se ejecutara: si es un alias, una palabra reservada ( keyword ), una función, un comando interno ( builtin ) o un archivo ejecutable en disco."
+  },
+  {
+    "id": 74,
+    "num": 74,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands displays the manual page command from section 1?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "man command(1)",
+      "man command@1",
+      "man 1 command",
+      "man 1.command",
+      "man -s 1 command"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "man 1 command",
+    "explanation": "Según man 1 man, para consultar una página del manual de una sección específica se indica el número de sección como argumento antes del nombre del comando (man 1 command)."
+  },
+  {
+    "id": 75,
+    "num": 75,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which of the following commands creates or, in case it already exists, overwrites a file called data with the output of ls?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "ls 3> data",
+      "ls >& data",
+      "ls > data",
+      "ls >> d",
+      "ls >>> dataata"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "ls > data",
+    "explanation": "El operador de redirección simple > crea el archivo de destino si no existe, o trunca (sobrescribe) su contenido previo si ya existía, guardando únicamente la salida estándar del comando ls ."
+  },
+  {
+    "id": 76,
+    "num": 76,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands is used to change options and positional parameters within a running Bash shell?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "history",
+      "setsh",
+      "bashconf",
+      "set",
+      "envsetup"
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "set",
+    "explanation": "El comando interno set ( help set en Bash) permite activar o desactivar opciones del comportamiento de la shell en ejecución (como set -e o set -x ) y definir los parámetros posicionales ( $1 , $2 , etc.)."
+  },
+  {
+    "id": 77,
+    "num": 77,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which of the following commands display the IDs of all processes owned by root? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "pgrep -c root",
+      "pgrep -u root",
+      "pgrep -f root",
+      "pgrep -U 0",
+      "pgrep -c 0"
+    ],
+    "correct_indices": [
+      1,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "pgrep -u root y pgrep -U 0",
+    "explanation": "Según man 1 pgrep , tanto -u (ID de usuario efectivo) como -U (ID de usuario real) aceptan indistintamente el nombre del usuario ( root ) o su UID numérico ( 0 ), listando los PIDs de todos sus procesos. ( -c solo muestra el recuento total y -f busca la cadena en la línea de comandos)."
+  },
+  {
+    "id": 78,
+    "num": 78,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following sequences in the vi editor saves the opened document and exits the editor? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "Ctrl XX",
+      "Ctrl :W",
+      "Esc zz",
+      "Esc :wq",
+      "Esc ZZ"
+    ],
+    "correct_indices": [
+      2,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "Esc :wq y Esc ZZ",
+    "explanation": "En vi , pulsar Esc asegura estar en modonormal; desde ahí, tanto el comando :wq ( write and quit ) como el atajo en mayúsculas ZZ guardan el archivo y cierran el editor."
+  },
+  {
+    "id": 79,
+    "num": 79,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "What is the effect of the -v option for the grep command?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "I t enables color to highlight matching parts.",
+      "It shows the command's version information.",
+      "It only outputs non-matching lines.",
+      "It changes the output order showing the last matching line first.",
+      "It outputs all lines and prefixes matching lines with a+."
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "It only outputs non-matching lines.",
+    "explanation": "De acuerdo con man 1 grep , la opción -v (o --invert-match ) invierte el sentido de la búsqueda, seleccionando e imprimiendo únicamente las líneas que no coinciden con el patrón especificado."
+  },
+  {
+    "id": 80,
+    "num": 80,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following signals is sent to a process when the key combination Ctrl+Z is pressed on the keyboard?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "SIGTERM",
+      "SIGCONT",
+      "SIGSTOP",
+      "SIGKILL",
+      "SIGINT"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "SIGSTOP",
+    "explanation": "Aunque en entornos interactivos de terminal la pulsación Ctrl+Z genera la señal SIGTSTP (Terminal Stop), entre las opciones ofrecidas la señal encargada de suspender o detener la ejecución de un proceso es SIGSTOP, pausando su ejecución de forma inmediata."
+  },
+  {
+    "id": 81,
+    "num": 81,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "What is the output when the regular expression s/[ABC][abc]/xx/ is applied to the following string? ABCabc",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "ABxxbc",
+      "xxCxxc",
+      "xxxxxx",
+      "ABCabc",
+      "Axxaxx"
+    ],
+    "correct_indices": [
+      0
+    ],
+    "fill_answers": [],
+    "correct_text": "ABxxbc",
+    "explanation": "Al evaluarse sobre ABCabc, la expresión regular s/[ABC][abc]/xx/ busca un carácter en mayúscula del conjunto [ABC] seguido inmediatamente de un carácter en minúscula del conjunto [abc]. Dicha coincidencia exacta ocurre en los caracteres centrales Ca. Al sustituir Ca por xx, la cadena resultante es ABxxbc."
+  },
+  {
+    "id": 82,
+    "num": 82,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands print the current working directory when using a Bash shell? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "echo \"${PWD}\"",
+      "echo \"${WD}\"",
+      "printwd",
+      "pwd",
+      "echo \"${pwd}\""
+    ],
+    "correct_indices": [
+      0,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "echo \"${PWD}\" y pwd",
+    "explanation": "El comando pwd ( print working directory ) muestra el directorio de trabajo actual, y Bash mantiene siempre actualizada la variable de entorno en mayúsculas $PWD con esa misma ruta."
+  },
+  {
+    "id": 83,
+    "num": 83,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands outputs test to the shell?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "cat"
+    ],
+    "correct_indices": [
+      0
+    ],
+    "fill_answers": [],
+    "correct_text": "cat",
+    "explanation": "El operador"
+  },
+  {
+    "id": 84,
+    "num": 84,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "What is the default nice level of a process when started using the nice command?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "-10",
+      "0",
+      "1",
+      "10",
+      "15",
+      "20"
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "10",
+    "explanation": "Según man 1 nice, cuando se ejecuta el comandonice sin especificar un ajuste mediante la opción -n, por defecto aplica un incremento de niceness de 10."
+  },
+  {
+    "id": 85,
+    "num": 85,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "A user accidentally created the subdirectory \\dir in his home directory. Which of the following commands will remote that directory?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "rmdir ~/\\\\dir",
+      "rmdir '/\\dir\"",
+      "rmdir ~/'dir'",
+      "rmdir ~/\\dir",
+      "rmdir '~/\\dir'"
+    ],
+    "correct_indices": [
+      0
+    ],
+    "fill_answers": [],
+    "correct_text": "rmdir ~/\\\\dir",
+    "explanation": "En Bash, la barra invertida \\ es el carácter de escape. Para pasar una barra invertida literal en el nombre del directorio sin entrecomillar la tilde ~ (ya que ~ entre comillas \"~/\\dir\" o '~/\\dir' pierde su significado especial y no se expande al directorio home), hay que escapar la barra invertida con otra barra invertida: ~/\\\\dir ."
+  },
+  {
+    "id": 86,
+    "num": 86,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands can perform searches on file contents using regular expressions?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "find",
+      "locate",
+      "grep",
+      "reggrep",
+      "pgrep"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "grep",
+    "explanation": "A diferencia de find y locate (que buscan nombres y metadatos de archivos) o pgrep (que busca procesos), grep ( Global Regular Expression Print ) busca patrones de expresiones regulares dentro del contenido de los archivos."
+  },
+  {
+    "id": 87,
+    "num": 87,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "In a nested directory structure, which find command line option would be used to restrict the command to searching down a particular number of subdirectories?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "-maxdepth",
+      "-dirmax",
+      "-maxlevels",
+      "-s",
+      "-n"
+    ],
+    "correct_indices": [
+      0
+    ],
+    "fill_answers": [],
+    "correct_text": "-maxdepth",
+    "explanation": "Según man 1 find , la opción -maxdepth limita el descenso en la jerarquía de directorios a como máximo niveles por debajo de los puntos de partida."
+  },
+  {
+    "id": 88,
+    "num": 88,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands generates a list of user names from /etc/passwd along with their login shell?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "column -s : 1,7 /etc/passwd",
+      "chop -c 1,7 /etc/passwd",
+      "colrm 1,7 /etc/passwd",
+      "sort -t: -k1,7 /etc/passwd",
+      "cut -d: -f1,7 /etc/passwd"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "cut -d: -f1,7 /etc/passwd",
+    "explanation": "En /etc/passwd , los campos están separados por : ( -d: ), donde el campo 1 es el nombre de usuario y el campo 7 es el intérprete de comandos ( login shell ). cut -d: -f1,7 /etc/passwd extrae ambos campos."
+  },
+  {
+    "id": 89,
+    "num": 89,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "If the gzip compressed tar archive texts.tgz contains the files a.txt and b.txt, which files will be present in the current directory after running gunzip texts.tgz?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "Only a.txt, b.txt, and texts.tgz",
+      "Only texts.tar and texts.tgz",
+      "Only a.txt.gz and b.txt.gz",
+      "Only a.txt and b.txt",
+      "Only texts.tar"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "Only texts.tar",
+    "explanation": "Según man 1 gunzip , gunzip descomprime el archivo y reemplaza el original por la versión descomprimida. Además, reconoce la extensión abreviada .tgz como equivalente a .tar.gz , por lo que al descomprimir texts.tgz lo renombra automáticamente a texts.tar (sin extraer el empaquetado tar)."
+  },
+  {
+    "id": 90,
+    "num": 90,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "In the vi editor, how can commands such as moving the cursor or copying lines into the buffer be issued multiple times or applied to multiple rows?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "By using the command :repeat followed by the number and the command.",
+      "By specifying the number right in front of a command such as 41 or 2yj.",
+      "By selecting all affected lines using the shit and cursor keys before applying the command.",
+      "By is suing a command such as :set repetition=4 with repeats every subsequent command 4 times.",
+      "By specifying the number after a command such as 14 or yj2 followed by escape."
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "By specifying the number right in front of a command such as 4l or 2yj.",
+    "explanation": "En vi , cualquier comando de movimiento o edición en modonormal puede repetirse N N N veces escribiendo el número justo delante del comando (por ejemplo, 4l para avanzar 4 caracteres o 2yj para copiar la línea actual y las siguientes hacia abajo)."
+  },
+  {
+    "id": 91,
+    "num": 91,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following statements is correct for a command ending with an & character?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "The command's output is redirected to /dev/null.",
+      "The command is run in background of the current shell.",
+      "T he command's output is executed by the shell.",
+      "The command is run as a direct child of the init process.",
+      "The command's input is read from /dev/null."
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "The command is run in background of the current shell.",
+    "explanation": "En Bash ( man 1 bash ), terminar un comando con el operador de control & hace que la shell ejecute dicho comando de forma asíncrona en una subshell en segundo plano ( background ), devolviendo inmediatamente el control de la terminal al usuario."
+  },
+  {
+    "id": 92,
+    "num": 92,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands reads a file and creates separate chunks of a given size from the file's contents?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "ar",
+      "cat",
+      "break",
+      "split",
+      "parted"
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "split",
+    "explanation": "El comando split ( man 1 split ) divide un archivo de entrada en múltiples fragmentos más pequeños según un número determinado de líneas, bytes o trozos."
+  },
+  {
+    "id": 93,
+    "num": 93,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "What is the purpose of the xargs command?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "It passes arguments to an X server.",
+      "It repeats the execution of a command using different parameters for each invocation.",
+      "It reads standard input and builds up commands to execute.",
+      "It asks a question, graphically, and returns the answer to the shell.",
+      "It allows specifying long options (like --help) for commands that normally only accept short options (like -h)."
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "It reads standard input and builds up commands to execute.",
+    "explanation": "Según man 1 xargs , xargs lee elementos desde la entrada estándar (delimitados por espacios, saltos de línea onulos) y construye y ejecuta líneas de comandos pasándoles dichos elementos como argumentos."
+  },
+  {
+    "id": 94,
+    "num": 94,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which command is used to change the priority of an already running process? (Specify ONLY the command without any path or parameters.)",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "renice"
+    ],
+    "correct_text": "renice",
+    "explanation": "Mientras que nice inicia un proceso nuevo con una prioridad dada, renice ( man 1 renice ) altera la prioridad de planificación ( niceness ) de uno o más procesos que ya están en ejecución ."
+  },
+  {
+    "id": 95,
+    "num": 95,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "In Bash, inserting 1>&2 after a command redirects…",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "…standard error to standard input.",
+      "…standard output to standard error.",
+      "…standard input to standard error.",
+      "…standard error to standard output.",
+      "…standard output to standard input."
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "…standard output to standard error.",
+    "explanation": "En los descriptores de archivos estándar POSIX, 0 es entrada estándar ( stdin ), 1 es salida estándar ( stdout ) y 2 es error estándar ( stderr ). Por tanto, 1>&2 redirige la salida estándar ( 1 ) hacia el error estándar ( 2 )."
+  },
+  {
+    "id": 96,
+    "num": 96,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Where is the bootloader stored on the hard disk of a UEFI system?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "In the EFI Boot Record (EBR).",
+      "In the Master Boot Record (MBR).",
+      "On the EFI System Partition (ESP).",
+      "On the partition labeled boot.",
+      "On the partition number 127."
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "On the EFI System Partition (ESP).",
+    "explanation": "Los sistemas UEFI almacenan los cargadores de arranque (archivos con extensión .efi ) dentro de una partición dedicada formateada en FAT llamada EFI System Partition (ESP) ."
+  },
+  {
+    "id": 97,
+    "num": 97,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "What is the correct way to set the default systemd boot target to multi-user?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "systemctl isolate multi-user.target",
+      "systemctl set-runlevel multi-user.target",
+      "systemctl set-boot multi-user.target",
+      "systemctl set-default multi-user.target",
+      "systemctl boot -p multi-user.target"
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "systemctl set-default multi-user.target",
+    "explanation": "Según man 1 systemctl , el subcomando set-default establece el objetivo de arranque predeterminado creando el enlace simbólico /etc/systemd/system/default.target hacia el archivo de unidad indicado. ( isolate solo cambia el estado actual sin hacerlo persistente para el próximo arranque)."
+  },
+  {
+    "id": 98,
+    "num": 98,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following statements are correct about the initial RAM disk involved in the boot process of Linux? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "An initramfs is a compressed file system archive, which can be unpacked to examine its contents.",
+      "An initramfs file contains the MBR, the bootloader and the Linux kernel.",
+      "After a successful boot, the initramfs contents are available in /run/initramfs/.",
+      "The kernel uses the initramfs temporarily before accessing the real root file system.",
+      "An ini tramfs does not depend on a specific kernel version and is not changed after the initial installation."
+    ],
+    "correct_indices": [
+      0,
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "An initramfs is a compressed fi le system archive, which can be unpacked to examine its contents. y The kernel uses the initramfs temporarily before accessing the real root file system.",
+    "explanation": "El initramfs es un archivo cpio comprimido que se carga en memoria durante el arranque; el kernel lo monta como sistema de archivos raíz temporal para cargar los módulos necesarios (controladores de almacenamiento, LVM, RAID, cifrado) antes de montar el sistema de archivos raíz definitivo ( man 7 bootup )."
+  },
+  {
+    "id": 99,
+    "num": 99,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following commands loads a kernel module along with any required dependency modules?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "depmod",
+      "modprobe",
+      "module_install",
+      "insmod",
+      "loadmod"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "modprobe",
+    "explanation": "A diferencia de insmod (que carga únicamente el archivo .ko indicado y falla si faltan dependencias), modprobe ( man 8 modprobe ) consulta modules.dep y carga de forma inteligente el módulo solicitado junto con todos los módulos de los que depende."
+  },
+  {
+    "id": 100,
+    "num": 100,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What information can the lspci command display about the system hardware? (Choose three.)",
+    "type": "multiple",
+    "pick_count": 3,
+    "options": [
+      "System battery type.",
+      "Device IRQ settings.",
+      "PCI bus speed.",
+      "Ethernet MAC address.",
+      "Device vendor identification."
+    ],
+    "correct_indices": [
+      1,
+      2,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "Device IRQ settings. , PCI bus speed. y Device vendor identification.",
+    "explanation": "Al ejecutar lspci (especialmente con -v o -vv ), muestra los dispositivos conectados al bus PCI junto con el fabricante/vendedor ( vendor ID ), los recursos de hardware asignados como las interrupciones ( IRQ ) y la velocidad de enlace del bus PCI. No muestra direcciones MAC de capa de enlace (eso lo muestra ip link ) ni información de la batería (ACPI)."
+  },
+  {
+    "id": 101,
+    "num": 101,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which System V init configuration file is commonly used to set the default run level? (Specify the full name of the file, including path.)",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "/etc/inittab"
+    ],
+    "correct_text": "/etc/inittab",
+    "explanation": "En sistemas basados en System V init, el archivo de configuración principal es /etc/inittab ( man 5 inittab ), donde la directiva initdefault (por ejemplo, id:3:initdefault: ) define el nivel de ejecución predeterminado al arrancar."
+  },
+  {
+    "id": 102,
+    "num": 102,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which of the following apt-get subcommands installs the newest versions of all currently installed packages?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "auto-update",
+      "dist-upgrade",
+      "full-upgrade",
+      "install",
+      "update"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "dist-upgrade",
+    "explanation": "En apt-get ( man 8 apt-get ), los subcomandos para actualizar todos los paquetes instalados son upgrade y dist-upgrade . Dado que upgrade no figura entre las opciones y full-upgrade pertenece al comando apt (a diferencia de la sintaxis moderna de apt), la respuesta correcta es dist-upgrade ."
+  },
+  {
+    "id": 103,
+    "num": 103,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Given the following input stream: txt1.txt , atxt.txt , txtB.txt . Which of the following regular expressions turns this input stream into the following output stream? txt1.bak.txt , atxt.bak.txt , txtB.bak.txt",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "s/^.txt/.bak/",
+      "s/txt/bak.txt/",
+      "s/txt$/bak.txt/",
+      "s/^txt$/.bak^/",
+      "s/[.txt]/.bak$1/"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "s/txt$/bak.txt/",
+    "explanation": "Si usáramos s/txt/bak.txt/ , reemplazaría la primera aparición de txt al principio del nombre (dando bak.txt1.txt ). Al usar el ancla de final de línea $ en s/txt$/bak.txt/ , nos aseguramos de que solo reemplace el txt final después del punto, convirtiendo .txt en .bak.txt ."
+  },
+  {
+    "id": 104,
+    "num": 104,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following commands changes the number of days before the ext3 filesystem on /dev/sda1 has to run through a full filesystem check while booting?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "tune2fs -d 200 /dev/sda1",
+      "tune2fs -i 200 /dev/sda1",
+      "tune2fs -c 200 /dev/sda1",
+      "tune2fs -n 200 /dev/sda1",
+      "tune2fs --days 200 /dev/sda1"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "tune2fs -i 200 /dev/sda1",
+    "explanation": "Según man 8 tune2fs , la opción -i ( interval-between-checks ) ajusta el tiempo máximo entre dos comprobaciones del sistema de archivos (en días por defecto si no se añade sufijo), mientras que -c ajusta el número máximo de montajes."
+  },
+  {
+    "id": 105,
+    "num": 105,
+    "tema": 102,
+    "tema_info": {
+      "title": "Tema 102: Instalación de Linux y Gestión de Paquetes",
+      "short": "Instalación y Paquetes",
+      "color": "#059669",
+      "weight": 11
+    },
+    "stem": "Which file in the /proc filesystem lists parameters passed from the bootloader to the kernel? (Specify the file name only without any path.)",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "cmdline"
+    ],
+    "correct_text": "cmdline",
+    "explanation": "El archivo virtual /proc/cmdline ( man 5 proc ) muestra los argumentos pasados al kernel de Linux en el momento del arranque por parte del gestor de arranque (como GRUB). Como la pregunta pide solo el nombre del archivo sin ruta, la respuesta es cmdline ."
+  },
+  {
+    "id": 106,
+    "num": 106,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "A faulty kernel module is causing issues with a network interface card. Which of the following actions ensures that this module is not loaded automatically when the system boots?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "Using lsmod --remove --autoclean without specifying the name of a specific module.",
+      "Using modinfo -k followed by th e name of the offending module.",
+      "Using modprobe -r followed by the name of the offending module.",
+      "Adding a blacklist line including the name of the offending module to the file /etc/modprobe.d/blacklist.conf.",
+      "Deleting the kernel module's directory from the file system and recompiling the kernel, including its modules."
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "Adding a blacklist line including the name of the offending module to the file / etc/modprobe.d/blacklist.conf.",
+    "explanation": "Según man 5 modprobe.d , añadir la directiva blacklist en un archivo .conf dentro de /etc/modprobe.d/ hace que se ignoren todos los alias internos del módulo, evitando que udev / modprobe lo carguen automáticamente al detectar el hardware durante el arranque."
+  },
+  {
+    "id": 107,
+    "num": 107,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "What is contained on the EFI System Partition?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "The Linux root file system.",
+      "The first stage boot loader.",
+      "The default swap space file.",
+      "The Linux default shell binaries.",
+      "The user home directories."
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "The first stage boot loader.",
+    "explanation": "La partición del sistema EFI (ESP) almacena las aplicaciones de arranque EFI, lo que incluye el cargador de arranque de primera etapa del sistema operativo (por ejemplo, grubx64.efi o shimx64.efi )."
+  },
+  {
+    "id": 108,
+    "num": 108,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "The command dbmaint & was used to run dbmaint in the background. However, dbmaint is terminated after logging o ut of the system. Which alternative dbmaint invocation lets dbmaint continue to run even when the user running the program logs out?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "job -b dmaint",
+      "dbmaint &>/dev/pts/null",
+      "nohup dbmaint &",
+      "bg dbmaint",
+      "wait dbmain t"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "nohup dbmaint &",
+    "explanation": "Al cerrar la sesión, la shell envía la señal SIGHUP ( hangup ) a sus procesos hijos, terminándolos. El comando nohup ( man 1 nohup ) ejecuta el comando haciendo que ignore la señal SIGHUP , permitiéndole continuar en segundo plano tras cerrar la sesión."
+  },
+  {
+    "id": 109,
+    "num": 109,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following files, located in a user's home directory, contains the Bash history?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      ".bashrc_history",
+      ".bash_histfile",
+      ".history",
+      ".bash_history",
+      ".history_bash"
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": ".bash_history",
+    "explanation": "Por defecto en Bash ( man 1 bash ), el valor predeterminado de la variable HISTFILE donde se guarda el historial de comandos al salir de la sesión es ~/.bash_history ."
+  },
+  {
+    "id": 110,
+    "num": 110,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Which of the following commands lists all currently installed packages when using RPM package management?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "yum --query --all",
+      "yum --list --installed",
+      "rpm --query --list",
+      "rpm --list --installed",
+      "rpm --query --all"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "rpm --query --all",
+    "explanation": "En rpm ( man 8 rpm ), para consultar todos los paquetes instalados en el sistema se utiliza rpm -qa , que en su forma de opciones largas es exactamente rpm --query --all ."
+  },
+  {
+    "id": 111,
+    "num": 111,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following settings for umask ensures that new files have the default permissions -rw-r----- ?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "0017",
+      "0640",
+      "0038",
+      "0227",
+      "0027"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "0027",
+    "explanation": "Los permisos base de creación para archivos regulares son 0666 ( rw-rw-rw- ). Queremos obtener -rw-r----- ( 0640 ). Con umask 0027 , se enmascaran (desactivan) el permiso de escritura del grupo ( 2 ) y todos los permisos de otros ( 7 ), dando como resultado 0640 ."
+  },
+  {
+    "id": 112,
+    "num": 112,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "When in Normal mode in vi, which character can be used to begin a reverse search of the text?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "r",
+      "/",
+      "F",
+      "?",
+      "s"
+    ],
+    "correct_indices": [
+      3
+    ],
+    "fill_answers": [],
+    "correct_text": "?",
+    "explanation": "En el modonormal de vi , el carácter / inicia una búsqueda hacia adelante (hacia abajo en el documento), mientras que el carácter ? inicia una búsqueda inversa (hacia atrás/arriba en el documento)."
+  },
+  {
+    "id": 113,
+    "num": 113,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following tools can show the complete path of an executable file that the current shell would execute when starting a command without specifying its complete path? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "find",
+      "pwd",
+      "which",
+      "locate",
+      "type"
+    ],
+    "correct_indices": [
+      2,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "which y type",
+    "explanation": "Tanto el comando externo which como el comando interno de la shell type buscan en la variable $PATH y muestran la ruta completa al archivo ejecutable que se invocaría."
+  },
+  {
+    "id": 114,
+    "num": 114,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following commands determines a file's format by using a definition database file which contains information about all common file types?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "type",
+      "file",
+      "magic",
+      "pmagic",
+      "hash"
+    ],
+    "correct_indices": [
+      1
+    ],
+    "fill_answers": [],
+    "correct_text": "file",
+    "explanation": "El comando file ( man 1 file ) examina el contenido y los encabezados binarios ( magic numbers ) de un archivo contrastándolos con una base de datos de firmas ( /usr/share/misc/magic ) para determinar su formato real, sin depender de su extensión."
+  },
+  {
+    "id": 115,
+    "num": 115,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which command displays a list of all background tasks running in the current shell? (Specify ONLY the command without any path or parameters.)",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "jobs"
+    ],
+    "correct_text": "jobs",
+    "explanation": "El comando interno de la shell jobs ( help jobs ) lista todas las tareas iniciadas desde la sesión actual de la shell que se encuentran en segundo plano o suspendidas."
+  },
+  {
+    "id": 116,
+    "num": 116,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "When booting from the hard disk, a computer successfully loads the Linux kernel and initramfs but hangs during th e subsequent startup tasks. The system is booted using a Linux based rescue CD to investigate the problem. Which of the following methods helps to identify the root cause of the problem?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "Using the dmesg command from the rescue CD's shell to view the original system's boot logs.",
+      "Investigating the file /proc/kmsg on the computer's hard disk for possible errors.",
+      "Investigating the file /var/log on the computer's hard disk for possible errors.",
+      "Using chroot to switch to the file system on the har d disk and use dmesg to view the logs.",
+      "Rebooting again from the hard drive since the system successfully booted from the rescue CD."
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "Investigating the file /var/log on the computer's hard disk for possible errors.",
+    "explanation": "dmesg y /proc/kmsg muestran únicamente los mensajes en memoria del kernel actualmente en ejecución (es decir, el del CD de rescate, incluso si se hace chroot ). Como el sistema original ya había superado la fase de initramfs y estaba ejecutando las tareas de inicio sobre el disco duro, los registros persistentes de dicho arranque fallido quedaron guardados en el directorio /var/log del disco duro."
+  },
+  {
+    "id": 117,
+    "num": 117,
+    "tema": 101,
+    "tema_info": {
+      "title": "Tema 101: Arquitectura del Sistema",
+      "short": "Arquitectura",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Given the following two symbolic links in a System V init configuration: /etc/rc1.d/K01apache2 and /etc/rc2.d/S02apache2 . When are the scripts executed that are referenced by these links? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "S02apache2 is run when runlevel 2 is entered.",
+      "S02apache2 is run when runlevel 2 is left.",
+      "K01apache2 is ne ver run because K indicates a deactivated service.",
+      "Both S02apache2 and K01apache2 are run during a system shutdown.",
+      "K01apache2 is run when runlevel 1 is entered."
+    ],
+    "correct_indices": [
+      0,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "S02apache2 is run when runlevel 2 is entered. y K01apache2 is run when runlevel 1 is entered.",
+    "explanation": "En System V init, cuando se entra en un nivel de ejecución N N N , el sistema recorre el directorio /etc/rcN.d/ ejecutando primero los enlaces que empiezan por K ( Kill , pasando el argumento stop ) y después los enlaces que empiezan por S ( Start , pasando el argumento start ). Por tanto, K01apache2 se ejecuta al entrar al runlevel 1 y S02apache2 al entrar al runlevel 2."
+  },
+  {
+    "id": 118,
+    "num": 118,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "Consider the following directory: drwxrwxr-x 2 root sales 4096 Jan 1 15:21 sales . Which command ensures new files created within the directory sales are owned by the group sales? (Choose two.)",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "chmod g+s sales",
+      "setpol -R newgroup=sales sales",
+      "chgrp -p sales sales",
+      "chown --persistent *.sales sales",
+      "chmod 2775 sales"
+    ],
+    "correct_indices": [
+      0,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "chmod g+s sales y chmod 2775 sales",
+    "explanation": "Cuando se activa el bit SetGID sobre un directorio, todos los archivos y subdirectorios nuevos creados dentro de él heredan automáticamente el grupo propietario del directorio ( sales ) en lugar del grupo primario del usuario creador. Esto se configura en modo simbólico con chmod g+s sales o en modo octal anteponiendo un 2 a los permisos actuales ( 775 ): chmod 2775 sales ."
+  },
+  {
+    "id": 119,
+    "num": 119,
+    "tema": 104,
+    "tema_info": {
+      "title": "Tema 104: Dispositivos, Sistemas de Archivos y FHS",
+      "short": "Dispositivos y FHS",
+      "color": "#7C3AED",
+      "weight": 16
+    },
+    "stem": "How would a new file named c.txt be created with the same inode number as a.txt (Inode 525385)?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "ln -h a.txt c.txt",
+      "ln c.txt a.txt",
+      "ln a.txt c.txt",
+      "ln -f c.txt a.txt",
+      "ln -i 525385 c.txt"
+    ],
+    "correct_indices": [
+      2
+    ],
+    "fill_answers": [],
+    "correct_text": "ln a.txt c.txt",
+    "explanation": "Para que dos archivos compartan el mismonúmero de inodo se debe crear un enlace duro ( hard link ). La sintaxis de ln ( man 1 ln ) sin la opción -s es ln , es decir, ln a.txt c.txt ."
+  },
+  {
+    "id": 120,
+    "num": 120,
+    "tema": 103,
+    "tema_info": {
+      "title": "Tema 103: Comandos GNU y Unix",
+      "short": "Comandos GNU/Unix",
+      "color": "#D97706",
+      "weight": 25
+    },
+    "stem": "Which of the following signals is sent to a process when the key combination Ctrl+c is pressed on the keyboard?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "SIGTERM",
+      "SIGCONT",
+      "SIGSTOP",
+      "SIGKILL",
+      "SIGINT"
+    ],
+    "correct_indices": [
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "SIGINT",
+    "explanation": "Según man 7 signal , al presionar la combinación de teclas de interrupción Ctrl+C en la terminal, el controlador de la terminal envía la señal SIGINT ( Interrupt from keyboard , señal número 2) al proceso que se encuentra en primer plano."
+  }
+];
