@@ -6,6 +6,16 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Portal oficial de Laboratorios Prácticos Guiados por Subtema para la certificación LPIC-1 v5.0.">
   <title>Prácticas Guiadas LPIC-1 — Laboratorio por Subtema</title>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('lpic1_theme');
+      if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   <style>
     
 :root {
@@ -28,6 +38,70 @@
   --font-base: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
+
+[data-theme="dark"] {
+  --bg: #090D16;
+  --surface: #111827;
+  --surface-alt: #1E293B;
+  --text: #F8FAFC;
+  --text-muted: #CBD5E1;
+  --border: #475569;
+  --border-light: #334155;
+  --primary: #38BDF8;
+  --primary-soft: #0C4A6E;
+  --primary-hover: #7DD3FC;
+  --success: #4ADE80;
+  --success-soft: #14532D;
+  --warning: #FBBF24;
+  --warning-soft: #78350F;
+  --danger: #F87171;
+  --danger-soft: #7F1D1D;
+}
+
+[data-theme="dark"] .term { background: #1E293B; border-color: #475569; }
+[data-theme="dark"] .term-bar { background: #0F172A; color: #CBD5E1; border-bottom: 1px solid #334155; }
+[data-theme="dark"] .term-bar .copy-btn { background: #1E293B; border-color: #64748B; color: #F8FAFC; }
+[data-theme="dark"] .term-bar .copy-btn:hover { background: #334155; border-color: #38BDF8; color: #38BDF8; }
+[data-theme="dark"] .term pre { color: #F8FAFC; }
+[data-theme="dark"] .t-prompt { color: #94A3B8; }
+[data-theme="dark"] .t-cmd { color: #F8FAFC; font-weight: 700; }
+[data-theme="dark"] .t-flag { color: #60A5FA; }
+[data-theme="dark"] .t-arg { color: #FB923C; }
+[data-theme="dark"] .t-path { color: #4ADE80; }
+[data-theme="dark"] .t-cmt { color: #94A3B8; }
+[data-theme="dark"] .t-err { color: #F87171; }
+[data-theme="dark"] .t-hl { background: #78350F; color: #FEF3C7; }
+
+[data-theme="dark"] .callout-info { background: #082F49; border-left-color: #38BDF8; color: #E0F2FE; }
+[data-theme="dark"] .callout-warning { background: #451A03; border-left-color: #FBBF24; color: #FEF3C7; }
+[data-theme="dark"] .callout-success { background: #052E16; border-left-color: #4ADE80; color: #DCFCE7; }
+[data-theme="dark"] .callout-camera { background: #3B0764; border-left-color: #C084FC; color: #F3E8FF; }
+
+[data-theme="dark"] .badge-blue { background: #0C4A6E; color: #BAE6FD; }
+[data-theme="dark"] .badge-green { background: #14532D; color: #BBF7D0; }
+[data-theme="dark"] .badge-amber { background: #78350F; color: #FEF3C7; }
+[data-theme="dark"] .badge-gray { background: #1E293B; color: #CBD5E1; }
+
+[data-theme="dark"] details.accordion-item summary { background: #1E293B; color: #F8FAFC; }
+[data-theme="dark"] details.accordion-item summary:hover { background: #334155; }
+[data-theme="dark"] .checkbox-item { background: #1E293B; color: #F8FAFC; }
+[data-theme="dark"] .checkbox-item.checked { background: #14532D; color: #86EFAC; }
+[data-theme="dark"] .progress-container { background: #334155; }
+[data-theme="dark"] .portal-hero { background: linear-gradient(135deg, #111827 0%, #1E293B 100%); border-color: #334155; }
+[data-theme="dark"] .search-input { background: #111827; border-color: #475569; color: #F8FAFC; }
+[data-theme="dark"] .search-input:focus { border-color: #38BDF8; }
+[data-theme="dark"] .subtopic-group-header { border-bottom-color: #334155; }
+[data-theme="dark"] .card { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .practice-card-global { background: #241403; border-color: #B45309; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4); }
+[data-theme="dark"] .practice-card-global h3 a { color: #FDE047 !important; }
+[data-theme="dark"] .filter-btn { background: var(--surface); border-color: var(--border); color: var(--text); }
+[data-theme="dark"] .filter-btn:hover, [data-theme="dark"] .filter-btn.active { background: var(--primary); color: #0F172A; border-color: var(--primary); font-weight: 700; }
+[data-theme="dark"] .toc-sidebar { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .toc-link { color: var(--text-muted); }
+[data-theme="dark"] .toc-link:hover, [data-theme="dark"] .toc-link.active { color: #38BDF8; background: #0C4A6E; }
+[data-theme="dark"] #toast { background: #1E293B; color: #F8FAFC; border: 1px solid #475569; }
+[data-theme="dark"] .nav-header { background: var(--surface); border-bottom-color: var(--border); }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   background: var(--bg);
@@ -111,8 +185,10 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 
     .portal-hero { background: var(--surface); border: 2px solid var(--border-light); border-radius: 16px; padding: 36px 32px; margin-bottom: 36px; }
     .grid-practices { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 24px; }
+    .practice-card-global { border: 2px solid #F59E0B; background: #FFFDF5; grid-column: 1 / -1; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.08); }
+    .practice-card-global h3 a { color: #92400E; }
     .filters-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; align-items: center; }
-    .filter-btn { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 14px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .filter-btn { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 14px; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--text); }
     .filter-btn:hover, .filter-btn.active { background: var(--primary); color: #FFF; border-color: var(--primary); }
     .search-input { padding: 10px 16px; border: 2px solid var(--border); border-radius: 10px; font-size: 16px; width: 100%; max-width: 380px; }
     .search-input:focus { outline: none; border-color: var(--primary); }
@@ -142,6 +218,8 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></symbol>
 <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /><rect width="20" height="8" x="2" y="14" rx="2" ry="2" /><line x1="6" x2="6.01" y1="6" y2="6" /><line x1="6" x2="6.01" y1="18" y2="18" /></symbol>
 <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
 </svg>
 
   <div class="container">
@@ -149,9 +227,15 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
       <a href="../index.html" style="display:inline-flex; align-items:center; gap:8px; font-weight:600; color:var(--text-muted);">
         <svg class="ic"><use href="#i-arrow-left"/></svg> Volver al Índice Principal de Diapositivas
       </a>
-      <button onclick="resetAllProgress()" style="background:none; border:none; color:var(--text-muted); font-size:14px; font-weight:600; cursor:pointer; text-decoration:underline;">
-        Reiniciar mi progreso local
-      </button>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <button id="btn-theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()" title="Cambiar tema claro / oscuro" aria-label="Cambiar tema" style="display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:14px; font-weight:600; cursor:pointer;">
+          <svg class="ic ic-sm" id="theme-toggle-icon"><use href="#i-moon"/></svg>
+          <span id="theme-toggle-label">Modo Oscuro</span>
+        </button>
+        <button onclick="resetAllProgress()" style="background:none; border:none; color:var(--text-muted); font-size:14px; font-weight:600; cursor:pointer; text-decoration:underline;">
+          Reiniciar mi progreso local
+        </button>
+      </div>
     </header>
 
     <div class="portal-hero">
@@ -197,13 +281,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           </div>
           <div class="grid-practices">
             
-            <div class="card practice-card" data-topic="101" data-tags="101.1 p-101-1-ajustes-hardware ajustes de hardware, buses y módulos del kernel " >
+            <div class="card practice-card" data-topic="101" data-tags="101.1 p-101-1-ajustes-hardware ajustes de hardware, buses y módulos del kernel ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 101.1</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-101-1-ajustes-hardware.html" style="">Ajustes de Hardware, Buses y Módulos del Kernel</a>
+                <a href="p-101-1-ajustes-hardware.html">Ajustes de Hardware, Buses y Módulos del Kernel</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Audita los dispositivos PCI y USB de tu VM Debian, inspecciona la jerarquía virtual en /proc y /sys, y gestiona módulos del kernel de forma segura con modprobe y modinfo.
@@ -223,13 +307,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="101" data-tags="101.2 p-101-2-arranque-sistema arranque del sistema, parámetros del kernel y registros " >
+            <div class="card practice-card" data-topic="101" data-tags="101.2 p-101-2-arranque-sistema arranque del sistema, parámetros del kernel y registros ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 101.2</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-101-2-arranque-sistema.html" style="">Arranque del Sistema, Parámetros del Kernel y Registros</a>
+                <a href="p-101-2-arranque-sistema.html">Arranque del Sistema, Parámetros del Kernel y Registros</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Examina la secuencia de arranque de Linux desde el BIOS/UEFI hasta el espacio de usuario, audita dmesg y consulta el journal del arranque previo con journalctl.
@@ -249,13 +333,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="101" data-tags="101.3 p-101-3-runlevels-targets-apagado cambio de runlevels, targets de systemd y apagado seguro " >
+            <div class="card practice-card" data-topic="101" data-tags="101.3 p-101-3-runlevels-targets-apagado cambio de runlevels, targets de systemd y apagado seguro ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 101.3</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-101-3-runlevels-targets-apagado.html" style="">Cambio de Runlevels, Targets de Systemd y Apagado Seguro</a>
+                <a href="p-101-3-runlevels-targets-apagado.html">Cambio de Runlevels, Targets de Systemd y Apagado Seguro</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Gestiona los estados de ejecución de systemd (targets) y SysVinit (runlevels), emite avisos masivos a usuarios con wall y programa apagados cancelables.
@@ -275,13 +359,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="101" data-tags="101.GLOBAL p-tema-101-global laboratorio global integrador — todo el tema 101: arquitectura del sistema global integrador tema-101" style="border: 2px solid #F59E0B; background: #FFFDF5; grid-column: 1 / -1; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.08);">
+            <div class="card practice-card practice-card-global" data-topic="101" data-tags="101.GLOBAL p-tema-101-global laboratorio global integrador — todo el tema 101: arquitectura del sistema global integrador tema-101">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Repaso Global Tema 101</span>
                 <span class="badge badge-amber">50 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-tema-101-global.html" style="color:#92400E;">Laboratorio Global Integrador — Todo el Tema 101: Arquitectura del Sistema</a>
+                <a href="p-tema-101-global.html">Laboratorio Global Integrador — Todo el Tema 101: Arquitectura del Sistema</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Práctica global que integra todos los comandos del Tema 101: auditoría de hardware (lspci, lsusb, lsblk), jerarquías /proc y /sys, gestión de módulos (modprobe, lsmod), dmesg y journalctl, y control de estados/apagados con systemd y SysVinit.
@@ -311,13 +395,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           </div>
           <div class="grid-practices">
             
-            <div class="card practice-card" data-topic="102" data-tags="102.1 p-102-1-particionado-disco diseño y esquema de particionado del disco duro " >
+            <div class="card practice-card" data-topic="102" data-tags="102.1 p-102-1-particionado-disco diseño y esquema de particionado del disco duro ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 102.1</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-102-1-particionado-disco.html" style="">Diseño y Esquema de Particionado del Disco Duro</a>
+                <a href="p-102-1-particionado-disco.html">Diseño y Esquema de Particionado del Disco Duro</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Examina tablas de particiones MBR y GPT, analiza la memoria virtual de intercambio (swap) y planifica esquemas de particionado seguro para servidores.
@@ -337,13 +421,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="102" data-tags="102.2 p-102-2-gestor-arranque-grub instalación y configuración del gestor de arranque grub " >
+            <div class="card practice-card" data-topic="102" data-tags="102.2 p-102-2-gestor-arranque-grub instalación y configuración del gestor de arranque grub ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 102.2</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-102-2-gestor-arranque-grub.html" style="">Instalación y Configuración del Gestor de Arranque GRUB</a>
+                <a href="p-102-2-gestor-arranque-grub.html">Instalación y Configuración del Gestor de Arranque GRUB</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Domina la configuración de GRUB 2 mediante /etc/default/grub y /etc/grub.d/, comprende la regeneración de grub.cfg y compara su arquitectura con GRUB Legacy.
@@ -363,13 +447,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="102" data-tags="102.3 p-102-3-librerias-compartidas gestión de librerías compartidas del sistema " >
+            <div class="card practice-card" data-topic="102" data-tags="102.3 p-102-3-librerias-compartidas gestión de librerías compartidas del sistema ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 102.3</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-102-3-librerias-compartidas.html" style="">Gestión de Librerías Compartidas del Sistema</a>
+                <a href="p-102-3-librerias-compartidas.html">Gestión de Librerías Compartidas del Sistema</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Rastrea dependencias dinámicas con ldd, administra la caché del enlazador con ldconfig y comprende el uso de /etc/ld.so.conf y LD_LIBRARY_PATH.
@@ -389,13 +473,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="102" data-tags="102.4 p-102-4-paquetes-debian gestión de paquetes debian con dpkg y apt " >
+            <div class="card practice-card" data-topic="102" data-tags="102.4 p-102-4-paquetes-debian gestión de paquetes debian con dpkg y apt ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 102.4</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-102-4-paquetes-debian.html" style="">Gestión de Paquetes Debian con DPKG y APT</a>
+                <a href="p-102-4-paquetes-debian.html">Gestión de Paquetes Debian con DPKG y APT</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Gestiona paquetes a bajo nivel con dpkg (-i, -r, -P, -l, -L, -S, -c) y a alto nivel con apt y apt-cache, explorando repositorios en sources.list.
@@ -415,13 +499,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="102" data-tags="102.5 p-102-5-paquetes-rpm-yum gestión de paquetes rpm, yum, dnf y zypper " >
+            <div class="card practice-card" data-topic="102" data-tags="102.5 p-102-5-paquetes-rpm-yum gestión de paquetes rpm, yum, dnf y zypper ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 102.5</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-102-5-paquetes-rpm-yum.html" style="">Gestión de Paquetes RPM, YUM, DNF y Zypper</a>
+                <a href="p-102-5-paquetes-rpm-yum.html">Gestión de Paquetes RPM, YUM, DNF y Zypper</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Domina la sintaxis y opciones de examen de RPM, YUM, DNF y Zypper, e inspecciona archivos .rpm reales en Debian mediante rpm2cpio y cpio sin comprometer el sistema.
@@ -441,13 +525,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="102" data-tags="102.6 p-102-6-virtualizacion-cloud linux como sistema virtualizado y cloud " >
+            <div class="card practice-card" data-topic="102" data-tags="102.6 p-102-6-virtualizacion-cloud linux como sistema virtualizado y cloud ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 102.6</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-102-6-virtualizacion-cloud.html" style="">Linux como Sistema Virtualizado y Cloud</a>
+                <a href="p-102-6-virtualizacion-cloud.html">Linux como Sistema Virtualizado y Cloud</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Detecta el hipervisor con systemd-detect-virt, audita identificadores únicos de máquina en /etc/machine-id y analiza directivas de cloud-init.
@@ -467,13 +551,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="102" data-tags="102.GLOBAL p-tema-102-global laboratorio global integrador — todo el tema 102: instalación de linux y paquetes global integrador tema-102" style="border: 2px solid #F59E0B; background: #FFFDF5; grid-column: 1 / -1; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.08);">
+            <div class="card practice-card practice-card-global" data-topic="102" data-tags="102.GLOBAL p-tema-102-global laboratorio global integrador — todo el tema 102: instalación de linux y paquetes global integrador tema-102">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Repaso Global Tema 102</span>
                 <span class="badge badge-amber">60 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-tema-102-global.html" style="color:#92400E;">Laboratorio Global Integrador — Todo el Tema 102: Instalación de Linux y Paquetes</a>
+                <a href="p-tema-102-global.html">Laboratorio Global Integrador — Todo el Tema 102: Instalación de Linux y Paquetes</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Laboratorio integrador de todo el Tema 102: particionado en bucle MBR/GPT (fdisk/parted), inspección de GRUB 2 y /etc/default/grub, gestión de librerías dinámicas (ldd, ldconfig), ciclo de vida de paquetes Debian (dpkg, apt, apt-cache, apt-file), equivalencias RPM (rpm2cpio, zypper, dnf) y auditoría de virtualización y Cloud.
@@ -503,13 +587,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           </div>
           <div class="grid-practices">
             
-            <div class="card practice-card" data-topic="103" data-tags="103.1 p-103-1-linea-de-comandos trabajar desde la línea de comandos bash " >
+            <div class="card practice-card" data-topic="103" data-tags="103.1 p-103-1-linea-de-comandos trabajar desde la línea de comandos bash ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 103.1</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-103-1-linea-de-comandos.html" style="">Trabajar desde la Línea de Comandos Bash</a>
+                <a href="p-103-1-linea-de-comandos.html">Trabajar desde la Línea de Comandos Bash</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Gestiona variables de entorno ($PATH, $HISTSIZE), crea alias duraderos, audita el historial con history e investiga el tipo de comandos con type y which.
@@ -529,13 +613,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="103" data-tags="103.2 p-103-2-filtros-de-texto procesar secuencias de texto con filtros " >
+            <div class="card practice-card" data-topic="103" data-tags="103.2 p-103-2-filtros-de-texto procesar secuencias de texto con filtros ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 103.2</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-103-2-filtros-de-texto.html" style="">Procesar Secuencias de Texto con Filtros</a>
+                <a href="p-103-2-filtros-de-texto.html">Procesar Secuencias de Texto con Filtros</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Domina el filtrado de flujos de texto en Linux usando cat, tac, head, tail, cut, sort, uniq, tr, wc y sed sobre datos reales del sistema.
@@ -555,13 +639,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="103" data-tags="103.3 p-103-3-gestion-archivos gestión básica de archivos, compresión y empaquetado " >
+            <div class="card practice-card" data-topic="103" data-tags="103.3 p-103-3-gestion-archivos gestión básica de archivos, compresión y empaquetado ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 103.3</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-103-3-gestion-archivos.html" style="">Gestión Básica de Archivos, Compresión y Empaquetado</a>
+                <a href="p-103-3-gestion-archivos.html">Gestión Básica de Archivos, Compresión y Empaquetado</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Copia, mueve y organiza árboles de archivos con cp, mv, mkdir y rm; crea y analiza paquetes comprimidos con tar (gzip, bzip2, xz) y utiliza cpio y dd.
@@ -581,13 +665,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="103" data-tags="103.4 p-103-4-redirecciones-tuberias flujos estándar, tuberías y redirecciones " >
+            <div class="card practice-card" data-topic="103" data-tags="103.4 p-103-4-redirecciones-tuberias flujos estándar, tuberías y redirecciones ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 103.4</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-103-4-redirecciones-tuberias.html" style="">Flujos Estándar, Tuberías y Redirecciones</a>
+                <a href="p-103-4-redirecciones-tuberias.html">Flujos Estándar, Tuberías y Redirecciones</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Domina los descriptores stdin (0), stdout (1) y stderr (2), redirige salidas y errores (>, >>, 2>, 2>&1, &>), bifurca con tee y automatiza con xargs.
@@ -607,13 +691,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="103" data-tags="103.5 p-103-5-procesos-senales crear, monitorizar y matar procesos " >
+            <div class="card practice-card" data-topic="103" data-tags="103.5 p-103-5-procesos-senales crear, monitorizar y matar procesos ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 103.5</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-103-5-procesos-senales.html" style="">Crear, Monitorizar y Matar Procesos</a>
+                <a href="p-103-5-procesos-senales.html">Crear, Monitorizar y Matar Procesos</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Gestiona procesos en primer y segundo plano (jobs, bg, fg, nohup), audita recursos con ps, top y pstree, y envía señales de terminación con kill y killall.
@@ -633,13 +717,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="103" data-tags="103.6 p-103-6-prioridades-nice-renice modificar la prioridad de procesos (nice y renice) " >
+            <div class="card practice-card" data-topic="103" data-tags="103.6 p-103-6-prioridades-nice-renice modificar la prioridad de procesos (nice y renice) ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 103.6</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-103-6-prioridades-nice-renice.html" style="">Modificar la Prioridad de Procesos (Nice y Renice)</a>
+                <a href="p-103-6-prioridades-nice-renice.html">Modificar la Prioridad de Procesos (Nice y Renice)</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Aprende a graduar la prioridad en el planificador de la CPU con nice (-20 a +19), modifica procesos en vivo con renice y comprende las reglas de privilegios de root.
@@ -659,13 +743,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="103" data-tags="103.7 p-103-7-expresiones-regulares-grep expresiones regulares básicas y extendidas con grep " >
+            <div class="card practice-card" data-topic="103" data-tags="103.7 p-103-7-expresiones-regulares-grep expresiones regulares básicas y extendidas con grep ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 103.7</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-103-7-expresiones-regulares-grep.html" style="">Expresiones Regulares Básicas y Extendidas con Grep</a>
+                <a href="p-103-7-expresiones-regulares-grep.html">Expresiones Regulares Básicas y Extendidas con Grep</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Domina los metacaracteres de expresiones regulares (^, $, ., *, [], [^], |, +, ?), busca patrones con grep (-i, -v, -n, -E) y diferencia BRE de ERE.
@@ -685,13 +769,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="103" data-tags="103.8 p-103-8-editor-vi edición básica de archivos con vi / vim " >
+            <div class="card practice-card" data-topic="103" data-tags="103.8 p-103-8-editor-vi edición básica de archivos con vi / vim ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 103.8</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-103-8-editor-vi.html" style="">Edición Básica de Archivos con vi / vim</a>
+                <a href="p-103-8-editor-vi.html">Edición Básica de Archivos con vi / vim</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Navega entre los modos Normal, Inserción y Ex en vi; domina la edición rápida (dd, yy, p, u), búsquedas (/), sustituciones globales (:%s/old/new/g) y guardado (:wq, :q!, ZZ).
@@ -711,13 +795,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="103" data-tags="103.GLOBAL p-tema-103-global laboratorio global integrador — todo el tema 103: comandos gnu y unix global integrador tema-103" style="border: 2px solid #F59E0B; background: #FFFDF5; grid-column: 1 / -1; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.08);">
+            <div class="card practice-card practice-card-global" data-topic="103" data-tags="103.GLOBAL p-tema-103-global laboratorio global integrador — todo el tema 103: comandos gnu y unix global integrador tema-103">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Repaso Global Tema 103</span>
                 <span class="badge badge-amber">60 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-tema-103-global.html" style="color:#92400E;">Laboratorio Global Integrador — Todo el Tema 103: Comandos GNU y Unix</a>
+                <a href="p-tema-103-global.html">Laboratorio Global Integrador — Todo el Tema 103: Comandos GNU y Unix</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Laboratorio integrador de todo el Tema 103: configuración del entorno shell y aliases, pipeline completo de filtrado de texto (cut, sort, uniq, wc, tr), compresión de archivos (tar, gzip, xz), redirección avanzada y xargs, administración de procesos (ps, top, kill, renice), expresiones regulares con grep/sed y edición en Vi.
@@ -747,13 +831,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           </div>
           <div class="grid-practices">
             
-            <div class="card practice-card" data-topic="104" data-tags="104.1 p-104-1-crear-particiones-archivos creación de particiones y sistemas de archivos " >
+            <div class="card practice-card" data-topic="104" data-tags="104.1 p-104-1-crear-particiones-archivos creación de particiones y sistemas de archivos ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 104.1</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-104-1-crear-particiones-archivos.html" style="">Creación de Particiones y Sistemas de Archivos</a>
+                <a href="p-104-1-crear-particiones-archivos.html">Creación de Particiones y Sistemas de Archivos</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Crea una unidad de disco virtual loopback de 200 MB para particionar con fdisk y dar formato de forma 100% segura con mkfs.ext4, mkfs.xfs, mkfs.vfat y mkswap sin arriesgar tu VM.
@@ -773,13 +857,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="104" data-tags="104.2 p-104-2-integridad-sistemas-archivos mantenimiento e integridad de sistemas de archivos " >
+            <div class="card practice-card" data-topic="104" data-tags="104.2 p-104-2-integridad-sistemas-archivos mantenimiento e integridad de sistemas de archivos ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 104.2</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-104-2-integridad-sistemas-archivos.html" style="">Mantenimiento e Integridad de Sistemas de Archivos</a>
+                <a href="p-104-2-integridad-sistemas-archivos.html">Mantenimiento e Integridad de Sistemas de Archivos</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Audita el espacio y los inodos disponibles con df (-h, -i) y du (-sh), inspecciona y modifica superbloques ext4 con tune2fs y dumpe2fs, y verifica la integridad con fsck.
@@ -799,13 +883,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="104" data-tags="104.3 p-104-3-montaje-sistemas-archivos control del montaje y desmontaje de sistemas de archivos " >
+            <div class="card practice-card" data-topic="104" data-tags="104.3 p-104-3-montaje-sistemas-archivos control del montaje y desmontaje de sistemas de archivos ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 104.3</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-104-3-montaje-sistemas-archivos.html" style="">Control del Montaje y Desmontaje de Sistemas de Archivos</a>
+                <a href="p-104-3-montaje-sistemas-archivos.html">Control del Montaje y Desmontaje de Sistemas de Archivos</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Monta y desmonta sistemas de archivos con mount y umount, aplica opciones de seguridad (ro, noexec, nosuid), domina los 6 campos de /etc/fstab y verifica con findmnt.
@@ -825,13 +909,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="104" data-tags="104.5 p-104-5-permisos-propietarios administración de permisos y propietarios de archivos " >
+            <div class="card practice-card" data-topic="104" data-tags="104.5 p-104-5-permisos-propietarios administración de permisos y propietarios de archivos ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 104.5</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-104-5-permisos-propietarios.html" style="">Administración de Permisos y Propietarios de Archivos</a>
+                <a href="p-104-5-permisos-propietarios.html">Administración de Permisos y Propietarios de Archivos</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Aplica permisos octales y simbólicos con chmod, transfiere dueños y grupos con chown y chgrp, calcula la máscara umask y domina los permisos especiales SUID, SGID y Sticky Bit.
@@ -851,13 +935,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="104" data-tags="104.6 p-104-6-enlaces-duros-simbolicos crear y cambiar enlaces duros y simbólicos " >
+            <div class="card practice-card" data-topic="104" data-tags="104.6 p-104-6-enlaces-duros-simbolicos crear y cambiar enlaces duros y simbólicos ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 104.6</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-104-6-enlaces-duros-simbolicos.html" style="">Crear y Cambiar Enlaces Duros y Simbólicos</a>
+                <a href="p-104-6-enlaces-duros-simbolicos.html">Crear y Cambiar Enlaces Duros y Simbólicos</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Crea enlaces duros (hard links) y enlaces simbólicos (soft links) con ln, inspecciona números de inodo con ls -i y stat, y experimenta los efectos de borrar el archivo origen.
@@ -877,13 +961,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="104" data-tags="104.7 p-104-7-encontrar-archivos-fhs encontrar archivos del sistema y estructura fhs " >
+            <div class="card practice-card" data-topic="104" data-tags="104.7 p-104-7-encontrar-archivos-fhs encontrar archivos del sistema y estructura fhs ">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-blue">Subtema 104.7</span>
                 <span class="badge badge-green">30 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-104-7-encontrar-archivos-fhs.html" style="">Encontrar Archivos del Sistema y Estructura FHS</a>
+                <a href="p-104-7-encontrar-archivos-fhs.html">Encontrar Archivos del Sistema y Estructura FHS</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Busca archivos en tiempo real con find por nombre, tipo, tamaño y permisos (-exec), utiliza locate y updatedb, y comprende la jerarquía del estándar FHS (/bin, /sbin, /etc, /usr, /var).
@@ -903,13 +987,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               </div>
             </div>
             
-            <div class="card practice-card" data-topic="104" data-tags="104.GLOBAL p-tema-104-global laboratorio global integrador — todo el tema 104: dispositivos, sistemas de archivos y fhs global integrador tema-104" style="border: 2px solid #F59E0B; background: #FFFDF5; grid-column: 1 / -1; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.08);">
+            <div class="card practice-card practice-card-global" data-topic="104" data-tags="104.GLOBAL p-tema-104-global laboratorio global integrador — todo el tema 104: dispositivos, sistemas de archivos y fhs global integrador tema-104">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                 <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Repaso Global Tema 104</span>
                 <span class="badge badge-amber">60 min</span>
               </div>
               <h3 style="font-size:21px; font-weight:800; margin-bottom:8px;">
-                <a href="p-tema-104-global.html" style="color:#92400E;">Laboratorio Global Integrador — Todo el Tema 104: Dispositivos, Sistemas de Archivos y FHS</a>
+                <a href="p-tema-104-global.html">Laboratorio Global Integrador — Todo el Tema 104: Dispositivos, Sistemas de Archivos y FHS</a>
               </h3>
               <p style="font-size:15px; color:var(--text-muted); margin-bottom:14px; flex-grow:1; line-height:1.5;">
                 Laboratorio integrador de todo el Tema 104: creación y mantenimiento de sistemas ext4 y XFS en volúmenes loop seguros (mkfs, tune2fs, dumpe2fs, e2fsck), montaje con opciones en /etc/fstab, permisos especiales (SUID, SGID, Sticky bit), enlaces duros y simbólicos (inodos) y localización de ficheros en el estándar FHS (find, locate, which, type).
@@ -1009,14 +1093,49 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
       if (confirm('¿Deseas reiniciar todo tu progreso local en las prácticas?')) {
         try {
           Object.keys(localStorage).forEach(k => {
-            if (k.startsWith('lpic1_')) localStorage.removeItem(k);
+            if (k.startsWith('lpic1_') && k !== 'lpic1_theme') localStorage.removeItem(k);
           });
           location.reload();
         } catch(e) {}
       }
     }
 
-    document.addEventListener('DOMContentLoaded', updateProgress);
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('lpic1_theme', next); } catch (e) {}
+      updateThemeUI(next);
+    }
+
+    function updateThemeUI(theme) {
+      const isDark = theme === 'dark';
+      const btn = document.getElementById('btn-theme-toggle');
+      const icon = document.getElementById('theme-toggle-icon');
+      const label = document.getElementById('theme-toggle-label');
+      if (icon) {
+        icon.innerHTML = `<use href="${isDark ? '#i-sun' : '#i-moon'}"/>`;
+      }
+      if (btn) {
+        btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        btn.setAttribute('title', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+      }
+      if (label) {
+        label.textContent = isDark ? 'Modo Claro' : 'Modo Oscuro';
+      }
+    }
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'lpic1_theme' && (e.newValue === 'light' || e.newValue === 'dark')) {
+        document.documentElement.setAttribute('data-theme', e.newValue);
+        updateThemeUI(e.newValue);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateProgress();
+      updateThemeUI(document.documentElement.getAttribute('data-theme') || 'light');
+    });
   </script>
   <footer class="site-footer" style="margin-top:64px; text-align:center; padding:24px 20px; border-top:2px solid var(--border-light); font-size:14px; color:var(--text-muted);">
     <p>Material didáctico no oficial basado en los <em>LPI Learning Materials</em> de <a href="https://learning.lpi.org" target="_blank" rel="noopener noreferrer">Linux Professional Institute</a>.</p>

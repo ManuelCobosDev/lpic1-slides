@@ -6,10 +6,51 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Notas, erratas y advertencias críticas de examen del manual oficial LPIC-1 organizadas por temas.">
   <title>Notas y Erratas del Manual Oficial LPIC-1 (Separado por Temas)</title>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('lpic1_theme');
+      if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   <style>
     :root {
       --bg: #F8FAFC; --surface: #FFFFFF; --text: #0F172A; --text-muted: #475569;
       --border: #E2E8F0; --border-strong: #CBD5E1; --primary: #2563EB; --primary-soft: #DBEAFE;
+    }
+    [data-theme="dark"] {
+      --bg: #090D16; --surface: #111827; --text: #F8FAFC; --text-muted: #CBD5E1;
+      --border: #334155; --border-strong: #475569; --primary: #38BDF8; --primary-soft: #0C4A6E;
+    }
+    [data-theme="dark"] .errata-card {
+      background: var(--surface); border-color: var(--border);
+    }
+    [data-theme="dark"] .errata-link { color: #38BDF8; }
+    [data-theme="dark"] .subtopic-badge {
+      background: #312E81; color: #E0E7FF;
+    }
+    [data-theme="dark"] .counter-badge {
+      background: #78350F; color: #FEF3C7;
+    }
+    [data-theme="dark"] .errata-id-badge {
+      background: #7F1D1D; color: #FEE2E2;
+    }
+    [data-theme="dark"] .box-manual {
+      background: #451A03; border-left-color: #FBBF24; color: #FEF3C7;
+    }
+    [data-theme="dark"] .box-reality {
+      background: #052E16; border-left-color: #4ADE80; color: #DCFCE7;
+    }
+    [data-theme="dark"] .box-tip {
+      background: #3B0764; border-left-color: #C084FC; color: #F3E8FF;
+    }
+    [data-theme="dark"] .errata-ref { color: #CBD5E1; }
+    [data-theme="dark"] .cmd-count-badge { color: #CBD5E1; }
+    [data-theme="dark"] .topic-header {
+      background: #111827; border: 1px solid #334155;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 40px 24px; line-height: 1.5; }
@@ -755,6 +796,36 @@
       });
       document.getElementById('err-counter').textContent = q ? `${visibleCount} erratas encontradas` : '21 erratas registradas';
     }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('lpic1_theme', next); } catch (e) {}
+      updateThemeUI(next);
+    }
+
+    function updateThemeUI(theme) {
+      const isDark = theme === 'dark';
+      const btn = document.getElementById('btn-theme-toggle');
+      const label = document.getElementById('theme-toggle-label');
+      if (btn) {
+        btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        btn.setAttribute('title', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+      }
+      if (label) {
+        label.textContent = isDark ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+      }
+    }
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'lpic1_theme' && (e.newValue === 'light' || e.newValue === 'dark')) {
+        document.documentElement.setAttribute('data-theme', e.newValue);
+        updateThemeUI(e.newValue);
+      }
+    });
+
+    updateThemeUI(document.documentElement.getAttribute('data-theme') || 'light');
   </script>
 </body>
 </html>

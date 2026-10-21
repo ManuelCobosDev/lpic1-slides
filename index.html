@@ -6,6 +6,16 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Portal oficial de diapositivas interactivas de aula y laboratorios prácticos en consola real para la certificación Linux Professional Institute LPIC-1 (Exámenes 101-500 y 102-500 v5.0).">
   <title>LPIC-1 — Diapositivas Interactivas y Laboratorios de Aula</title>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('lpic1_theme');
+      if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   <style>
     :root {
       --bg: #F8FAFC;
@@ -35,6 +45,189 @@
       --shadow-md: 0 4px 14px rgba(15,23,42,0.06);
       --shadow-hover: 0 8px 24px rgba(37,99,235,0.12);
     }
+    [data-theme="dark"] {
+      --bg: #090D16;
+      --surface: #111827;
+      --surface-hover: #1E293B;
+      --text: #F8FAFC;
+      --text-muted: #CBD5E1;
+      --text-light: #94A3B8;
+      --border: #334155;
+      --border-strong: #475569;
+      --primary: #38BDF8;
+      --primary-hover: #7DD3FC;
+      --primary-soft: #0C4A6E;
+      --primary-border: #0284C7;
+      --success: #4ADE80;
+      --success-soft: #14532D;
+      --success-border: #16A34A;
+      --warning: #FBBF24;
+      --warning-soft: #78350F;
+      --warning-border: #D97706;
+      --purple: #A78BFA;
+      --purple-soft: #4C1D95;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 14px rgba(0,0,0,0.4);
+      --shadow-hover: 0 8px 24px rgba(56,189,248,0.2);
+    }
+    [data-theme="dark"] .jump-pill {
+      background: var(--surface-hover);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .jump-tag-ready { color: #86EFAC; }
+    [data-theme="dark"] .jump-tag-gold { color: #FDE047; }
+    [data-theme="dark"] .jump-tag-pending { color: #94A3B8; }
+    [data-theme="dark"] .hero-banner {
+      background: linear-gradient(135deg, #111827 0%, #1E293B 100%);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .hero-badge {
+      background: #1E1B4B;
+      color: #A5B4FC;
+    }
+    [data-theme="dark"] .exam-header {
+      background: var(--surface);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .exam-chip.ready {
+      background: #14532D;
+      color: #BBF7D0;
+    }
+    [data-theme="dark"] .exam-chip.upcoming {
+      background: #312E81;
+      color: #E0E7FF;
+    }
+    [data-theme="dark"] .topic-card {
+      background: var(--surface);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .topic-card:hover {
+      border-color: var(--primary);
+    }
+    [data-theme="dark"] .topic-card.card-upcoming {
+      background: #0B1120;
+      border-color: #334155;
+    }
+    [data-theme="dark"] .topic-card-footer {
+      background: var(--surface-hover);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .topic-meta-pill {
+      background: var(--surface-hover);
+      color: var(--text-muted);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .topic-meta-pill.highlight {
+      background: #0C4A6E;
+      color: #BAE6FD;
+      border-color: #0284C7;
+    }
+    [data-theme="dark"] .sub-item-row {
+      background: #151D2F;
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .sub-item-row:hover {
+      background: #1E293B;
+      border-color: var(--primary);
+    }
+    [data-theme="dark"] .sub-item-row.pending {
+      background: #0B1120;
+      opacity: 0.65;
+    }
+    [data-theme="dark"] .sub-link {
+      color: var(--text);
+    }
+    [data-theme="dark"] .sub-link:hover {
+      color: var(--primary-hover);
+    }
+    [data-theme="dark"] .sub-link.disabled {
+      color: var(--text-light);
+    }
+    [data-theme="dark"] .sub-id-pill {
+      background: #0B1120;
+      color: #38BDF8;
+      border: 1px solid var(--border);
+    }
+    [data-theme="dark"] .sub-id-pill.muted {
+      background: #1E293B;
+      color: #94A3B8;
+      border: 1px solid var(--border);
+    }
+    [data-theme="dark"] .badge-ok {
+      background: #14532D;
+      color: #86EFAC;
+      border: 1px solid #166534;
+    }
+    [data-theme="dark"] .badge-time {
+      background: #1E1B4B;
+      color: #C7D2FE;
+      border: 1px solid #3730A3;
+    }
+    [data-theme="dark"] .badge-wait {
+      background: #1E293B;
+      color: #94A3B8;
+      border: 1px solid var(--border);
+    }
+    [data-theme="dark"] .badge-weight {
+      background: #451A03;
+      color: #FDE047;
+      border: 1px solid #78350F;
+    }
+    [data-theme="dark"] .sub-lab-btn {
+      background: #0C4A6E;
+      color: #BAE6FD;
+      border-color: #0284C7;
+    }
+    [data-theme="dark"] .sub-lab-btn:hover {
+      background: #0284C7;
+      color: #FFFFFF;
+      border-color: #38BDF8;
+    }
+    [data-theme="dark"] .global-lab-btn {
+      background: linear-gradient(135deg, #451A03 0%, #78350F 100%);
+      border-color: #B45309;
+      color: #FEF08A;
+    }
+    [data-theme="dark"] .gl-icon {
+      background: #78350F;
+      color: #FEF08A;
+    }
+    [data-theme="dark"] .gl-title {
+      color: #FEF08A;
+    }
+    [data-theme="dark"] .gl-sub {
+      color: #FDE047;
+    }
+    [data-theme="dark"] .nav-link-primary {
+      background: var(--primary-soft);
+      border-color: var(--primary-border);
+      color: #BAE6FD;
+    }
+    [data-theme="dark"] .nav-counter {
+      background: var(--surface-hover);
+      color: var(--text);
+    }
+    [data-theme="dark"] .nav-counter.gold {
+      background: #78350F;
+      color: #FEF3C7;
+    }
+    [data-theme="dark"] .nav-counter.alert {
+      background: #78350F;
+      color: #FBBF24;
+    }
+    [data-theme="dark"] .pending-footer {
+      background: var(--surface);
+    }
+    [data-theme="dark"] .stat-card {
+      background: var(--surface);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .stat-icon-blue { background: #0C4A6E; color: #7DD3FC; }
+    [data-theme="dark"] .stat-icon-green { background: #14532D; color: #86EFAC; }
+    [data-theme="dark"] .stat-icon-purple { background: #4C1D95; color: #C4B5FD; }
+    [data-theme="dark"] .stat-icon-cyan { background: #164E63; color: #67E8F9; }
+    [data-theme="dark"] .stat-icon-amber { background: #78350F; color: #FDE047; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -149,6 +342,13 @@
     }
     .jump-dot.ready { background: #16A34A; box-shadow: 0 0 0 3px #DCFCE7; }
     .jump-dot.pending { background: #94A3B8; }
+    .jump-tag {
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .jump-tag-ready { color: #166534; }
+    .jump-tag-gold { color: #B45309; }
+    .jump-tag-pending { color: #64748B; font-weight: 600; }
 
     /* NAV BAR */
     .nav-bar {
@@ -231,6 +431,11 @@
       justify-content: center;
       flex-shrink: 0;
     }
+    .stat-icon-blue { background: #EFF6FF; color: #2563EB; }
+    .stat-icon-green { background: #DCFCE7; color: #16A34A; }
+    .stat-icon-purple { background: #EEF2FF; color: #4F46E5; }
+    .stat-icon-cyan { background: #F0FDF4; color: #15803D; }
+    .stat-icon-amber { background: #FEF3C7; color: #B45309; }
     .stat-num {
       font-size: 20px;
       font-weight: 800;
@@ -990,8 +1195,8 @@
 <symbol id="i-eye-off" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
 <symbol id="i-fast-forward" viewBox="0 0 24 24"><use href="#i-play" /></symbol>
 <symbol id="i-git-commit" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
-<symbol id="i-git-merge" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
-<symbol id="i-moon" viewBox="0 0 24 24"><use href="#i-power" /></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
 <symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
 </svg>
@@ -1011,17 +1216,17 @@
           <a href="#examen-101" class="jump-pill">
             <span class="jump-dot ready"></span>
             <strong>Examen 101-500</strong>
-            <span style="color:#166534; font-size:12px; font-weight:700;">Listo (437 slides)</span>
+            <span class="jump-tag jump-tag-ready">Listo (437 slides)</span>
           </a>
           <a href="#examen-simulador" class="jump-pill">
             <span class="jump-dot ready" style="background:#F59E0B;"></span>
             <strong>Simulador 101</strong>
-            <span style="color:#B45309; font-size:12px; font-weight:700;">120 Qs Práctica</span>
+            <span class="jump-tag jump-tag-gold">120 Qs Práctica</span>
           </a>
           <a href="#examen-102" class="jump-pill">
             <span class="jump-dot pending"></span>
             <strong>Examen 102-500</strong>
-            <span style="color:#64748B; font-size:12px; font-weight:600;">Próximo (19 subtemas)</span>
+            <span class="jump-tag jump-tag-pending">Próximo (19 subtemas)</span>
           </a>
         </div>
       </div>
@@ -1052,13 +1257,17 @@
           <span>Notas y Erratas del Manual</span>
           <span class="nav-counter alert">21</span>
         </a>
+        <button class="nav-link theme-toggle-btn" id="btn-theme-toggle" onclick="toggleTheme()" title="Cambiar tema claro / oscuro" aria-label="Cambiar tema" style="cursor:pointer; background:var(--surface); border:1.5px solid var(--border);">
+          <svg class="ic" id="theme-toggle-icon"><use href="#i-moon"/></svg>
+          <span id="theme-toggle-label">Modo Oscuro</span>
+        </button>
       </nav>
     </header>
 
     <!-- KPI STATS STRIP -->
     <div class="stats-strip">
       <div class="stat-card">
-        <div class="stat-icon" style="background:#EFF6FF; color:#2563EB;">
+        <div class="stat-icon stat-icon-blue">
           <svg class="ic ic-md"><use href="#i-layers"/></svg>
         </div>
         <div>
@@ -1067,7 +1276,7 @@
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon" style="background:#DCFCE7; color:#16A34A;">
+        <div class="stat-icon stat-icon-green">
           <svg class="ic ic-md"><use href="#i-check-circle"/></svg>
         </div>
         <div>
@@ -1076,7 +1285,7 @@
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon" style="background:#EEF2FF; color:#4F46E5;">
+        <div class="stat-icon stat-icon-purple">
           <svg class="ic ic-md"><use href="#i-wrench"/></svg>
         </div>
         <div>
@@ -1085,7 +1294,7 @@
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon" style="background:#F0FDF4; color:#15803D;">
+        <div class="stat-icon stat-icon-cyan">
           <svg class="ic ic-md"><use href="#i-square-terminal"/></svg>
         </div>
         <div>
@@ -1094,7 +1303,7 @@
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon" style="background:#FEF3C7; color:#B45309;">
+        <div class="stat-icon stat-icon-amber">
           <svg class="ic ic-md"><use href="#i-book-open"/></svg>
         </div>
         <div>
@@ -1993,5 +2202,43 @@
     </footer>
 
   </div>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try {
+        localStorage.setItem('lpic1_theme', next);
+      } catch (e) {}
+      updateThemeUI(next);
+    }
+
+    function updateThemeUI(theme) {
+      const isDark = theme === 'dark';
+      const btn = document.getElementById('btn-theme-toggle');
+      const icon = document.getElementById('theme-toggle-icon');
+      const label = document.getElementById('theme-toggle-label');
+      if (icon) {
+        icon.innerHTML = `<use href="${isDark ? '#i-sun' : '#i-moon'}"/>`;
+      }
+      if (btn) {
+        btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        btn.setAttribute('title', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+      }
+      if (label) {
+        label.textContent = isDark ? 'Modo Claro' : 'Modo Oscuro';
+      }
+    }
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'lpic1_theme' && (e.newValue === 'light' || e.newValue === 'dark')) {
+        document.documentElement.setAttribute('data-theme', e.newValue);
+        updateThemeUI(e.newValue);
+      }
+    });
+
+    updateThemeUI(document.documentElement.getAttribute('data-theme') || 'light');
+  </script>
 </body>
 </html>

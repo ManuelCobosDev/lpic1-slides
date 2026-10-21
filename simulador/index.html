@@ -6,6 +6,16 @@
   <meta name="robots" content="noindex,nofollow">
   <title>Simulador de Examen LPIC-1 101-500 | Simulacro de Práctica No Oficial</title>
   <meta name="description" content="Simulador didáctico no oficial de preparación para el examen LPIC-1 101-500 con banco de 120 preguntas tipo examen, interfaz similar a Pearson VUE, temporizador de 90 minutos y modo práctica con explicaciones técnicas. Material didáctico no oficial.">
+  <script>
+    (function() {
+      var saved = localStorage.getItem('lpic1_theme');
+      if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   <style>
     :root {
       --bg-app: #F8FAFC;
@@ -56,6 +66,261 @@
       --radius-sm: 6px;
       --radius-lg: 14px;
       --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+    }
+
+    [data-theme="dark"] {
+      --bg-app: #090D16;
+      --surface: #111827;
+      --surface-subtle: #1E293B;
+      --border: #334155;
+      --border-dark: #475569;
+      --text: #F8FAFC;
+      --text-muted: #CBD5E1;
+      --text-subtle: #94A3B8;
+
+      --primary: #38BDF8;
+      --primary-hover: #7DD3FC;
+      --primary-subtle: #0C4A6E;
+      --primary-dark: #0369A1;
+
+      --vue-blue: #0F172A;
+      --vue-header: #090D16;
+      --vue-accent: #38BDF8;
+
+      --success: #4ADE80;
+      --success-bg: #14532D;
+      --success-border: #16A34A;
+
+      --danger: #F87171;
+      --danger-bg: #7F1D1D;
+      --danger-border: #DC2626;
+
+      --warning: #FBBF24;
+      --warning-bg: #78350F;
+      --warning-border: #D97706;
+
+      --flag-color: #FBBF24;
+
+      --t101: #60A5FA;
+      --t102: #34D399;
+      --t103: #FBBF24;
+      --t104: #A78BFA;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.6);
+    }
+
+    [data-theme="dark"] .option-tile {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .option-tile:hover {
+      background: var(--surface-subtle);
+      border-color: var(--primary);
+    }
+    [data-theme="dark"] .option-tile.selected {
+      background: #0C4A6E;
+      border-color: #38BDF8;
+      color: #F8FAFC;
+    }
+    [data-theme="dark"] .option-tile.correct {
+      background: #14532D;
+      border-color: #4ADE80;
+      color: #F8FAFC;
+    }
+    [data-theme="dark"] .option-tile.incorrect {
+      background: #7F1D1D;
+      border-color: #F87171;
+      color: #F8FAFC;
+    }
+    [data-theme="dark"] .explanation-box {
+      background: #1E293B;
+      border-color: #475569;
+      color: var(--text);
+    }
+    [data-theme="dark"] .input-fill-blank {
+      background: #1E293B;
+      border-color: #475569;
+      color: #F8FAFC;
+    }
+    [data-theme="dark"] .vue-bottom-bar,
+    [data-theme="dark"] #bottom-bar,
+    [data-theme="dark"] #vue-bottombar {
+      background: var(--surface);
+      border-top-color: var(--border);
+    }
+    [data-theme="dark"] .btn-nav {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .btn-nav:hover {
+      background: var(--surface-subtle);
+      border-color: var(--primary);
+    }
+    [data-theme="dark"] .setup-screen {
+      background: var(--surface);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .setup-title {
+      color: var(--text);
+    }
+    [data-theme="dark"] .setup-desc {
+      color: var(--text-muted);
+    }
+    [data-theme="dark"] .mode-card {
+      background: var(--surface);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .mode-card:hover {
+      border-color: var(--primary);
+      background: var(--surface-subtle);
+    }
+    [data-theme="dark"] .mode-card.selected {
+      border-color: var(--primary);
+      background: #0C4A6E;
+    }
+    [data-theme="dark"] .mode-card-title {
+      color: var(--text);
+    }
+    [data-theme="dark"] .mode-card-desc {
+      color: var(--text-muted);
+    }
+    [data-theme="dark"] .topic-filter-box {
+      background: var(--surface-subtle);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .item-box {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .results-summary-card,
+    [data-theme="dark"] .score-banner {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .score-val {
+      color: var(--text);
+    }
+    [data-theme="dark"] .kpi-card {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .kpi-card-val {
+      color: var(--text);
+    }
+    [data-theme="dark"] .topic-breakdown-card {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .topic-breakdown-card h3 {
+      color: var(--text);
+    }
+    [data-theme="dark"] .topic-row-info {
+      color: var(--text);
+    }
+    [data-theme="dark"] .topic-meter-bg {
+      background: #1E293B;
+    }
+    [data-theme="dark"] .review-filter-tabs {
+      background: var(--surface);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .rev-tab-btn {
+      color: var(--text-muted);
+    }
+    [data-theme="dark"] .rev-tab-btn:hover {
+      color: var(--text);
+      background: var(--surface-subtle);
+    }
+    [data-theme="dark"] .rev-tab-btn.active {
+      background: var(--primary);
+      color: #090D16;
+      font-weight: 700;
+    }
+    [data-theme="dark"] .review-q-card {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .review-q-card .question-text {
+      color: var(--text);
+    }
+    [data-theme="dark"] .official-explanation-box {
+      background: var(--surface-subtle);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .official-explanation-box strong {
+      color: var(--text);
+    }
+    [data-theme="dark"] .official-explanation-box code {
+      background: #0F172A;
+      color: #38BDF8;
+      border-color: #334155;
+    }
+    [data-theme="dark"] .drawer-dialog {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .drawer-header {
+      background: #090D16;
+      border-bottom: 1px solid var(--border);
+    }
+    [data-theme="dark"] .grid-legend {
+      background: var(--surface-subtle);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .legend-unanswered {
+      background: var(--surface);
+      border-color: var(--border-dark);
+    }
+    [data-theme="dark"] .legend-answered {
+      background: #0C4A6E;
+      border-color: #38BDF8;
+    }
+    [data-theme="dark"] .matrix-btn {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .matrix-btn:hover {
+      background: var(--surface-subtle);
+      border-color: var(--primary);
+    }
+    [data-theme="dark"] .matrix-btn.is-answered {
+      background: #0C4A6E;
+      border-color: #38BDF8;
+      color: #BAE6FD;
+    }
+    [data-theme="dark"] .filter-pill-btn {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="dark"] .filter-pill-btn:hover {
+      background: var(--surface-subtle);
+      border-color: var(--primary);
+    }
+    [data-theme="dark"] .filter-pill-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #090D16;
+      font-weight: 700;
+    }
+    [data-theme="dark"] .question-text code {
+      background: #1E293B;
+      color: #F8FAFC;
+      border-color: #475569;
     }
 
     * {
@@ -588,7 +853,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: #FFFFFF;
+      background: var(--surface);
       border-top: 1px solid var(--border);
       box-shadow: 0 -4px 12px rgba(0,0,0,0.06);
       height: 72px;
@@ -614,15 +879,15 @@
       font-weight: 700;
       cursor: pointer;
       border: 1px solid var(--border);
-      background: #FFFFFF;
+      background: var(--surface);
       color: var(--text);
       transition: all 0.15s ease;
       user-select: none;
       text-decoration: none;
     }
     .btn-nav:hover:not(:disabled) {
-      background: #F1F5F9;
-      border-color: #CBD5E1;
+      background: var(--surface-subtle);
+      border-color: var(--border-dark);
     }
     .btn-nav:disabled {
       opacity: 0.4;
@@ -1332,8 +1597,8 @@
 <symbol id="i-eye-off" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
 <symbol id="i-fast-forward" viewBox="0 0 24 24"><use href="#i-play" /></symbol>
 <symbol id="i-git-commit" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
-<symbol id="i-git-merge" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
-<symbol id="i-moon" viewBox="0 0 24 24"><use href="#i-power" /></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
 <symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
 </svg>
@@ -1363,6 +1628,10 @@
     </div>
 
     <div class="vue-right-controls">
+      <button class="header-btn" id="btn-theme-toggle" onclick="toggleTheme()" title="Cambiar tema claro / oscuro" aria-label="Cambiar tema">
+        <svg class="ic ic-xs" id="theme-toggle-icon"><use href="#i-moon"/></svg>
+        <span id="theme-toggle-label">Oscuro</span>
+      </button>
       <label class="mark-review-toggle" id="mark-review-label" title="Marcar esta pregunta para revisarla al final">
         <input type="checkbox" id="mark-review-chk">
         <svg class="ic ic-xs" style="color:var(--flag-color);"><use href="#i-bookmark"/></svg>
@@ -5492,6 +5761,40 @@
         if (document.exitFullscreen) document.exitFullscreen();
       }
     });
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('lpic1_theme', next); } catch (e) {}
+      updateThemeUI(next);
+    }
+
+    function updateThemeUI(theme) {
+      const isDark = theme === 'dark';
+      const btn = document.getElementById('btn-theme-toggle');
+      const icon = document.getElementById('theme-toggle-icon');
+      const label = document.getElementById('theme-toggle-label');
+      if (icon) {
+        icon.innerHTML = `<use href="${isDark ? '#i-sun' : '#i-moon'}"/>`;
+      }
+      if (btn) {
+        btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        btn.setAttribute('title', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+      }
+      if (label) {
+        label.textContent = isDark ? 'Claro' : 'Oscuro';
+      }
+    }
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'lpic1_theme' && (e.newValue === 'light' || e.newValue === 'dark')) {
+        document.documentElement.setAttribute('data-theme', e.newValue);
+        updateThemeUI(e.newValue);
+      }
+    });
+
+    updateThemeUI(document.documentElement.getAttribute('data-theme') || 'light');
   </script>
 </body>
 </html>

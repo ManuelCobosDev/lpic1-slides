@@ -7,6 +7,16 @@
   <meta name="description" content="Diapositivas interactivas de aula para la certificación Linux Professional Institute LPIC-1 — Subtema 103.3: Administración básica de archivos.">
   <title>103.3 Administración básica de archivos — LPIC-1</title>
   <!-- Icons: Lucide v0.468.0 (ISC) https://lucide.dev -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('lpic1_theme');
+      if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   <style>
     /* -------------------------------------------------------------
        CSS TOKENS Y DISEÑO (slides-paleta-contenido y guidelines)
@@ -78,6 +88,188 @@
       --cat-neutral-ink: #1D4ED8;
     }
 
+    /* Modo Oscuro WCAG AAA */
+    [data-theme="dark"] {
+      --bg: #090D16;
+      --stage-bg: #111827;
+      --surface: #111827;
+      --surface-alt: #1E293B;
+      
+      --text: #F8FAFC;
+      --text-muted: #CBD5E1;
+      --text-faint: #94A3B8;
+      --text-faint-on-alt: #CBD5E1;
+      --border: #334155;
+      --border-strong: #475569;
+      --control-border: #94A3B8;
+      
+      --primary: #38BDF8;
+      --primary-soft: #0C4A6E;
+      --primary-ink: #BAE6FD;
+      
+      --success: #4ADE80;
+      --success-soft: #14532D;
+      --success-ink: #BBF7D0;
+      
+      --warning: #FBBF24;
+      --warning-soft: #78350F;
+      --warning-ink: #FEF3C7;
+      
+      --danger: #F87171;
+      --danger-soft: #7F1D1D;
+      --danger-ink: #FEE2E2;
+      
+      --info: #38BDF8;
+      --info-soft: #075985;
+      --info-ink: #E0F2FE;
+      
+      --cat-hardware-accent: #2DD4BF;
+      --cat-hardware-soft: #134E4A;
+      --cat-hardware-ink: #CCFBF1;
+      
+      --cat-boot-accent: #818CF8;
+      --cat-boot-soft: #312E81;
+      --cat-boot-ink: #E0E7FF;
+      
+      --cat-services-accent: #A78BFA;
+      --cat-services-soft: #4C1D95;
+      --cat-services-ink: #EDE9FE;
+      
+      --cat-network-accent: #22D3EE;
+      --cat-network-soft: #164E63;
+      --cat-network-ink: #CFFAFE;
+      
+      --cat-files-accent: #A3E635;
+      --cat-files-soft: #365314;
+      --cat-files-ink: #ECFCCB;
+      
+      --cat-kernel-accent: #F472B6;
+      --cat-kernel-soft: #831843;
+      --cat-kernel-ink: #FCE7F3;
+      
+      --cat-neutral-accent: #38BDF8;
+      --cat-neutral-soft: #0C4A6E;
+      --cat-neutral-ink: #BAE6FD;
+    }
+
+    [data-theme="dark"] #stage { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45); }
+    [data-theme="dark"] .term-header { background: #1E293B; color: #CBD5E1; }
+    [data-theme="dark"] .term-copy-btn { background: var(--surface); color: var(--text); border-color: var(--control-border); }
+    [data-theme="dark"] .term-copy-btn:hover { background: var(--surface-alt); }
+    [data-theme="dark"] .term-code { color: var(--text); }
+    [data-theme="dark"] .t-prompt { color: #94A3B8; }
+    [data-theme="dark"] .t-cmd { color: #F8FAFC; }
+    [data-theme="dark"] .t-flag { color: #60A5FA; }
+    [data-theme="dark"] .t-arg { color: #FB923C; }
+    [data-theme="dark"] .t-path { color: #4ADE80; }
+    [data-theme="dark"] .t-str { color: #F472B6; }
+    [data-theme="dark"] .t-cmt { color: #94A3B8; }
+    [data-theme="dark"] .t-err { color: #F87171; }
+    [data-theme="dark"] .t-hl { background: #78350F; color: #FEF3C7; }
+    [data-theme="dark"] .opt-chip { background: var(--surface); border-color: var(--border-strong); color: var(--text); }
+    [data-theme="dark"] .opt-chip .flag { color: #38BDF8; }
+    [data-theme="dark"] .directive-key { color: #38BDF8; }
+    [data-theme="dark"] .table-container,
+    [data-theme="dark"] .matrix-container { background: var(--surface); border-color: var(--border-strong); }
+    [data-theme="dark"] table.slide-table th,
+    [data-theme="dark"] table.slide-matrix th { background: var(--surface-alt); color: var(--text); border-color: var(--border-strong); }
+    [data-theme="dark"] table.slide-table td,
+    [data-theme="dark"] table.slide-matrix td { border-color: var(--border); color: var(--text); }
+    [data-theme="dark"] table.slide-matrix tr:nth-child(even) td { background: rgba(255, 255, 255, 0.03); }
+    [data-theme="dark"] table.slide-matrix tr:hover td { background: var(--surface-alt); }
+    [data-theme="dark"] table.slide-matrix tr.highlighted td,
+    [data-theme="dark"] table.slide-table tr.highlighted { background: #78350F; color: #FEF3C7; }
+    [data-theme="dark"] table.slide-matrix td:first-child { color: var(--text); }
+    [data-theme="dark"] .quiz-btn { background: var(--surface); border-color: var(--border-strong); color: var(--text); }
+    [data-theme="dark"] .flashcard-front { background: var(--surface); }
+    [data-theme="dark"] .flashcard-back { background: var(--surface-alt); }
+    [data-theme="dark"] #teacher-panel { background: var(--surface); border-left-color: var(--border-strong); box-shadow: -10px 0 30px rgba(0, 0, 0, 0.35); }
+    [data-theme="dark"] .modal-box { background: var(--surface); border-color: var(--border-strong); color: var(--text); }
+    [data-theme="dark"] .popover { background: var(--surface); border-color: var(--border-strong); color: var(--text); }
+    [data-theme="dark"] .callout-warning { background: #451A03; color: #FEF3C7; border-color: #B45309; }
+    [data-theme="dark"] .callout-remember { background: #2E1065; color: #EDE9FE; border-color: #6D28D9; }
+    [data-theme="dark"] .callout-info { background: #082F49; color: #E0F2FE; border-color: #0284C7; }
+    [data-theme="dark"] .progress-bar-container { background: var(--border); }
+    [data-theme="dark"] .exercise-sol-code {
+      background: #111827;
+      border-color: #166534;
+      color: #86EFAC;
+    }
+    [data-theme="dark"] #sol-exercise-box {
+      background: #052E16 !important;
+      border-color: #16A34A !important;
+      color: #DCFCE7 !important;
+    }
+    [data-theme="dark"] .exercise-step-row {
+      border-bottom-color: #166534 !important;
+    }
+    [data-theme="dark"] .summary-cmd-card {
+      background: #1E293B !important;
+      border-color: #0284C7 !important;
+      color: #F8FAFC !important;
+    }
+    [data-theme="dark"] .summary-practice-box {
+      background: #052E16 !important;
+      border-color: #16A34A !important;
+      color: #DCFCE7 !important;
+    }
+    [data-theme="dark"] .summary-practice-box .sp-title { color: #86EFAC !important; }
+    [data-theme="dark"] .summary-practice-box .sp-desc { color: #CBD5E1 !important; }
+    [data-theme="dark"] .summary-practice-box .sp-icon { background: #14532D !important; color: #86EFAC !important; }
+    [data-theme="dark"] .summary-global-box {
+      background: #451A03 !important;
+      border-color: #B45309 !important;
+      color: #FEF3C7 !important;
+    }
+    [data-theme="dark"] .summary-global-box .sg-title { color: #FDE047 !important; }
+    [data-theme="dark"] .summary-global-box .sg-desc { color: #FEF08A !important; }
+    [data-theme="dark"] .summary-global-box .sg-icon { background: #78350F !important; color: #FDE047 !important; }
+
+    .exercise-sol-code {
+      font-size: 19px;
+      background: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid #86EFAC;
+      color: #166534;
+      font-family: monospace;
+      font-weight: 700;
+    }
+    .summary-cmd-card {
+      background: #FFFFFF;
+      border: 1px solid #93C5FD;
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .summary-practice-box {
+      margin-top: 14px;
+      padding: 16px 22px;
+      background: #F0FDF4;
+      border: 2px solid #86EFAC;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .summary-practice-box .sp-title { font-size: 20px; font-weight: 800; color: #166534; }
+    .summary-practice-box .sp-desc { font-size: 16px; color: #374151; }
+    .summary-practice-box .sp-icon { width: 48px; height: 48px; border-radius: 12px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; flex: none; }
+    .summary-global-box {
+      margin-top: 12px;
+      padding: 16px 22px;
+      background: #FFFBEB;
+      border: 2px solid #F59E0B;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .summary-global-box .sg-title { font-size: 20px; font-weight: 800; color: #92400E; }
+    .summary-global-box .sg-desc { font-size: 16px; color: #78350F; }
+    .summary-global-box .sg-icon { width: 48px; height: 48px; border-radius: 12px; background: #FEF3C7; color: #92400E; display: flex; align-items: center; justify-content: center; flex: none; }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
       width: 100%;
@@ -113,7 +305,7 @@
       left: 0;
       right: 0;
       height: 52px;
-      background: #FFFFFF;
+      background: var(--surface);
       border-bottom: 2px solid var(--border);
       display: flex;
       align-items: center;
@@ -131,7 +323,7 @@
       padding: 6px 14px;
       border-radius: 8px;
       border: 1px solid var(--border);
-      background: #FFFFFF;
+      background: var(--surface);
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
@@ -868,8 +1060,8 @@
 <symbol id="i-eye-off" viewBox="0 0 24 24"><use href="#i-eye" /></symbol>
 <symbol id="i-fast-forward" viewBox="0 0 24 24"><use href="#i-play" /></symbol>
 <symbol id="i-git-commit" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
-<symbol id="i-git-merge" viewBox="0 0 24 24"><use href="#i-git-branch" /></symbol>
-<symbol id="i-moon" viewBox="0 0 24 24"><use href="#i-power" /></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
 <symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
 </svg>
@@ -890,6 +1082,7 @@
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
       <span style="font-size:16px; color:var(--text-muted);">LPIC-1 · 103.3</span>
+      <button class="nav-btn theme-toggle-btn" id="btn-theme-toggle" onclick="toggleTheme()" title="Cambiar tema claro / oscuro" aria-label="Cambiar tema"><svg class="ic ic-sm" id="theme-toggle-icon"><use href="#i-moon"/></svg><span id="theme-toggle-label">Oscuro</span></button>
       <button class="nav-btn" onclick="toggleHelp()" title="Atajos (?)"><svg class="ic ic-sm"><use href="#i-circle-help"/></svg>Ayuda</button>
       <button class="nav-btn" onclick="toggleOverview()" title="Vista general (O)"><svg class="ic ic-sm"><use href="#i-layers"/></svg>Vista general</button>
       <button class="nav-btn primary" id="btn-notes" onclick="toggleTeacherNotes()" title="Notas del docente (N)"><svg class="ic ic-sm"><use href="#i-clipboard-check"/></svg>Notas (N)</button>
@@ -927,7 +1120,7 @@
           </div>
           <div style="display:flex; align-items:center; gap:16px;">
             <button class="nav-btn" onclick="openErratasModal()" id="btn-erratas-chip" style="display:none;"><svg class="ic ic-sm"><use href="#i-message-square-warning"/></svg>Nota Oficial</button>
-            <span>Tema Claro · 1920×1080</span>
+            <span id="theme-status-tag">Tema Claro · 1920×1080</span>
           </div>
         </div>
       </div>
@@ -1045,6 +1238,19 @@
     }
 
     function getCatColors(cat) {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        const darkMap = {
+          'hardware': { accent: '#2DD4BF', soft: '#134E4A', ink: '#CCFBF1' },
+          'boot': { accent: '#818CF8', soft: '#312E81', ink: '#E0E7FF' },
+          'services': { accent: '#A78BFA', soft: '#4C1D95', ink: '#EDE9FE' },
+          'network': { accent: '#22D3EE', soft: '#164E63', ink: '#CFFAFE' },
+          'files': { accent: '#A3E635', soft: '#365314', ink: '#ECFCCB' },
+          'kernel': { accent: '#F472B6', soft: '#831843', ink: '#FCE7F3' },
+          'neutral': { accent: '#38BDF8', soft: '#0C4A6E', ink: '#BAE6FD' }
+        };
+        return darkMap[cat] || darkMap['neutral'];
+      }
       const map = {
         'hardware': { accent: '#0F766E', soft: '#CCFBF1', ink: '#0F766E' },
         'boot': { accent: '#4338CA', soft: '#E0E7FF', ink: '#3730A3' },
@@ -1590,10 +1796,10 @@
             const lookText = st.command || st.look || st.cmd || st.code || '';
             const reasonText = st.reason || st.explain || '';
             html += `
-              <div style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
+              <div class="exercise-step-row" style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
                 <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
                   <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
-                  ${lookText ? `<code style="font-size:19px; background:#FFFFFF; padding:6px 14px; border-radius:8px; border:1px solid #86EFAC; color:#166534; font-family:monospace; font-weight:700;">${escapeHTML(lookText)}</code>` : ''}
+                  ${lookText ? `<code class="exercise-sol-code">${escapeHTML(lookText)}</code>` : ''}
                 </div>
                 ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
@@ -1761,7 +1967,7 @@
           top3.forEach(t => {
             if (typeof t === 'string') {
               html += `
-                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
+                <div class="summary-cmd-card" style="display:flex; align-items:center; justify-content:space-between;">
                   <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
                   <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                 </div>
@@ -1770,7 +1976,7 @@
               const cmd = t.cmd || t.command || '';
               const desc = t.desc || t.detail || '';
               html += `
-                <div style="background:#FFFFFF; border:1px solid #93C5FD; border-radius:10px; padding:12px 16px;">
+                <div class="summary-cmd-card">
                   <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
                     <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
                     <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
@@ -1789,14 +1995,14 @@
           const pUrl = s.practice.url || '#';
           const pDesc = s.practice.desc || 'Pon a prueba tus conocimientos en la máquina virtual.';
           html += `
-            <div style="margin-top:14px; padding:16px 22px; background:#F0FDF4; border:2px solid #86EFAC; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+            <div class="summary-practice-box">
               <div style="display:flex; align-items:center; gap:16px;">
-                <div style="width:48px; height:48px; border-radius:12px; background:#DCFCE7; color:#166534; display:flex; align-items:center; justify-content:center; flex:none;">
+                <div class="sp-icon">
                   <svg class="ic ic-md"><use href="#i-wrench"/></svg>
                 </div>
                 <div>
-                  <div style="font-size:20px; font-weight:800; color:#166534;">${escapeHTML(pName)}</div>
-                  <div style="font-size:16px; color:#374151;">${renderRichText(pDesc)}</div>
+                  <div class="sp-title">${escapeHTML(pName)}</div>
+                  <div class="sp-desc">${renderRichText(pDesc)}</div>
                 </div>
               </div>
               <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
@@ -1812,14 +2018,14 @@
           const gpUrl = s.global_practice.url || '#';
           const gpDesc = s.global_practice.desc || 'Laboratorio final integrador con todos los comandos evaluados en este tema.';
           html += `
-            <div style="margin-top:12px; padding:16px 22px; background:#FFFBEB; border:2px solid #F59E0B; border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+            <div class="summary-global-box">
               <div style="display:flex; align-items:center; gap:16px;">
-                <div style="width:48px; height:48px; border-radius:12px; background:#FEF3C7; color:#92400E; display:flex; align-items:center; justify-content:center; flex:none;">
+                <div class="sg-icon">
                   <svg class="ic ic-md"><use href="#i-shield"/></svg>
                 </div>
                 <div>
-                  <div style="font-size:20px; font-weight:800; color:#92400E;">🏆 ${escapeHTML(gpName)}</div>
-                  <div style="font-size:16px; color:#78350F;">${renderRichText(gpDesc)}</div>
+                  <div class="sg-title">🏆 ${escapeHTML(gpName)}</div>
+                  <div class="sg-desc">${renderRichText(gpDesc)}</div>
                 </div>
               </div>
               <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
@@ -2144,11 +2350,12 @@
         item.style.padding = '14px';
         item.style.border = '2px solid var(--border)';
         item.style.borderRadius = '10px';
-        item.style.background = i === currentSlideIdx ? 'var(--primary-soft)' : '#FFFFFF';
+        item.style.background = i === currentSlideIdx ? 'var(--primary-soft)' : 'var(--surface)';
+        item.style.color = 'var(--text)';
         item.style.cursor = 'pointer';
         item.innerHTML = `
           <div style="font-weight:700; font-size:16px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
-          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2;">${s.title}</div>
+          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
         `;
         item.onclick = () => {
           closeModals();
@@ -2159,9 +2366,55 @@
       document.getElementById('modal-overview').classList.add('open');
     }
 
+    // Manejo de tema claro/oscuro
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try {
+        localStorage.setItem('lpic1_theme', next);
+      } catch (e) {}
+      updateThemeUI(next);
+      if (typeof renderSlide === 'function' && typeof currentSlideIdx !== 'undefined') {
+        renderSlide(currentSlideIdx);
+      }
+    }
+
+    function updateThemeUI(theme) {
+      const isDark = theme === 'dark';
+      const btn = document.getElementById('btn-theme-toggle');
+      const icon = document.getElementById('theme-toggle-icon');
+      const label = document.getElementById('theme-toggle-label');
+      if (icon) {
+        icon.innerHTML = `<use href="${isDark ? '#i-sun' : '#i-moon'}"/>`;
+      }
+      if (btn) {
+        btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        btn.setAttribute('title', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+      }
+      if (label) {
+        label.textContent = isDark ? 'Claro' : 'Oscuro';
+      }
+      const statusTag = document.getElementById('theme-status-tag');
+      if (statusTag) {
+        statusTag.textContent = isDark ? 'Tema Oscuro · 1920×1080' : 'Tema Claro · 1920×1080';
+      }
+    }
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'lpic1_theme' && (e.newValue === 'light' || e.newValue === 'dark')) {
+        document.documentElement.setAttribute('data-theme', e.newValue);
+        updateThemeUI(e.newValue);
+        if (typeof renderSlide === 'function' && typeof currentSlideIdx !== 'undefined') {
+          renderSlide(currentSlideIdx);
+        }
+      }
+    });
+
     // Inicializar slide inicial desde hash URL o 0
     window.addEventListener('load', () => {
       resizeStage();
+      updateThemeUI(document.documentElement.getAttribute('data-theme') || 'light');
       let initSlide = 0;
       if (window.location.hash) {
         const match = window.location.hash.match(/#\/(\d+)/);

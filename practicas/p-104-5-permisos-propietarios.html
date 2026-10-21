@@ -6,6 +6,16 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Práctica oficial 104.5: Administración de Permisos y Propietarios de Archivos — Laboratorio guiado para la certificación LPIC-1.">
   <title>Práctica 104.5 — Administración de Permisos y Propietarios de Archivos</title>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('lpic1_theme');
+      if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   <style>
     
 :root {
@@ -28,6 +38,70 @@
   --font-base: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
+
+[data-theme="dark"] {
+  --bg: #090D16;
+  --surface: #111827;
+  --surface-alt: #1E293B;
+  --text: #F8FAFC;
+  --text-muted: #CBD5E1;
+  --border: #475569;
+  --border-light: #334155;
+  --primary: #38BDF8;
+  --primary-soft: #0C4A6E;
+  --primary-hover: #7DD3FC;
+  --success: #4ADE80;
+  --success-soft: #14532D;
+  --warning: #FBBF24;
+  --warning-soft: #78350F;
+  --danger: #F87171;
+  --danger-soft: #7F1D1D;
+}
+
+[data-theme="dark"] .term { background: #1E293B; border-color: #475569; }
+[data-theme="dark"] .term-bar { background: #0F172A; color: #CBD5E1; border-bottom: 1px solid #334155; }
+[data-theme="dark"] .term-bar .copy-btn { background: #1E293B; border-color: #64748B; color: #F8FAFC; }
+[data-theme="dark"] .term-bar .copy-btn:hover { background: #334155; border-color: #38BDF8; color: #38BDF8; }
+[data-theme="dark"] .term pre { color: #F8FAFC; }
+[data-theme="dark"] .t-prompt { color: #94A3B8; }
+[data-theme="dark"] .t-cmd { color: #F8FAFC; font-weight: 700; }
+[data-theme="dark"] .t-flag { color: #60A5FA; }
+[data-theme="dark"] .t-arg { color: #FB923C; }
+[data-theme="dark"] .t-path { color: #4ADE80; }
+[data-theme="dark"] .t-cmt { color: #94A3B8; }
+[data-theme="dark"] .t-err { color: #F87171; }
+[data-theme="dark"] .t-hl { background: #78350F; color: #FEF3C7; }
+
+[data-theme="dark"] .callout-info { background: #082F49; border-left-color: #38BDF8; color: #E0F2FE; }
+[data-theme="dark"] .callout-warning { background: #451A03; border-left-color: #FBBF24; color: #FEF3C7; }
+[data-theme="dark"] .callout-success { background: #052E16; border-left-color: #4ADE80; color: #DCFCE7; }
+[data-theme="dark"] .callout-camera { background: #3B0764; border-left-color: #C084FC; color: #F3E8FF; }
+
+[data-theme="dark"] .badge-blue { background: #0C4A6E; color: #BAE6FD; }
+[data-theme="dark"] .badge-green { background: #14532D; color: #BBF7D0; }
+[data-theme="dark"] .badge-amber { background: #78350F; color: #FEF3C7; }
+[data-theme="dark"] .badge-gray { background: #1E293B; color: #CBD5E1; }
+
+[data-theme="dark"] details.accordion-item summary { background: #1E293B; color: #F8FAFC; }
+[data-theme="dark"] details.accordion-item summary:hover { background: #334155; }
+[data-theme="dark"] .checkbox-item { background: #1E293B; color: #F8FAFC; }
+[data-theme="dark"] .checkbox-item.checked { background: #14532D; color: #86EFAC; }
+[data-theme="dark"] .progress-container { background: #334155; }
+[data-theme="dark"] .portal-hero { background: linear-gradient(135deg, #111827 0%, #1E293B 100%); border-color: #334155; }
+[data-theme="dark"] .search-input { background: #111827; border-color: #475569; color: #F8FAFC; }
+[data-theme="dark"] .search-input:focus { border-color: #38BDF8; }
+[data-theme="dark"] .subtopic-group-header { border-bottom-color: #334155; }
+[data-theme="dark"] .card { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .practice-card-global { background: #241403; border-color: #B45309; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4); }
+[data-theme="dark"] .practice-card-global h3 a { color: #FDE047 !important; }
+[data-theme="dark"] .filter-btn { background: var(--surface); border-color: var(--border); color: var(--text); }
+[data-theme="dark"] .filter-btn:hover, [data-theme="dark"] .filter-btn.active { background: var(--primary); color: #0F172A; border-color: var(--primary); font-weight: 700; }
+[data-theme="dark"] .toc-sidebar { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .toc-link { color: var(--text-muted); }
+[data-theme="dark"] .toc-link:hover, [data-theme="dark"] .toc-link.active { color: #38BDF8; background: #0C4A6E; }
+[data-theme="dark"] #toast { background: #1E293B; color: #F8FAFC; border: 1px solid #475569; }
+[data-theme="dark"] .nav-header { background: var(--surface); border-bottom-color: var(--border); }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   background: var(--bg);
@@ -142,6 +216,8 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></symbol>
 <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /><rect width="20" height="8" x="2" y="14" rx="2" ry="2" /><line x1="6" x2="6.01" y1="6" y2="6" /><line x1="6" x2="6.01" y1="18" y2="18" /></symbol>
 <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
 </svg>
 
   <div class="container">
@@ -149,6 +225,10 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
       <a href="p-104-3-montaje-sistemas-archivos.html" class="action-btn" style="color:var(--text-muted); font-weight:600; display:inline-flex; align-items:center; gap:6px;"><svg class="ic"><use href="#i-chevron-left"/></svg> 104.3</a>
       <div style="display:flex; gap:12px; align-items:center;">
         <a href="index.html" style="font-size:15px; font-weight:600; color:var(--text-muted);"><svg class="ic ic-sm"><use href="#i-server"/></svg> Todas las prácticas</a>
+        <button id="btn-theme-toggle" class="theme-toggle-btn badge badge-gray" onclick="toggleTheme()" title="Cambiar tema claro / oscuro" aria-label="Cambiar tema" style="padding:6px 12px; font-size:14px; cursor:pointer; border:1px solid var(--border); background:var(--surface); color:var(--text);">
+          <svg class="ic ic-sm" id="theme-toggle-icon"><use href="#i-moon"/></svg>
+          <span id="theme-toggle-label">Oscuro</span>
+        </button>
         <button type="button" onclick="window.print()" class="badge badge-gray" style="padding:6px 12px; font-size:14px; cursor:pointer; border:1px solid var(--border); background:var(--surface);"><svg class="ic ic-sm"><use href="#i-download"/></svg> Imprimir / PDF</button>
       </div>
       <a href="p-104-6-enlaces-duros-simbolicos.html" class="action-btn" style="color:var(--primary); font-weight:700; display:inline-flex; align-items:center; gap:6px;">104.6 <svg class="ic"><use href="#i-chevron-right"/></svg></a>
@@ -647,6 +727,39 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
       }, { rootMargin: '-20% 0px -70% 0px' });
 
       document.querySelectorAll('section.card, .step-card').forEach(el => observer.observe(el));
+      updateThemeUI(document.documentElement.getAttribute('data-theme') || 'light');
+    });
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('lpic1_theme', next); } catch (e) {}
+      updateThemeUI(next);
+    }
+
+    function updateThemeUI(theme) {
+      const isDark = theme === 'dark';
+      const btn = document.getElementById('btn-theme-toggle');
+      const icon = document.getElementById('theme-toggle-icon');
+      const label = document.getElementById('theme-toggle-label');
+      if (icon) {
+        icon.innerHTML = `<use href="${isDark ? '#i-sun' : '#i-moon'}"/>`;
+      }
+      if (btn) {
+        btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        btn.setAttribute('title', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+      }
+      if (label) {
+        label.textContent = isDark ? 'Claro' : 'Oscuro';
+      }
+    }
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'lpic1_theme' && (e.newValue === 'light' || e.newValue === 'dark')) {
+        document.documentElement.setAttribute('data-theme', e.newValue);
+        updateThemeUI(e.newValue);
+      }
     });
   </script>
 </body>
