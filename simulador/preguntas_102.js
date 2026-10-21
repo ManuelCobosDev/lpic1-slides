@@ -1,0 +1,3512 @@
+window.PREGUNTAS_102 = [
+  {
+    "id": 1,
+    "num": 1,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which command is used to set the hostname of the local system? (Specify only the command without any path or parameters.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "hostname (también válido en entornos modernos: hostnamectl )"
+    ],
+    "correct_text": "hostname (también válido en entornos modernos: hostnamectl )",
+    "explanation": "El comando clásico estándar en Linux para consultar o definir el nombre del sistema en tiempo de ejecución es hostname . En los exámenes de LPI donde se pide \"solo el comando sin parámetros\" para fijar el nombre de host, la respuesta primaria esperada es hostname (junto con hostnamectl en systemd )."
+  },
+  {
+    "id": 2,
+    "num": 2,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following is a valid IPv6 address?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) 2001:db8:0g21::1",
+      "B) 2001::db8:4581::1",
+      "C) 2001:db8:3241::1",
+      "D) 2001%db8%9990%%1",
+      "E) 2001.db8.819f..1"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 3,
+    "num": 3,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "What command, depending on its options, can display the open TCP connections, the routing tables, as well as network interface statistics? (Specify only the command without any path or parameters.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "netstat"
+    ],
+    "correct_text": "netstat",
+    "explanation": "netstat (de la suite net-tools ) es la herramienta multifunción clásica que muestra conexiones abiertas (por defecto o -t ), la tabla de enrutamiento ( -r ) y estadísticas de las interfaces de red ( -i o -s )."
+  },
+  {
+    "id": 4,
+    "num": 4,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which command included in NetworkManager is a curses application which provides easy acces to the NetworkManager on the command line? (Specify only the command without any path or parameters.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "nmtui"
+    ],
+    "correct_text": "nmtui",
+    "explanation": "nmtui ( NetworkManager Text User Interface ) proporciona una interfaz interactiva basada en curses en la terminal para gestionar conexiones de NetworkManager."
+  },
+  {
+    "id": 5,
+    "num": 5,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which if the following tools, used for DNS debugging, reports not only the response from the name sever but also details about the query?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) dnsq",
+      "B) hostname",
+      "C) dig",
+      "D) dnslookup",
+      "E) zoneinfo"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 6,
+    "num": 6,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following statements is valid in the file /etc/nsswitch.conf?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) multi on",
+      "B) 192.168.168.4 dns-server",
+      "C) namespaces: net mount procs",
+      "D) include /etc/nsswitch.d/",
+      "E) hosts: files dns"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 7,
+    "num": 7,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following connection types, as seen in nmcli connection show, may exist in NetworkManager? (Choose three.).",
+    "type": "multiple",
+    "pick_count": 3,
+    "options": [
+      "A) tcp",
+      "B) ethernet",
+      "C) wifi",
+      "D) ipv6",
+      "E) bridge"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 8,
+    "num": 8,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "On a Linux workstation, the route command takes a long time before printing out the routing table. Which of the following errors does that indicate?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) The local routing information may be corrupted and must be re-validated using a routing protocol.",
+      "B) One of the routers in the routing table is not available which causes the automatic router failure detection mechanism (ARF-D) to wait for a timeout.",
+      "C) There may accidentally be more than one default router in which case a default router election has to be done on the n etwork in order to choose one router as the default.",
+      "D) The Linux Kernel Routing Daemon (LKRD) is not running and should be started using its init script or systemd unit.",
+      "E) DNS resolution may not be worki ng as route by default tries to resolve names of routers and destinations and may run into a timeout."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 9,
+    "num": 9,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What is true about the Hop Limit field in the IPv6 header?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) The field is not changed during the transport of a package.",
+      "B) The field is transmitted within a hop-by-hop extension header.",
+      "C) Each router forwarding the packet increases the field's value.",
+      "D) Each router forwarding the packet decreases the field's value.",
+      "E) For multicast packages, the field's value is alwa ys 1."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 10,
+    "num": 10,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following nmcli subcommands exist? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) nmcli ethernet",
+      "B) nmcli device",
+      "C) nmcli wifi",
+      "D) nmcli address",
+      "E) nmcli connection"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 11,
+    "num": 11,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following changes may occur as a consequence of using the command ip? (Choose three.).",
+    "type": "multiple",
+    "pick_count": 3,
+    "options": [
+      "A) Network interfaces may become active or inactive.",
+      "B) New name servers may be added to the resolver configuration.",
+      "C) The system's host name may change.",
+      "D) IP addresses may change.",
+      "E) The routing table may chan ge."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 12,
+    "num": 12,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "How many IP addresses can be used for unique hosts inside the IPv4 subnet 192.168.2.128/26?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) 33",
+      "B) 14",
+      "C) 30",
+      "D) 62",
+      "E) 126"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 13,
+    "num": 13,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following IPv4 networks are reserved by IANA for private address assignment and private routing? (Choose three.).",
+    "type": "multiple",
+    "pick_count": 3,
+    "options": [
+      "A) 10.0.0.0/8",
+      "B) 127.0.0.0/8",
+      "C) 169.255.0.0/16",
+      "D) 172.16.0.0/12",
+      "E) 192.168.0.0/16"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 14,
+    "num": 14,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following commands configure network interfaces based on the system's existing distribution-specific configuration files? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) ifconf",
+      "B) ifdown",
+      "C) ifpause",
+      "D) ifstart",
+      "E) ifup"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 15,
+    "num": 15,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following statements is true if the UID of a regular user is identical to the GID of a group?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) UID have precedence over GIDs, therefore the user is available while the group doesn't.",
+      "B) The user as well as the group are not available to avoid ambiguity due to the ID conflict.",
+      "C) UIDs and GIDs are independent of each other, therefore the user as well as the group are still available.",
+      "D) The user is the only member of t he group, even if the group configuration contains other members.",
+      "E) GIDs have precedence over UIDs, therefore the group is available while the user is n't."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 16,
+    "num": 16,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following information is stored in /etc/shadow for each user?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) The timestamp of the user's last login.",
+      "B) The user's private SSH keys.",
+      "C) The hashed password of the user.",
+      "D) The numerical user ID (UID).",
+      "E) The path to the user's home directory."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 17,
+    "num": 17,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following commands shows all active systemd timers?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) systemctl-timer show",
+      "B) timectl list",
+      "C) systemctl -t",
+      "D) systemctl list-timers",
+      "E) timeq"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 18,
+    "num": 18,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following tasks can the date command accomplish? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) Set the system's date and time.",
+      "B) Set the system's date but not the time.",
+      "C) Calculate the time span between two dates.",
+      "D) Print a calendar for a month or a year.",
+      "E) Display time in a specific format."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 19,
+    "num": 19,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "Which file, if present, must contain all users that are allowed to use the cron scheduling system? (Specify the full name of the file, including path.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "/etc/cron.allow"
+    ],
+    "correct_text": "/etc/cron.allow",
+    "explanation": "Si el archivo /etc/cron.allow existe en el sistema, solo los usuarios listados explícitamente dentro de él tienen permiso para usar crontab (ignorando /etc/cron.deny )."
+  },
+  {
+    "id": 20,
+    "num": 20,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What can be specified with useradd? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) Commands the user can run using sudo.",
+      "B) The absolute path to the user's home directory.",
+      "C) Which printers are available for the new user.",
+      "D) The SSH keys used to login to the new account.",
+      "E) The numeric user ID (UID) of the user."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 21,
+    "num": 21,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What is true about the file /etc/localtime?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) It is a plain text file containing a string such as Europe/Berlin.",
+      "B) It is created and maintained by the NTP service based on the location of the system's IP address.",
+      "C) It is a symlink to /sys/device/clock/ltime and always contains the current local time.",
+      "D) After changing this fil e, newtzconfig has to be run to make the changes effective.",
+      "E) It is either a symlink to or a copy of a tim ezone information f ile such as /usr/share/zoneinfo/Europe/Berlin."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 22,
+    "num": 22,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following statements is true regarding systemd timer units?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) Timer units can only be defined within a service unit's file.",
+      "B) The command executed by the timer is specified in the timer unit's [Cmd] section.",
+      "C) A dedicated system service, systemd-cron, handles the execution of timer units.",
+      "D) Timer units only exist in the system scope and are not available for users.",
+      "E) Each systemd timer unit controls a specific systemd service unit."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 23,
+    "num": 23,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "Which of the following fields are available in the standard format of both the global /etc/crontab file as well as in user-specific crontab files? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) Year",
+      "B) Minute",
+      "C) Username",
+      "D) Effective group ID",
+      "E) Command"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 24,
+    "num": 24,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following commands should be executed when starting a login shell in order to change the language of messages for an internationalized program to Portuguese (pt)?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) export LANGUAGE=\"pt\"",
+      "B) export LC_MESSAGES=\"pt\"",
+      "C) export UI_MESSAGES=\"pt\"",
+      "D) export MESSAGE=\"pt\"",
+      "E) export ALL_MESSAGES=\"pt\""
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 25,
+    "num": 25,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following files assigns a user to its primary group?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) /etc/pgroup",
+      "B) /etc/shadow",
+      "C) /etc/passwd",
+      "D) /etc/group",
+      "E) /etc/gshadow"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 26,
+    "num": 26,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following steps prevents a user from obtaining an interactive login session?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) Setting the UID for the user to 0.",
+      "B) Running the command chsh -s /bin/false with the user name.",
+      "C) Removing the user from the group staff.",
+      "D) Adding the user to /etc/noaccess.",
+      "E) Creating a .nologin file in the user's home directory."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 27,
+    "num": 27,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which command included in systemd supports selecting messages from the systemd journal by criteria such as time or unit name? (Specify only the command without any path or parameters.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "journalctl"
+    ],
+    "correct_text": "journalctl",
+    "explanation": "journalctl es la utilidad cliente de systemd para consultar el registro binario de systemd-journald , permitiendo filtrar por unidades ( -u ), rangos de tiempo ( --since , --until ), prioridades ( -p ), etc."
+  },
+  {
+    "id": 28,
+    "num": 28,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which of the following statements about systemd-journald are true? (Choose three.).",
+    "type": "multiple",
+    "pick_count": 3,
+    "options": [
+      "A) It is incompatible with syslog and cannot be installed on a system using regular syslog.",
+      "B) It only processes messages of systemd and not messages of any other tools.",
+      "C) It can pass log messages to syslog for further processing.",
+      "D) It maintains metadata such as _UID or _PID for each me ssage.",
+      "E) It supports syslog facilities such as kern, user, and auth."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 29,
+    "num": 29,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which command must be run after adding a new email alias to the configuration in order to make this change effective? (Specify the command without any path but including all required parameters.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "newaliases"
+    ],
+    "correct_text": "newaliases",
+    "explanation": "Tras editar el archivo de texto /etc/aliases , es obligatorio ejecutar newaliases (que no requiere parámetros) para reconstruir la base de datos indexada binaria ( /etc/aliases.db ) que utiliza el MTA."
+  },
+  {
+    "id": 30,
+    "num": 30,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which option in the chrony configuration file changes the initial interval of polls to a NTP server in order to speed up the initial synchronization?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) iburst",
+      "B) quickstart",
+      "C) fast",
+      "D) fsync",
+      "E) flood"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 31,
+    "num": 31,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which of the following commands is used to rotate, compress, and mail system logs?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) logrotate",
+      "B) striplog",
+      "C) syslogd --rotate",
+      "D) rotatelog",
+      "E) logger"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 32,
+    "num": 32,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Why is the correct configuration of a system's time zone important?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) Because the timezone is included in checksum calculations and timezone changes invalidate existing checksums.",
+      "B) Because the time zone is saved as part of the modification times of files and cannot be changed after a file is created.",
+      "C) Because the environment variables LANG and LC_MESSAGES are, by default, set according to the time zone.",
+      "D) Because NTP chooses servers nearby based on the configured time zone.",
+      "E) Because the conversion of Unix timestamps to local time relies on the time zone configuration."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 33,
+    "num": 33,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which command, available with all sendmail-compatible MTAs, is used to list the contents of the MTA's mail queue? (Specify only the command without any path or parameters.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "mailq"
+    ],
+    "correct_text": "mailq",
+    "explanation": "mailq (equivalente a sendmail -bp ) es el comando estándar proporcionado por todos los MTA compatibles con Sendmail (incluyendo Postfix y Exim) para listar los correos encolados pendientes de entrega."
+  },
+  {
+    "id": 34,
+    "num": 34,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "What is the top-level directory which contains the configuration files for CUPS? (Specify the full path to the directory.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "/etc/cups (o /etc/cups/ )"
+    ],
+    "correct_text": "/etc/cups (o /etc/cups/ )",
+    "explanation": "El sistema de impresión común de Unix (CUPS) almacena todos sus archivos de configuración principales ( cupsd.conf , printers.conf , classes.conf , etc.) bajo el directorio /etc/cups ."
+  },
+  {
+    "id": 35,
+    "num": 35,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which of the following commands lists all queued print jobs?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) lpd",
+      "B) lpr",
+      "C) lp",
+      "D) lsq",
+      "E) lpq"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 36,
+    "num": 36,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which of the following entries in /etc/syslog.conf writes all mail related events to the file /var/log/maillog and sends all critical events to the remote server logger.example.com?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) mail.* /var/log/maillog \\n mail,crit @logger.example.org",
+      "B) mail.* /var/log/maillog \\n mail.crit syslog://logger.example.org",
+      "C) mail /var/log/maillog \\n mail.crit @logger.example.org",
+      "D) mail.* /var/log/maillog \\n mail.crit @logger.exampl e.org",
+      "E) mail * /var/log/maillog \\n mail crit @logger.example.org"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 37,
+    "num": 37,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which option in the /etc/ntp.conf file specifies an external NTP source to be queried for time information? (Specify only the option without any values or parameters.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "server (también aceptado pool en versiones recientes)"
+    ],
+    "correct_text": "server (también aceptado pool en versiones recientes)",
+    "explanation": "En /etc/ntp.conf , la directiva clásica fundamental para especificar un nodo NTP externo al cual consultar la hora es server (seguida de la IP o FQDN del servidor)."
+  },
+  {
+    "id": 38,
+    "num": 38,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following protocols is related to the term open relay?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) SMTP",
+      "B) POP3",
+      "C) NTP",
+      "D) IMAP",
+      "E) LDAP"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 39,
+    "num": 39,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following commands displays all environment and shell variables?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) getargs",
+      "B) lsenv",
+      "C) ls",
+      "D) env",
+      "E) lsshell"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 40,
+    "num": 40,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following comparison operators for test work on elements in the file system? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) -z",
+      "B) -eq",
+      "C) -d",
+      "D) -f",
+      "E) -lt"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 41,
+    "num": 41,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What information is provided by the echo $$ command?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) The process ID of the current shell.",
+      "B) The process ID for the following command.",
+      "C) The process ID of the last command executed.",
+      "D) The process ID of the last command which has been placed in the background.",
+      "E) The process ID of the echo command."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 42,
+    "num": 42,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which command makes the shell variable named VARIABLE visible to subshells?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) export $VARIABLE",
+      "B) env VARIABLE",
+      "C) set $VARIABLE",
+      "D) set VARIABLE",
+      "E) export VARIABLE"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 43,
+    "num": 43,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What output is produced by the following command sequence? echo '1 2 3 4 5 6' | while read a b c; do echo result: $c $b$a; done",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) result: 6 5 4",
+      "B) result: 1 2 3 4 5 6",
+      "C) result: 3 4 5 6 2 1",
+      "D) result: 6 5 4 3 2 1",
+      "E) result: 3 2 1"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 44,
+    "num": 44,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following configuration files should be modified to globally set shell variables for all users?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) /etc/profile",
+      "B) /etc/bashrc",
+      "C) ~/.bash_profile",
+      "D) /etc/.bashrc",
+      "E) /etc/shellenv"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 45,
+    "num": 45,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What output does the command seq 10 produce?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) A continuous stream of numbers increasing in increments of 10 until the command is stopped.",
+      "B) It creates no output because a second parameter is missing.",
+      "C) The number 0 through 9 with one number per line.",
+      "D) The number 10 to standard output.",
+      "E) The numbers 1 through 10 with one number per line."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 46,
+    "num": 46,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What command list the aliases defined in the current Bash shell? (Specify only the command without any path or parameters.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "alias"
+    ],
+    "correct_text": "alias",
+    "explanation": "Ejecutar el comando interno alias sin argumentos imprime en la salida estándar la lista de todos los alias definidos actualmente en la sesión de shell."
+  },
+  {
+    "id": 47,
+    "num": 47,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following commands can be used to limit the amount of memory a user may use?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) umask",
+      "B) usermod",
+      "C) passwd",
+      "D) ulimit",
+      "E) chage"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 48,
+    "num": 48,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What is a purpose of an SSH host key?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) It must be sent by any SSH client in addition to a user key in order to identify the client's host.",
+      "B) It is root key by which all user SSH keys must be signed.",
+      "C) It provides the server's identity information to connecting SSH clien ts.",
+      "D) It authenticates any user that logs into a remote machine from the key's host.",
+      "E) It is used by system services li ke cron, syslog or a backup job to automatically connect to remote hosts."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 49,
+    "num": 49,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What is the purpose of TCP wrapper?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A ) Manage and adjust bandwidth used by TCP services.",
+      "B) Bind a network service to a TCP port.",
+      "C) Encapsulate TCP messages in IP packets.",
+      "D) Add SSL support to plain text TCP services.",
+      "E) Limit access to a network service."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 50,
+    "num": 50,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "Given the following excerpt of the sudo configuration: Jane ANY=NOPASSWD: /bin/kill, /bin/id, PASSWD: /sbin/fdisk Which of the following statements are true? (Choose three.).",
+    "type": "multiple",
+    "pick_count": 3,
+    "options": [
+      "A) Jane can run /bin/id only after specifying her password.",
+      "B) Jane can run /sbin/fdisk after specifying root's password.",
+      "C) Jane can run /sbin/fdisk after specifying her password.",
+      "D) Jane can run /bin/kill without specifying a password.",
+      "E) Jane can run /bin/id without specifying her password."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 51,
+    "num": 51,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which configuration file contains the default options for SSH clients?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) /etc/ssh/sshd_config",
+      "B) /etc/ssh/ssh",
+      "C) /etc/ssh/ssh_config",
+      "D) /etc/ssh/client",
+      "E) /etc/ssh/ssh_client"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 52,
+    "num": 52,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Depending on a system's configuration, which of the following files can be used to enable and disable network services running on this host?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) /etc/profile",
+      "B) /etc/xinetd.conf",
+      "C) /etc/ports",
+      "D) /etc/services",
+      "E) /etc/host.conf"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 53,
+    "num": 53,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following commands can identify the PID od a process which opened a TCP port?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) ptrace",
+      "B) strace",
+      "C) debug",
+      "D) lsof",
+      "E) nessus"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 54,
+    "num": 54,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "When using X1 1 forwarding in SSH, what environment variable is automatically set in the remote shell in order to help applications to connect to the correct X11 server? (Specify only the environment variable without any additional commands or values.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "DISPLAY"
+    ],
+    "correct_text": "DISPLAY",
+    "explanation": "Cuando se conecta con ssh -X o ssh -Y , el servidor SSH configura automáticamente la variable de entorno DISPLAY (normalmente a algo como localhost:10.0 ) para redirigir las aplicaciones gráficas a través del túnel SSH."
+  },
+  {
+    "id": 55,
+    "num": 55,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "The presence of what file will temporarily prevent all users except root from logging into a system? (Specify the full name of the file, including path.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "/etc/nologin"
+    ],
+    "correct_text": "/etc/nologin",
+    "explanation": "Si el archivo /etc/nologin existe (o /run/nologin ), pam_nologin y login muestran su contenido a los usuarios regulares y rechazan su inicio de sesión, permitiendo el acceso únicamente a root ."
+  },
+  {
+    "id": 56,
+    "num": 56,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following commands preloads and manages existing SSH keys that are used for automatic authentication while logging in to other machines using SSH?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) sshd",
+      "B) ssh-keyring",
+      "C) ssh-keygen",
+      "D) ssh-pki",
+      "E) ssh-agent"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 57,
+    "num": 57,
+    "tema": 106,
+    "tema_info": {
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
+    },
+    "stem": "On a machine running several X servers, how do programs identify the different instances of the X11 server?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) By a fixed UUID that is defined in the X11 configuration file.",
+      "B) By a display name like :1 .",
+      "C) By the name of the user that runs the X server like x11: bob.",
+      "D) By a device name like /dev/X11/xservers/1.",
+      "E) By a unique IPv6 address from the fe80::/64subne t."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 58,
+    "num": 58,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What is the purpose of a screen reader?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) It manages virtual keyboards on touch screen displays.",
+      "B) It reads the parameters of the attached monitors and creates an appropriate X11 configuration.",
+      "C) It displays lines and markers to help people use speed reading techniques.",
+      "D) It manages and displays files that contain e-books.",
+      "E) It reads displayed text to accommodate the needs of blind or visually impaired people."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 59,
+    "num": 59,
+    "tema": 106,
+    "tema_info": {
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
+    },
+    "stem": "The X11 configuration file xorg.conf is grouped into section. How is the content of the section SectionName represented?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) It is placed in curly brackets as in Section SectionName {…}.",
+      "B) It is placed between the tags <Section \" name=\"\"SectionName\"> and </Section> .",
+      "C) It is placed between a line containing Section \"SectionName\" and a line containing EndSect ion.",
+      "D) It is placed af ter the row [SectionName].",
+      "E) It is placed after an initial unindented Section \"SectionName\" and must be indented by exactly one tab character."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 60,
+    "num": 60,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following features are provided by SPICE? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) Connecting local USB devices to remote applications.",
+      "B) Accessing graphical applications on a remote host.",
+      "C) Replacing Xorg as local X11 server.",
+      "D) Downloading and locally installing applications from a remote machin e.",
+      "E) Uploading and running a binary program on a rem ote machine."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 61,
+    "num": 61,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What is the systemd journal stored? (Where is the systemd journal stored?)",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) /var/jlog/and /var/jlogd/",
+      "B) /proc/log/and /proc/klog/",
+      "C) /run/log/journal/ or /var/log/journal/",
+      "D) /var/log/syslog.binor /var/log/syslog.jrn",
+      "E) /etc/systemd/journal/or /usr/lib/systemd/journal/"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 62,
+    "num": 62,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which of the following is true regarding the command sendmail?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) With any MTA, the sendmail command must be run periodically by the cron daemon.",
+      "B) When using systemd, sendmail is an alias to relayctl.",
+      "C) The sendmail command prints the MTA's queue history of which mails have been sent successfully.",
+      "D) It is only available when the sendm ail MTA is installed.",
+      "E) All common MTAs, including Postfix and Exim, provide a sendmail comma nd."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 63,
+    "num": 63,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which file inside the CUPS configuration directory contains the settings of the printers?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) cups-devices.conf",
+      "B) snmp.conf",
+      "C) printers.conf",
+      "D) printcap.conf",
+      "E) cupsd.conf"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 64,
+    "num": 64,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which file is processed by newaliases? (Specify the full name of the file, including path.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "/etc/aliases"
+    ],
+    "correct_text": "/etc/aliases",
+    "explanation": "El comando newaliases lee el archivo de configuración de alias del sistema /etc/aliases y compila su base de datos correspondiente."
+  },
+  {
+    "id": 65,
+    "num": 65,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which of the following are syslog facilities? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) local5",
+      "B) accounting",
+      "C) mail",
+      "D) postmaster",
+      "E) remote"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 66,
+    "num": 66,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following parameters are used for journalctl to limit the time frame of the output? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) --since=",
+      "B) --from=",
+      "C) --until=",
+      "D) --upto=",
+      "E) --date="
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 67,
+    "num": 67,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What is true regarding the file ~/.forward?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) When configured correctly ~/.forward can be used to forward each incoming mail to one or more other recipients.",
+      "B) After editing ~/.forward the user must run newaliases to make the mail server aware of the changes.",
+      "C) Using ~/.forward, root may configure any email address whereas all other users may configure only their own addre sses.",
+      "D) As ~/.forward is owned by the MTA and not writable by the user, it must be edited using the editaliases command.",
+      "E) By default, o nly ~/.forward files of users in the group mailq are processed while all other user's ~/.forward files are ignored."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 68,
+    "num": 68,
+    "tema": 106,
+    "tema_info": {
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
+    },
+    "stem": "Which of the following commands display a list of jobs in the print queue? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) cups --list",
+      "B) lprm -l",
+      "C) lpstat",
+      "D) lpr -q",
+      "E) lpq"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 69,
+    "num": 69,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "On a system using systemd-journald, which of the following commands add the message Howdy to the system log? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) append Howdy",
+      "B) logger Howdy",
+      "C) systemd-cat echo Howdy",
+      "D) echo Howdy > /dev/journal",
+      "E) journalctl add Howdy"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 70,
+    "num": 70,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following options in the chrony configuration file define remote time sources? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) source",
+      "B) clock",
+      "C) remote",
+      "D) pool",
+      "E) server"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 71,
+    "num": 71,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "Which command is used to sync the hardware clock to the system clock? (Specify only the command without any path or parameters.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "hwclock"
+    ],
+    "correct_text": "hwclock",
+    "explanation": "El comando hwclock permite leer el reloj de hardware (RTC/BIOS) y sincronizarlo desde el reloj del sistema ( hwclock --systohc / -w ) o viceversa ( hwclock --hctosys / -s )."
+  },
+  {
+    "id": 72,
+    "num": 72,
+    "tema": 108,
+    "tema_info": {
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
+    },
+    "stem": "Which of the following situations is observed and corrected by an NTP client?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) The skew in time between the system clock and the computer's hardware clock.",
+      "B) The physical location and the time zone configuration.",
+      "C) Changes in the time zone of the current computer's location.",
+      "D) Adjustment needed to support Dayligh t Saving Time.",
+      "E) The skew in time between the system clock and the reference clock."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 73,
+    "num": 73,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "If an alias ls exists, which of the following commands updates the alias to point to the command ls -l instead of the alias's current target?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) set ls='ls -l'",
+      "B) alias ls='ls -l'",
+      "C) alias --force ls='ls -l'",
+      "D) alias --update ls ls='ls -l'",
+      "E) realias ls='ls -l'"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 74,
+    "num": 74,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following commands puts the output of the command date into the shell variable mydate?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) mydate=\"date\"",
+      "B) mydate=\"exec date\"",
+      "C) mydate=\"$((date))\"",
+      "D) mydate=\"$(date)\"",
+      "E) mydate=\"${date}\""
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 75,
+    "num": 75,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What information is shown by the echo $? command?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) The process ID of the echo command.",
+      "B) The exit value of the command executed immediately before echo.",
+      "C) The process ID which will be used for the next command.",
+      "D) The exit value of the echo command.",
+      "E) The process ID of the current shell."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 76,
+    "num": 76,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following files is not read directly by a Bash login shell?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) ~/.bashrc",
+      "B) ~/.bash_profile",
+      "C) ~/.bash_login",
+      "D) ~/.profile",
+      "E) /etc/profile"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 77,
+    "num": 77,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What is true about the file .profile in a user's home directory?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) It must be executable.",
+      "B) It must call the binary of the login shell.",
+      "C) It must use a valid shell script syntax.",
+      "D) It must start with a shebang.",
+      "E) It must be readable for its owner only."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 78,
+    "num": 78,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What is true regarding the statement beginning with #! that is found in the first line of script? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) It prevents the scripts from being executed until the ! is removed.",
+      "B) It triggers the installation of the script's interpreter.",
+      "C) It specifies the path and the arguments of the interpreter used to run the script.",
+      "D) It defines the character encoding of the script.",
+      "E) It is a comment that is ignored by the script interprete r."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 79,
+    "num": 79,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What output does the command seq 1 5 20 produce?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) 1 5 10 15",
+      "B) 1 6 11 16",
+      "C) 1 2 3 4",
+      "D) 2 3 4 5",
+      "E) 5 10 15 20"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 80,
+    "num": 80,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following commands lists all defines variables and functions within Bash?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) env",
+      "B) export",
+      "C) env -a",
+      "D) set",
+      "E) echo $ENV"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 81,
+    "num": 81,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What information related to a user account is modified using the chage command?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) Default ownership for new files.",
+      "B) Group membership.",
+      "C) Set of commands available to the user.",
+      "D) Password expiry information.",
+      "E) Default permissions for new files."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 82,
+    "num": 82,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which command is used to set restrictions on the size of a core file that is created for a user when a program crashes?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) core",
+      "B) edquota",
+      "C) quota",
+      "D) ulimit",
+      "E) ktrace"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 83,
+    "num": 83,
+    "tema": 110,
+    "tema_info": {
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
+    },
+    "stem": "How do shadow passwords improve the password security in comparison to standard no-shadow password?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) Regular users do not have access to the password hashes of shadow passwords.",
+      "B) Every shadow password is valid for 45 days and must be changed afterwards.",
+      "C) The system's host key is used to encrypt all shadow passwords.",
+      "D) Shadow passwords are always combined with a public key that has to match the user's p rivate key.",
+      "E) Shadow passwords are stored in plain text and can be checked for weak passwords."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 84,
+    "num": 84,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "After editing the TCP wrapper configuration to grant specific hosts access to a service, when do these changes become effective?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) The new configuration becomes effective after restarting the respective service.",
+      "B) The new configuration becomes effective at the next system reboot.",
+      "C) The new configuration becomes effective when the last established connection to the service is closed.",
+      "D) The new configuration becomes effective after restarting the tcpd service.",
+      "E) The new configuration becomes effective immediately for all new connectio ns."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 85,
+    "num": 85,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What is true regarding public and private SSH keys? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) For each user account, there is exactly one key pair that can be used to log into that account.",
+      "B) The private key must never be revealed to anyone.",
+      "C) Several different public keys may be generated for the same private key.",
+      "D) To maintain the private key's confidentiality, the SSH key pair must be created by its owner.",
+      "E) To allow remote logins, the user's private key mus t be copied to the remote serv er."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 86,
+    "num": 86,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "Which of the following commands finds all files owned by root that have the SetUID bit set?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) find / -user root -perm -4000",
+      "B) find / -user 0 -mode +s",
+      "C) find / -owner root -setuid",
+      "D) find / -owner 0 -permbits 0x100000000",
+      "E) find / --filter uid=1 --filter pers=u+s"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 87,
+    "num": 87,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What command is used to add OpenSSH private keys to a running ssh-agent instance? (Specify the command name only without any path.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "ssh-add"
+    ],
+    "correct_text": "ssh-add",
+    "explanation": "El comando ssh-add carga las claves privadas del usuario (como ~/.ssh/id_rsa o ~/.ssh/id_ed25519 ) dentro del agente de autenticación ssh-agent activo."
+  },
+  {
+    "id": 88,
+    "num": 88,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which directory holds configuration files for xinetd services? (Specify the full path to the directory.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "/etc/xinetd.d (o /etc/xinetd.d/ )"
+    ],
+    "correct_text": "/etc/xinetd.d (o /etc/xinetd.d/ )",
+    "explanation": "Mientras que /etc/xinetd.conf contiene la configuración global, los archivos individuales de cada servicio gestionado por xinetd se alojan en el directorio /etc/xinetd.d ."
+  },
+  {
+    "id": 89,
+    "num": 89,
+    "tema": 110,
+    "tema_info": {
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
+    },
+    "stem": "Which mechanism does ssh use to interact with the SSH agent?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) Connecting to port 2222 which is used by the system-wide SSH agent.",
+      "B) Using the fixed socket .ssh-agent/ipc.",
+      "C) Creating an alias replacing ssh with calls to ssh-agent.",
+      "D) Starting ssh-agent as a child process for each ssh invo cation.",
+      "E) Evaluating environment variables such as SSH_AUTH_SOCK."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 90,
+    "num": 90,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which parameter of the ssh command specifies the location of the private key used for login attempts? (Specify only the option name without any values or parameters.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "-i"
+    ],
+    "correct_text": "-i",
+    "explanation": "La opción -i ( identity_file ) en ssh permite indicar explícitamente la ruta al archivo de clave privada que se usará para la autenticación."
+  },
+  {
+    "id": 91,
+    "num": 91,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following is true about IPv6?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) IPv6 no longer supports broadcast addresses.",
+      "B) With IPv6, the TCP port numbers of most services have changed.",
+      "C) IPv4 addresses can be used without any change with IPv6.",
+      "D) IPv6 no longer supports multicast addresses.",
+      "E) For I Pv6, UDP and TCP have been replaced by the Rapid Transmission Protocol RTP."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 92,
+    "num": 92,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What is true about the following command? nmcli device wifi connect WIFIoI",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) NetworkManager opens a new public hotspot with the SSID WIFIoI.",
+      "B) NetworkManager creates an unconfigured new virtual network interface named WIFIoI.",
+      "C) NetworkManager creates a new wifi connection WIFIo I and activates it.",
+      "D) NetworkManager returns an error in case the connection WIFIoI does not exist.",
+      "E) NetworkManager returns an error because WIFIoI is an invalid wifi device."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 93,
+    "num": 93,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the commands below might have produced the following output?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) dig -t mx www.example.org",
+      "B) dig www.example.org",
+      "C) dig -t ns www.example.org",
+      "D) dig -t a www.example.org",
+      "E) dig -t soa www.example.org"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 94,
+    "num": 94,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which parameter is missing in the command ip link set ____ dev eth0 to activate the previously inactive network interface eth0? (Specify the parameter only without any command, path or additional options.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "up"
+    ],
+    "correct_text": "up",
+    "explanation": "La sintaxis de iproute2 para habilitar/activar una interfaz de red es ip link set up dev eth0 (o ip link set eth0 up )."
+  },
+  {
+    "id": 95,
+    "num": 95,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following states can NetworkManager show regarding the system's network connectivity? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) up",
+      "B) portal",
+      "C) full",
+      "D) login-required",
+      "E) firewalled"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 96,
+    "num": 96,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following are valid host addresses for the subnet 203.0.113.64/28? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) 203.0.113.64",
+      "B) 203.0.113.78",
+      "C) 203.0.113.65",
+      "D) 203.0.113.80",
+      "E) 203.0.113.81"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 97,
+    "num": 97,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following keywords can be used in the file /etc/resolv.conf? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) substitute",
+      "B) lookup",
+      "C) search",
+      "D) nameserver",
+      "E) method"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 98,
+    "num": 98,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "How does the ping command work by default?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) It sends an ICMP Echo Request to a remote host and waits to receive an ICMP Echo Response in return.",
+      "B) It sends an ARP request to a remote host and waits to receive an ARP response in return.",
+      "C) It sends a TCP SYN packet to a remote host and waits to receive an TCP ACK response in return.",
+      "D) It sends a broadcast packet to all hosts on the net and waits to receive, among others, a respon se from the target system.",
+      "E) It sends a UDP packet to port 0 of the remote host and waits to receive a UDP error response in ret urn."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 99,
+    "num": 99,
+    "tema": 106,
+    "tema_info": {
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
+    },
+    "stem": "Which of the following commands display the number of bytes transmitted and received via the eth0 network interface? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) route -v via eth0",
+      "B) ip stats show dev eth0",
+      "C) netstat -s -i eth0",
+      "D) ifconfig eth0",
+      "E) ip -s link show eth0"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 100,
+    "num": 100,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Given the following routing table:",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) It would be passed to the default router 192.168.178.1 on wlan0.",
+      "B) It would be directly transmitted on the device eth0.",
+      "C) It would be passed to the default router 255.255.255.0 on eth0.",
+      "D) It would be passed to the router 192.168.1.1 on eth0.",
+      "E) It would be directly transmitted on the device wlan0."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 101,
+    "num": 101,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following commands will delete the default gateway from the system's IP routing table? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) ifconfig unset default",
+      "B) route del default",
+      "C) ip route del default",
+      "D) netstat -r default",
+      "E) sysctl ipv4.default_gw=0"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 102,
+    "num": 102,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "What command enables a network interface according to distribution-specific configuration, such as /etc/network/interfaces or /etc/sysconfig/network-scripts/ifcfg-eth0 ? (Specify only the command without any path or paramet ers.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "ifup"
+    ],
+    "correct_text": "ifup",
+    "explanation": "El comando ifup lee los archivos de configuración estática propios de la distribución y activa la interfaz indicada conforme a esos parámetros."
+  },
+  {
+    "id": 103,
+    "num": 103,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "What is true about NetworkManager on a Linux system that uses its distribution's mechanisms to configure network interfaces? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) NetworkManager reconfigures all network interfaces to use DHCP unless they are specifically managed by NetworkManager.",
+      "B) NetworkManager must be explicitly enabled for each interface it should manage.",
+      "C) NetworkManager by default does not change interfaces which are already configured.",
+      "D) NetworkManager disables all interfaces which were not configured by NetworkManager.",
+      "E) NetworkManager can be configured to use the distribution's network interface configuration."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 104,
+    "num": 104,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which standardized TCP port is used by HTTPS services?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) 25",
+      "B) 80",
+      "C) 8080",
+      "D) 443",
+      "E) 636"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 105,
+    "num": 105,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following environment variables can be defined in locale.conf? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) LC_ALL",
+      "B) LC_USERNAME",
+      "C) LC_UTF8",
+      "D) LC_GEOGRAPHY",
+      "E) LC_TIME"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 106,
+    "num": 106,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following commands sets the system's time zone to the Canadian Eastern Time?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) localegen -t -f /usr/share/zoneinfo/Canada/Eastern > /etc/locate.tz",
+      "B) tzconf /etc/localtime",
+      "C) sysctl -w clock.tz='Canada/Eastern'",
+      "D) modprobe tz_ca_est",
+      "E) ln -sf /usr/share/zoneinfo/Canada/Eastern /etc/localtime"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 107,
+    "num": 107,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What option to useradd creates a new user's home directory and provisions it with a set of standard files? (Specify only the option name without any values or parameters.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "-m (o --create-home )"
+    ],
+    "correct_text": "-m (o --create-home )",
+    "explanation": "La opción -m (o --create-home ) de useradd fuerza la creación del directorio personal del usuario y copia dentro de él los archivos base contenidos en /etc/skel ."
+  },
+  {
+    "id": 108,
+    "num": 108,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "How can a specific user be prevented from scheduling tasks with at?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) By adding the specific user to the /etc/at.allow file.",
+      "B) By adding the specific user to the [deny] section in the /etc/atd.conf file.",
+      "C) By adding the specific user to the nojobs group.",
+      "D) By adding the specific user t o the /etc/at.deny file.",
+      "E) By executing the atd --deny [user] command."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 109,
+    "num": 109,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which file contains the data of the last change of a user's password?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) /etc/gshadow",
+      "B) /etc/passwd",
+      "C) /etc/pwdlog",
+      "D) /var/log/shadow",
+      "E) /etc/shadow"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 110,
+    "num": 110,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following fields can be found in the /etc/group file? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) The home directory of the group.",
+      "B) The list of users that belong to the group.",
+      "C) The name of the group.",
+      "D) The default group ACL.",
+      "E) The description of the group."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 111,
+    "num": 111,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following sections exists in a systemd timer unit?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) [Events]",
+      "B) [Timer]",
+      "C) [cron]",
+      "D) [Schedule]",
+      "E) [Trigger]"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 112,
+    "num": 112,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which of the following getent invocations lists all existing users?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) getent homes",
+      "B) getent uids",
+      "C) getent passwd",
+      "D) getent users",
+      "E) getent logins"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 113,
+    "num": 113,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "Given the following user's crontab entry: 15 14 * * 1-5 /usr/local/bin/example.sh When will the script /usr/local/bin/example.sh be executed?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) At 14:15 local time, January till May.",
+      "B) At 15:14 local time, 1st to 5th day of month.",
+      "C) At 14:15 local time, February till June.",
+      "D) At 14:15 local time, 1st to 5th day of month.",
+      "E) At 14:15 local time, Monday to Frida y."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 114,
+    "num": 114,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "If neither cron.allow nor cron.deny exist in /etc/, which of the following is true?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) Without additional configuration, all users may create user specific crontabs.",
+      "B) Without additional configuration, only root may create user specific crontabs.",
+      "C) The cron daemon will refuse to start and report missing files in the system's logfile.",
+      "D) When a user creates a user specific crontab the system administrator must approve it explicit ly.",
+      "E) The default settings of /etc/crond.conf define whether or not user specific crontabs are generally allowed or not."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 115,
+    "num": 115,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "What is the purpose of the iconv command?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) It converts bitmap images from one format to another such as PNG to JPEG.",
+      "B) It verifies that the root directory tree compiles to all conventions from the Filesystem Hierarchy Standard (FHS).",
+      "C) It converts files from one character set to an other.",
+      "D) It changes the mode of an inode in the ext4 filesystem.",
+      "E) It displays additional meta information from icon files ending in . ico."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 116,
+    "num": 116,
+    "tema": 107,
+    "tema_info": {
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
+    },
+    "stem": "Which character in the password field of /etc/passwd is used to indicate that the encrypted password is stored in /etc/shadow?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) *",
+      "B) !",
+      "C) s",
+      "D) #",
+      "E) x"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 117,
+    "num": 117,
+    "tema": 106,
+    "tema_info": {
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
+    },
+    "stem": "What does the term Braille Display refer to?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) A standardized high contract graphical theme for desktop applications?",
+      "B) A Linux desktop environment similar to KDE and GNOME.",
+      "C) A legacy display technology superseded by LCD.",
+      "D) A physical representation of characters using small dots.",
+      "E) A standard file format for data exchange, similar to XM L."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 118,
+    "num": 118,
+    "tema": 105,
+    "tema_info": {
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
+    },
+    "stem": "Which environment variable is used by an X11 client to determine the X Server to connect to? (Specify only the variable name without any preceding commands or values.).",
+    "type": "fill",
+    "pick_count": 1,
+    "options": [],
+    "correct_indices": [],
+    "fill_answers": [
+      "DISPLAY"
+    ],
+    "correct_text": "DISPLAY",
+    "explanation": "Cualquier cliente gráfico X11 consulta la variable de entorno DISPLAY para saber a qué servidor X, pantalla y monitor debe conectarse."
+  },
+  {
+    "id": 119,
+    "num": 119,
+    "tema": 106,
+    "tema_info": {
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
+    },
+    "stem": "Which of the following tasks are handled by a display manager like XDM or KMD? (Choose two.).",
+    "type": "multiple",
+    "pick_count": 2,
+    "options": [
+      "A) Configure additional devices like new monitors or projectors when they are attached.",
+      "B) Start and prepare the desktop environment for the user.",
+      "C) Create an X11 configuration file for the current graphic devices and monitors.",
+      "D) Lock the screen when the user was inactive for a configurable amount of time.",
+      "E) Handle the login of a user."
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  },
+  {
+    "id": 120,
+    "num": 120,
+    "tema": 109,
+    "tema_info": {
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
+    },
+    "stem": "Which of the following protocols is designed to access the video card output of a virtual machine?",
+    "type": "single",
+    "pick_count": 1,
+    "options": [
+      "A) KDE",
+      "B) X11",
+      "C) Xfce",
+      "D) SPICE",
+      "E) XDMCP"
+    ],
+    "correct_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "fill_answers": [],
+    "correct_text": "",
+    "explanation": ""
+  }
+];

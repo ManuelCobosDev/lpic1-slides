@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Mapa Mental y Grafo de Conocimiento Interactivo LPIC-1 (Exámenes 101-500 y 102-500). Red visual de comandos, archivos, conceptos y trampas oficiales de examen.">
+  <title>Mapa Mental y Grafo Interactivo LPIC-1 (101 y 102)</title>
+  
+  <script>
+    (function() {
+      var saved = localStorage.getItem('lpic1_theme');
+      if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
+  <!-- Vis.js Standalone (100% Offline) -->
+  <script src="grafo/vis-network.min.js"></script>
+  <!-- Datos del Grafo Precompilados (Carga universal file:// y http) -->
+  <script src="grafo/knowledge_graph.js"></script>
+
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --surface: #FFFFFF;
+      --surface-hover: #F1F5F9;
+      --surface-alt: #F8FAFC;
+      --text: #0F172A;
+      --text-muted: #475569;
+      --text-light: #64748B;
+      --border: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --primary: #2563EB;
+      --primary-hover: #1D4ED8;
+      --primary-soft: #EFF6FF;
+      --primary-border: #BFDBFE;
+      --success: #16A34A;
+      --success-soft: #DCFCE7;
+      --warning: #D97706;
+      --warning-soft: #FEF3C7;
+      --danger: #DC2626;
+      --danger-soft: #FEE2E2;
+      --purple: #7C3AED;
+      --purple-soft: #F5F3FF;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(15,23,42,0.06);
+      --shadow-md: 0 4px 14px rgba(15,23,42,0.08);
+      --shadow-lg: 0 10px 25px -5px rgba(15,23,42,0.12);
+      --drawer-w: 480px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #090D16;
+      --surface: #111827;
+      --surface-hover: #1E293B;
+      --surface-alt: #0F172A;
+      --text: #F8FAFC;
+      --text-muted: #CBD5E1;
+      --text-light: #94A3B8;
+      --border: #334155;
+      --border-strong: #475569;
+      --primary: #38BDF8;
+      --primary-hover: #7DD3FC;
+      --primary-soft: #0C4A6E;
+      --primary-border: #0284C7;
+      --success: #4ADE80;
+      --success-soft: #14532D;
+      --warning: #FBBF24;
+      --warning-soft: #78350F;
+      --danger: #F87171;
+      --danger-soft: #7F1D1D;
+      --purple: #A78BFA;
+      --purple-soft: #4C1D95;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 14px rgba(0,0,0,0.4);
+      --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* APP LAYOUT */
+    .app-root {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+
+    /* TOP HEADER */
+    .top-navbar {
+      height: 64px;
+      background: var(--surface);
+      border-bottom: 2px solid var(--border);
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-shrink: 0;
+      z-index: 50;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .nav-brand:hover { opacity: 0.9; }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.3);
+    }
+
+    .brand-text h1 {
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* HEADER LINKS */
+    .nav-links-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-btn:hover {
+      background: var(--surface-hover);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .nav-btn.primary {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+    .nav-btn.primary:hover {
+      background: var(--primary-hover);
+      color: #FFFFFF;
+    }
+
+    /* FILTER TOOLBAR */
+    .filter-toolbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      z-index: 40;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-group-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .exam-select-pills {
+      display: flex;
+      background: var(--surface-hover);
+      padding: 3px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .exam-pill-btn {
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .exam-pill-btn.active {
+      background: var(--surface);
+      color: var(--primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .custom-select {
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .custom-select:focus {
+      border-color: var(--primary);
+    }
+
+    .type-filter-chips {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    .filter-chip:hover {
+      border-color: var(--primary);
+    }
+    .filter-chip.active {
+      background: var(--primary-soft);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .filter-chip.chip-exam.active {
+      background: var(--warning-soft);
+      border-color: var(--warning);
+      color: var(--warning);
+    }
+
+    /* SEARCH WRAPPER */
+    .search-wrapper {
+      position: relative;
+      min-width: 280px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 7px 12px 7px 34px;
+      font-size: 13px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-soft);
+    }
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      pointer-events: none;
+      font-size: 14px;
+    }
+    .search-results-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      max-height: 320px;
+      overflow-y: auto;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      box-shadow: var(--shadow-lg);
+      z-index: 100;
+      display: none;
+    }
+    .search-result-item {
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .search-result-item:last-child { border-bottom: none; }
+    .search-result-item:hover, .search-result-item.highlighted {
+      background: var(--surface-hover);
+    }
+    .s-res-label {
+      font-weight: 700;
+      color: var(--text);
+      font-family: monospace;
+    }
+    .s-res-type {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--surface-hover);
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .stats-badge {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding: 6px 10px;
+      background: var(--surface-hover);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    /* MAIN VIEWPORT */
+    .graph-viewport {
+      flex: 1;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #network-canvas {
+      width: 100%;
+      height: 100%;
+      background: var(--bg);
+      cursor: grab;
+    }
+    #network-canvas:active {
+      cursor: grabbing;
+    }
+
+    /* FLOATING CANVAS CONTROLS */
+    .canvas-hud {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 20;
+    }
+    .hud-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+    }
+    .hud-btn:hover {
+      background: var(--surface-hover);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: scale(1.05);
+    }
+    .hud-btn.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+
+    /* FLOATING COLLAPSIBLE LEGEND */
+    .legend-card {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      padding: 14px 18px;
+      z-index: 20;
+      max-width: 340px;
+      transition: all 0.2s ease;
+    }
+    .legend-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .legend-title {
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-body {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      font-size: 12px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* SIDE INSPECTOR DRAWER */
+    .inspector-drawer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: var(--drawer-w);
+      max-width: 90vw;
+      background: var(--surface);
+      border-left: 2px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .inspector-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 18px 22px;
+      border-bottom: 1.5px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      background: var(--surface-alt);
+    }
+    .drawer-title-group {
+      flex: 1;
+      min-width: 0;
+    }
+    .drawer-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .d-badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .d-badge-topic { background: #CCFBF1; color: #0F766E; }
+    .d-badge-command { background: #DBEAFE; color: #1D4ED8; }
+    .d-badge-file { background: #DCFCE7; color: #166534; }
+    .d-badge-concept { background: #EDE9FE; color: #6D28D9; }
+    .d-badge-trap { background: #FEF3C7; color: #B45309; }
+
+    .drawer-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      word-break: break-word;
+      font-family: monospace;
+    }
+    .drawer-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .drawer-close-btn:hover {
+      background: var(--surface-hover);
+      color: var(--danger);
+    }
+
+    .drawer-body {
+      flex: 1;
+      padding: 22px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .drawer-section-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .code-box {
+      background: #0F172A;
+      color: #F8FAFC;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      position: relative;
+      overflow-x: auto;
+      line-height: 1.45;
+    }
+    .copy-code-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #FFFFFF;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .copy-code-btn:hover {
+      background: var(--primary);
+    }
+
+    .flags-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    .flags-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .flag-name {
+      font-family: monospace;
+      font-weight: 800;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .flag-desc {
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* EXAM TIPS CARD */
+    .exam-tips-card {
+      background: var(--warning-soft);
+      border: 1.5px solid var(--warning);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .tip-item {
+      border-bottom: 1px dashed rgba(217, 119, 6, 0.3);
+      padding-bottom: 10px;
+    }
+    .tip-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .tip-stem {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .tip-answer {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--success);
+      margin-bottom: 4px;
+    }
+    .tip-exp {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* CONNECTED NODES CHIPS */
+    .connected-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .connected-chip {
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--surface-hover);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+      font-family: monospace;
+    }
+    .connected-chip:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .drawer-actions {
+      padding: 16px 22px;
+      border-top: 1.5px solid var(--border);
+      background: var(--surface-alt);
+      display: flex;
+      gap: 10px;
+    }
+    .action-btn {
+      flex: 1;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* TOAST */
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.25s ease;
+      z-index: 1000;
+      pointer-events: none;
+    }
+    .copy-toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 860px) {
+      .filter-toolbar { gap: 10px; padding: 10px 14px; }
+      .search-wrapper { min-width: 100%; order: 3; }
+      :root { --drawer-w: 100vw; }
+      .legend-card { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-root">
+    
+    <!-- TOP NAVIGATION -->
+    <header class="top-navbar">
+      <a href="index.html" class="nav-brand" title="Volver al Portal Principal LPIC-1">
+        <div class="brand-icon">🗺️</div>
+        <div class="brand-text">
+          <h1>
+            Mapa Mental & Grafo LPIC-1
+            <span class="brand-badge">Interactivo</span>
+          </h1>
+          <div class="brand-subtitle">Visualización Relacional Oficial de Examen 101-500 (Temas 101, 102, 103 y 104)</div>
+        </div>
+      </a>
+
+      <div class="nav-links-row">
+        <a href="index.html" class="nav-btn">
+          <span>← Portada</span>
+        </a>
+        <a href="comandos.html" class="nav-btn">
+          <span>Comandos</span>
+        </a>
+        <a href="glosario.html" class="nav-btn">
+          <span>Glosario</span>
+        </a>
+        <a href="simulador/index.html" class="nav-btn">
+          <span>Simulador</span>
+        </a>
+        <button class="nav-btn" onclick="toggleTheme()" id="btn-theme-toggle" title="Cambiar tema claro/oscuro">
+          <span id="theme-toggle-icon">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- FILTER TOOLBAR -->
+    <div class="filter-toolbar">
+      <div class="filter-group-left">
+        
+        <!-- TEMA PILLS -->
+        <div class="exam-select-pills" id="tema-pills">
+          <button class="exam-pill-btn active" data-tema="all" onclick="filterTemaPill('all')">Todos (101-104)</button>
+          <button class="exam-pill-btn" data-tema="101" onclick="filterTemaPill('101')">Tema 101</button>
+          <button class="exam-pill-btn" data-tema="102" onclick="filterTemaPill('102')">Tema 102</button>
+          <button class="exam-pill-btn" data-tema="103" onclick="filterTemaPill('103')">Tema 103</button>
+          <button class="exam-pill-btn" data-tema="104" onclick="filterTemaPill('104')">Tema 104</button>
+        </div>
+
+        <!-- TEMA SELECTOR -->
+        <select class="custom-select" id="select-tema" onchange="onTemaChange(this.value)">
+          <option value="all">Todos los Temas (101 a 104)</option>
+          <option value="101">Tema 101: Arquitectura del Sistema</option>
+          <option value="102">Tema 102: Instalación de Linux y Paquetes</option>
+          <option value="103">Tema 103: Comandos GNU y Unix</option>
+          <option value="104">Tema 104: Dispositivos, Sistemas de Archivos y FHS</option>
+        </select>
+
+        <!-- SUBTEMA SELECTOR -->
+        <select class="custom-select" id="select-subtopic" onchange="onSubtopicChange(this.value)">
+          <option value="all">Todos los Subtemas</option>
+        </select>
+
+        <!-- TYPE FILTER CHIPS -->
+        <div class="type-filter-chips">
+          <button class="filter-chip active" data-type="command" onclick="toggleTypeFilter('command')">⚡ Comandos</button>
+          <button class="filter-chip active" data-type="file" onclick="toggleTypeFilter('file')">📁 Archivos</button>
+          <button class="filter-chip active" data-type="concept" onclick="toggleTypeFilter('concept')">💡 Conceptos</button>
+          <button class="filter-chip active" data-type="subtopic" onclick="toggleTypeFilter('subtopic')">🏷️ Subtemas</button>
+          <button class="filter-chip chip-exam active" data-type="exam_trap" onclick="toggleTypeFilter('exam_trap')">⚠️ Claves de Examen</button>
+        </div>
+
+      </div>
+
+      <div style="display:flex; align-items:center; gap:12px;">
+        <!-- SEARCH BOX -->
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="graph-search" class="search-input" placeholder="Buscar comando, archivo, flag..." autocomplete="off" oninput="onSearchInput(this.value)">
+          <div class="search-results-dropdown" id="search-dropdown"></div>
+        </div>
+
+        <div class="stats-badge" id="stats-badge">
+          <span id="visible-nodes-count">0</span> nodos
+        </div>
+      </div>
+    </div>
+
+    <!-- CANVAS VIEWPORT -->
+    <div class="graph-viewport" id="viewport-container">
+      
+      <!-- FLOATING HUD -->
+      <div class="canvas-hud">
+        <button class="hud-btn" onclick="zoomIn()" title="Acercar (+)">+</button>
+        <button class="hud-btn" onclick="zoomOut()" title="Alejar (-)">−</button>
+        <button class="hud-btn" onclick="fitView()" title="Centrar y Ajustar Vista">⛶</button>
+        <button class="hud-btn" id="btn-physics" onclick="togglePhysics()" title="Alternar Físicas (ON/OFF)">⚛️</button>
+        <button class="hud-btn" onclick="toggleFullscreen()" title="Pantalla Completa">📺</button>
+      </div>
+
+      <!-- VIS.JS CANVAS -->
+      <div id="network-canvas"></div>
+
+      <!-- FLOATING COLLAPSIBLE LEGEND -->
+      <div class="legend-card" id="legend-card">
+        <div class="legend-header" onclick="toggleLegend()">
+          <div class="legend-title">🎨 Leyenda de Nodos y Conexiones</div>
+          <span id="legend-toggle-icon">▼</span>
+        </div>
+        <div class="legend-body" id="legend-body">
+          <div class="legend-item"><div class="legend-dot" style="background:#2563EB;"></div> Comandos / Binarios</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#16A34A;"></div> Archivos / Rutas</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#7C3AED;"></div> Conceptos / Procesos</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#D97706;"></div> Trampas / Claves LPI</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#0F766E;"></div> Ejes Subtemas</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#64748B;"></div> Flecha: Relación</div>
+          <div style="margin-top:8px; padding-top:6px; border-top:1px solid var(--border); font-size:10px; color:var(--text-light); line-height:1.3;">Material didáctico no oficial · LPI Learning Materials</div>
+        </div>
+      </div>
+
+      <!-- SIDE INSPECTOR DRAWER -->
+      <aside class="inspector-drawer" id="inspector-drawer">
+        <div class="drawer-header">
+          <div class="drawer-title-group">
+            <div class="drawer-badge-row" id="drawer-badges"></div>
+            <div class="drawer-title" id="drawer-title"></div>
+          </div>
+          <button class="drawer-close-btn" onclick="closeDrawer()" title="Cerrar panel">✕</button>
+        </div>
+
+        <div class="drawer-body" id="drawer-body">
+          <!-- Dinámico -->
+        </div>
+
+        <div class="drawer-actions" id="drawer-actions">
+          <!-- Enlaces dinámicos -->
+        </div>
+      </aside>
+
+    </div>
+
+  </div>
+
+  <div class="copy-toast" id="copy-toast">Copiado al portapapeles</div>
+
+  <script>
+    /* =====================================================================
+       MOTOR GRÁFICO DEL MAPA MENTAL & GRAFO INTERACTIVO LPIC-1
+       ===================================================================== */
+    let network = null;
+    let allNodes = [];
+    let allEdges = [];
+    let nodesDataSet = null;
+    let edgesDataSet = null;
+    let activeExam = 'all';
+    let activeTema = 'all';
+    let activeSubtopic = 'all';
+    let activeTypes = new Set(['command', 'file', 'concept', 'subtopic', 'exam_trap']);
+    let physicsEnabled = true;
+    let selectedNodeId = null;
+
+    // Colores Temáticos por Tipo
+    const TYPE_COLORS = {
+      topic: { bg: '#0F766E', border: '#0D9488', text: '#FFFFFF', highlight: '#14B8A6' },
+      subtopic: { bg: '#4338CA', border: '#6366F1', text: '#FFFFFF', highlight: '#818CF8' },
+      command: { bg: '#2563EB', border: '#1D4ED8', text: '#FFFFFF', highlight: '#60A5FA' },
+      file: { bg: '#16A34A', border: '#15803D', text: '#FFFFFF', highlight: '#4ADE80' },
+      concept: { bg: '#7C3AED', border: '#6D28D9', text: '#FFFFFF', highlight: '#A78BFA' },
+      exam_trap: { bg: '#D97706', border: '#B45309', text: '#FFFFFF', highlight: '#FBBF24' }
+    };
+
+    // Inicializar al cargar el DOM
+    document.addEventListener('DOMContentLoaded', () => {
+      initGraphData();
+      setupEventListeners();
+      checkUrlParams();
+    });
+
+    function initGraphData() {
+      const data = window.LPIC_GRAPH_DATA;
+      if (!data) {
+        console.error("No se encontraron datos en window.LPIC_GRAPH_DATA. Intentando fetch...");
+        fetch('grafo/knowledge_graph.json')
+          .then(res => res.json())
+          .then(jsonData => {
+            window.LPIC_GRAPH_DATA = jsonData;
+            renderGraph(jsonData);
+          })
+          .catch(err => {
+            document.getElementById('network-canvas').innerHTML = 
+              '<div style="padding:40px; text-align:center; color:var(--danger); font-size:18px;">⚠️ Error cargando datos del grafo.</div>';
+          });
+        return;
+      }
+      renderGraph(data);
+    }
+
+    function renderGraph(graphData) {
+      allNodes = graphData.nodes || [];
+      allEdges = graphData.edges || [];
+
+      // Llenar select de subtemas
+      populateSubtopicsSelect();
+
+      // Formatear Nodos para Vis.js
+      const formattedNodes = allNodes.map(n => {
+        const tColor = TYPE_COLORS[n.type] || TYPE_COLORS.concept;
+        
+        // Shape y tamaño según tipo
+        let shape = 'box';
+        let size = 25;
+        let fontFace = 'Inter, sans-serif';
+        let borderWidth = 2;
+
+        if (n.type === 'topic') {
+          shape = 'hexagon';
+          size = 38;
+          borderWidth = 3;
+        } else if (n.type === 'subtopic') {
+          shape = 'box';
+          size = 28;
+          borderWidth = 2.5;
+        } else if (n.type === 'command') {
+          shape = 'box';
+          fontFace = 'ui-monospace, monospace';
+          borderWidth = 2;
+        } else if (n.type === 'file') {
+          shape = 'ellipse';
+          fontFace = 'ui-monospace, monospace';
+          borderWidth = 2;
+        } else if (n.type === 'concept') {
+          shape = 'box';
+          borderWidth = 2;
+        } else if (n.type === 'exam_trap') {
+          shape = 'diamond';
+          size = 32;
+          borderWidth = 3;
+        }
+
+        return {
+          id: n.id,
+          label: n.label,
+          title: n.title, // tooltip nativo
+          shape: shape,
+          size: size,
+          borderWidth: borderWidth,
+          color: {
+            background: tColor.bg,
+            border: tColor.border,
+            highlight: {
+              background: tColor.highlight,
+              border: '#FFFFFF'
+            },
+            hover: {
+              background: tColor.highlight,
+              border: tColor.border
+            }
+          },
+          font: {
+            color: tColor.text,
+            face: fontFace,
+            size: n.type === 'topic' ? 16 : (n.type === 'subtopic' ? 14 : 12),
+            bold: n.type === 'topic' || n.type === 'command' || n.type === 'exam_trap'
+          },
+          margin: 10,
+          raw: n
+        };
+      });
+
+      // Formatear Aristas para Vis.js
+      const formattedEdges = allEdges.map(e => {
+        const isExam = e.rel_type === 'exam_relation';
+        return {
+          id: e.id,
+          from: e.from,
+          to: e.to,
+          label: e.label || '',
+          arrows: 'to',
+          color: {
+            color: isExam ? '#F59E0B' : '#94A3B8',
+            highlight: '#38BDF8',
+            hover: '#38BDF8',
+            opacity: 0.85
+          },
+          font: {
+            color: isExam ? '#B45309' : '#64748B',
+            size: 10,
+            align: 'middle',
+            background: document.documentElement.getAttribute('data-theme') === 'dark' ? '#111827' : '#FFFFFF',
+            strokeWidth: 0
+          },
+          dashes: e.dashes || isExam,
+          width: isExam ? 2.5 : 1.5,
+          smooth: {
+            type: 'continuous'
+          }
+        };
+      });
+
+      nodesDataSet = new vis.DataSet(formattedNodes);
+      edgesDataSet = new vis.DataSet(formattedEdges);
+
+      const container = document.getElementById('network-canvas');
+      const data = { nodes: nodesDataSet, edges: edgesDataSet };
+
+      const options = {
+        interaction: {
+          hover: true,
+          tooltipDelay: 200,
+          hideEdgesOnDrag: false,
+          multiselect: false,
+          navigationButtons: false
+        },
+        physics: {
+          enabled: true,
+          solver: 'forceAtlas2Based',
+          forceAtlas2Based: {
+            gravitationalConstant: -40,
+            centralGravity: 0.006,
+            springLength: 120,
+            springConstant: 0.08,
+            damping: 0.6
+          },
+          stabilization: {
+            iterations: 150,
+            updateInterval: 25
+          }
+        }
+      };
+
+      network = new vis.Network(container, data, options);
+
+      // Eventos del Grafo
+      network.on('click', params => {
+        if (params.nodes && params.nodes.length > 0) {
+          const nId = params.nodes[0];
+          selectAndInspectNode(nId);
+        } else {
+          // Clic en fondo: cerrar drawer si no hizo click en un nodo
+          // closeDrawer();
+        }
+      });
+
+      // Hover inteligente: resaltar vecinos de 1er grado
+      network.on('hoverNode', params => {
+        highlightNodeAndNeighbors(params.node);
+      });
+      network.on('blurNode', params => {
+        if (selectedNodeId) {
+          highlightNodeAndNeighbors(selectedNodeId);
+        } else {
+          resetHighlight();
+        }
+      });
+
+      // Actualizar contador
+      updateVisibleCount();
+    }
+
+    /* =====================================================================
+       FILTRADO DINÁMICO
+       ===================================================================== */
+    function applyFilters(shouldFit = true) {
+      if (!nodesDataSet) return;
+
+      const filteredNodes = allNodes.filter(n => {
+        // 1. Filtro Examen
+        if (activeExam !== 'all' && n.exam !== activeExam && n.type !== 'topic') {
+          return false;
+        }
+        // 2. Filtro Tema
+        if (activeTema !== 'all' && n.tema !== activeTema) {
+          return false;
+        }
+        // 3. Filtro Subtema
+        if (activeSubtopic !== 'all' && n.subtopic_id !== activeSubtopic && n.type !== 'topic') {
+          return false;
+        }
+        // 4. Filtro Tipo
+        if (!activeTypes.has(n.type)) {
+          return false;
+        }
+        return true;
+      });
+
+      const allowedNodeIds = new Set(filteredNodes.map(n => n.id));
+
+      // Actualizar visibilidad en DataSet
+      const allItems = nodesDataSet.get();
+      const updates = allItems.map(item => ({
+        id: item.id,
+        hidden: !allowedNodeIds.has(item.id)
+      }));
+      nodesDataSet.update(updates);
+
+      // Ocultar edges huérfanas
+      const edgeItems = edgesDataSet.get();
+      const edgeUpdates = edgeItems.map(e => ({
+        id: e.id,
+        hidden: !allowedNodeIds.has(e.from) || !allowedNodeIds.has(e.to)
+      }));
+      edgesDataSet.update(edgeUpdates);
+
+      updateVisibleCount(allowedNodeIds.size);
+      
+      // Ajustar cámara con suavidad solo si se solicita
+      if (shouldFit) {
+        network.fit({
+          animation: { duration: 600, easingFunction: 'easeInOutQuad' }
+        });
+      }
+    }
+
+    function filterTemaPill(tema) {
+      activeTema = tema;
+      document.getElementById('select-tema').value = tema;
+      activeSubtopic = 'all';
+      populateSubtopicsSelect();
+      document.querySelectorAll('#tema-pills .exam-pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tema === tema);
+      });
+      applyFilters(true);
+    }
+
+    function onTemaChange(val) {
+      activeTema = val;
+      activeSubtopic = 'all';
+      populateSubtopicsSelect();
+      document.querySelectorAll('#tema-pills .exam-pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tema === val);
+      });
+      applyFilters(true);
+    }
+
+    function onSubtopicChange(val) {
+      activeSubtopic = val;
+      applyFilters(true);
+    }
+
+    function toggleTypeFilter(type) {
+      if (activeTypes.has(type)) {
+        if (activeTypes.size === 1) return; // evitar desactivar todos
+        activeTypes.delete(type);
+      } else {
+        activeTypes.add(type);
+      }
+      document.querySelectorAll('.type-filter-chips .filter-chip').forEach(chip => {
+        chip.classList.toggle('active', activeTypes.has(chip.dataset.type));
+      });
+      applyFilters(true);
+    }
+
+    function populateSubtopicsSelect() {
+      const select = document.getElementById('select-subtopic');
+      select.innerHTML = '<option value="all">Todos los Subtemas</option>';
+
+      const subtopics = allNodes.filter(n => n.type === 'subtopic');
+      const filtered = (activeTema === 'all') 
+        ? subtopics 
+        : subtopics.filter(s => s.tema === activeTema);
+
+      filtered.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.subtopic_id;
+        opt.textContent = `${s.subtopic_id} ${s.title.split(': ')[1] || s.title}`;
+        if (s.subtopic_id === activeSubtopic) opt.selected = true;
+        select.appendChild(opt);
+      });
+    }
+
+    function updateVisibleCount(count) {
+      const badge = document.getElementById('visible-nodes-count');
+      if (badge) {
+        badge.textContent = count !== undefined ? count : allNodes.length;
+      }
+    }
+
+    /* =====================================================================
+       HOVER Y RESALTADO DE VECINOS
+       ===================================================================== */
+    function highlightNodeAndNeighbors(nodeId) {
+      const connectedNodes = network.getConnectedNodes(nodeId);
+      const connectedEdges = network.getConnectedEdges(nodeId);
+      const allNodeIds = new Set([nodeId, ...connectedNodes]);
+      const allEdgeIds = new Set(connectedEdges);
+
+      const nodeUpdates = nodesDataSet.get().map(n => {
+        const isNeighbor = allNodeIds.has(n.id);
+        return {
+          id: n.id,
+          opacity: isNeighbor ? 1 : 0.18
+        };
+      });
+
+      const edgeUpdates = edgesDataSet.get().map(e => {
+        const isNeighbor = allEdgeIds.has(e.id);
+        return {
+          id: e.id,
+          color: { opacity: isNeighbor ? 1 : 0.06 }
+        };
+      });
+
+      nodesDataSet.update(nodeUpdates);
+      edgesDataSet.update(edgeUpdates);
+    }
+
+    function resetHighlight() {
+      const nodeUpdates = nodesDataSet.get().map(n => ({ id: n.id, opacity: 1 }));
+      const edgeUpdates = edgesDataSet.get().map(e => ({ id: e.id, color: { opacity: 0.85 } }));
+      nodesDataSet.update(nodeUpdates);
+      edgesDataSet.update(edgeUpdates);
+    }
+
+    /* =====================================================================
+       INSPECTOR LATERAL (DRAWER)
+       ===================================================================== */
+    function selectAndInspectNode(nodeId) {
+      selectedNodeId = nodeId;
+      const node = allNodes.find(n => n.id === nodeId);
+      if (!node) return;
+
+      // Resaltar nodo y vecinos de primer grado
+      highlightNodeAndNeighbors(nodeId);
+
+      // Animar foco hacia el nodo
+      network.focus(nodeId, {
+        scale: 1.15,
+        animation: { duration: 500, easingFunction: 'easeInOutQuad' }
+      });
+      network.selectNodes([nodeId]);
+
+      // Poblar Drawer
+      const badgesRow = document.getElementById('drawer-badges');
+      badgesRow.innerHTML = `
+        <span class="d-badge d-badge-${node.type}">${node.type.replace('_', ' ')}</span>
+        <span class="d-badge" style="background:var(--surface-hover); color:var(--text-muted);">Tema ${node.tema}</span>
+        ${node.subtopic_id ? `<span class="d-badge" style="background:var(--primary-soft); color:var(--primary);">Subtema ${node.subtopic_id}</span>` : ''}
+        <span class="d-badge" style="background:#EEF2FF; color:#4338CA;">LPIC-1 ${node.exam}</span>
+      `;
+
+      document.getElementById('drawer-title').textContent = node.label;
+
+      const body = document.getElementById('drawer-body');
+      let html = '';
+
+      // 1. Descripción
+      if (node.desc) {
+        html += `
+          <div>
+            <div class="drawer-section-title">📘 Propósito y Descripción</div>
+            <div style="font-size:14px; line-height:1.6; color:var(--text);">${escapeHTML(node.desc)}</div>
+          </div>
+        `;
+      }
+
+      // 2. Sintaxis
+      if (node.syntax) {
+        html += `
+          <div>
+            <div class="drawer-section-title">⌨️ Sintaxis / Ruta Oficial</div>
+            <div class="code-box">
+              <code>${escapeHTML(node.syntax)}</code>
+              <button class="copy-code-btn" onclick="copyToClipboard('${escapeQuotes(node.syntax)}')">Copiar</button>
+            </div>
+          </div>
+        `;
+      }
+
+      // 3. Flags / Opciones de Examen
+      if (node.flags && node.flags.length > 0) {
+        html += `
+          <div>
+            <div class="drawer-section-title">🚩 Parámetros Críticos de Examen</div>
+            <table class="flags-table">
+              <tbody>
+        `;
+        node.flags.forEach(f => {
+          html += `
+            <tr>
+              <td class="flag-name">${escapeHTML(f.flag)}</td>
+              <td class="flag-desc">${escapeHTML(f.desc)}</td>
+            </tr>
+          `;
+        });
+        html += `</tbody></table></div>`;
+      }
+
+      // 4. Ejemplos Reales
+      if (node.examples && node.examples.length > 0) {
+        html += `
+          <div>
+            <div class="drawer-section-title">💻 Ejemplos en Terminal Real</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+        `;
+        node.examples.forEach(ex => {
+          html += `
+            <div class="code-box">
+              <code>${escapeHTML(ex)}</code>
+              <button class="copy-code-btn" onclick="copyToClipboard('${escapeQuotes(ex)}')">Copiar</button>
+            </div>
+          `;
+        });
+        html += `</div></div>`;
+      }
+
+      // 5. Claves & Preguntas de Examen (Exam Tips)
+      if (node.exam_tips && node.exam_tips.length > 0) {
+        html += `
+          <div>
+            <div class="drawer-section-title">🎯 Puntos Críticos y Preguntas Oficiales LPI</div>
+            <div class="exam-tips-card">
+        `;
+        node.exam_tips.forEach(t => {
+          html += `
+            <div class="tip-item">
+              <div class="tip-stem">❓ Q${t.q_num || ''}: ${escapeHTML(t.stem || '')}</div>
+              ${t.answer ? `<div class="tip-answer">✓ Respuesta: ${escapeHTML(t.answer)}</div>` : ''}
+              <div class="tip-exp">${escapeHTML(t.explanation || t.desc || '')}</div>
+            </div>
+          `;
+        });
+        html += `</div></div>`;
+      }
+
+      // 6. Conexiones Vecinas Clicables
+      const connectedNodeIds = network.getConnectedNodes(nodeId);
+      if (connectedNodeIds && connectedNodeIds.length > 0) {
+        html += `
+          <div>
+            <div class="drawer-section-title">🔗 Conceptos y Comandos Conectados (${connectedNodeIds.length})</div>
+            <div class="connected-chips-row">
+        `;
+        connectedNodeIds.forEach(cId => {
+          const cNode = allNodes.find(n => n.id === cId);
+          if (cNode) {
+            html += `
+              <button class="connected-chip" onclick="selectAndInspectNode('${cNode.id}')">
+                <span>${cNode.type === 'command' ? '⚡' : (cNode.type === 'file' ? '📁' : '💡')}</span>
+                <span>${escapeHTML(cNode.label)}</span>
+              </button>
+            `;
+          }
+        });
+        html += `</div></div>`;
+      }
+
+      body.innerHTML = html;
+
+      // Botones de acción inferiores
+      const actions = document.getElementById('drawer-actions');
+      let actHtml = '';
+      if (node.slide_url) {
+        actHtml += `
+          <a href="${node.slide_url}" class="action-btn nav-btn primary" target="_blank" rel="noopener">
+            <span>📖 Abrir Diapositivas</span>
+          </a>
+        `;
+      }
+      if (node.practice_url) {
+        actHtml += `
+          <a href="${node.practice_url}" class="action-btn nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A;" target="_blank" rel="noopener">
+            <span>🛠️ Laboratorio Práctico</span>
+          </a>
+        `;
+      }
+      actions.innerHTML = actHtml || '<span style="font-size:12px; color:var(--text-muted);">Elemento curricular oficial LPIC-1</span>';
+
+      // Abrir Drawer
+      document.getElementById('inspector-drawer').classList.add('open');
+    }
+
+    function closeDrawer() {
+      document.getElementById('inspector-drawer').classList.remove('open');
+      if (network && selectedNodeId) {
+        network.unselectAll();
+        selectedNodeId = null;
+        resetHighlight();
+      }
+    }
+
+    /* =====================================================================
+       BUSCADOR EN TIEMPO REAL CON AUTOCOMPLETADO
+       ===================================================================== */
+    function onSearchInput(val) {
+      const dropdown = document.getElementById('search-dropdown');
+      const q = val.trim().toLowerCase();
+
+      if (!q || q.length < 2) {
+        dropdown.style.display = 'none';
+        return;
+      }
+
+      const matches = allNodes.filter(n => {
+        return n.label.toLowerCase().includes(q) || 
+               n.title.toLowerCase().includes(q) ||
+               (n.syntax && n.syntax.toLowerCase().includes(q));
+      }).slice(0, 10);
+
+      if (matches.length === 0) {
+        dropdown.innerHTML = '<div style="padding:10px; font-size:13px; color:var(--text-muted); text-align:center;">Sin resultados</div>';
+        dropdown.style.display = 'block';
+        return;
+      }
+
+      dropdown.innerHTML = matches.map(m => `
+        <div class="search-result-item" onclick="onSearchResultClick('${m.id}')">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span>${m.type === 'command' ? '⚡' : (m.type === 'file' ? '📁' : (m.type === 'exam_trap' ? '⚠️' : '💡'))}</span>
+            <span class="s-res-label">${escapeHTML(m.label)}</span>
+          </div>
+          <span class="s-res-type">Tema ${m.tema}</span>
+        </div>
+      `).join('');
+
+      dropdown.style.display = 'block';
+    }
+
+    function onSearchResultClick(nodeId) {
+      document.getElementById('search-dropdown').style.display = 'none';
+      document.getElementById('graph-search').value = '';
+
+      // Asegurar que el nodo esté visible levantando filtros si es necesario
+      const node = allNodes.find(n => n.id === nodeId);
+      if (node) {
+        let needRefilter = false;
+        if (!activeTypes.has(node.type)) {
+          activeTypes.add(node.type);
+          document.querySelectorAll('.type-filter-chips .filter-chip').forEach(c => {
+            c.classList.toggle('active', activeTypes.has(c.dataset.type));
+          });
+          needRefilter = true;
+        }
+        if (activeTema !== 'all' && node.tema !== activeTema) {
+          activeTema = 'all';
+          document.getElementById('select-tema').value = 'all';
+          populateSubtopicsSelect();
+          needRefilter = true;
+        }
+        if (activeExam !== 'all' && node.exam !== activeExam && node.type !== 'topic') {
+          activeExam = 'all';
+          document.querySelectorAll('#exam-pills .exam-pill-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.exam === 'all');
+          });
+          needRefilter = true;
+        }
+        if (needRefilter) {
+          applyFilters(false);
+        }
+      }
+
+      selectAndInspectNode(nodeId);
+    }
+
+    /* =====================================================================
+       CONTROLES DEL CANVAS (HUD)
+       ===================================================================== */
+    function zoomIn() {
+      if (!network) return;
+      const scale = network.getScale() * 1.35;
+      network.moveTo({ scale: scale, animation: { duration: 300 } });
+    }
+
+    function zoomOut() {
+      if (!network) return;
+      const scale = network.getScale() / 1.35;
+      network.moveTo({ scale: scale, animation: { duration: 300 } });
+    }
+
+    function fitView() {
+      if (!network) return;
+      network.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
+    }
+
+    function togglePhysics() {
+      physicsEnabled = !physicsEnabled;
+      network.setOptions({ physics: { enabled: physicsEnabled } });
+      const btn = document.getElementById('btn-physics');
+      btn.classList.toggle('active', physicsEnabled);
+      btn.title = physicsEnabled ? "Físicas activas (clic para pausar/congelar)" : "Físicas pausadas (clic para activar)";
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {});
+      } else {
+        document.exitFullscreen().catch(err => {});
+      }
+    }
+
+    function toggleLegend() {
+      const body = document.getElementById('legend-body');
+      const icon = document.getElementById('legend-toggle-icon');
+      if (body.style.display === 'none') {
+        body.style.display = 'grid';
+        icon.textContent = '▼';
+      } else {
+        body.style.display = 'none';
+        icon.textContent = '▲';
+      }
+    }
+
+    /* =====================================================================
+       PARÁMETROS URL (DEEP LINKING)
+       ===================================================================== */
+    function checkUrlParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const subtopicParam = urlParams.get('subtopic');
+      const temaParam = urlParams.get('tema');
+      const nodeParam = urlParams.get('node');
+      const examParam = urlParams.get('exam');
+
+      if (examParam) {
+        filterExam(examParam);
+      }
+      if (temaParam) {
+        document.getElementById('select-tema').value = temaParam;
+        onTemaChange(temaParam);
+      }
+      if (subtopicParam) {
+        // Encontrar tema del subtema
+        const sub = allNodes.find(n => n.subtopic_id === subtopicParam);
+        if (sub) {
+          document.getElementById('select-tema').value = sub.tema;
+          activeTema = sub.tema;
+          populateSubtopicsSelect();
+          document.getElementById('select-subtopic').value = subtopicParam;
+          activeSubtopic = subtopicParam;
+          applyFilters();
+        }
+      }
+      if (nodeParam) {
+        setTimeout(() => {
+          selectAndInspectNode(nodeParam);
+        }, 600);
+      }
+    }
+
+    /* =====================================================================
+       UTILIDADES & HELPERS
+       ===================================================================== */
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('lpic1_theme', next);
+      document.getElementById('theme-toggle-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+
+      // Ajustar color de fondo de etiquetas y trazo de aristas
+      if (edgesDataSet) {
+        const isDark = next === 'dark';
+        const updates = edgesDataSet.get().map(e => {
+          const isExam = e.id.includes('exam');
+          return {
+            id: e.id,
+            color: {
+              color: isExam ? '#F59E0B' : (isDark ? '#475569' : '#94A3B8'),
+              highlight: '#38BDF8',
+              hover: '#38BDF8',
+              opacity: 0.85
+            },
+            font: {
+              ...e.font,
+              color: isExam ? (isDark ? '#FBBF24' : '#B45309') : (isDark ? '#94A3B8' : '#64748B'),
+              background: isDark ? '#111827' : '#FFFFFF'
+            }
+          };
+        });
+        edgesDataSet.update(updates);
+      }
+    }
+
+    function copyToClipboard(text) {
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('copy-toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      }).catch(err => {
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        const toast = document.getElementById('copy-toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      });
+    }
+
+    function escapeHTML(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function escapeQuotes(str) {
+      if (!str) return '';
+      return String(str).replace(/'/g, "\\'").replace(/"/g, '\\"');
+    }
+
+    function setupEventListeners() {
+      // Tecla Enter en el buscador selecciona el primer resultado coincidente
+      const searchInput = document.getElementById('graph-search');
+      if (searchInput) {
+        searchInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            const firstResult = document.querySelector('.search-result-item');
+            if (firstResult) {
+              firstResult.click();
+            }
+          }
+        });
+      }
+
+      // Cerrar dropdown al hacer click fuera
+      document.addEventListener('click', (e) => {
+        const searchBox = document.querySelector('.search-wrapper');
+        if (searchBox && !searchBox.contains(e.target)) {
+          document.getElementById('search-dropdown').style.display = 'none';
+        }
+      });
+
+      // Atajo de teclado: Escape cierra drawer y dropdown
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeDrawer();
+          document.getElementById('search-dropdown').style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

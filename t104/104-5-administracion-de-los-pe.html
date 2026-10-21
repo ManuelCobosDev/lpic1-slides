@@ -1079,6 +1079,7 @@
       <a href="../index.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-menu"/></svg>Índice</a>
       <a href="104-3-controlar-el-montaje-y-d.html" class="nav-btn"><svg class="ic ic-sm"><use href="#i-chevron-left"/></svg>104.3</a>
       <a href="104-6-crear-y-cambiar-enlaces.html" class="nav-btn">104.6<svg class="ic ic-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="../grafo.html?subtopic=104.5" class="nav-btn" title="Ver Mapa Mental y Grafo de este Subtema" style="border-color:var(--primary); color:var(--primary);"><svg class="ic ic-sm"><use href="#i-network"/></svg>Grafo</a>
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
       <span style="font-size:16px; color:var(--text-muted);">LPIC-1 · 104.5</span>
@@ -2011,6 +2012,25 @@
             </div>
           `;
         }
+
+        // Mapeo interactivo al Mapa Mental y Grafo de Conocimiento
+        const currentSubId = s.section || (typeof META !== 'undefined' && (META.topic || META.subtopic_id)) || '104.5';
+        html += `
+          <div class="summary-practice-box" style="margin-top:14px; background:var(--primary-soft); border:2px solid var(--primary-border);">
+            <div style="display:flex; align-items:center; gap:16px;">
+              <div class="sp-icon" style="background:var(--primary); color:#FFFFFF;">
+                <svg class="ic ic-md"><use href="#i-network"/></svg>
+              </div>
+              <div>
+                <div class="sp-title" style="color:var(--primary-ink);">🗺️ Mapa Mental & Grafo Relacional LPIC-1</div>
+                <div class="sp-desc" style="color:var(--text);">Explora visualmente los comandos, rutas y preguntas trampa de examen conectadas a este subtema en la red interactiva.</div>
+              </div>
+            </div>
+            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              Ver en Grafo Interactivo →
+            </a>
+          </div>
+        `;
 
         // Mapeo a práctica global de fin de tema completo
         if (s.global_practice) {
