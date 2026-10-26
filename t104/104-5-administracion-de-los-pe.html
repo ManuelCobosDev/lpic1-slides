@@ -322,17 +322,87 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 8px;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       background: var(--surface);
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
-    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
-    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); transform: translateY(-1px); }
+    .nav-btn:active { transform: translateY(0); }
+    .nav-btn.primary { background: #2563EB; color: #FFFFFF !important; border-color: #1D4ED8; box-shadow: 0 2px 4px rgba(37,99,235,0.25); }
+    .nav-btn.primary:hover { background: #1D4ED8; border-color: #1E40AF; }
+
+    /* Sistema Completo de Botones .btn */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      border: 1.5px solid transparent;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      user-select: none;
+      outline: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.12), 0 2px 4px -2px rgba(15, 23, 42, 0.08);
+    }
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: #FFFFFF !important;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      gap: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF !important;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+    }
 
     /* Contenedor del escenario (1920x1080) */
     #app-container {
@@ -498,6 +568,246 @@
       color: var(--info-ink);
       border-color: #BAE6FD;
     }
+    .callout-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      max-width: 24px !important;
+      min-height: 24px !important;
+      max-height: 24px !important;
+      border-radius: 50% !important;
+      background: #2563EB;
+      color: #FFFFFF !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+      text-align: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      margin: 0 4px !important;
+      user-select: none !important;
+    }
+    .badge-blue { background: #2563EB !important; color: #FFFFFF !important; }
+    .badge-amber { background: #D97706 !important; color: #FFFFFF !important; }
+    .badge-red { background: #DC2626 !important; color: #FFFFFF !important; }
+    .badge-green { background: #16A34A !important; color: #FFFFFF !important; }
+    .badge-purple { background: #7C3AED !important; color: #FFFFFF !important; }
+
+    /* Glosarios & Conceptos Clave Modernos */
+    /* Glosarios & Conceptos Clave Modernos */
+    .slide-glossary-box {
+      margin-top: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .slide-glossary-box .gl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .slide-glossary-box .gl-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563EB;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .slide-glossary-box .gl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .slide-glossary-box .gl-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+    .slide-glossary-box .gl-card:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+    .slide-glossary-box .gl-badge {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1D4ED8;
+      background: #EFF6FF;
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid #BFDBFE;
+      display: inline-block;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .slide-glossary-box .gl-def {
+      color: #334155;
+      font-size: 13.5px;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .slide-glossary-box .gl-def code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 4px;
+      color: #0F172A;
+    }
+
+    /* Compatibilidad strip con estilo pulido tipo chips */
+    .slide-glossary-strip {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .slide-glossary-strip .gl-title {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-glossary-strip .gl-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .slide-glossary-strip .gl-term {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #1D4ED8;
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM (Completo, accesible y moderno para interactivos y quizes)
+       ========================================================================== */
+    .btn, .quiz-reveal-container button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .btn:focus-visible, .quiz-reveal-container button:focus-visible {
+      outline: 2px solid #2563EB;
+      outline-offset: 2px;
+    }
+    .btn:active, .quiz-reveal-container button:active {
+      transform: translateY(1px);
+    }
+
+    /* Botón Primario (Azul vibrante) */
+    .btn-primary, .nav-btn.primary, .quiz-reveal-container button {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover, .nav-btn.primary:hover, .quiz-reveal-container button:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Botón Outline Primario */
+    .btn-outline-primary {
+      background: #FFFFFF;
+      color: #2563EB;
+      border-color: #2563EB;
+    }
+    .btn-outline-primary:hover {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-color: #1D4ED8;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Botón Secundario */
+    .btn-secondary {
+      background: #F1F5F9;
+      color: #334155;
+      border-color: #CBD5E1;
+    }
+    .btn-secondary:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+      border-color: #94A3B8;
+    }
+
+    /* Botón Éxito */
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+      border-color: #166534;
+      color: #FFFFFF;
+    }
+
+    /* Modificadores de Tamaño */
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14.5px;
+      border-radius: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+    }
 
     /* Terminal y Comandos (slides-terminal-comandos) */
     .term-wrapper {
@@ -517,20 +827,29 @@
       font-size: 18px;
       font-weight: 700;
     }
-    .term-copy-btn {
+    .term-copy-btn, .terminal-copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 12px;
       border-radius: 6px;
-      border: 2px solid var(--control-border);
+      border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-copy-btn:hover, .terminal-copy-btn:hover {
+      background: #F1F5F9;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+    .term-copy-btn:active, .terminal-copy-btn:active {
+      transform: scale(0.96);
+    }
     .term-code {
       padding: 14px 20px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -545,15 +864,169 @@
     .term-code::-webkit-scrollbar { width: 6px; }
     .term-code::-webkit-scrollbar-track { background: transparent; }
     .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
-    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+
+    /* Terminal Card (Real-life console frame) */
+    .terminal-card {
+      background: #0F172A;
+      border: 2px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .terminal-card .terminal-header {
+      background: #1E293B;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      gap: 12px;
+    }
+    .terminal-card .terminal-header::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 18px 0 0 #F59E0B, 36px 0 0 #10B981;
+      margin-right: 36px;
+      flex-shrink: 0;
+    }
+    .terminal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #94A3B8;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: 0.02em;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .terminal-card .terminal-copy-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #475569;
+    }
+    .terminal-card .terminal-copy-btn:hover {
+      background: #334155;
+      border-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .terminal-body {
+      padding: 16px 20px;
+      margin: 0;
+      background: #0F172A;
+      color: #E2E8F0;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      font-size: 15.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Mini-Terminal para llamadas o ejemplos dentro de cajas */
+    .mini-terminal {
+      background: #0F172A;
+      border: 1.5px solid #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+    }
+    .mini-term-header {
+      background: #1E293B;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    .mini-term-dots {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 12px 0 0 #F59E0B, 24px 0 0 #10B981;
+      margin-right: 22px;
+    }
+    .mini-term-title {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+    .mini-term-body {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #E2E8F0;
+      background: #0F172A;
+    }
+
+    /* High-contrast terminal syntax tokens for light mode by default */
+    .t-prompt { color: #0284C7; user-select: none; font-weight: 700; }
     .t-cmd { font-weight: 700; color: #0F172A; }
     .t-flag { color: #1D4ED8; font-weight: 600; }
-    .t-arg { color: #9A3412; font-weight: 500; }
-    .t-path { color: #15803D; font-weight: 500; }
-    .t-str { color: #A21CAF; }
-    .t-cmt { color: #5B6B82; font-style: italic; }
-    .t-err { color: #B91C1C; font-weight: 600; }
-    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+    .t-arg { color: #B45309; font-weight: 600; }
+    .t-path { color: #047857; font-weight: 600; }
+    .t-str { color: #7C3AED; }
+    .t-cmt, .term-comment { color: #64748B; font-style: italic; }
+    .t-err { color: #DC2626; font-weight: 600; }
+    .t-hl { background: rgba(254, 240, 138, 0.45); border-radius: 4px; padding: 0 6px; }
+
+    /* Dark context inside terminal-card and mini-terminal */
+    .terminal-card .term-prompt, .mini-terminal .term-prompt,
+    .terminal-card .t-prompt, .mini-terminal .t-prompt { color: #38BDF8; font-weight: 700; }
+    .terminal-card .term-cmd, .mini-terminal .term-cmd,
+    .terminal-card .t-cmd, .mini-terminal .t-cmd { font-weight: 700; color: #F8FAFC; }
+    .terminal-card .t-flag, .mini-terminal .t-flag { color: #60A5FA; }
+    .terminal-card .t-arg, .mini-terminal .t-arg { color: #FBBF24; }
+    .terminal-card .t-path, .mini-terminal .t-path { color: #34D399; }
+    .terminal-card .t-str, .mini-terminal .t-str { color: #E879F9; }
+    .terminal-card .term-comment, .mini-terminal .term-comment,
+    .terminal-card .t-cmt, .mini-terminal .t-cmt { color: #94A3B8; }
+    .terminal-card .t-err, .mini-terminal .t-err { color: #F87171; }
+
+    /* Estilos del Modal Autotest / Test Global */
+    .autotest-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--surface);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: border-color 0.15s ease;
+    }
+    .autotest-card:hover {
+      border-color: var(--primary);
+    }
+    .autotest-opt-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface-alt);
+      font-size: 18px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .autotest-opt-label:hover {
+      background: #EFF6FF;
+      border-color: #93C5FD;
+    }
+    .autotest-opt-label input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2563EB;
+      cursor: pointer;
+    }
 
     /* Chips de opciones interactivas */
     .options-row {
@@ -619,32 +1092,38 @@
     /* Tablas (≤5x4) */
     .table-container {
       width: 100%;
-      margin: 20px 0;
-      border: 2px solid var(--border);
-      border-radius: 14px;
+      margin: 12px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 12px;
       overflow: hidden;
-      background: #FFFFFF;
+      background: var(--surface);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 26px;
+      font-size: clamp(15px, 1.05vw, 18.5px);
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 16px 24px;
+      padding: 10px 18px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
+      font-size: clamp(15.5px, 1.1vw, 19.5px);
     }
     table.slide-table td {
-      padding: 16px 24px;
+      padding: 9px 18px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
+      line-height: 1.4;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
-    table.slide-table tr.highlighted { background: #FEF3C7; }
+    table.slide-table tr.highlighted { background: var(--warning-soft); }
+    [data-theme="dark"] .table-container {
+      background: var(--surface);
+    }
 
     /* Matrices comparativas y mapas de equivalencias */
     .matrix-container {
@@ -1131,7 +1610,7 @@
     <aside id="teacher-panel">
       <div class="panel-header">
         <span>Notas del Docente</span>
-        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+        <button class="nav-btn" onclick="toggleTeacherNotes()" aria-label="Cerrar panel docente"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
       </div>
       <div class="panel-body">
         <div class="panel-meta" id="panel-meta-info"></div>
@@ -1146,7 +1625,7 @@
   <!-- Modal de Erratas -->
   <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar notas y erratas"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
         <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
         Notas y Erratas del Manual Oficial
@@ -1158,7 +1637,7 @@
   <!-- Modal de Ayuda / Atajos -->
   <div class="modal-overlay" id="modal-help" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar ayuda de atajos"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
         <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
@@ -1181,7 +1660,7 @@
   <!-- Modal de Vista General (Overview) -->
   <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
     <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar vista general"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
       <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
     </div>
@@ -1197,7 +1676,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "104.5", "cat": "perm", "type": "cover", "title": "Administración de permisos y propietarios de archivos", "subtitle": "Modelo DAC, chmod (simbólico/octal), chown, chgrp, permisos especiales (SUID, SGID, Sticky) y umask (Modo Examen)", "ref": "487-488", "pdf": {"manual": "A", "pages": [487, 488], "figure": null}, "coverage": ["104.5-OBJ-001", "104.5-OBJ-002", "104.5-OBJ-003"], "meta": {"peso": 3, "paginas": "487–514", "duracion": "30 min"}, "icon": "shield", "notes": "Iniciamos el subtema 104.5 (peso 3). La seguridad de archivos es obligatoria en LPIC-1. Dominaremos el modelo de permisos Unix tradicional (r, w, x para usuario, grupo y otros), la asignación con chmod, chown y chgrp, los tres permisos especiales (SUID, SGID, Sticky Bit) y el cálculo matemático de la máscara umask."}, {"id": 2, "section": "104.5", "cat": "perm", "type": "concept", "title": "El Modelo DAC: Permisos en Archivos frente a Directorios", "lead": "¿Por qué un mismo permiso 'x' o 'w' significa cosas radicalmente distintas en un archivo o en una carpeta?", "ref": "488-490", "pdf": {"manual": "A", "pages": [488, 489, 490], "figure": null}, "coverage": ["104.5-CON-001"], "points": [{"icon": "file", "text": "Permisos sobre un Archivo Ordinario", "detail": "🎯 'r' (read) = leer el contenido del archivo. 'w' (write) = modificar o sobreescribir el contenido del archivo. 'x' (execute) = ejecutar el archivo como un programa o script."}, {"icon": "folder", "text": "Permisos sobre un Directorio (¡Diferencia de Examen!)", "detail": "🎯 'r' = listar los nombres de los archivos que contiene (con ls). 'w' = CREAR, BORRAR o RENOMBRAR archivos dentro de esa carpeta. 'x' = ATRAVESAR / ENTRAR en el directorio (hacer cd) y acceder a los inodos de sus archivos."}, {"icon": "alert-triangle", "text": "⚠️ La Gran Trampa de Borrado de Archivos", "detail": "🎯 Pregunta de Examen: ¿Quién tiene derecho a borrar un archivo? La capacidad de borrar un archivo NO DEPENDE de los permisos del archivo, sino de tener permiso 'w' en el DIRECTORIO PADRE donde reside el archivo."}], "remember": "🎯 Clave de Examen: Para poder entrar en una carpeta con 'cd' se necesita obligatoriamente permiso de ejecución 'x'; para borrar un archivo se necesita permiso de escritura 'w' en la carpeta.", "notes": "Muestra que si un archivo tiene permisos 0000 (sin permisos) pero la carpeta tiene 777, el usuario puede borrar el archivo sin problemas."}, {"id": 3, "section": "104.5", "cat": "perm", "type": "table", "title": "Correspondencia entre Notación Simbólica y Octal", "lead": "El sistema binario de 3 bits que define los permisos en el inodo:", "ref": "490-493", "pdf": {"manual": "A", "pages": [490, 491, 492, 493], "figure": null}, "coverage": ["104.5-CON-002"], "headers": ["Valor Octal", "Valor Binario (rwx)", "Cadena Simbólica", "Significado Operativo"], "rows": [["7", "111", "rwx", "Lectura (4) + Escritura (2) + Ejecución (1) = Control total."], ["6", "110", "rw-", "🎯 Lectura (4) + Escritura (2) = Permiso estándar de edición de archivos de datos."], ["5", "101", "r-x", "🎯 Lectura (4) + Ejecución (1) = Permiso estándar de lectura y travesía en directorios."], ["4", "100", "r--", "Solo lectura."], ["0", "000", "---", "Sin ningún permiso de acceso (acceso denegado)."], ["755", "111 101 101", "rwxr-xr-x", "🎯 Directorios estándar o programas ejecutables (root edita, todos leen y entran)."], ["644", "110 100 100", "rw-r--r--", "🎯 Archivos de configuración y documentos públicos (dueño edita, otros solo leen)."], ["700 / 600", "111 000 000", "rwx------ / rw-------", "🎯 Acceso privado exclusivo para el propietario (clave SSH id_rsa, swapfile)."]], "remember": "🎯 Clave de Conversión: r = 4, w = 2, x = 1. Para calcular el total basta sumar los valores: r + w = 6; r + x = 5; r + w + x = 7.", "notes": "Haz que los alumnos practiquen sumas mentales rápidas: rw-r--r-- es 4+2=6, 4=4, 4=4 -> 644."}, {"id": 4, "section": "104.5", "cat": "perm", "type": "command", "title": "Modificación de Permisos con chmod: Simbólico y Octal", "lead": "Ajustar permisos de acceso de forma quirúrgica en archivos y árboles completos:", "ref": "493-496", "pdf": {"manual": "A", "pages": [493, 494, 495, 496], "figure": null}, "coverage": ["104.5-CMD-001", "104.5-OPT-001"], "command": "chmod [-R] <modo_octal|modo_simbólico> <archivo_o_dir>", "purpose": "Change Mode: modificar los bits de permiso discrecionales en el inodo", "terminal": {"command": "touch script.sh; chmod 755 script.sh; chmod g-w,o-rwx script.sh; ls -l script.sh", "output": "-rwxr-x--- 1 alumno alumno 0 Oct 20 11:30 script.sh"}, "options": [{"flag": "chmod 755 <archivo>", "desc": "🎯 Modo Octal: fija los permisos exactos directos (ej: chmod 644 documento.txt)."}, {"flag": "Categorías en Modo Simbólico", "desc": "🎯 'u' = user (dueño); 'g' = group (grupo); 'o' = others (otros/resto del mundo); 'a' = all (todos, u+g+o)."}, {"flag": "Operadores Simbólicos", "desc": "🎯 '+' añade el permiso; '-' retira el permiso; '=' fija exactamente el permiso indicado sustituyendo el anterior."}, {"flag": "chmod u+x,g-w <archivo>", "desc": "Añade ejecución al dueño y retira escritura al grupo en un solo comando separado por comas."}, {"flag": "chmod -R <modo> <dir>", "desc": "🎯 Clave de Examen: Aplica la modificación de permisos de forma RECURSIVA a todo el directorio y sus contenidos."}, {"flag": "chmod a+X <dir>", "desc": "'X' (mayúscula) condicional: añade permiso de ejecución ÚNICAMENTE a directorios o a archivos que ya tenían 'x' previo."}], "remember": "🎯 Clave de Examen: 'chmod 755' = modo octal; 'chmod u=rwx,go=rx' = modo simbólico. Ambos consiguen el mismo resultado.", "notes": "Muestra la ventaja de 'chmod a+X' al procesar carpetas recursivas para no hacer ejecutables los documentos de texto por error."}, {"id": 5, "section": "104.5", "cat": "perm", "type": "concept", "title": "Los Tres Permisos Especiales: SUID, SGID y Sticky Bit", "lead": "¿Cómo permitir que un usuario ordinario cambie su contraseña si el archivo /etc/shadow solo lo puede escribir root?", "ref": "496-499", "pdf": {"manual": "A", "pages": [496, 497, 498, 499], "figure": null}, "coverage": ["104.5-CON-003"], "points": [{"icon": "shield-alert", "text": "1. SUID (Set User ID - Octal 4000)", "detail": "🎯 Se aplica sobre BINARIOS EJECUTABLES. Cuando un usuario ordinario ejecuta el programa, el proceso se ejecuta temporalmente con los privilegios del PROPIETARIO DEL ARCHIVO (habitualmente root). Ejemplo oficial: /usr/bin/passwd (para modificar /etc/shadow)."}, {"icon": "users", "text": "2. SGID (Set Group ID - Octal 2000)", "detail": "🎯 En binarios: ejecuta con privilegios del grupo del archivo. En DIRECTORIOS: 🎯 ¡Clave de Examen! Todo archivo o subcarpeta creado dentro HEREDA AUTOMÁTICAMENTE EL GRUPO del directorio padre (esencial para carpetas de trabajo colaborativo)."}, {"icon": "pin", "text": "3. Sticky Bit (Bit de Permanencia - Octal 1000)", "detail": "🎯 Se aplica sobre DIRECTORIOS COMPARTIDOS (como /tmp y /var/tmp). Permite a cualquiera crear archivos, pero IMPIDE que un usuario borre o renombre archivos de otros. Solo el dueño del archivo o root pueden borrarlo."}], "remember": "🎯 Los 3 Bits Especiales en Memoria: 4000 = SUID (ejecuta como dueño); 2000 = SGID (hereda grupo en directorios); 1000 = Sticky Bit (protege borrado en /tmp).", "notes": "Explica la analogía de la taquilla pública en /tmp gracias al Sticky Bit: todos pueden meter cosas, pero solo tú puedes llevarte lo tuyo."}, {"id": 6, "section": "104.5", "cat": "perm", "type": "table", "title": "Representación Simbólica: minúsculas (s, t) frente a MAYÚSCULAS (S, T)", "lead": "¿Por qué a veces se ve una 'S' o una 'T' mayúscula en ls -l y qué significa en el examen?", "ref": "499-502", "pdf": {"manual": "A", "pages": [499, 500, 501, 502], "figure": null}, "coverage": ["104.5-CON-004"], "headers": ["Permiso Especial", "Posición en ls -l", "Letra Minúscula (Correcto)", "Letra MAYÚSCULA (⚠️ Error de Configuración)"], "rows": [["SUID (4000)", "Campo 'x' del dueño (rws / rwS)", "🎯 's' minúscula: SUID activo Y tiene permiso 'x' de ejecución.", "🎯 'S' mayúscula: SUID activo pero ¡NO tiene permiso 'x'! (el binario no se puede ejecutar)."], ["SGID (2000)", "Campo 'x' del grupo (rws / rwS)", "🎯 's' minúscula: SGID activo Y tiene permiso 'x' de ejecución/travesía.", "🎯 'S' mayúscula: SGID activo pero ¡NO tiene permiso 'x'! en el grupo."], ["Sticky Bit (1000)", "Campo 'x' de otros (rwt / rwT)", "🎯 't' minúscula: Sticky activo Y tiene permiso 'x' de ejecución/travesía (/tmp).", "🎯 'T' mayúscula: Sticky activo pero ¡NO tiene permiso 'x'! para otros usuarios."]], "remember": "🎯 La Regla Nemotécnica Inflexible: Minúscula (s, t) = TIENE permiso de ejecución 'x'. MAYÚSCULA (S, T) = LE FALTA el permiso de ejecución 'x'.", "notes": "Pregunta típica de certificación: '¿Qué significa que un archivo tenga permisos -rwSr--r--?'. Respuesta: Tiene el bit SUID activo pero carece de permiso de ejecución para el dueño."}, {"id": 7, "section": "104.5", "cat": "perm", "type": "command", "title": "Asignación Práctica de Permisos Especiales con chmod", "lead": "¿Cómo configurar SUID, SGID y Sticky Bit en modo numérico y simbólico?", "ref": "502-504", "pdf": {"manual": "A", "pages": [502, 503, 504], "figure": null}, "coverage": ["104.5-CMD-001", "104.5-OPT-002"], "command": "chmod 4755 | chmod 2775 | chmod 1777 | chmod u+s | chmod g+s | chmod +t", "purpose": "Activar o desactivar bits de permisos especiales sobre binarios y directorios", "terminal": {"command": "mkdir /tmp/colaborativo; chmod 2775 /tmp/colaborativo; ls -ld /tmp/colaborativo /tmp", "output": "drwxrwsr-x 2 alumno alumno 4096 Oct 20 11:35 /tmp/colaborativo\ndrwxrwxrwt 9 root   root   4096 Oct 20 11:30 /tmp"}, "options": [{"flag": "chmod 4755 <binario> (o u+s)", "desc": "🎯 Asigna SUID: el primer dígito octal '4' activa SUID (ej: -rwsr-xr-x)."}, {"flag": "chmod 2775 <dir> (o g+s)", "desc": "🎯 Asigna SGID en directorio: el primer dígito '2' fuerza la herencia de grupo (ej: drwxrwsr-x)."}, {"flag": "chmod 1777 <dir> (o +t / o+t)", "desc": "🎯 Asigna Sticky Bit: el primer dígito '1' activa la protección de borrado en directorios compartidos (ej: drwxrwxrwt)."}, {"flag": "chmod u-s / g-s / -t", "desc": "🎯 Retira los permisos especiales en modo simbólico."}, {"flag": "chmod 0755 <archivo>", "desc": "El cero '0' inicial retira todos los permisos especiales restableciendo permisos estándar."}], "remember": "🎯 Los Tres Prefijos Octales de Examen: 4xxx para SUID; 2xxx para SGID; 1xxx para Sticky Bit.", "notes": "Muestra que si sumas SGID (2) y Sticky (1) sobre una carpeta, el prefijo es 3xxx (chmod 3777)."}, {"id": 8, "section": "104.5", "cat": "perm", "type": "command", "title": "Gestión de Propietarios y Grupos: chown y chgrp", "lead": "¿Cómo transferir la titularidad de archivos y carpetas a otros usuarios o equipos de trabajo?", "ref": "504-507", "pdf": {"manual": "A", "pages": [504, 505, 506, 507], "figure": null}, "coverage": ["104.5-CMD-002", "104.5-CMD-003", "104.5-OPT-003"], "command": "sudo chown [-R] <usuario>[:grupo] <archivo> | sudo chgrp [-R] <grupo> <archivo>", "purpose": "Cambiar el propietario (UID) y el grupo de pertenencia (GID) de archivos y directorios", "terminal": {"command": "sudo chown www-data:www-data /var/www/html; sudo chown -R alumno:devs /opt/proyecto; ls -ld /var/www/html", "output": "drwxr-xr-x 2 www-data www-data 4096 Oct 20 11:40 /var/www/html"}, "options": [{"flag": "chown <usuario> <archivo>", "desc": "🎯 Cambia únicamente el propietario del archivo."}, {"flag": "chown <usuario>:<grupo> <archivo>", "desc": "🎯 Clave de Examen: Cambia el propietario Y el grupo simultáneamente (también admite la sintaxis histórica con punto: 'usuario.grupo')."}, {"flag": "chown :<grupo> <archivo>", "desc": "Si se omite el usuario poniendo solo dos puntos, cambia únicamente el grupo (equivale a chgrp)."}, {"flag": "chown <usuario>: <archivo>", "desc": "Si pones dos puntos sin grupo, cambia al usuario y asigna automáticamente su grupo primario."}, {"flag": "chgrp <grupo> <archivo>", "desc": "🎯 Cambia exclusivamente el grupo propietario del archivo."}, {"flag": "-R, --recursive", "desc": "🎯 Clave de Examen: Aplica el cambio de propietario y grupo de forma recursiva a todo el árbol de subcarpetas."}, {"flag": "-h, --no-dereference", "desc": "🎯 Clave de Examen: Modifica el propietario del propio enlace simbólico en lugar del archivo al que apunta."}], "remember": "🎯 Clave de Examen: 'chown usuario:grupo archivo' cambia ambos en un solo paso; 'chown -h' modifica el dueño de un enlace simbólico.", "notes": "Recuerda que solo el superusuario root puede cambiar el propietario de un archivo con chown."}, {"id": 9, "section": "104.5", "cat": "perm", "type": "concept", "title": "La Máscara de Creación umask: Permisos por Defecto", "lead": "¿Por qué cuando creas un archivo con touch o una carpeta con mkdir nacen con unos permisos determinados?", "ref": "507-510", "pdf": {"manual": "A", "pages": [507, 508, 509, 510], "figure": null}, "coverage": ["104.5-CMD-004", "104.5-CON-005"], "points": [{"icon": "shield", "text": "Los Permisos Base Máximos Iniciales", "detail": "🎯 En Linux, los programas solicitan permisos máximos de partida: para ARCHIVOS ORDINARIOS la base es 666 (rw-rw-rw-, ningún archivo nace ejecutable por seguridad). Para DIRECTORIOS la base es 777 (rwxrwxrwx, para permitir entrar y listar)."}, {"icon": "scissors", "text": "umask: La máscara que RECORTA permisos", "detail": "🎯 umask define los bits que se DESACTIVAN (se sustraen) de los permisos base en el momento de crear el archivo. Los permisos resultantes se calculan mediante la operación lógica a nivel de bits: 'Permiso = Base AND NOT(umask)'."}, {"icon": "terminal", "text": "El comando umask en la consola", "detail": "'umask' sin argumentos muestra el valor actual (ej: 0022). 'umask 027' cambia la máscara para la sesión actual."}], "remember": "🎯 Permisos Base Oficiales: Archivos = 666 (rw-rw-rw-); Directorios = 777 (rwxrwxrwx). umask RESTA bits a esa base.", "notes": "Enseña a los alumnos que para la mayoría de casos ordinarios, basta con restar matemáticamente dígito a dígito."}, {"id": 10, "section": "104.5", "cat": "perm", "type": "table", "title": "Matriz de Valores umask Evaluados en el Examen", "lead": "El cálculo exacto paso a paso para resolver las preguntas matemáticas de umask:", "ref": "510-512", "pdf": {"manual": "A", "pages": [510, 511, 512], "figure": null}, "coverage": ["104.5-CON-006"], "headers": ["Valor umask", "Permisos en ARCHIVOS (Base 666 - umask)", "Permisos en DIRECTORIOS (Base 777 - umask)", "Propósito en Examen LPIC-1"], "rows": [["022 (o 0022)", "🎯 644 (rw-r--r--)", "🎯 755 (rwxr-xr-x)", "🎯 Máscara ESTÁNDAR de Linux: otros pueden leer pero no escribir."], ["002 (o 0002)", "664 (rw-rw-r--)", "775 (rwxrwxr-x)", "Entornos de desarrollo colaborativo con User Private Groups (UPG)."], ["027 (o 0027)", "🎯 640 (rw-r-----)", "🎯 750 (rwxr-x---)", "🎯 Entornos restringidos: el grupo lee pero 'otros' no tienen ningún acceso."], ["077 (o 0077)", "🎯 600 (rw-------)", "🎯 700 (rwx------)", "🎯 Máxima privacidad: solo el propietario tiene acceso; grupo y otros tienen 0."]], "remember": "🎯 La Regla Matemática de Examen con umask 027: Archivo = 666 - 027 = 640 (rw-r-----). Directorio = 777 - 027 = 750 (rwxr-x---).", "notes": "Alerta sobre el cálculo lógico si la máscara tiene un número impar como 023: 666 - 023 = 644 (porque el archivo no tenía bit '1' que quitar)."}, {"id": 11, "section": "104.5", "cat": "perm", "type": "file", "title": "Persistencia de umask: /etc/login.defs y Perfiles", "lead": "¿Dónde se configura la máscara umask para que se aplique a todos los usuarios del sistema?", "ref": "512-513", "pdf": {"manual": "A", "pages": [512, 513], "figure": null}, "coverage": ["104.5-FILE-002"], "file": "/etc/login.defs, /etc/profile y ~/.bashrc", "syntax": "UMASK 022 (en login.defs) | umask 027 (en bashrc)", "content": "# Archivo de configuración de cuentas: /etc/login.defs\nUMASK           022\n\n# En /etc/profile se aplica la lógica de User Private Groups (UPG):\nif [ $UID -gt 199 ] && [ \"`/usr/bin/id -gn`\" = \"`/usr/bin/id -un`\" ]; then\n    umask 002\nelse\n    umask 022\nfi\n\n# En ~/.bashrc cada usuario puede personalizar su propia máscara:\numask 027", "fields": [{"field": "/etc/login.defs", "desc": "🎯 Clave de Examen: Define la directiva 'UMASK' que se aplica durante el inicio de sesión y al crear usuarios con useradd."}, {"field": "/etc/profile", "desc": "Script global que ejecuta la orden 'umask' para todas las shells interactivas de login."}, {"field": "~/.bashrc o ~/.profile", "desc": "Permite a un usuario individual forzar su propia máscara (ej: umask 077 para máxima privacidad)."}], "remember": "🎯 Clave de Examen: La máscara global del sistema se define en la directiva 'UMASK' de /etc/login.defs y en /etc/profile.", "notes": "Muestra que si cambias la umask en la consola solo dura mientras dure esa sesión; para hacerla fija va en ~/.bashrc."}, {"id": 12, "section": "104.5", "cat": "perm", "type": "concept", "title": "Trampas Clásicas de Examen en Permisos y umask", "lead": "Los 3 errores conceptuales que más puntos restan en el objetivo 104.5:", "ref": "513-514", "pdf": {"manual": "A", "pages": [513, 514], "figure": null}, "coverage": ["104.5-WARN-001"], "points": [{"icon": "alert-triangle", "text": "1. Creer que un archivo nuevo puede nacer ejecutable con umask", "detail": "🎯 Pregunta trampa: '¿Qué umask debo poner para que los archivos creados con touch nazcan con permisos 755?'. ¡IMPOSIBLE! La base de archivos es 666 (no tiene bit 'x'). NINGÚN archivo nace ejecutable por umask; para hacerlo ejecutable es obligatorio usar 'chmod +x' a posteriori."}, {"icon": "alert-triangle", "text": "2. Confundir el orden de usuario y grupo en chown", "detail": "La sintaxis es 'chown usuario:grupo archivo'. Si escribes 'chown grupo:usuario archivo', chown intentará buscar un usuario llamado 'grupo' y fallará."}, {"icon": "alert-triangle", "text": "3. Creer que para borrar un archivo se necesita permiso en el archivo", "detail": "Aunque un archivo tenga permisos de solo lectura (r--r--r--) o incluso 000, cualquier usuario que tenga permiso de escritura 'w' en el directorio contenedor puede borrarlo sin problemas."}], "remember": "🎯 Mnemotecnia Rápida: Los archivos nunca nacen con 'x' por umask. Para borrar se mira la carpeta. En chown primero usuario, luego grupo.", "notes": "Repite estos tres conceptos antes de los ejercicios prácticos."}, {"id": 13, "section": "104.5", "cat": "perm", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: chmod y umask)", "ref": "Manual A - Pág 514", "pdf": {"manual": "A", "pages": [514], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 514): Un usuario tiene configurada la máscara 'umask 027'. ¿Cuáles serán los permisos exactos en notación octal y simbólica de un nuevo archivo creado con touch y de un nuevo directorio creado con mkdir?", "command": "Archivo: 640 (rw-r-----). Directorio: 750 (rwxr-x---)", "reason": "Para archivos: 666 - 027 = 640 (rw-r-----). Para directorios: 777 - 027 = 750 (rwxr-x---)."}, {"action": "Caso 2 (Oficial Pág 514): ¿Cuál es el comando exacto en modo simbólico para retirar los permisos de escritura al grupo y retirar absolutamente todos los permisos a otros en el archivo 'informe.txt' en una sola orden?", "command": "chmod g-w,o-rwx informe.txt (o chmod go-w,o-rx informe.txt)", "reason": "La notación simbólica permite combinar acciones en una lista separada por comas sin espacios."}, {"action": "Caso 3 (Oficial Pág 514): ¿Qué comando cambia el propietario a 'nginx' y el grupo a 'www-data' de todo el directorio '/var/www' y todos sus subdirectorios de forma recursiva?", "command": "sudo chown -R nginx:www-data /var/www", "reason": "La opción -R aplica la modificación recursiva y la sintaxis 'usuario:grupo' actualiza ambas identidades."}], "solution": {"explain": "umask 027 produce 640 y 750; chmod simbólico con comas; y chown -R para propiedad recursiva."}, "notes": "Recuerda que umask 027 es la máscara más recomendada en auditorías de seguridad."}, {"id": 14, "section": "104.5", "cat": "perm", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: Permisos Especiales)", "ref": "Manual A - Pág 514", "pdf": {"manual": "A", "pages": [514], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 514): Un administrador crea un directorio de proyectos compartidos '/srv/proyecto'. ¿Qué comando en modo octal asigna control total al dueño, lectura/escritura/herencia de grupo al grupo y ningún acceso a otros?", "command": "sudo chmod 2770 /srv/proyecto", "reason": "El primer dígito '2' activa el permiso especial SGID para que todos los ficheros nuevos hereden el grupo; '770' da rwx al dueño, rwx al grupo y nada a otros."}, {"action": "Caso 5 (Oficial Pág 514): Al listar un archivo se observa '-rwsr-xr-x 1 root root /usr/bin/passwd'. ¿Qué permiso especial tiene asignado y qué función cumple?", "command": "Tiene asignado el permiso SUID (Set User ID)", "reason": "La 's' en el lugar de la 'x' del propietario indica que cualquier usuario que lo ejecute asumirá temporalmente los privilegios del dueño (root) durante la ejecución."}], "solution": {"explain": "2770 configura colaboración perfecta con SGID; SUID en passwd permite elevar privilegios de forma controlada."}, "notes": "Muestra cómo en /srv/proyecto con 2770, si un usuario crea un archivo, el grupo asignado no es el suyo personal, sino el del directorio."}, {"id": 15, "section": "104.5", "cat": "perm", "type": "challenge", "title": "Retos de Exploración Oficiales (SUID, Enlaces y umask Impar)", "ref": "Manual A - Págs 514-515", "pdf": {"manual": "A", "pages": [514, 515], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un administrador configura 'umask 003'. ¿Con qué permisos octales exactos nacerá un nuevo archivo de texto creado con touch?\n2. Si ejecutas 'chmod 4644 binario.sh' y luego 'ls -l binario.sh', ¿qué letra aparecerá en la posición del permiso de ejecución del propietario y por qué?\n3. ¿Qué comando de auditoría con 'find' localiza todos los archivos del sistema que tengan activado el bit especial SUID pertenecientes a root?", "hint": "Recuerda: operación lógica AND NOT en umask impar; 'S' mayúscula cuando no hay 'x'; y find con -perm -4000.", "solution": {"explain": "1. Nacerá con permisos 664 (rw-rw-r--). Como los archivos parten de base 666 (no tienen bit 'x' de ejecución de valor 1), el '3' de la umask (que es 2+1) solo puede sustraer el bit '2' (escritura). Por tanto: 666 & ~003 = 664.\n2. Aparecerá una 'S' MAYÚSCULA (-rwSr--r--), porque el bit SUID está activo pero el dueño NO tiene permiso de ejecución (el modo 644 carece de 'x' para el dueño).\n3. Se ejecuta: sudo find / -perm -4000 -user root -type f 2>/dev/null"}, "notes": "El reto 1 y el reto 2 demuestran un dominio matemático y conceptual absoluto del sistema de permisos Unix."}, {"id": 16, "section": "104.5", "cat": "perm", "type": "review", "title": "Pregunta de Examen LPIC-1: Cálculo de Permisos con umask", "q": "Si un usuario tiene configurada en su entorno una máscara 'umask 027', ¿cuáles serán los permisos octales resultantes de un nuevo archivo ordinario creado con el comando 'touch prueba.txt'?", "options": ["750", "640", "644", "600"], "answer": 1, "why": "Los archivos ordinarios parten de unos permisos base máximos de 666 (rw-rw-rw-). Al aplicar una máscara umask de 027, se resta: (6-0=6), (6-2=4) y (6-7 -> el archivo no tiene bit de ejecución '1', por lo que solo se puede sustraer los bits '4' y '2', quedando en 0). Por tanto, los permisos octales son exactamente 640 (rw-r-----).", "notes": "Pregunta clásica e indispensable de certificación."}, {"id": 17, "section": "104.5", "cat": "perm", "type": "review", "title": "Pregunta de Examen LPIC-1: Bit Especial en Directorios Compartidos", "q": "¿Qué permiso especial debe configurarse sobre el directorio '/tmp' para permitir que todos los usuarios puedan crear y modificar sus propios archivos, pero impidiendo que borren los archivos creados por otros usuarios?", "options": ["Permiso SUID (Set User ID)", "Permiso SGID (Set Group ID)", "Sticky Bit (Bit de permanencia)", "Permiso inmutable (chattr +i)"], "answer": 2, "why": "El Sticky Bit (representado por el valor octal 1000 y la letra 't' al final de los permisos) se diseñó específicamente para directorios de uso común compartido (como /tmp). Garantiza que solo el propietario de un archivo o el superusuario root puedan eliminarlo o renombrarlo.", "notes": "Pregunta directa y fundamental sobre la seguridad de /tmp."}, {"id": 18, "section": "104.5", "cat": "perm", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Permisos y Propietarios 104.5", "deck": [{"front": "¿Cuáles son los permisos base máximos de archivos y de directorios?", "back": "666 para archivos (ninguno nace con 'x'); 777 para directorios."}, {"front": "¿Qué permisos produce 'umask 022' en un archivo y en un directorio?", "back": "644 en archivos (rw-r--r--); 755 en directorios (rwxr-xr-x)."}, {"front": "¿Qué permisos produce 'umask 027' en un archivo y en un directorio?", "back": "640 en archivos (rw-r-----); 750 en directorios (rwxr-x---)."}, {"front": "¿Qué valor octal tiene el permiso SUID y sobre qué se aplica?", "back": "Valor 4000 (se aplica sobre binarios para ejecutar con privilegios del dueño)."}, {"front": "¿Qué función cumple el permiso SGID (2000) en un directorio?", "back": "Hace que todos los archivos nuevos creados dentro hereden el grupo del directorio."}, {"front": "¿Qué función cumple el Sticky Bit (1000) en /tmp?", "back": "Impide que un usuario borre o renombre los archivos de otros usuarios."}, {"front": "¿Qué diferencia hay entre ver 's' minúscula o 'S' mayúscula en ls -l?", "back": "'s' minúscula = tiene 'x' de ejecución; 'S' mayúscula = le falta el permiso 'x'."}, {"front": "¿Qué comando cambia el propietario y el grupo a la vez?", "back": "chown usuario:grupo <archivo>."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 104.5."}, {"id": 19, "section": "104.5", "cat": "perm", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 104.5", "takeaways": ["Permisos Estándar: r=4, w=2, x=1. En directorios 'x' es entrar (cd) y 'w' es crear/borrar archivos. Modificación con chmod (755 o u+x,go-w).", "Permisos Especiales: 4000 SUID (ejecuta como dueño); 2000 SGID (hereda grupo en directorios); 1000 Sticky Bit (protege borrado en /tmp). Letras minúsculas si hay 'x', MAYÚSCULAS si falta 'x'.", "Propiedad: chown usuario:grupo archivo; chgrp para grupo solo; chown -R para recursivo.", "Máscara umask: Base 666 archivos y 777 directorios. umask 022 da 644/755; umask 027 da 640/750. Ningún archivo nace ejecutable por umask."], "top3": [{"cmd": "chmod 755 <script> && chmod 644 <config>", "desc": "Asigna permisos estándar profesionales a ejecutables y archivos de configuración."}, {"cmd": "chmod 2775 <directorio_compartido>", "desc": "Activa SGID para que todos los ficheros nuevos hereden automáticamente el grupo de trabajo."}, {"cmd": "sudo chown -R usuario:grupo /directorio", "desc": "Transfiere la titularidad completa de un árbol de directorios de forma recursiva."}], "practice": {"name": "Practica 104.5: Administración de Permisos y Propietarios de Archivos", "url": "../practicas/p-104-5-permisos-propietarios.html", "desc": "Aplica permisos octales y simbólicos con chmod, transfiere dueños y grupos con chown y chgrp, calcula la máscara umask y domina los permisos especiales SUID, SGID y Sticky Bit."}, "notes": "Concluimos el subtema 104.5. Los alumnos dominan ahora los permisos y la titularidad en Linux."}];
+    const SLIDES = [{"id": 1, "section": "104.5", "cat": "perm", "type": "cover", "title": "Administración de permisos y propietarios de archivos", "subtitle": "Modelo DAC, chmod (simbólico/octal), chown, chgrp, permisos especiales (SUID, SGID, Sticky) y umask (Modo Examen)", "ref": "487-488", "pdf": {"manual": "A", "pages": [487, 488], "figure": null}, "coverage": ["104.5-OBJ-001", "104.5-OBJ-002", "104.5-OBJ-003"], "meta": {"peso": 3, "paginas": "487–514", "duracion": "30 min"}, "icon": "shield", "notes": "Iniciamos el subtema 104.5 (peso 3). La seguridad de archivos es obligatoria en LPIC-1. Dominaremos el modelo de permisos Unix tradicional (r, w, x para usuario, grupo y otros), la asignación con chmod, chown y chgrp, los tres permisos especiales (SUID, SGID, Sticky Bit) y el cálculo matemático de la máscara umask."}, {"id": 2, "section": "104.5", "cat": "perm", "type": "diagram", "title": "El Modelo DAC: Permisos en Archivos frente a Directorios", "lead": "Los bits r, w, x tienen un significado radicalmente diferente si se aplican a un archivo o a un directorio:", "ref": "488-490", "pdf": {"manual": "A", "pages": [488, 489, 490], "figure": null}, "coverage": ["104.5-CON-001"], "points": [{"icon": "file", "text": "Permisos sobre un Archivo Ordinario", "detail": "🎯 'r' (read) = leer el contenido del archivo. 'w' (write) = modificar o sobreescribir el contenido del archivo. 'x' (execute) = ejecutar el archivo como un programa o script."}, {"icon": "folder", "text": "Permisos sobre un Directorio (¡Diferencia de Examen!)", "detail": "🎯 'r' = listar los nombres de los archivos que contiene (con ls). 'w' = CREAR, BORRAR o RENOMBRAR archivos dentro de esa carpeta. 'x' = ATRAVESAR / ENTRAR en el directorio (hacer cd) y acceder a los inodos de sus archivos."}, {"icon": "alert-triangle", "text": "⚠️ La Gran Trampa de Borrado de Archivos", "detail": "🎯 Pregunta de Examen: ¿Quién tiene derecho a borrar un archivo? La capacidad de borrar un archivo NO DEPENDE de los permisos del archivo, sino de tener permiso 'w' en el DIRECTORIO PADRE donde reside el archivo."}], "remember": "🎯 Clave de Examen: Para poder entrar en una carpeta con 'cd' se necesita obligatoriamente permiso de ejecución 'x'; para borrar un archivo se necesita permiso de escritura 'w' en la carpeta.", "notes": "Muestra que si un archivo tiene permisos 0000 (sin permisos) pero la carpeta tiene 777, el usuario puede borrar el archivo sin problemas.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:14px; margin:14px 0;\">\n  <!-- Grid Comparativa Archivo vs Directorio -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px;\">\n    \n    <!-- Archivo -->\n    <div style=\"background:#F8FAFC; border:2px solid #3B82F6; border-radius:12px; padding:14px;\">\n      <div style=\"display:flex; align-items:center; gap:8px; margin-bottom:10px;\">\n        <span style=\"background:#3B82F6; color:#FFF; font-size:12px; font-weight:800; padding:3px 8px; border-radius:6px;\">ARCHIVO ORDINARIO</span>\n        <span style=\"font-size:12px; font-weight:700; color:#1E40AF;\">Contenido de Datos</span>\n      </div>\n      <div style=\"display:flex; flex-direction:column; gap:8px; font-size:13px; color:#334155;\">\n        <div style=\"background:#EFF6FF; border-left:3px solid #3B82F6; padding:6px 10px; border-radius:4px;\">\n          <strong style=\"color:#1D4ED8;\">r (Read):</strong> Abrir y leer el contenido (cat, less).\n        </div>\n        <div style=\"background:#EFF6FF; border-left:3px solid #3B82F6; padding:6px 10px; border-radius:4px;\">\n          <strong style=\"color:#1D4ED8;\">w (Write):</strong> Modificar, sobreescribir o truncar el contenido.\n        </div>\n        <div style=\"background:#EFF6FF; border-left:3px solid #3B82F6; padding:6px 10px; border-radius:4px;\">\n          <strong style=\"color:#1D4ED8;\">x (Execute):</strong> Ejecutar como programa binario o script bash.\n        </div>\n      </div>\n    </div>\n\n    <!-- Directorio -->\n    <div style=\"background:#F8FAFC; border:2px solid #10B981; border-radius:12px; padding:14px;\">\n      <div style=\"display:flex; align-items:center; gap:8px; margin-bottom:10px;\">\n        <span style=\"background:#10B981; color:#FFF; font-size:12px; font-weight:800; padding:3px 8px; border-radius:6px;\">DIRECTORIO (CARPETA)</span>\n        <span style=\"font-size:12px; font-weight:700; color:#065F46;\">Tabla de Inodos</span>\n      </div>\n      <div style=\"display:flex; flex-direction:column; gap:8px; font-size:13px; color:#334155;\">\n        <div style=\"background:#ECFDF5; border-left:3px solid #10B981; padding:6px 10px; border-radius:4px;\">\n          <strong style=\"color:#047857;\">r (Read):</strong> Listar los nombres de archivos en la carpeta (ls).\n        </div>\n        <div style=\"background:#ECFDF5; border-left:3px solid #10B981; padding:6px 10px; border-radius:4px;\">\n          <strong style=\"color:#047857;\">w (Write):</strong> CREAR, BORRAR o RENOMBRAR archivos dentro.\n        </div>\n        <div style=\"background:#ECFDF5; border-left:3px solid #10B981; padding:6px 10px; border-radius:4px;\">\n          <strong style=\"color:#047857;\">x (Execute):</strong> ATRAVESAR / ENTRAR con cd y acceder a inodos.\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n  <!-- Alerta de examen: Trampa de Borrado -->\n  <div style=\"background:#FEF2F2; border:2px solid #EF4444; border-radius:10px; padding:10px 16px; display:flex; align-items:center; gap:14px;\">\n    <span style=\"font-size:26px;\">⚠️</span>\n    <div style=\"font-size:13px; color:#991B1B; line-height:1.45;\">\n      <strong>La Gran Trampa de Borrado de LPIC-1:</strong> La capacidad de borrar un archivo <strong>NO DEPENDE</strong> de los permisos del archivo, sino de tener permiso <strong>'w' (escritura) en el DIRECTORIO PADRE</strong>. Aunque un archivo tenga permisos <code style=\"background:#FEE2E2; color:#B91C1C; padding:2px 4px; border-radius:4px; font-weight:700;\">0000 (---------)</code>, si el usuario tiene permiso 'w' en la carpeta, ¡puede borrar el archivo sin problemas!\n    </div>\n  </div>\n</div>\n"}, {"id": 3, "section": "104.5", "cat": "perm", "type": "table", "title": "Correspondencia entre Notación Simbólica y Octal", "lead": "El sistema binario de 3 bits que define los permisos en el inodo:", "ref": "490-493", "pdf": {"manual": "A", "pages": [490, 491, 492, 493], "figure": null}, "coverage": ["104.5-CON-002"], "headers": ["Valor Octal", "Valor Binario (rwx)", "Cadena Simbólica", "Significado Operativo"], "rows": [["7", "111", "rwx", "Lectura (4) + Escritura (2) + Ejecución (1) = Control total."], ["6", "110", "rw-", "🎯 Lectura (4) + Escritura (2) = Permiso estándar de edición de archivos de datos."], ["5", "101", "r-x", "🎯 Lectura (4) + Ejecución (1) = Permiso estándar de lectura y travesía en directorios."], ["4", "100", "r--", "Solo lectura."], ["0", "000", "---", "Sin ningún permiso de acceso (acceso denegado)."], ["755", "111 101 101", "rwxr-xr-x", "🎯 Directorios estándar o programas ejecutables (root edita, todos leen y entran)."], ["644", "110 100 100", "rw-r--r--", "🎯 Archivos de configuración y documentos públicos (dueño edita, otros solo leen)."], ["700 / 600", "111 000 000", "rwx------ / rw-------", "🎯 Acceso privado exclusivo para el propietario (clave SSH id_rsa, swapfile)."]], "remember": "🎯 Clave de Conversión: r = 4, w = 2, x = 1. Para calcular el total basta sumar los valores: r + w = 6; r + x = 5; r + w + x = 7.", "notes": "Haz que los alumnos practiquen sumas mentales rápidas: rw-r--r-- es 4+2=6, 4=4, 4=4 -> 644.", "diagram_html": "\n<div style=\"background:#F8FAFC; border:2px solid #CBD5E1; border-radius:8px; padding:8px 14px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;\">\n  <div style=\"font-size:12px; color:#334155;\">\n    <strong>Fórmula Octal de 3 Bits:</strong> <span style=\"font-family:monospace; color:#2563EB; font-weight:800;\">r = 4 (100)</span> &bull; <span style=\"font-family:monospace; color:#16A34A; font-weight:800;\">w = 2 (010)</span> &bull; <span style=\"font-family:monospace; color:#D97706; font-weight:800;\">x = 1 (001)</span>\n  </div>\n  <div style=\"font-size:12px; font-family:monospace; color:#0F172A; background:#E2E8F0; padding:2px 8px; border-radius:4px; font-weight:700;\">\n    [Dueño: 3 bits] [Grupo: 3 bits] [Otros: 3 bits] = 9 bits\n  </div>\n</div>\n"}, {"id": 4, "section": "104.5", "cat": "perm", "type": "command", "title": "Modificación de Permisos con chmod: Simbólico y Octal", "lead": "Ajustar permisos de acceso de forma quirúrgica en archivos y árboles completos:", "ref": "493-496", "pdf": {"manual": "A", "pages": [493, 494, 495, 496], "figure": null}, "coverage": ["104.5-CMD-001", "104.5-OPT-001"], "command": "chmod [-R] <modo_octal|modo_simbólico> <archivo_o_dir>", "purpose": "Change Mode: modificar los bits de permiso discrecionales en el inodo", "terminal": {"command": "touch script.sh; chmod 755 script.sh; chmod g-w,o-rwx script.sh; ls -l script.sh", "output": "-rwxr-x--- 1 alumno alumno 0 Oct 20 11:30 script.sh"}, "options": [{"flag": "chmod 755", "short": "Modo Octal", "desc": "🎯 Modo Octal: fija los permisos exactos directos (ej: chmod 644 documento.txt)."}, {"flag": "Categorías u/g/o/a", "short": "u, g, o, a", "desc": "🎯 'u' = user (dueño); 'g' = group (grupo); 'o' = others (otros); 'a' = all (todos, u+g+o)."}, {"flag": "Operadores +/-/=", "short": "+, -, =", "desc": "🎯 '+' añade el permiso; '-' retira el permiso; '=' fija exactamente el permiso sustituyendo el anterior."}, {"flag": "chmod -R", "short": "-R (Recursivo)", "desc": "🎯 Clave de Examen: Aplica la modificación de permisos de forma RECURSIVA a todo el directorio y sus contenidos."}, {"flag": "chmod a+X", "short": "+X (Condicional)", "desc": "'X' (mayúscula) condicional: añade ejecución ÚNICAMENTE a directorios o a archivos que ya tenían 'x' previo."}], "remember": "🎯 Clave de Examen: 'chmod 755' = modo octal; 'chmod u=rwx,go=rx' = modo simbólico. Ambos consiguen el mismo resultado.", "notes": "Muestra la ventaja de 'chmod a+X' al procesar carpetas recursivas para no hacer ejecutables los documentos de texto por error.", "diagram_html": "\n<div style=\"display:flex; gap:12px; margin-top:10px;\">\n  <div style=\"flex:1; background:#EFF6FF; border:2px solid #3B82F6; border-radius:10px; padding:10px 14px;\">\n    <div style=\"font-size:12px; font-weight:800; color:#1E40AF; margin-bottom:4px; text-transform:uppercase;\">\n      Sintaxis Simbólica Desglosada\n    </div>\n    <div style=\"font-family:monospace; font-size:13px; color:#1D4ED8; background:#DBEAFE; padding:4px 8px; border-radius:4px; font-weight:700;\">\n      chmod u=rwx,g=rx,o=r archivo.txt\n    </div>\n    <div style=\"font-size:11.5px; color:#1E3A8A; margin-top:4px;\">\n      Equivale exactamente al modo octal <code>chmod 754 archivo.txt</code>.\n    </div>\n  </div>\n  <div style=\"flex:1; background:#F0FDF4; border:2px solid #22C55E; border-radius:10px; padding:10px 14px;\">\n    <div style=\"font-size:12px; font-weight:800; color:#166534; margin-bottom:4px; text-transform:uppercase;\">\n      El Atajo +X (Mayúscula)\n    </div>\n    <div style=\"font-family:monospace; font-size:13px; color:#15803D; background:#DCFCE7; padding:4px 8px; border-radius:4px; font-weight:700;\">\n      chmod -R a+rX /var/www\n    </div>\n    <div style=\"font-size:11.5px; color:#14532D; margin-top:4px;\">\n      Permite recorrer subcarpetas sin convertir erróneamente en ejecutables los ficheros .html o .txt.\n    </div>\n  </div>\n</div>\n"}, {"id": 5, "section": "104.5", "cat": "perm", "type": "diagram", "title": "Los Tres Permisos Especiales: SUID, SGID y Sticky Bit", "lead": "Los bits especiales modifican las reglas normales de ejecución, herencia y borrado en Linux:", "ref": "496-499", "pdf": {"manual": "A", "pages": [496, 497, 498, 499], "figure": null}, "coverage": ["104.5-CON-003"], "points": [{"icon": "shield-alert", "text": "1. SUID (Set User ID - Octal 4000)", "detail": "🎯 Se aplica sobre BINARIOS EJECUTABLES. Cuando un usuario ordinario ejecuta el programa, el proceso se ejecuta temporalmente con los privilegios del PROPIETARIO DEL ARCHIVO (habitualmente root). Ejemplo oficial: /usr/bin/passwd (para modificar /etc/shadow)."}, {"icon": "users", "text": "2. SGID (Set Group ID - Octal 2000)", "detail": "🎯 En binarios: ejecuta con privilegios del grupo del archivo. En DIRECTORIOS: 🎯 ¡Clave de Examen! Todo archivo o subcarpeta creado dentro HEREDA AUTOMÁTICAMENTE EL GRUPO del directorio padre (esencial para carpetas de trabajo colaborativo)."}, {"icon": "pin", "text": "3. Sticky Bit (Bit de Permanencia - Octal 1000)", "detail": "🎯 Se aplica sobre DIRECTORIOS COMPARTIDOS (como /tmp y /var/tmp). Permite a cualquiera crear archivos, pero IMPIDE que un usuario borre o renombre archivos de otros. Solo el dueño del archivo o root pueden borrarlo."}], "remember": "🎯 Los 3 Bits Especiales en Memoria: 4000 = SUID (ejecuta como dueño); 2000 = SGID (hereda grupo en directorios); 1000 = Sticky Bit (protege borrado en /tmp).", "notes": "Explica la analogía de la taquilla pública en /tmp gracias al Sticky Bit: todos pueden meter cosas, pero solo tú puedes llevarte lo tuyo.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:14px; margin:14px 0;\">\n  <!-- Grid 3 Permisos Especiales -->\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;\">\n    \n    <!-- SUID (4000) -->\n    <div style=\"background:#F8FAFC; border:2px solid #EF4444; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;\">\n          <span style=\"background:#EF4444; color:#FFF; font-size:12px; font-weight:800; padding:3px 8px; border-radius:6px;\">SUID</span>\n          <span style=\"font-family:monospace; font-weight:800; color:#991B1B; font-size:14px;\">Octal 4000</span>\n        </div>\n        <div style=\"font-size:13px; color:#334155; line-height:1.45; margin-bottom:8px;\">\n          <strong>En Binarios Ejecutables:</strong> El programa se ejecuta con la identidad y privilegios del <strong>propietario del archivo</strong> (habitualmente root), no del usuario que lo invoca.\n        </div>\n        <div style=\"background:#FEE2E2; border-left:3px solid #EF4444; padding:6px 8px; font-family:monospace; font-size:11.5px; color:#991B1B; border-radius:4px;\">\n          <div>/usr/bin/passwd</div>\n          <div style=\"font-weight:700;\">-rwsr-xr-x (root:root)</div>\n        </div>\n      </div>\n      <div style=\"margin-top:10px; font-size:11.5px; color:#991B1B; font-weight:700; background:#FEE2E2; padding:4px 8px; border-radius:6px;\">\n        chmod 4755 &bull; chmod u+s\n      </div>\n    </div>\n\n    <!-- SGID (2000) -->\n    <div style=\"background:#F8FAFC; border:2px solid #3B82F6; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;\">\n          <span style=\"background:#3B82F6; color:#FFF; font-size:12px; font-weight:800; padding:3px 8px; border-radius:6px;\">SGID</span>\n          <span style=\"font-family:monospace; font-weight:800; color:#1E40AF; font-size:14px;\">Octal 2000</span>\n        </div>\n        <div style=\"font-size:13px; color:#334155; line-height:1.45; margin-bottom:8px;\">\n          <strong>En Directorios (¡Examen!):</strong> Todo archivo o subcarpeta creado dentro <strong>hereda automáticamente el grupo</strong> del directorio padre, facilitando el trabajo en equipo.\n        </div>\n        <div style=\"background:#EFF6FF; border-left:3px solid #3B82F6; padding:6px 8px; font-family:monospace; font-size:11.5px; color:#1E40AF; border-radius:4px;\">\n          <div>/shared/devs/</div>\n          <div style=\"font-weight:700;\">drwxrwsr-x (root:devs)</div>\n        </div>\n      </div>\n      <div style=\"margin-top:10px; font-size:11.5px; color:#1E40AF; font-weight:700; background:#DBEAFE; padding:4px 8px; border-radius:6px;\">\n        chmod 2775 &bull; chmod g+s\n      </div>\n    </div>\n\n    <!-- Sticky Bit (1000) -->\n    <div style=\"background:#F8FAFC; border:2px solid #10B981; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;\">\n          <span style=\"background:#10B981; color:#FFF; font-size:12px; font-weight:800; padding:3px 8px; border-radius:6px;\">STICKY BIT</span>\n          <span style=\"font-family:monospace; font-weight:800; color:#065F46; font-size:14px;\">Octal 1000</span>\n        </div>\n        <div style=\"font-size:13px; color:#334155; line-height:1.45; margin-bottom:8px;\">\n          <strong>En Directorios Compartidos:</strong> Todos los usuarios pueden crear archivos, pero <strong>SOLO el creador del archivo</strong> (o root) puede borrarlo o renombrarlo.\n        </div>\n        <div style=\"background:#ECFDF5; border-left:3px solid #10B981; padding:6px 8px; font-family:monospace; font-size:11.5px; color:#065F46; border-radius:4px;\">\n          <div>/tmp y /var/tmp</div>\n          <div style=\"font-weight:700;\">drwxrwxrwt (root:root)</div>\n        </div>\n      </div>\n      <div style=\"margin-top:10px; font-size:11.5px; color:#065F46; font-weight:700; background:#D1FAE5; padding:4px 8px; border-radius:6px;\">\n        chmod 1777 &bull; chmod +t\n      </div>\n    </div>\n\n  </div>\n\n  <!-- Resumen de 4 dígitos -->\n  <div style=\"background:#FFFBEB; border:2px solid #F59E0B; border-radius:10px; padding:8px 16px; display:flex; align-items:center; justify-content:space-between;\">\n    <span style=\"font-size:13px; color:#92400E; font-weight:700;\">\n      Formato Octal de 4 Dígitos: <code style=\"font-size:15px; background:#FEF3C7; padding:2px 8px; border-radius:4px;\">[Especiales] [Dueño] [Grupo] [Otros]</code>\n    </span>\n    <span style=\"font-size:12.5px; color:#B45309;\">\n      Ejemplo: <strong>chmod 2775</strong> = SGID (2) + Dueño (7) + Grupo (7) + Otros (5)\n    </span>\n  </div>\n</div>\n"}, {"id": 6, "section": "104.5", "cat": "perm", "type": "table", "title": "Representación Simbólica: minúsculas (s, t) frente a MAYÚSCULAS (S, T)", "lead": "¿Por qué a veces se ve una 'S' o una 'T' mayúscula en ls -l y qué significa en el examen?", "ref": "499-502", "pdf": {"manual": "A", "pages": [499, 500, 501, 502], "figure": null}, "coverage": ["104.5-CON-004"], "headers": ["Permiso Especial", "Posición en ls -l", "Letra Minúscula (Correcto)", "Letra MAYÚSCULA (⚠️ Error de Configuración)"], "rows": [["SUID (4000)", "Campo 'x' del dueño (rws / rwS)", "🎯 's' minúscula: SUID activo Y tiene permiso 'x' de ejecución.", "🎯 'S' mayúscula: SUID activo pero ¡NO tiene permiso 'x'! (el binario no se puede ejecutar)."], ["SGID (2000)", "Campo 'x' del grupo (rws / rwS)", "🎯 's' minúscula: SGID activo Y tiene permiso 'x' de ejecución/travesía.", "🎯 'S' mayúscula: SGID activo pero ¡NO tiene permiso 'x'! en el grupo."], ["Sticky Bit (1000)", "Campo 'x' de otros (rwt / rwT)", "🎯 't' minúscula: Sticky activo Y tiene permiso 'x' de ejecución/travesía (/tmp).", "🎯 'T' mayúscula: Sticky activo pero ¡NO tiene permiso 'x'! para otros usuarios."]], "remember": "🎯 La Regla Nemotécnica Inflexible: Minúscula (s, t) = TIENE permiso de ejecución 'x'. MAYÚSCULA (S, T) = LE FALTA el permiso de ejecución 'x'.", "notes": "Pregunta típica de certificación: '¿Qué significa que un archivo tenga permisos -rwSr--r--?'. Respuesta: Tiene el bit SUID activo pero carece de permiso de ejecución para el dueño.", "diagram_html": "\n<div style=\"display:flex; gap:12px; margin-bottom:10px;\">\n  <div style=\"flex:1; background:#F0FDF4; border:2px solid #22C55E; border-radius:8px; padding:8px 12px; text-align:center;\">\n    <span style=\"font-weight:800; color:#166534; font-size:13px;\">MINÚSCULA (s, t) = TIENE PERMISO 'x'</span>\n    <div style=\"font-size:11.5px; color:#15803D;\">Ejemplo: <code>-rwsr-xr-x</code> &rarr; SUID activo y ejecutable con normalidad.</div>\n  </div>\n  <div style=\"flex:1; background:#FEF2F2; border:2px solid #EF4444; border-radius:8px; padding:8px 12px; text-align:center;\">\n    <span style=\"font-weight:800; color:#991B1B; font-size:13px;\">MAYÚSCULA (S, T) = LE FALTA PERMISO 'x'</span>\n    <div style=\"font-size:11.5px; color:#7F1D1D;\">Ejemplo: <code>-rwSr-xr-x</code> &rarr; SUID activo pero ¡NO es ejecutable! (Fallo).</div>\n  </div>\n</div>\n"}, {"id": 7, "section": "104.5", "cat": "perm", "type": "command", "title": "Asignación Práctica de Permisos Especiales con chmod", "lead": "¿Cómo configurar SUID, SGID y Sticky Bit en modo numérico y simbólico?", "ref": "502-504", "pdf": {"manual": "A", "pages": [502, 503, 504], "figure": null}, "coverage": ["104.5-CMD-001", "104.5-OPT-002"], "command": "chmod 4755 | chmod 2775 | chmod 1777 | chmod u+s | chmod g+s | chmod +t", "purpose": "Activar o desactivar bits de permisos especiales sobre binarios y directorios", "terminal": {"command": "mkdir /tmp/colaborativo; chmod 2775 /tmp/colaborativo; ls -ld /tmp/colaborativo /tmp", "output": "drwxrwsr-x 2 alumno alumno 4096 Oct 20 11:35 /tmp/colaborativo\ndrwxrwxrwt 9 root   root   4096 Oct 20 11:30 /tmp"}, "options": [{"flag": "chmod 4755", "short": "4755 (SUID)", "desc": "🎯 Asigna SUID: el primer dígito octal '4' activa SUID (ej: -rwsr-xr-x)."}, {"flag": "chmod 2775", "short": "2775 (SGID)", "desc": "🎯 Asigna SGID en directorio: el primer dígito '2' fuerza la herencia de grupo (ej: drwxrwsr-x)."}, {"flag": "chmod 1777", "short": "1777 (Sticky)", "desc": "🎯 Asigna Sticky Bit: el primer dígito '1' activa la protección de borrado en /tmp (ej: drwxrwxrwt)."}, {"flag": "chmod u+s / g+s / +t", "short": "Modo Simbólico", "desc": "🎯 Activa permisos especiales en modo simbólico (u+s SUID, g+s SGID, +t Sticky)."}, {"flag": "chmod 0755", "short": "0xxx (Reset)", "desc": "El cero '0' inicial retira todos los permisos especiales restableciendo permisos estándar."}], "remember": "🎯 Los Tres Prefijos Octales de Examen: 4xxx para SUID; 2xxx para SGID; 1xxx para Sticky Bit.", "notes": "Muestra que si sumas SGID (2) y Sticky (1) sobre una carpeta, el prefijo es 3xxx (chmod 3777)."}, {"id": 8, "section": "104.5", "cat": "perm", "type": "command", "title": "Gestión de Propietarios y Grupos: chown y chgrp", "lead": "¿Cómo transferir la titularidad de archivos y carpetas a otros usuarios o equipos de trabajo?", "ref": "504-507", "pdf": {"manual": "A", "pages": [504, 505, 506, 507], "figure": null}, "coverage": ["104.5-CMD-002", "104.5-CMD-003", "104.5-OPT-003"], "command": "sudo chown [-R] <usuario>[:grupo] <archivo> | sudo chgrp [-R] <grupo> <archivo>", "purpose": "Cambiar el propietario (UID) y el grupo de pertenencia (GID) de archivos y directorios", "terminal": {"command": "sudo chown www-data:www-data /var/www/html; sudo chown -R alumno:devs /opt/proyecto; ls -ld /var/www/html", "output": "drwxr-xr-x 2 www-data www-data 4096 Oct 20 11:40 /var/www/html"}, "options": [{"flag": "chown user file", "short": "chown (Dueño)", "desc": "🎯 Cambia únicamente el propietario del archivo."}, {"flag": "chown user:group", "short": "user:group (Ambos)", "desc": "🎯 Clave de Examen: Cambia el propietario Y el grupo simultáneamente (admite también 'user.group')."}, {"flag": "chown :group", "short": ":group (Solo grupo)", "desc": "Si se omite el usuario poniendo solo dos puntos, cambia únicamente el grupo (equivale a chgrp)."}, {"flag": "chgrp group", "short": "chgrp", "desc": "🎯 Cambia exclusivamente el grupo propietario del archivo."}, {"flag": "chown -R", "short": "-R (Recursivo)", "desc": "🎯 Clave de Examen: Aplica el cambio de propietario y grupo de forma recursiva a todo el árbol."}, {"flag": "chown -h", "short": "-h (Symlinks)", "desc": "🎯 Clave de Examen: Modifica el propietario del propio enlace simbólico en lugar del archivo apuntado."}], "remember": "🎯 Clave de Examen: 'chown usuario:grupo archivo' cambia ambos en un solo paso; 'chown -h' modifica el dueño de un enlace simbólico.", "notes": "Recuerda que solo el superusuario root puede cambiar el propietario de un archivo con chown."}, {"id": 9, "section": "104.5", "cat": "perm", "type": "diagram", "title": "La Máscara de Creación umask: Cálculo Matemático", "lead": "En Linux ningún archivo nuevo nace ejecutable por seguridad. umask define los bits que se sustraen a la base:", "ref": "507-510", "pdf": {"manual": "A", "pages": [507, 508, 509, 510], "figure": null}, "coverage": ["104.5-CMD-004", "104.5-CON-005"], "points": [{"icon": "shield", "text": "Los Permisos Base Máximos Iniciales", "detail": "🎯 En Linux, los programas solicitan permisos máximos de partida: para ARCHIVOS ORDINARIOS la base es 666 (rw-rw-rw-, ningún archivo nace ejecutable por seguridad). Para DIRECTORIOS la base es 777 (rwxrwxrwx, para permitir entrar y listar)."}, {"icon": "scissors", "text": "umask: La máscara que RECORTA permisos", "detail": "🎯 umask define los bits que se DESACTIVAN (se sustraen) de los permisos base en el momento de crear el archivo. Los permisos resultantes se calculan mediante la operación lógica a nivel de bits: 'Permiso = Base AND NOT(umask)'."}, {"icon": "terminal", "text": "El comando umask en la consola", "detail": "'umask' sin argumentos muestra el valor actual (ej: 0022). 'umask 027' cambia la máscara para la sesión actual."}], "remember": "🎯 Permisos Base Oficiales: Archivos = 666 (rw-rw-rw-); Directorios = 777 (rwxrwxrwx). umask RESTA bits a esa base.", "notes": "Enseña a los alumnos que para la mayoría de casos ordinarios, basta con restar matemáticamente dígito a dígito.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:14px; margin:14px 0;\">\n  <!-- Cálculo Comparativo Ficheros vs Directorios -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px;\">\n    \n    <!-- Ficheros -->\n    <div style=\"background:#F8FAFC; border:2px solid #3B82F6; border-radius:12px; padding:14px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;\">\n        <span style=\"font-weight:800; color:#1E40AF; font-size:13.5px;\">ARCHIVOS ORDINARIOS</span>\n        <span style=\"background:#DBEAFE; color:#1D4ED8; font-size:11px; font-weight:700; padding:2px 6px; border-radius:4px;\">Base: 666 (rw-rw-rw-)</span>\n      </div>\n      <div style=\"background:#EFF6FF; border-radius:8px; padding:10px; font-family:monospace; font-size:13px; line-height:1.6; color:#1E3A8A;\">\n        <div>Base:   666 (rw-rw-rw-)</div>\n        <div>umask: -022 (-------w-)</div>\n        <div style=\"border-top:2px solid #BFDBFE; margin-top:4px; font-weight:800; color:#1D4ED8;\">\n          Final:  644 (rw-r--r--)\n        </div>\n      </div>\n      <div style=\"margin-top:8px; font-size:11.5px; color:#2563EB;\">\n        🔒 Los ficheros <strong>NUNCA</strong> nacen con bit 'x' de ejecución.\n      </div>\n    </div>\n\n    <!-- Directorios -->\n    <div style=\"background:#F8FAFC; border:2px solid #10B981; border-radius:12px; padding:14px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;\">\n        <span style=\"font-weight:800; color:#065F46; font-size:13.5px;\">DIRECTORIOS (CARPETAS)</span>\n        <span style=\"background:#DCFCE7; color:#15803D; font-size:11px; font-weight:700; padding:2px 6px; border-radius:4px;\">Base: 777 (rwxrwxrwx)</span>\n      </div>\n      <div style=\"background:#ECFDF5; border-radius:8px; padding:10px; font-family:monospace; font-size:13px; line-height:1.6; color:#064E3B;\">\n        <div>Base:   777 (rwxrwxrwx)</div>\n        <div>umask: -022 (----w--w-)</div>\n        <div style=\"border-top:2px solid #A7F3D0; margin-top:4px; font-weight:800; color:#047857;\">\n          Final:  755 (rwxr-xr-x)\n        </div>\n      </div>\n      <div style=\"margin-top:8px; font-size:11.5px; color:#047857;\">\n        📁 Las carpetas <strong>SIEMPRE</strong> necesitan 'x' para poder entrar.\n      </div>\n    </div>\n\n  </div>\n\n  <!-- Alerta de examen: Imposibilidad de nacer ejecutable -->\n  <div style=\"background:#FFFBEB; border:2px solid #F59E0B; border-radius:10px; padding:10px 16px; display:flex; align-items:center; gap:14px;\">\n    <span style=\"font-size:24px;\">⚠️</span>\n    <div style=\"font-size:12.5px; color:#92400E; line-height:1.45;\">\n      <strong>Pregunta Trampa Típica de Examen:</strong> \"¿Qué valor de umask debo poner para que un archivo creado con <code style=\"background:#FEF3C7; padding:2px 4px; border-radius:4px;\">touch script.sh</code> nazca siendo ejecutable (755)?\". Respuesta: <strong>¡ES IMPOSIBLE!</strong> Ninguna máscara umask puede otorgar permisos de ejecución a un archivo nuevo porque la base máxima es 666 (no contiene 'x'). Se debe usar obligatoriamente <code style=\"font-weight:700;\">chmod +x</code> después de crearlo.\n    </div>\n  </div>\n</div>\n"}, {"id": 10, "section": "104.5", "cat": "perm", "type": "table", "title": "Matriz de Valores umask Evaluados en el Examen", "lead": "El cálculo exacto paso a paso para resolver las preguntas matemáticas de umask:", "ref": "510-512", "pdf": {"manual": "A", "pages": [510, 511, 512], "figure": null}, "coverage": ["104.5-CON-006"], "headers": ["Valor umask", "Permisos en ARCHIVOS (Base 666 - umask)", "Permisos en DIRECTORIOS (Base 777 - umask)", "Propósito en Examen LPIC-1"], "rows": [["022 (o 0022)", "🎯 644 (rw-r--r--)", "🎯 755 (rwxr-xr-x)", "🎯 Máscara ESTÁNDAR de Linux: otros pueden leer pero no escribir."], ["002 (o 0002)", "664 (rw-rw-r--)", "775 (rwxrwxr-x)", "Entornos de desarrollo colaborativo con User Private Groups (UPG)."], ["027 (o 0027)", "🎯 640 (rw-r-----)", "🎯 750 (rwxr-x---)", "🎯 Entornos restringidos: el grupo lee pero 'otros' no tienen ningún acceso."], ["077 (o 0077)", "🎯 600 (rw-------)", "🎯 700 (rwx------)", "🎯 Máxima privacidad: solo el propietario tiene acceso; grupo y otros tienen 0."]], "remember": "🎯 La Regla Matemática de Examen con umask 027: Archivo = 666 - 027 = 640 (rw-r-----). Directorio = 777 - 027 = 750 (rwxr-x---).", "notes": "Alerta sobre el cálculo lógico si la máscara tiene un número impar como 023: 666 - 023 = 644 (porque el archivo no tenía bit '1' que quitar).", "diagram_html": "\n<div style=\"background:#F8FAFC; border:2px solid #CBD5E1; border-radius:8px; padding:8px 14px; margin-bottom:10px; display:flex; justify-content:space-around; text-align:center; font-family:monospace;\">\n  <div><span style=\"background:#3B82F6; color:#FFF; font-weight:800; padding:2px 6px; border-radius:4px;\">022</span> <span style=\"font-size:12px; color:#1E40AF; font-weight:700;\">644 / 755 (Estándar)</span></div>\n  <div><span style=\"background:#10B981; color:#FFF; font-weight:800; padding:2px 6px; border-radius:4px;\">002</span> <span style=\"font-size:12px; color:#065F46; font-weight:700;\">664 / 775 (Colaborativo)</span></div>\n  <div><span style=\"background:#F59E0B; color:#FFF; font-weight:800; padding:2px 6px; border-radius:4px;\">027</span> <span style=\"font-size:12px; color:#92400E; font-weight:700;\">640 / 750 (Restringido)</span></div>\n  <div><span style=\"background:#EF4444; color:#FFF; font-weight:800; padding:2px 6px; border-radius:4px;\">077</span> <span style=\"font-size:12px; color:#991B1B; font-weight:700;\">600 / 700 (Privado Total)</span></div>\n</div>\n"}, {"id": 11, "section": "104.5", "cat": "perm", "type": "file", "title": "Persistencia de umask: /etc/login.defs y Perfiles", "lead": "¿Dónde se configura la máscara umask para que se aplique a todos los usuarios del sistema?", "ref": "512-513", "pdf": {"manual": "A", "pages": [512, 513], "figure": null}, "coverage": ["104.5-FILE-002"], "file": "/etc/login.defs, /etc/profile y ~/.bashrc", "syntax": "UMASK 022 (en login.defs) | umask 027 (en bashrc)", "content": "# Archivo de configuración de cuentas: /etc/login.defs\nUMASK           022\n\n# En /etc/profile se aplica la lógica de User Private Groups (UPG):\nif [ $UID -gt 199 ] && [ \"`/usr/bin/id -gn`\" = \"`/usr/bin/id -un`\" ]; then\n    umask 002\nelse\n    umask 022\nfi\n\n# En ~/.bashrc cada usuario puede personalizar su propia máscara:\numask 027", "fields": [{"field": "/etc/login.defs", "desc": "🎯 Clave de Examen: Define la directiva 'UMASK' que se aplica durante el inicio de sesión y al crear usuarios con useradd."}, {"field": "/etc/profile", "desc": "Script global que ejecuta la orden 'umask' para todas las shells interactivas de login."}, {"field": "~/.bashrc o ~/.profile", "desc": "Permite a un usuario individual forzar su propia máscara (ej: umask 077 para máxima privacidad)."}], "remember": "🎯 Clave de Examen: La máscara global del sistema se define en la directiva 'UMASK' de /etc/login.defs y en /etc/profile.", "notes": "Muestra que si cambias la umask en la consola solo dura mientras dure esa sesión; para hacerla fija va en ~/.bashrc."}, {"id": 12, "section": "104.5", "cat": "perm", "type": "concept", "title": "Trampas Clásicas de Examen en Permisos y umask", "lead": "Los 3 errores conceptuales que más puntos restan en el objetivo 104.5:", "ref": "513-514", "pdf": {"manual": "A", "pages": [513, 514], "figure": null}, "coverage": ["104.5-WARN-001"], "points": [{"icon": "alert-triangle", "text": "1. Creer que un archivo nuevo puede nacer ejecutable con umask", "detail": "🎯 Pregunta trampa: '¿Qué umask debo poner para que los archivos creados con touch nazcan con permisos 755?'. ¡IMPOSIBLE! La base de archivos es 666 (no tiene bit 'x'). NINGÚN archivo nace ejecutable por umask; para hacerlo ejecutable es obligatorio usar 'chmod +x' a posteriori."}, {"icon": "alert-triangle", "text": "2. Confundir el orden de usuario y grupo en chown", "detail": "La sintaxis es 'chown usuario:grupo archivo'. Si escribes 'chown grupo:usuario archivo', chown intentará buscar un usuario llamado 'grupo' y fallará."}, {"icon": "alert-triangle", "text": "3. Creer que para borrar un archivo se necesita permiso en el archivo", "detail": "Aunque un archivo tenga permisos de solo lectura (r--r--r--) o incluso 000, cualquier usuario que tenga permiso de escritura 'w' en el directorio contenedor puede borrarlo sin problemas."}], "remember": "🎯 Mnemotecnia Rápida: Los archivos nunca nacen con 'x' por umask. Para borrar se mira la carpeta. En chown primero usuario, luego grupo.", "notes": "Repite estos tres conceptos antes de los ejercicios prácticos."}, {"id": 13, "section": "104.5", "cat": "perm", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: chmod y umask)", "ref": "Manual A - Pág 514", "pdf": {"manual": "A", "pages": [514], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 514): Un usuario tiene configurada la máscara 'umask 027'. ¿Cuáles serán los permisos exactos en notación octal y simbólica de un nuevo archivo creado con touch y de un nuevo directorio creado con mkdir?", "command": "Archivo: 640 (rw-r-----). Directorio: 750 (rwxr-x---)", "reason": "Para archivos: 666 - 027 = 640 (rw-r-----). Para directorios: 777 - 027 = 750 (rwxr-x---)."}, {"action": "Caso 2 (Oficial Pág 514): ¿Cuál es el comando exacto en modo simbólico para retirar los permisos de escritura al grupo y retirar absolutamente todos los permisos a otros en el archivo 'informe.txt' en una sola orden?", "command": "chmod g-w,o-rwx informe.txt (o chmod go-w,o-rx informe.txt)", "reason": "La notación simbólica permite combinar acciones en una lista separada por comas sin espacios."}, {"action": "Caso 3 (Oficial Pág 514): ¿Qué comando cambia el propietario a 'nginx' y el grupo a 'www-data' de todo el directorio '/var/www' y todos sus subdirectorios de forma recursiva?", "command": "sudo chown -R nginx:www-data /var/www", "reason": "La opción -R aplica la modificación recursiva y la sintaxis 'usuario:grupo' actualiza ambas identidades."}], "solution": {"explain": "umask 027 produce 640 y 750; chmod simbólico con comas; y chown -R para propiedad recursiva."}, "notes": "Recuerda que umask 027 es la máscara más recomendada en auditorías de seguridad."}, {"id": 14, "section": "104.5", "cat": "perm", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: Permisos Especiales)", "ref": "Manual A - Pág 514", "pdf": {"manual": "A", "pages": [514], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 514): Un administrador crea un directorio de proyectos compartidos '/srv/proyecto'. ¿Qué comando en modo octal asigna control total al dueño, lectura/escritura/herencia de grupo al grupo y ningún acceso a otros?", "command": "sudo chmod 2770 /srv/proyecto", "reason": "El primer dígito '2' activa el permiso especial SGID para que todos los ficheros nuevos hereden el grupo; '770' da rwx al dueño, rwx al grupo y nada a otros."}, {"action": "Caso 5 (Oficial Pág 514): Al listar un archivo se observa '-rwsr-xr-x 1 root root /usr/bin/passwd'. ¿Qué permiso especial tiene asignado y qué función cumple?", "command": "Tiene asignado el permiso SUID (Set User ID)", "reason": "La 's' en el lugar de la 'x' del propietario indica que cualquier usuario que lo ejecute asumirá temporalmente los privilegios del dueño (root) durante la ejecución."}], "solution": {"explain": "2770 configura colaboración perfecta con SGID; SUID en passwd permite elevar privilegios de forma controlada."}, "notes": "Muestra cómo en /srv/proyecto con 2770, si un usuario crea un archivo, el grupo asignado no es el suyo personal, sino el del directorio."}, {"id": 15, "section": "104.5", "cat": "perm", "type": "challenge", "title": "Retos de Exploración Oficiales (SUID, Enlaces y umask Impar)", "ref": "Manual A - Págs 514-515", "pdf": {"manual": "A", "pages": [514, 515], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un administrador configura 'umask 003'. ¿Con qué permisos octales exactos nacerá un nuevo archivo de texto creado con touch?\n2. Si ejecutas 'chmod 4644 binario.sh' y luego 'ls -l binario.sh', ¿qué letra aparecerá en la posición del permiso de ejecución del propietario y por qué?\n3. ¿Qué comando de auditoría con 'find' localiza todos los archivos del sistema que tengan activado el bit especial SUID pertenecientes a root?", "hint": "Recuerda: operación lógica AND NOT en umask impar; 'S' mayúscula cuando no hay 'x'; y find con -perm -4000.", "solution": {"explain": "1. Nacerá con permisos 664 (rw-rw-r--). Como los archivos parten de base 666 (no tienen bit 'x' de ejecución de valor 1), el '3' de la umask (que es 2+1) solo puede sustraer el bit '2' (escritura). Por tanto: 666 & ~003 = 664.\n2. Aparecerá una 'S' MAYÚSCULA (-rwSr--r--), porque el bit SUID está activo pero el dueño NO tiene permiso de ejecución (el modo 644 carece de 'x' para el dueño).\n3. Se ejecuta: sudo find / -perm -4000 -user root -type f 2>/dev/null"}, "notes": "El reto 1 y el reto 2 demuestran un dominio matemático y conceptual absoluto del sistema de permisos Unix."}, {"id": 16, "section": "104.5", "cat": "perm", "type": "review", "title": "Pregunta de Examen LPIC-1: Cálculo de Permisos con umask", "q": "Si un usuario tiene configurada en su entorno una máscara 'umask 027', ¿cuáles serán los permisos octales resultantes de un nuevo archivo ordinario creado con el comando 'touch prueba.txt'?", "options": ["750", "640", "644", "600"], "answer": 1, "why": "Los archivos ordinarios parten de unos permisos base máximos de 666 (rw-rw-rw-). Al aplicar una máscara umask de 027, se resta: (6-0=6), (6-2=4) y (6-7 -> el archivo no tiene bit de ejecución '1', por lo que solo se puede sustraer los bits '4' y '2', quedando en 0). Por tanto, los permisos octales son exactamente 640 (rw-r-----).", "notes": "Pregunta clásica e indispensable de certificación."}, {"id": 17, "section": "104.5", "cat": "perm", "type": "review", "title": "Pregunta de Examen LPIC-1: Bit Especial en Directorios Compartidos", "q": "¿Qué permiso especial debe configurarse sobre el directorio '/tmp' para permitir que todos los usuarios puedan crear y modificar sus propios archivos, pero impidiendo que borren los archivos creados por otros usuarios?", "options": ["Permiso SUID (Set User ID)", "Permiso SGID (Set Group ID)", "Sticky Bit (Bit de permanencia)", "Permiso inmutable (chattr +i)"], "answer": 2, "why": "El Sticky Bit (representado por el valor octal 1000 y la letra 't' al final de los permisos) se diseñó específicamente para directorios de uso común compartido (como /tmp). Garantiza que solo el propietario de un archivo o el superusuario root puedan eliminarlo o renombrarlo.", "notes": "Pregunta directa y fundamental sobre la seguridad de /tmp."}, {"id": 18, "section": "104.5", "cat": "perm", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Permisos y Propietarios 104.5", "deck": [{"front": "¿Cuáles son los permisos base máximos de archivos y de directorios?", "back": "666 para archivos (ninguno nace con 'x'); 777 para directorios."}, {"front": "¿Qué permisos produce 'umask 022' en un archivo y en un directorio?", "back": "644 en archivos (rw-r--r--); 755 en directorios (rwxr-xr-x)."}, {"front": "¿Qué permisos produce 'umask 027' en un archivo y en un directorio?", "back": "640 en archivos (rw-r-----); 750 en directorios (rwxr-x---)."}, {"front": "¿Qué valor octal tiene el permiso SUID y sobre qué se aplica?", "back": "Valor 4000 (se aplica sobre binarios para ejecutar con privilegios del dueño)."}, {"front": "¿Qué función cumple el permiso SGID (2000) en un directorio?", "back": "Hace que todos los archivos nuevos creados dentro hereden el grupo del directorio."}, {"front": "¿Qué función cumple el Sticky Bit (1000) en /tmp?", "back": "Impide que un usuario borre o renombre los archivos de otros usuarios."}, {"front": "¿Qué diferencia hay entre ver 's' minúscula o 'S' mayúscula en ls -l?", "back": "'s' minúscula = tiene 'x' de ejecución; 'S' mayúscula = le falta el permiso 'x'."}, {"front": "¿Qué comando cambia el propietario y el grupo a la vez?", "back": "chown usuario:grupo <archivo>."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 104.5."}, {"id": 19, "section": "104.5", "cat": "perm", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 104.5", "takeaways": ["Permisos Estándar: r=4, w=2, x=1. En directorios 'x' es entrar (cd) y 'w' es crear/borrar archivos. Modificación con chmod (755 o u+x,go-w).", "Permisos Especiales: 4000 SUID (ejecuta como dueño); 2000 SGID (hereda grupo en directorios); 1000 Sticky Bit (protege borrado en /tmp). Letras minúsculas si hay 'x', MAYÚSCULAS si falta 'x'.", "Propiedad: chown usuario:grupo archivo; chgrp para grupo solo; chown -R para recursivo.", "Máscara umask: Base 666 archivos y 777 directorios. umask 022 da 644/755; umask 027 da 640/750. Ningún archivo nace ejecutable por umask."], "top3": [{"cmd": "chmod 755 <script> && chmod 644 <config>", "desc": "Asigna permisos estándar profesionales a ejecutables y archivos de configuración."}, {"cmd": "chmod 2775 <directorio_compartido>", "desc": "Activa SGID para que todos los ficheros nuevos hereden automáticamente el grupo de trabajo."}, {"cmd": "sudo chown -R usuario:grupo /directorio", "desc": "Transfiere la titularidad completa de un árbol de directorios de forma recursiva."}], "practice": {"name": "Practica 104.5: Administración de Permisos y Propietarios de Archivos", "url": "../practicas/p-104-5-permisos-propietarios.html", "desc": "Aplica permisos octales y simbólicos con chmod, transfiere dueños y grupos con chown y chgrp, calcula la máscara umask y domina los permisos especiales SUID, SGID y Sticky Bit."}, "notes": "Concluimos el subtema 104.5. Los alumnos dominan ahora los permisos y la titularidad en Linux."}];
     const ERRATAS = [];
     const GLOSARIO = [{"id": "GLOS-104.5-001", "termino": "SUID (Set User ID)", "definicion": "Permiso especial de archivo ejecutable (bit octal 4000) que provoca que el proceso se ejecute con los privilegios del usuario propietario y no del usuario que lo invoca."}, {"id": "GLOS-104.5-002", "termino": "SGID (Set Group ID)", "definicion": "Permiso especial (bit octal 2000) que en ejecutables confiere permisos del grupo titular y en directorios fuerza que los archivos creados hereden el grupo del directorio."}, {"id": "GLOS-104.5-003", "termino": "Sticky Bit", "definicion": "Permiso especial (bit octal 1000) aplicado a directorios compartidos para impedir que los usuarios borren o renombren archivos de otros usuarios."}, {"id": "GLOS-104.5-004", "termino": "umask", "definicion": "Máscara de bits de entorno que desactiva permisos específicos de lectura, escritura y ejecución durante la creación de nuevos archivos y directorios."}, {"id": "GLOS-104.5-005", "termino": "chown", "definicion": "Comando administrativo que modifica el usuario propietario y el grupo de archivos y directorios en el sistema."}];
     const META = {"topic": "104.5", "title": "Administración de los permisos y los propietarios de los archivos", "weight": 3, "description": "Modelo DAC, chmod (simbólico/octal), chown, chgrp, permisos especiales (SUID, SGID, Sticky) y umask (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1453,6 +1932,9 @@
           });
           html += `</div>`;
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.console || s.terminal) {
           html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
         }
@@ -1518,6 +2000,9 @@
         const termData = s.terminal || s.console;
         if (termData) {
           html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
         }
 
         if (s.trap || s.warning) {
@@ -1603,6 +2088,9 @@
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
 
         if (s.trap || s.warning) {
           html += `
@@ -1643,6 +2131,9 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.remember) {
           html += `
             <div class="callout-box callout-remember" style="margin-top:14px;">
@@ -1689,12 +2180,37 @@
             </div>
           `;
         }
+      } else if (s.type === 'diagram') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.diagram_html || s.raw_html || s.html || s.svg || s.content || '';
+        if (bodyContent) html += bodyContent;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         const steps = s.steps || s.nodes || s.diagram?.nodes || [];
-        if (steps.length > 0) {
+        if (steps.length > 0 && !s.diagram_html && !s.raw_html && !s.html && !s.svg) {
           html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
           steps.forEach((st, idx) => {
             const stitle = st.step || st.title || st.text || st.label || '';
@@ -2055,9 +2571,11 @@
           `;
         }
       } else {
-        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
-        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.raw_html || s.html || s.content;
+        if (bodyContent) html += bodyContent;
       }
       return html;
     }
@@ -2241,6 +2759,9 @@
 
     function closeModals() {
       document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+      if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
     }
 
     function closePopovers() {
@@ -2266,6 +2787,45 @@
       popover.style.top = `${rect.bottom + 8}px`;
       popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
       popover.classList.add('open');
+    }
+
+    function openPopover(targetOrEvent, html) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      let el = null;
+      if (targetOrEvent instanceof Event) {
+        targetOrEvent.stopPropagation();
+        el = targetOrEvent.currentTarget || targetOrEvent.target;
+      } else if (targetOrEvent && targetOrEvent.nodeType) {
+        el = targetOrEvent;
+      } else if (targetOrEvent && targetOrEvent.target) {
+        el = targetOrEvent.target;
+      }
+      const popover = document.getElementById('global-popover');
+      if (!popover) return;
+      popover.innerHTML = html || '<div>Sin detalles adicionales</div>';
+      if (el && el.getBoundingClientRect) {
+        const rect = el.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + 8}px`;
+        popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      }
+      popover.classList.add('open');
+    }
+
+    function toggleAnswer(btn) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      if (!btn) return;
+      const container = btn.closest('.quiz-reveal-container') || btn.parentElement;
+      if (!container) return;
+      const ans = container.querySelector('.quiz-answer-box');
+      if (ans) {
+        const isHidden = window.getComputedStyle(ans).display === 'none' || ans.style.display === 'none';
+        ans.style.display = isHidden ? 'block' : 'none';
+        btn.textContent = isHidden ? 'Ocultar Respuesta ▲' : 'Ver Respuesta ▼';
+      }
     }
     document.addEventListener('click', closePopovers);
 
@@ -2444,6 +3004,18 @@
         }
       }
       renderSlide(initSlide);
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length && num !== currentSlideIdx) {
+            renderSlide(num);
+          }
+        }
+      }
     });
   </script>
 </body>

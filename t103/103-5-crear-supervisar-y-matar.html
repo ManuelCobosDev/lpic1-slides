@@ -322,17 +322,87 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 8px;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       background: var(--surface);
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
-    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
-    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); transform: translateY(-1px); }
+    .nav-btn:active { transform: translateY(0); }
+    .nav-btn.primary { background: #2563EB; color: #FFFFFF !important; border-color: #1D4ED8; box-shadow: 0 2px 4px rgba(37,99,235,0.25); }
+    .nav-btn.primary:hover { background: #1D4ED8; border-color: #1E40AF; }
+
+    /* Sistema Completo de Botones .btn */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      border: 1.5px solid transparent;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      user-select: none;
+      outline: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.12), 0 2px 4px -2px rgba(15, 23, 42, 0.08);
+    }
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: #FFFFFF !important;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      gap: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF !important;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+    }
 
     /* Contenedor del escenario (1920x1080) */
     #app-container {
@@ -498,6 +568,246 @@
       color: var(--info-ink);
       border-color: #BAE6FD;
     }
+    .callout-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      max-width: 24px !important;
+      min-height: 24px !important;
+      max-height: 24px !important;
+      border-radius: 50% !important;
+      background: #2563EB;
+      color: #FFFFFF !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+      text-align: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      margin: 0 4px !important;
+      user-select: none !important;
+    }
+    .badge-blue { background: #2563EB !important; color: #FFFFFF !important; }
+    .badge-amber { background: #D97706 !important; color: #FFFFFF !important; }
+    .badge-red { background: #DC2626 !important; color: #FFFFFF !important; }
+    .badge-green { background: #16A34A !important; color: #FFFFFF !important; }
+    .badge-purple { background: #7C3AED !important; color: #FFFFFF !important; }
+
+    /* Glosarios & Conceptos Clave Modernos */
+    /* Glosarios & Conceptos Clave Modernos */
+    .slide-glossary-box {
+      margin-top: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .slide-glossary-box .gl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .slide-glossary-box .gl-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563EB;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .slide-glossary-box .gl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .slide-glossary-box .gl-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+    .slide-glossary-box .gl-card:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+    .slide-glossary-box .gl-badge {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1D4ED8;
+      background: #EFF6FF;
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid #BFDBFE;
+      display: inline-block;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .slide-glossary-box .gl-def {
+      color: #334155;
+      font-size: 13.5px;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .slide-glossary-box .gl-def code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 4px;
+      color: #0F172A;
+    }
+
+    /* Compatibilidad strip con estilo pulido tipo chips */
+    .slide-glossary-strip {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .slide-glossary-strip .gl-title {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-glossary-strip .gl-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .slide-glossary-strip .gl-term {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #1D4ED8;
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM (Completo, accesible y moderno para interactivos y quizes)
+       ========================================================================== */
+    .btn, .quiz-reveal-container button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .btn:focus-visible, .quiz-reveal-container button:focus-visible {
+      outline: 2px solid #2563EB;
+      outline-offset: 2px;
+    }
+    .btn:active, .quiz-reveal-container button:active {
+      transform: translateY(1px);
+    }
+
+    /* Botón Primario (Azul vibrante) */
+    .btn-primary, .nav-btn.primary, .quiz-reveal-container button {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover, .nav-btn.primary:hover, .quiz-reveal-container button:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Botón Outline Primario */
+    .btn-outline-primary {
+      background: #FFFFFF;
+      color: #2563EB;
+      border-color: #2563EB;
+    }
+    .btn-outline-primary:hover {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-color: #1D4ED8;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Botón Secundario */
+    .btn-secondary {
+      background: #F1F5F9;
+      color: #334155;
+      border-color: #CBD5E1;
+    }
+    .btn-secondary:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+      border-color: #94A3B8;
+    }
+
+    /* Botón Éxito */
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+      border-color: #166534;
+      color: #FFFFFF;
+    }
+
+    /* Modificadores de Tamaño */
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14.5px;
+      border-radius: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+    }
 
     /* Terminal y Comandos (slides-terminal-comandos) */
     .term-wrapper {
@@ -517,20 +827,29 @@
       font-size: 18px;
       font-weight: 700;
     }
-    .term-copy-btn {
+    .term-copy-btn, .terminal-copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 12px;
       border-radius: 6px;
-      border: 2px solid var(--control-border);
+      border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-copy-btn:hover, .terminal-copy-btn:hover {
+      background: #F1F5F9;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+    .term-copy-btn:active, .terminal-copy-btn:active {
+      transform: scale(0.96);
+    }
     .term-code {
       padding: 14px 20px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -545,15 +864,169 @@
     .term-code::-webkit-scrollbar { width: 6px; }
     .term-code::-webkit-scrollbar-track { background: transparent; }
     .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
-    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+
+    /* Terminal Card (Real-life console frame) */
+    .terminal-card {
+      background: #0F172A;
+      border: 2px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .terminal-card .terminal-header {
+      background: #1E293B;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      gap: 12px;
+    }
+    .terminal-card .terminal-header::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 18px 0 0 #F59E0B, 36px 0 0 #10B981;
+      margin-right: 36px;
+      flex-shrink: 0;
+    }
+    .terminal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #94A3B8;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: 0.02em;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .terminal-card .terminal-copy-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #475569;
+    }
+    .terminal-card .terminal-copy-btn:hover {
+      background: #334155;
+      border-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .terminal-body {
+      padding: 16px 20px;
+      margin: 0;
+      background: #0F172A;
+      color: #E2E8F0;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      font-size: 15.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Mini-Terminal para llamadas o ejemplos dentro de cajas */
+    .mini-terminal {
+      background: #0F172A;
+      border: 1.5px solid #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+    }
+    .mini-term-header {
+      background: #1E293B;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    .mini-term-dots {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 12px 0 0 #F59E0B, 24px 0 0 #10B981;
+      margin-right: 22px;
+    }
+    .mini-term-title {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+    .mini-term-body {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #E2E8F0;
+      background: #0F172A;
+    }
+
+    /* High-contrast terminal syntax tokens for light mode by default */
+    .t-prompt { color: #0284C7; user-select: none; font-weight: 700; }
     .t-cmd { font-weight: 700; color: #0F172A; }
     .t-flag { color: #1D4ED8; font-weight: 600; }
-    .t-arg { color: #9A3412; font-weight: 500; }
-    .t-path { color: #15803D; font-weight: 500; }
-    .t-str { color: #A21CAF; }
-    .t-cmt { color: #5B6B82; font-style: italic; }
-    .t-err { color: #B91C1C; font-weight: 600; }
-    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+    .t-arg { color: #B45309; font-weight: 600; }
+    .t-path { color: #047857; font-weight: 600; }
+    .t-str { color: #7C3AED; }
+    .t-cmt, .term-comment { color: #64748B; font-style: italic; }
+    .t-err { color: #DC2626; font-weight: 600; }
+    .t-hl { background: rgba(254, 240, 138, 0.45); border-radius: 4px; padding: 0 6px; }
+
+    /* Dark context inside terminal-card and mini-terminal */
+    .terminal-card .term-prompt, .mini-terminal .term-prompt,
+    .terminal-card .t-prompt, .mini-terminal .t-prompt { color: #38BDF8; font-weight: 700; }
+    .terminal-card .term-cmd, .mini-terminal .term-cmd,
+    .terminal-card .t-cmd, .mini-terminal .t-cmd { font-weight: 700; color: #F8FAFC; }
+    .terminal-card .t-flag, .mini-terminal .t-flag { color: #60A5FA; }
+    .terminal-card .t-arg, .mini-terminal .t-arg { color: #FBBF24; }
+    .terminal-card .t-path, .mini-terminal .t-path { color: #34D399; }
+    .terminal-card .t-str, .mini-terminal .t-str { color: #E879F9; }
+    .terminal-card .term-comment, .mini-terminal .term-comment,
+    .terminal-card .t-cmt, .mini-terminal .t-cmt { color: #94A3B8; }
+    .terminal-card .t-err, .mini-terminal .t-err { color: #F87171; }
+
+    /* Estilos del Modal Autotest / Test Global */
+    .autotest-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--surface);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: border-color 0.15s ease;
+    }
+    .autotest-card:hover {
+      border-color: var(--primary);
+    }
+    .autotest-opt-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface-alt);
+      font-size: 18px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .autotest-opt-label:hover {
+      background: #EFF6FF;
+      border-color: #93C5FD;
+    }
+    .autotest-opt-label input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2563EB;
+      cursor: pointer;
+    }
 
     /* Chips de opciones interactivas */
     .options-row {
@@ -619,32 +1092,38 @@
     /* Tablas (≤5x4) */
     .table-container {
       width: 100%;
-      margin: 20px 0;
-      border: 2px solid var(--border);
-      border-radius: 14px;
+      margin: 12px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 12px;
       overflow: hidden;
-      background: #FFFFFF;
+      background: var(--surface);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 26px;
+      font-size: clamp(15px, 1.05vw, 18.5px);
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 16px 24px;
+      padding: 10px 18px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
+      font-size: clamp(15.5px, 1.1vw, 19.5px);
     }
     table.slide-table td {
-      padding: 16px 24px;
+      padding: 9px 18px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
+      line-height: 1.4;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
-    table.slide-table tr.highlighted { background: #FEF3C7; }
+    table.slide-table tr.highlighted { background: var(--warning-soft); }
+    [data-theme="dark"] .table-container {
+      background: var(--surface);
+    }
 
     /* Matrices comparativas y mapas de equivalencias */
     .matrix-container {
@@ -1131,7 +1610,7 @@
     <aside id="teacher-panel">
       <div class="panel-header">
         <span>Notas del Docente</span>
-        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+        <button class="nav-btn" onclick="toggleTeacherNotes()" aria-label="Cerrar panel docente"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
       </div>
       <div class="panel-body">
         <div class="panel-meta" id="panel-meta-info"></div>
@@ -1146,7 +1625,7 @@
   <!-- Modal de Erratas -->
   <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar notas y erratas"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
         <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
         Notas y Erratas del Manual Oficial
@@ -1158,7 +1637,7 @@
   <!-- Modal de Ayuda / Atajos -->
   <div class="modal-overlay" id="modal-help" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar ayuda de atajos"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
         <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
@@ -1181,7 +1660,7 @@
   <!-- Modal de Vista General (Overview) -->
   <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
     <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar vista general"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
       <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
     </div>
@@ -1197,7 +1676,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "103.5", "cat": "proc", "type": "cover", "title": "Crear, monitorizar y matar procesos", "subtitle": "Ciclo de vida, jobs, nohup, señales (1, 2, 9, 15), kill, ps aux, top, uptime, screen y tmux (Modo Examen)", "ref": "311-312", "pdf": {"manual": "A", "pages": [311, 312], "figure": null}, "coverage": ["103.5-OBJ-001", "103.5-OBJ-002", "103.5-OBJ-003", "103.5-OBJ-004"], "meta": {"peso": 4, "paginas": "311–344", "duracion": "30 min"}, "icon": "activity", "notes": "Iniciamos el subtema 103.5 (peso 4). La gestión de procesos es un pilar básico de la certificación LPIC-1. Aprenderemos a controlar tareas en segundo plano (jobs), enviar señales de comunicación y terminación (kill, killall, pkill), inspeccionar el estado con ps y monitorizar en tiempo real con top y uptime."}, {"id": 2, "section": "103.5", "cat": "proc", "type": "concept", "title": "Estructura Jerárquica y Ciclo de Vida del Proceso", "lead": "¿Cómo nace un proceso en Linux y cómo se organizan en el árbol del sistema?", "ref": "312-314", "pdf": {"manual": "A", "pages": [312, 313, 314], "figure": null}, "coverage": ["103.5-CON-001", "103.5-CON-002"], "points": [{"icon": "git-commit", "text": "PID 1: El antecesor común de todos los procesos", "detail": "🎯 Cuando el kernel de Linux termina de inicializarse, lanza el primer proceso del espacio de usuario: systemd (o init tradicional con PID 1). Todos los demás procesos del sistema descienden de él."}, {"icon": "git-branch", "text": "PID y PPID: Relación Padre e Hijo", "detail": "🎯 Cada proceso tiene un identificador único PID (Process ID) y registra el identificador de su creador PPID (Parent Process ID). Los procesos se crean mediante la llamada al sistema 'fork()' seguida de 'exec()'."}, {"icon": "skull", "text": "Procesos Huérfanos y Zombis (Z / <defunct>)", "detail": "🎯 Clave de Examen: Un proceso 'Zombi' ha terminado su ejecución pero su proceso padre aún no ha leído su código de salida con wait(). No consume CPU ni RAM, solo retiene una entrada en la tabla de procesos. Si el padre muere, PID 1 adopta al huérfano y lo limpia."}], "remember": "🎯 Clave de Examen: PID 1 es systemd/init; un proceso Zombi (Z) está muerto pero su padre no ha recogido su código de salida.", "notes": "Muestra el árbol de procesos en la terminal ejecutando 'pstree -p'."}, {"id": 3, "section": "103.5", "cat": "proc", "type": "command", "title": "Control de Trabajos (Job Control): &, jobs, Ctrl+Z, bg y fg", "lead": "Gestionar tareas en primer plano (foreground) y segundo plano (background) en la shell:", "ref": "314-318", "pdf": {"manual": "A", "pages": [314, 315, 316, 317, 318], "figure": null}, "coverage": ["103.5-CMD-001", "103.5-CMD-002", "103.5-CMD-003", "103.5-CMD-004", "103.5-OPT-001"], "command": "cmd & | jobs [-l] | Ctrl+Z | bg [%n] | fg [%n]", "purpose": "Lanzar tareas en segundo plano, suspenderlas temporalmente y alternar su ejecución", "terminal": {"command": "sleep 1000 &; jobs -l; fg %1", "output": "[1] 28540\n[1]+ 28540 Running                 sleep 1000 &\nsleep 1000\n# El comando regresa a primer plano ocupando la terminal."}, "options": [{"flag": "comando &", "desc": "🎯 Clave de Examen: El signo '&' al final lanza la orden directamente en segundo plano (background), liberando el prompt al instante."}, {"flag": "jobs [-l]", "desc": "🎯 Lista los trabajos activos de la shell actual. '-l' añade el PID de cada proceso."}, {"flag": "Ctrl + Z", "desc": "🎯 Clave de Examen: Envía la señal SIGTSTP (20/19/18) que SUSPENDE (detiene) de forma inmediata el proceso que corre en primer plano."}, {"flag": "bg [%n]", "desc": "🎯 Reanuda la ejecución del trabajo detenido (%n o el más reciente) en segundo plano (background)."}, {"flag": "fg [%n]", "desc": "🎯 Trae el trabajo detenido o en segundo plano (%n) a primer plano (foreground), volviendo a bloquear la consola."}], "remember": "🎯 El Flujo Innegociable de Examen: Si un comando largo bloquea tu terminal: 1º Pulsa 'Ctrl+Z' (lo detiene) -> 2º Escribe 'bg' (lo reanuda en segundo plano) -> ¡Terminal libre!", "notes": "Explica que el número entre corchetes [1] es el Job ID (número de trabajo local), mientras que el número de cinco cifras es el PID global del sistema."}, {"id": 4, "section": "103.5", "cat": "proc", "type": "command", "title": "Ejecución Inmune al Cierre: nohup y watch", "lead": "¿Cómo asegurar que un proceso no muera cuando cierras la ventana de la terminal o la conexión SSH?", "ref": "318-321", "pdf": {"manual": "A", "pages": [318, 319, 320, 321], "figure": null}, "coverage": ["103.5-CMD-005", "103.5-CMD-006", "103.5-FILE-001"], "command": "nohup <comando> & | watch [-n <seg>] <comando>", "purpose": "Hacer un proceso inmune a la desconexión SIGHUP y monitorizar salidas periódicas", "terminal": {"command": "nohup ./backup_largo.sh &; head -n 2 nohup.out", "output": "[1] 31204\nnohup: ignoring input and appending output to 'nohup.out'\nIniciando copia de seguridad...\nCopiando /home..."}, "options": [{"flag": "nohup <comando> &", "desc": "🎯 Clave de Examen: No Hangup: ejecuta el comando interceptando la señal SIGHUP. Si cierras la terminal o cae la red, el proceso sigue vivo en el servidor."}, {"flag": "nohup.out", "desc": "🎯 Clave de Examen: Archivo automático en el directorio actual (o en $HOME) donde nohup redirige la salida del proceso si no se especificó redirección manual."}, {"flag": "disown [-h] [%n]", "desc": "Desvincula un trabajo en segundo plano de la tabla de la shell para que no reciba SIGHUP al cerrar sesión."}, {"flag": "watch -n <seg> <cmd>", "desc": "🎯 Ejecuta el comando repetidamente cada N segundos (por defecto 2s) mostrando los cambios en pantalla a pantalla completa (ej: 'watch -n 1 free -m')."}], "remember": "🎯 Clave de Examen: 'nohup' hace al proceso inmune a SIGHUP y redirige toda su salida al archivo 'nohup.out'.", "notes": "Muestra que si el usuario no tiene permisos de escritura en la carpeta actual, nohup guarda nohup.out en su $HOME."}, {"id": 5, "section": "103.5", "cat": "proc", "type": "table", "title": "Tabla Oficial de Señales Críticas de Linux", "lead": "Las 5 señales que DEBES memorizar por nombre y por número para el examen LPIC-1:", "ref": "321-324", "pdf": {"manual": "A", "pages": [321, 322, 323, 324], "figure": null}, "coverage": ["103.5-SIG-001", "103.5-SIG-002", "103.5-SIG-003", "103.5-SIG-004", "103.5-SIG-005"], "headers": ["Número", "Nombre de Señal", "Atajo Teclado", "Efecto y Comportamiento en el Examen LPIC-1"], "rows": [["1", "SIGHUP (Hangup)", "Cierre terminal", "🎯 Notifica que la terminal se ha cerrado. En demonios (como Nginx o Apache) se usa para forzar la relectura de su archivo de configuración sin reiniciar el servicio."], ["2", "SIGINT (Interrupt)", "Ctrl + C", "🎯 Interrupción interactiva: solicita amablemente al proceso que se detenga de inmediato desde el teclado."], ["3", "SIGQUIT (Quit)", "Ctrl + \\", "Interrupción agresiva que genera un volcado de memoria (Core Dump) para depuración técnica."], ["9", "SIGKILL (Kill)", "Ninguno", "🎯 Terminación INMEDIATA Y FORZADA por el kernel. ⚠️ ¡NUNCA puede ser capturada, bloqueada ni ignorada por el proceso! Destrucción absoluta."], ["15", "SIGTERM (Terminate)", "kill (default)", "🎯 Clave de Examen: Señal de terminación PRETERMINADA del comando 'kill'. Solicita al proceso que limpie buffers y cierre ordenadamente. Puede ser capturada."], ["19 (o 18/20)", "SIGSTOP (Stop)", "Ctrl + Z", "🎯 Detiene y congela la ejecución del proceso. Al igual que SIGKILL, ¡NO puede ser capturada ni ignorada!"]], "remember": "🎯 Los Dos Reyes del Examen: 15 (SIGTERM) es la señal por defecto de kill; 9 (SIGKILL) es la señal forzada que no se puede interceptar jamás.", "notes": "Pregunta de examen garantizada: '¿Cuáles son las dos únicas señales que un proceso NO puede capturar ni ignorar?'. Respuesta: SIGKILL (9) y SIGSTOP (19)."}, {"id": 6, "section": "103.5", "cat": "proc", "type": "command", "title": "Envío de Señales con kill: por PID o Job ID", "lead": "¿Cómo enviar señales de terminación o reinicio a procesos concretos?", "ref": "324-327", "pdf": {"manual": "A", "pages": [324, 325, 326, 327], "figure": null}, "coverage": ["103.5-CMD-007", "103.5-OPT-002", "103.5-OPT-003"], "command": "kill [-s <señal>|-<señal>] <PID|%job>", "purpose": "Enviar una señal de software al proceso identificado por su PID o a un trabajo de shell", "terminal": {"command": "kill -l | tr ' ' '\\n' | head -n 9; kill -15 28540; kill -9 28540", "output": "1) SIGHUP\n2) SIGINT\n3) SIGQUIT\n4) SIGILL\n5) SIGTRAP\n6) SIGABRT\n7) SIGBUS\n8) SIGFPE\n9) SIGKILL"}, "options": [{"flag": "kill -l", "desc": "🎯 Lista todas las señales disponibles en el sistema con sus nombres y números oficiales."}, {"flag": "kill <PID>", "desc": "🎯 Clave de Examen: Sin opciones, envía por defecto la señal 15 (SIGTERM)."}, {"flag": "kill -9 <PID> (o kill -SIGKILL <PID>)", "desc": "🎯 Fuerza el cierre inmediato de un proceso colgado o bloqueado que no responde a SIGTERM."}, {"flag": "kill -1 <PID> (o kill -HUP <PID>)", "desc": "Envía SIGHUP para recargar la configuración del servicio."}, {"flag": "kill %1", "desc": "🎯 Clave de Examen: Si antepones el signo de porcentaje '%', envía la señal al JOB número 1 de la shell en lugar de al PID 1."}], "remember": "🎯 Peligro Clásico de Examen: Si ejecutas 'kill 1' intentas matar al proceso PID 1 (systemd); si quieres matar al trabajo número 1 de tu shell, DEBES escribir 'kill %1'.", "notes": "Explica la diferencia entre matar por cortesía con SIGTERM (15) y matar con machete con SIGKILL (9)."}, {"id": 7, "section": "103.5", "cat": "proc", "type": "command", "title": "Terminación Masiva y Búsqueda: killall, pkill, pgrep y pidof", "lead": "¿Cómo matar procesos por su nombre o usuario sin tener que buscar su PID a mano?", "ref": "327-330", "pdf": {"manual": "A", "pages": [327, 328, 329, 330], "figure": null}, "coverage": ["103.5-CMD-008", "103.5-CMD-009", "103.5-CMD-010", "103.5-CMD-011"], "command": "killall <nombre> | pkill <patrón> | pgrep <patrón> | pidof <nombre>", "purpose": "Localizar PIDs o enviar señales a grupos de procesos por su nombre de ejecutable", "terminal": {"command": "pidof nginx; pgrep -l nginx; sudo killall -u alumno sleep", "output": "1420 1419 1418\n1418 nginx\n1419 nginx\n1420 nginx\n# Termina todos los comandos sleep del usuario alumno."}, "options": [{"flag": "killall <nombre_exacto>", "desc": "🎯 Mata todos los procesos que coincidan EXACTAMENTE con el nombre del binario (ej: 'killall nginx')."}, {"flag": "killall -i <nombre>", "desc": "Modo interactivo: pide confirmación antes de matar cada proceso coincidente."}, {"flag": "killall -u <usuario> <cmd>", "desc": "🎯 Limita la terminación a los procesos del comando que pertenezcan al usuario indicado."}, {"flag": "pkill [-9] <patrón>", "desc": "🎯 Envía la señal a todos los procesos cuyo nombre coincida con una expresión regular o patrón."}, {"flag": "pkill -u <usuario>", "desc": "🎯 Mata todos los procesos de cualquier tipo que pertenezcan a ese usuario."}, {"flag": "pgrep [-l] <patrón>", "desc": "🎯 Clave de Examen: Busca y muestra únicamente los PIDs de los procesos que coincidan (con '-l' muestra también su nombre)."}, {"flag": "pidof <nombre>", "desc": "Devuelve la lista de PIDs del binario exacto en una sola línea (ideal para scripts)."}], "remember": "🎯 Diferencia Clave: 'kill' opera por PID; 'killall' opera por nombre exacto de binario; 'pkill' y 'pgrep' operan por patrones y expresiones regulares.", "notes": "Muestra a los alumnos cómo 'pgrep -u alumno' lista todos los procesos de un usuario."}, {"id": 8, "section": "103.5", "cat": "proc", "type": "command", "title": "Inspección de Procesos con ps: Sintaxis BSD frente a Unix", "lead": "La foto estática del estado del sistema y sus dos convenciones históricas:", "ref": "330-334", "pdf": {"manual": "A", "pages": [330, 331, 332, 333, 334], "figure": null}, "coverage": ["103.5-CMD-012", "103.5-OPT-004", "103.5-OPT-005"], "command": "ps aux (Sintaxis BSD sin guión) | ps -ef (Sintaxis Unix/POSIX con guión)", "purpose": "Obtener una instantánea de los procesos activos, usuarios, consumo de CPU/RAM y estados", "terminal": {"command": "ps aux | head -n 3; ps -ef | head -n 3", "output": "USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\nroot         1  0.0  0.2 168432 11240 ?        Ss   Oct18   0:04 /sbin/init\nroot         2  0.0  0.0      0     0 ?        S    Oct18   0:00 [kthreadd]\nUID        PID  PPID  C STIME TTY          TIME CMD\nroot         1     0  0 Oct18 ?        00:00:04 /sbin/init\nroot         2     0  0 Oct18 ?        00:00:00 [kthreadd]"}, "options": [{"flag": "ps (sin opciones)", "desc": "Muestra únicamente los procesos asociados a la terminal actual del usuario activo."}, {"flag": "ps aux (Estilo BSD)", "desc": "🎯 Clave de Examen: SIN GUIÓN. 'a' = todos los procesos con terminal; 'u' = formato detallado de usuario con %CPU y %MEM; 'x' = incluye procesos sin terminal (demonios de fondo)."}, {"flag": "ps -ef (Estilo Unix)", "desc": "🎯 CON GUIÓN. '-e' = todos los procesos (every); '-f' = formato completo (full) mostrando columnas UID, PID, PPID y STIME."}, {"flag": "ps -u <usuario>", "desc": "Filtra los procesos pertenecientes a un usuario determinado."}, {"flag": "ps --sort=-%cpu", "desc": "Ordena la salida por porcentaje de uso de CPU de mayor a menor."}], "remember": "🎯 Clave Mnemotécnica de Examen: 'ps aux' se escribe SIN guión (BSD); 'ps -ef' se escribe CON guión (Unix). Ambos muestran todos los procesos del sistema.", "notes": "Explica la diferencia entre VSZ (Virtual Memory Size: memoria virtual asignada) y RSS (Resident Set Size: RAM física no intercambiada realmente ocupada)."}, {"id": 9, "section": "103.5", "cat": "proc", "type": "table", "title": "Códigos de Estado de Proceso (STAT en ps)", "lead": "¿Qué significa cada letra de la columna STAT en la salida de 'ps aux'?", "ref": "334-336", "pdf": {"manual": "A", "pages": [334, 335, 336], "figure": null}, "coverage": ["103.5-CON-003"], "headers": ["Código STAT", "Nombre del Estado", "Significado y Comportamiento en el Examen LPIC-1"], "rows": [["R", "Running / Runnable", "🎯 En ejecución activa en la CPU o listo en la cola de ejecución esperando su turno."], ["S", "Interruptible Sleep", "🎯 Durmiendo: esperando un evento (entrada de red, temporizador, pulsación de tecla). Se despierta al recibir señales."], ["D", "Uninterruptible Sleep", "🎯 Clave de Examen: Espera de E/S de disco ininterrumpible. NO responde a ninguna señal (¡ni siquiera a kill -9!). Si no despierta, suele indicar disco roto."], ["T / t", "Stopped / Traced", "Detenido por señal de control (SIGSTOP / Ctrl+Z) o detenido por un depurador (debugger)."], ["Z", "Zombie (<defunct>)", "🎯 Muerto: terminó su ejecución pero su padre no recogió su código de salida."], ["s", "Session Leader", "Modificador adicional: el proceso es el líder de la sesión (ej: la shell bash)."], ["< frente a N", "Prioridad Nice", "🎯 '<' = alta prioridad (amable negativo); 'N' = baja prioridad (amable positivo / nice)."], ["+", "Foreground", "El proceso se encuentra ejecutándose en el grupo de primer plano de la terminal."]], "remember": "🎯 Pregunta Fija de Examen: ¿Qué estado representa un proceso en espera de disco que no responde a señales? El estado 'D'. ¿Qué estado representa un zombi? El estado 'Z'.", "notes": "Muestra que si ves 'Ss+' significa: durmiendo (S), líder de sesión (s) y en primer plano (+)."}, {"id": 10, "section": "103.5", "cat": "proc", "type": "command", "title": "Monitor Interactivo del Sistema: top", "lead": "El cuadro de mandos en vivo para monitorizar CPU, RAM y matar procesos sin salir:", "ref": "336-339", "pdf": {"manual": "A", "pages": [336, 337, 338, 339], "figure": null}, "coverage": ["103.5-CMD-013", "103.5-OPT-006"], "command": "top [-d <seg>] [-u <usuario>] [-p <PID>]", "purpose": "Visualizar en tiempo real el consumo de recursos y gestionar procesos mediante atajos de teclado", "terminal": {"command": "top -b -n 1 | head -n 5", "output": "top - 10:45:00 up 2 days,  2:09,  1 user,  load average: 0.08, 0.03, 0.01\nTasks: 125 total,   1 running, 124 sleeping,   0 stopped,   0 zombie\n%Cpu(s):  1.5 us,  0.5 sy,  0.0 ni, 97.8 id,  0.2 wa,  0.0 hi,  0.0 si,  0.0 st\nMiB Mem :   3932.4 total,   1850.2 free,    820.5 used,   1261.7 buff/cache\nMiB Swap:   2048.0 total,   2048.0 free,       0.0 used.   2850.1 avail Mem"}, "options": [{"flag": "Teclas de Ordenación", "desc": "🎯 Clave de Examen: 'P' (mayúscula) ordena por uso de CPU (por defecto); 'M' (mayúscula) ordena por uso de memoria RAM; 'T' ordena por tiempo total acumulado."}, {"flag": "k (Kill)", "desc": "🎯 Clave de Examen: Solicita un PID y una señal para matar un proceso directamente desde la pantalla de top."}, {"flag": "r (Renice)", "desc": "🎯 Solicita un PID y un nuevo valor nice para modificar la prioridad de un proceso en vivo."}, {"flag": "1 (Uno)", "desc": "Alterna entre mostrar el uso de CPU desglosado por cada núcleo individual (CPU0, CPU1) o unificado en uno."}, {"flag": "q / h", "desc": "'q' sale inmediatamente de top; 'h' abre la pantalla de ayuda de atajos."}, {"flag": "top -b -n 1", "desc": "Modo batch (por lotes): ejecuta 1 iteración y sale como texto plano (ideal para scripts de monitorización)."}], "remember": "🎯 Atajos Clave de top en Examen: 'M' para ordenar por Memoria; 'P' para ordenar por CPU; 'k' para matar un proceso; 'r' para cambiar prioridad (renice).", "notes": "Muestra las métricas de CPU: us (usuario), sy (sistema/kernel), id (idle/ocioso), wa (iowait/espera de disco)."}, {"id": 11, "section": "103.5", "cat": "proc", "type": "command", "title": "Medición de Rendimiento y Memoria: uptime y free", "lead": "¿Cómo interpretar el Load Average del sistema y la ocupación real de la memoria RAM?", "ref": "339-341", "pdf": {"manual": "A", "pages": [339, 340, 341], "figure": null}, "coverage": ["103.5-CMD-014", "103.5-CMD-015"], "command": "uptime | free [-h|-m|-g]", "purpose": "Consultar el tiempo de encendido, el promedio de carga del procesador y la memoria disponible", "terminal": {"command": "uptime; free -h", "output": " 10:50:15 up 2 days,  2:14,  1 user,  load average: 0.15, 0.08, 0.02\n               total        used        free      shared  buff/cache   available\nMem:           3.8Gi       820Mi       1.8Gi        15Mi       1.2Gi       2.8Gi\nSwap:          2.0Gi          0B       2.0Gi"}, "options": [{"flag": "Load Average (3 valores)", "desc": "🎯 Clave de Examen: Muestra la media de procesos en estado ejecutable (R) o esperando disco (D) durante los últimos 1 minuto, 5 minutos y 15 minutos."}, {"flag": "Interpretación del Load", "desc": "🎯 En un sistema con 1 CPU, una carga de '1.0' significa que la CPU está al 100% de su capacidad. Si la carga es '2.0', hay el doble de trabajo del que la CPU puede procesar (cola de espera). En 4 CPUs, la carga máxima saturante es '4.0'."}, {"flag": "free -h", "desc": "Muestra la memoria en formato legible (human-readable: MiB, GiB)."}, {"flag": "Columna available en free", "desc": "🎯 Clave de Examen: 'available' es la memoria REAL disponible para nuevas aplicaciones (incluye la RAM libre más los buffers y caché que el kernel puede liberar de inmediato si hace falta)."}], "remember": "🎯 Clave de Examen: Los tres números de 'uptime' representan la carga media en 1, 5 y 15 minutos; 'available' en free representa la RAM real utilizable.", "notes": "Aclara que en Linux la RAM ocupada por buff/cache no es memoria perdida, sino memoria optimizada que se cede automáticamente a las aplicaciones cuando la necesitan."}, {"id": 12, "section": "103.5", "cat": "proc", "type": "command", "title": "Multiplexadores de Terminal: GNU Screen y tmux", "lead": "¿Cómo mantener múltiples terminales y sesiones abiertas que sobreviven a cortes de red?", "ref": "341-343", "pdf": {"manual": "A", "pages": [341, 342, 343], "figure": null}, "coverage": ["103.5-CMD-016", "103.5-CMD-017"], "command": "screen [-r|-ls] | tmux [new|attach|ls]", "purpose": "Crear sesiones de terminal persistentes que pueden desacoplarse y reanudarse desde cualquier lugar", "terminal": {"command": "screen -ls; tmux ls", "output": "There is a screen on:\n\t28415.trabajo\t(10/20/2026 10:30:00 AM)\t(Detached)\n1 Socket in /run/screen/S-alumno.\n0: 1 windows (created Tue Oct 20 10:35:00 2026) (attached)"}, "options": [{"flag": "screen", "desc": "Inicia una nueva sesión virtual de GNU Screen."}, {"flag": "Ctrl + A y luego d", "desc": "🎯 Clave de Examen: Desacopla (Detach) la sesión de Screen dejándola corriendo en segundo plano sin interrumpir los procesos."}, {"flag": "screen -r [id]", "desc": "🎯 Clave de Examen: Reanuda (Resume / Reattach) una sesión de Screen que fue desacoplada previamente."}, {"flag": "screen -ls", "desc": "Lista todas las sesiones de Screen activas en el sistema."}, {"flag": "Ctrl + B y luego d (tmux)", "desc": "🎯 Desacopla la sesión activa en tmux."}, {"flag": "tmux attach [-t sesion]", "desc": "Reconecta la sesión de tmux indicada."}], "remember": "🎯 Clave de Examen: Para desacoplar en Screen: 'Ctrl+A' seguido de 'd'; para reanudar desde otra terminal: 'screen -r'. En tmux el prefijo es 'Ctrl+B'."}, {"id": 13, "section": "103.5", "cat": "proc", "type": "concept", "title": "Trampas Clásicas de Examen en Gestión de Procesos", "lead": "Los 4 errores conceptuales más frecuentes en las preguntas de procesos y señales:", "ref": "343-344", "pdf": {"manual": "A", "pages": [343, 344], "figure": null}, "coverage": ["103.5-WARN-001", "103.5-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Creer que kill mata por defecto con señal 9", "detail": "🎯 Trampa fija: '¿Qué señal envía kill por defecto?'. Mucha gente responde erróneamente 9 (SIGKILL). La respuesta correcta SIEMPRE es 15 (SIGTERM)."}, {"icon": "alert-triangle", "text": "2. Confundir PID con Job ID en kill", "detail": "'kill 2' intenta matar al proceso con PID 2 (kthreadd). Para matar al trabajo número 2 de tu shell debes escribir 'kill %2' obligatoriamente con el símbolo '%'."}, {"icon": "alert-triangle", "text": "3. Creer que se puede matar un proceso zombi", "detail": "Un proceso zombi (Z) ya está muerto; no se le puede enviar ninguna señal (ni siquiera SIGKILL). Para retirarlo de la tabla de procesos hay que matar a su proceso padre o esperar que PID 1 lo adopte."}, {"icon": "alert-triangle", "text": "4. Señales que no se pueden capturar", "detail": "SIGKILL (9) y SIGSTOP (19) no pueden ser interceptadas por código de software ni ignoradas por el proceso."}], "remember": "🎯 Mnemotecnia Rápida: kill envía 15 por defecto; los jobs llevan '%' (kill %1); y los zombis no se matan (se mata al padre).", "notes": "Estos 4 puntos se preguntan sistemáticamente en todas las convocatorias oficiales."}, {"id": 14, "section": "103.5", "cat": "proc", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Jobs y nohup)", "ref": "Manual A - Pág 344", "pdf": {"manual": "A", "pages": [344], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 344): Lanza un comando 'sleep 500' en segundo plano y comprueba su estado en la tabla de trabajos de la shell.", "command": "sleep 500 &; jobs -l", "reason": "El operador '&' lanza el proceso en background y 'jobs -l' muestra el Job ID junto con el PID asociado."}, {"action": "Caso 2 (Oficial Pág 344): Un comando interactivo 'dd if=/dev/sda of=/backup/disk.img' está corriendo en primer plano y necesitas liberar la consola sin detener la copia definitivamente.", "command": "Pulsar Ctrl+Z en la terminal y a continuación ejecutar 'bg'", "reason": "Ctrl+Z suspende el proceso con SIGTSTP y el comando 'bg' lo reanuda en segundo plano liberando el prompt."}, {"action": "Caso 3 (Oficial Pág 344): ¿Cómo ejecutar un script 'actualizar.sh' de modo que continúe ejecutándose incluso si se cierra la sesión SSH y dónde se guardará su salida por defecto?", "command": "nohup ./actualizar.sh & (salida guardada en 'nohup.out')", "reason": "nohup ignora la señal de desconexión SIGHUP y redirige automáticamente stdout y stderr a nohup.out."}], "solution": {"explain": "& lanza en segundo plano; Ctrl+Z seguido de bg libera la terminal; y nohup garantiza persistencia frente a desconexiones."}, "notes": "Enseña a comprobar con 'ps aux | grep sleep' que el proceso sigue corriendo tras cerrar la terminal si se usó nohup."}, {"id": 15, "section": "103.5", "cat": "proc", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: Señales y top)", "ref": "Manual A - Pág 344", "pdf": {"manual": "A", "pages": [344], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 344): ¿Cuál es el comando exacto para forzar la terminación inmediata e incondicional de un proceso con PID 4512 que no responde?", "command": "kill -9 4512 (o kill -SIGKILL 4512)", "reason": "La señal 9 (SIGKILL) es ejecutada directamente por el kernel y no puede ser bloqueada ni ignorada por el proceso colgado."}, {"action": "Caso 5 (Oficial Pág 344): Dentro del monitor 'top', ¿qué teclas de acceso directo se pulsan para ordenar los procesos por consumo de memoria RAM y para matar un proceso por su PID?", "command": "Pulsar 'M' (mayúscula) para ordenar por RAM; pulsar 'k' para matar", "reason": "'M' reordena la tabla por %MEM; 'k' abre un cuadro de diálogo interactivo solicitando el PID y la señal a enviar."}], "solution": {"explain": "kill -9 es la terminación forzada final; en top 'M' ordena por RAM y 'k' envía señales de forma interactiva."}, "notes": "Recuerda que en top también se puede usar 'P' para volver a ordenar por uso de procesador."}, {"id": 16, "section": "103.5", "cat": "proc", "type": "challenge", "title": "Retos de Exploración Oficiales (Procesos Zombis y Load Average)", "ref": "Manual A - Págs 344-345", "pdf": {"manual": "A", "pages": [344, 345], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un servidor de 2 CPUs muestra en 'uptime' una carga media de '5.40, 4.20, 3.10'. ¿Está el sistema sobrecargado y la carga está aumentando o disminuyendo?\n2. En la salida de 'ps aux' detectas un proceso con estado 'Z'. Si intentas ejecutar 'kill -9 <PID_ZOMBI>', el proceso no desaparece. ¿Por qué ocurre y cómo se retira del sistema?\n3. ¿Qué atajo de teclado desacopla una sesión en GNU Screen y qué comando permite reanudarla desde otra máquina conectada por SSH?", "hint": "Recuerda: capacidad máxima de 2 CPUs; naturaleza de los zombis y su proceso padre; y Ctrl+A d con screen -r.", "solution": {"explain": "1. Sí, está severamente sobrecargado (la capacidad nominal de 2 CPUs es 2.0; 5.40 significa que hay procesos esperando en cola). La carga está AUMENTANDO, ya que el último minuto (5.40) es superior a la media de 5 min (4.20) y a la de 15 min (3.10).\n2. El proceso zombi ya está muerto y no procesa señales. Se retira matando a su proceso padre con 'kill -15 <PPID>' (o 'kill -9 <PPID>') para que PID 1 adopte al zombi y limpie la tabla de procesos.\n3. Se desacopla con: Ctrl+A seguido de d. Se reanuda con: screen -r."}, "notes": "La interpretación de si la carga sube o baja comparando los 3 valores de uptime es una pregunta recurrente en la certificación."}, {"id": 17, "section": "103.5", "cat": "proc", "type": "review", "title": "Pregunta de Examen LPIC-1: Señal por Defecto de kill", "q": "¿Qué número de señal envía por defecto el comando 'kill 2045' si no se especifica ningún modificador o parámetro de señal?", "options": ["Señal 1 (SIGHUP)", "Señal 2 (SIGINT)", "Señal 9 (SIGKILL)", "Señal 15 (SIGTERM)"], "answer": 3, "why": "Por especificación estándar de Unix y POSIX, el comando 'kill' envía de forma predeterminada la señal 15 (SIGTERM), que solicita una terminación limpia y ordenada del proceso permitiéndole cerrar archivos y guardar estado. Para enviar SIGKILL (9) debe indicarse explícitamente con '-9' o '-SIGKILL'.", "notes": "Pregunta fija y directa de examen. Nadie debe confundir la señal 15 con la 9."}, {"id": 18, "section": "103.5", "cat": "proc", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Procesos y Señales 103.5", "deck": [{"front": "¿Qué número y nombre de señal envía 'kill' por defecto?", "back": "Señal 15: SIGTERM (terminación limpia)."}, {"front": "¿Qué número de señal fuerza la muerte inmediata sin poder ser ignorada?", "back": "Señal 9: SIGKILL."}, {"front": "¿Qué dos señales NUNCA pueden ser interceptadas ni ignoradas por un proceso?", "back": "SIGKILL (9) y SIGSTOP (19)."}, {"front": "¿Qué atajo de teclado suspende un proceso en primer plano?", "back": "Ctrl + Z (envía la señal SIGTSTP)."}, {"front": "¿Qué comando reanuda un proceso suspendido en segundo plano?", "back": "bg."}, {"front": "¿Cómo matar el trabajo número 1 de tu shell local?", "back": "kill %1 (anteponiendo obligatoriamente el signo '%')."}, {"front": "¿Qué tecla de 'top' ordena la lista por consumo de memoria RAM?", "back": "La tecla 'M' (mayúscula)."}, {"front": "¿Qué atajo de teclado desacopla una sesión en GNU Screen?", "back": "Ctrl + A seguido de la letra d (se reanuda con screen -r)."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.5."}, {"id": 19, "section": "103.5", "cat": "proc", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.5", "takeaways": ["Control de Trabajos: & para background, jobs para listar, Ctrl+Z suspende, bg reanuda en fondo, fg trae a primer plano.", "Inmunidad: nohup ejecuta ignorando SIGHUP y guarda en nohup.out; screen y tmux permiten sesiones desacoplables (Ctrl+A d y screen -r).", "Señales Clave: 1 SIGHUP (recargar config), 2 SIGINT (Ctrl+C), 9 SIGKILL (forzada ineludible), 15 SIGTERM (por defecto de kill), 19 SIGSTOP (congelar).", "Monitorización: ps aux (BSD) y ps -ef (Unix); códigos STAT (R, S, D ininterrumpible de disco, Z zombi); top (P para CPU, M para RAM, k para matar); uptime para Load Average (1, 5, 15 min)."], "top3": [{"cmd": "kill -15 <PID> || kill -9 <PID>", "desc": "Solicita terminación limpia y fuerza cierre inmediato si el proceso está colgado."}, {"cmd": "ps aux | grep <nombre>", "desc": "Localiza el estado, consumo y PID de cualquier proceso del sistema."}, {"cmd": "top", "desc": "Monitoriza la carga del sistema en tiempo real y gestiona procesos con atajos de teclado."}], "practice": {"name": "Practica 103.5: Crear, Monitorizar y Matar Procesos", "url": "../practicas/p-103-5-procesos-senales.html", "desc": "Gestiona procesos en primer y segundo plano (jobs, bg, fg, nohup), audita recursos con ps, top y pstree, y envía señales de terminación con kill y killall."}, "notes": "Concluimos el subtema 103.5. Los alumnos dominan ahora la supervisión y control de procesos en Linux."}];
+    const SLIDES = [{"id": 1, "section": "103.5", "cat": "proc", "type": "cover", "title": "Crear, monitorizar y matar procesos", "subtitle": "Ciclo de vida, jobs, nohup, señales (1, 2, 9, 15), kill, ps aux, top, uptime, screen y tmux (Modo Examen)", "ref": "311-312", "pdf": {"manual": "A", "pages": [311, 312], "figure": null}, "coverage": ["103.5-OBJ-001", "103.5-OBJ-002", "103.5-OBJ-003", "103.5-OBJ-004"], "meta": {"peso": 4, "paginas": "311–344", "duracion": "30 min"}, "icon": "activity", "notes": "Iniciamos el subtema 103.5 (peso 4). La gestión de procesos es un pilar básico de la certificación LPIC-1. Aprenderemos a controlar tareas en segundo plano (jobs), enviar señales de comunicación y terminación (kill, killall, pkill), inspeccionar el estado con ps y monitorizar en tiempo real con top y uptime."}, {"id": 2, "section": "103.5", "cat": "proc", "type": "diagram", "title": "El Ciclo de Vida de un Proceso en Linux: De fork() a Zombi", "lead": "Todo proceso nace clonando a su padre y atraviesa diferentes estados en la CPU y la RAM:", "ref": "312-314", "pdf": {"manual": "A", "pages": [312, 313, 314], "figure": null}, "coverage": ["103.5-CON-001", "103.5-CON-002"], "points": [{"icon": "git-commit", "text": "PID 1: El antecesor común de todos los procesos", "detail": "🎯 Cuando el kernel de Linux termina de inicializarse, lanza el primer proceso del espacio de usuario: systemd (o init tradicional con PID 1). Todos los demás procesos del sistema descienden de él."}, {"icon": "git-branch", "text": "PID y PPID: Relación Padre e Hijo", "detail": "🎯 Cada proceso tiene un identificador único PID (Process ID) y registra el identificador de su creador PPID (Parent Process ID). Los procesos se crean mediante la llamada al sistema 'fork()' seguida de 'exec()'."}, {"icon": "skull", "text": "Procesos Huérfanos y Zombis (Z / <defunct>)", "detail": "🎯 Clave de Examen: Un proceso 'Zombi' ha terminado su ejecución pero su proceso padre aún no ha leído su código de salida con wait(). No consume CPU ni RAM, solo retiene una entrada en la tabla de procesos. Si el padre muere, PID 1 adopta al huérfano y lo limpia."}], "remember": "🎯 Clave de Examen: PID 1 es systemd/init; un proceso Zombi (Z) está muerto pero su padre no ha recogido su código de salida con wait().", "notes": "Muestra el árbol de procesos en la terminal ejecutando 'pstree -p'.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:14px; padding:18px 24px; margin:14px 0;\">\n  <div style=\"font-size:15.5px; font-weight:800; color:var(--text); margin-bottom:12px;\">\n    🔄 Máquina de Estados del Kernel de Linux:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:12.5px; text-align:center;\">\n    <!-- Nacimiento -->\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px; width:22%;\">\n      <strong style=\"color:#1E40AF; font-size:13.5px;\">1. fork() + exec()</strong><br>\n      <span style=\"color:#475569; font-size:11.5px;\">El padre clona su memoria y carga el nuevo ejecutable.</span>\n    </div>\n\n    <span style=\"font-size:18px; color:#2563EB; font-weight:900;\">→</span>\n\n    <!-- Ejecución -->\n    <div style=\"background:#F0FDF4; border:2px solid #86EFAC; border-radius:8px; padding:10px; width:26%;\">\n      <div style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:11px; padding:2px 6px; border-radius:4px; margin-bottom:4px;\">\n        ESTADO R (Running)\n      </div>\n      <strong style=\"color:#15803D;\">En Ejecución</strong><br>\n      <span style=\"color:#475569; font-size:11.5px;\">Ocupando la CPU o en la cola listo para ejecutarse.</span>\n    </div>\n\n    <!-- Flechas bifurcación -->\n    <div style=\"display:flex; flex-direction:column; gap:16px; font-size:18px; font-weight:900;\">\n      <span style=\"color:#F59E0B;\">⇄</span>\n      <span style=\"color:#DC2626;\">→</span>\n    </div>\n\n    <!-- Estados Durmiendo y Zombi -->\n    <div style=\"display:flex; flex-direction:column; gap:10px; width:34%;\">\n      <!-- Sleep -->\n      <div style=\"background:#FEF3C7; border:1px solid #FCD34D; border-radius:8px; padding:8px 10px; text-align:left;\">\n        <strong style=\"color:#B45309;\">S (Sleep) / D (Disk Wait):</strong><br>\n        <span style=\"color:#78350F; font-size:11px;\">Espera eventos o E/S de disco. 'D' no responde a señales.</span>\n      </div>\n\n      <!-- Zombie -->\n      <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:8px 10px; text-align:left;\">\n        <strong style=\"color:#991B1B;\">Z (Zombie / &lt;defunct&gt;):</strong><br>\n        <span style=\"color:#7F1D1D; font-size:11px;\">Terminó, pero su padre no recogió su salida con <code>wait()</code>. 0 CPU, 0 RAM.</span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"margin-top:14px; padding:8px 14px; background:#F8FAFC; border-left:4px solid #3B82F6; border-radius:4px; font-size:13px; color:#1E3A8A;\">\n    🎯 <strong>REGLA DE ORO DE EXAMEN:</strong> PID 1 (systemd) es la raíz de todo el árbol. Si un proceso padre muere antes que sus hijos, PID 1 adopta a los huérfanos y limpia los procesos zombi restantes.\n  </div>\n</div>\n"}, {"id": 3, "section": "103.5", "cat": "proc", "type": "command", "title": "Control de Trabajos (Job Control): &, jobs, Ctrl+Z, bg y fg", "lead": "Gestionar tareas en primer plano (foreground) y segundo plano (background) en la shell:", "ref": "314-318", "pdf": {"manual": "A", "pages": [314, 315, 316, 317, 318], "figure": null}, "coverage": ["103.5-CMD-001", "103.5-CMD-002", "103.5-CMD-003", "103.5-CMD-004", "103.5-OPT-001"], "command": "cmd & | jobs [-l] | Ctrl+Z | bg [%n] | fg [%n]", "purpose": "Lanzar tareas en segundo plano, suspenderlas temporalmente y alternar su ejecución", "terminal": {"command": "sleep 1000 &; jobs -l; fg %1", "output": "[1] 28540\n[1]+ 28540 Running                 sleep 1000 &\nsleep 1000\n# El comando regresa a primer plano ocupando la terminal."}, "options": [{"flag": "cmd &", "short": "Lanzar en segundo plano", "desc": "🎯 Ejecuta la orden en background liberando el prompt de inmediato."}, {"flag": "jobs [-l]", "short": "Listar trabajos", "desc": "🎯 Lista los trabajos de la shell actual. '-l' añade el PID."}, {"flag": "Ctrl + Z", "short": "Suspender (SIGTSTP)", "desc": "🎯 Detiene y congela temporalmente el proceso de primer plano."}, {"flag": "bg [%n]", "short": "Reanudar en background", "desc": "🎯 Reanuda un trabajo detenido en segundo plano."}, {"flag": "fg [%n]", "short": "Traer a primer plano", "desc": "🎯 Trae el trabajo a primer plano bloqueando de nuevo la terminal."}], "remember": "🎯 El Flujo Innegociable de Examen: Si un comando largo bloquea tu terminal: 1º Pulsa 'Ctrl+Z' (lo detiene) -> 2º Escribe 'bg' (lo reanuda en segundo plano) -> ¡Terminal libre!", "notes": "Explica que el número entre corchetes [1] es el Job ID (número de trabajo local), mientras que el número de cinco cifras es el PID global del sistema.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🎮 El Triángulo Operativo del Job Control en la Shell:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:12.5px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:2px solid #93C5FD; border-radius:8px; padding:10px; width:30%;\">\n      <div style=\"background:#2563EB; color:#FFF; font-weight:800; font-size:11px; padding:2px 6px; border-radius:4px; margin-bottom:4px;\">\n        PRIMER PLANO (fg)\n      </div>\n      <strong style=\"color:#1E40AF;\">Bloquea la Terminal</strong><br>\n      <span style=\"color:#475569; font-size:11px;\">El usuario espera a que termine.</span>\n    </div>\n\n    <div style=\"display:flex; flex-direction:column; gap:8px; align-items:center;\">\n      <span style=\"font-size:11px; background:#FEF2F2; color:#991B1B; padding:2px 8px; border-radius:4px; border:1px solid #FCA5A5; font-weight:700;\">\n        1º Pulsar Ctrl + Z (Detener)\n      </span>\n      <span style=\"font-size:18px; color:#2563EB;\">⇄</span>\n      <span style=\"font-size:11px; background:#F0FDF4; color:#166534; padding:2px 8px; border-radius:4px; border:1px solid #86EFAC; font-weight:700;\">\n        2º Escribir bg (Reanudar en fondo)\n      </span>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:2px solid #86EFAC; border-radius:8px; padding:10px; width:30%;\">\n      <div style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:11px; padding:2px 6px; border-radius:4px; margin-bottom:4px;\">\n        SEGUNDO PLANO (bg)\n      </div>\n      <strong style=\"color:#15803D;\">Prompt Disponible</strong><br>\n      <span style=\"color:#475569; font-size:11px;\">Se ejecuta de fondo sin bloquear.</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 4, "section": "103.5", "cat": "proc", "type": "command", "title": "Ejecución Inmune al Cierre: nohup y watch", "lead": "¿Cómo asegurar que un proceso no muera cuando cierras la ventana de la terminal o la conexión SSH?", "ref": "318-321", "pdf": {"manual": "A", "pages": [318, 319, 320, 321], "figure": null}, "coverage": ["103.5-CMD-005", "103.5-CMD-006", "103.5-FILE-001"], "command": "nohup <comando> & | watch [-n <seg>] <comando>", "purpose": "Hacer un proceso inmune a la desconexión SIGHUP y monitorizar salidas periódicas", "terminal": {"command": "nohup ./backup_largo.sh &; head -n 2 nohup.out", "output": "[1] 31204\nnohup: ignoring input and appending output to 'nohup.out'\nIniciando copia de seguridad...\nCopiando /home..."}, "options": [{"flag": "nohup <comando> &", "desc": "🎯 Clave de Examen: No Hangup: ejecuta el comando interceptando la señal SIGHUP. Si cierras la terminal o cae la red, el proceso sigue vivo en el servidor."}, {"flag": "nohup.out", "desc": "🎯 Clave de Examen: Archivo automático en el directorio actual (o en $HOME) donde nohup redirige la salida del proceso si no se especificó redirección manual."}, {"flag": "disown [-h] [%n]", "desc": "Desvincula un trabajo en segundo plano de la tabla de la shell para que no reciba SIGHUP al cerrar sesión."}, {"flag": "watch -n <seg> <cmd>", "desc": "🎯 Ejecuta el comando repetidamente cada N segundos (por defecto 2s) mostrando los cambios en pantalla a pantalla completa (ej: 'watch -n 1 free -m')."}], "remember": "🎯 Clave de Examen: 'nohup' hace al proceso inmune a SIGHUP y redirige toda su salida al archivo 'nohup.out'.", "notes": "Muestra que si el usuario no tiene permisos de escritura en la carpeta actual, nohup guarda nohup.out en su $HOME."}, {"id": 5, "section": "103.5", "cat": "proc", "type": "table", "title": "Tabla Oficial de Señales Críticas de Linux", "lead": "Las 5 señales que DEBES memorizar por nombre y por número para el examen LPIC-1:", "ref": "321-324", "pdf": {"manual": "A", "pages": [321, 322, 323, 324], "figure": null}, "coverage": ["103.5-SIG-001", "103.5-SIG-002", "103.5-SIG-003", "103.5-SIG-004", "103.5-SIG-005"], "headers": ["Número", "Nombre de Señal", "Atajo Teclado", "Efecto y Comportamiento en el Examen LPIC-1"], "rows": [["1", "SIGHUP (Hangup)", "Cierre terminal", "🎯 Terminal cerrada o desconectada. En demonios (Nginx, Apache) recarga configuración sin reiniciar el servicio."], ["2", "SIGINT (Interrupt)", "Ctrl + C", "🎯 Interrupción interactiva: solicita amablemente al proceso que se detenga desde la consola."], ["9", "SIGKILL (Kill)", "Ninguno", "🎯 Terminación FORZADA inmediata por el kernel. ⚠️ ¡NUNCA puede ser capturada, bloqueada ni ignorada!"], ["15", "SIGTERM (Terminate)", "kill (default)", "🎯 Clave de Examen: Señal de terminación POR DEFECTO de kill. Permite cerrar archivos y limpiar buffers."], ["19", "SIGSTOP (Stop)", "Ctrl + Z", "🎯 Detiene y congela la ejecución del proceso. Al igual que SIGKILL, ⚠️ ¡NO puede ser capturada ni ignorada!"]], "remember": "🎯 Los Dos Reyes del Examen: 15 (SIGTERM) es la señal por defecto de kill; 9 (SIGKILL) es la señal forzada que no se puede interceptar jamás.", "notes": "Pregunta de examen garantizada: '¿Cuáles son las dos únicas señales que un proceso NO puede capturar ni ignorar?'. Respuesta: SIGKILL (9) y SIGSTOP (19).", "diagram_html": "\n<div style=\"margin-top:12px; padding:10px 16px; background:#FEF2F2; border-left:4px solid #DC2626; border-radius:6px; font-size:13px; color:#991B1B;\">\n  🚨 <strong>REGLA DE ORO DE EXAMEN:</strong> Las dos únicas señales que un proceso <strong>NUNCA</strong> puede capturar, ignorar ni bloquear son <strong>SIGKILL (9)</strong> y <strong>SIGSTOP (19)</strong>. La señal predeterminada de <code>kill</code> sin argumentos es siempre <strong>SIGTERM (15)</strong>.\n</div>\n"}, {"id": 6, "section": "103.5", "cat": "proc", "type": "command", "title": "Envío de Señales con kill: por PID o Job ID", "lead": "¿Cómo enviar señales de terminación o reinicio a procesos concretos?", "ref": "324-327", "pdf": {"manual": "A", "pages": [324, 325, 326, 327], "figure": null}, "coverage": ["103.5-CMD-007", "103.5-OPT-002", "103.5-OPT-003"], "command": "kill [-s <señal>|-<señal>] <PID|%job>", "purpose": "Enviar una señal de software al proceso identificado por su PID o a un trabajo de shell", "terminal": {"command": "kill -l | tr ' ' '\\n' | head -n 9; kill -15 28540; kill -9 28540", "output": "1) SIGHUP\n2) SIGINT\n3) SIGQUIT\n4) SIGILL\n5) SIGTRAP\n6) SIGABRT\n7) SIGBUS\n8) SIGFPE\n9) SIGKILL"}, "options": [{"flag": "kill -l", "desc": "🎯 Lista todas las señales disponibles en el sistema con sus nombres y números oficiales."}, {"flag": "kill <PID>", "desc": "🎯 Clave de Examen: Sin opciones, envía por defecto la señal 15 (SIGTERM)."}, {"flag": "kill -9 <PID> (o kill -SIGKILL <PID>)", "desc": "🎯 Fuerza el cierre inmediato de un proceso colgado o bloqueado que no responde a SIGTERM."}, {"flag": "kill -1 <PID> (o kill -HUP <PID>)", "desc": "Envía SIGHUP para recargar la configuración del servicio."}, {"flag": "kill %1", "desc": "🎯 Clave de Examen: Si antepones el signo de porcentaje '%', envía la señal al JOB número 1 de la shell en lugar de al PID 1."}], "remember": "🎯 Peligro Clásico de Examen: Si ejecutas 'kill 1' intentas matar al proceso PID 1 (systemd); si quieres matar al trabajo número 1 de tu shell, DEBES escribir 'kill %1'.", "notes": "Explica la diferencia entre matar por cortesía con SIGTERM (15) y matar con machete con SIGKILL (9)."}, {"id": 7, "section": "103.5", "cat": "proc", "type": "command", "title": "Terminación Masiva y Búsqueda: killall, pkill, pgrep y pidof", "lead": "¿Cómo matar procesos por su nombre o usuario sin tener que buscar su PID a mano?", "ref": "327-330", "pdf": {"manual": "A", "pages": [327, 328, 329, 330], "figure": null}, "coverage": ["103.5-CMD-008", "103.5-CMD-009", "103.5-CMD-010", "103.5-CMD-011"], "command": "killall <nombre> | pkill <patrón> | pgrep <patrón> | pidof <nombre>", "purpose": "Localizar PIDs o enviar señales a grupos de procesos por su nombre de ejecutable", "terminal": {"command": "pidof nginx; pgrep -l nginx; sudo killall -u alumno sleep", "output": "1420 1419 1418\n1418 nginx\n1419 nginx\n1420 nginx\n# Termina todos los comandos sleep del usuario alumno."}, "options": [{"flag": "killall <nombre_exacto>", "desc": "🎯 Mata todos los procesos que coincidan EXACTAMENTE con el nombre del binario (ej: 'killall nginx')."}, {"flag": "killall -i <nombre>", "desc": "Modo interactivo: pide confirmación antes de matar cada proceso coincidente."}, {"flag": "killall -u <usuario> <cmd>", "desc": "🎯 Limita la terminación a los procesos del comando que pertenezcan al usuario indicado."}, {"flag": "pkill [-9] <patrón>", "desc": "🎯 Envía la señal a todos los procesos cuyo nombre coincida con una expresión regular o patrón."}, {"flag": "pkill -u <usuario>", "desc": "🎯 Mata todos los procesos de cualquier tipo que pertenezcan a ese usuario."}, {"flag": "pgrep [-l] <patrón>", "desc": "🎯 Clave de Examen: Busca y muestra únicamente los PIDs de los procesos que coincidan (con '-l' muestra también su nombre)."}, {"flag": "pidof <nombre>", "desc": "Devuelve la lista de PIDs del binario exacto en una sola línea (ideal para scripts)."}], "remember": "🎯 Diferencia Clave: 'kill' opera por PID; 'killall' opera por nombre exacto de binario; 'pkill' y 'pgrep' operan por patrones y expresiones regulares.", "notes": "Muestra a los alumnos cómo 'pgrep -u alumno' lista todos los procesos de un usuario."}, {"id": 8, "section": "103.5", "cat": "proc", "type": "command", "title": "Inspección de Procesos con ps: Sintaxis BSD frente a Unix", "lead": "La foto estática del estado del sistema y sus dos convenciones históricas:", "ref": "330-334", "pdf": {"manual": "A", "pages": [330, 331, 332, 333, 334], "figure": null}, "coverage": ["103.5-CMD-012", "103.5-OPT-004", "103.5-OPT-005"], "command": "ps aux (Sintaxis BSD sin guión) | ps -ef (Sintaxis Unix/POSIX con guión)", "purpose": "Obtener una instantánea de los procesos activos, usuarios, consumo de CPU/RAM y estados", "terminal": {"command": "ps aux | head -n 3; ps -ef | head -n 3", "output": "USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\nroot         1  0.0  0.2 168432 11240 ?        Ss   Oct18   0:04 /sbin/init\nroot         2  0.0  0.0      0     0 ?        S    Oct18   0:00 [kthreadd]\nUID        PID  PPID  C STIME TTY          TIME CMD\nroot         1     0  0 Oct18 ?        00:00:04 /sbin/init\nroot         2     0  0 Oct18 ?        00:00:00 [kthreadd]"}, "options": [{"flag": "ps aux", "short": "Sintaxis BSD (sin guión)", "desc": "🎯 a = con terminal; u = formato usuario (%CPU, %MEM); x = demonios sin terminal."}, {"flag": "ps -ef", "short": "Sintaxis Unix (con guión)", "desc": "🎯 -e = todos los procesos; -f = formato completo mostrando columnas UID, PID, PPID."}, {"flag": "ps -u <usuario>", "short": "Filtrar por usuario", "desc": "Muestra solo los procesos que pertenecen al usuario indicado."}, {"flag": "ps --sort=-%cpu", "short": "Ordenar por CPU", "desc": "Ordena de mayor a menor consumo de procesador."}], "remember": "🎯 Clave Mnemotécnica de Examen: 'ps aux' se escribe SIN guión (BSD); 'ps -ef' se escribe CON guión (Unix). Ambos muestran todos los procesos del sistema.", "notes": "Explica la diferencia entre VSZ (Virtual Memory Size: memoria virtual asignada) y RSS (Resident Set Size: RAM física no intercambiada realmente ocupada).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    ⚖️ Las Dos Grandes Escuelas de <code>ps</code>: BSD frente a Unix POSIX:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:12.5px;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#1E40AF; font-size:13.5px;\">Estilo BSD: <code>ps aux</code> (¡SIN GUIÓN!)</strong><br>\n      • <strong>a:</strong> Procesos de todos los usuarios con terminal.<br>\n      • <strong>u:</strong> Orientado a usuario con columnas <strong>%CPU, %MEM, VSZ, RSS</strong>.<br>\n      • <strong>x:</strong> Procesos sin terminal asociada (demonios del sistema).\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">Estilo Unix: <code>ps -ef</code> (¡CON GUIÓN!)</strong><br>\n      • <strong>-e:</strong> Todos los procesos del sistema (every process).<br>\n      • <strong>-f:</strong> Formato completo (full) con <strong>UID, PID, PPID, C, STIME</strong>.<br>\n      • Esencial para rastrear árboles genealógicos mediante la columna <strong>PPID</strong>.\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "103.5", "cat": "proc", "type": "table", "title": "Códigos de Estado de Proceso (STAT en ps)", "lead": "¿Qué significa cada letra de la columna STAT en la salida de 'ps aux'?", "ref": "334-336", "pdf": {"manual": "A", "pages": [334, 335, 336], "figure": null}, "coverage": ["103.5-CON-003"], "headers": ["Código STAT", "Nombre del Estado", "Significado y Comportamiento en el Examen LPIC-1"], "rows": [["R", "Running / Runnable", "🎯 En ejecución activa en la CPU o listo en la cola de ejecución esperando su turno."], ["S", "Interruptible Sleep", "🎯 Durmiendo: esperando un evento (entrada de red, temporizador, pulsación de tecla). Se despierta al recibir señales."], ["D", "Uninterruptible Sleep", "🎯 Clave de Examen: Espera de E/S de disco ininterrumpible. NO responde a ninguna señal (¡ni siquiera a kill -9!). Si no despierta, suele indicar disco roto."], ["T / t", "Stopped / Traced", "Detenido por señal de control (SIGSTOP / Ctrl+Z) o detenido por un depurador (debugger)."], ["Z", "Zombie (<defunct>)", "🎯 Muerto: terminó su ejecución pero su padre no recogió su código de salida."], ["s", "Session Leader", "Modificador adicional: el proceso es el líder de la sesión (ej: la shell bash)."], ["< frente a N", "Prioridad Nice", "🎯 '<' = alta prioridad (amable negativo); 'N' = baja prioridad (amable positivo / nice)."], ["+", "Foreground", "El proceso se encuentra ejecutándose en el grupo de primer plano de la terminal."]], "remember": "🎯 Pregunta Fija de Examen: ¿Qué estado representa un proceso en espera de disco que no responde a señales? El estado 'D'. ¿Qué estado representa un zombi? El estado 'Z'.", "notes": "Muestra que si ves 'Ss+' significa: durmiendo (S), líder de sesión (s) y en primer plano (+)."}, {"id": 10, "section": "103.5", "cat": "proc", "type": "command", "title": "Monitor Interactivo del Sistema: top", "lead": "El cuadro de mandos en vivo para monitorizar CPU, RAM y matar procesos sin salir:", "ref": "336-339", "pdf": {"manual": "A", "pages": [336, 337, 338, 339], "figure": null}, "coverage": ["103.5-CMD-013", "103.5-OPT-006"], "command": "top [-d <seg>] [-u <usuario>] [-p <PID>]", "purpose": "Visualizar en tiempo real el consumo de recursos y gestionar procesos mediante atajos de teclado", "terminal": {"command": "top -b -n 1 | head -n 5", "output": "top - 10:45:00 up 2 days,  2:09,  1 user,  load average: 0.08, 0.03, 0.01\nTasks: 125 total,   1 running, 124 sleeping,   0 stopped,   0 zombie\n%Cpu(s):  1.5 us,  0.5 sy,  0.0 ni, 97.8 id,  0.2 wa,  0.0 hi,  0.0 si,  0.0 st\nMiB Mem :   3932.4 total,   1850.2 free,    820.5 used,   1261.7 buff/cache\nMiB Swap:   2048.0 total,   2048.0 free,       0.0 used.   2850.1 avail Mem"}, "options": [{"flag": "Teclas de Ordenación", "desc": "🎯 Clave de Examen: 'P' (mayúscula) ordena por uso de CPU (por defecto); 'M' (mayúscula) ordena por uso de memoria RAM; 'T' ordena por tiempo total acumulado."}, {"flag": "k (Kill)", "desc": "🎯 Clave de Examen: Solicita un PID y una señal para matar un proceso directamente desde la pantalla de top."}, {"flag": "r (Renice)", "desc": "🎯 Solicita un PID y un nuevo valor nice para modificar la prioridad de un proceso en vivo."}, {"flag": "1 (Uno)", "desc": "Alterna entre mostrar el uso de CPU desglosado por cada núcleo individual (CPU0, CPU1) o unificado en uno."}, {"flag": "q / h", "desc": "'q' sale inmediatamente de top; 'h' abre la pantalla de ayuda de atajos."}, {"flag": "top -b -n 1", "desc": "Modo batch (por lotes): ejecuta 1 iteración y sale como texto plano (ideal para scripts de monitorización)."}], "remember": "🎯 Atajos Clave de top en Examen: 'M' para ordenar por Memoria; 'P' para ordenar por CPU; 'k' para matar un proceso; 'r' para cambiar prioridad (renice).", "notes": "Muestra las métricas de CPU: us (usuario), sy (sistema/kernel), id (idle/ocioso), wa (iowait/espera de disco)."}, {"id": 11, "section": "103.5", "cat": "proc", "type": "command", "title": "Medición de Rendimiento y Memoria: uptime y free", "lead": "¿Cómo interpretar el Load Average del sistema y la ocupación real de la memoria RAM?", "ref": "339-341", "pdf": {"manual": "A", "pages": [339, 340, 341], "figure": null}, "coverage": ["103.5-CMD-014", "103.5-CMD-015"], "command": "uptime | free [-h|-m|-g]", "purpose": "Consultar el tiempo de encendido, el promedio de carga del procesador y la memoria disponible", "terminal": {"command": "uptime; free -h", "output": " 10:50:15 up 2 days,  2:14,  1 user,  load average: 0.15, 0.08, 0.02\n               total        used        free      shared  buff/cache   available\nMem:           3.8Gi       820Mi       1.8Gi        15Mi       1.2Gi       2.8Gi\nSwap:          2.0Gi          0B       2.0Gi"}, "options": [{"flag": "Load (1, 5, 15 min)", "short": "Tres promedios temporales", "desc": "🎯 Muestra la media de procesos en ejecución o en espera en 1, 5 y 15 minutos."}, {"flag": "free -h", "short": "Memoria en GiB/MiB", "desc": "Muestra RAM total, ocupada y libre en unidades comprensibles."}, {"flag": "Columna available", "short": "RAM real disponible", "desc": "🎯 Clave de Examen: Memoria real aprovechable sin necesidad de recurrir a swap."}], "remember": "🎯 Clave de Examen: Los tres números de 'uptime' representan la carga media en 1, 5 y 15 minutos; 'available' en free representa la RAM real utilizable.", "notes": "Aclara que en Linux la RAM ocupada por buff/cache no es memoria perdida, sino memoria optimizada que se cede automáticamente a las aplicaciones cuando la necesitan.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    📈 Interpretación del <code>Load Average</code> según el Número de Núcleos (Cores):\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:12.5px;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#1E40AF; font-size:13.5px;\">Sistema con 1 CPU / Core:</strong><br>\n      • Carga <code>0.50</code> → 50% de utilización de la CPU.<br>\n      • Carga <code>1.00</code> → 100% capacidad saturada (sin cola).<br>\n      • Carga <code>2.00</code> → CPU saturada y 1 proceso esperando en cola.\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">Sistema con 4 CPUs / Cores:</strong><br>\n      • Carga <code>1.00</code> → Solo 1 CPU ocupada al 100% (25% total).<br>\n      • Carga <code>4.00</code> → Las 4 CPUs están al 100% de capacidad.<br>\n      • Carga <code>8.00</code> → Sobrecarga crítica con 4 procesos en cola.\n    </div>\n  </div>\n</div>\n"}, {"id": 12, "section": "103.5", "cat": "proc", "type": "command", "title": "Multiplexadores de Terminal: GNU Screen y tmux", "lead": "¿Cómo mantener múltiples terminales y sesiones abiertas que sobreviven a cortes de red?", "ref": "341-343", "pdf": {"manual": "A", "pages": [341, 342, 343], "figure": null}, "coverage": ["103.5-CMD-016", "103.5-CMD-017"], "command": "screen [-r|-ls] | tmux [new|attach|ls]", "purpose": "Crear sesiones de terminal persistentes que pueden desacoplarse y reanudarse desde cualquier lugar", "terminal": {"command": "screen -ls; tmux ls", "output": "There is a screen on:\n\t28415.trabajo\t(10/20/2026 10:30:00 AM)\t(Detached)\n1 Socket in /run/screen/S-alumno.\n0: 1 windows (created Tue Oct 20 10:35:00 2026) (attached)"}, "options": [{"flag": "screen", "desc": "Inicia una nueva sesión virtual de GNU Screen."}, {"flag": "Ctrl + A y luego d", "desc": "🎯 Clave de Examen: Desacopla (Detach) la sesión de Screen dejándola corriendo en segundo plano sin interrumpir los procesos."}, {"flag": "screen -r [id]", "desc": "🎯 Clave de Examen: Reanuda (Resume / Reattach) una sesión de Screen que fue desacoplada previamente."}, {"flag": "screen -ls", "desc": "Lista todas las sesiones de Screen activas en el sistema."}, {"flag": "Ctrl + B y luego d (tmux)", "desc": "🎯 Desacopla la sesión activa en tmux."}, {"flag": "tmux attach [-t sesion]", "desc": "Reconecta la sesión de tmux indicada."}], "remember": "🎯 Clave de Examen: Para desacoplar en Screen: 'Ctrl+A' seguido de 'd'; para reanudar desde otra terminal: 'screen -r'. En tmux el prefijo es 'Ctrl+B'."}, {"id": 13, "section": "103.5", "cat": "proc", "type": "concept", "title": "Trampas Clásicas de Examen en Gestión de Procesos", "lead": "Los 4 errores conceptuales más frecuentes en las preguntas de procesos y señales:", "ref": "343-344", "pdf": {"manual": "A", "pages": [343, 344], "figure": null}, "coverage": ["103.5-WARN-001", "103.5-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Creer que kill mata por defecto con señal 9", "detail": "🎯 Trampa fija: '¿Qué señal envía kill por defecto?'. Mucha gente responde erróneamente 9 (SIGKILL). La respuesta correcta SIEMPRE es 15 (SIGTERM)."}, {"icon": "alert-triangle", "text": "2. Confundir PID con Job ID en kill", "detail": "'kill 2' intenta matar al proceso con PID 2 (kthreadd). Para matar al trabajo número 2 de tu shell debes escribir 'kill %2' obligatoriamente con el símbolo '%'."}, {"icon": "alert-triangle", "text": "3. Creer que se puede matar un proceso zombi", "detail": "Un proceso zombi (Z) ya está muerto; no se le puede enviar ninguna señal (ni siquiera SIGKILL). Para retirarlo de la tabla de procesos hay que matar a su proceso padre o esperar que PID 1 lo adopte."}, {"icon": "alert-triangle", "text": "4. Señales que no se pueden capturar", "detail": "SIGKILL (9) y SIGSTOP (19) no pueden ser interceptadas por código de software ni ignoradas por el proceso."}], "remember": "🎯 Mnemotecnia Rápida: kill envía 15 por defecto; los jobs llevan '%' (kill %1); y los zombis no se matan (se mata al padre).", "notes": "Estos 4 puntos se preguntan sistemáticamente en todas las convocatorias oficiales."}, {"id": 14, "section": "103.5", "cat": "proc", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Jobs y nohup)", "ref": "Manual A - Pág 344", "pdf": {"manual": "A", "pages": [344], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 344): Lanza un comando 'sleep 500' en segundo plano y comprueba su estado en la tabla de trabajos de la shell.", "command": "sleep 500 &; jobs -l", "reason": "El operador '&' lanza el proceso en background y 'jobs -l' muestra el Job ID junto con el PID asociado."}, {"action": "Caso 2 (Oficial Pág 344): Un comando interactivo 'dd if=/dev/sda of=/backup/disk.img' está corriendo en primer plano y necesitas liberar la consola sin detener la copia definitivamente.", "command": "Pulsar Ctrl+Z en la terminal y a continuación ejecutar 'bg'", "reason": "Ctrl+Z suspende el proceso con SIGTSTP y el comando 'bg' lo reanuda en segundo plano liberando el prompt."}, {"action": "Caso 3 (Oficial Pág 344): ¿Cómo ejecutar un script 'actualizar.sh' de modo que continúe ejecutándose incluso si se cierra la sesión SSH y dónde se guardará su salida por defecto?", "command": "nohup ./actualizar.sh & (salida guardada en 'nohup.out')", "reason": "nohup ignora la señal de desconexión SIGHUP y redirige automáticamente stdout y stderr a nohup.out."}], "solution": {"explain": "& lanza en segundo plano; Ctrl+Z seguido de bg libera la terminal; y nohup garantiza persistencia frente a desconexiones."}, "notes": "Enseña a comprobar con 'ps aux | grep sleep' que el proceso sigue corriendo tras cerrar la terminal si se usó nohup."}, {"id": 15, "section": "103.5", "cat": "proc", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: Señales y top)", "ref": "Manual A - Pág 344", "pdf": {"manual": "A", "pages": [344], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 344): ¿Cuál es el comando exacto para forzar la terminación inmediata e incondicional de un proceso con PID 4512 que no responde?", "command": "kill -9 4512 (o kill -SIGKILL 4512)", "reason": "La señal 9 (SIGKILL) es ejecutada directamente por el kernel y no puede ser bloqueada ni ignorada por el proceso colgado."}, {"action": "Caso 5 (Oficial Pág 344): Dentro del monitor 'top', ¿qué teclas de acceso directo se pulsan para ordenar los procesos por consumo de memoria RAM y para matar un proceso por su PID?", "command": "Pulsar 'M' (mayúscula) para ordenar por RAM; pulsar 'k' para matar", "reason": "'M' reordena la tabla por %MEM; 'k' abre un cuadro de diálogo interactivo solicitando el PID y la señal a enviar."}], "solution": {"explain": "kill -9 es la terminación forzada final; en top 'M' ordena por RAM y 'k' envía señales de forma interactiva."}, "notes": "Recuerda que en top también se puede usar 'P' para volver a ordenar por uso de procesador."}, {"id": 16, "section": "103.5", "cat": "proc", "type": "challenge", "title": "Retos de Exploración Oficiales (Procesos Zombis y Load Average)", "ref": "Manual A - Págs 344-345", "pdf": {"manual": "A", "pages": [344, 345], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un servidor de 2 CPUs muestra en 'uptime' una carga media de '5.40, 4.20, 3.10'. ¿Está el sistema sobrecargado y la carga está aumentando o disminuyendo?\n2. En la salida de 'ps aux' detectas un proceso con estado 'Z'. Si intentas ejecutar 'kill -9 <PID_ZOMBI>', el proceso no desaparece. ¿Por qué ocurre y cómo se retira del sistema?\n3. ¿Qué atajo de teclado desacopla una sesión en GNU Screen y qué comando permite reanudarla desde otra máquina conectada por SSH?", "hint": "Recuerda: capacidad máxima de 2 CPUs; naturaleza de los zombis y su proceso padre; y Ctrl+A d con screen -r.", "solution": {"explain": "1. Sí, está severamente sobrecargado (la capacidad nominal de 2 CPUs es 2.0; 5.40 significa que hay procesos esperando en cola). La carga está AUMENTANDO, ya que el último minuto (5.40) es superior a la media de 5 min (4.20) y a la de 15 min (3.10).\n2. El proceso zombi ya está muerto y no procesa señales. Se retira matando a su proceso padre con 'kill -15 <PPID>' (o 'kill -9 <PPID>') para que PID 1 adopte al zombi y limpie la tabla de procesos.\n3. Se desacopla con: Ctrl+A seguido de d. Se reanuda con: screen -r."}, "notes": "La interpretación de si la carga sube o baja comparando los 3 valores de uptime es una pregunta recurrente en la certificación."}, {"id": 17, "section": "103.5", "cat": "proc", "type": "review", "title": "Pregunta de Examen LPIC-1: Señal por Defecto de kill", "q": "¿Qué número de señal envía por defecto el comando 'kill 2045' si no se especifica ningún modificador o parámetro de señal?", "options": ["Señal 1 (SIGHUP)", "Señal 2 (SIGINT)", "Señal 9 (SIGKILL)", "Señal 15 (SIGTERM)"], "answer": 3, "why": "Por especificación estándar de Unix y POSIX, el comando 'kill' envía de forma predeterminada la señal 15 (SIGTERM), que solicita una terminación limpia y ordenada del proceso permitiéndole cerrar archivos y guardar estado. Para enviar SIGKILL (9) debe indicarse explícitamente con '-9' o '-SIGKILL'.", "notes": "Pregunta fija y directa de examen. Nadie debe confundir la señal 15 con la 9."}, {"id": 18, "section": "103.5", "cat": "proc", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Procesos y Señales 103.5", "deck": [{"front": "¿Qué número y nombre de señal envía 'kill' por defecto?", "back": "Señal 15: SIGTERM (terminación limpia)."}, {"front": "¿Qué número de señal fuerza la muerte inmediata sin poder ser ignorada?", "back": "Señal 9: SIGKILL."}, {"front": "¿Qué dos señales NUNCA pueden ser interceptadas ni ignoradas por un proceso?", "back": "SIGKILL (9) y SIGSTOP (19)."}, {"front": "¿Qué atajo de teclado suspende un proceso en primer plano?", "back": "Ctrl + Z (envía la señal SIGTSTP)."}, {"front": "¿Qué comando reanuda un proceso suspendido en segundo plano?", "back": "bg."}, {"front": "¿Cómo matar el trabajo número 1 de tu shell local?", "back": "kill %1 (anteponiendo obligatoriamente el signo '%')."}, {"front": "¿Qué tecla de 'top' ordena la lista por consumo de memoria RAM?", "back": "La tecla 'M' (mayúscula)."}, {"front": "¿Qué atajo de teclado desacopla una sesión en GNU Screen?", "back": "Ctrl + A seguido de la letra d (se reanuda con screen -r)."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.5."}, {"id": 19, "section": "103.5", "cat": "proc", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.5", "takeaways": ["Control de Trabajos: & para background, jobs para listar, Ctrl+Z suspende, bg reanuda en fondo, fg trae a primer plano.", "Inmunidad: nohup ejecuta ignorando SIGHUP y guarda en nohup.out; screen y tmux permiten sesiones desacoplables (Ctrl+A d y screen -r).", "Señales Clave: 1 SIGHUP (recargar config), 2 SIGINT (Ctrl+C), 9 SIGKILL (forzada ineludible), 15 SIGTERM (por defecto de kill), 19 SIGSTOP (congelar).", "Monitorización: ps aux (BSD) y ps -ef (Unix); códigos STAT (R, S, D ininterrumpible de disco, Z zombi); top (P para CPU, M para RAM, k para matar); uptime para Load Average (1, 5, 15 min)."], "top3": [{"cmd": "kill -15 <PID> || kill -9 <PID>", "desc": "Solicita terminación limpia y fuerza cierre inmediato si el proceso está colgado."}, {"cmd": "ps aux | grep <nombre>", "desc": "Localiza el estado, consumo y PID de cualquier proceso del sistema."}, {"cmd": "top", "desc": "Monitoriza la carga del sistema en tiempo real y gestiona procesos con atajos de teclado."}], "practice": {"name": "Practica 103.5: Crear, Monitorizar y Matar Procesos", "url": "../practicas/p-103-5-procesos-senales.html", "desc": "Gestiona procesos en primer y segundo plano (jobs, bg, fg, nohup), audita recursos con ps, top y pstree, y envía señales de terminación con kill y killall."}, "notes": "Concluimos el subtema 103.5. Los alumnos dominan ahora la supervisión y control de procesos en Linux."}];
     const ERRATAS = [{"id": "E-103.5-01", "pdf": "p. 11", "original": "kill sin opciones envía la señal de detención", "correct": "kill sin opciones envía la señal de terminación ordenada SIGTERM (15)", "kind": "técnica", "note": "Detención corresponde a SIGSTOP/SIGTSTP; kill por defecto termina el proceso (SIGTERM)."}, {"id": "E-103.5-02", "pdf": "p. 17", "original": "ps -aux muestra procesos BSD", "correct": "ps aux (sin guion) es la sintaxis BSD clásica oficial", "kind": "inconsistencia", "note": "El manual a veces incluye guion accidentalmente; el examen exige distinguir que el estilo BSD carece de guion."}];
     const GLOSARIO = [{"id": "PID", "term": "PID (Process ID)", "def": "Identificador numérico único entero asignado por el kernel Linux a cada proceso activo.", "ref": "p. 3", "see": ["PPID", "Job ID"]}, {"id": "PPID", "term": "PPID (Parent Process ID)", "def": "Identificador de proceso del proceso padre que creó la instancia mediante la llamada fork().", "ref": "p. 3", "see": ["PID"]}, {"id": "SIGTERM", "term": "SIGTERM (Señal 15)", "def": "Señal estándar de terminación enviada por defecto por kill. Puede ser interceptada para limpieza ordenada.", "ref": "p. 10", "see": ["SIGKILL", "kill"]}, {"id": "SIGKILL", "term": "SIGKILL (Señal 9)", "def": "Señal de aniquilación forzosa incondicional ejecutada por el núcleo sin posibilidad de captura o bloqueo.", "ref": "p. 10", "see": ["SIGTERM"]}, {"id": "Zombie", "term": "Proceso Zombie (Defunct)", "def": "Proceso que completó su ejecución pero permanece en la tabla de procesos porque el padre no leyó su código de salida.", "ref": "p. 19", "see": ["PID", "PPID"]}, {"id": "Load-Average", "term": "Load Average", "def": "Promedio móvil del número de procesos en cola de ejecución (estado R) o en espera no interrumpible de E/S (estado D).", "ref": "p. 24", "see": ["uptime", "top"]}, {"id": "Multiplexor", "term": "Multiplexor de terminal", "def": "Software (Screen, tmux) que permite desacoplar sesiones de consola haciéndolas persistentes ante caídas de red.", "ref": "p. 36", "see": ["tmux", "screen"]}];
     const META = {"topic": "103.5", "title": "Crear, monitorizar y matar procesos", "weight": 4, "description": "Ciclo de vida, jobs, nohup, señales (1, 2, 9, 15), kill, ps aux, top, uptime, screen y tmux (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1453,6 +1932,9 @@
           });
           html += `</div>`;
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.console || s.terminal) {
           html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
         }
@@ -1518,6 +2000,9 @@
         const termData = s.terminal || s.console;
         if (termData) {
           html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
         }
 
         if (s.trap || s.warning) {
@@ -1603,6 +2088,9 @@
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
 
         if (s.trap || s.warning) {
           html += `
@@ -1643,6 +2131,9 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.remember) {
           html += `
             <div class="callout-box callout-remember" style="margin-top:14px;">
@@ -1689,12 +2180,37 @@
             </div>
           `;
         }
+      } else if (s.type === 'diagram') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.diagram_html || s.raw_html || s.html || s.svg || s.content || '';
+        if (bodyContent) html += bodyContent;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         const steps = s.steps || s.nodes || s.diagram?.nodes || [];
-        if (steps.length > 0) {
+        if (steps.length > 0 && !s.diagram_html && !s.raw_html && !s.html && !s.svg) {
           html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
           steps.forEach((st, idx) => {
             const stitle = st.step || st.title || st.text || st.label || '';
@@ -2055,9 +2571,11 @@
           `;
         }
       } else {
-        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
-        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.raw_html || s.html || s.content;
+        if (bodyContent) html += bodyContent;
       }
       return html;
     }
@@ -2241,6 +2759,9 @@
 
     function closeModals() {
       document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+      if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
     }
 
     function closePopovers() {
@@ -2266,6 +2787,45 @@
       popover.style.top = `${rect.bottom + 8}px`;
       popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
       popover.classList.add('open');
+    }
+
+    function openPopover(targetOrEvent, html) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      let el = null;
+      if (targetOrEvent instanceof Event) {
+        targetOrEvent.stopPropagation();
+        el = targetOrEvent.currentTarget || targetOrEvent.target;
+      } else if (targetOrEvent && targetOrEvent.nodeType) {
+        el = targetOrEvent;
+      } else if (targetOrEvent && targetOrEvent.target) {
+        el = targetOrEvent.target;
+      }
+      const popover = document.getElementById('global-popover');
+      if (!popover) return;
+      popover.innerHTML = html || '<div>Sin detalles adicionales</div>';
+      if (el && el.getBoundingClientRect) {
+        const rect = el.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + 8}px`;
+        popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      }
+      popover.classList.add('open');
+    }
+
+    function toggleAnswer(btn) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      if (!btn) return;
+      const container = btn.closest('.quiz-reveal-container') || btn.parentElement;
+      if (!container) return;
+      const ans = container.querySelector('.quiz-answer-box');
+      if (ans) {
+        const isHidden = window.getComputedStyle(ans).display === 'none' || ans.style.display === 'none';
+        ans.style.display = isHidden ? 'block' : 'none';
+        btn.textContent = isHidden ? 'Ocultar Respuesta ▲' : 'Ver Respuesta ▼';
+      }
     }
     document.addEventListener('click', closePopovers);
 
@@ -2444,6 +3004,18 @@
         }
       }
       renderSlide(initSlide);
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length && num !== currentSlideIdx) {
+            renderSlide(num);
+          }
+        }
+      }
     });
   </script>
 </body>

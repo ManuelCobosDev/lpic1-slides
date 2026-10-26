@@ -322,17 +322,87 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 8px;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       background: var(--surface);
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
-    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
-    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); transform: translateY(-1px); }
+    .nav-btn:active { transform: translateY(0); }
+    .nav-btn.primary { background: #2563EB; color: #FFFFFF !important; border-color: #1D4ED8; box-shadow: 0 2px 4px rgba(37,99,235,0.25); }
+    .nav-btn.primary:hover { background: #1D4ED8; border-color: #1E40AF; }
+
+    /* Sistema Completo de Botones .btn */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      border: 1.5px solid transparent;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      user-select: none;
+      outline: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.12), 0 2px 4px -2px rgba(15, 23, 42, 0.08);
+    }
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: #FFFFFF !important;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      gap: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF !important;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+    }
 
     /* Contenedor del escenario (1920x1080) */
     #app-container {
@@ -498,6 +568,246 @@
       color: var(--info-ink);
       border-color: #BAE6FD;
     }
+    .callout-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      max-width: 24px !important;
+      min-height: 24px !important;
+      max-height: 24px !important;
+      border-radius: 50% !important;
+      background: #2563EB;
+      color: #FFFFFF !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+      text-align: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      margin: 0 4px !important;
+      user-select: none !important;
+    }
+    .badge-blue { background: #2563EB !important; color: #FFFFFF !important; }
+    .badge-amber { background: #D97706 !important; color: #FFFFFF !important; }
+    .badge-red { background: #DC2626 !important; color: #FFFFFF !important; }
+    .badge-green { background: #16A34A !important; color: #FFFFFF !important; }
+    .badge-purple { background: #7C3AED !important; color: #FFFFFF !important; }
+
+    /* Glosarios & Conceptos Clave Modernos */
+    /* Glosarios & Conceptos Clave Modernos */
+    .slide-glossary-box {
+      margin-top: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .slide-glossary-box .gl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .slide-glossary-box .gl-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563EB;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .slide-glossary-box .gl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .slide-glossary-box .gl-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+    .slide-glossary-box .gl-card:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+    .slide-glossary-box .gl-badge {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1D4ED8;
+      background: #EFF6FF;
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid #BFDBFE;
+      display: inline-block;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .slide-glossary-box .gl-def {
+      color: #334155;
+      font-size: 13.5px;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .slide-glossary-box .gl-def code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 4px;
+      color: #0F172A;
+    }
+
+    /* Compatibilidad strip con estilo pulido tipo chips */
+    .slide-glossary-strip {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .slide-glossary-strip .gl-title {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-glossary-strip .gl-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .slide-glossary-strip .gl-term {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #1D4ED8;
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM (Completo, accesible y moderno para interactivos y quizes)
+       ========================================================================== */
+    .btn, .quiz-reveal-container button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .btn:focus-visible, .quiz-reveal-container button:focus-visible {
+      outline: 2px solid #2563EB;
+      outline-offset: 2px;
+    }
+    .btn:active, .quiz-reveal-container button:active {
+      transform: translateY(1px);
+    }
+
+    /* Botón Primario (Azul vibrante) */
+    .btn-primary, .nav-btn.primary, .quiz-reveal-container button {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover, .nav-btn.primary:hover, .quiz-reveal-container button:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Botón Outline Primario */
+    .btn-outline-primary {
+      background: #FFFFFF;
+      color: #2563EB;
+      border-color: #2563EB;
+    }
+    .btn-outline-primary:hover {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-color: #1D4ED8;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Botón Secundario */
+    .btn-secondary {
+      background: #F1F5F9;
+      color: #334155;
+      border-color: #CBD5E1;
+    }
+    .btn-secondary:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+      border-color: #94A3B8;
+    }
+
+    /* Botón Éxito */
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+      border-color: #166534;
+      color: #FFFFFF;
+    }
+
+    /* Modificadores de Tamaño */
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14.5px;
+      border-radius: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+    }
 
     /* Terminal y Comandos (slides-terminal-comandos) */
     .term-wrapper {
@@ -517,20 +827,29 @@
       font-size: 18px;
       font-weight: 700;
     }
-    .term-copy-btn {
+    .term-copy-btn, .terminal-copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 12px;
       border-radius: 6px;
-      border: 2px solid var(--control-border);
+      border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-copy-btn:hover, .terminal-copy-btn:hover {
+      background: #F1F5F9;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+    .term-copy-btn:active, .terminal-copy-btn:active {
+      transform: scale(0.96);
+    }
     .term-code {
       padding: 14px 20px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -545,15 +864,169 @@
     .term-code::-webkit-scrollbar { width: 6px; }
     .term-code::-webkit-scrollbar-track { background: transparent; }
     .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
-    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+
+    /* Terminal Card (Real-life console frame) */
+    .terminal-card {
+      background: #0F172A;
+      border: 2px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .terminal-card .terminal-header {
+      background: #1E293B;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      gap: 12px;
+    }
+    .terminal-card .terminal-header::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 18px 0 0 #F59E0B, 36px 0 0 #10B981;
+      margin-right: 36px;
+      flex-shrink: 0;
+    }
+    .terminal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #94A3B8;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: 0.02em;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .terminal-card .terminal-copy-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #475569;
+    }
+    .terminal-card .terminal-copy-btn:hover {
+      background: #334155;
+      border-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .terminal-body {
+      padding: 16px 20px;
+      margin: 0;
+      background: #0F172A;
+      color: #E2E8F0;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      font-size: 15.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Mini-Terminal para llamadas o ejemplos dentro de cajas */
+    .mini-terminal {
+      background: #0F172A;
+      border: 1.5px solid #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+    }
+    .mini-term-header {
+      background: #1E293B;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    .mini-term-dots {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 12px 0 0 #F59E0B, 24px 0 0 #10B981;
+      margin-right: 22px;
+    }
+    .mini-term-title {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+    .mini-term-body {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #E2E8F0;
+      background: #0F172A;
+    }
+
+    /* High-contrast terminal syntax tokens for light mode by default */
+    .t-prompt { color: #0284C7; user-select: none; font-weight: 700; }
     .t-cmd { font-weight: 700; color: #0F172A; }
     .t-flag { color: #1D4ED8; font-weight: 600; }
-    .t-arg { color: #9A3412; font-weight: 500; }
-    .t-path { color: #15803D; font-weight: 500; }
-    .t-str { color: #A21CAF; }
-    .t-cmt { color: #5B6B82; font-style: italic; }
-    .t-err { color: #B91C1C; font-weight: 600; }
-    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+    .t-arg { color: #B45309; font-weight: 600; }
+    .t-path { color: #047857; font-weight: 600; }
+    .t-str { color: #7C3AED; }
+    .t-cmt, .term-comment { color: #64748B; font-style: italic; }
+    .t-err { color: #DC2626; font-weight: 600; }
+    .t-hl { background: rgba(254, 240, 138, 0.45); border-radius: 4px; padding: 0 6px; }
+
+    /* Dark context inside terminal-card and mini-terminal */
+    .terminal-card .term-prompt, .mini-terminal .term-prompt,
+    .terminal-card .t-prompt, .mini-terminal .t-prompt { color: #38BDF8; font-weight: 700; }
+    .terminal-card .term-cmd, .mini-terminal .term-cmd,
+    .terminal-card .t-cmd, .mini-terminal .t-cmd { font-weight: 700; color: #F8FAFC; }
+    .terminal-card .t-flag, .mini-terminal .t-flag { color: #60A5FA; }
+    .terminal-card .t-arg, .mini-terminal .t-arg { color: #FBBF24; }
+    .terminal-card .t-path, .mini-terminal .t-path { color: #34D399; }
+    .terminal-card .t-str, .mini-terminal .t-str { color: #E879F9; }
+    .terminal-card .term-comment, .mini-terminal .term-comment,
+    .terminal-card .t-cmt, .mini-terminal .t-cmt { color: #94A3B8; }
+    .terminal-card .t-err, .mini-terminal .t-err { color: #F87171; }
+
+    /* Estilos del Modal Autotest / Test Global */
+    .autotest-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--surface);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: border-color 0.15s ease;
+    }
+    .autotest-card:hover {
+      border-color: var(--primary);
+    }
+    .autotest-opt-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface-alt);
+      font-size: 18px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .autotest-opt-label:hover {
+      background: #EFF6FF;
+      border-color: #93C5FD;
+    }
+    .autotest-opt-label input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2563EB;
+      cursor: pointer;
+    }
 
     /* Chips de opciones interactivas */
     .options-row {
@@ -619,32 +1092,38 @@
     /* Tablas (≤5x4) */
     .table-container {
       width: 100%;
-      margin: 20px 0;
-      border: 2px solid var(--border);
-      border-radius: 14px;
+      margin: 12px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 12px;
       overflow: hidden;
-      background: #FFFFFF;
+      background: var(--surface);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 26px;
+      font-size: clamp(15px, 1.05vw, 18.5px);
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 16px 24px;
+      padding: 10px 18px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
+      font-size: clamp(15.5px, 1.1vw, 19.5px);
     }
     table.slide-table td {
-      padding: 16px 24px;
+      padding: 9px 18px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
+      line-height: 1.4;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
-    table.slide-table tr.highlighted { background: #FEF3C7; }
+    table.slide-table tr.highlighted { background: var(--warning-soft); }
+    [data-theme="dark"] .table-container {
+      background: var(--surface);
+    }
 
     /* Matrices comparativas y mapas de equivalencias */
     .matrix-container {
@@ -1131,7 +1610,7 @@
     <aside id="teacher-panel">
       <div class="panel-header">
         <span>Notas del Docente</span>
-        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+        <button class="nav-btn" onclick="toggleTeacherNotes()" aria-label="Cerrar panel docente"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
       </div>
       <div class="panel-body">
         <div class="panel-meta" id="panel-meta-info"></div>
@@ -1146,7 +1625,7 @@
   <!-- Modal de Erratas -->
   <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar notas y erratas"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
         <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
         Notas y Erratas del Manual Oficial
@@ -1158,7 +1637,7 @@
   <!-- Modal de Ayuda / Atajos -->
   <div class="modal-overlay" id="modal-help" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar ayuda de atajos"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
         <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
@@ -1181,7 +1660,7 @@
   <!-- Modal de Vista General (Overview) -->
   <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
     <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar vista general"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
       <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
     </div>
@@ -1197,7 +1676,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "104.1", "cat": "disk", "type": "cover", "title": "Creación de particiones y sistemas de archivos", "subtitle": "MBR frente a GPT, fdisk, gdisk, GNU parted, mke2fs, mkfs.xfs, mkfs.btrfs y swap (Modo Examen)", "ref": "411-412", "pdf": {"manual": "A", "pages": [411, 412], "figure": null}, "coverage": ["104.1-OBJ-001", "104.1-OBJ-002", "104.1-OBJ-003"], "meta": {"peso": 2, "paginas": "411–436", "duracion": "30 min"}, "icon": "hard-drive", "notes": "Comenzamos el Tema 104 con el subtema 104.1 (peso 2). Crear particiones y formatearlas con sistemas de archivos es la base física de cualquier instalación. Dominaremos los dos esquemas de particionado (MBR vs GPT), las herramientas de disco (fdisk, gdisk, parted) y los formateadores (mkfs para ext4, XFS, Btrfs y Swap)."}, {"id": 2, "section": "104.1", "cat": "disk", "type": "concept", "title": "Almacenamiento y Nombres de Dispositivos en /dev", "lead": "¿Cómo identifica y numera el kernel de Linux cada disco duro y partición física?", "ref": "412-414", "pdf": {"manual": "A", "pages": [412, 413, 414], "figure": null}, "coverage": ["104.1-CON-001"], "points": [{"icon": "hard-drive", "text": "Discos SATA, SAS y USB (/dev/sd*)", "detail": "🎯 Cada disco físico recibe una letra: /dev/sda (primer disco), /dev/sdb (segundo disco). Las particiones añaden un número: /dev/sda1 (primera partición), /dev/sda2 (segunda partición)."}, {"icon": "zap", "text": "Discos de Estado Sólido NVMe (/dev/nvme*n*p*)", "detail": "🎯 Siguen la convención de espacio de nombres y particiones: /dev/nvme0n1 representa el primer disco físico; /dev/nvme0n1p1 representa su primera partición."}, {"icon": "cpu", "text": "Tarjetas SD y memorias eMMC (/dev/mmcblk*p*)", "detail": "Siguen la estructura de bloques: /dev/mmcblk0 es el dispositivo completo; /dev/mmcblk0p1 es la primera partición."}], "remember": "🎯 Clave de Examen: En discos SATA/SCSI el formato es /dev/sda1; en discos NVMe modernos se añade la 'p' para indicar partición: /dev/nvme0n1p1.", "notes": "Muestra la salida de 'lsblk' para que los alumnos vean la jerarquía de nombres de disco en la máquina real."}, {"id": 3, "section": "104.1", "cat": "disk", "type": "table", "title": "Comparativa Arquitectónica: MBR frente a GPT", "lead": "Las diferencias fundamentales evaluadas en el examen LPIC-1 101-500:", "ref": "414-416", "pdf": {"manual": "A", "pages": [414, 415, 416], "figure": null}, "coverage": ["104.1-CON-002"], "headers": ["Característica", "MBR (Master Boot Record / MSDOS)", "GPT (GUID Partition Table)"], "rows": [["Número Máximo de Particiones", "🎯 Máximo 4 particiones primarias (o 3 primarias + 1 extendida con lógicas).", "🎯 128 particiones primarias por defecto (sin necesidad de extendidas ni lógicas)."], ["Límite de Capacidad de Disco", "🎯 Máximo 2.2 Terabytes (2 TiB) debido al direccionamiento de 32 bits.", "🎯 9.4 Zettabytes (9.4 ZB o 8 ZiB) gracias a direccionamiento de 64 bits."], ["Identificación de Partición", "Códigos hexadecimales de 1 byte (ej: 0x83 Linux, 0x82 Swap, 0xEF ESP).", "Identificadores únicos universales GUID de 128 bits."], ["Redundancia y Seguridad", "⚠️ Sin copia de seguridad: si el sector 0 se corrompe, la tabla se pierde.", "🎯 Alta resiliencia: almacena una cabecera GPT de backup al final exacto del disco."], ["Compatibilidad de Firmware", "Sistemas BIOS tradicionales (Legacy).", "Sistemas UEFI modernos (incluye MBR protector para compatibilidad)."]], "remember": "🎯 La Pregunta Fija de Certificación: MBR soporta hasta 2.2 TB y 4 particiones primarias; GPT soporta discos de más de 2 TB, 128 particiones y copia de seguridad al final del disco.", "notes": "Pide a los alumnos que graben el límite de 2.2 TB en MBR: cualquier disco de 3 TB o superior exige GPT."}, {"id": 4, "section": "104.1", "cat": "disk", "type": "command", "title": "Particionado Interactivo MBR con fdisk", "lead": "La herramienta clásica de línea de comandos para manipular tablas de partición:", "ref": "416-419", "pdf": {"manual": "A", "pages": [416, 417, 418, 419], "figure": null}, "coverage": ["104.1-CMD-001", "104.1-OPT-001"], "command": "sudo fdisk <dispositivo_disco>", "purpose": "Crear, modificar, listar o eliminar particiones MBR de forma interactiva", "terminal": {"command": "sudo fdisk -l /dev/sdb", "output": "Disk /dev/sdb: 20 GiB, 21474836480 bytes, 41943040 sectors\nDisklabel type: dos\nDisk identifier: 0x5a2d1f8b\n\nDevice     Boot Start      End  Sectors Size Id Type\n/dev/sdb1        2048 20973567 20971520  10G 83 Linux\n/dev/sdb2    20973568 41943039 20969472  10G 82 Linux swap / Solaris"}, "options": [{"flag": "fdisk -l [disco]", "desc": "🎯 Clave de Examen: Lista todas las particiones existentes y la tabla del disco sin entrar en modo interactivo."}, {"flag": "Subcomando 'm'", "desc": "Muestra el menú de ayuda con todos los comandos interactivos disponibles."}, {"flag": "Subcomando 'p'", "desc": "🎯 Print: imprime en pantalla la tabla de particiones actual del disco abierto."}, {"flag": "Subcomando 'n'", "desc": "🎯 New: crea una nueva partición (solicita si es primaria o extendida, sector inicial y tamaño)."}, {"flag": "Subcomando 'd'", "desc": "🎯 Delete: elimina una partición existente según su número."}, {"flag": "Subcomando 't'", "desc": "🎯 Type: cambia el código hexadecimal de tipo de partición (ej: 83 para Linux, 82 para Swap)."}, {"flag": "Subcomando 'w'", "desc": "🎯 Clave de Examen: Write: escribe y guarda los cambios en el disco físico y sale. ⚠️ Hasta pulsar 'w', nada se ha tocado en disco."}, {"flag": "Subcomando 'q'", "desc": "Quit: sale inmediatamente de fdisk descartando todos los cambios sin escribir nada."}], "remember": "🎯 Regla de Oro en fdisk: Ningún cambio se escribe en el disco físico hasta que pulses la tecla 'w' (write). Si te equivocas, sal con 'q' (quit).", "notes": "Muestra cómo al definir el tamaño en fdisk se usa la sintaxis '+10G' o '+500M'."}, {"id": 5, "section": "104.1", "cat": "disk", "type": "command", "title": "Particionado GPT con gdisk y sus Códigos Hexadecimales", "lead": "El gemelo de fdisk diseñado exclusivamente para tablas GUID Partition Table:", "ref": "419-422", "pdf": {"manual": "A", "pages": [419, 420, 421, 422], "figure": null}, "coverage": ["104.1-CMD-002", "104.1-OPT-002"], "command": "sudo gdisk <dispositivo_disco>", "purpose": "Crear y gestionar particiones GPT nativas y convertir tablas MBR a GPT", "terminal": {"command": "sudo gdisk -l /dev/sdc", "output": "GPT fdisk (gdisk) version 1.0.6\nPartition table scan:\n  MBR: protective\n  BSD: not present\n  APM: not present\n  GPT: present\n\nNumber  Start (sector)    End (sector)  Size       Code  Name\n   1            2048         1050623   512.0 MiB   EF00  EFI System Partition\n   2         1050624        41943006   19.5 GiB    8300  Linux filesystem"}, "options": [{"flag": "gdisk <disco>", "desc": "Abre el disco en modo GPT. Mantiene exactamente las mismas letras de subcomando que fdisk (p, n, d, t, w, q)."}, {"flag": "Código 8300", "desc": "🎯 Clave de Examen: Sistema de archivos Linux estándar (Linux filesystem)."}, {"flag": "Código 8200", "desc": "🎯 Clave de Examen: Partición de memoria de intercambio (Linux swap)."}, {"flag": "Código EF00", "desc": "🎯 Clave de Examen: Partición del sistema EFI (ESP) obligatoria para arranques UEFI."}, {"flag": "Código 8E00", "desc": "🎯 Partición de Logical Volume Manager (Linux LVM)."}, {"flag": "Protective MBR", "desc": "gdisk crea un MBR protector en el sector 0 para evitar que herramientas antiguas crean que el disco está vacío y lo sobreescriban."}], "remember": "🎯 Códigos Hexadecimales Clave en gdisk: 8300 = Linux; 8200 = Swap; EF00 = EFI System Partition (ESP); 8E00 = LVM.", "notes": "Explica que en fdisk MBR los códigos son de 2 dígitos (83, 82, ef), mientras que en gdisk GPT son de 4 dígitos (8300, 8200, ef00)."}, {"id": 6, "section": "104.1", "cat": "disk", "type": "command", "title": "Particionado No Interactivo con GNU parted", "lead": "La herramienta profesional scriptable para particionar tanto en MBR como en GPT:", "ref": "422-424", "pdf": {"manual": "A", "pages": [422, 423, 424], "figure": null}, "coverage": ["104.1-CMD-003", "104.1-OPT-003"], "command": "sudo parted [-s] <dispositivo> <subcomando> [argumentos...]", "purpose": "Automatizar particionado en scripts y redimensionar particiones en caliente", "terminal": {"command": "sudo parted -s /dev/sdb mklabel gpt; sudo parted -s /dev/sdb mkpart primary ext4 1MiB 10GiB; sudo parted /dev/sdb print", "output": "Model: ATA VBOX HARDDISK (scsi)\nDisk /dev/sdb: 21.5GB\nSector size (logical/physical): 512B/512B\nPartition Table: gpt\nDisk Flags:\n\nNumber  Start   End     Size    File system  Name     Flags\n 1      1049kB  10.7GB  10.7GB  ext4         primary"}, "options": [{"flag": "parted -s, --script", "desc": "🎯 Clave de Examen: Modo script no interactivo: nunca solicita confirmación al usuario (ideal para scripts de despliegue)."}, {"flag": "mklabel <tipo> (o mktable)", "desc": "🎯 Crea la tabla de particiones desde cero. Tipos evaluados: 'gpt' o 'msdos' (MBR). ⚠️ ¡Borra la tabla previa!"}, {"flag": "print", "desc": "🎯 Imprime la tabla de particiones detallada, modelo de disco y tamaño de sectores."}, {"flag": "mkpart <tipo> [fs] <inicio> <fin>", "desc": "🎯 Crea una partición indicando inicio y fin con unidades (ej: 'mkpart primary ext4 1MiB 5GiB')."}, {"flag": "rm <número>", "desc": "Elimina de forma inmediata la partición indicada por su número."}, {"flag": "resizepart <número> <fin>", "desc": "Redimensiona el tamaño final de una partición existente."}], "remember": "🎯 Clave de Examen: 'parted' aplica los cambios EN EL MISMO INSTANTE en que se ejecutan los comandos (a diferencia de fdisk, no espera a pulsar 'w').", "notes": "Advierte seriamente: un 'parted mklabel gpt' borra todas las particiones inmediatamente sin pedir confirmación si se usa con '-s'."}, {"id": 7, "section": "104.1", "cat": "disk", "type": "command", "title": "La Familia mkfs y Formateo Ext4 con mke2fs", "lead": "¿Cómo construir las estructuras de datos del sistema de archivos sobre una partición vacía?", "ref": "424-427", "pdf": {"manual": "A", "pages": [424, 425, 426, 427], "figure": null}, "coverage": ["104.1-CMD-004", "104.1-CMD-005", "104.1-OPT-004"], "command": "sudo mkfs -t <tipo> <partición> | sudo mke2fs [opciones] <partición>", "purpose": "Crear sistemas de archivos ext2, ext3 o ext4 configurando bloques, inodos y journal", "terminal": {"command": "sudo mke2fs -t ext4 -L 'DATOS' -m 1 /dev/sdb1", "output": "mke2fs 1.46.2 (28-Feb-2021)\nCreating filesystem with 2621440 4k blocks and 655360 inodes\nFilesystem UUID: a1b2c3d4-e5f6-7890-abcd-ef1234567890\nSuperblock backups stored on blocks: 32768, 98304, 163840\nAllocating group tables: done\nWriting inode tables: done\nCreating journal (16384 blocks): done\nWriting superblocks and filesystem accounting information: done"}, "options": [{"flag": "mkfs -t <tipo> <partición>", "desc": "Front-end genérico que llama internamente a mkfs.ext4, mkfs.xfs, mkfs.vfat, etc."}, {"flag": "mke2fs -t ext4", "desc": "🎯 Comando maestro oficial para la familia ext. Crea sistemas ext2 (-t ext2), ext3 (-t ext3) o ext4 (-t ext4)."}, {"flag": "mke2fs -j", "desc": "🎯 Clave de Examen: Crea un diario de transacciones (Journal) convirtiendo ext2 en ext3."}, {"flag": "-b <1024|2048|4096>", "desc": "🎯 Clave de Examen: Especifica el tamaño de bloque en bytes (por defecto 4096 bytes / 4 KB)."}, {"flag": "-L <etiqueta>", "desc": "Asigna una etiqueta de volumen (Volume Label) de hasta 16 caracteres para montaje amigable."}, {"flag": "-m <porcentaje>", "desc": "🎯 Clave de Examen: Porcentaje de bloques reservados para el superusuario root (por defecto 5%, se puede bajar a 1% con -m 1 en discos grandes)."}], "remember": "🎯 Clave de Examen: 'mke2fs -j' crea el journal (ext3); '-b' fija el tamaño de bloque (1024, 2048, 4096); '-m' define el porcentaje reservado para root.", "notes": "Explica que en un disco de 10 TB, el 5% reservado por defecto para root son 500 GB desperdiciados; con '-m 1' se ahorran 400 GB."}, {"id": 8, "section": "104.1", "cat": "disk", "type": "command", "title": "Sistemas de Archivos Empresariales: mkfs.xfs y mkfs.btrfs", "lead": "Los dos gigantes de almacenamiento avanzado en Red Hat, SUSE y la nube:", "ref": "427-430", "pdf": {"manual": "A", "pages": [427, 428, 429, 430], "figure": null}, "coverage": ["104.1-CMD-006", "104.1-CMD-007", "104.1-CMD-008"], "command": "sudo mkfs.xfs [-f] <partición> | sudo mkfs.btrfs [-m|-d] <particiones...>", "purpose": "Formatear particiones con el motor XFS de alto rendimiento o el sistema CoW multidisco Btrfs", "terminal": {"command": "sudo mkfs.xfs -f -L 'XFS_VOL' /dev/sdb2", "output": "meta-data=/dev/sdb2              isize=512    agcount=4, agsize=655296 blks\n         =                       sectsz=512   attr=2, projid32bit=1\ndata     =                       bsize=4096   blocks=2621184, imaxpct=25\n         =                       sunit=0      swidth=0 blks\nnaming   =version 2              bsize=4096   ascii-ci=0, ftype=1\nlog      =internal log           bsize=4096   blocks=2560, version=2\nrealtime =none                   extsz=4096   blocks=0, rtextents=0"}, "options": [{"flag": "mkfs.xfs <partición>", "desc": "🎯 Sistema por defecto en RHEL/CentOS. Diseñado para escalabilidad masiva de E/S paralela con grupos de asignación (allocation groups)."}, {"flag": "mkfs.xfs -f", "desc": "Force: fuerza el formateo incluso si la partición ya contenía un sistema de archivos previo."}, {"flag": "mkfs.xfs -L <etiqueta>", "desc": "Asigna una etiqueta de volumen a la partición XFS (hasta 12 caracteres)."}, {"flag": "mkfs.btrfs <discos...>", "desc": "🎯 B-tree FS: sistema de archivos Copy-On-Write (CoW) con soporte nativo de RAID y subvolúmenes sin necesidad de LVM ni mdadm."}, {"flag": "mkfs.btrfs -d <single|raid0|raid1>", "desc": "Configura el perfil de datos (Data profile) para distribuir bloques entre múltiples discos."}, {"flag": "mkfs.vfat / mkfs.fat -F 32", "desc": "🎯 Formatea en FAT32 para compatibilidad universal con pendrives y la partición ESP UEFI."}], "remember": "🎯 Clave de Examen: XFS es el estándar de alto rendimiento en Red Hat; Btrfs soporta pools multidisco y snapshots CoW nativos; VFAT se usa para la partición ESP.", "notes": "Muestra que Btrfs puede formatear dos discos físicos juntos de golpe: 'mkfs.btrfs -d raid1 /dev/sdb /dev/sdc'."}, {"id": 9, "section": "104.1", "cat": "disk", "type": "command", "title": "Memoria de Intercambio (Swap): mkswap, swapon y swapoff", "lead": "¿Cómo activar el espacio de intercambio sobre particiones físicas dedicadas?", "ref": "430-433", "pdf": {"manual": "A", "pages": [430, 431, 432, 433], "figure": null}, "coverage": ["104.1-CMD-009", "104.1-CMD-010", "104.1-CMD-011"], "command": "sudo mkswap <disp> | sudo swapon [-a|--show] <disp> | sudo swapoff <disp>", "purpose": "Formatear, activar y desactivar áreas de memoria de intercambio en el sistema", "terminal": {"command": "sudo mkswap -L 'SWAP_DISK' /dev/sdb2; sudo swapon /dev/sdb2; swapon --show", "output": "Setting up swapspace version 1, size = 10 GiB (10736369664 bytes)\nLABEL=SWAP_DISK, UUID=4f3b2a1c-9d8e-7a6b-5c4d-3e2f1a0b9c8d\nNAME      TYPE      SIZE USED PRIO\n/dev/sdb2 partition  10G   0B   -2"}, "options": [{"flag": "mkswap <dispositivo>", "desc": "🎯 Clave de Examen: Inicializa y formatea el espacio de swap escribiendo la firma 'SWAPSPACE2' y generando su UUID."}, {"flag": "mkswap -L <etiqueta>", "desc": "Asigna una etiqueta a la partición de swap para montaje amigable."}, {"flag": "swapon <dispositivo>", "desc": "🎯 Clave de Examen: Activa el área de memoria de intercambio para que el kernel comience a utilizarla."}, {"flag": "swapon -a", "desc": "🎯 Clave de Examen: Activa TODAS las áreas de swap configuradas en /etc/fstab."}, {"flag": "swapon --show (o -s)", "desc": "Muestra una tabla con los dispositivos swap activos, tipo, tamaño, uso y prioridad."}, {"flag": "swapoff <dispositivo>", "desc": "Desactiva el área de swap volcando previamente todas las páginas de memoria de nuevo a la RAM."}, {"flag": "swapoff -a", "desc": "Desactiva todas las áreas de swap del sistema."}], "remember": "🎯 Diferencia Vital de Examen: 'mkswap' prepara y formatea el área; 'swapon' la activa para el kernel; 'swapon -a' activa las que residen en /etc/fstab.", "notes": "Recuerda a los alumnos: nunca intentes montar una partición swap con 'mount'; la swap se activa exclusivamente con 'swapon'."}, {"id": 10, "section": "104.1", "cat": "disk", "type": "flow", "title": "Procedimiento Paso a Paso: Archivo Swapfile de Emergencia", "lead": "¿Cómo añadir más Swap cuando el servidor se queda sin RAM y no puedes crear particiones nuevas?", "ref": "433-435", "pdf": {"manual": "A", "pages": [433, 434, 435], "figure": null}, "coverage": ["104.1-CON-003"], "steps": [{"step": 1, "title": "Crear el archivo contiguo de ceros", "cmd": "sudo dd if=/dev/zero of=/swapfile bs=1M count=2048 (o fallocate -l 2G /swapfile)", "desc": "Reserva un archivo de 2 GB de espacio contiguo en disco sin agujeros (sparse)."}, {"step": 2, "title": "🎯 Fijar permisos estrictos 0600 (OBLIGATORIO)", "cmd": "sudo chmod 600 /swapfile", "desc": "🎯 Clave Absoluta de Examen: Por seguridad, solo root debe tener permisos de lectura y escritura. Si los permisos son abiertos, swapon dará error y se negará a activarlo."}, {"step": 3, "title": "Formatear la estructura swap", "cmd": "sudo mkswap /swapfile", "desc": "Escribe la cabecera de intercambio en el archivo recién creado."}, {"step": 4, "title": "Activar el archivo de swap", "cmd": "sudo swapon /swapfile", "desc": "El kernel añade inmediatamente los 2 GB a la memoria disponible."}, {"step": 5, "title": "Persistencia en /etc/fstab", "cmd": "echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab", "desc": "Garantiza que la swap se reactive automáticamente en cada reinicio."}], "remember": "🎯 Pregunta Estrella de Examen: ¿Qué permisos obligatorios debe tener un swapfile? -> Permisos 0600 (chmod 600 /swapfile).", "notes": "Insiste mucho en el paso 2: la seguridad de la memoria es crítica porque la Swap almacena datos confidenciales de la RAM en texto claro."}, {"id": 11, "section": "104.1", "cat": "disk", "type": "table", "title": "Tabla Resumen de Sistemas de Archivos en LPIC-1", "lead": "Las características evaluadas de cada sistema de ficheros de un vistazo:", "ref": "435", "pdf": {"manual": "A", "pages": [435], "figure": null}, "coverage": ["104.1-CON-004"], "headers": ["Sistema de Ficheros", "Comando de Formateo", "Características Principales", "Uso Recomendado en Examen"], "rows": [["ext2", "mke2fs / mkfs.ext2", "Sin diario (no journaling). Muy simple pero lento de recuperar si hay caída.", "Particiones de arranque antiguas (/boot) o medios flash."], ["ext3", "mke2fs -j / mkfs.ext3", "🎯 Incorpora Journaling (diario). Transición directa desde ext2 sin formatear.", "Servidores heredados."], ["ext4", "mke2fs -t ext4 / mkfs.ext4", "🎯 Extents, reserva tardía, cheques de suma en journal, soporte de ficheros de 16 TB.", "Sistema de archivos por defecto en distribuciones Debian y Ubuntu."], ["XFS", "mkfs.xfs", "🎯 Sistema de alto rendimiento de 64 bits con grupos de asignación paralelos.", "Sistema por defecto en RHEL/CentOS. ⚠️ ¡No se puede reducir de tamaño!"], ["Btrfs", "mkfs.btrfs", "🎯 Copy-on-Write, instantáneas (snapshots), subvolúmenes y RAID integrado.", "Sistemas de escritorio modernos y servidores openSUSE."], ["VFAT (FAT32)", "mkfs.vfat / mkfs.fat -F 32", "Interoperabilidad absoluta. ⚠️ Tamaño máximo de archivo de 4 GB.", "Partición ESP UEFI (/boot/efi) y pendrives USB."]], "remember": "🎯 Trampa de Examen: XFS se puede ampliar fácilmente en caliente con xfs_growfs, pero ¡NUNCA se puede reducir de tamaño!", "notes": "Muestra cómo el examen pregunta qué sistema de archivos permite crear subvolúmenes (Btrfs) y cuál se usa en /boot/efi (VFAT)."}, {"id": 12, "section": "104.1", "cat": "disk", "type": "concept", "title": "Trampas Clásicas de Examen en Particionado", "lead": "Los 3 errores más comunes que provocan fallos en las preguntas de disco:", "ref": "435-436", "pdf": {"manual": "A", "pages": [435, 436], "figure": null}, "coverage": ["104.1-WARN-001", "104.1-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Creer que se puede crear una partición MBR de 4 TB", "detail": "🎯 Trampa clásica: si un enunciado plantea 'configurar un disco nuevo de 4 TB con particiones MBR', la respuesta correcta siempre señala que es imposible: MBR tiene un límite arquitectónico estricto de 2.2 TB. Debe usarse GPT."}, {"icon": "alert-triangle", "text": "2. Confundir la opción de journal en mke2fs", "detail": "La opción para activar el diario de transacciones es '-j' (minúscula). Si usas '-J', es para opciones avanzadas de journal externo."}, {"icon": "alert-triangle", "text": "3. Olvidar escribir los cambios en fdisk", "detail": "Si ejecutas fdisk y creas 3 particiones pero sales con 'q' o cierras la terminal, NO se ha creado ninguna partición. Es obligatorio pulsar 'w' para escribir en la tabla física de particiones."}], "remember": "🎯 Mnemotecnia Rápida: Discos > 2 TB = GPT obligatorio. fdisk = pulsar 'w' para guardar. Swapfile = chmod 600 obligatorio.", "notes": "Repite estos tres axiomas antes de pasar a los ejercicios guiados."}, {"id": 13, "section": "104.1", "cat": "disk", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: fdisk y gdisk)", "ref": "Manual A - Pág 436", "pdf": {"manual": "A", "pages": [436], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 436): ¿Cuál es el comando exacto para inspeccionar la lista completa de particiones de todos los discos conectados al sistema sin entrar en ningún menú interactivo?", "command": "sudo fdisk -l (o sudo parted -l)", "reason": "La opción -l (--list) vuelca en la salida estándar la tabla de particiones, tamaños y tipos de todos los dispositivos de bloque detectados."}, {"action": "Caso 2 (Oficial Pág 436): En la herramienta 'gdisk', ¿qué código hexadecimal de tipo de partición se debe asignar a la partición ESP (EFI System Partition)?", "command": "ef00", "reason": "El código 'ef00' corresponde a la partición de sistema EFI requerida por el estándar UEFI (en MBR su código equivalente es 0xEF)."}, {"action": "Caso 3 (Oficial Pág 436): Dentro de 'fdisk', ¿qué subcomando de una sola letra permite cambiar el tipo de sistema de una partición (por ejemplo de Linux a Linux Swap)?", "command": "t (Type)", "reason": "El comando interactivo 't' solicita el número de partición y el nuevo código hexadecimal de tipo deseado."}], "solution": {"explain": "fdisk -l lista sin entrar; ef00 identifica la partición ESP en gdisk; y 't' altera el identificador de tipo."}, "notes": "Muestra que en gdisk puedes teclear 'L' para ver la lista completa de los cientos de códigos GUID disponibles."}, {"id": 14, "section": "104.1", "cat": "disk", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: mke2fs y swap)", "ref": "Manual A - Pág 436", "pdf": {"manual": "A", "pages": [436], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 436): ¿Qué comando formatea la partición '/dev/sdb1' con sistema de archivos ext4 fijando el tamaño de bloque a 2048 bytes y asignando la etiqueta 'RESPALDO'?", "command": "sudo mke2fs -t ext4 -b 2048 -L 'RESPALDO' /dev/sdb1 (o mkfs.ext4 -b 2048 -L 'RESPALDO' /dev/sdb1)", "reason": "-t define el tipo ext4, -b fija los 2048 bytes por bloque y -L asigna la etiqueta de volumen."}, {"action": "Caso 5 (Oficial Pág 436): Tras crear un archivo de intercambio con 'fallocate -l 1G /swapfile', ¿qué dos comandos deben ejecutarse consecutivamente para asegurarlo con permisos correctos y formatearlo como swap?", "command": "sudo chmod 600 /swapfile && sudo mkswap /swapfile", "reason": "chmod 600 restringe el acceso exclusivamente al usuario root y mkswap escribe la firma de intercambio necesaria para su activación con swapon."}], "solution": {"explain": "mke2fs parametrizado permite afinar bloques y etiquetas; chmod 600 es el requisito previo innegociable antes de mkswap."}, "notes": "Recuerda que los tamaños válidos de bloque para ext4 son 1024, 2048 y 4096 bytes."}, {"id": 15, "section": "104.1", "cat": "disk", "type": "challenge", "title": "Retos de Exploración Oficiales (parted y Conversión MBR a GPT)", "ref": "Manual A - Págs 436-437", "pdf": {"manual": "A", "pages": [436, 437], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Tienes un disco nuevo '/dev/sdc' y necesitas crear una tabla GPT e inicializar una partición primaria ext4 de 5 GB desde un script bash desatendido sin interacción humana. ¿Qué línea de comandos completa con 'parted' debes ejecutar?\n2. ¿Qué herramienta especializada de la familia gdisk permite convertir una tabla de particiones MBR existente a GPT de forma segura conservando los datos de las particiones?\n3. ¿Qué comando de GNU parted muestra el alineamiento óptimo de sectores de una partición para garantizar el máximo rendimiento en discos SSD?", "hint": "Recuerda: parted -s mklabel gpt mkpart; la herramienta gdisk directamente; y parted align-check.", "solution": {"explain": "1. Se ejecuta: sudo parted -s /dev/sdc mklabel gpt mkpart primary ext4 1MiB 5GiB\n2. Se utiliza la propia utilidad 'gdisk /dev/sdc', que al abrir un disco MBR carga automáticamente la conversión en memoria y la guarda en GPT al pulsar 'w'.\n3. Se ejecuta: sudo parted /dev/sdc align-check optimal 1."}, "notes": "La conversión de MBR a GPT con gdisk es una técnica de examen muy valorada para modernizar servidores antiguos a UEFI."}, {"id": 16, "section": "104.1", "cat": "disk", "type": "review", "title": "Pregunta de Examen LPIC-1: Límites Arquitectónicos de Particionado", "q": "Un administrador necesita configurar un nuevo disco duro de 8 TB en un servidor de base de datos. ¿Cuál de las siguientes afirmaciones es correcta respecto al esquema de particionado que debe emplear?", "options": ["Debe utilizar una tabla MBR tradicional con una partición extendida.", "Debe utilizar una tabla GPT porque MBR no puede direccionar discos de más de 2.2 TB.", "Puede utilizar MBR si formatea las particiones con el sistema de archivos ext4.", "Debe utilizar LVM directamente sobre el disco sin ninguna tabla de particiones."], "answer": 1, "why": "El esquema de particionado MBR tradicional utiliza direcciones de bloque LBA de 32 bits, lo que impone un límite matemático estricto de direccionamiento de 2.2 Terabytes (2 TiB con sectores de 512 bytes). Para discos superiores a 2.2 TB (como este de 8 TB) es obligatoria la tabla GPT (GUID Partition Table), que soporta hasta 9.4 Zettabytes.", "notes": "Pregunta conceptual clásica e indispensable en la certificación LPIC-1."}, {"id": 17, "section": "104.1", "cat": "disk", "type": "review", "title": "Pregunta de Examen LPIC-1: Parámetros del Formateador mke2fs", "q": "¿Qué opción del comando 'mke2fs' se utiliza para incorporar un diario de transacciones (Journal) y crear directamente un sistema de archivos ext3?", "options": ["-t ext3", "-j", "-J", "Tanto la opción -t ext3 como la opción -j son correctas."], "answer": 3, "why": "En 'mke2fs', la opción '-j' (journal) se diseñó originalmente para añadir el diario de ext3 sobre la base de ext2. Con las versiones modernas de e2fsprogs, también es completamente válido indicar el tipo explícito con '-t ext3'. Ambas opciones consiguen exactamente el mismo resultado.", "notes": "Pregunta técnica detallada sobre la sintaxis de mke2fs."}, {"id": 18, "section": "104.1", "cat": "disk", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Particiones y Formateo 104.1", "deck": [{"front": "¿Cuál es el límite de tamaño máximo de un disco con tabla MBR?", "back": "2.2 Terabytes (2 TiB)."}, {"front": "¿Cuántas particiones primarias soporta una tabla GPT por defecto?", "back": "128 particiones primarias."}, {"front": "¿Qué código hexadecimal asigna 'gdisk' a una partición Swap y a la ESP?", "back": "8200 para Swap; ef00 para la partición EFI System Partition (ESP)."}, {"front": "¿Qué subcomando de 'fdisk' escribe los cambios en el disco físico?", "back": "El subcomando 'w' (write)."}, {"front": "¿Qué opción de 'mke2fs' añade un journal de transacciones?", "back": "-j (o -t ext3 / -t ext4)."}, {"front": "¿Qué permisos obligatorios debe tener un archivo swapfile por seguridad?", "back": "Permisos 0600 (chmod 600 /swapfile)."}, {"front": "¿Qué comando activa todas las áreas de swap configuradas en /etc/fstab?", "back": "swapon -a."}, {"front": "¿Qué sistema de archivos soporta subvolúmenes y snapshots CoW nativos?", "back": "Btrfs (formateado con mkfs.btrfs)."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 104.1."}, {"id": 19, "section": "104.1", "cat": "disk", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 104.1", "takeaways": ["Esquemas: MBR (máx 4 primarias, 2.2 TB límite); GPT (128 primarias, 9.4 ZB, backup GPT al final del disco).", "Particionadores: fdisk (MBR/GPT interactivo con w para guardar); gdisk (GPT nativo con códigos 8300, 8200, ef00); parted (scriptable con mklabel y mkpart).", "Sistemas de Ficheros: mke2fs (-t ext4, -j journal, -b bloque, -m reserva); mkfs.xfs (alto rendimiento, no reducible); mkfs.btrfs (CoW, subvolúmenes); mkfs.vfat (ESP UEFI).", "Swap: particiones (código 82/8200) o swapfiles con chmod 600; formateo con mkswap y activación con swapon (swapon -a para fstab)."], "top3": [{"cmd": "fdisk -l /dev/sdX || gdisk -l /dev/sdX", "desc": "Inspecciona la tabla de particiones, tipo y tamaño de un disco duro."}, {"cmd": "mke2fs -t ext4 -L 'DATOS' /dev/sdX1", "desc": "Formatea una partición con ext4 asignando una etiqueta de volumen."}, {"cmd": "mkswap /dev/sdX2 && swapon /dev/sdX2", "desc": "Inicializa y activa una partición de memoria de intercambio."}], "practice": {"name": "Practica 104.1: Creación de Particiones y Sistemas de Archivos", "url": "../practicas/p-104-1-crear-particiones-archivos.html", "desc": "Crea una unidad de disco virtual loopback de 200 MB para particionar con fdisk y dar formato de forma 100% segura con mkfs.ext4, mkfs.xfs, mkfs.vfat y mkswap sin arriesgar tu VM."}, "notes": "Concluimos el subtema 104.1. Los alumnos dominan ahora el particionado y formateo de discos."}];
+    const SLIDES = [{"id": 1, "section": "104.1", "cat": "disk", "type": "cover", "title": "Creación de particiones y sistemas de archivos", "subtitle": "MBR frente a GPT, fdisk, gdisk, GNU parted, mke2fs, mkfs.xfs, mkfs.btrfs y swap (Modo Examen)", "ref": "411-412", "pdf": {"manual": "A", "pages": [411, 412], "figure": null}, "coverage": ["104.1-OBJ-001", "104.1-OBJ-002", "104.1-OBJ-003"], "meta": {"peso": 2, "paginas": "411–436", "duracion": "30 min"}, "icon": "hard-drive", "notes": "Comenzamos el Tema 104 con el subtema 104.1 (peso 2). Crear particiones y formatearlas con sistemas de archivos es la base física de cualquier instalación. Dominaremos los dos esquemas de particionado (MBR vs GPT), las herramientas de disco (fdisk, gdisk, parted) y los formateadores (mkfs para ext4, XFS, Btrfs y Swap)."}, {"id": 2, "section": "104.1", "cat": "disk", "type": "diagram", "title": "Nomenclatura y Jerarquía de Dispositivos en /dev", "lead": "El kernel de Linux mapea cada disco físico y partición en el árbol /dev según el bus y la controladora de almacenamiento:", "ref": "412-414", "pdf": {"manual": "A", "pages": [412, 413, 414], "figure": null}, "coverage": ["104.1-CON-001"], "points": [{"icon": "hard-drive", "text": "Discos SATA, SAS y USB (/dev/sd*)", "detail": "🎯 Cada disco físico recibe una letra: /dev/sda (primer disco), /dev/sdb (segundo disco). Las particiones añaden un número: /dev/sda1 (primera partición), /dev/sda2 (segunda partición)."}, {"icon": "zap", "text": "Discos de Estado Sólido NVMe (/dev/nvme*n*p*)", "detail": "🎯 Siguen la convención de espacio de nombres y particiones: /dev/nvme0n1 representa el primer disco físico; /dev/nvme0n1p1 representa su primera partición."}, {"icon": "cpu", "text": "Tarjetas SD y memorias eMMC (/dev/mmcblk*p*)", "detail": "Siguen la estructura de bloques: /dev/mmcblk0 es el dispositivo completo; /dev/mmcblk0p1 es la primera partición."}], "remember": "🎯 Clave de Examen: En discos SATA/SCSI el formato es /dev/sda1; en discos NVMe modernos se añade la 'p' para indicar partición: /dev/nvme0n1p1.", "notes": "Muestra la salida de 'lsblk' para que los alumnos vean la jerarquía de nombres de disco en la máquina real.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:16px; margin:14px 0;\">\n  <!-- Grid 3 Familias de Dispositivos -->\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;\">\n    \n    <!-- Familia 1: SATA / SCSI / USB -->\n    <div style=\"background:#F8FAFC; border:2px solid #3B82F6; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; gap:8px; margin-bottom:8px;\">\n          <span style=\"background:#3B82F6; color:#FFF; font-size:12px; font-weight:800; padding:3px 8px; border-radius:6px;\">SATA / SCSI / USB</span>\n          <span style=\"font-family:monospace; font-weight:700; color:#1E40AF; font-size:15px;\">/dev/sd*</span>\n        </div>\n        <div style=\"font-size:13.5px; color:#334155; line-height:1.45; margin-bottom:10px;\">\n          Discos tradicionales y unidades flash externas. Cada disco físico recibe una letra consecutiva:\n        </div>\n        <div style=\"background:#EFF6FF; border-left:3px solid #3B82F6; padding:8px 10px; font-family:monospace; font-size:13px; color:#1E3A8A; line-height:1.6; border-radius:4px;\">\n          <div>/dev/sda  &rarr; 1.<sup>er</sup> disco físico</div>\n          <div>/dev/sda1 &rarr; Partición 1 de sda</div>\n          <div>/dev/sda2 &rarr; Partición 2 de sda</div>\n          <div>/dev/sdb  &rarr; 2.º disco físico</div>\n        </div>\n      </div>\n      <div style=\"margin-top:10px; font-size:12px; color:#2563EB; font-weight:700; background:#DBEAFE; padding:4px 8px; border-radius:6px;\">\n        Sin 'p' &bull; Número pegado a letra\n      </div>\n    </div>\n\n    <!-- Familia 2: NVMe PCIe SSD -->\n    <div style=\"background:#F8FAFC; border:2px solid #10B981; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; gap:8px; margin-bottom:8px;\">\n          <span style=\"background:#10B981; color:#FFF; font-size:12px; font-weight:800; padding:3px 8px; border-radius:6px;\">NVMe PCIe SSD</span>\n          <span style=\"font-family:monospace; font-weight:700; color:#065F46; font-size:15px;\">/dev/nvme*</span>\n        </div>\n        <div style=\"font-size:13.5px; color:#334155; line-height:1.45; margin-bottom:10px;\">\n          Discos SSD M.2 de ultra alta velocidad. Indican controlador (c), namespace (n) y partición (p):\n        </div>\n        <div style=\"background:#ECFDF5; border-left:3px solid #10B981; padding:8px 10px; font-family:monospace; font-size:13px; color:#064E3B; line-height:1.6; border-radius:4px;\">\n          <div>/dev/nvme0n1   &rarr; Disco 1 (Ctrl 0, NS 1)</div>\n          <div>/dev/nvme0n1p1 &rarr; Partición 1 (con 'p')</div>\n          <div>/dev/nvme0n1p2 &rarr; Partición 2 (con 'p')</div>\n          <div>/dev/nvme1n1   &rarr; Disco 2 (Ctrl 1, NS 1)</div>\n        </div>\n      </div>\n      <div style=\"margin-top:10px; font-size:12px; color:#047857; font-weight:700; background:#D1FAE5; padding:4px 8px; border-radius:6px;\">\n        Lleva 'p' obligatoria para partición\n      </div>\n    </div>\n\n    <!-- Familia 3: SD / eMMC -->\n    <div style=\"background:#F8FAFC; border:2px solid #8B5CF6; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; gap:8px; margin-bottom:8px;\">\n          <span style=\"background:#8B5CF6; color:#FFF; font-size:12px; font-weight:800; padding:3px 8px; border-radius:6px;\">SD / eMMC Flash</span>\n          <span style=\"font-family:monospace; font-weight:700; color:#5B21B6; font-size:15px;\">/dev/mmcblk*</span>\n        </div>\n        <div style=\"font-size:13.5px; color:#334155; line-height:1.45; margin-bottom:10px;\">\n          Tarjetas SD y memorias eMMC soldadas en placa (Raspberry Pi, servidores embebidos):\n        </div>\n        <div style=\"background:#F5F3FF; border-left:3px solid #8B5CF6; padding:8px 10px; font-family:monospace; font-size:13px; color:#4C1D95; line-height:1.6; border-radius:4px;\">\n          <div>/dev/mmcblk0   &rarr; Dispositivo completo</div>\n          <div>/dev/mmcblk0p1 &rarr; Partición 1 (con 'p')</div>\n          <div>/dev/mmcblk0p2 &rarr; Partición 2 (con 'p')</div>\n          <div>/dev/mmcblk1   &rarr; Segunda tarjeta SD</div>\n        </div>\n      </div>\n      <div style=\"margin-top:10px; font-size:12px; color:#6D28D9; font-weight:700; background:#EDE9FE; padding:4px 8px; border-radius:6px;\">\n        Lleva 'p' obligatoria para partición\n      </div>\n    </div>\n\n  </div>\n\n  <!-- Alerta de examen: Trampa clásica de sintaxis -->\n  <div style=\"background:#FFFBEB; border:2px solid #F59E0B; border-radius:10px; padding:10px 16px; display:flex; align-items:center; gap:14px;\">\n    <span style=\"font-size:24px;\">⚠️</span>\n    <div style=\"font-size:13.5px; color:#92400E; line-height:1.45;\">\n      <strong>Trampa Frecuente de Certificación:</strong> En discos SATA nunca hay letra 'p' (<code style=\"background:#FEF3C7; color:#B45309; padding:2px 6px; border-radius:4px; font-weight:700;\">/dev/sda1</code>, NUNCA <code style=\"text-decoration:line-through; color:#DC2626;\">/dev/sdap1</code>). En cambio, en discos NVMe y MMC la letra 'p' es <strong>estrictamente obligatoria</strong> (<code style=\"background:#FEF3C7; color:#B45309; padding:2px 6px; border-radius:4px; font-weight:700;\">/dev/nvme0n1p1</code>, NUNCA <code style=\"text-decoration:line-through; color:#DC2626;\">/dev/nvme0n11</code>).\n    </div>\n  </div>\n</div>\n"}, {"id": 3, "section": "104.1", "cat": "disk", "type": "table", "title": "Comparativa Arquitectónica: MBR frente a GPT", "lead": "Comparativa estructural y límites evaluados en el examen LPIC-1 101-500:", "ref": "414-416", "pdf": {"manual": "A", "pages": [414, 415, 416], "figure": null}, "coverage": ["104.1-CON-002"], "headers": ["Característica", "MBR (Master Boot Record / MSDOS)", "GPT (GUID Partition Table)"], "rows": [["Número Máximo de Particiones", "🎯 Máximo 4 particiones primarias (o 3 primarias + 1 extendida con lógicas).", "🎯 128 particiones primarias por defecto (sin necesidad de extendidas ni lógicas)."], ["Límite de Capacidad de Disco", "🎯 Máximo 2.2 Terabytes (2 TiB) debido al direccionamiento de 32 bits.", "🎯 9.4 Zettabytes (9.4 ZB o 8 ZiB) gracias a direccionamiento de 64 bits."], ["Identificación de Partición", "Códigos hexadecimales de 1 byte (ej: 0x83 Linux, 0x82 Swap, 0xEF ESP).", "Identificadores únicos universales GUID de 128 bits."], ["Redundancia y Seguridad", "⚠️ Sin copia de seguridad: si el sector 0 se corrompe, la tabla se pierde.", "🎯 Alta resiliencia: almacena una cabecera GPT de backup al final exacto del disco."], ["Compatibilidad de Firmware", "Sistemas BIOS tradicionales (Legacy).", "Sistemas UEFI modernos (incluye MBR protector para compatibilidad)."]], "remember": "🎯 La Pregunta Fija de Certificación: MBR soporta hasta 2.2 TB y 4 particiones primarias; GPT soporta discos de más de 2 TB, 128 particiones y copia de seguridad al final del disco.", "notes": "Pide a los alumnos que graben el límite de 2.2 TB en MBR: cualquier disco de 3 TB o superior exige GPT.", "diagram_html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-bottom:12px;\">\n  <!-- Arquitectura MBR -->\n  <div style=\"background:#FEF2F2; border:2px solid #EF4444; border-radius:10px; padding:10px 14px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n      <span style=\"font-weight:800; color:#991B1B; font-size:14px;\">MBR (Master Boot Record)</span>\n      <span style=\"background:#FEE2E2; color:#B91C1C; font-size:11px; font-weight:700; padding:2px 6px; border-radius:4px;\">Sector 0 (512 Bytes)</span>\n    </div>\n    <div style=\"display:flex; gap:6px; font-family:monospace; font-size:11.5px; text-align:center;\">\n      <div style=\"flex:4; background:#FCA5A5; color:#7F1D1D; padding:6px 2px; border-radius:4px; font-weight:700;\">446B Bootloader</div>\n      <div style=\"flex:2; background:#F87171; color:#FFF; padding:6px 2px; border-radius:4px; font-weight:700;\">64B Part (4x16B)</div>\n      <div style=\"flex:1; background:#EF4444; color:#FFF; padding:6px 2px; border-radius:4px; font-weight:700;\">2B 55AA</div>\n    </div>\n    <div style=\"margin-top:6px; font-size:12px; color:#B91C1C;\">Límite 32-bit LBA = 2.2 TB máx. Sin respaldo: un fallo en sector 0 destruye la tabla.</div>\n  </div>\n\n  <!-- Arquitectura GPT -->\n  <div style=\"background:#F0FDF4; border:2px solid #22C55E; border-radius:10px; padding:10px 14px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n      <span style=\"font-weight:800; color:#166534; font-size:14px;\">GPT (GUID Partition Table)</span>\n      <span style=\"background:#DCFCE7; color:#15803D; font-size:11px; font-weight:700; padding:2px 6px; border-radius:4px;\">64-bit LBA Resiliente</span>\n    </div>\n    <div style=\"display:flex; gap:6px; font-family:monospace; font-size:11.5px; text-align:center;\">\n      <div style=\"flex:1; background:#BBF7D0; color:#14532D; padding:6px 2px; border-radius:4px; font-weight:700;\">Prot. MBR</div>\n      <div style=\"flex:1; background:#86EFAC; color:#14532D; padding:6px 2px; border-radius:4px; font-weight:700;\">Cabecera GPT</div>\n      <div style=\"flex:3; background:#4ADE80; color:#064E3B; padding:6px 2px; border-radius:4px; font-weight:700;\">128 Particiones</div>\n      <div style=\"flex:1; background:#22C55E; color:#FFF; padding:6px 2px; border-radius:4px; font-weight:700;\">Backup GPT Final</div>\n    </div>\n    <div style=\"margin-top:6px; font-size:12px; color:#15803D;\">Límite 64-bit LBA = 9.4 ZB. Copia de seguridad exacta en los últimos sectores del disco.</div>\n  </div>\n</div>\n"}, {"id": 4, "section": "104.1", "cat": "disk", "type": "command", "title": "Particionado Interactivo MBR con fdisk", "lead": "La herramienta clásica de línea de comandos para manipular tablas de partición:", "ref": "416-419", "pdf": {"manual": "A", "pages": [416, 417, 418, 419], "figure": null}, "coverage": ["104.1-CMD-001", "104.1-OPT-001"], "command": "sudo fdisk <dispositivo_disco>", "purpose": "Crear, modificar, listar o eliminar particiones MBR de forma interactiva", "terminal": {"command": "sudo fdisk -l /dev/sdb", "output": "Disk /dev/sdb: 20 GiB, 21474836480 bytes, 41943040 sectors\nDisklabel type: dos\nDisk identifier: 0x5a2d1f8b\n\nDevice     Boot Start      End  Sectors Size Id Type\n/dev/sdb1        2048 20973567 20971520  10G 83 Linux\n/dev/sdb2    20973568 41943039 20969472  10G 82 Linux swap / Solaris", "annotated": [{"line": "Disk /dev/sdb: 20 GiB, 21474836480 bytes, 41943040 sectors", "callout": "①", "note": "Capacidad total física y conteo de sectores de 512 bytes."}, {"line": "Disklabel type: dos", "callout": "②", "note": "Tipo de etiqueta 'dos' indica tabla tradicional MBR (Master Boot Record)."}, {"line": "/dev/sdb1        2048 20973567 20971520  10G 83 Linux", "callout": "③", "note": "Partición 1 de 10 GB con código 83 (Linux nativo)."}, {"line": "/dev/sdb2    20973568 41943039 20969472  10G 82 Linux swap / Solaris", "callout": "④", "note": "Partición 2 de 10 GB con código 82 (Memoria swap de intercambio)."}]}, "options": [{"flag": "fdisk -l", "short": "Listar", "desc": "🎯 Clave de Examen: Lista todas las particiones existentes y la tabla del disco sin entrar en modo interactivo."}, {"flag": "m", "short": "Menú Ayuda", "desc": "Muestra el menú de ayuda con todos los comandos interactivos disponibles."}, {"flag": "p", "short": "Print", "desc": "🎯 Print: imprime en pantalla la tabla de particiones actual del disco abierto."}, {"flag": "n", "short": "New", "desc": "🎯 New: crea una nueva partición (solicita si es primaria o extendida, sector inicial y tamaño)."}, {"flag": "d", "short": "Delete", "desc": "🎯 Delete: elimina una partición existente según su número."}, {"flag": "t", "short": "Type (Hex)", "desc": "🎯 Type: cambia el código hexadecimal de tipo de partición (ej: 83 para Linux, 82 para Swap)."}, {"flag": "w", "short": "Write & Exit", "desc": "🎯 Clave de Examen: Write: escribe y guarda los cambios en el disco físico y sale. ⚠️ Hasta pulsar 'w', nada se ha tocado en disco."}, {"flag": "q", "short": "Quit sin guardar", "desc": "Quit: sale inmediatamente de fdisk descartando todos los cambios sin escribir nada."}], "remember": "🎯 Regla de Oro en fdisk: Ningún cambio se escribe en el disco físico hasta que pulses la tecla 'w' (write). Si te equivocas, sal con 'q' (quit).", "notes": "Muestra cómo al definir el tamaño en fdisk se usa la sintaxis '+10G' o '+500M'.", "diagram_html": "\n<div style=\"background:#F8FAFC; border:2px solid #E2E8F0; border-radius:10px; padding:10px 14px; margin-top:10px;\">\n  <div style=\"font-size:12.5px; font-weight:800; color:#334155; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;\">\n    Flujo de Operación en fdisk (Modo Seguro en Memoria)\n  </div>\n  <div style=\"display:flex; align-items:center; justify-content:space-between; gap:6px; font-family:monospace; font-size:12px;\">\n    <div style=\"background:#E2E8F0; color:#0F172A; padding:6px 10px; border-radius:6px; font-weight:700;\">sudo fdisk /dev/sdb</div>\n    <span style=\"color:#64748B; font-weight:bold;\">&rarr;</span>\n    <div style=\"background:#DBEAFE; color:#1E40AF; padding:6px 10px; border-radius:6px; font-weight:700;\">p (Inspeccionar)</div>\n    <span style=\"color:#64748B; font-weight:bold;\">&rarr;</span>\n    <div style=\"background:#FEF3C7; color:#92400E; padding:6px 10px; border-radius:6px; font-weight:700;\">n (Crear) &bull; t (Tipo)</div>\n    <span style=\"color:#64748B; font-weight:bold;\">&rarr;</span>\n    <div style=\"background:#FEE2E2; border:1px solid #EF4444; color:#991B1B; padding:6px 10px; border-radius:6px; font-weight:800;\">\n      w (Escribir en disco) Ó q (Abortar)\n    </div>\n  </div>\n</div>\n"}, {"id": 5, "section": "104.1", "cat": "disk", "type": "command", "title": "Particionado GPT con gdisk y sus Códigos Hexadecimales", "lead": "El gemelo de fdisk diseñado exclusivamente para tablas GUID Partition Table:", "ref": "419-422", "pdf": {"manual": "A", "pages": [419, 420, 421, 422], "figure": null}, "coverage": ["104.1-CMD-002", "104.1-OPT-002"], "command": "sudo gdisk <dispositivo_disco>", "purpose": "Crear y gestionar particiones GPT nativas y convertir tablas MBR a GPT", "terminal": {"command": "sudo gdisk -l /dev/sdc", "output": "GPT fdisk (gdisk) version 1.0.6\nPartition table scan:\n  MBR: protective\n  BSD: not present\n  APM: not present\n  GPT: present\n\nNumber  Start (sector)    End (sector)  Size       Code  Name\n   1            2048         1050623   512.0 MiB   EF00  EFI System Partition\n   2         1050624        41943006   19.5 GiB    8300  Linux filesystem", "annotated": [{"line": "  MBR: protective", "callout": "①", "note": "MBR protector en el sector 0 que simula una única partición que abarca todo el disco."}, {"line": "  GPT: present", "callout": "②", "note": "Confirma la presencia y validez de la tabla GUID Partition Table primaria y secundaria."}, {"line": "   1            2048         1050623   512.0 MiB   EF00  EFI System Partition", "callout": "③", "note": "Partición ESP de arranque EFI con código hexadecimal de 4 dígitos EF00."}, {"line": "   2         1050624        41943006   19.5 GiB    8300  Linux filesystem", "callout": "④", "note": "Partición de datos Linux con código hexadecimal GPT 8300 (frente al 83 de MBR)."}]}, "options": [{"flag": "gdisk <disco>", "short": "Modo Interactivo", "desc": "Abre el disco en modo GPT. Mantiene exactamente las mismas letras de subcomando que fdisk (p, n, d, t, w, q)."}, {"flag": "Código 8300", "short": "8300 = Linux FS", "desc": "🎯 Clave de Examen: Sistema de archivos Linux estándar (Linux filesystem)."}, {"flag": "Código 8200", "short": "8200 = Swap", "desc": "🎯 Clave de Examen: Partición de memoria de intercambio (Linux swap)."}, {"flag": "Código EF00", "short": "EF00 = ESP UEFI", "desc": "🎯 Clave de Examen: Partición del sistema EFI (ESP) obligatoria para arranques UEFI en FAT32."}, {"flag": "Código 8E00", "short": "8E00 = LVM", "desc": "🎯 Partición de Logical Volume Manager (Linux LVM)."}, {"flag": "Protective MBR", "short": "Protección LBA 0", "desc": "Crea un MBR falso en LBA 0 para que herramientas heredadas no crean que el disco está vacío."}], "remember": "🎯 Códigos Hexadecimales Clave en gdisk: 8300 = Linux; 8200 = Swap; EF00 = EFI System Partition (ESP); 8E00 = LVM.", "notes": "Explica que en fdisk MBR los códigos son de 2 dígitos (83, 82, ef), mientras que en gdisk GPT son de 4 dígitos (8300, 8200, ef00).", "diagram_html": "\n<div style=\"background:#F8FAFC; border:2px solid #E2E8F0; border-radius:10px; padding:10px 14px; margin-top:10px;\">\n  <div style=\"font-size:12px; font-weight:800; color:#334155; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;\">\n    Mapa de Equivalencias Hexadecimales: MBR (2 Dígitos) frente a GPT (4 Dígitos)\n  </div>\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; font-family:monospace; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #BFDBFE; border-radius:8px; padding:8px 4px;\">\n      <div style=\"font-size:11px; color:#1E40AF; font-weight:bold;\">Linux Datos</div>\n      <div style=\"font-size:15px; font-weight:800; color:#1D4ED8; margin:2px 0;\">83 &harr; 8300</div>\n      <div style=\"font-size:10.5px; color:#3B82F6;\">Linux filesystem</div>\n    </div>\n    <div style=\"background:#FEF3C7; border:1px solid #FDE68A; border-radius:8px; padding:8px 4px;\">\n      <div style=\"font-size:11px; color:#92400E; font-weight:bold;\">Memoria Swap</div>\n      <div style=\"font-size:15px; font-weight:800; color:#B45309; margin:2px 0;\">82 &harr; 8200</div>\n      <div style=\"font-size:10.5px; color:#D97706;\">Linux swap</div>\n    </div>\n    <div style=\"background:#F0FDF4; border:1px solid #BBF7D0; border-radius:8px; padding:8px 4px;\">\n      <div style=\"font-size:11px; color:#166534; font-weight:bold;\">UEFI ESP</div>\n      <div style=\"font-size:15px; font-weight:800; color:#15803D; margin:2px 0;\">EF &harr; EF00</div>\n      <div style=\"font-size:10.5px; color:#22C55E;\">EFI System Part</div>\n    </div>\n    <div style=\"background:#F5F3FF; border:1px solid #DDD6FE; border-radius:8px; padding:8px 4px;\">\n      <div style=\"font-size:11px; color:#5B21B6; font-weight:bold;\">Volúmenes LVM</div>\n      <div style=\"font-size:15px; font-weight:800; color:#6D28D9; margin:2px 0;\">8E &harr; 8E00</div>\n      <div style=\"font-size:10.5px; color:#8B5CF6;\">Linux LVM</div>\n    </div>\n  </div>\n</div>\n"}, {"id": 6, "section": "104.1", "cat": "disk", "type": "command", "title": "Particionado No Interactivo con GNU parted", "lead": "La herramienta profesional scriptable para particionar tanto en MBR como en GPT:", "ref": "422-424", "pdf": {"manual": "A", "pages": [422, 423, 424], "figure": null}, "coverage": ["104.1-CMD-003", "104.1-OPT-003"], "command": "sudo parted [-s] <dispositivo> <subcomando> [argumentos...]", "purpose": "Automatizar particionado en scripts y redimensionar particiones en caliente", "terminal": {"command": "sudo parted -s /dev/sdb mklabel gpt; sudo parted -s /dev/sdb mkpart primary ext4 1MiB 10GiB; sudo parted /dev/sdb print", "output": "Model: ATA VBOX HARDDISK (scsi)\nDisk /dev/sdb: 21.5GB\nSector size (logical/physical): 512B/512B\nPartition Table: gpt\nDisk Flags:\n\nNumber  Start   End     Size    File system  Name     Flags\n 1      1049kB  10.7GB  10.7GB  ext4         primary", "annotated": [{"line": "Partition Table: gpt", "callout": "①", "note": "Tabla inicializada como GPT mediante el subcomando 'mklabel gpt'."}, {"line": "Sector size (logical/physical): 512B/512B", "callout": "②", "note": "Geometría de sectores del disco físico."}, {"line": " 1      1049kB  10.7GB  10.7GB  ext4         primary", "callout": "③", "note": "Partición creada inmediatamente alineada en 1 MiB (1049 kB) con tamaño 10 GB."}]}, "options": [{"flag": "parted -s, --script", "short": "-s (Modo Script)", "desc": "🎯 Clave de Examen: Modo script no interactivo: nunca solicita confirmación al usuario (ideal para scripts de despliegue)."}, {"flag": "mklabel <tipo>", "short": "mklabel (gpt/msdos)", "desc": "🎯 Crea la tabla de particiones desde cero ('gpt' o 'msdos'). ⚠️ ¡Borra la tabla previa al instante!"}, {"flag": "print", "short": "print (Detalles)", "desc": "🎯 Imprime la tabla de particiones detallada, modelo de disco y tamaño de sectores."}, {"flag": "mkpart <tipo> [fs] <ini> <fin>", "short": "mkpart (Crear)", "desc": "🎯 Crea una partición indicando inicio y fin con unidades (ej: 'mkpart primary ext4 1MiB 5GiB')."}, {"flag": "rm <número>", "short": "rm (Eliminar)", "desc": "Elimina de forma inmediata la partición indicada por su número."}, {"flag": "resizepart <num> <fin>", "short": "resizepart", "desc": "Redimensiona el tamaño final de una partición existente."}], "remember": "🎯 Clave de Examen: 'parted' aplica los cambios EN EL MISMO INSTANTE en que se ejecutan los comandos (a diferencia de fdisk, no espera a pulsar 'w').", "notes": "Advierte seriamente: un 'parted mklabel gpt' borra todas las particiones inmediatamente sin pedir confirmación si se usa con '-s'.", "diagram_html": "\n<div style=\"display:flex; gap:12px; margin-top:10px;\">\n  <div style=\"flex:1; background:#FEF2F2; border:2px solid #EF4444; border-radius:10px; padding:10px 14px; display:flex; align-items:center; gap:12px;\">\n    <span style=\"font-size:28px;\">⚡</span>\n    <div style=\"font-size:12.5px; color:#991B1B; line-height:1.4;\">\n      <strong>¡Diferencia Crítica con fdisk!</strong> parted <strong>NO tiene comando 'w'</strong>. Cada subcomando ejecutado se escribe <strong>INMEDIATAMENTE</strong> en el disco físico. Si ejecutas <code>mklabel gpt</code>, la tabla previa se destruye al milisegundo.\n    </div>\n  </div>\n  <div style=\"flex:1; background:#EFF6FF; border:2px solid #3B82F6; border-radius:10px; padding:10px 14px; display:flex; align-items:center; gap:12px;\">\n    <span style=\"font-size:28px;\">📐</span>\n    <div style=\"font-size:12.5px; color:#1E40AF; line-height:1.4;\">\n      <strong>Alineamiento Óptimo en SSDs:</strong> Iniciar las particiones en <code>1MiB</code> (sector 2048) evita penalizaciones de rendimiento por desalineación física de bloques de memoria NAND flash.\n    </div>\n  </div>\n</div>\n"}, {"id": 7, "section": "104.1", "cat": "disk", "type": "command", "title": "La Familia mkfs y Formateo Ext4 con mke2fs", "lead": "¿Cómo construir las estructuras de datos del sistema de archivos sobre una partición vacía?", "ref": "424-427", "pdf": {"manual": "A", "pages": [424, 425, 426, 427], "figure": null}, "coverage": ["104.1-CMD-004", "104.1-CMD-005", "104.1-OPT-004"], "command": "sudo mkfs -t <tipo> <partición> | sudo mke2fs [opciones] <partición>", "purpose": "Crear sistemas de archivos ext2, ext3 o ext4 configurando bloques, inodos y journal", "terminal": {"command": "sudo mke2fs -t ext4 -L 'DATOS' -m 1 /dev/sdb1", "output": "mke2fs 1.46.2 (28-Feb-2021)\nCreating filesystem with 2621440 4k blocks and 655360 inodes\nFilesystem UUID: a1b2c3d4-e5f6-7890-abcd-ef1234567890\nSuperblock backups stored on blocks: 32768, 98304, 163840\nAllocating group tables: done\nWriting inode tables: done\nCreating journal (16384 blocks): done\nWriting superblocks and filesystem accounting information: done", "annotated": [{"line": "Creating filesystem with 2621440 4k blocks and 655360 inodes", "callout": "①", "note": "Cálculo matemático: 2.6M bloques de 4KB con tabla estática de 655k inodos."}, {"line": "Superblock backups stored on blocks: 32768, 98304, 163840", "callout": "②", "note": "Copias redundantes del superbloque para rescate con fsck si se daña el bloque 0."}, {"line": "Creating journal (16384 blocks): done", "callout": "③", "note": "Creación del diario de transacciones para garantizar coherencia ante cortes eléctricos."}]}, "options": [{"flag": "mkfs -t <tipo>", "short": "Front-end mkfs", "desc": "Front-end genérico que llama internamente a mkfs.ext4, mkfs.xfs, mkfs.vfat, etc."}, {"flag": "mke2fs -t ext4", "short": "mke2fs Maestro", "desc": "🎯 Comando maestro oficial para la familia ext. Crea sistemas ext2 (-t ext2), ext3 (-t ext3) o ext4 (-t ext4)."}, {"flag": "mke2fs -j", "short": "-j (Journal)", "desc": "🎯 Clave de Examen: Crea un diario de transacciones (Journal) convirtiendo ext2 en ext3."}, {"flag": "-b <1024|2048|4096>", "short": "-b (Tamaño Bloque)", "desc": "🎯 Clave de Examen: Especifica el tamaño de bloque en bytes (por defecto 4096 bytes / 4 KB)."}, {"flag": "-L <etiqueta>", "short": "-L (Label)", "desc": "Asigna una etiqueta de volumen (Volume Label) de hasta 16 caracteres para montaje amigable."}, {"flag": "-m <porcentaje>", "short": "-m (% Root)", "desc": "🎯 Clave de Examen: Porcentaje de bloques reservados para el superusuario root (por defecto 5%, se puede bajar a 1% con -m 1)."}], "remember": "🎯 Clave de Examen: 'mke2fs -j' crea el journal (ext3); '-b' fija el tamaño de bloque (1024, 2048, 4096); '-m' define el porcentaje reservado para root.", "notes": "Explica que en un disco de 10 TB, el 5% reservado por defecto para root son 500 GB desperdiciados; con '-m 1' se ahorran 400 GB.", "diagram_html": "\n<div style=\"background:#F8FAFC; border:2px solid #E2E8F0; border-radius:10px; padding:10px 14px; margin-top:10px;\">\n  <div style=\"font-size:12px; font-weight:800; color:#334155; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;\">\n    Anatomía Interna de un Sistema de Archivos Ext4 en Disco\n  </div>\n  <div style=\"display:flex; gap:6px; font-family:monospace; font-size:11.5px; text-align:center;\">\n    <div style=\"flex:2; background:#DBEAFE; color:#1E40AF; padding:8px 2px; border-radius:6px; font-weight:700;\">\n      Superbloque\n      <div style=\"font-size:10px; font-weight:normal; color:#2563EB;\">Metadatos y geometría</div>\n    </div>\n    <div style=\"flex:2; background:#E0E7FF; color:#3730A3; padding:8px 2px; border-radius:6px; font-weight:700;\">\n      Descriptores Grupo\n      <div style=\"font-size:10px; font-weight:normal; color:#4F46E5;\">Offsets de bloques</div>\n    </div>\n    <div style=\"flex:2; background:#FEF3C7; color:#92400E; padding:8px 2px; border-radius:6px; font-weight:700;\">\n      Mapas de Bits\n      <div style=\"font-size:10px; font-weight:normal; color:#B45309;\">Inodos y bloques libres</div>\n    </div>\n    <div style=\"flex:3; background:#DCFCE7; color:#166534; padding:8px 2px; border-radius:6px; font-weight:700;\">\n      Tabla de Inodos\n      <div style=\"font-size:10px; font-weight:normal; color:#15803D;\">Metadatos de ficheros</div>\n    </div>\n    <div style=\"flex:4; background:#F1F5F9; color:#0F172A; padding:8px 2px; border-radius:6px; font-weight:700; border:1px solid #CBD5E1;\">\n      Bloques de Datos\n      <div style=\"font-size:10px; font-weight:normal; color:#475569;\">Contenido real (extents)</div>\n    </div>\n    <div style=\"flex:2; background:#FCE7F3; color:#9D174D; padding:8px 2px; border-radius:6px; font-weight:700;\">\n      Diario (Journal)\n      <div style=\"font-size:10px; font-weight:normal; color:#BE185D;\">Registro transaccional</div>\n    </div>\n  </div>\n</div>\n"}, {"id": 8, "section": "104.1", "cat": "disk", "type": "command", "title": "Sistemas de Archivos Empresariales: mkfs.xfs y mkfs.btrfs", "lead": "Los dos gigantes de almacenamiento avanzado en Red Hat, SUSE y la nube:", "ref": "427-430", "pdf": {"manual": "A", "pages": [427, 428, 429, 430], "figure": null}, "coverage": ["104.1-CMD-006", "104.1-CMD-007", "104.1-CMD-008"], "command": "sudo mkfs.xfs [-f] <partición> | sudo mkfs.btrfs [-m|-d] <particiones...>", "purpose": "Formatear particiones con el motor XFS de alto rendimiento o el sistema CoW multidisco Btrfs", "terminal": {"command": "sudo mkfs.xfs -f -L 'XFS_VOL' /dev/sdb2", "output": "meta-data=/dev/sdb2              isize=512    agcount=4, agsize=655296 blks\n         =                       sectsz=512   attr=2, projid32bit=1\ndata     =                       bsize=4096   blocks=2621184, imaxpct=25\n         =                       sunit=0      swidth=0 blks\nnaming   =version 2              bsize=4096   ascii-ci=0, ftype=1\nlog      =internal log           bsize=4096   blocks=2560, version=2\nrealtime =none                   extsz=4096   blocks=0, rtextents=0", "annotated": [{"line": "meta-data=/dev/sdb2              isize=512    agcount=4, agsize=655296 blks", "callout": "①", "note": "agcount=4 indica 4 Grupos de Asignación independientes que operan en paralelo."}, {"line": "data     =                       bsize=4096   blocks=2621184, imaxpct=25", "callout": "②", "note": "Bloques estándar de 4 KB con asignación dinámica de inodos según demanda."}, {"line": "log      =internal log           bsize=4096   blocks=2560, version=2", "callout": "③", "note": "Log transaccional en memoria circular integrado en la partición."}]}, "options": [{"flag": "mkfs.xfs <partición>", "short": "mkfs.xfs", "desc": "🎯 Sistema por defecto en RHEL/CentOS. Diseñado para escalabilidad masiva de E/S paralela con grupos de asignación."}, {"flag": "mkfs.xfs -f", "short": "-f (Force)", "desc": "Force: fuerza el formateo incluso si la partición ya contenía un sistema de archivos previo."}, {"flag": "mkfs.xfs -L <etiqueta>", "short": "-L (Label)", "desc": "Asigna una etiqueta de volumen a la partición XFS (hasta 12 caracteres)."}, {"flag": "mkfs.btrfs <discos...>", "short": "mkfs.btrfs", "desc": "🎯 B-tree FS: sistema de archivos Copy-On-Write (CoW) con soporte nativo de RAID y subvolúmenes."}, {"flag": "mkfs.btrfs -d <perfil>", "short": "-d (Data Profile)", "desc": "Configura el perfil de datos: single, raid0, raid1, raid10 para distribuir bloques entre múltiples discos."}, {"flag": "mkfs.vfat -F 32", "short": "mkfs.vfat (FAT32)", "desc": "🎯 Formatea en FAT32 para la partición ESP UEFI y pendrives USB universales."}], "remember": "🎯 Clave de Examen: XFS es el estándar de alto rendimiento en Red Hat; Btrfs soporta pools multidisco y snapshots CoW nativos; VFAT se usa para la partición ESP.", "notes": "Muestra que Btrfs puede formatear dos discos físicos juntos de golpe: 'mkfs.btrfs -d raid1 /dev/sdb /dev/sdc'.", "diagram_html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:10px;\">\n  <!-- Tarjeta XFS -->\n  <div style=\"background:#FFF7ED; border:2px solid #F97316; border-radius:10px; padding:10px 14px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n      <span style=\"font-weight:800; color:#9A3412; font-size:13.5px;\">XFS &bull; Red Hat & CentOS Default</span>\n      <span style=\"background:#FFEDD5; color:#C2410C; font-size:11px; font-weight:700; padding:2px 6px; border-radius:4px;\">Paralelismo Masivo</span>\n    </div>\n    <div style=\"font-size:12px; color:#7C2D12; line-height:1.45;\">\n      &bull; <strong>Grupos de asignación (AG):</strong> Múltiples hilos escriben concurrentemente sin bloquear el disco.<br>\n      &bull; <strong>Inodos dinámicos:</strong> No hay límite prefijado de inodos.<br>\n      &bull; <strong style=\"color:#DC2626;\">Trampa de Examen:</strong> Se puede expandir en caliente (<code>xfs_growfs</code>), pero <strong>¡NUNCA se puede reducir de tamaño!</strong>\n    </div>\n  </div>\n\n  <!-- Tarjeta Btrfs -->\n  <div style=\"background:#F0FDF4; border:2px solid #22C55E; border-radius:10px; padding:10px 14px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n      <span style=\"font-weight:800; color:#166534; font-size:13.5px;\">Btrfs &bull; SUSE & Next-Gen Storage</span>\n      <span style=\"background:#DCFCE7; color:#15803D; font-size:11px; font-weight:700; padding:2px 6px; border-radius:4px;\">Copy-on-Write (CoW)</span>\n    </div>\n    <div style=\"font-size:12px; color:#14532D; line-height:1.45;\">\n      &bull; <strong>Copy-on-Write:</strong> Las modificaciones se escriben en bloques nuevos, permitiendo snapshots en cero segundos.<br>\n      &bull; <strong>Multidisco nativo:</strong> Gestiona pools con RAID 0/1/10 sin mdadm ni LVM.<br>\n      &bull; <strong>Subvolúmenes:</strong> Árboles independientes que pueden montarse con opciones distintas.\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "104.1", "cat": "disk", "type": "command", "title": "Memoria de Intercambio (Swap): mkswap, swapon y swapoff", "lead": "¿Cómo activar el espacio de intercambio sobre particiones físicas dedicadas?", "ref": "430-433", "pdf": {"manual": "A", "pages": [430, 431, 432, 433], "figure": null}, "coverage": ["104.1-CMD-009", "104.1-CMD-010", "104.1-CMD-011"], "command": "sudo mkswap <disp> | sudo swapon [-a|--show] <disp> | sudo swapoff <disp>", "purpose": "Formatear, activar y desactivar áreas de memoria de intercambio en el sistema", "terminal": {"command": "sudo mkswap -L 'SWAP_DISK' /dev/sdb2; sudo swapon /dev/sdb2; swapon --show", "output": "Setting up swapspace version 1, size = 10 GiB (10736369664 bytes)\nLABEL=SWAP_DISK, UUID=4f3b2a1c-9d8e-7a6b-5c4d-3e2f1a0b9c8d\nNAME      TYPE      SIZE USED PRIO\n/dev/sdb2 partition  10G   0B   -2", "annotated": [{"line": "Setting up swapspace version 1, size = 10 GiB (10736369664 bytes)", "callout": "①", "note": "mkswap escribe la cabecera SWAPSPACE2 y la estructura de mapeo de páginas."}, {"line": "LABEL=SWAP_DISK, UUID=4f3b2a1c-9d8e-7a6b-5c4d-3e2f1a0b9c8d", "callout": "②", "note": "UUID único generado para referencia permanente en /etc/fstab."}, {"line": "/dev/sdb2 partition  10G   0B   -2", "callout": "③", "note": "swapon --show confirma el dispositivo montado con prioridad de asignación del kernel."}]}, "options": [{"flag": "mkswap <disp>", "short": "mkswap", "desc": "🎯 Clave de Examen: Inicializa y formatea el espacio de swap escribiendo la firma 'SWAPSPACE2' y generando su UUID."}, {"flag": "mkswap -L <label>", "short": "-L (Label)", "desc": "Asigna una etiqueta a la partición de swap para montaje amigable."}, {"flag": "swapon <disp>", "short": "swapon", "desc": "🎯 Clave de Examen: Activa el área de memoria de intercambio para que el kernel comience a utilizarla."}, {"flag": "swapon -a", "short": "swapon -a (fstab)", "desc": "🎯 Clave de Examen: Activa TODAS las áreas de swap configuradas en /etc/fstab."}, {"flag": "swapon --show (o -s)", "short": "swapon --show", "desc": "Muestra una tabla con los dispositivos swap activos, tipo, tamaño, uso y prioridad."}, {"flag": "swapoff <disp>", "short": "swapoff", "desc": "Desactiva el área de swap volcando previamente todas las páginas de memoria de nuevo a la RAM."}], "remember": "🎯 Diferencia Vital de Examen: 'mkswap' prepara y formatea el área; 'swapon' la activa para el kernel; 'swapon -a' activa las que residen en /etc/fstab.", "notes": "Recuerda a los alumnos: nunca intentes montar una partición swap con 'mount'; la swap se activa exclusivamente con 'swapon'.", "diagram_html": "\n<div style=\"background:#F8FAFC; border:2px solid #E2E8F0; border-radius:10px; padding:10px 14px; margin-top:10px;\">\n  <div style=\"font-size:12px; font-weight:800; color:#334155; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;\">\n    Ciclo de Vida Operativo de la Memoria Swap en Linux\n  </div>\n  <div style=\"display:flex; align-items:center; justify-content:space-between; gap:8px; font-family:monospace; font-size:11.5px; text-align:center;\">\n    <div style=\"flex:1; background:#EFF6FF; border:1px solid #BFDBFE; padding:6px 4px; border-radius:6px;\">\n      <div style=\"font-weight:700; color:#1E40AF;\">1. Partición</div>\n      <div style=\"font-size:10px; color:#3B82F6;\">Tipo 82 (MBR) / 8200 (GPT)</div>\n    </div>\n    <span style=\"color:#64748B; font-weight:bold;\">&rarr;</span>\n    <div style=\"flex:1; background:#FEF3C7; border:1px solid #FDE68A; padding:6px 4px; border-radius:6px;\">\n      <div style=\"font-weight:700; color:#92400E;\">2. Formateo</div>\n      <div style=\"font-size:10px; color:#D97706;\">mkswap /dev/sdb2</div>\n    </div>\n    <span style=\"color:#64748B; font-weight:bold;\">&rarr;</span>\n    <div style=\"flex:1; background:#DCFCE7; border:1px solid #BBF7D0; padding:6px 4px; border-radius:6px;\">\n      <div style=\"font-weight:700; color:#166534;\">3. Activación</div>\n      <div style=\"font-size:10px; color:#15803D;\">swapon /dev/sdb2</div>\n    </div>\n    <span style=\"color:#64748B; font-weight:bold;\">&rarr;</span>\n    <div style=\"flex:1; background:#F5F3FF; border:1px solid #DDD6FE; padding:6px 4px; border-radius:6px;\">\n      <div style=\"font-weight:700; color:#5B21B6;\">4. Persistencia</div>\n      <div style=\"font-size:10px; color:#6D28D9;\">Línea en /etc/fstab</div>\n    </div>\n    <span style=\"color:#64748B; font-weight:bold;\">&rarr;</span>\n    <div style=\"flex:1; background:#E2E8F0; border:1px solid #CBD5E1; padding:6px 4px; border-radius:6px;\">\n      <div style=\"font-weight:700; color:#0F172A;\">5. Monitor</div>\n      <div style=\"font-size:10px; color:#475569;\">swapon --show / free</div>\n    </div>\n  </div>\n</div>\n"}, {"id": 10, "section": "104.1", "cat": "disk", "type": "flow", "title": "Procedimiento Paso a Paso: Archivo Swapfile de Emergencia", "lead": "¿Cómo añadir más Swap cuando el servidor se queda sin RAM y no puedes crear particiones nuevas?", "ref": "433-435", "pdf": {"manual": "A", "pages": [433, 434, 435], "figure": null}, "coverage": ["104.1-CON-003"], "steps": [{"step": 1, "title": "Crear el archivo contiguo de ceros", "cmd": "sudo dd if=/dev/zero of=/swapfile bs=1M count=2048 (o fallocate -l 2G /swapfile)", "desc": "Reserva un archivo de 2 GB de espacio contiguo en disco sin agujeros (sparse)."}, {"step": 2, "title": "🎯 Fijar permisos estrictos 0600 (OBLIGATORIO)", "cmd": "sudo chmod 600 /swapfile", "desc": "🎯 Clave Absoluta de Examen: Por seguridad, solo root debe tener permisos de lectura y escritura. Si los permisos son abiertos, swapon dará error y se negará a activarlo."}, {"step": 3, "title": "Formatear la estructura swap", "cmd": "sudo mkswap /swapfile", "desc": "Escribe la cabecera de intercambio en el archivo recién creado."}, {"step": 4, "title": "Activar el archivo de swap", "cmd": "sudo swapon /swapfile", "desc": "El kernel añade inmediatamente los 2 GB a la memoria disponible."}, {"step": 5, "title": "Persistencia en /etc/fstab", "cmd": "echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab", "desc": "Garantiza que la swap se reactive automáticamente en cada reinicio."}], "remember": "🎯 Pregunta Estrella de Examen: ¿Qué permisos obligatorios debe tener un swapfile? -> Permisos 0600 (chmod 600 /swapfile).", "notes": "Insiste mucho en el paso 2: la seguridad de la memoria es crítica porque la Swap almacena datos confidenciales de la RAM en texto claro."}, {"id": 11, "section": "104.1", "cat": "disk", "type": "table", "title": "Tabla Resumen de Sistemas de Archivos en LPIC-1", "lead": "Las características evaluadas de cada sistema de ficheros de un vistazo:", "ref": "435", "pdf": {"manual": "A", "pages": [435], "figure": null}, "coverage": ["104.1-CON-004"], "headers": ["Sistema de Ficheros", "Comando de Formateo", "Características Principales", "Uso Recomendado en Examen"], "rows": [["ext2", "mke2fs / mkfs.ext2", "Sin diario (no journaling). Muy simple pero lento de recuperar si hay caída.", "Particiones de arranque antiguas (/boot) o medios flash."], ["ext3", "mke2fs -j / mkfs.ext3", "🎯 Incorpora Journaling (diario). Transición directa desde ext2 sin formatear.", "Servidores heredados."], ["ext4", "mke2fs -t ext4 / mkfs.ext4", "🎯 Extents, reserva tardía, cheques de suma en journal, soporte de ficheros de 16 TB.", "Sistema de archivos por defecto en distribuciones Debian y Ubuntu."], ["XFS", "mkfs.xfs", "🎯 Sistema de alto rendimiento de 64 bits con grupos de asignación paralelos.", "Sistema por defecto en RHEL/CentOS. ⚠️ ¡No se puede reducir de tamaño!"], ["Btrfs", "mkfs.btrfs", "🎯 Copy-on-Write, instantáneas (snapshots), subvolúmenes y RAID integrado.", "Sistemas de escritorio modernos y servidores openSUSE."], ["VFAT (FAT32)", "mkfs.vfat / mkfs.fat -F 32", "Interoperabilidad absoluta. ⚠️ Tamaño máximo de archivo de 4 GB.", "Partición ESP UEFI (/boot/efi) y pendrives USB."]], "remember": "🎯 Trampa de Examen: XFS se puede ampliar fácilmente en caliente con xfs_growfs, pero ¡NUNCA se puede reducir de tamaño!", "notes": "Muestra cómo el examen pregunta qué sistema de archivos permite crear subvolúmenes (Btrfs) y cuál se usa en /boot/efi (VFAT)."}, {"id": 12, "section": "104.1", "cat": "disk", "type": "concept", "title": "Trampas Clásicas de Examen en Particionado", "lead": "Los 3 errores más comunes que provocan fallos en las preguntas de disco:", "ref": "435-436", "pdf": {"manual": "A", "pages": [435, 436], "figure": null}, "coverage": ["104.1-WARN-001", "104.1-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Creer que se puede crear una partición MBR de 4 TB", "detail": "🎯 Trampa clásica: si un enunciado plantea 'configurar un disco nuevo de 4 TB con particiones MBR', la respuesta correcta siempre señala que es imposible: MBR tiene un límite arquitectónico estricto de 2.2 TB. Debe usarse GPT."}, {"icon": "alert-triangle", "text": "2. Confundir la opción de journal en mke2fs", "detail": "La opción para activar el diario de transacciones es '-j' (minúscula). Si usas '-J', es para opciones avanzadas de journal externo."}, {"icon": "alert-triangle", "text": "3. Olvidar escribir los cambios en fdisk", "detail": "Si ejecutas fdisk y creas 3 particiones pero sales con 'q' o cierras la terminal, NO se ha creado ninguna partición. Es obligatorio pulsar 'w' para escribir en la tabla física de particiones."}], "remember": "🎯 Mnemotecnia Rápida: Discos > 2 TB = GPT obligatorio. fdisk = pulsar 'w' para guardar. Swapfile = chmod 600 obligatorio.", "notes": "Repite estos tres axiomas antes de pasar a los ejercicios guiados."}, {"id": 13, "section": "104.1", "cat": "disk", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: fdisk y gdisk)", "ref": "Manual A - Pág 436", "pdf": {"manual": "A", "pages": [436], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 436): ¿Cuál es el comando exacto para inspeccionar la lista completa de particiones de todos los discos conectados al sistema sin entrar en ningún menú interactivo?", "command": "sudo fdisk -l (o sudo parted -l)", "reason": "La opción -l (--list) vuelca en la salida estándar la tabla de particiones, tamaños y tipos de todos los dispositivos de bloque detectados."}, {"action": "Caso 2 (Oficial Pág 436): En la herramienta 'gdisk', ¿qué código hexadecimal de tipo de partición se debe asignar a la partición ESP (EFI System Partition)?", "command": "ef00", "reason": "El código 'ef00' corresponde a la partición de sistema EFI requerida por el estándar UEFI (en MBR su código equivalente es 0xEF)."}, {"action": "Caso 3 (Oficial Pág 436): Dentro de 'fdisk', ¿qué subcomando de una sola letra permite cambiar el tipo de sistema de una partición (por ejemplo de Linux a Linux Swap)?", "command": "t (Type)", "reason": "El comando interactivo 't' solicita el número de partición y el nuevo código hexadecimal de tipo deseado."}], "solution": {"explain": "fdisk -l lista sin entrar; ef00 identifica la partición ESP en gdisk; y 't' altera el identificador de tipo."}, "notes": "Muestra que en gdisk puedes teclear 'L' para ver la lista completa de los cientos de códigos GUID disponibles."}, {"id": 14, "section": "104.1", "cat": "disk", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: mke2fs y swap)", "ref": "Manual A - Pág 436", "pdf": {"manual": "A", "pages": [436], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 436): ¿Qué comando formatea la partición '/dev/sdb1' con sistema de archivos ext4 fijando el tamaño de bloque a 2048 bytes y asignando la etiqueta 'RESPALDO'?", "command": "sudo mke2fs -t ext4 -b 2048 -L 'RESPALDO' /dev/sdb1 (o mkfs.ext4 -b 2048 -L 'RESPALDO' /dev/sdb1)", "reason": "-t define el tipo ext4, -b fija los 2048 bytes por bloque y -L asigna la etiqueta de volumen."}, {"action": "Caso 5 (Oficial Pág 436): Tras crear un archivo de intercambio con 'fallocate -l 1G /swapfile', ¿qué dos comandos deben ejecutarse consecutivamente para asegurarlo con permisos correctos y formatearlo como swap?", "command": "sudo chmod 600 /swapfile && sudo mkswap /swapfile", "reason": "chmod 600 restringe el acceso exclusivamente al usuario root y mkswap escribe la firma de intercambio necesaria para su activación con swapon."}], "solution": {"explain": "mke2fs parametrizado permite afinar bloques y etiquetas; chmod 600 es el requisito previo innegociable antes de mkswap."}, "notes": "Recuerda que los tamaños válidos de bloque para ext4 son 1024, 2048 y 4096 bytes."}, {"id": 15, "section": "104.1", "cat": "disk", "type": "challenge", "title": "Retos de Exploración Oficiales (parted y Conversión MBR a GPT)", "ref": "Manual A - Págs 436-437", "pdf": {"manual": "A", "pages": [436, 437], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Tienes un disco nuevo '/dev/sdc' y necesitas crear una tabla GPT e inicializar una partición primaria ext4 de 5 GB desde un script bash desatendido sin interacción humana. ¿Qué línea de comandos completa con 'parted' debes ejecutar?\n2. ¿Qué herramienta especializada de la familia gdisk permite convertir una tabla de particiones MBR existente a GPT de forma segura conservando los datos de las particiones?\n3. ¿Qué comando de GNU parted muestra el alineamiento óptimo de sectores de una partición para garantizar el máximo rendimiento en discos SSD?", "hint": "Recuerda: parted -s mklabel gpt mkpart; la herramienta gdisk directamente; y parted align-check.", "solution": {"explain": "1. Se ejecuta: sudo parted -s /dev/sdc mklabel gpt mkpart primary ext4 1MiB 5GiB\n2. Se utiliza la propia utilidad 'gdisk /dev/sdc', que al abrir un disco MBR carga automáticamente la conversión en memoria y la guarda en GPT al pulsar 'w'.\n3. Se ejecuta: sudo parted /dev/sdc align-check optimal 1."}, "notes": "La conversión de MBR a GPT con gdisk es una técnica de examen muy valorada para modernizar servidores antiguos a UEFI."}, {"id": 16, "section": "104.1", "cat": "disk", "type": "review", "title": "Pregunta de Examen LPIC-1: Límites Arquitectónicos de Particionado", "q": "Un administrador necesita configurar un nuevo disco duro de 8 TB en un servidor de base de datos. ¿Cuál de las siguientes afirmaciones es correcta respecto al esquema de particionado que debe emplear?", "options": ["Debe utilizar una tabla MBR tradicional con una partición extendida.", "Debe utilizar una tabla GPT porque MBR no puede direccionar discos de más de 2.2 TB.", "Puede utilizar MBR si formatea las particiones con el sistema de archivos ext4.", "Debe utilizar LVM directamente sobre el disco sin ninguna tabla de particiones."], "answer": 1, "why": "El esquema de particionado MBR tradicional utiliza direcciones de bloque LBA de 32 bits, lo que impone un límite matemático estricto de direccionamiento de 2.2 Terabytes (2 TiB con sectores de 512 bytes). Para discos superiores a 2.2 TB (como este de 8 TB) es obligatoria la tabla GPT (GUID Partition Table), que soporta hasta 9.4 Zettabytes.", "notes": "Pregunta conceptual clásica e indispensable en la certificación LPIC-1."}, {"id": 17, "section": "104.1", "cat": "disk", "type": "review", "title": "Pregunta de Examen LPIC-1: Parámetros del Formateador mke2fs", "q": "¿Qué opción del comando 'mke2fs' se utiliza para incorporar un diario de transacciones (Journal) y crear directamente un sistema de archivos ext3?", "options": ["-t ext3", "-j", "-J", "Tanto la opción -t ext3 como la opción -j son correctas."], "answer": 3, "why": "En 'mke2fs', la opción '-j' (journal) se diseñó originalmente para añadir el diario de ext3 sobre la base de ext2. Con las versiones modernas de e2fsprogs, también es completamente válido indicar el tipo explícito con '-t ext3'. Ambas opciones consiguen exactamente el mismo resultado.", "notes": "Pregunta técnica detallada sobre la sintaxis de mke2fs."}, {"id": 18, "section": "104.1", "cat": "disk", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Particiones y Formateo 104.1", "deck": [{"front": "¿Cuál es el límite de tamaño máximo de un disco con tabla MBR?", "back": "2.2 Terabytes (2 TiB)."}, {"front": "¿Cuántas particiones primarias soporta una tabla GPT por defecto?", "back": "128 particiones primarias."}, {"front": "¿Qué código hexadecimal asigna 'gdisk' a una partición Swap y a la ESP?", "back": "8200 para Swap; ef00 para la partición EFI System Partition (ESP)."}, {"front": "¿Qué subcomando de 'fdisk' escribe los cambios en el disco físico?", "back": "El subcomando 'w' (write)."}, {"front": "¿Qué opción de 'mke2fs' añade un journal de transacciones?", "back": "-j (o -t ext3 / -t ext4)."}, {"front": "¿Qué permisos obligatorios debe tener un archivo swapfile por seguridad?", "back": "Permisos 0600 (chmod 600 /swapfile)."}, {"front": "¿Qué comando activa todas las áreas de swap configuradas en /etc/fstab?", "back": "swapon -a."}, {"front": "¿Qué sistema de archivos soporta subvolúmenes y snapshots CoW nativos?", "back": "Btrfs (formateado con mkfs.btrfs)."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 104.1."}, {"id": 19, "section": "104.1", "cat": "disk", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 104.1", "takeaways": ["Esquemas: MBR (máx 4 primarias, 2.2 TB límite); GPT (128 primarias, 9.4 ZB, backup GPT al final del disco).", "Particionadores: fdisk (MBR/GPT interactivo con w para guardar); gdisk (GPT nativo con códigos 8300, 8200, ef00); parted (scriptable con mklabel y mkpart).", "Sistemas de Ficheros: mke2fs (-t ext4, -j journal, -b bloque, -m reserva); mkfs.xfs (alto rendimiento, no reducible); mkfs.btrfs (CoW, subvolúmenes); mkfs.vfat (ESP UEFI).", "Swap: particiones (código 82/8200) o swapfiles con chmod 600; formateo con mkswap y activación con swapon (swapon -a para fstab)."], "top3": [{"cmd": "fdisk -l /dev/sdX || gdisk -l /dev/sdX", "desc": "Inspecciona la tabla de particiones, tipo y tamaño de un disco duro."}, {"cmd": "mke2fs -t ext4 -L 'DATOS' /dev/sdX1", "desc": "Formatea una partición con ext4 asignando una etiqueta de volumen."}, {"cmd": "mkswap /dev/sdX2 && swapon /dev/sdX2", "desc": "Inicializa y activa una partición de memoria de intercambio."}], "practice": {"name": "Practica 104.1: Creación de Particiones y Sistemas de Archivos", "url": "../practicas/p-104-1-crear-particiones-archivos.html", "desc": "Crea una unidad de disco virtual loopback de 200 MB para particionar con fdisk y dar formato de forma 100% segura con mkfs.ext4, mkfs.xfs, mkfs.vfat y mkswap sin arriesgar tu VM."}, "notes": "Concluimos el subtema 104.1. Los alumnos dominan ahora el particionado y formateo de discos."}];
     const ERRATAS = [{"id": "E-104.1-001", "page": 451, "original": "mkfs.btrfs /dev/sda1 /dev/sdb1 -m raid1", "corrected": "mkfs.btrfs -m raid1 -d raid1 /dev/sda1 /dev/sda2", "explanation": "El enunciado del ejercicio guiado 5 en la página 447 especifica /dev/sda1 y /dev/sda2, pero la respuesta oficial en la página 451 escribe erróneamente /dev/sdb1.", "type": "errata_oficial"}];
     const GLOSARIO = [{"id": "GLOS-104.1-001", "termino": "MBR (Master Boot Record)", "definicion": "Estructura de particionado de 512 bytes ubicada en el sector 0 del disco. Limita el direccionamiento a 2 TiB y un máximo de 4 particiones primarias."}, {"id": "GLOS-104.1-002", "termino": "GPT (GUID Partition Table)", "definicion": "Estándar moderno de particionado parte de la especificación UEFI. Utiliza LBA de 64 bits, admite discos de zettabytes y mínimo 128 particiones con respaldo."}, {"id": "GLOS-104.1-003", "termino": "Copy-on-Write (CoW)", "definicion": "Técnica de gestión de almacenamiento donde las modificaciones no sobrescriben los datos originales, sino que se escriben en bloques nuevos antes de actualizar punteros."}, {"id": "GLOS-104.1-004", "termino": "Subvolumen Btrfs", "definicion": "Árbol de archivos y directorios con espacio compartido dentro de un sistema de archivos Btrfs que puede montarse independientemente como si fuera una partición."}, {"id": "GLOS-104.1-005", "termino": "Swap (Espacio de Intercambio)", "definicion": "Área de almacenamiento en disco reservada para que el kernel de Linux aloje páginas de memoria RAM inactivas cuando la memoria física escasea."}];
     const META = {"topic": "104.1", "title": "Creación de particiones y sistemas de archivos", "weight": 2, "description": "MBR frente a GPT, fdisk, gdisk, GNU parted, mke2fs, mkfs.xfs, mkfs.btrfs y swap (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1453,6 +1932,9 @@
           });
           html += `</div>`;
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.console || s.terminal) {
           html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
         }
@@ -1518,6 +2000,9 @@
         const termData = s.terminal || s.console;
         if (termData) {
           html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
         }
 
         if (s.trap || s.warning) {
@@ -1603,6 +2088,9 @@
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
 
         if (s.trap || s.warning) {
           html += `
@@ -1643,6 +2131,9 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.remember) {
           html += `
             <div class="callout-box callout-remember" style="margin-top:14px;">
@@ -1689,12 +2180,37 @@
             </div>
           `;
         }
+      } else if (s.type === 'diagram') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.diagram_html || s.raw_html || s.html || s.svg || s.content || '';
+        if (bodyContent) html += bodyContent;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         const steps = s.steps || s.nodes || s.diagram?.nodes || [];
-        if (steps.length > 0) {
+        if (steps.length > 0 && !s.diagram_html && !s.raw_html && !s.html && !s.svg) {
           html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
           steps.forEach((st, idx) => {
             const stitle = st.step || st.title || st.text || st.label || '';
@@ -2055,9 +2571,11 @@
           `;
         }
       } else {
-        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
-        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.raw_html || s.html || s.content;
+        if (bodyContent) html += bodyContent;
       }
       return html;
     }
@@ -2241,6 +2759,9 @@
 
     function closeModals() {
       document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+      if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
     }
 
     function closePopovers() {
@@ -2266,6 +2787,45 @@
       popover.style.top = `${rect.bottom + 8}px`;
       popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
       popover.classList.add('open');
+    }
+
+    function openPopover(targetOrEvent, html) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      let el = null;
+      if (targetOrEvent instanceof Event) {
+        targetOrEvent.stopPropagation();
+        el = targetOrEvent.currentTarget || targetOrEvent.target;
+      } else if (targetOrEvent && targetOrEvent.nodeType) {
+        el = targetOrEvent;
+      } else if (targetOrEvent && targetOrEvent.target) {
+        el = targetOrEvent.target;
+      }
+      const popover = document.getElementById('global-popover');
+      if (!popover) return;
+      popover.innerHTML = html || '<div>Sin detalles adicionales</div>';
+      if (el && el.getBoundingClientRect) {
+        const rect = el.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + 8}px`;
+        popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      }
+      popover.classList.add('open');
+    }
+
+    function toggleAnswer(btn) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      if (!btn) return;
+      const container = btn.closest('.quiz-reveal-container') || btn.parentElement;
+      if (!container) return;
+      const ans = container.querySelector('.quiz-answer-box');
+      if (ans) {
+        const isHidden = window.getComputedStyle(ans).display === 'none' || ans.style.display === 'none';
+        ans.style.display = isHidden ? 'block' : 'none';
+        btn.textContent = isHidden ? 'Ocultar Respuesta ▲' : 'Ver Respuesta ▼';
+      }
     }
     document.addEventListener('click', closePopovers);
 
@@ -2444,6 +3004,18 @@
         }
       }
       renderSlide(initSlide);
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length && num !== currentSlideIdx) {
+            renderSlide(num);
+          }
+        }
+      }
     });
   </script>
 </body>

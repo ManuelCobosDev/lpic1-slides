@@ -322,17 +322,87 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 8px;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       background: var(--surface);
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
-    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
-    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); transform: translateY(-1px); }
+    .nav-btn:active { transform: translateY(0); }
+    .nav-btn.primary { background: #2563EB; color: #FFFFFF !important; border-color: #1D4ED8; box-shadow: 0 2px 4px rgba(37,99,235,0.25); }
+    .nav-btn.primary:hover { background: #1D4ED8; border-color: #1E40AF; }
+
+    /* Sistema Completo de Botones .btn */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      border: 1.5px solid transparent;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      user-select: none;
+      outline: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.12), 0 2px 4px -2px rgba(15, 23, 42, 0.08);
+    }
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: #FFFFFF !important;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      gap: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF !important;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+    }
 
     /* Contenedor del escenario (1920x1080) */
     #app-container {
@@ -498,6 +568,246 @@
       color: var(--info-ink);
       border-color: #BAE6FD;
     }
+    .callout-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      max-width: 24px !important;
+      min-height: 24px !important;
+      max-height: 24px !important;
+      border-radius: 50% !important;
+      background: #2563EB;
+      color: #FFFFFF !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+      text-align: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      margin: 0 4px !important;
+      user-select: none !important;
+    }
+    .badge-blue { background: #2563EB !important; color: #FFFFFF !important; }
+    .badge-amber { background: #D97706 !important; color: #FFFFFF !important; }
+    .badge-red { background: #DC2626 !important; color: #FFFFFF !important; }
+    .badge-green { background: #16A34A !important; color: #FFFFFF !important; }
+    .badge-purple { background: #7C3AED !important; color: #FFFFFF !important; }
+
+    /* Glosarios & Conceptos Clave Modernos */
+    /* Glosarios & Conceptos Clave Modernos */
+    .slide-glossary-box {
+      margin-top: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .slide-glossary-box .gl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .slide-glossary-box .gl-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563EB;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .slide-glossary-box .gl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .slide-glossary-box .gl-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+    .slide-glossary-box .gl-card:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+    .slide-glossary-box .gl-badge {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1D4ED8;
+      background: #EFF6FF;
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid #BFDBFE;
+      display: inline-block;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .slide-glossary-box .gl-def {
+      color: #334155;
+      font-size: 13.5px;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .slide-glossary-box .gl-def code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 4px;
+      color: #0F172A;
+    }
+
+    /* Compatibilidad strip con estilo pulido tipo chips */
+    .slide-glossary-strip {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .slide-glossary-strip .gl-title {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-glossary-strip .gl-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .slide-glossary-strip .gl-term {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #1D4ED8;
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM (Completo, accesible y moderno para interactivos y quizes)
+       ========================================================================== */
+    .btn, .quiz-reveal-container button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .btn:focus-visible, .quiz-reveal-container button:focus-visible {
+      outline: 2px solid #2563EB;
+      outline-offset: 2px;
+    }
+    .btn:active, .quiz-reveal-container button:active {
+      transform: translateY(1px);
+    }
+
+    /* Botón Primario (Azul vibrante) */
+    .btn-primary, .nav-btn.primary, .quiz-reveal-container button {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover, .nav-btn.primary:hover, .quiz-reveal-container button:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Botón Outline Primario */
+    .btn-outline-primary {
+      background: #FFFFFF;
+      color: #2563EB;
+      border-color: #2563EB;
+    }
+    .btn-outline-primary:hover {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-color: #1D4ED8;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Botón Secundario */
+    .btn-secondary {
+      background: #F1F5F9;
+      color: #334155;
+      border-color: #CBD5E1;
+    }
+    .btn-secondary:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+      border-color: #94A3B8;
+    }
+
+    /* Botón Éxito */
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+      border-color: #166534;
+      color: #FFFFFF;
+    }
+
+    /* Modificadores de Tamaño */
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14.5px;
+      border-radius: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+    }
 
     /* Terminal y Comandos (slides-terminal-comandos) */
     .term-wrapper {
@@ -517,20 +827,29 @@
       font-size: 18px;
       font-weight: 700;
     }
-    .term-copy-btn {
+    .term-copy-btn, .terminal-copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 12px;
       border-radius: 6px;
-      border: 2px solid var(--control-border);
+      border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-copy-btn:hover, .terminal-copy-btn:hover {
+      background: #F1F5F9;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+    .term-copy-btn:active, .terminal-copy-btn:active {
+      transform: scale(0.96);
+    }
     .term-code {
       padding: 14px 20px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -545,15 +864,169 @@
     .term-code::-webkit-scrollbar { width: 6px; }
     .term-code::-webkit-scrollbar-track { background: transparent; }
     .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
-    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+
+    /* Terminal Card (Real-life console frame) */
+    .terminal-card {
+      background: #0F172A;
+      border: 2px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .terminal-card .terminal-header {
+      background: #1E293B;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      gap: 12px;
+    }
+    .terminal-card .terminal-header::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 18px 0 0 #F59E0B, 36px 0 0 #10B981;
+      margin-right: 36px;
+      flex-shrink: 0;
+    }
+    .terminal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #94A3B8;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: 0.02em;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .terminal-card .terminal-copy-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #475569;
+    }
+    .terminal-card .terminal-copy-btn:hover {
+      background: #334155;
+      border-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .terminal-body {
+      padding: 16px 20px;
+      margin: 0;
+      background: #0F172A;
+      color: #E2E8F0;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      font-size: 15.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Mini-Terminal para llamadas o ejemplos dentro de cajas */
+    .mini-terminal {
+      background: #0F172A;
+      border: 1.5px solid #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+    }
+    .mini-term-header {
+      background: #1E293B;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    .mini-term-dots {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 12px 0 0 #F59E0B, 24px 0 0 #10B981;
+      margin-right: 22px;
+    }
+    .mini-term-title {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+    .mini-term-body {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #E2E8F0;
+      background: #0F172A;
+    }
+
+    /* High-contrast terminal syntax tokens for light mode by default */
+    .t-prompt { color: #0284C7; user-select: none; font-weight: 700; }
     .t-cmd { font-weight: 700; color: #0F172A; }
     .t-flag { color: #1D4ED8; font-weight: 600; }
-    .t-arg { color: #9A3412; font-weight: 500; }
-    .t-path { color: #15803D; font-weight: 500; }
-    .t-str { color: #A21CAF; }
-    .t-cmt { color: #5B6B82; font-style: italic; }
-    .t-err { color: #B91C1C; font-weight: 600; }
-    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+    .t-arg { color: #B45309; font-weight: 600; }
+    .t-path { color: #047857; font-weight: 600; }
+    .t-str { color: #7C3AED; }
+    .t-cmt, .term-comment { color: #64748B; font-style: italic; }
+    .t-err { color: #DC2626; font-weight: 600; }
+    .t-hl { background: rgba(254, 240, 138, 0.45); border-radius: 4px; padding: 0 6px; }
+
+    /* Dark context inside terminal-card and mini-terminal */
+    .terminal-card .term-prompt, .mini-terminal .term-prompt,
+    .terminal-card .t-prompt, .mini-terminal .t-prompt { color: #38BDF8; font-weight: 700; }
+    .terminal-card .term-cmd, .mini-terminal .term-cmd,
+    .terminal-card .t-cmd, .mini-terminal .t-cmd { font-weight: 700; color: #F8FAFC; }
+    .terminal-card .t-flag, .mini-terminal .t-flag { color: #60A5FA; }
+    .terminal-card .t-arg, .mini-terminal .t-arg { color: #FBBF24; }
+    .terminal-card .t-path, .mini-terminal .t-path { color: #34D399; }
+    .terminal-card .t-str, .mini-terminal .t-str { color: #E879F9; }
+    .terminal-card .term-comment, .mini-terminal .term-comment,
+    .terminal-card .t-cmt, .mini-terminal .t-cmt { color: #94A3B8; }
+    .terminal-card .t-err, .mini-terminal .t-err { color: #F87171; }
+
+    /* Estilos del Modal Autotest / Test Global */
+    .autotest-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--surface);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: border-color 0.15s ease;
+    }
+    .autotest-card:hover {
+      border-color: var(--primary);
+    }
+    .autotest-opt-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface-alt);
+      font-size: 18px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .autotest-opt-label:hover {
+      background: #EFF6FF;
+      border-color: #93C5FD;
+    }
+    .autotest-opt-label input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2563EB;
+      cursor: pointer;
+    }
 
     /* Chips de opciones interactivas */
     .options-row {
@@ -619,32 +1092,38 @@
     /* Tablas (≤5x4) */
     .table-container {
       width: 100%;
-      margin: 20px 0;
-      border: 2px solid var(--border);
-      border-radius: 14px;
+      margin: 12px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 12px;
       overflow: hidden;
-      background: #FFFFFF;
+      background: var(--surface);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 26px;
+      font-size: clamp(15px, 1.05vw, 18.5px);
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 16px 24px;
+      padding: 10px 18px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
+      font-size: clamp(15.5px, 1.1vw, 19.5px);
     }
     table.slide-table td {
-      padding: 16px 24px;
+      padding: 9px 18px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
+      line-height: 1.4;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
-    table.slide-table tr.highlighted { background: #FEF3C7; }
+    table.slide-table tr.highlighted { background: var(--warning-soft); }
+    [data-theme="dark"] .table-container {
+      background: var(--surface);
+    }
 
     /* Matrices comparativas y mapas de equivalencias */
     .matrix-container {
@@ -1131,7 +1610,7 @@
     <aside id="teacher-panel">
       <div class="panel-header">
         <span>Notas del Docente</span>
-        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+        <button class="nav-btn" onclick="toggleTeacherNotes()" aria-label="Cerrar panel docente"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
       </div>
       <div class="panel-body">
         <div class="panel-meta" id="panel-meta-info"></div>
@@ -1146,7 +1625,7 @@
   <!-- Modal de Erratas -->
   <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar notas y erratas"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
         <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
         Notas y Erratas del Manual Oficial
@@ -1158,7 +1637,7 @@
   <!-- Modal de Ayuda / Atajos -->
   <div class="modal-overlay" id="modal-help" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar ayuda de atajos"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
         <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
@@ -1181,7 +1660,7 @@
   <!-- Modal de Vista General (Overview) -->
   <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
     <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar vista general"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
       <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
     </div>
@@ -1197,7 +1676,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "102.3", "cat": "libs", "type": "cover", "title": "Gestión de librerías compartidas en Linux", "subtitle": "Bibliotecas estáticas vs dinámicas, sonames, /etc/ld.so.conf, ldconfig y ldd (Modo Examen)", "ref": "101-102", "pdf": {"manual": "A", "pages": [101, 102], "figure": null}, "coverage": ["102.3-OBJ-001", "102.3-OBJ-002"], "meta": {"peso": 1, "paginas": "101–116", "duracion": "30 min"}, "icon": "layers", "notes": "Comenzamos el subtema 102.3 (peso 1). Las librerías compartidas (shared libraries) son bloques de código reutilizables fundamentales para el funcionamiento de Linux. Aprenderemos cómo las busca el kernel, cómo se registran en caché y cómo diagnosticar dependencias rotas."}, {"id": 2, "section": "102.3", "cat": "libs", "type": "concept", "title": "Librerías Estáticas (.a) frente a Compartidas (.so)", "lead": "¿Cuál es la diferencia fundamental entre compilar en estático o usar bibliotecas dinámicas?", "ref": "102-104", "pdf": {"manual": "A", "pages": [102, 103, 104], "figure": null}, "coverage": ["102.3-CON-001", "102.3-CON-002"], "points": [{"icon": "archive", "text": "Bibliotecas Estáticas (.a - Archive)", "detail": "El código de la librería se incrusta físicamente dentro del ejecutable en tiempo de compilación. Ventaja: El programa es autónomo y no depende de archivos externos. Desventaja: Ejecutables enormes y gasto excesivo de memoria RAM."}, {"icon": "layers", "text": "Bibliotecas Compartidas / Dinámicas (.so - Shared Object)", "detail": "🎯 El estándar de Linux: El ejecutable solo contiene referencias. La librería se carga en RAM una sola vez y todos los programas la comparten simultáneamente. Permite actualizar la librería para parchear fallos de seguridad sin recompilar los programas."}], "remember": "🎯 Clave de Examen: Extensión de bibliotecas estáticas: .a (archive); extensión de bibliotecas compartidas: .so (shared object).", "notes": "Muestra que si 50 programas usan la librería glibc y fuera estática, tendríamos 50 copias idénticas en disco y en memoria RAM. Con .so solo hay 1 copia en RAM compartida."}, {"id": 3, "section": "102.3", "cat": "libs", "type": "flow", "title": "Anatomía del soname y Versionado de Librerías", "lead": "¿Cómo gestiona Linux las actualizaciones de librerías sin romper programas antiguos?", "ref": "104-106", "pdf": {"manual": "A", "pages": [104, 105, 106], "figure": null}, "coverage": ["102.3-CON-003"], "steps": [{"step": "1. Nombre Real (Real Name)", "desc": "El archivo binario físico compilado en disco: libnombre.so.mayor.menor.revisión (ej: libm.so.6.0.0 o libssl.so.1.1)."}, {"step": "2. soname (Shared Object Name)", "desc": "🎯 Enlace simbólico que solo incluye la versión mayor de compatibilidad binaria ABI (ej: libm.so.6). Es el nombre que se incrusta dentro de los ejecutables al compilar."}, {"step": "3. Linker Name", "desc": "Enlace simbólico sin números de versión (ej: libm.so -> libm.so.6) utilizado exclusivamente por el compilador gcc al crear nuevos programas (-lm)."}], "remember": "🎯 Clave de Examen: Si cambia la versión MAYOR (ej: libssl.so.1 -> libssl.so.2), se rompe la compatibilidad binaria (ABI) y los programas antiguos deben recompilarse. Si solo cambia la menor (libssl.so.1.1 -> 1.2), son compatibles.", "notes": "Enseña a la clase el trío de nombres: el binario real, el soname que usan los programas compilados y el linker name que usa el compilador."}, {"id": 4, "section": "102.3", "cat": "libs", "type": "concept", "title": "Ubicaciones Estándar y Arquitectura Multiarch", "lead": "¿Dónde busca el sistema las librerías compartidas por defecto?", "ref": "106-107", "pdf": {"manual": "A", "pages": [106, 107], "figure": null}, "coverage": ["102.3-CON-004"], "points": [{"icon": "folder", "text": "Rutas estándar históricas de Linux", "detail": "/lib y /usr/lib (para librerías del sistema y paquetes de la distribución) y /usr/local/lib (para librerías compiladas manualmente por el administrador)."}, {"icon": "cpu", "text": "Rutas de 64 bits en RHEL/CentOS/Fedora", "detail": "Usa /lib64 y /usr/lib64 para binarios de 64 bits, reservando /lib y /usr/lib para compatibilidad de 32 bits."}, {"icon": "folder-tree", "text": "Arquitectura Multiarch en Debian/Ubuntu", "detail": "Usa subdirectorios con tripletas de arquitectura (ej: /lib/x86_64-linux-gnu/, /usr/lib/x86_64-linux-gnu/ o /usr/lib/arm-linux-gnueabihf/), permitiendo instalar librerías de 32 y 64 bits a la vez sin colisiones."}], "remember": "🎯 Clave de Examen: Las dos únicas rutas que el enlazador dinámico consulta SIEMPRE sin necesidad de configuración adicional son /lib y /usr/lib.", "notes": "Explica la diferencia entre distros basadas en Red Hat (/lib64) y distros basadas en Debian (multiarch con tripletas)."}, {"id": 5, "section": "102.3", "cat": "libs", "type": "file", "title": "Configuración Central: /etc/ld.so.conf y /etc/ld.so.conf.d/", "lead": "¿Cómo indicamos al sistema que busque librerías en directorios no estándar (ej: /opt/oracle/lib)?", "ref": "107-108", "pdf": {"manual": "A", "pages": [107, 108], "figure": null}, "coverage": ["102.3-FIL-001"], "file": {"path": "/etc/ld.so.conf", "purpose": "Listar rutas adicionales donde residen bibliotecas compartidas", "content": "# Archivo maestro /etc/ld.so.conf\ninclude /etc/ld.so.conf.d/*.conf\n/usr/local/lib"}, "points": [{"icon": "folder-check", "text": "Directorio modular /etc/ld.so.conf.d/", "detail": "🎯 Clave de Examen: En lugar de editar el archivo maestro /etc/ld.so.conf, los paquetes y administradores crean archivos con extensión .conf dentro de /etc/ld.so.conf.d/ (ej: x86_64-linux-gnu.conf)."}, {"icon": "refresh-cw", "text": "Requisito obligatorio de actualización", "detail": "🎯 Regla de Examen: Editar /etc/ld.so.conf o añadir un archivo en /etc/ld.so.conf.d/ NO tiene efecto inmediato. Se debe ejecutar obligatoriamente el comando 'ldconfig' para regenerar la caché binaria."}], "remember": "🎯 Clave de Examen: Si añades una ruta a /etc/ld.so.conf y no ejecutas 'ldconfig', los programas seguirán fallando con error de librería no encontrada.", "notes": "Pregunta típica de examen: ¿Qué comando se debe ejecutar tras modificar /etc/ld.so.conf? Respuesta: ldconfig."}, {"id": 6, "section": "102.3", "cat": "libs", "type": "command", "title": "El Comando ldconfig y la Caché /etc/ld.so.cache", "lead": "¿Por qué Linux no escanea los discos duros cada vez que abres un programa? Porque usa una caché binaria:", "ref": "108-110", "pdf": {"manual": "A", "pages": [108, 109, 110], "figure": null}, "coverage": ["102.3-CMD-001", "102.3-FIL-002"], "command": "ldconfig", "purpose": "Crear enlaces simbólicos de sonames y compilar la caché binaria /etc/ld.so.cache", "terminal": {"command": "sudo ldconfig; ldconfig -p | grep libssl | head -n 2", "output": "libssl.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libssl.so.3\nlibssl.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libssl.so"}, "options": [{"flag": "ldconfig (sin argumentos)", "desc": "Relee /etc/ld.so.conf, crea enlaces de sonames necesarios y regenera el archivo binario /etc/ld.so.cache."}, {"flag": "-p / --print-cache", "desc": "🎯 Clave de Examen: Imprime en pantalla la lista completa de todas las librerías indexadas en la caché actual /etc/ld.so.cache."}, {"flag": "-v / --verbose", "desc": "Muestra cada directorio escaneado y los enlaces simbólicos creados o actualizados."}, {"flag": "-f <archivo>", "desc": "Utiliza un archivo de configuración alternativo en lugar de /etc/ld.so.conf."}, {"flag": "-C <archivo_cache>", "desc": "Genera la caché binaria en una ruta alternativa en vez de /etc/ld.so.cache."}], "remember": "🎯 Pregunta Fija de Examen: ¿Qué comando y opción muestra todas las librerías compartidas actualmente indexadas en la caché del enlazador dinámico? Respuesta: ldconfig -p.", "notes": "Enseña la opción -p: 'p' de Print. Vuelca la caché binaria /etc/ld.so.cache a texto legible."}, {"id": 7, "section": "102.3", "cat": "libs", "type": "command", "title": "Rutas Temporales con LD_LIBRARY_PATH", "lead": "¿Cómo probar una versión beta de una librería o ejecutar un software sin ser superusuario root?", "ref": "110-111", "pdf": {"manual": "A", "pages": [110, 111], "figure": null}, "coverage": ["102.3-ENV-001"], "command": "export LD_LIBRARY_PATH=/ruta1:/ruta2", "purpose": "Variable de entorno que antepone directorios personalizados antes de consultar /etc/ld.so.cache", "terminal": {"command": "export LD_LIBRARY_PATH=/home/usuario/libs_test:$LD_LIBRARY_PATH\n./mi_programa_beta\nunset LD_LIBRARY_PATH", "output": "[Programa ejecutado con las librerías de prueba exitosamente]"}, "options": [{"flag": "LD_LIBRARY_PATH", "desc": "🎯 Lista de directorios separados por dos puntos (:) donde el cargador dinámico busca librerías ANTES de mirar en /etc/ld.so.cache."}, {"flag": "unset LD_LIBRARY_PATH", "desc": "Borra la variable para restaurar el comportamiento normal del sistema."}, {"flag": "Riesgo de Seguridad", "desc": "🎯 Clave de Examen: Por motivos de seguridad, el enlazador dinámico IGNORA la variable LD_LIBRARY_PATH en ejecutables que tengan activo el bit SUID o SGID."}], "remember": "🎯 Clave de Examen: LD_LIBRARY_PATH solo afecta a la sesión de terminal actual y no requiere permisos de root. ¡Es ignorada por programas con permisos SUID para evitar escaladas de privilegios!", "notes": "Explica a la clase por qué no se debe poner LD_LIBRARY_PATH de forma global en /etc/profile: puede romper binarios del sistema si sobreescribe librerías críticas."}, {"id": 8, "section": "102.3", "cat": "libs", "type": "command", "title": "Auditoría de Dependencias con ldd", "lead": "¿Qué comando utilizas cuando un programa falla al abrirse con 'error while loading shared libraries'?", "ref": "111-112", "pdf": {"manual": "A", "pages": [111, 112], "figure": null}, "coverage": ["102.3-CMD-002"], "command": "ldd /ruta/al/ejecutable", "purpose": "Listar todas las bibliotecas compartidas requeridas por un programa y qué ruta física las provee", "terminal": {"command": "ldd /bin/cat", "output": "\tlinux-vdso.so.1 (0x00007ffdf1fc4000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f59e9c00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f59e9e1f000)"}, "options": [{"flag": "ldd <binario>", "desc": "🎯 Clave de Examen: Muestra cada librería requerida (NEEDED), la flecha '=>' con la ruta resuelta en disco y la dirección virtual de memoria."}, {"flag": "not found", "desc": "🎯 Alerta de Diagnóstico: Si aparece 'libfoo.so => not found', indica que la librería no está instalada o falta su ruta en /etc/ld.so.conf."}, {"flag": "-v / --verbose", "desc": "Muestra información detallada incluyendo los requisitos de versión de símbolos específicos de cada librería."}, {"flag": "-u / --unused", "desc": "Muestra dependencias enlazadas que el programa no utiliza directamente."}, {"flag": "-d / --data-relocs", "desc": "Realiza reubicaciones de datos e informa de símbolos desaparecidos."}], "remember": "🎯 Pregunta Clásica de Examen: ¿Qué comando te dice qué librerías necesita un binario para funcionar? Respuesta: ldd.", "notes": "Muestra la primera línea 'linux-vdso.so.1': es una librería virtual inyectada directamente por el kernel en RAM para llamadas al sistema rápidas."}, {"id": 9, "section": "102.3", "cat": "libs", "type": "command", "title": "Inspección de Binarios ELF con objdump -p", "lead": "¿Cómo sabe ldd qué librerías necesita un programa sin ejecutarlo?", "ref": "112-113", "pdf": {"manual": "A", "pages": [112, 113], "figure": null}, "coverage": ["102.3-CMD-003"], "command": "objdump -p /ruta/al/binario | grep NEEDED", "purpose": "Examinar las cabeceras internas del formato ejecutable estándar de Linux (ELF)", "terminal": {"command": "objdump -p /bin/ls | grep NEEDED", "output": "  NEEDED               libselinux.so.1\n  NEEDED               libc.so.6"}, "options": [{"flag": "-p / --private-headers", "desc": "🎯 Clave de Examen: Vuelca todas las cabeceras privadas del formato ELF, incluyendo la sección dinámica con las etiquetas NEEDED y el soname interno."}, {"flag": "Etiqueta NEEDED", "desc": "Especifica el soname exacto que el enlazador dinámico (ld.so) debe buscar obligatoriamente al arrancar el proceso."}, {"flag": "-T / --dynamic-syms", "desc": "Muestra la tabla de símbolos dinámicos exportados e importados."}, {"flag": "readelf -d <binario>", "desc": "Comando alternativo oficial para inspeccionar la sección dinámica de ejecutables ELF."}], "remember": "🎯 Diferencia de Examen: ldd ejecuta el cargador dinámico para simular la resolución completa; objdump -p lee estáticamente las etiquetas NEEDED del archivo ELF.", "notes": "Destaca la etiqueta NEEDED: es la lista de la compra que el compilador dejó escrita dentro del binario."}, {"id": 10, "section": "102.3", "cat": "libs", "type": "concept", "title": "El Enlazador Dinámico ld.so y Orden de Búsqueda", "lead": "¿Cuál es el orden estricto de resolución que sigue Linux al abrir cualquier programa?", "ref": "113", "pdf": {"manual": "A", "pages": [113], "figure": null}, "coverage": ["102.3-CON-005"], "points": [{"icon": "compass", "text": "1. Rutas RPATH / RUNPATH", "detail": "Rutas incrustadas dentro del propio binario durante la compilación (si existen)."}, {"icon": "terminal", "text": "2. Variable LD_LIBRARY_PATH", "detail": "🎯 Rutas temporales de la sesión de usuario (salvo que el binario tenga permisos SUID/SGID)."}, {"icon": "database", "text": "3. Caché binaria /etc/ld.so.cache", "detail": "🎯 Índice generado por ldconfig a partir de /etc/ld.so.conf y /etc/ld.so.conf.d/."}, {"icon": "folder", "text": "4. Directorios estándar predeterminados", "detail": "🎯 /lib y /usr/lib (y sus equivalentes de 64 bits o multiarch)."}], "remember": "🎯 Secuencia de Examen: Si una librería está en /usr/lib y en una ruta de LD_LIBRARY_PATH, el sistema cargará SIEMPRE la de LD_LIBRARY_PATH por tener mayor prioridad.", "notes": "Haz que los alumnos repasen este orden de 4 pasos: RPATH -> LD_LIBRARY_PATH -> /etc/ld.so.cache -> /lib y /usr/lib."}, {"id": 11, "section": "102.3", "cat": "libs", "type": "table", "title": "Librerías Fundamentales del Sistema en el Examen", "lead": "El examen LPIC-1 cita varias librerías de sistema que debes saber identificar:", "ref": "113-114", "pdf": {"manual": "A", "pages": [113, 114], "figure": null}, "coverage": ["102.3-CON-006"], "headers": ["Librería Compartida", "Nombre en Linux", "Función Esencial para el Sistema"], "rows": [["GNU C Library (glibc)", "libc.so.6", "🎯 La librería más crítica de Linux: llamadas al sistema, gestión de memoria (malloc), E/S y cadenas."], ["Librería Matemática", "libm.so.6", "Funciones matemáticas avanzadas (seno, coseno, raíces cuadradas). Se enlaza con -lm."], ["Hilos POSIX (pthreads)", "libpthread.so.0", "Gestión de subprocesos e hilos de ejecución concurrentes multihilo."], ["Autenticación PAM", "libpam.so.0", "Pluggable Authentication Modules: autenticación de usuarios (login, sshd, sudo)."], ["Cifrado y Seguridad", "libcrypt.so.1 / libssl.so", "Cifrado de contraseñas y protocolos criptográficos TLS/SSL."]], "remember": "🎯 Dato de Examen: Prácticamente todos los programas dinámicos de Linux se enlazan con libc.so.6.", "notes": "Muestra que si libc.so.6 se borra o corrompe, NINGÚN comando del sistema (ni ls, ni cp, ni bash) podrá ejecutarse."}, {"id": 12, "section": "102.3", "cat": "libs", "type": "concept", "title": "Resolución de Problemas: Errores Comunes de Librerías", "lead": "Guía rápida para diagnosticar y solucionar cualquier fallo de dependencias en el examen y en la vida real:", "ref": "115-116", "pdf": {"manual": "A", "pages": [115, 116], "figure": null}, "coverage": ["102.3-CON-007"], "points": [{"icon": "alert-circle", "text": "1. Identificar la librería que falta", "detail": "Ejecuta 'ldd /ruta/al/programa' y busca la línea que termina en '=> not found'."}, {"icon": "search", "text": "2. Averiguar si existe en el disco", "detail": "Usa 'find /usr -name libnombre*' o busca qué paquete la provee con 'apt-file search' o 'yum whatprovides'."}, {"icon": "settings", "text": "3. Si la librería está instalada pero no se encuentra", "detail": "Añade su directorio a un archivo en /etc/ld.so.conf.d/ y ejecuta 'sudo ldconfig'."}, {"icon": "check-square", "text": "4. Comprobar que ldconfig la ha indexado", "detail": "Ejecuta 'ldconfig -p | grep libnombre' y verifica que aparece la flecha hacia la ruta correcta."}], "remember": "🎯 Flujo Metódico: ldd (diagnostica) -> locate/apt-file (encuentra) -> /etc/ld.so.conf.d/ (configura) -> ldconfig (activa).", "notes": "Este diagrama mental permite resolver cualquier avería de librerías en cuestión de segundos."}, {"id": 13, "section": "102.3", "cat": "libs", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: sonames y ldconfig)", "ref": "113-114", "pdf": {"manual": "A", "pages": [113, 114], "figure": null}, "scenario": "Casos prácticos sobre versionado y registro de librerías (Manual Oficial LPIC-1 Páginas 113-114):", "steps": [{"action": "Caso 1: En disco existe el archivo 'libpng16.so.16.37.0'. ¿Cuál es su soname y cuál su linker name?", "command": "soname: libpng16.so.16 ; Linker name: libpng16.so", "reason": "El soname conserva la versión mayor (16) para compatibilidad de ejecutables compilados; el linker name no lleva números para gcc."}, {"action": "Caso 2: Has instalado una base de datos en /opt/bd/lib. ¿Qué dos pasos son obligatorios para que el sistema encuentre sus librerías?", "command": "1. Crear /etc/ld.so.conf.d/bd.conf con la línea '/opt/bd/lib' ; 2. Ejecutar 'sudo ldconfig'", "reason": "ldconfig debe leer el nuevo archivo de configuración y actualizar la caché binaria /etc/ld.so.cache."}], "solution": {"explain": "Sin ejecutar ldconfig, el enlazador dinámico jamás consultará la nueva ruta en /opt."}, "notes": "Enfatiza el paso 2: en el 80% de los errores reales de administración, la gente se olvida de ejecutar ldconfig."}, {"id": 14, "section": "102.3", "cat": "libs", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: ldd y objdump)", "ref": "114-115", "pdf": {"manual": "A", "pages": [114, 115], "figure": null}, "scenario": "Casos prácticos de auditoría de dependencias (Manual Oficial LPIC-1 Páginas 114-115):", "steps": [{"action": "Caso 3: ¿Qué comando te muestra todas las librerías compartidas de las que depende el comando /bin/kill?", "command": "ldd /bin/kill", "reason": "ldd invoca al enlazador dinámico simulando la carga e imprime la lista de librerías y rutas resueltas."}, {"action": "Caso 4: Averiguar qué librerías necesita un binario inspeccionando exclusivamente sus cabeceras ELF sin ejecutarlo.", "command": "objdump -p /bin/kill | grep NEEDED  (o readelf -d /bin/kill)", "reason": "objdump -p extrae directamente las etiquetas NEEDED almacenadas en la sección dinámica del binario ELF."}], "solution": {"explain": "ldd es la herramienta estándar rápida; objdump -p es la herramienta forense segura para binarios sospechosos."}, "notes": "Muestra que ldd puede llegar a ejecutar código del binario en ciertas condiciones; objdump es puramente estático."}, {"id": 15, "section": "102.3", "cat": "libs", "type": "challenge", "title": "Retos de Exploración del Manual Oficial", "ref": "115", "pdf": {"manual": "A", "pages": [115], "figure": null}, "scenario": "Resuelve estos 4 retos de examen planteados en el manual oficial LPIC-1 (Página 115):\n1. Un programa devuelve 'error while loading shared libraries: libcrypto.so.1.1: cannot open shared object file: No such file or directory'. ¿Qué 3 comprobaciones debes realizar?\n2. ¿Por qué la variable LD_LIBRARY_PATH no funciona al ejecutar comandos como 'sudo' o 'passwd'?\n3. ¿Cómo comprobarías si la librería libncurses está registrada actualmente en la caché del sistema sin abrir ningún archivo?\n4. Si actualizas glibc a una versión menor más moderna, ¿es necesario recompilar todos los programas del sistema?", "hint": "Recuerda: find/locate de la librería; permisos SUID en binarios; comando ldconfig -p; y compatibilidad de versiones menores en sonames.", "solution": {"explain": "1. Comprobar: a) Si la librería está instalada en disco (find / -name libcrypto.so.1.1); b) Si su ruta está en /etc/ld.so.conf.d/; c) Si se ejecutó ldconfig para actualizar la caché.\n2. Porque sudo y passwd tienen el bit SUID activo: por seguridad, el cargador ld.so ignora LD_LIBRARY_PATH para evitar que un atacante inyecte una librería falsa y obtenga root.\n3. Con el comando: ldconfig -p | grep libncurses.\n4. NO, porque las actualizaciones de versión menor respetan la compatibilidad binaria hacia atrás (mismo soname libc.so.6)."}, "notes": "Preguntas directas de examen. La restricción de SUID en LD_LIBRARY_PATH es un clásico de seguridad."}, {"id": 16, "section": "102.3", "cat": "libs", "type": "review", "title": "Pregunta de Examen LPIC-1: ldconfig y Caché", "q": "¿Qué comando y opción muestra el contenido actual de la caché binaria de librerías compartidas /etc/ld.so.cache?", "options": ["ldconfig -p", "ldd --cache", "cat /etc/ld.so.cache", "ldconfig -c"], "answer": 0, "why": "ldconfig -p (--print-cache) imprime el contenido de /etc/ld.so.cache formateado en texto. cat no sirve porque el archivo es binario; ldd no tiene opción --cache; y -c en ldconfig se usa para especificar un archivo de configuración alternativo.", "notes": "Pregunta clásica. Recuerda: ldconfig -p (Print cache)."}, {"id": 17, "section": "102.3", "cat": "libs", "type": "review", "title": "Pregunta de Examen LPIC-1: Variables de Entorno de Librerías", "q": "¿Qué variable de entorno puede utilizar un usuario en su sesión para indicar al enlazador dinámico que busque librerías en un directorio personal antes de consultar la caché del sistema?", "options": ["LIBPATH", "LD_LIBRARY_PATH", "SHARED_LIB_PATH", "PATH_LIBRARIES"], "answer": 1, "why": "LD_LIBRARY_PATH es la variable de entorno estándar reconocida por ld.so en Linux. LIBPATH se utiliza en AIX, mientras que las otras son nombres inventados.", "notes": "Pregunta fija de examen. Memorizar el nombre exacto: LD_LIBRARY_PATH."}, {"id": 18, "section": "102.3", "cat": "libs", "type": "flashcards", "title": "Tarjetas de Memorización: Librerías Compartidas (102.3)", "deck": [{"front": "¿Qué extensión tienen las librerías estáticas y cuál las compartidas?", "back": "Estáticas: .a (archive). Compartidas / dinámicas: .so (shared object)."}, {"front": "¿Qué archivo binario consulta ld.so para localizar rápidamente las librerías?", "back": "/etc/ld.so.cache (generado por ldconfig)."}, {"front": "¿En qué archivo o directorio se añaden rutas permanentes de librerías?", "back": "En /etc/ld.so.conf y en archivos .conf dentro de /etc/ld.so.conf.d/."}, {"front": "¿Qué comando actualiza /etc/ld.so.cache tras modificar /etc/ld.so.conf?", "back": "sudo ldconfig"}, {"front": "¿Qué hace el comando 'ldconfig -p'?", "back": "Imprime en pantalla la lista de librerías indexadas en /etc/ld.so.cache."}, {"front": "¿Qué comando analiza las librerías compartidas requeridas por un ejecutable?", "back": "ldd /ruta/al/binario"}, {"front": "¿Qué variable define rutas de librerías temporales para la sesión actual?", "back": "LD_LIBRARY_PATH"}, {"front": "¿Por qué LD_LIBRARY_PATH es ignorada en ejecutables SUID?", "back": "Por seguridad, para impedir que un usuario inyecte código malicioso y obtenga privilegios de root."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno dominio de los conceptos de librerías."}, {"id": 19, "section": "102.3", "cat": "libs", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 102.3", "takeaways": ["Concepto: Librerías estáticas (.a) vs dinámicas (.so). soname define la compatibilidad binaria (ABI) mayor.", "Rutas y Configuración: Rutas por defecto /lib y /usr/lib. Rutas adicionales en /etc/ld.so.conf y /etc/ld.so.conf.d/*.conf.", "Caché y Herramientas: ldconfig compila la caché binaria /etc/ld.so.cache. ldconfig -p muestra su contenido.", "Auditoría y Variables: ldd muestra dependencias en vivo. objdump -p lee etiquetas NEEDED. LD_LIBRARY_PATH fija rutas temporales (ignorada en binarios SUID)."], "top3": [{"cmd": "ldd /ruta/al/binario", "desc": "Muestra las dependencias de librerías compartidas y detecta componentes 'not found'."}, {"cmd": "sudo ldconfig", "desc": "Regenera la caché /etc/ld.so.cache y crea enlaces simbólicos de sonames."}, {"cmd": "ldconfig -p", "desc": "Imprime todas las librerías compartidas actualmente indexadas en la caché del sistema."}], "practice": {"name": "Practica 102.3: Gestión de Librerías Compartidas del Sistema", "url": "../practicas/p-102-3-librerias-compartidas.html", "desc": "Rastrea dependencias dinámicas con ldd, administra la caché del enlazador con ldconfig y comprende el uso de /etc/ld.so.conf y LD_LIBRARY_PATH."}, "notes": "Finalizamos el subtema 102.3. Un subtema corto pero con preguntas muy directas que no se deben fallar."}];
+    const SLIDES = [{"id": 1, "section": "102.3", "cat": "libs", "type": "cover", "title": "Gestión de librerías compartidas en Linux", "subtitle": "Bibliotecas estáticas vs dinámicas, sonames, /etc/ld.so.conf, ldconfig y ldd (Modo Examen)", "ref": "101-102", "pdf": {"manual": "A", "pages": [101, 102], "figure": null}, "coverage": ["102.3-OBJ-001", "102.3-OBJ-002"], "meta": {"peso": 1, "paginas": "101–116", "duracion": "30 min"}, "icon": "layers", "notes": "Comenzamos el subtema 102.3 (peso 1). Las librerías compartidas (shared libraries) son bloques de código reutilizables fundamentales para el funcionamiento de Linux. Aprenderemos cómo las busca el kernel, cómo se registran en caché y cómo diagnosticar dependencias rotas."}, {"id": 2, "section": "102.3", "cat": "libs", "type": "diagram", "title": "Librerías Estáticas (.a) frente a Compartidas (.so)", "lead": "Diferencias clave directas: incrustar el código en compilación (.a) o cargarlo en RAM en ejecución (.so).", "ref": "102-104", "pdf": {"manual": "A", "pages": [102, 103, 104], "figure": null}, "coverage": ["102.3-CON-001", "102.3-CON-002"], "points": [], "remember": "🎯 PREGUNTA CLAVE DE EXAMEN: Extensión de librerías estáticas: '.a' (archive); extensión de librerías compartidas/dinámicas: '.so' (shared object).", "notes": "Enseña el contraste directo: .a duplica código en disco y RAM; .so comparte 1 sola copia en RAM para cientos de programas.", "diagram_html": "\n<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:10px 0;\">\n  <!-- Tarjeta Estáticas -->\n  <div style=\"background:#FFF5F5; border:2px solid #F87171; border-radius:12px; padding:16px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:2px solid #FECACA; padding-bottom:8px;\">\n      <span style=\"background:#DC2626; color:#FFF; font-weight:800; font-size:14px; padding:3px 10px; border-radius:6px;\">ESTÁTICAS (.a)</span>\n      <span style=\"font-size:13px; font-weight:700; color:#991B1B;\">Archive (ar) · Compilación</span>\n    </div>\n    \n    <div style=\"display:flex; flex-direction:column; gap:9px; font-size:13.5px; color:#7F1D1D; line-height:1.4;\">\n      <div style=\"display:flex; gap:8px;\">\n        <span style=\"font-weight:800; min-width:130px; color:#991B1B;\">📦 Inclusión de código:</span>\n        <span>El código se <strong>copia físicamente</strong> dentro del binario al compilar.</span>\n      </div>\n      <div style=\"display:flex; gap:8px;\">\n        <span style=\"font-weight:800; min-width:130px; color:#991B1B;\">💾 Tamaño en disco:</span>\n        <span><strong>Gigante y pesado:</strong> cada ejecutable puede pesar 20–40 MB.</span>\n      </div>\n      <div style=\"display:flex; gap:8px;\">\n        <span style=\"font-weight:800; min-width:130px; color:#991B1B;\">🧠 Consumo de RAM:</span>\n        <span><strong>Despilfarro:</strong> 10 programas abiertos cargan 10 copias idénticas en memoria.</span>\n      </div>\n      <div style=\"display:flex; gap:8px;\">\n        <span style=\"font-weight:800; min-width:130px; color:#991B1B;\">🔄 Actualizar un bug:</span>\n        <span><strong>Recompilar todo:</strong> hay que volver a compilar cada binario del sistema.</span>\n      </div>\n      <div style=\"display:flex; gap:8px;\">\n        <span style=\"font-weight:800; min-width:130px; color:#991B1B;\">🎯 ¿Cuándo se usa?:</span>\n        <span>Herramientas de rescate de emergencia (ej: <code>/sbin/sln</code>) o sistemas embebidos.</span>\n      </div>\n    </div>\n  </div>\n\n  <!-- Tarjeta Compartidas -->\n  <div style=\"background:#F0FDF4; border:2px solid #4ADE80; border-radius:12px; padding:16px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:2px solid #BBF7D0; padding-bottom:8px;\">\n      <span style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:14px; padding:3px 10px; border-radius:6px;\">COMPARTIDAS (.so)</span>\n      <span style=\"font-size:13px; font-weight:700; color:#166534;\">Shared Object · Ejecución (ld.so)</span>\n    </div>\n    \n    <div style=\"display:flex; flex-direction:column; gap:9px; font-size:13.5px; color:#14532D; line-height:1.4;\">\n      <div style=\"display:flex; gap:8px;\">\n        <span style=\"font-weight:800; min-width:130px; color:#166534;\">🔗 Inclusión de código:</span>\n        <span>El binario solo guarda referencias y el nombre de la librería (<code>NEEDED</code>).</span>\n      </div>\n      <div style=\"display:flex; gap:8px;\">\n        <span style=\"font-weight:800; min-width:130px; color:#166534;\">💾 Tamaño en disco:</span>\n        <span><strong>Diminuto y ligero:</strong> binarios de apenas 30–60 KB.</span>\n      </div>\n      <div style=\"display:flex; gap:8px;\">\n        <span style=\"font-weight:800; min-width:130px; color:#166534;\">🧠 Consumo de RAM:</span>\n        <span><strong>Ultra-eficiente:</strong> se carga <strong>1 sola vez</strong> en RAM y 100 procesos la comparten.</span>\n      </div>\n      <div style=\"display:flex; gap:8px;\">\n        <span style=\"font-weight:800; min-width:130px; color:#166534;\">🔄 Actualizar un bug:</span>\n        <span><strong>Instantáneo:</strong> solo sustituyes el archivo <code>.so</code> y todo queda parcheado.</span>\n      </div>\n      <div style=\"display:flex; gap:8px;\">\n        <span style=\"font-weight:800; min-width:130px; color:#166534;\">🎯 ¿Cuándo se usa?:</span>\n        <span>El <strong>99.9% del software</strong> en Linux moderno (<code>ls</code>, <code>bash</code>, <code>python</code>, etc.).</span>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:10px; padding:10px 16px; display:grid; grid-template-columns: repeat(5, 1fr); gap:8px; text-align:center; font-size:12.5px;\">\n  <div style=\"background:#FFFFFF; border:1px solid #E2E8F0; border-radius:6px; padding:6px 4px;\">\n    <div style=\"color:#64748B; font-weight:700;\">Extensión</div>\n    <div style=\"margin-top:3px;\"><span style=\"color:#DC2626; font-weight:800;\">.a</span> vs <span style=\"color:#16A34A; font-weight:800;\">.so</span></div>\n  </div>\n  <div style=\"background:#FFFFFF; border:1px solid #E2E8F0; border-radius:6px; padding:6px 4px;\">\n    <div style=\"color:#64748B; font-weight:700;\">Momento de Enlace</div>\n    <div style=\"margin-top:3px; font-weight:700; color:#0F172A;\">Compilación vs Ejecución</div>\n  </div>\n  <div style=\"background:#FFFFFF; border:1px solid #E2E8F0; border-radius:6px; padding:6px 4px;\">\n    <div style=\"color:#64748B; font-weight:700;\">Tamaño Binario</div>\n    <div style=\"margin-top:3px; font-weight:700; color:#0F172A;\">Pesado vs Diminuto</div>\n  </div>\n  <div style=\"background:#FFFFFF; border:1px solid #E2E8F0; border-radius:6px; padding:6px 4px;\">\n    <div style=\"color:#64748B; font-weight:700;\">Copia en Memoria RAM</div>\n    <div style=\"margin-top:3px; font-weight:700; color:#0F172A;\">Múltiples vs 1 Sola</div>\n  </div>\n  <div style=\"background:#FFFFFF; border:1px solid #E2E8F0; border-radius:6px; padding:6px 4px;\">\n    <div style=\"color:#64748B; font-weight:700;\">Parchear Seguridad</div>\n    <div style=\"margin-top:3px; font-weight:700; color:#0F172A;\">Recompilar vs Cambiar .so</div>\n  </div>\n</div>\n"}, {"id": 3, "section": "102.3", "cat": "libs", "type": "diagram", "title": "¿Qué es el soname y cómo gestiona versiones Antiguas vs Modernas?", "lead": "El soname es un enlace simbólico 'puente': el programa solo pide la versión mayor y el sistema lo redirige al archivo más moderno.", "ref": "104-106", "pdf": {"manual": "A", "pages": [104, 105, 106], "figure": null}, "coverage": ["102.3-CON-003"], "steps": [], "remember": "🎯 REGLA DE ORO DE EXAMEN: El programa solo conoce el soname (libssl.so.3). Cuando se actualiza a una versión menor más moderna (3.0.2), ldconfig mueve el enlace simbólico y el programa queda protegido sin recompilar.", "notes": "Muestra a los alumnos que el soname desacopla el programa del archivo físico. Si cambia la versión menor, se actualiza el symlink; si cambia la versión mayor, conviven ambos sonames.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:10px; margin:6px 0;\">\n  <!-- Concepto directo: ¿Qué problema resuelve? -->\n  <div style=\"background:#EFF6FF; border:1.5px solid #93C5FD; border-left:6px solid #2563EB; border-radius:8px; padding:8px 14px; font-size:13px; color:#1E3A8A; line-height:1.4;\">\n    <strong>💡 La gran pregunta:</strong> Si compilas un programa hoy y mañana OpenSSL lanza un parche de seguridad, ¿tienes que volver a compilar tu programa? <strong>NO.</strong> Gracias al <strong>soname</strong>, el programa nunca busca un archivo físico con parches, sino un <strong>enlace simbólico puente</strong> que siempre apunta a la versión más moderna instalada.\n  </div>\n\n  <!-- DIAGRAMA DE FLUJO: ANTES Y DESPUÉS DE UNA ACTUALIZACIÓN -->\n  <div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 16px;\">\n    <div style=\"font-size:14px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n      🔄 Flujo Visual: ¿Qué hace ldconfig cuando instalas una librería más moderna?\n    </div>\n\n    <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px;\">\n      <!-- ESTADO 1: AYER (Versión Antigua con bug) -->\n      <div style=\"background:#FFFBEB; border:1.5px solid #FCD34D; border-radius:8px; padding:10px;\">\n        <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; border-bottom:1px solid #FDE68A; padding-bottom:4px;\">\n          <strong style=\"color:#92400E; font-size:13px;\">1. AYER (Versión con bug de seguridad)</strong>\n          <span style=\"background:#D97706; color:#FFF; font-size:10px; font-weight:800; padding:1px 6px; border-radius:4px;\">ESTADO INICIAL</span>\n        </div>\n        \n        <!-- Flujo horizontal de 3 cajas -->\n        <div style=\"display:flex; flex-direction:column; gap:6px; font-size:12px;\">\n          <div style=\"background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:6px 10px; display:flex; justify-content:space-between; align-items:center;\">\n            <span><strong>Tu Programa</strong> (ej: <code>curl</code>)</span>\n            <span style=\"color:#64748B; font-size:11px;\">Pide en cabecera:</span>\n          </div>\n          <div style=\"text-align:center; color:#D97706; font-size:16px; font-weight:800; line-height:1;\">⬇️ busca el soname</div>\n          <div style=\"background:#FEF3C7; border:1.5px solid #F59E0B; border-radius:6px; padding:6px 10px; text-align:center;\">\n            <code style=\"font-size:14px; font-weight:800; color:#92400E;\">libssl.so.3</code> (soname / enlace)\n          </div>\n          <div style=\"text-align:center; color:#D97706; font-size:16px; font-weight:800; line-height:1;\">⬇️ apunta al archivo antiguo</div>\n          <div style=\"background:#FEE2E2; border:1px solid #FCA5A5; border-radius:6px; padding:6px 10px; color:#991B1B;\">\n            📄 <strong>Archivo físico real:</strong> <code>libssl.so.3.0.1</code><br>\n            <span style=\"font-size:11px; color:#B91C1C;\">⚠️ Contiene una vulnerabilidad conocida.</span>\n          </div>\n        </div>\n      </div>\n\n      <!-- ESTADO 2: HOY (Actualización con parche) -->\n      <div style=\"background:#F0FDF4; border:2px solid #86EFAC; border-radius:8px; padding:10px; box-shadow:0 2px 6px rgba(22,163,74,0.1);\">\n        <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; border-bottom:1px solid #BBF7D0; padding-bottom:4px;\">\n          <strong style=\"color:#14532D; font-size:13px;\">2. HOY (Instalas parche + sudo ldconfig)</strong>\n          <span style=\"background:#16A34A; color:#FFF; font-size:10px; font-weight:800; padding:1px 6px; border-radius:4px;\">PARCHE APLICADO</span>\n        </div>\n        \n        <!-- Flujo horizontal de 3 cajas -->\n        <div style=\"display:flex; flex-direction:column; gap:6px; font-size:12px;\">\n          <div style=\"background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:6px 10px; display:flex; justify-content:space-between; align-items:center;\">\n            <span><strong>Tu Programa</strong> (sin tocar ni recompilar)</span>\n            <span style=\"color:#16A34A; font-weight:700; font-size:11px;\">Sigue pidiendo lo mismo:</span>\n          </div>\n          <div style=\"text-align:center; color:#16A34A; font-size:16px; font-weight:800; line-height:1;\">⬇️ busca el mismo soname</div>\n          <div style=\"background:#FEF3C7; border:1.5px solid #F59E0B; border-radius:6px; padding:6px 10px; text-align:center;\">\n            <code style=\"font-size:14px; font-weight:800; color:#92400E;\">libssl.so.3</code> (enlace actualizado)\n          </div>\n          <div style=\"text-align:center; color:#16A34A; font-size:16px; font-weight:800; line-height:1;\">⬇️ ldconfig redirige la flecha</div>\n          <div style=\"background:#DCFCE7; border:1.5px solid #4ADE80; border-radius:6px; padding:6px 10px; color:#14532D;\">\n            🛡️ <strong>Archivo físico moderno:</strong> <code>libssl.so.3.0.2</code><br>\n            <span style=\"font-size:11px; color:#15803D;\">✅ Ejecuta el código seguro automáticamente.</span>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- ¿Y QUÉ PASA SI SE ROMPE EL ABI? (CONVIVENCIA PACÍFICA) -->\n  <div style=\"background:#F8FAFC; border:1.5px solid #CBD5E1; border-radius:10px; padding:10px 14px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n      <strong style=\"color:#0F172A; font-size:13.5px;\">🤔 ¿Y si sale una versión incompatible que rompe el ABI? (Ej: OpenSSL 4.0)</strong>\n      <span style=\"background:#7C3AED; color:#FFF; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;\">COEXISTENCIA ABI</span>\n    </div>\n    <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:10px; font-size:12px; line-height:1.4;\">\n      <div style=\"background:#FFFFFF; border:1px solid #E2E8F0; border-radius:6px; padding:6px 10px;\">\n        <span style=\"color:#2563EB; font-weight:800;\">Programas Antiguos:</span> Piden soname <code>libssl.so.3</code> ➔ El sistema los envía a <code>libssl.so.3.0.2</code>. Siguen funcionando sin inmutarse.\n      </div>\n      <div style=\"background:#FFFFFF; border:1px solid #E2E8F0; border-radius:6px; padding:6px 10px;\">\n        <span style=\"color:#7C3AED; font-weight:800;\">Programas Nuevos:</span> Piden soname <code>libssl.so.4</code> ➔ El sistema los envía a <code>libssl.so.4.0.0</code>. Usan las nuevas funciones.\n      </div>\n    </div>\n    <div style=\"margin-top:6px; font-size:11.5px; color:#64748B; text-align:center;\">\n      ✨ Ambas versiones conviven en <code>/usr/lib</code> al mismo tiempo sin pisarse jamás gracias a tener sonames distintos.\n    </div>\n  </div>\n</div>\n"}, {"id": 4, "section": "102.3", "cat": "libs", "type": "diagram", "title": "Ubicaciones Estándar de Librerías y Arquitectura Multiarch", "lead": "Estructura jerárquica de directorios en Linux: librerías esenciales, paquetes del sistema y soporte multiarquitectura.", "ref": "106-107", "pdf": {"manual": "A", "pages": [106, 107], "figure": null}, "coverage": ["102.3-CON-004"], "points": [], "remember": "🎯 Clave de Examen: Las dos únicas rutas que el enlazador dinámico consulta SIEMPRE por defecto sin necesidad de estar en /etc/ld.so.conf son /lib y /usr/lib.", "notes": "Muestra la jerarquía FHS: /lib para arranque, /usr/lib para software general y /usr/local/lib para software propio.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:12px; margin:8px 0;\">\n  <!-- Árbol Jerárquico FHS -->\n  <div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:14px 18px;\">\n    <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:10px;\">\n      📂 Jerarquía FHS Estándar de Directorios de Librerías:\n    </div>\n\n    <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px;\">\n      <!-- /lib -->\n      <div style=\"background:#EFF6FF; border:1.5px solid #93C5FD; border-radius:8px; padding:12px;\">\n        <div style=\"display:flex; align-items:center; gap:6px; margin-bottom:6px;\">\n          <span style=\"background:#2563EB; color:#FFF; font-weight:800; font-size:11px; padding:2px 6px; border-radius:4px;\">SISTEMA BASE</span>\n          <code style=\"font-size:16px; font-weight:800; color:#1E40AF;\">/lib</code>\n        </div>\n        <div style=\"font-size:13px; color:#1E3A8A; line-height:1.4;\">\n          Librerías críticas imprescindibles para el <strong>arranque temprano</strong> y binarios de <code>/bin</code> y <code>/sbin</code> antes de montar <code>/usr</code>.\n        </div>\n      </div>\n\n      <!-- /usr/lib -->\n      <div style=\"background:#F0FDF4; border:1.5px solid #86EFAC; border-radius:8px; padding:12px;\">\n        <div style=\"display:flex; align-items:center; gap:6px; margin-bottom:6px;\">\n          <span style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:11px; padding:2px 6px; border-radius:4px;\">DISTRIBUCIÓN</span>\n          <code style=\"font-size:16px; font-weight:800; color:#14532D;\">/usr/lib</code>\n        </div>\n        <div style=\"font-size:13px; color:#14532D; line-height:1.4;\">\n          Librerías de aplicaciones y servicios instalados mediante el <strong>gestor de paquetes</strong> de la distribución (<code>apt</code>, <code>dnf</code>, <code>pacman</code>).\n        </div>\n      </div>\n\n      <!-- /usr/local/lib -->\n      <div style=\"background:#FAF5FF; border:1.5px solid #D8B4FE; border-radius:8px; padding:12px;\">\n        <div style=\"display:flex; align-items:center; gap:6px; margin-bottom:6px;\">\n          <span style=\"background:#9333EA; color:#FFF; font-weight:800; font-size:11px; padding:2px 6px; border-radius:4px;\">LOCAL / ADMIN</span>\n          <code style=\"font-size:16px; font-weight:800; color:#6B21A8;\">/usr/local/lib</code>\n        </div>\n        <div style=\"font-size:13px; color:#581C87; line-height:1.4;\">\n          Software compilado e instalado manualmente desde código fuente por el administrador (<code>make install</code>). No lo toca el gestor de paquetes.\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- Comparativa 64 bits: Red Hat vs Debian Multiarch -->\n  <div style=\"display:grid; grid-template-columns:1fr 1fr; gap:12px;\">\n    <!-- Red Hat / SUSE -->\n    <div style=\"background:#FFFBEB; border:1.5px solid #FCD34D; border-radius:10px; padding:12px 16px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <strong style=\"color:#92400E; font-size:14px;\">Enfoque Bi-arch (RHEL / CentOS / Fedora / openSUSE)</strong>\n        <span style=\"background:#D97706; color:#FFF; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;\">SUFIJO 64</span>\n      </div>\n      <div style=\"font-size:12.5px; color:#78350F; line-height:1.4;\">\n        Usa carpetas con sufijo para 64 bits: <code>/lib64</code> y <code>/usr/lib64</code>.<br>\n        Las carpetas estándar <code>/lib</code> y <code>/usr/lib</code> quedan reservadas para librerías de 32 bits.\n      </div>\n    </div>\n\n    <!-- Debian / Ubuntu Multiarch -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #93C5FD; border-radius:10px; padding:12px 16px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <strong style=\"color:#1E40AF; font-size:14px;\">Arquitectura Multiarch (Debian / Ubuntu)</strong>\n        <span style=\"background:#2563EB; color:#FFF; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;\">TRIPLETAS</span>\n      </div>\n      <div style=\"font-size:12.5px; color:#1E3A8A; line-height:1.4;\">\n        Usa subcarpetas con tripletas bajo <code>/usr/lib/</code>:<br>\n        • <code>x86_64-linux-gnu/</code> (64 bits nativo) &nbsp;|&nbsp; • <code>i386-linux-gnu/</code> (32 bits)<br>\n        Permite instalar librerías de 32 y 64 bits simultáneamente sin colisiones.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 5, "section": "102.3", "cat": "libs", "type": "diagram", "title": "¿Cómo añadir nuevas rutas de librerías? /etc/ld.so.conf y ldconfig", "lead": "Linux por defecto solo busca en /lib y /usr/lib. Si instalas algo en /opt, sigue este flujo de 3 pasos:", "ref": "107-108", "pdf": {"manual": "A", "pages": [107, 108], "figure": null}, "coverage": ["102.3-FIL-001"], "file": null, "points": [], "remember": "🎯 PREGUNTA FIJA DE EXAMEN: Si creas un archivo en /etc/ld.so.conf.d/ con una ruta nueva, ¿por qué los programas siguen dando error de 'librería no encontrada'? Porque no has ejecutado 'sudo ldconfig' para compilar la caché binaria /etc/ld.so.cache.", "notes": "Utiliza la analogía de la biblioteca: escribir en el papel (.conf) no sirve si el bibliotecario solo mira la pantalla del ordenador (.cache). Tienes que escanearlo con ldconfig.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:10px; margin:6px 0;\">\n  <!-- ANALOGÍA DEL MUNDO REAL (Para entenderlo al instante) -->\n  <div style=\"background:#EFF6FF; border:1.5px solid #93C5FD; border-left:6px solid #2563EB; border-radius:10px; padding:10px 16px;\">\n    <div style=\"display:flex; align-items:center; gap:8px; margin-bottom:3px;\">\n      <span style=\"background:#2563EB; color:#FFF; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;\">ANALOGÍA FÁCIL</span>\n      <strong style=\"color:#1E40AF; font-size:14px;\">La Biblioteca y el Catálogo Informático:</strong>\n    </div>\n    <div style=\"font-size:13px; color:#1E3A8A; line-height:1.4;\">\n      • El archivo <code>/etc/ld.so.conf</code> es una <strong>hoja de papel</strong> donde anotas qué libros nuevos han llegado a la estantería.<br>\n      • El enlazador dinámico (<code>ld.so</code>) es un bibliotecario que <strong>solo mira el ordenador</strong> (la caché binaria <code>/etc/ld.so.cache</code>).<br>\n      • El comando <strong><code>sudo ldconfig</code></strong> es quien teclea la hoja de papel en el ordenador. <em>¡Si no ejecutas <code>ldconfig</code>, el bibliotecario jurará que el libro no existe aunque lo tengas delante de tus ojos!</em>\n    </div>\n  </div>\n\n  <!-- FLUJO VISUAL PASO A PASO EN 4 FASES -->\n  <div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 16px;\">\n    <div style=\"font-size:14px; font-weight:800; color:var(--text); margin-bottom:10px;\">\n      🗺️ Caso Práctico Real: Instalas una base de datos en <code>/opt/oracle/lib</code>\n    </div>\n\n    <div style=\"display:grid; grid-template-columns: 1fr 24px 1.15fr 24px 1fr 24px 1.15fr; align-items:center; gap:4px; font-size:12px;\">\n      <!-- Paso 1 -->\n      <div style=\"background:#FEF2F2; border:1.5px solid #FCA5A5; border-radius:8px; padding:10px; min-height:140px; display:flex; flex-direction:column; justify-content:space-between;\">\n        <div>\n          <span style=\"background:#DC2626; color:#FFF; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;\">PASO 1: FALLO</span>\n          <div style=\"margin-top:6px; font-weight:800; color:#991B1B; font-size:12.5px;\">El programa falla</div>\n          <div style=\"color:#7F1D1D; margin-top:4px; line-height:1.35;\">\n            Librerías en <code>/opt/oracle/lib</code>.<br>\n            Linux dice:<br>\n            <span style=\"color:#DC2626; font-weight:700;\">cannot open shared object file: No such file</span>\n          </div>\n        </div>\n        <div style=\"font-size:11px; color:#B91C1C; font-weight:700;\">¿Por qué? Linux solo busca en /lib y /usr/lib.</div>\n      </div>\n\n      <div style=\"text-align:center; font-size:18px; color:#2563EB; font-weight:900;\">➔</div>\n\n      <!-- Paso 2 -->\n      <div style=\"background:#F0FDF4; border:1.5px solid #86EFAC; border-radius:8px; padding:10px; min-height:140px; display:flex; flex-direction:column; justify-content:space-between;\">\n        <div>\n          <span style=\"background:#16A34A; color:#FFF; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;\">PASO 2: AVISAR</span>\n          <div style=\"margin-top:6px; font-weight:800; color:#14532D; font-size:12.5px;\">Crear archivo .conf</div>\n          <div style=\"color:#14532D; margin-top:4px; line-height:1.35;\">\n            Creas <code>/etc/ld.so.conf.d/oracle.conf</code> y dentro solo escribes una línea:<br>\n            <code style=\"background:#DCFCE7; padding:2px 4px; border-radius:3px; color:#166534; font-weight:700;\">/opt/oracle/lib</code>\n          </div>\n        </div>\n        <div style=\"font-size:11px; color:#15803D;\">📁 Directorio modular sin tocar el archivo maestro.</div>\n      </div>\n\n      <div style=\"text-align:center; font-size:18px; color:#D97706; font-weight:900;\">➔</div>\n\n      <!-- Paso 3 -->\n      <div style=\"background:#FFFBEB; border:2px solid #F59E0B; border-radius:8px; padding:10px; min-height:140px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 6px rgba(245,158,11,0.15);\">\n        <div>\n          <span style=\"background:#D97706; color:#FFF; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;\">PASO 3: TRAMPA</span>\n          <div style=\"margin-top:6px; font-weight:800; color:#92400E; font-size:12.5px;\">¡Aún no funciona!</div>\n          <div style=\"color:#78350F; margin-top:4px; line-height:1.35;\">\n            Si intentas abrir el programa, <strong>vuelve a fallar</strong>.<br>\n            Porque Linux <strong>NO</strong> lee archivos de texto al arrancar. Solo lee la caché binaria rápida.\n          </div>\n        </div>\n        <div style=\"font-size:11px; color:#B45309; font-weight:800;\">⚠️ Trampa estrella del examen LPIC-1.</div>\n      </div>\n\n      <div style=\"text-align:center; font-size:18px; color:#16A34A; font-weight:900;\">➔</div>\n\n      <!-- Paso 4 -->\n      <div style=\"background:#EFF6FF; border:2px solid #3B82F6; border-radius:8px; padding:10px; min-height:140px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 6px rgba(37,99,235,0.15);\">\n        <div>\n          <span style=\"background:#2563EB; color:#FFF; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;\">PASO 4: ACTIVAR</span>\n          <div style=\"margin-top:6px; font-weight:800; color:#1E40AF; font-size:12.5px;\">Ejecutar ldconfig</div>\n          <div style=\"color:#1E3A8A; margin-top:4px; line-height:1.35;\">\n            Ejecutas en la terminal:<br>\n            <code style=\"background:#DBEAFE; color:#1D4ED8; font-weight:800; padding:2px 5px; border-radius:4px;\">sudo ldconfig</code><br>\n            Compila la caché binaria <code>/etc/ld.so.cache</code>.\n          </div>\n        </div>\n        <div style=\"font-size:11px; color:#16A34A; font-weight:800;\">✅ ¡Ahora el programa arranca perfecto!</div>\n      </div>\n    </div>\n  </div>\n\n  <!-- Resumen de Archivos Clave: Texto vs Binario -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:10px; font-size:12px;\">\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:8px; padding:8px 12px;\">\n      <strong style=\"color:#0F172A;\">📄 Archivos de Configuración (Texto editable por humanos):</strong><br>\n      • <code>/etc/ld.so.conf</code>: Archivo maestro (contiene la directiva <code>include /etc/ld.so.conf.d/*.conf</code>).<br>\n      • <code>/etc/ld.so.conf.d/*.conf</code>: Ficheros individuales para cada programa o distribución.\n    </div>\n\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:8px; padding:8px 12px;\">\n      <strong style=\"color:#0F172A;\">⚡ Archivo de Caché (Binario indexado leído por Linux):</strong><br>\n      • <code>/etc/ld.so.cache</code>: Base de datos binaria ultra-rápida leída por <code>ld.so</code>.<br>\n      • Se actualiza exclusivamente ejecutando el comando <strong><code>sudo ldconfig</code></strong>.\n    </div>\n  </div>\n</div>\n"}, {"id": 6, "section": "102.3", "cat": "libs", "type": "diagram", "title": "El Comando ldconfig y la Caché /etc/ld.so.cache", "lead": "Compilación de la caché binaria y consulta de todas las librerías indexadas en el sistema.", "ref": "108-110", "pdf": {"manual": "A", "pages": [108, 109, 110], "figure": null}, "coverage": ["102.3-CMD-001", "102.3-FIL-002"], "command": "ldconfig", "purpose": "Crear enlaces simbólicos de sonames y compilar la caché binaria /etc/ld.so.cache", "terminal": null, "options": [], "remember": "🎯 Pregunta Fija de Examen: ¿Qué comando y opción muestra todas las librerías compartidas actualmente indexadas en la caché del enlazador dinámico? Respuesta: ldconfig -p.", "notes": "Enseña la opción -p de Print cache. Explica cada campo de la salida de ldconfig -p sin marcas confusas.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:10px; margin:8px 0;\">\n  <!-- Opciones clave que de verdad se usan -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;\">\n    <div style=\"background:#EFF6FF; border:1.5px solid #93C5FD; border-radius:8px; padding:10px;\">\n      <code style=\"font-size:14px; font-weight:800; color:#1E40AF;\">sudo ldconfig</code>\n      <div style=\"font-size:12px; color:#1E3A8A; margin-top:4px;\">\n        <strong>Sin argumentos:</strong> Relee <code>/etc/ld.so.conf</code>, genera symlinks de sonames pendientes y compila la caché binaria <code>/etc/ld.so.cache</code>.\n      </div>\n    </div>\n\n    <div style=\"background:#FEF3C7; border:2px solid #F59E0B; border-radius:8px; padding:10px; box-shadow:0 2px 6px rgba(245,158,11,0.15);\">\n      <code style=\"font-size:14px; font-weight:800; color:#92400E;\">ldconfig -p</code>\n      <div style=\"font-size:12px; color:#78350F; margin-top:4px;\">\n        <strong>--print-cache (TOP EXAMEN):</strong> Vuelca en pantalla el contenido completo de la caché binaria actual <code>/etc/ld.so.cache</code> en texto legible.\n      </div>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1.5px solid #86EFAC; border-radius:8px; padding:10px;\">\n      <code style=\"font-size:14px; font-weight:800; color:#14532D;\">sudo ldconfig -v</code>\n      <div style=\"font-size:12px; color:#14532D; margin-top:4px;\">\n        <strong>--verbose:</strong> Muestra cada directorio escaneado por pantalla y los enlaces simbólicos creados o actualizados en tiempo real.\n      </div>\n    </div>\n  </div>\n\n  <!-- Terminal con Salida Real Fiel -->\n  <div style=\"background:#0F172A; border-radius:10px; padding:12px 16px; color:#E2E8F0; font-family:monospace; font-size:13px; line-height:1.5; box-shadow:0 4px 12px rgba(0,0,0,0.15);\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #334155; padding-bottom:6px; margin-bottom:8px; font-size:12px; color:#94A3B8;\">\n      <span>terminal bash — salida real de ldconfig -p</span>\n      <span style=\"background:#1E293B; padding:2px 8px; border-radius:4px;\">filtro grep</span>\n    </div>\n    <div style=\"color:#38BDF8;\">$ ldconfig -p | grep -E 'libssl|libc\\.so' | head -n 3</div>\n    <div style=\"color:#94A3B8; font-size:12px;\">894 libs found in cache `/etc/ld.so.cache'</div>\n    <div style=\"margin-top:4px;\">&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#FDE047; font-weight:700;\">libssl.so.3</span> <span style=\"color:#A78BFA;\">(libc6,x86-64)</span> <span style=\"color:#38BDF8;\">=&gt;</span> <span style=\"color:#4ADE80;\">/usr/lib/x86_64-linux-gnu/libssl.so.3</span></div>\n    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#FDE047; font-weight:700;\">libc.so.6</span> <span style=\"color:#A78BFA;\">(libc6,x86-64, OS ABI: Linux 3.2.0)</span> <span style=\"color:#38BDF8;\">=&gt;</span> <span style=\"color:#4ADE80;\">/lib/x86_64-linux-gnu/libc.so.6</span></div>\n    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#FDE047; font-weight:700;\">libssl.so</span> <span style=\"color:#A78BFA;\">(libc6,x86-64)</span> <span style=\"color:#38BDF8;\">=&gt;</span> <span style=\"color:#4ADE80;\">/usr/lib/x86_64-linux-gnu/libssl.so</span></div>\n  </div>\n\n  <!-- Desglose Anatómico sin números confusos -->\n  <div style=\"display:grid; grid-template-columns: 1.1fr 1.3fr 40px 1.4fr; align-items:center; gap:8px; font-size:12.5px;\">\n    <div style=\"background:#FEF3C7; border:1px solid #FCD34D; border-radius:6px; padding:6px 10px;\">\n      <strong style=\"color:#92400E;\">libssl.so.3 (soname)</strong><br>\n      <span style=\"color:#78350F; font-size:11.5px;\">El nombre lógico y versión mayor que buscan los binarios compilados.</span>\n    </div>\n\n    <div style=\"background:#FAF5FF; border:1px solid #E9D5FF; border-radius:6px; padding:6px 10px;\">\n      <strong style=\"color:#6B21A8;\">(libc6,x86-64, OS ABI...)</strong><br>\n      <span style=\"color:#581C87; font-size:11.5px;\">Formato ELF, arquitectura (32 o 64 bits) y versión del kernel compatible.</span>\n    </div>\n\n    <div style=\"text-align:center; font-size:20px; font-weight:800; color:#2563EB;\">➔</div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #BBF7D0; border-radius:6px; padding:6px 10px;\">\n      <strong style=\"color:#15803D;\">/usr/lib/.../libssl.so.3</strong><br>\n      <span style=\"color:#166534; font-size:11.5px;\">Ruta física absoluta resuelta en disco que se cargará en memoria RAM.</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 7, "section": "102.3", "cat": "libs", "type": "diagram", "title": "Rutas Temporales con la Variable LD_LIBRARY_PATH", "lead": "Cómo anteponer directorios de librerías para pruebas o entornos sin permisos de root.", "ref": "110-111", "pdf": {"manual": "A", "pages": [110, 111], "figure": null}, "coverage": ["102.3-ENV-001"], "command": null, "purpose": "Variable de entorno que antepone directorios personalizados antes de consultar /etc/ld.so.cache", "terminal": null, "options": [], "remember": "🎯 Clave de Examen: LD_LIBRARY_PATH tiene prioridad sobre /etc/ld.so.cache, pero es estrictamente IGNORADA por ejecutables con permisos SUID o SGID por seguridad.", "notes": "Enseña el peligro de poner LD_LIBRARY_PATH globalmente en /etc/profile. Es solo para pruebas temporales de sesión.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:10px; margin:8px 0;\">\n  <!-- Finalidad real y casos de uso -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px;\">\n    <div style=\"background:#EFF6FF; border:1.5px solid #93C5FD; border-radius:10px; padding:10px 14px;\">\n      <div style=\"display:flex; align-items:center; gap:6px; margin-bottom:4px;\">\n        <span style=\"background:#2563EB; color:#FFF; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;\">CASO 1</span>\n        <strong style=\"color:#1E40AF; font-size:13.5px;\">Desarrollo y Testing de Software</strong>\n      </div>\n      <div style=\"font-size:12.5px; color:#1E3A8A; line-height:1.4;\">\n        Has compilado una versión beta de una librería en <code>/home/dev/libs</code> y quieres probar si tu programa funciona sin sobreescribir las librerías oficiales del sistema operativo.\n      </div>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1.5px solid #86EFAC; border-radius:10px; padding:10px 14px;\">\n      <div style=\"display:flex; align-items:center; gap:6px; margin-bottom:4px;\">\n        <span style=\"background:#16A34A; color:#FFF; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;\">CASO 2</span>\n        <strong style=\"color:#14532D; font-size:13.5px;\">Servidores Compartidos sin Permisos root</strong>\n      </div>\n      <div style=\"font-size:12.5px; color:#14532D; line-height:1.4;\">\n        Estás en un servidor corporativo o cluster HPC donde no tienes <code>sudo</code> para editar <code>/etc/ld.so.conf</code>. Descomprimes la librería en tu home y la vinculas temporalmente.\n      </div>\n    </div>\n  </div>\n\n  <!-- Terminal realista paso a paso -->\n  <div style=\"background:#0F172A; border-radius:10px; padding:12px 16px; color:#E2E8F0; font-family:monospace; font-size:12.5px; line-height:1.5; box-shadow:0 4px 12px rgba(0,0,0,0.15);\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #334155; padding-bottom:6px; margin-bottom:8px; font-size:12px; color:#94A3B8;\">\n      <span>terminal bash — flujo de trabajo temporal con LD_LIBRARY_PATH</span>\n      <span style=\"background:#1E293B; padding:2px 8px; border-radius:4px;\">sesión de usuario</span>\n    </div>\n    <div style=\"color:#64748B;\"># 1. Anteponer la carpeta de prueba conservando las rutas previas ($LD_LIBRARY_PATH)</div>\n    <div><span style=\"color:#38BDF8;\">$</span> <span style=\"color:#FDE047;\">export LD_LIBRARY_PATH=/opt/app_beta/lib:$LD_LIBRARY_PATH</span></div>\n    \n    <div style=\"margin-top:6px; color:#64748B;\"># 2. Comprobar con ldd que el programa ahora resuelve la librería desde /opt/app_beta/lib</div>\n    <div><span style=\"color:#38BDF8;\">$</span> ldd ./mi_programa | grep libcustom</div>\n    <div style=\"color:#4ADE80;\">&nbsp;&nbsp;&nbsp;&nbsp;libcustom.so.2 =&gt; /opt/app_beta/lib/libcustom.so.2 (0x00007f9c2d1b0000)</div>\n\n    <div style=\"margin-top:6px; color:#64748B;\"># 3. Al terminar, limpiar la variable para devolver la terminal a su estado original</div>\n    <div><span style=\"color:#38BDF8;\">$</span> <span style=\"color:#F87171;\">unset LD_LIBRARY_PATH</span></div>\n  </div>\n\n  <!-- Ejecución en 1 sola línea & Aviso SUID -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px; font-size:12.5px;\">\n    <div style=\"background:#FFFFFF; border:1px solid var(--border-strong); border-radius:8px; padding:8px 12px;\">\n      <strong style=\"color:var(--text);\">💡 Forma recomendada (One-shot, sin ensuciar la sesión):</strong><br>\n      <code style=\"color:#2563EB; font-weight:700;\">LD_LIBRARY_PATH=/opt/app_beta/lib ./mi_programa</code><br>\n      <span style=\"color:#64748B; font-size:11.5px;\">La variable solo existe durante la ejecución de ese comando concreto.</span>\n    </div>\n\n    <div style=\"background:#FEF2F2; border:1.5px solid #F87171; border-radius:8px; padding:8px 12px; color:#991B1B;\">\n      <strong style=\"color:#DC2626;\">⚠️ SEGURIDAD CRÍTICA DE EXAMEN (SUID / SGID):</strong><br>\n      El enlazador dinámico <strong>IGNORA</strong> <code>LD_LIBRARY_PATH</code> si el ejecutable tiene el bit SUID activo (ej: <code>passwd</code> o <code>sudo</code>), evitando escaladas de privilegios con librerías troyanas.\n    </div>\n  </div>\n</div>\n"}, {"id": 8, "section": "102.3", "cat": "libs", "type": "diagram", "title": "Auditoría de Dependencias con el Comando ldd", "lead": "Listar todas las librerías dinámicas que requiere un binario y diagnosticar dependencias rotas.", "ref": "111-112", "pdf": {"manual": "A", "pages": [111, 112], "figure": null}, "coverage": ["102.3-CMD-002"], "command": null, "purpose": "Listar todas las bibliotecas compartidas requeridas por un programa y qué ruta física las provee", "terminal": null, "options": [], "remember": "🎯 Pregunta Clásica de Examen: ¿Qué comando te dice qué librerías necesita un binario para funcionar y si falta alguna? Respuesta: ldd.", "notes": "Explica que ldd simula la carga del binario invocando a ld.so. Si ves 'not found', el binario no podrá arrancar.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:10px; margin:8px 0;\">\n  <!-- Finalidad y objetivo del comando -->\n  <div style=\"background:#EFF6FF; border:1.5px solid #93C5FD; border-left:6px solid #2563EB; border-radius:10px; padding:10px 16px;\">\n    <div style=\"display:flex; align-items:center; gap:8px; margin-bottom:4px;\">\n      <span style=\"background:#2563EB; color:#FFF; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;\">FINALIDAD REAL</span>\n      <strong style=\"color:#1E40AF; font-size:14px;\">¿Para qué sirve ldd (List Dynamic Dependencies)?</strong>\n    </div>\n    <div style=\"font-size:13px; color:#1E3A8A; line-height:1.4;\">\n      Es la herramienta de diagnóstico nº 1 del administrador de Linux. Simula la carga del ejecutable invocando al enlazador dinámico para comprobar: <strong>1)</strong> qué librerías necesita, <strong>2)</strong> en qué ruta de disco se encuentran, y <strong>3)</strong> si alguna falta (<code>not found</code>).\n    </div>\n  </div>\n\n  <!-- Terminal con Salida Real Explicada -->\n  <div style=\"background:#0F172A; border-radius:10px; padding:12px 16px; color:#E2E8F0; font-family:monospace; font-size:12.5px; line-height:1.5; box-shadow:0 4px 12px rgba(0,0,0,0.15);\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #334155; padding-bottom:6px; margin-bottom:8px; font-size:12px; color:#94A3B8;\">\n      <span>terminal bash — salida real de ldd /usr/bin/curl</span>\n      <span style=\"background:#1E293B; padding:2px 8px; border-radius:4px;\">diagnóstico de dependencias</span>\n    </div>\n    <div style=\"color:#38BDF8;\">$ ldd /usr/bin/curl</div>\n    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#38BDF8;\">linux-vdso.so.1</span> <span style=\"color:#94A3B8;\">(0x00007ffe341b5000)</span></div>\n    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#FDE047;\">libcurl.so.4</span> <span style=\"color:#38BDF8;\">=&gt;</span> <span style=\"color:#4ADE80;\">/lib/x86_64-linux-gnu/libcurl.so.4</span> <span style=\"color:#94A3B8;\">(0x00007f35b80a0000)</span></div>\n    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#FDE047;\">libc.so.6</span> <span style=\"color:#38BDF8;\">=&gt;</span> <span style=\"color:#4ADE80;\">/lib/x86_64-linux-gnu/libc.so.6</span> <span style=\"color:#94A3B8;\">(0x00007f35b7e90000)</span></div>\n    <div style=\"background:#3B0764; border-left:3px solid #F87171; padding:2px 6px; margin:2px 0;\">&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#F87171; font-weight:700;\">libcustom.so.2</span> <span style=\"color:#F87171;\">=&gt;</span> <span style=\"background:#DC2626; color:#FFF; font-weight:800; padding:1px 6px; border-radius:3px;\">not found</span> &nbsp;&nbsp;<span style=\"color:#FCA5A5;\"># ¡ERROR! Falta esta librería</span></div>\n    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#A78BFA;\">/lib64/ld-linux-x86-64.so.2</span> <span style=\"color:#94A3B8;\">(0x00007f35b8160000)</span></div>\n  </div>\n\n  <!-- Significado de cada parte del output -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:8px; font-size:12px;\">\n    <div style=\"background:#F0F9FF; border:1px solid #BAE6FD; border-radius:6px; padding:6px 10px;\">\n      <strong style=\"color:#0369A1;\">linux-vdso.so.1</strong><br>\n      <span style=\"color:#0C4A6E;\">Librería virtual inyectada por el kernel en RAM para llamadas al sistema rápidas. ¡No existe en disco!</span>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #BBF7D0; border-radius:6px; padding:6px 10px;\">\n      <strong style=\"color:#15803D;\">soname =&gt; ruta (0x...)</strong><br>\n      <span style=\"color:#14532D;\">Izquierda: soname pedido.<br>Derecha: archivo físico en disco y dirección virtual de memoria RAM.</span>\n    </div>\n\n    <div style=\"background:#FEF2F2; border:1.5px solid #F87171; border-radius:6px; padding:6px 10px;\">\n      <strong style=\"color:#DC2626;\">=&gt; not found</strong><br>\n      <span style=\"color:#7F1D1D;\">¡Alerta roja! La librería no está instalada o falta en la caché. El programa fallará al abrirse.</span>\n    </div>\n\n    <div style=\"background:#FAF5FF; border:1px solid #E9D5FF; border-radius:6px; padding:6px 10px;\">\n      <strong style=\"color:#6B21A8;\">ld-linux-x86-64.so.2</strong><br>\n      <span style=\"color:#581C87;\">El propio cargador dinámico del sistema que orquesta el enlace. No tiene flecha <code>=&gt;</code>.</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "102.3", "cat": "libs", "type": "diagram", "title": "objdump: La Máquina de Rayos X para Binarios de Linux", "lead": "Cómo ver las 'etiquetas de fábrica' y dependencias de un programa de forma 100% estática y segura, sin ejecutar código.", "ref": "112-113", "pdf": {"manual": "A", "pages": [112, 113], "figure": null}, "coverage": ["102.3-CMD-003"], "command": null, "purpose": "Examinar las cabeceras internas del formato ejecutable estándar de Linux (ELF)", "terminal": null, "options": [], "remember": "🎯 PREGUNTA TOP DE EXAMEN: ¿Qué comando y opción examina estáticamente las cabeceras ELF sin ejecutar el binario? Respuesta: 'objdump -p'. Las dos etiquetas clave son 'NEEDED' (librerías que pide) y 'SONAME' (DNI de la librería).", "notes": "Enseña la analogía del coche: ldd arranca el motor para ver las ruedas (peligro si hay virus); objdump -p mira la ficha técnica con el motor apagado (100% seguro).", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:10px; margin:6px 0;\">\n  <!-- ANALOGÍA DE LOS RAYOS X -->\n  <div style=\"background:#EFF6FF; border:1.5px solid #93C5FD; border-left:6px solid #2563EB; border-radius:10px; padding:10px 16px;\">\n    <div style=\"display:flex; align-items:center; gap:8px; margin-bottom:3px;\">\n      <span style=\"background:#2563EB; color:#FFF; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;\">¿QUÉ ES REALMENTE?</span>\n      <strong style=\"color:#1E40AF; font-size:14px;\">La 'Máquina de Rayos X' para abrir la caja negra de un ejecutable:</strong>\n    </div>\n    <div style=\"font-size:13px; color:#1E3A8A; line-height:1.4;\">\n      Un archivo binario (como <code>/bin/cat</code>) es una <strong>caja negra cerrada</strong>. Si lo abres con un editor de texto, solo ves caracteres basura ilegibles.<br>\n      El comando <strong><code>objdump</code></strong> (<em>object dumper</em>) es un escáner que <strong>desmonta la caja y lee su ficha técnica de fábrica</strong> sin arrancar el programa jamás.\n    </div>\n  </div>\n\n  <!-- DUELO VISUAL: LDD VS OBJDUMP -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px;\">\n    <!-- Tarjeta ldd -->\n    <div style=\"background:#FFFBEB; border:1.5px solid #FCD34D; border-radius:10px; padding:10px 14px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <span style=\"background:#D97706; color:#FFF; font-size:11px; font-weight:800; padding:2px 6px; border-radius:4px;\">ldd &lt;binario&gt;</span>\n        <span style=\"color:#92400E; font-size:11.5px; font-weight:700;\">🚗 Motor en marcha (Dinámico)</span>\n      </div>\n      <div style=\"font-size:12.5px; color:#78350F; line-height:1.4;\">\n        • <strong>Qué hace:</strong> Simula arrancar el ejecutable invocando al enlazador dinámico.<br>\n        • <strong>Qué te dice:</strong> En qué carpeta de tu disco duro están las librerías <em>hoy</em> (<code>=&gt; /lib/...</code>) o si alguna falta (<code>not found</code>).<br>\n        • <span style=\"color:#DC2626; font-weight:700;\">⚠️ Inconveniente:</span> Si el binario es sospechoso o malware, <em>puede ejecutar código</em>.\n      </div>\n    </div>\n\n    <!-- Tarjeta objdump -->\n    <div style=\"background:#F0FDF4; border:2px solid #86EFAC; border-radius:10px; padding:10px 14px; box-shadow:0 2px 6px rgba(22,163,74,0.1);\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <span style=\"background:#16A34A; color:#FFF; font-size:11px; font-weight:800; padding:2px 6px; border-radius:4px;\">objdump -p &lt;binario&gt;</span>\n        <span style=\"color:#14532D; font-size:11.5px; font-weight:700;\">🔬 Motor apagado (Estático)</span>\n      </div>\n      <div style=\"font-size:12.5px; color:#14532D; line-height:1.4;\">\n        • <strong>Qué hace:</strong> Lee los planos del archivo impresos en disco (cabeceras ELF).<br>\n        • <strong>Qué te dice:</strong> Qué ingredientes grabó el compilador en fábrica (<strong><code>NEEDED</code></strong>) y el DNI de la librería (<strong><code>SONAME</code></strong>).<br>\n        • <span style=\"color:#15803D; font-weight:700;\">🛡️ Ventaja:</span> 100% seguro. No ejecuta nada. Funciona con archivos de cualquier arquitectura.\n      </div>\n    </div>\n  </div>\n\n  <!-- CÓMO SE USA EN LA PRÁCTICA: CASOS REALES EN TERMINAL -->\n  <div style=\"background:#0F172A; border-radius:10px; padding:12px 16px; color:#E2E8F0; font-family:monospace; font-size:12px; line-height:1.5; box-shadow:0 4px 12px rgba(0,0,0,0.15);\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #334155; padding-bottom:4px; margin-bottom:6px; font-size:11.5px; color:#94A3B8;\">\n      <span>terminal bash — los dos únicos usos que necesitas dominar</span>\n      <span style=\"background:#1E293B; padding:2px 8px; border-radius:4px;\">opción -p (private headers)</span>\n    </div>\n\n    <!-- Caso 1: NEEDED -->\n    <div style=\"color:#64748B;\"># Caso 1: ¿Qué ingredientes/librerías pide este programa al sistema operativo?</div>\n    <div><span style=\"color:#38BDF8;\">$</span> objdump -p /bin/cat | grep NEEDED</div>\n    <div>&nbsp;&nbsp;<span style=\"color:#FDE047; font-weight:700;\">NEEDED</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#4ADE80; font-weight:700;\">libc.so.6</span> &nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#94A3B8;\"># El ejecutable 'cat' exige libc.so.6 para poder arrancar</span></div>\n\n    <!-- Caso 2: SONAME -->\n    <div style=\"margin-top:6px; color:#64748B;\"># Caso 2: ¿Qué DNI o nombre oficial declara tener esta librería compartida?</div>\n    <div><span style=\"color:#38BDF8;\">$</span> objdump -p /lib/x86_64-linux-gnu/libssl.so.3 | grep SONAME</div>\n    <div>&nbsp;&nbsp;<span style=\"color:#FDE047; font-weight:700;\">SONAME</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#38BDF8; font-weight:700;\">libssl.so.3</span> &nbsp;&nbsp;<span style=\"color:#94A3B8;\"># La librería certifica que su versión mayor es la 3</span></div>\n  </div>\n\n  <!-- COMANDO HERMANO OFICIAL EN LPIC-1 -->\n  <div style=\"background:#FAF5FF; border:1.5px solid #D8B4FE; border-radius:8px; padding:8px 14px; display:flex; justify-content:space-between; align-items:center; font-size:12px;\">\n    <div>\n      <strong style=\"color:#6B21A8;\">💡 Comando Hermano en el Examen: <code>readelf -d &lt;binario&gt;</code></strong><br>\n      <span style=\"color:#581C87;\">Hace exactamente lo mismo: lee la sección <strong>D</strong>inámica ELF y te muestra la lista <code>NEEDED</code> y <code>SONAME</code> sin desensamblar código.</span>\n    </div>\n    <span style=\"background:#9333EA; color:#FFF; font-weight:800; font-size:11px; padding:3px 10px; border-radius:6px; white-space:nowrap;\">readelf -d</span>\n  </div>\n</div>\n"}, {"id": 10, "section": "102.3", "cat": "libs", "type": "diagram", "title": "El Enlazador Dinámico ld.so: Orden Estricto de Búsqueda", "lead": "Cuando se ejecuta un binario ELF, el cargador dinámico busca cada librería en este orden inflexible:", "ref": "113", "pdf": {"manual": "A", "pages": [113], "figure": null}, "coverage": ["102.3-CON-005"], "points": [], "remember": "🎯 TOP PREGUNTA DE EXAMEN: Si existe la misma librería en LD_LIBRARY_PATH y en /usr/lib, ¿cuál se carga? Se carga la de LD_LIBRARY_PATH (salvo que el ejecutable sea SUID, en cuyo caso LD_LIBRARY_PATH se ignora).", "notes": "Haz que los alumnos repasen el orden de los 4 pasos: RPATH -> LD_LIBRARY_PATH -> /etc/ld.so.cache -> /lib y /usr/lib.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:11px; margin:8px 0;\">\n  <!-- Nivel 1: RPATH / RUNPATH -->\n  <div style=\"display:grid; grid-template-columns: 50px 250px 1fr; gap:16px; align-items:center; background:#EFF6FF; border:2px solid #3B82F6; border-radius:10px; padding:10px 16px;\">\n    <div style=\"display:flex; justify-content:center;\">\n      <span style=\"background:#2563EB; color:#FFF; font-weight:900; font-size:16px; width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 2px 4px rgba(37,99,235,0.3);\">1</span>\n    </div>\n    <div>\n      <strong style=\"color:#1E40AF; font-size:16px;\">RPATH / RUNPATH</strong><br>\n      <span style=\"color:#64748B; font-size:12px;\">Incrustado en cabecera del binario</span>\n    </div>\n    <div style=\"font-size:13.5px; color:#1E3A8A; line-height:1.4;\">\n      <strong>¿Qué es y por qué va primero?</strong> Rutas codificadas en la cabecera ELF al compilar (<code>gcc -Wl,-rpath</code>). Permite que software comercial o en <code>/opt</code> use sus propias librerías internas antes de tocar las del sistema.\n    </div>\n  </div>\n\n  <!-- Nivel 2: LD_LIBRARY_PATH -->\n  <div style=\"display:grid; grid-template-columns: 50px 250px 1fr; gap:16px; align-items:center; background:#FEF3C7; border:2px solid #F59E0B; border-radius:10px; padding:10px 16px; box-shadow:0 2px 6px rgba(245,158,11,0.12);\">\n    <div style=\"display:flex; justify-content:center;\">\n      <span style=\"background:#D97706; color:#FFF; font-weight:900; font-size:16px; width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 2px 4px rgba(217,119,6,0.3);\">2</span>\n    </div>\n    <div>\n      <strong style=\"color:#92400E; font-size:16px;\">LD_LIBRARY_PATH</strong><br>\n      <span style=\"color:#64748B; font-size:12px;\">Variable de entorno del usuario</span>\n    </div>\n    <div style=\"font-size:13.5px; color:#78350F; line-height:1.4;\">\n      <strong>¿Qué contiene?</strong> Lista de directorios temporales de la sesión (<code>export LD_LIBRARY_PATH=...</code>).<br>\n      <span style=\"color:#DC2626; font-weight:800;\">⚠️ TRAMPA DE EXAMEN:</span> Se <strong>ignora por completo</strong> si el binario tiene permisos <code>SUID</code> o <code>SGID</code>.\n    </div>\n  </div>\n\n  <!-- Nivel 3: /etc/ld.so.cache -->\n  <div style=\"display:grid; grid-template-columns: 50px 250px 1fr; gap:16px; align-items:center; background:#F0FDF4; border:2px solid #10B981; border-radius:10px; padding:10px 16px;\">\n    <div style=\"display:flex; justify-content:center;\">\n      <span style=\"background:#059669; color:#FFF; font-weight:900; font-size:16px; width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 2px 4px rgba(5,150,105,0.3);\">3</span>\n    </div>\n    <div>\n      <strong style=\"color:#065F46; font-size:16px;\">/etc/ld.so.cache</strong><br>\n      <span style=\"color:#64748B; font-size:12px;\">Caché binaria indexada</span>\n    </div>\n    <div style=\"font-size:13.5px; color:#064E3B; line-height:1.4;\">\n      <strong>¿Qué contiene?</strong> El índice binario precompilado por <code>ldconfig</code> a partir de <code>/etc/ld.so.conf</code> y <code>/etc/ld.so.conf.d/*.conf</code>. Es la vía estándar donde se resuelve el 99% de librerías.\n    </div>\n  </div>\n\n  <!-- Nivel 4: /lib y /usr/lib -->\n  <div style=\"display:grid; grid-template-columns: 50px 250px 1fr; gap:16px; align-items:center; background:#F8FAFC; border:2px solid #94A3B8; border-radius:10px; padding:10px 16px;\">\n    <div style=\"display:flex; justify-content:center;\">\n      <span style=\"background:#64748B; color:#FFF; font-weight:900; font-size:16px; width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 2px 4px rgba(100,116,139,0.3);\">4</span>\n    </div>\n    <div>\n      <strong style=\"color:#334155; font-size:16px;\">/lib y /usr/lib</strong><br>\n      <span style=\"color:#64748B; font-size:12px;\">Directorios base del sistema</span>\n    </div>\n    <div style=\"font-size:13.5px; color:#475569; line-height:1.4;\">\n      <strong>¿Por qué al final?</strong> Es la red de seguridad del sistema. El cargador dinámico las consulta siempre por defecto, incluso si la caché <code>/etc/ld.so.cache</code> estuviese vacía o corrupta.\n    </div>\n  </div>\n</div>\n"}, {"id": 11, "section": "102.3", "cat": "libs", "type": "diagram", "title": "Las 4 Librerías Fundamentales del Sistema en el Examen", "lead": "Directo al grano: los 4 nombres exactos que debes saber identificar en las preguntas tipo test de LPIC-1.", "ref": "113-114", "pdf": {"manual": "A", "pages": [113, 114], "figure": null}, "coverage": ["102.3-CON-006"], "headers": [], "rows": [], "remember": "🎯 PREGUNTA FIJA DE EXAMEN: 1) Casi todos los programas de Linux se enlazan con 'libc.so.6'. 2) La librería matemática 'libm' se enlaza en gcc con el flag '-lm'. 3) Los hilos con '-pthread'.", "notes": "Centra la atención exclusivamente en las 4 librerías de glibc: libc (básica), libm (matemáticas), libpthread (hilos) y libdl (carga dinámica en caliente).", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:12px; margin:8px 0;\">\n  <!-- GRID DE LAS 4 LIBRERÍAS CLAVE (2x2) -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:16px;\">\n    <!-- 1. libc.so.6 -->\n    <div style=\"background:#EFF6FF; border:2.5px solid #3B82F6; border-radius:12px; padding:16px; box-shadow:0 3px 8px rgba(37,99,235,0.08);\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; border-bottom:1.5px solid #BFDBFE; padding-bottom:6px;\">\n        <span style=\"background:#2563EB; color:#FFF; font-size:12px; font-weight:800; padding:3px 10px; border-radius:5px;\">1. LA MÁS IMPORTANTE</span>\n        <code style=\"font-size:18px; font-weight:900; color:#1E40AF;\">libc.so.6</code>\n      </div>\n      <div style=\"font-size:15px; font-weight:800; color:#1E3A8A; margin-bottom:6px;\">GNU C Library (glibc) — La Librería Estándar</div>\n      <div style=\"font-size:13.5px; color:#1E3A8A; line-height:1.45;\">\n        • <strong>Qué hace:</strong> Proporciona las llamadas básicas al sistema: gestión de memoria (<code>malloc</code>), entrada/salida (<code>printf</code>, <code>read</code>) y cadenas de texto.<br>\n        • <strong>Clave de Examen:</strong> Es el corazón de Linux. <strong>Todos los programas</strong> (<code>ls</code>, <code>bash</code>, <code>cp</code>) la necesitan obligatoriamente. Si se borra, el sistema queda inoperativo.\n      </div>\n    </div>\n\n    <!-- 2. libm.so.6 -->\n    <div style=\"background:#F0FDF4; border:2.5px solid #22C55E; border-radius:12px; padding:16px; box-shadow:0 3px 8px rgba(34,197,94,0.08);\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; border-bottom:1.5px solid #BBF7D0; padding-bottom:6px;\">\n        <span style=\"background:#16A34A; color:#FFF; font-size:12px; font-weight:800; padding:3px 10px; border-radius:5px;\">2. MATEMÁTICAS</span>\n        <code style=\"font-size:18px; font-weight:900; color:#14532D;\">libm.so.6</code>\n      </div>\n      <div style=\"font-size:15px; font-weight:800; color:#14532D; margin-bottom:6px;\">Librería de Cálculo Matemático (Math)</div>\n      <div style=\"font-size:13.5px; color:#14532D; line-height:1.45;\">\n        • <strong>Qué hace:</strong> Funciones matemáticas de coma flotante: trigonometría (<code>sin</code>, <code>cos</code>), potencias y raíces cuadradas (<code>sqrt</code>).<br>\n        • <strong>Clave de Examen:</strong> La <code>m</code> significa <strong>Math</strong>. En el compilador <code>gcc</code> se enlaza con el flag <strong><code>-lm</code></strong>.\n      </div>\n    </div>\n\n    <!-- 3. libpthread.so.0 -->\n    <div style=\"background:#FEF3C7; border:2.5px solid #F59E0B; border-radius:12px; padding:16px; box-shadow:0 3px 8px rgba(245,158,11,0.08);\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; border-bottom:1.5px solid #FDE68A; padding-bottom:6px;\">\n        <span style=\"background:#D97706; color:#FFF; font-size:12px; font-weight:800; padding:3px 10px; border-radius:5px;\">3. HILOS PARALELOS</span>\n        <code style=\"font-size:18px; font-weight:900; color:#92400E;\">libpthread.so.0</code>\n      </div>\n      <div style=\"font-size:15px; font-weight:800; color:#92400E; margin-bottom:6px;\">Hilos de Ejecución POSIX (Threads)</div>\n      <div style=\"font-size:13.5px; color:#78350F; line-height:1.45;\">\n        • <strong>Qué hace:</strong> Permite ejecutar múltiples hilos simultáneos (multithreading) dentro de un mismo proceso para aprovechar varios núcleos de CPU.<br>\n        • <strong>Clave de Examen:</strong> En el compilador <code>gcc</code> se activa añadiendo el flag <strong><code>-pthread</code></strong>.\n      </div>\n    </div>\n\n    <!-- 4. libdl.so.2 -->\n    <div style=\"background:#FAF5FF; border:2.5px solid #A855F7; border-radius:12px; padding:16px; box-shadow:0 3px 8px rgba(168,85,247,0.08);\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; border-bottom:1.5px solid #E9D5FF; padding-bottom:6px;\">\n        <span style=\"background:#9333EA; color:#FFF; font-size:12px; font-weight:800; padding:3px 10px; border-radius:5px;\">4. PLUGINS EN CALIENTE</span>\n        <code style=\"font-size:18px; font-weight:900; color:#6B21A8;\">libdl.so.2</code>\n      </div>\n      <div style=\"font-size:15px; font-weight:800; color:#6B21A8; margin-bottom:6px;\">Carga Dinámica (Dynamic Loading)</div>\n      <div style=\"font-size:13.5px; color:#581C87; line-height:1.45;\">\n        • <strong>Qué hace:</strong> Permite a un programa en marcha cargar módulos o plugins <code>.so</code> en caliente cuando los necesita mediante <code>dlopen()</code> y <code>dlsym()</code>.<br>\n        • <strong>Clave de Examen:</strong> Las letras <code>dl</code> vienen de <strong>D</strong>ynamic <strong>L</strong>oading.\n      </div>\n    </div>\n  </div>\n\n  <!-- RESUMEN MNEMOTÉCNICO DE EXAMEN EN 1 FILA -->\n  <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:8px; padding:8px 16px; display:grid; grid-template-columns:repeat(4, 1fr); text-align:center; font-size:12.5px;\">\n    <div><code>libc.so.6</code> ➔ <strong>Base del sistema</strong></div>\n    <div><code>libm.so</code> ➔ <strong>Matemáticas (gcc -lm)</strong></div>\n    <div><code>libpthread</code> ➔ <strong>Hilos (gcc -pthread)</strong></div>\n    <div><code>libdl</code> ➔ <strong>Plugins (dlopen)</strong></div>\n  </div>\n</div>\n"}, {"id": 12, "section": "102.3", "cat": "libs", "type": "diagram", "title": "Resolución de Problemas: Errores Comunes de Librerías", "lead": "Diagnóstico visual y soluciones paso a paso para los 4 fallos más habituales en servidores Linux y preguntas de examen.", "ref": "115-116", "pdf": {"manual": "A", "pages": [115, 116], "figure": null}, "coverage": ["102.3-CON-007"], "points": [], "remember": "🎯 Protocolo Metódico de Examen: 1. ldd (detecta el not found) ➔ 2. /etc/ld.so.conf.d/ (añade la ruta) ➔ 3. sudo ldconfig (actualiza la caché) ➔ 4. ldconfig -p (verifica).", "notes": "Enseña el flujo metódico: diagnosticar con ldd, comprobar con find/apt-file, configurar en ld.so.conf.d y regenerar con ldconfig.", "diagram_html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin:8px 0;\">\n  <!-- Error 1: Librería no encontrada -->\n  <div style=\"background:#FFF5F5; border:2px solid #F87171; border-radius:10px; padding:12px 16px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n      <span style=\"background:#DC2626; color:#FFF; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;\">ERROR 1: NOT FOUND</span>\n      <span style=\"font-size:12px; font-weight:700; color:#991B1B;\">Falta archivo o ruta</span>\n    </div>\n    <div style=\"background:#7F1D1D; color:#FEE2E2; padding:6px 10px; border-radius:6px; font-family:monospace; font-size:12px; line-height:1.35; margin-bottom:6px;\">\n      error while loading shared libraries: libfoo.so.1: cannot open shared object file: No such file or directory\n    </div>\n    <div style=\"font-size:12.5px; color:#7F1D1D; line-height:1.45;\">\n      <strong>1. Diagnosticar:</strong> <code>ldd /ruta/binario</code> (busca <code>=&gt; not found</code>).<br>\n      <strong>2. Buscar en disco:</strong> <code>find / -name \"libfoo.so.1\" 2&gt;/dev/null</code> o buscar qué paquete la provee con <code>apt-file search</code> / <code>yum provides</code>.<br>\n      <strong>3. Si existe en ruta no estándar:</strong> Añadirla a <code>/etc/ld.so.conf.d/app.conf</code> y ejecutar <code>sudo ldconfig</code>.\n    </div>\n  </div>\n\n  <!-- Error 2: Olvido de ldconfig -->\n  <div style=\"background:#FFFBEB; border:2px solid #F59E0B; border-radius:10px; padding:12px 16px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n      <span style=\"background:#D97706; color:#FFF; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;\">ERROR 2: OLVIDO DE LDCONFIG</span>\n      <span style=\"font-size:12px; font-weight:700; color:#92400E;\">Caché desactualizada</span>\n    </div>\n    <div style=\"background:#78350F; color:#FEF3C7; padding:6px 10px; border-radius:6px; font-family:monospace; font-size:12px; line-height:1.35; margin-bottom:6px;\">\n      # Instalaste la librería en /usr/local/lib pero el programa sigue diciendo \"cannot open shared object file\"\n    </div>\n    <div style=\"font-size:12.5px; color:#78350F; line-height:1.45;\">\n      <strong>Causa nº 1 en el examen:</strong> El archivo <code>.so</code> está físicamente en disco, pero el cargador dinámico consulta <code>/etc/ld.so.cache</code> y allí aún no figura.<br>\n      <strong>Solución inmediata:</strong> Ejecutar <code>sudo ldconfig</code>.<br>\n      <strong>Verificación:</strong> Comprobar con <code>ldconfig -p | grep libfoo</code>.\n    </div>\n  </div>\n\n  <!-- Error 3: Conflicto de Arquitectura ELF -->\n  <div style=\"background:#FAF5FF; border:2px solid #A855F7; border-radius:10px; padding:12px 16px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n      <span style=\"background:#9333EA; color:#FFF; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;\">ERROR 3: 32 vs 64 BITS</span>\n      <span style=\"font-size:12px; font-weight:700; color:#6B21A8;\">wrong ELF class</span>\n    </div>\n    <div style=\"background:#581C87; color:#F3E8FF; padding:6px 10px; border-radius:6px; font-family:monospace; font-size:12px; line-height:1.35; margin-bottom:6px;\">\n      error while loading shared libraries: libfoo.so: wrong ELF class: ELFCLASS32\n    </div>\n    <div style=\"font-size:12.5px; color:#581C87; line-height:1.45;\">\n      <strong>Causa:</strong> Un binario de 64 bits intenta cargar una librería compilada para 32 bits (o viceversa).<br>\n      <strong>Diagnosticar tipo ELF:</strong> Ejecuta <code>file /ruta/libfoo.so</code> o <code>objdump -f</code>.<br>\n      <strong>Solución:</strong> Instalar el paquete de la arquitectura correspondiente (ej: <code>libfoo.x86_64</code> o <code>libfoo:i386</code>).\n    </div>\n  </div>\n\n  <!-- Error 4: Permisos Incorrectos -->\n  <div style=\"background:#EFF6FF; border:2px solid #3B82F6; border-radius:10px; padding:12px 16px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n      <span style=\"background:#2563EB; color:#FFF; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;\">ERROR 4: PERMISOS DENEGADOS</span>\n      <span style=\"font-size:12px; font-weight:700; color:#1E40AF;\">Permission denied</span>\n    </div>\n    <div style=\"background:#1E3A8A; color:#DBEAFE; padding:6px 10px; border-radius:6px; font-family:monospace; font-size:12px; line-height:1.35; margin-bottom:6px;\">\n      error while loading shared libraries: libfoo.so.1: cannot open shared object file: Permission denied\n    </div>\n    <div style=\"font-size:12.5px; color:#1E3A8A; line-height:1.45;\">\n      <strong>Causa:</strong> El archivo de la librería existe pero solo tiene permisos de lectura para root (ej: <code>chmod 600</code> o <code>700</code>).<br>\n      <strong>Diagnosticar:</strong> <code>ls -l /usr/local/lib/libfoo*</code>.<br>\n      <strong>Solución:</strong> Asignar permisos estándar de lectura pública: <code>sudo chmod 755 /ruta/libfoo.so.*</code> (o <code>chmod 644</code>).\n    </div>\n  </div>\n</div>\n"}, {"id": 13, "section": "102.3", "cat": "libs", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: sonames y ldconfig)", "ref": "113-114", "pdf": {"manual": "A", "pages": [113, 114], "figure": null}, "scenario": "Casos prácticos sobre versionado y registro de librerías (Manual Oficial LPIC-1 Páginas 113-114):", "steps": [{"action": "Caso 1: En disco existe el archivo 'libpng16.so.16.37.0'. ¿Cuál es su soname y cuál su linker name?", "command": "soname: libpng16.so.16 ; Linker name: libpng16.so", "reason": "El soname conserva la versión mayor (16) para compatibilidad de ejecutables compilados; el linker name no lleva números para gcc."}, {"action": "Caso 2: Has instalado una base de datos en /opt/bd/lib. ¿Qué dos pasos son obligatorios para que el sistema encuentre sus librerías?", "command": "1. Crear /etc/ld.so.conf.d/bd.conf con la línea '/opt/bd/lib' ; 2. Ejecutar 'sudo ldconfig'", "reason": "ldconfig debe leer el nuevo archivo de configuración y actualizar la caché binaria /etc/ld.so.cache."}], "solution": {"explain": "Sin ejecutar ldconfig, el enlazador dinámico jamás consultará la nueva ruta en /opt."}, "notes": "Enfatiza el paso 2: en el 80% de los errores reales de administración, la gente se olvida de ejecutar ldconfig."}, {"id": 14, "section": "102.3", "cat": "libs", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: ldd y objdump)", "ref": "114-115", "pdf": {"manual": "A", "pages": [114, 115], "figure": null}, "scenario": "Casos prácticos de auditoría de dependencias (Manual Oficial LPIC-1 Páginas 114-115):", "steps": [{"action": "Caso 3: ¿Qué comando te muestra todas las librerías compartidas de las que depende el comando /bin/kill?", "command": "ldd /bin/kill", "reason": "ldd invoca al enlazador dinámico simulando la carga e imprime la lista de librerías y rutas resueltas."}, {"action": "Caso 4: Averiguar qué librerías necesita un binario inspeccionando exclusivamente sus cabeceras ELF sin ejecutarlo.", "command": "objdump -p /bin/kill | grep NEEDED  (o readelf -d /bin/kill)", "reason": "objdump -p extrae directamente las etiquetas NEEDED almacenadas en la sección dinámica del binario ELF."}], "solution": {"explain": "ldd es la herramienta estándar rápida; objdump -p es la herramienta forense segura para binarios sospechosos."}, "notes": "Muestra que ldd puede llegar a ejecutar código del binario en ciertas condiciones; objdump es puramente estático."}, {"id": 15, "section": "102.3", "cat": "libs", "type": "challenge", "title": "Retos de Exploración del Manual Oficial", "ref": "115", "pdf": {"manual": "A", "pages": [115], "figure": null}, "scenario": "Resuelve estos 4 retos de examen planteados en el manual oficial LPIC-1 (Página 115):\n1. Un programa devuelve 'error while loading shared libraries: libcrypto.so.1.1: cannot open shared object file: No such file or directory'. ¿Qué 3 comprobaciones debes realizar?\n2. ¿Por qué la variable LD_LIBRARY_PATH no funciona al ejecutar comandos como 'sudo' o 'passwd'?\n3. ¿Cómo comprobarías si la librería libncurses está registrada actualmente en la caché del sistema sin abrir ningún archivo?\n4. Si actualizas glibc a una versión menor más moderna, ¿es necesario recompilar todos los programas del sistema?", "hint": "Recuerda: find/locate de la librería; permisos SUID en binarios; comando ldconfig -p; y compatibilidad de versiones menores en sonames.", "solution": {"explain": "1. Comprobar: a) Si la librería está instalada en disco (find / -name libcrypto.so.1.1); b) Si su ruta está en /etc/ld.so.conf.d/; c) Si se ejecutó ldconfig para actualizar la caché.\n2. Porque sudo y passwd tienen el bit SUID activo: por seguridad, el cargador ld.so ignora LD_LIBRARY_PATH para evitar que un atacante inyecte una librería falsa y obtenga root.\n3. Con el comando: ldconfig -p | grep libncurses.\n4. NO, porque las actualizaciones de versión menor respetan la compatibilidad binaria hacia atrás (mismo soname libc.so.6)."}, "notes": "Preguntas directas de examen. La restricción de SUID en LD_LIBRARY_PATH es un clásico de seguridad."}, {"id": 16, "section": "102.3", "cat": "libs", "type": "review", "title": "Pregunta de Examen LPIC-1: ldconfig y Caché", "q": "¿Qué comando y opción muestra el contenido actual de la caché binaria de librerías compartidas /etc/ld.so.cache?", "options": ["ldconfig -p", "ldd --cache", "cat /etc/ld.so.cache", "ldconfig -c"], "answer": 0, "why": "ldconfig -p (--print-cache) imprime el contenido de /etc/ld.so.cache formateado en texto. cat no sirve porque el archivo es binario; ldd no tiene opción --cache; y -c en ldconfig se usa para especificar un archivo de configuración alternativo.", "notes": "Pregunta clásica. Recuerda: ldconfig -p (Print cache)."}, {"id": 17, "section": "102.3", "cat": "libs", "type": "review", "title": "Pregunta de Examen LPIC-1: Variables de Entorno de Librerías", "q": "¿Qué variable de entorno puede utilizar un usuario en su sesión para indicar al enlazador dinámico que busque librerías en un directorio personal antes de consultar la caché del sistema?", "options": ["LIBPATH", "LD_LIBRARY_PATH", "SHARED_LIB_PATH", "PATH_LIBRARIES"], "answer": 1, "why": "LD_LIBRARY_PATH es la variable de entorno estándar reconocida por ld.so en Linux. LIBPATH se utiliza en AIX, mientras que las otras son nombres inventados.", "notes": "Pregunta fija de examen. Memorizar el nombre exacto: LD_LIBRARY_PATH."}, {"id": 18, "section": "102.3", "cat": "libs", "type": "flashcards", "title": "Tarjetas de Memorización: Librerías Compartidas (102.3)", "deck": [{"front": "¿Qué extensión tienen las librerías estáticas y cuál las compartidas?", "back": "Estáticas: .a (archive). Compartidas / dinámicas: .so (shared object)."}, {"front": "¿Qué archivo binario consulta ld.so para localizar rápidamente las librerías?", "back": "/etc/ld.so.cache (generado por ldconfig)."}, {"front": "¿En qué archivo o directorio se añaden rutas permanentes de librerías?", "back": "En /etc/ld.so.conf y en archivos .conf dentro de /etc/ld.so.conf.d/."}, {"front": "¿Qué comando actualiza /etc/ld.so.cache tras modificar /etc/ld.so.conf?", "back": "sudo ldconfig"}, {"front": "¿Qué hace el comando 'ldconfig -p'?", "back": "Imprime en pantalla la lista de librerías indexadas en /etc/ld.so.cache."}, {"front": "¿Qué comando analiza las librerías compartidas requeridas por un ejecutable?", "back": "ldd /ruta/al/binario"}, {"front": "¿Qué variable define rutas de librerías temporales para la sesión actual?", "back": "LD_LIBRARY_PATH"}, {"front": "¿Por qué LD_LIBRARY_PATH es ignorada en ejecutables SUID?", "back": "Por seguridad, para impedir que un usuario inyecte código malicioso y obtenga privilegios de root."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno dominio de los conceptos de librerías."}, {"id": 19, "section": "102.3", "cat": "libs", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 102.3", "takeaways": ["Concepto: Librerías estáticas (.a) vs dinámicas (.so). soname define la compatibilidad binaria (ABI) mayor.", "Rutas y Configuración: Rutas por defecto /lib y /usr/lib. Rutas adicionales en /etc/ld.so.conf y /etc/ld.so.conf.d/*.conf.", "Caché y Herramientas: ldconfig compila la caché binaria /etc/ld.so.cache. ldconfig -p muestra su contenido.", "Auditoría y Variables: ldd muestra dependencias en vivo. objdump -p lee etiquetas NEEDED. LD_LIBRARY_PATH fija rutas temporales (ignorada en binarios SUID)."], "top3": [{"cmd": "ldd /ruta/al/binario", "desc": "Muestra las dependencias de librerías compartidas y detecta componentes 'not found'."}, {"cmd": "sudo ldconfig", "desc": "Regenera la caché /etc/ld.so.cache y crea enlaces simbólicos de sonames."}, {"cmd": "ldconfig -p", "desc": "Imprime todas las librerías compartidas actualmente indexadas en la caché del sistema."}], "practice": {"name": "Practica 102.3: Gestión de Librerías Compartidas del Sistema", "url": "../practicas/p-102-3-librerias-compartidas.html", "desc": "Rastrea dependencias dinámicas con ldd, administra la caché del enlazador con ldconfig y comprende el uso de /etc/ld.so.conf y LD_LIBRARY_PATH."}, "notes": "Finalizamos el subtema 102.3. Un subtema corto pero con preguntas muy directas que no se deben fallar."}];
     const ERRATAS = [{"id": "ERR-102.3-01", "section": "102.3", "ref": "p. 7", "manual_says": "ldconfig actualiza /etc/ld.so.conf al ejecutarse.", "reality": "ldconfig NO modifica /etc/ld.so.conf; LEE ese archivo y sus subdirectorios para regenerar la caché binaria /etc/ld.so.cache.", "exam_tip": "En el examen LPIC-1 preguntan qué archivo es regenerado por ldconfig: la respuesta correcta siempre es /etc/ld.so.cache."}];
     const GLOSARIO = [{"id": "soname", "term": "soname", "def": "Nombre canónico de una biblioteca compartida con formato lib[nombre].so.[versión_mayor].", "ref": "p. 1-4"}, {"id": "ld.so", "term": "ld.so / ld-linux.so", "def": "Enlazador y cargador dinámico del sistema que busca y carga las bibliotecas compartidas al arrancar un ejecutable.", "ref": "p. 4-8"}, {"id": "ldconfig", "term": "ldconfig", "def": "Programa de administración que escanea los directorios de librerías y reconstruye /etc/ld.so.cache.", "ref": "p. 5-7"}, {"id": "ldd", "term": "ldd", "def": "Utilidad que analiza las cabeceras ELF de un ejecutable e imprime las librerías compartidas de las que depende.", "ref": "p. 8-10"}, {"id": "LD_LIBRARY_PATH", "term": "LD_LIBRARY_PATH", "def": "Variable de entorno con lista de directorios donde buscar bibliotecas antes que en las rutas estándar del sistema.", "ref": "p. 10-12"}];
     const META = {"topic": "102.3", "title": "Gestión de librerías compartidas", "weight": 1, "description": "Bibliotecas estáticas vs dinámicas, sonames, /etc/ld.so.conf, ldconfig y ldd (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1453,6 +1932,9 @@
           });
           html += `</div>`;
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.console || s.terminal) {
           html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
         }
@@ -1518,6 +2000,9 @@
         const termData = s.terminal || s.console;
         if (termData) {
           html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
         }
 
         if (s.trap || s.warning) {
@@ -1603,6 +2088,9 @@
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
 
         if (s.trap || s.warning) {
           html += `
@@ -1643,6 +2131,9 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.remember) {
           html += `
             <div class="callout-box callout-remember" style="margin-top:14px;">
@@ -1689,12 +2180,37 @@
             </div>
           `;
         }
+      } else if (s.type === 'diagram') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.diagram_html || s.raw_html || s.html || s.svg || s.content || '';
+        if (bodyContent) html += bodyContent;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         const steps = s.steps || s.nodes || s.diagram?.nodes || [];
-        if (steps.length > 0) {
+        if (steps.length > 0 && !s.diagram_html && !s.raw_html && !s.html && !s.svg) {
           html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
           steps.forEach((st, idx) => {
             const stitle = st.step || st.title || st.text || st.label || '';
@@ -2055,9 +2571,11 @@
           `;
         }
       } else {
-        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
-        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.raw_html || s.html || s.content;
+        if (bodyContent) html += bodyContent;
       }
       return html;
     }
@@ -2241,6 +2759,9 @@
 
     function closeModals() {
       document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+      if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
     }
 
     function closePopovers() {
@@ -2266,6 +2787,45 @@
       popover.style.top = `${rect.bottom + 8}px`;
       popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
       popover.classList.add('open');
+    }
+
+    function openPopover(targetOrEvent, html) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      let el = null;
+      if (targetOrEvent instanceof Event) {
+        targetOrEvent.stopPropagation();
+        el = targetOrEvent.currentTarget || targetOrEvent.target;
+      } else if (targetOrEvent && targetOrEvent.nodeType) {
+        el = targetOrEvent;
+      } else if (targetOrEvent && targetOrEvent.target) {
+        el = targetOrEvent.target;
+      }
+      const popover = document.getElementById('global-popover');
+      if (!popover) return;
+      popover.innerHTML = html || '<div>Sin detalles adicionales</div>';
+      if (el && el.getBoundingClientRect) {
+        const rect = el.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + 8}px`;
+        popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      }
+      popover.classList.add('open');
+    }
+
+    function toggleAnswer(btn) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      if (!btn) return;
+      const container = btn.closest('.quiz-reveal-container') || btn.parentElement;
+      if (!container) return;
+      const ans = container.querySelector('.quiz-answer-box');
+      if (ans) {
+        const isHidden = window.getComputedStyle(ans).display === 'none' || ans.style.display === 'none';
+        ans.style.display = isHidden ? 'block' : 'none';
+        btn.textContent = isHidden ? 'Ocultar Respuesta ▲' : 'Ver Respuesta ▼';
+      }
     }
     document.addEventListener('click', closePopovers);
 
@@ -2444,6 +3004,18 @@
         }
       }
       renderSlide(initSlide);
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length && num !== currentSlideIdx) {
+            renderSlide(num);
+          }
+        }
+      }
     });
   </script>
 </body>

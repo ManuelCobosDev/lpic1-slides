@@ -322,17 +322,87 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 8px;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       background: var(--surface);
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
-    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
-    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); transform: translateY(-1px); }
+    .nav-btn:active { transform: translateY(0); }
+    .nav-btn.primary { background: #2563EB; color: #FFFFFF !important; border-color: #1D4ED8; box-shadow: 0 2px 4px rgba(37,99,235,0.25); }
+    .nav-btn.primary:hover { background: #1D4ED8; border-color: #1E40AF; }
+
+    /* Sistema Completo de Botones .btn */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      border: 1.5px solid transparent;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      user-select: none;
+      outline: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.12), 0 2px 4px -2px rgba(15, 23, 42, 0.08);
+    }
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: #FFFFFF !important;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      gap: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF !important;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+    }
 
     /* Contenedor del escenario (1920x1080) */
     #app-container {
@@ -498,6 +568,246 @@
       color: var(--info-ink);
       border-color: #BAE6FD;
     }
+    .callout-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      max-width: 24px !important;
+      min-height: 24px !important;
+      max-height: 24px !important;
+      border-radius: 50% !important;
+      background: #2563EB;
+      color: #FFFFFF !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+      text-align: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      margin: 0 4px !important;
+      user-select: none !important;
+    }
+    .badge-blue { background: #2563EB !important; color: #FFFFFF !important; }
+    .badge-amber { background: #D97706 !important; color: #FFFFFF !important; }
+    .badge-red { background: #DC2626 !important; color: #FFFFFF !important; }
+    .badge-green { background: #16A34A !important; color: #FFFFFF !important; }
+    .badge-purple { background: #7C3AED !important; color: #FFFFFF !important; }
+
+    /* Glosarios & Conceptos Clave Modernos */
+    /* Glosarios & Conceptos Clave Modernos */
+    .slide-glossary-box {
+      margin-top: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .slide-glossary-box .gl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .slide-glossary-box .gl-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563EB;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .slide-glossary-box .gl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .slide-glossary-box .gl-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+    .slide-glossary-box .gl-card:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+    .slide-glossary-box .gl-badge {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1D4ED8;
+      background: #EFF6FF;
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid #BFDBFE;
+      display: inline-block;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .slide-glossary-box .gl-def {
+      color: #334155;
+      font-size: 13.5px;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .slide-glossary-box .gl-def code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 4px;
+      color: #0F172A;
+    }
+
+    /* Compatibilidad strip con estilo pulido tipo chips */
+    .slide-glossary-strip {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .slide-glossary-strip .gl-title {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-glossary-strip .gl-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .slide-glossary-strip .gl-term {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #1D4ED8;
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM (Completo, accesible y moderno para interactivos y quizes)
+       ========================================================================== */
+    .btn, .quiz-reveal-container button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .btn:focus-visible, .quiz-reveal-container button:focus-visible {
+      outline: 2px solid #2563EB;
+      outline-offset: 2px;
+    }
+    .btn:active, .quiz-reveal-container button:active {
+      transform: translateY(1px);
+    }
+
+    /* Botón Primario (Azul vibrante) */
+    .btn-primary, .nav-btn.primary, .quiz-reveal-container button {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover, .nav-btn.primary:hover, .quiz-reveal-container button:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Botón Outline Primario */
+    .btn-outline-primary {
+      background: #FFFFFF;
+      color: #2563EB;
+      border-color: #2563EB;
+    }
+    .btn-outline-primary:hover {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-color: #1D4ED8;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Botón Secundario */
+    .btn-secondary {
+      background: #F1F5F9;
+      color: #334155;
+      border-color: #CBD5E1;
+    }
+    .btn-secondary:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+      border-color: #94A3B8;
+    }
+
+    /* Botón Éxito */
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+      border-color: #166534;
+      color: #FFFFFF;
+    }
+
+    /* Modificadores de Tamaño */
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14.5px;
+      border-radius: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+    }
 
     /* Terminal y Comandos (slides-terminal-comandos) */
     .term-wrapper {
@@ -517,20 +827,29 @@
       font-size: 18px;
       font-weight: 700;
     }
-    .term-copy-btn {
+    .term-copy-btn, .terminal-copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 12px;
       border-radius: 6px;
-      border: 2px solid var(--control-border);
+      border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-copy-btn:hover, .terminal-copy-btn:hover {
+      background: #F1F5F9;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+    .term-copy-btn:active, .terminal-copy-btn:active {
+      transform: scale(0.96);
+    }
     .term-code {
       padding: 14px 20px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -545,15 +864,169 @@
     .term-code::-webkit-scrollbar { width: 6px; }
     .term-code::-webkit-scrollbar-track { background: transparent; }
     .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
-    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+
+    /* Terminal Card (Real-life console frame) */
+    .terminal-card {
+      background: #0F172A;
+      border: 2px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .terminal-card .terminal-header {
+      background: #1E293B;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      gap: 12px;
+    }
+    .terminal-card .terminal-header::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 18px 0 0 #F59E0B, 36px 0 0 #10B981;
+      margin-right: 36px;
+      flex-shrink: 0;
+    }
+    .terminal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #94A3B8;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: 0.02em;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .terminal-card .terminal-copy-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #475569;
+    }
+    .terminal-card .terminal-copy-btn:hover {
+      background: #334155;
+      border-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .terminal-body {
+      padding: 16px 20px;
+      margin: 0;
+      background: #0F172A;
+      color: #E2E8F0;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      font-size: 15.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Mini-Terminal para llamadas o ejemplos dentro de cajas */
+    .mini-terminal {
+      background: #0F172A;
+      border: 1.5px solid #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+    }
+    .mini-term-header {
+      background: #1E293B;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    .mini-term-dots {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 12px 0 0 #F59E0B, 24px 0 0 #10B981;
+      margin-right: 22px;
+    }
+    .mini-term-title {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+    .mini-term-body {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #E2E8F0;
+      background: #0F172A;
+    }
+
+    /* High-contrast terminal syntax tokens for light mode by default */
+    .t-prompt { color: #0284C7; user-select: none; font-weight: 700; }
     .t-cmd { font-weight: 700; color: #0F172A; }
     .t-flag { color: #1D4ED8; font-weight: 600; }
-    .t-arg { color: #9A3412; font-weight: 500; }
-    .t-path { color: #15803D; font-weight: 500; }
-    .t-str { color: #A21CAF; }
-    .t-cmt { color: #5B6B82; font-style: italic; }
-    .t-err { color: #B91C1C; font-weight: 600; }
-    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+    .t-arg { color: #B45309; font-weight: 600; }
+    .t-path { color: #047857; font-weight: 600; }
+    .t-str { color: #7C3AED; }
+    .t-cmt, .term-comment { color: #64748B; font-style: italic; }
+    .t-err { color: #DC2626; font-weight: 600; }
+    .t-hl { background: rgba(254, 240, 138, 0.45); border-radius: 4px; padding: 0 6px; }
+
+    /* Dark context inside terminal-card and mini-terminal */
+    .terminal-card .term-prompt, .mini-terminal .term-prompt,
+    .terminal-card .t-prompt, .mini-terminal .t-prompt { color: #38BDF8; font-weight: 700; }
+    .terminal-card .term-cmd, .mini-terminal .term-cmd,
+    .terminal-card .t-cmd, .mini-terminal .t-cmd { font-weight: 700; color: #F8FAFC; }
+    .terminal-card .t-flag, .mini-terminal .t-flag { color: #60A5FA; }
+    .terminal-card .t-arg, .mini-terminal .t-arg { color: #FBBF24; }
+    .terminal-card .t-path, .mini-terminal .t-path { color: #34D399; }
+    .terminal-card .t-str, .mini-terminal .t-str { color: #E879F9; }
+    .terminal-card .term-comment, .mini-terminal .term-comment,
+    .terminal-card .t-cmt, .mini-terminal .t-cmt { color: #94A3B8; }
+    .terminal-card .t-err, .mini-terminal .t-err { color: #F87171; }
+
+    /* Estilos del Modal Autotest / Test Global */
+    .autotest-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--surface);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: border-color 0.15s ease;
+    }
+    .autotest-card:hover {
+      border-color: var(--primary);
+    }
+    .autotest-opt-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface-alt);
+      font-size: 18px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .autotest-opt-label:hover {
+      background: #EFF6FF;
+      border-color: #93C5FD;
+    }
+    .autotest-opt-label input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2563EB;
+      cursor: pointer;
+    }
 
     /* Chips de opciones interactivas */
     .options-row {
@@ -619,32 +1092,38 @@
     /* Tablas (≤5x4) */
     .table-container {
       width: 100%;
-      margin: 20px 0;
-      border: 2px solid var(--border);
-      border-radius: 14px;
+      margin: 12px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 12px;
       overflow: hidden;
-      background: #FFFFFF;
+      background: var(--surface);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 26px;
+      font-size: clamp(15px, 1.05vw, 18.5px);
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 16px 24px;
+      padding: 10px 18px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
+      font-size: clamp(15.5px, 1.1vw, 19.5px);
     }
     table.slide-table td {
-      padding: 16px 24px;
+      padding: 9px 18px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
+      line-height: 1.4;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
-    table.slide-table tr.highlighted { background: #FEF3C7; }
+    table.slide-table tr.highlighted { background: var(--warning-soft); }
+    [data-theme="dark"] .table-container {
+      background: var(--surface);
+    }
 
     /* Matrices comparativas y mapas de equivalencias */
     .matrix-container {
@@ -1131,7 +1610,7 @@
     <aside id="teacher-panel">
       <div class="panel-header">
         <span>Notas del Docente</span>
-        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+        <button class="nav-btn" onclick="toggleTeacherNotes()" aria-label="Cerrar panel docente"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
       </div>
       <div class="panel-body">
         <div class="panel-meta" id="panel-meta-info"></div>
@@ -1146,7 +1625,7 @@
   <!-- Modal de Erratas -->
   <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar notas y erratas"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
         <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
         Notas y Erratas del Manual Oficial
@@ -1158,7 +1637,7 @@
   <!-- Modal de Ayuda / Atajos -->
   <div class="modal-overlay" id="modal-help" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar ayuda de atajos"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
         <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
@@ -1181,7 +1660,7 @@
   <!-- Modal de Vista General (Overview) -->
   <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
     <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar vista general"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
       <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
     </div>
@@ -1197,7 +1676,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "103.3", "cat": "files", "type": "cover", "title": "Administración básica de archivos", "subtitle": "ls, touch, cp, mv, rm, mkdir, comodines globbing, find, tar, cpio, dd y file (Modo Examen)", "ref": "247-248", "pdf": {"manual": "A", "pages": [247, 248], "figure": null}, "coverage": ["103.3-OBJ-001", "103.3-OBJ-002", "103.3-OBJ-003", "103.3-OBJ-004"], "meta": {"peso": 4, "paginas": "247–280", "duracion": "30 min"}, "icon": "folder", "notes": "Iniciamos el subtema 103.3 (peso 4). La gestión de archivos y directorios es una competencia nuclear. Analizaremos operaciones básicas (copia, borrado, movimiento), comodines avanzados (globbing), el potente buscador find, empaquetado con tar y cpio, y clonación por bloques con dd."}, {"id": 2, "section": "103.3", "cat": "files", "type": "concept", "title": "Estructura de Ficheros, Rutas e Inodos", "lead": "¿Cómo identifica Linux cada elemento en el sistema de almacenamiento?", "ref": "248-250", "pdf": {"manual": "A", "pages": [248, 249, 250], "figure": null}, "coverage": ["103.3-CON-001"], "points": [{"icon": "corner-down-right", "text": "Rutas Absolutas frente a Rutas Relativas", "detail": "🎯 Una ruta absoluta empieza SIEMPRE por la raíz '/' y es idéntica desde cualquier lugar (ej: /var/log/syslog). Una ruta relativa depende del directorio actual de trabajo (ej: ../etc/hosts o doc/guia.txt)."}, {"icon": "database", "text": "El Inodo (Nodo de Índice): La identidad del archivo", "detail": "🎯 Clave de Examen: El nombre del archivo NO reside en el inodo. El inodo almacena los metadatos: permisos, propietario UID, grupo GID, tamaño, marcas de tiempo y punteros a los bloques de datos. Se visualiza con 'ls -i'."}, {"icon": "file-text", "text": "Tipos de Archivos Básicos en Linux", "detail": "Ordinarios (-), directorios (d), enlaces simbólicos (l), dispositivos de bloque (b), de carácter (c), sockets (s) y tuberías con nombre (p)."}], "remember": "🎯 Clave de Examen: El inodo contiene todos los metadatos y bloques de datos, pero NO el nombre del archivo (el nombre reside en el directorio).", "notes": "Muestra que 'ls -i' imprime el número de inodo de cada fichero en el sistema."}, {"id": 3, "section": "103.3", "cat": "files", "type": "command", "title": "Inspección y Listado Detallado con ls", "lead": "La herramienta más ejecutada en Linux y sus opciones clave para el examen:", "ref": "250-254", "pdf": {"manual": "A", "pages": [250, 251, 252, 253, 254], "figure": null}, "coverage": ["103.3-CMD-001", "103.3-OPT-001", "103.3-OPT-002", "103.3-OPT-003"], "command": "ls [-l|-a|-h|-R|-t|-S|-d|-i] [ruta]", "purpose": "Listar contenidos de directorios mostrando permisos, propietarios, tamaños y marcas de tiempo", "terminal": {"command": "ls -lhd /etc /var; ls -la /root | head -n 3", "output": "drwxr-xr-x 135 root root 12K Oct 20 09:30 /etc\ndrwxr-xr-x  14 root root 4.0K Oct 18 10:15 /var\ntotal 28\ndrwx------  4 root root 4096 Oct 20 09:15 .\ndrwxr-xr-x 18 root root 4096 Oct 18 10:00 .."}, "options": [{"flag": "-l", "desc": "🎯 Formato largo (Long): tipo de archivo, 9 permisos, enlaces, propietario, grupo, tamaño, fecha y nombre."}, {"flag": "-a, --all", "desc": "🎯 Clave de Examen: Muestra TODOS los archivos, incluidos los ocultos que comienzan por punto (.) y los directorios '.' y '..'"}, {"flag": "-A, --almost-all", "desc": "Muestra archivos ocultos pero omite deliberadamente los directorios '.' y '..'"}, {"flag": "-h, --human-readable", "desc": "Muestra tamaños en formato legible para humanos (K, M, G) junto con la opción -l."}, {"flag": "-d, --directory", "desc": "🎯 Clave de Examen: Lista el directorio en sí mismo como un objeto, en lugar de listar su contenido interno (ej: 'ls -ld /etc')."}, {"flag": "-R, --recursive", "desc": "Lista recursivamente todos los subdirectorios y sus contenidos."}, {"flag": "-t / -S", "desc": "'-t' ordena por fecha de modificación (los más recientes primero); '-S' ordena por tamaño de archivo (los más grandes primero)."}, {"flag": "-i, --inode", "desc": "🎯 Imprime el número de inodo de cada archivo en la primera columna."}], "remember": "🎯 Clave de Examen: 'ls -d' lista las propiedades del directorio en lugar de su contenido; 'ls -a' muestra ficheros ocultos (que empiezan por '.').", "notes": "Muestra a la clase la diferencia radical entre 'ls /etc' (cientos de líneas) y 'ls -ld /etc' (exactamente 1 línea)."}, {"id": 4, "section": "103.3", "cat": "files", "type": "command", "title": "Creación, Marcas Temporales y Directorios: touch y mkdir", "lead": "¿Cómo crear archivos vacíos, actualizar fechas y estructurar jerarquías completas?", "ref": "254-257", "pdf": {"manual": "A", "pages": [254, 255, 256, 257], "figure": null}, "coverage": ["103.3-CMD-002", "103.3-CMD-003", "103.3-CMD-004", "103.3-OPT-004", "103.3-OPT-005"], "command": "touch [-a|-m|-t|-c] <archivo> | mkdir [-p|-m] <dir> | rmdir [-p] <dir>", "purpose": "Crear ficheros vacíos, manipular fechas de acceso/modificación y crear o borrar árboles de carpetas", "terminal": {"command": "mkdir -p /tmp/proy/v1/src; touch -t 202610201200 /tmp/proy/v1/src/main.c; ls -l /tmp/proy/v1/src", "output": "-rw-r--r-- 1 alumno alumno 0 Oct 20 12:00 main.c"}, "options": [{"flag": "touch <archivo>", "desc": "Crea el archivo vacío si no existe; si ya existe, actualiza sus marcas de acceso y modificación al momento actual."}, {"flag": "touch -c, --no-create", "desc": "No crea el archivo si no existe; solo actualiza fechas si ya está presente en el disco."}, {"flag": "touch -a / -m", "desc": "'-a' modifica solo la fecha de acceso (atime); '-m' modifica solo la fecha de modificación de datos (mtime)."}, {"flag": "touch -t [[CC]YY]MMDDhhmm[.ss]", "desc": "🎯 Clave de Examen: Fija una fecha y hora específica manual en el archivo."}, {"flag": "mkdir -p, --parents", "desc": "🎯 Clave de Examen: Crea los directorios padre intermedios necesarios si no existen sin dar error si ya existían."}, {"flag": "mkdir -m <modo>", "desc": "Establece los permisos octales al crear la carpeta (ej: mkdir -m 700 secreta)."}, {"flag": "rmdir [-p] <dir>", "desc": "🎯 Elimina directorios ÚNICAMENTE si están completamente vacíos (falla si contienen archivos)."}], "remember": "🎯 Clave de Examen: 'mkdir -p a/b/c' crea toda la ruta jerárquica de un solo golpe sin dar error si alguna carpeta ya existía.", "notes": "Recuerda que 'rmdir' es un comando defensivo: nunca borrará un directorio que tenga datos dentro."}, {"id": 5, "section": "103.3", "cat": "files", "type": "command", "title": "Copia, Movimiento y Borrado Seguro: cp, mv y rm", "lead": "Manipular archivos y preservar atributos esenciales como permisos y marcas de tiempo:", "ref": "257-261", "pdf": {"manual": "A", "pages": [257, 258, 259, 260, 261], "figure": null}, "coverage": ["103.3-CMD-005", "103.3-CMD-006", "103.3-CMD-007", "103.3-OPT-006", "103.3-OPT-007"], "command": "cp [-r|-p|-a|-u|-i] | mv [-i|-u|-f] | rm [-r|-f|-i]", "purpose": "Duplicar archivos o árboles, renombrar, trasladar y eliminar elementos del sistema de archivos", "terminal": {"command": "cp -p /etc/hosts /tmp/hosts_copia; mv /tmp/hosts_copia /tmp/hosts_renombrado; rm -f /tmp/hosts_renombrado", "output": "# Operaciones ejecutadas con éxito en silencio (código de retorno 0)."}, "options": [{"flag": "cp -r, -R", "desc": "Copia directorios y todo su contenido de forma recursiva."}, {"flag": "cp -p", "desc": "🎯 Clave de Examen: Preserva (preserve) los permisos, el propietario, el grupo y las marcas de tiempo originales del archivo."}, {"flag": "cp -a, --archive", "desc": "🎯 Clave de Examen: Modo archivador: equivale a '-dpR'. Copia recursiva preservando inmutablemente enlaces simbólicos y todos los atributos."}, {"flag": "cp -u / mv -u", "desc": "Actualización (update): solo copia o mueve si el archivo origen es más nuevo que el destino o si no existe."}, {"flag": "mv origen destino", "desc": "🎯 Traslada archivos a otra ruta o los renombra si el destino está en el mismo directorio (no duplica datos)."}, {"flag": "rm -r", "desc": "Elimina directorios y todo su contenido recursivamente."}, {"flag": "rm -f", "desc": "Fuerza el borrado (force): ignora archivos inexistentes y nunca pide confirmación interactiva."}, {"flag": "-i (en cp, mv, rm)", "desc": "Modo interactivo: solicita confirmación al usuario antes de sobreescribir o eliminar."}], "remember": "🎯 Diferencia Crítica de Examen: 'cp -r' copia contenido recursivo pero reasigna los permisos al usuario que copia; 'cp -a' o 'cp -p' conserva los permisos y dueños originales.", "notes": "Alerta de examen: al hacer backups de sistemas de archivos siempre se debe usar 'cp -a' para no alterar los permisos de /etc ni /home."}, {"id": 6, "section": "103.3", "cat": "files", "type": "concept", "title": "Comodines de Shell (Globbing) y Expansión de Llaves", "lead": "¿Cómo seleccionar múltiples archivos mediante patrones sin necesidad de nombrarlos uno a uno?", "ref": "261-264", "pdf": {"manual": "A", "pages": [261, 262, 263, 264], "figure": null}, "coverage": ["103.3-CON-002"], "points": [{"icon": "asterisk", "text": "El asterisco (*): Cero o más caracteres", "detail": "Coincide con cualquier cadena de texto de cualquier longitud (ej: '*.txt' coincide con 'a.txt', 'informe.txt' y '.txt'). No coincide con archivos ocultos a menos que se use '.*'."}, {"icon": "help-circle", "text": "La interrogación (?): Exactamente UN solo carácter", "detail": "🎯 Coincide con exactamente un carácter individual cualquiera (ej: 'archivo?.log' coincide con 'archivo1.log' pero no con 'archivo10.log')."}, {"icon": "brackets", "text": "Corchetes ([...]) y Negación ([!...]): Conjuntos y rangos", "detail": "🎯 '[0-9]' coincide con un dígito; '[a-z]' con una letra; '[!0-9]' o '[^0-9]' coincide con cualquier carácter que NO sea un dígito."}, {"icon": "layers", "text": "Expansión de Llaves ({...}): Generación de cadenas", "detail": "🎯 No busca en disco, genera combinaciones (ej: 'touch file_{1..3}.txt' crea file_1.txt, file_2.txt y file_3.txt de golpe)."}], "remember": "🎯 Clave de Examen: Globbing lo expande la SHELL antes de llamar al comando. Si escribes 'ls *.c', el comando 'ls' recibe la lista ya expandida.", "notes": "Muestra la diferencia entre comodines globbing de shell (esta slide) y expresiones regulares (tema 103.7)."}, {"id": 7, "section": "103.3", "cat": "files", "type": "command", "title": "Búsqueda Exhaustiva con find: Nombres, Tipos y Tamaños", "lead": "El motor de rastreo más potente de Linux recorriendo el árbol en tiempo real:", "ref": "264-268", "pdf": {"manual": "A", "pages": [264, 265, 266, 267, 268], "figure": null}, "coverage": ["103.3-CMD-008", "103.3-OPT-008", "103.3-OPT-009", "103.3-OPT-010"], "command": "find [ruta] -name|-iname <patrón> -type <tipo> -size <tamaño>", "purpose": "Localizar archivos y directorios según criterios de atributos, tipo o tamaño en disco", "terminal": {"command": "find /etc -maxdepth 1 -name '*.conf' | head -n 3; find /var/log -type f -size +10M", "output": "/etc/host.conf\n/etc/resolv.conf\n/etc/sysctl.conf\n/var/log/journal/system.journal"}, "options": [{"flag": "find <ruta>", "desc": "Punto de inicio de búsqueda recursiva (si se omite la ruta, busca en el directorio actual '.')."}, {"flag": "-name '<patrón>'", "desc": "🎯 Busca por nombre respetando mayúsculas/minúsculas. ¡Siempre entrecomillar comodines (ej: -name '*.log')!"}, {"flag": "-iname '<patrón>'", "desc": "Busca por nombre ignorando diferencias entre mayúsculas y minúsculas (case-insensitive)."}, {"flag": "-type <t>", "desc": "🎯 Clave de Examen: Filtra por tipo de archivo: 'f' = fichero ordinario, 'd' = directorio, 'l' = enlace simbólico."}, {"flag": "-size [+|-]N[c|k|M|G]", "desc": "🎯 Clave de Examen: Filtra por tamaño. '+10M' = mayor de 10 MB; '-500k' = menor de 500 KB; '100c' = exactamente 100 bytes."}, {"flag": "-maxdepth <N>", "desc": "Limita la profundidad máxima de directorios a explorar (ej: -maxdepth 1 no entra en subdirectorios)."}, {"flag": "-empty", "desc": "Busca archivos vacíos (0 bytes) o directorios sin contenidos."}], "remember": "🎯 Clave de Examen: '-type f' busca ficheros; '-type d' busca carpetas; '-size +100M' busca archivos que superen los 100 Megabytes.", "notes": "Alerta a los alumnos: nunca ejecutes 'find . -name *.log' sin comillas, porque la shell expandirá *.log antes de tiempo provocando un error de sintaxis si hay más de 1 log en el directorio actual."}, {"id": 8, "section": "103.3", "cat": "files", "type": "command", "title": "find Avanzado: Marcas Temporales, Usuarios y -exec", "lead": "¿Cómo encontrar archivos modificados recientemente y ejecutar acciones automáticas sobre ellos?", "ref": "268-272", "pdf": {"manual": "A", "pages": [268, 269, 270, 271, 272], "figure": null}, "coverage": ["103.3-CMD-008", "103.3-OPT-011", "103.3-OPT-012", "103.3-OPT-013"], "command": "find <ruta> -mtime|-user|-perm -exec <cmd> {} \\;", "purpose": "Filtrar por metadatos temporales y disparar acciones directas sobre cada resultado", "terminal": {"command": "find /tmp -type f -mtime +7 -delete; find /var/log -name '*.log' -exec ls -lh {} \\; | head -n 2", "output": "-rw-r--r-- 1 root root 45K Oct 20 09:00 /var/log/dpkg.log\n-rw-r----- 1 root adm  120K Oct 20 09:30 /var/log/auth.log"}, "options": [{"flag": "-mtime [+|-]N", "desc": "🎯 Modificación de datos en días: '-mtime -2' = modificado en las últimas 48h; '+7' = modificado hace más de 7 días."}, {"flag": "-mmin [+|-]N", "desc": "Modificación en minutos: '-mmin -60' = modificado en la última hora."}, {"flag": "-user <usuario> / -group <grupo>", "desc": "Localiza archivos que pertenezcan al usuario o grupo indicado."}, {"flag": "-perm <modo>", "desc": "Filtra por permisos octales (ej: '-perm 777' busca permisos exactos; '-perm -u=s' busca binarios SUID)."}, {"flag": "-exec <comando> {} \\;", "desc": "🎯 Clave Absoluta de Examen: Ejecuta el comando indicado sustituyendo '{}' por cada archivo encontrado. Obligatorio terminar con ' \\;' (espacio, barra invertida y punto y coma)."}, {"flag": "-exec <comando> {} +", "desc": "Ejecuta el comando pasando todos los archivos juntos en bloque como argumentos (mucho más rápido)."}, {"flag": "-delete", "desc": "🎯 Elimina de forma directa todos los archivos que coincidan con los criterios de búsqueda (usar con cuidado)."}], "remember": "🎯 Sintaxis Innegociable de Examen: 'find /dir -type f -exec rm {} \\;'. Las llaves '{}' representan cada archivo; '\\;' escapa el delimitador de fin de comando.", "notes": "Esta sintaxis '-exec ... {} \\;' aparece en 9 de cada 10 exámenes LPIC-1."}, {"id": 9, "section": "103.3", "cat": "files", "type": "command", "title": "Empaquetado y Compresión con tar", "lead": "El Tape Archive tradicional de Unix y su integración moderna con compresores:", "ref": "272-275", "pdf": {"manual": "A", "pages": [272, 273, 274, 275], "figure": null}, "coverage": ["103.3-CMD-009", "103.3-OPT-014", "103.3-OPT-015", "103.3-OPT-016"], "command": "tar -[c|x|t][v][f archivo.tar] [-z|-j|-J] [rutas]", "purpose": "Crear, listar o extraer paquetes de archivos preservando permisos y directorios", "terminal": {"command": "tar -czvf /tmp/backup.tar.gz /etc/hosts /etc/issue; tar -tvf /tmp/backup.tar.gz", "output": "tar: Removing leading `/' from member names\n/etc/hosts\n/etc/issue\n-rw-r--r-- root/root       250 2026-10-20 09:00 etc/hosts\n-rw-r--r-- root/root        30 2026-10-20 09:00 etc/issue"}, "options": [{"flag": "-c, --create", "desc": "🎯 Crea un nuevo archivo de empaquetado (.tar)."}, {"flag": "-x, --extract", "desc": "🎯 Extrae los archivos de un paquete (.tar) en el directorio actual."}, {"flag": "-t, --list", "desc": "🎯 Clave de Examen: Lista el contenido de un paquete tar sin extraerlo en el disco."}, {"flag": "-f <archivo>", "desc": "🎯 OBLIGATORIO: Especifica el nombre del archivo empaquetado (debe ir justo antes del nombre del .tar)."}, {"flag": "-v, --verbose", "desc": "Muestra la lista de archivos que se van procesando en pantalla."}, {"flag": "-z, --gzip", "desc": "🎯 Clave de Examen: Filtra a través de gzip (.tar.gz o .tgz). Compresión rápida estándar."}, {"flag": "-j, --bzip2", "desc": "🎯 Clave de Examen: Filtra a través de bzip2 (.tar.bz2 o .tbz2). Mayor compresión pero más lento."}, {"flag": "-J, --xz", "desc": "🎯 Clave de Examen: Filtra a través de xz (.tar.xz). Máxima compresión moderna."}, {"flag": "-C <directorio>", "desc": "🎯 Cambia al directorio indicado antes de extraer (ej: 'tar -xvf arch.tar -C /opt/')."}], "remember": "🎯 Tabla de Banderas de Compresión de Examen: '-z' = gzip (.tar.gz); '-j' = bzip2 (.tar.bz2); '-J' = xz (.tar.xz). Operaciones: '-c' crear, '-x' extraer, '-t' listar.", "notes": "Pide a los alumnos que asocien mentalmente: z = gzip, j = bzip2, J mayúscula = xz."}, {"id": 10, "section": "103.3", "cat": "files", "type": "command", "title": "Empaquetado Flexible con cpio", "lead": "El archivador clásico que procesa flujos de ficheros desde tuberías:", "ref": "275-277", "pdf": {"manual": "A", "pages": [275, 276, 277], "figure": null}, "coverage": ["103.3-CMD-010", "103.3-OPT-017", "103.3-OPT-018"], "command": "cpio -o | -i | -p [opciones]", "purpose": "Archivar o restaurar listas de ficheros leídas desde la entrada estándar", "terminal": {"command": "find /etc -name '*.conf' | cpio -ov > /tmp/confs.cpio; cpio -it < /tmp/confs.cpio | head -n 3", "output": "/etc/host.conf\n/etc/resolv.conf\n2 blocks\n/etc/host.conf\n/etc/resolv.conf"}, "options": [{"flag": "-o, --create", "desc": "🎯 Modo Copia-Salida (Copy-out): lee una lista de rutas por stdin y genera el paquete por stdout."}, {"flag": "-i, --extract", "desc": "🎯 Modo Copia-Entrada (Copy-in): lee el archivo empaquetado por stdin y extrae sus ficheros."}, {"flag": "-p, --pass-through", "desc": "🎯 Modo Paso (Copy-pass): copia un árbol completo de directorios a otra ruta sin crear un archivo intermedio (ej: 'find . | cpio -pdum /backup')."}, {"flag": "-d, --make-directories", "desc": "Crea los directorios necesarios al extraer."}, {"flag": "-t, --list", "desc": "Lista el contenido del archivo cpio sin llegar a extraerlo."}, {"flag": "-v, --verbose", "desc": "Muestra los nombres de los archivos procesados."}], "remember": "🎯 Clave de Examen: cpio tiene 3 modos: '-o' para crear (empaquetar), '-i' para extraer (desempaquetar) y '-p' para copiar árboles en vuelo.", "notes": "Recuerda que cpio se usa internamente al arrancar Linux en las imágenes 'initramfs' y al extraer paquetes RPM con 'rpm2cpio'."}, {"id": 11, "section": "103.3", "cat": "files", "type": "command", "title": "Copia a Bajo Nivel por Bloques con dd", "lead": "¿Cómo clonar un disco duro entero, crear archivos vacíos de tamaño fijo o respaldar el MBR?", "ref": "277-279", "pdf": {"manual": "A", "pages": [277, 278, 279], "figure": null}, "coverage": ["103.3-CMD-011", "103.3-OPT-019", "103.3-OPT-020"], "command": "dd if=<origen> of=<destino> [bs=<bloque>] [count=<n>] [status=progress]", "purpose": "Copiar y convertir flujos de datos a bajo nivel respetando la estructura física de sectores", "terminal": {"command": "sudo dd if=/dev/sda of=/tmp/mbr_backup.bin bs=512 count=1 status=progress", "output": "512 bytes copied, 0.00012 s, 4.3 MB/s\n1+0 records in\n1+0 records out\n512 bytes copied"}, "options": [{"flag": "if=<archivo_o_dispositivo>", "desc": "🎯 Input File: ruta de entrada de los datos (ej: if=/dev/sda o if=/dev/zero)."}, {"flag": "of=<archivo_o_dispositivo>", "desc": "🎯 Output File: ruta de destino donde se escribirán los datos (ej: of=/dev/sdb o of=imagen.iso)."}, {"flag": "bs=<tamaño>", "desc": "🎯 Block Size: tamaño de cada bloque de lectura/escritura (ej: bs=512, bs=4k, bs=1M)."}, {"flag": "count=<N>", "desc": "🎯 Número total de bloques que se copiarán antes de detenerse (ej: count=1 copia solo un bloque de tamaño bs)."}, {"flag": "status=progress", "desc": "Muestra estadísticas de velocidad y porcentaje de progreso en tiempo real durante la copia."}, {"flag": "conv=sync,noerror", "desc": "🎯 Clave de Examen: 'noerror' continúa copiando aunque encuentre sectores defectuosos; 'sync' rellena los sectores con ceros si hay fallos."}], "remember": "🎯 Caso Típico de Examen: Para hacer una copia de seguridad del MBR físico del disco se usa: 'dd if=/dev/sda of=mbr.bin bs=512 count=1'.", "notes": "Advierte seriamente a los alumnos: un error tipográfico en 'of=' puede destruir por completo el disco duro del sistema ('dd' suele apodarse 'Disk Destroyer')."}, {"id": 12, "section": "103.3", "cat": "files", "type": "command", "title": "Identificación de Tipos de Contenido con file", "lead": "¿Por qué las extensiones de archivo no importan en Linux y cómo se detecta el formato real?", "ref": "279-280", "pdf": {"manual": "A", "pages": [279, 280], "figure": null}, "coverage": ["103.3-CMD-012", "103.3-OPT-021"], "command": "file [-b|-i|-z] <archivo>", "purpose": "Inspeccionar las firmas de cabecera (números mágicos) para determinar el tipo real de cualquier archivo", "terminal": {"command": "file /bin/ls /etc/passwd /tmp/backup.tar.gz", "output": "/bin/ls:            ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked\n/etc/passwd:        ASCII text\n/tmp/backup.tar.gz: gzip compressed data, from Unix, original size modulo 2^32 10240"}, "options": [{"flag": "file <archivo>", "desc": "Lee los primeros bytes del archivo consultando la base de datos mágica (/usr/share/misc/magic) para identificar su formato real."}, {"flag": "file -b, --brief", "desc": "🎯 Modo breve: omite el nombre del archivo al principio de la salida imprimiendo solo el tipo de formato."}, {"flag": "file -i, --mime", "desc": "🎯 Clave de Examen: Muestra el tipo MIME oficial del archivo (ej: 'text/plain; charset=us-ascii' o 'application/x-pie-executable')."}, {"flag": "file -z, --uncompress", "desc": "Intenta examinar el interior de archivos comprimidos para determinar qué tipo de datos albergan."}], "remember": "🎯 Clave de Examen: En Linux las extensiones (.txt, .exe, .sh) son puramente informativas para el usuario. El sistema operativo utiliza 'file' y los magic numbers de la cabecera para saber qué tipo de archivo es.", "notes": "Muestra que si renombras una foto 'foto.jpg' a 'foto.mp3', el comando 'file foto.mp3' sigue diciendo 'JPEG image data'."}, {"id": 13, "section": "103.3", "cat": "files", "type": "concept", "title": "Trampas Clásicas de Examen en Gestión de Archivos", "lead": "Los 4 errores que más puntos restan en las preguntas de administración de archivos:", "ref": "280", "pdf": {"manual": "A", "pages": [280], "figure": null}, "coverage": ["103.3-WARN-001", "103.3-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Posición del flag '-f' en el comando tar", "detail": "🎯 Trampa típica: 'tar -cfz archivo.tar'. ¡INCORRECTO! El flag '-f' exige que el argumento inmediato siguiente sea el nombre del archivo. Debe ser 'tar -czf archivo.tar.gz' o 'tar -cvf archivo.tar'."}, {"icon": "alert-triangle", "text": "2. Olvidar escapar el punto y coma en find -exec", "detail": "Si escribes 'find . -name '*.tmp' -exec rm {} ;', la shell se traga el punto y coma ';' como fin de línea y find dará error: 'find: missing argument to -exec'. Siempre debes escribir ' \\;'."}, {"icon": "alert-triangle", "text": "3. Diferencia entre cp -r y cp -a", "detail": "Si la pregunta pide 'crear una copia de seguridad conservando los permisos de usuario y enlaces simbólicos', responder 'cp -r' está mal. La respuesta correcta siempre es 'cp -a' o 'cp -p'."}, {"icon": "alert-triangle", "text": "4. Confundir los compresores en tar", "detail": "Recuerda: '-z' es gzip (.gz); '-j' (minúscula) es bzip2 (.bz2); '-J' (mayúscula) es xz (.xz). No los mezcles."}], "remember": "🎯 Mnemotecnia Rápida: En tar, '-f' siempre va pegado al nombre del archivo; en find, '-exec ... {} \\;' obligatorio; y para backups siempre 'cp -a'.", "notes": "Pide a los alumnos que anoten la posición de -f en sus cuadernos."}, {"id": 14, "section": "103.3", "cat": "files", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Jerarquías y Copia)", "ref": "Manual A - Pág 280", "pdf": {"manual": "A", "pages": [280], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 280): ¿Cuál es el comando exacto para crear de una sola vez la jerarquía de directorios '/tmp/backup/2026/octubre' asegurando que no dé error si alguna carpeta ya existe?", "command": "mkdir -p /tmp/backup/2026/octubre", "reason": "La opción -p (--parents) crea todas las carpetas intermedias necesarias en un solo paso y no genera errores si ya existían."}, {"action": "Caso 2 (Oficial Pág 280): ¿Qué comando copia recursivamente todo el directorio '/var/log' a '/tmp/log_backup' garantizando que se conserven exactamente los mismos propietarios, permisos y marcas temporales?", "command": "sudo cp -a /var/log /tmp/log_backup (o cp -dpR)", "reason": "La opción -a (--archive) preserva todos los atributos de archivos, propietarios, sellos de tiempo y enlaces simbólicos."}, {"action": "Caso 3 (Oficial Pág 280): ¿Cómo puedes actualizar la fecha de modificación del archivo 'version.h' a una fecha arbitraria (ej: 1 de enero de 2026 a las 10:00)?", "command": "touch -t 202601011000 version.h", "reason": "La opción -t de touch permite forzar una marca temporal manual en formato [[CC]YY]MMDDhhmm."}], "solution": {"explain": "mkdir -p resuelve árboles completos; cp -a garantiza la fidelidad de copias de seguridad administrativas; y touch -t manipula marcas temporales."}, "notes": "Recuerda que cp -a requiere privilegios de superusuario para poder conservar propietarios de otros usuarios."}, {"id": 15, "section": "103.3", "cat": "files", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: find y tar)", "ref": "Manual A - Pág 280", "pdf": {"manual": "A", "pages": [280], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 280): Escribe el comando completo con 'find' para localizar todos los directorios (y solo directorios) dentro de '/home' que pertenezcan al usuario 'alumno'.", "command": "find /home -type d -user alumno", "reason": "-type d limita la búsqueda a carpetas; -user alumno filtra por el propietario especificado."}, {"action": "Caso 5 (Oficial Pág 280): ¿Qué comando empaqueta y comprime con 'bzip2' todo el contenido del directorio '/etc' guardándolo en '/tmp/etc.tar.bz2'?", "command": "sudo tar -cjvf /tmp/etc.tar.bz2 /etc", "reason": "La opción -c crea el paquete, -j activa la compresión bzip2, -v activa el modo detallado y -f especifica la ruta del archivo de salida."}], "solution": {"explain": "find permite combinaciones precisas de tipo y propietario; tar -j integra la compresión bzip2 de forma nativa."}, "notes": "Recuerda que para descomprimir ese archivo se usaría 'tar -xjvf /tmp/etc.tar.bz2'."}, {"id": 16, "section": "103.3", "cat": "files", "type": "challenge", "title": "Retos de Exploración Oficiales (find -exec, dd y MBR)", "ref": "Manual A - Págs 280-281", "pdf": {"manual": "A", "pages": [280, 281], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un administrador necesita buscar todos los archivos con extensión '.log' en '/var/log' que superen los 5 MB de tamaño y comprimirlos con gzip uno por uno usando find y -exec.\n2. ¿Qué comando con 'dd' permite clonar de forma idéntica los primeros 512 bytes del disco '/dev/sdb' (el Master Boot Record) al archivo '/backup/mbr.img'?\n3. ¿Cómo listarías los contenidos del archivo empaquetado '/root/backup.tar.xz' sin descomprimirlo ni extraer ningún fichero en el disco?", "hint": "Recuerda: find con -exec gzip {} \\;; dd con if=/dev/sdb of=... bs=512 count=1; y tar -tvf (o -tJf).", "solution": {"explain": "1. Se ejecuta: find /var/log -type f -name '*.log' -size +5M -exec gzip {} \\;\n2. Se ejecuta: sudo dd if=/dev/sdb of=/backup/mbr.img bs=512 count=1\n3. Se ejecuta: tar -tvf /root/backup.tar.xz (o tar -tJf /root/backup.tar.xz)."}, "notes": "La combinación de find con -exec gzip es un clásico de rotación de logs manual en tareas de mantenimiento."}, {"id": 17, "section": "103.3", "cat": "files", "type": "review", "title": "Pregunta de Examen LPIC-1: Búsqueda y Ejecución con find", "q": "¿Cuál es la sintaxis correcta del comando 'find' para buscar todos los archivos que terminen en '.bak' en el directorio actual y eliminarlos de forma automática mediante la acción -exec?", "options": ["find . -name '*.bak' -exec rm () ;", "find . -name '*.bak' -exec rm {} \\;", "find . -name '*.bak' -exec rm [] \\;", "find . -name *.bak -exec rm {} ;"], "answer": 1, "why": "En la opción -exec de 'find', la pareja de llaves vacías '{}' representa el marcador de posición donde se inyecta cada ruta de archivo encontrada, y la secuencia ' \\;' (barra invertida y punto y coma) escapa el delimitador de finalización del comando para que la shell no lo interprete antes de tiempo.", "notes": "Pregunta imprescindible de examen. La sintaxis de -exec debe ser automática para cualquier alumno."}, {"id": 18, "section": "103.3", "cat": "files", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Gestión de Archivos 103.3", "deck": [{"front": "¿Qué comando y opción crea carpetas padre intermedias automáticamente?", "back": "mkdir -p /ruta/completa."}, {"front": "¿Qué opción de 'cp' preserva todos los atributos originales (modo archivador)?", "back": "cp -a (o cp -p)."}, {"front": "¿Qué opción de 'ls' muestra la información del directorio en sí y no de su interior?", "back": "ls -d (habitualmente combinado como ls -ld)."}, {"front": "¿Qué opción de 'find' filtra exclusivamente archivos ordinarios y cuál directorios?", "back": "-type f para archivos; -type d para directorios."}, {"front": "¿Cómo termina obligatoriamente la cláusula '-exec' en el comando find?", "back": "Termina con: {} \\; (llaves, espacio, barra invertida y punto y coma)."}, {"front": "¿Qué banderas de 'tar' corresponden a gzip, bzip2 y xz respectivamente?", "back": "-z (gzip), -j (bzip2) y -J mayúscula (xz)."}, {"front": "¿Qué comando con 'dd' copia los 512 bytes del MBR de un disco?", "back": "dd if=/dev/sda of=mbr.bin bs=512 count=1."}, {"front": "¿Qué comando determina el tipo real de un archivo sin importar su extensión?", "back": "file <archivo>."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.3."}, {"id": 19, "section": "103.3", "cat": "files", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.3", "takeaways": ["Operaciones Básicas: ls -ld para carpetas, mkdir -p para jerarquías, cp -a para preservar atributos de backup, touch -t para forzar marcas de tiempo.", "Comodines Globbing: * (cero o más), ? (exactamente uno), [a-z] (rango), {1..10} (expansión de llaves de shell).", "Buscador find: -name con comillas, -type (f, d, l), -size (+10M), -mtime, y ejecución de comandos con -exec cmd {} \\; o purgado con -delete.", "Empaquetado y Bloques: tar -c (crear), -x (extraer), -t (listar) con -z (gzip), -j (bzip2), -J (xz); cpio (-o, -i, -p); dd (if=, of=, bs=, count=) y file para detectar magic numbers."], "top3": [{"cmd": "find / -name '*.conf' -type f", "desc": "Busca archivos de configuración en todo el sistema de ficheros."}, {"cmd": "tar -czvf backup.tar.gz /ruta", "desc": "Empaqueta y comprime un directorio con gzip de forma interactiva."}, {"cmd": "cp -a origen destino", "desc": "Copia un árbol preservando dueños, permisos, fechas y enlaces simbólicos."}], "practice": {"name": "Practica 103.3: Gestión Básica de Archivos, Compresión y Empaquetado", "url": "../practicas/p-103-3-gestion-archivos.html", "desc": "Copia, mueve y organiza árboles de archivos con cp, mv, mkdir y rm; crea y analiza paquetes comprimidos con tar (gzip, bzip2, xz) y utiliza cpio y dd."}, "notes": "Concluimos el subtema 103.3. Los alumnos dominan ahora la administración básica de archivos en Linux."}];
+    const SLIDES = [{"id": 1, "section": "103.3", "cat": "files", "type": "cover", "title": "Administración básica de archivos", "subtitle": "ls, touch, cp, mv, rm, mkdir, comodines globbing, find, tar, cpio, dd y file (Modo Examen)", "ref": "247-248", "pdf": {"manual": "A", "pages": [247, 248], "figure": null}, "coverage": ["103.3-OBJ-001", "103.3-OBJ-002", "103.3-OBJ-003", "103.3-OBJ-004"], "meta": {"peso": 4, "paginas": "247–280", "duracion": "30 min"}, "icon": "folder", "notes": "Iniciamos el subtema 103.3 (peso 4). La gestión de archivos y directorios es una competencia nuclear. Analizaremos operaciones básicas (copia, borrado, movimiento), comodines avanzados (globbing), el potente buscador find, empaquetado con tar y cpio, y clonación por bloques con dd."}, {"id": 2, "section": "103.3", "cat": "files", "type": "diagram", "title": "Anatomía del Sistema de Ficheros: El Inodo y el Directorio", "lead": "El nombre de un archivo NO reside en su inodo; reside en la tabla del directorio padre:", "ref": "248-250", "pdf": {"manual": "A", "pages": [248, 249, 250], "figure": null}, "coverage": ["103.3-CON-001"], "points": [{"icon": "corner-down-right", "text": "Rutas Absolutas frente a Rutas Relativas", "detail": "🎯 Una ruta absoluta empieza SIEMPRE por la raíz '/' y es idéntica desde cualquier lugar (ej: /var/log/syslog). Una ruta relativa depende del directorio actual de trabajo (ej: ../etc/hosts o doc/guia.txt)."}, {"icon": "database", "text": "El Inodo (Nodo de Índice): La identidad del archivo", "detail": "🎯 Clave de Examen: El nombre del archivo NO reside en el inodo. El inodo almacena los metadatos: permisos, propietario UID, grupo GID, tamaño, marcas de tiempo y punteros a los bloques de datos. Se visualiza con 'ls -i'."}, {"icon": "file-text", "text": "Tipos de Archivos Básicos en Linux", "detail": "Ordinarios (-), directorios (d), enlaces simbólicos (l), dispositivos de bloque (b), de carácter (c), sockets (s) y tuberías con nombre (p)."}], "remember": "🎯 Clave de Examen: El inodo contiene permisos, propietario, tamaño y punteros a bloques, pero NO el nombre del archivo (reside en el directorio).", "notes": "Muestra que 'ls -i' imprime el número de inodo de cada fichero en el sistema.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:14px; padding:18px 24px; margin:14px 0;\">\n  <div style=\"font-size:15.5px; font-weight:800; color:var(--text); margin-bottom:12px;\">\n    📁 Relación Estructural entre la Entrada de Directorio y el Inodo:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1.6fr 1.4fr; gap:16px; font-size:13px; align-items:stretch;\">\n    <!-- Entrada de Directorio -->\n    <div style=\"background:#EFF6FF; border:2px solid #93C5FD; border-radius:10px; padding:12px;\">\n      <div style=\"background:#2563EB; color:#FFF; font-weight:800; font-size:12px; padding:3px 8px; border-radius:4px; text-align:center; margin-bottom:8px;\">\n        DIRECTORIO PADRE\n      </div>\n      <div style=\"line-height:1.6; color:#1E3A8A;\">\n        <strong>Tabla de Nombres:</strong><br>\n        <code>informe.txt → Inodo #4012</code><br>\n        <code>backup.sh   → Inodo #4013</code><br>\n        <span style=\"font-size:12px; color:#475569; margin-top:6px; display:block;\">\n          💡 El directorio solo asocia una cadena de texto (nombre) a un número entero (inodo).\n        </span>\n      </div>\n    </div>\n\n    <!-- El Inodo -->\n    <div style=\"background:#FEF3C7; border:2px solid #F59E0B; border-radius:10px; padding:12px;\">\n      <div style=\"background:#D97706; color:#FFF; font-weight:800; font-size:12px; padding:3px 8px; border-radius:4px; text-align:center; margin-bottom:8px;\">\n        INODO #4012 (Metadatos)\n      </div>\n      <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:6px; font-size:12px; color:#78350F;\">\n        <div>• <strong>Tipo:</strong> Fichero (-)</div>\n        <div>• <strong>Permisos:</strong> 0644</div>\n        <div>• <strong>Dueño:</strong> UID 1000</div>\n        <div>• <strong>Grupo:</strong> GID 1000</div>\n        <div>• <strong>Tamaño:</strong> 4.096 bytes</div>\n        <div>• <strong>Enlaces:</strong> 1 (nlink)</div>\n        <div>• <strong>Marcas:</strong> atime, mtime</div>\n        <div>• <strong>Punteros:</strong> Bloques 501, 502</div>\n      </div>\n      <div style=\"margin-top:8px; background:#FDE68A; padding:4px 8px; border-radius:4px; font-size:11.5px; font-weight:700; color:#92400E; text-align:center;\">\n        ❌ ¡EL NOMBRE DEL ARCHIVO NO ESTÁ AQUÍ!\n      </div>\n    </div>\n\n    <!-- Bloques de Datos -->\n    <div style=\"background:#F0FDF4; border:2px solid #86EFAC; border-radius:10px; padding:12px;\">\n      <div style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:12px; padding:3px 8px; border-radius:4px; text-align:center; margin-bottom:8px;\">\n        BLOQUES DE DATOS EN DISCO\n      </div>\n      <div style=\"line-height:1.6; color:#14532D; font-size:12.5px;\">\n        <strong>Sectores físicos:</strong><br>\n        • Bloque 501: [Contenido...] (4 KB)<br>\n        • Bloque 502: [Contenido...] (4 KB)<br>\n        <span style=\"font-size:12px; color:#15803D; margin-top:6px; display:block;\">\n          Aquí se almacena el contenido real escrito por el usuario.\n        </span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"margin-top:12px; padding:8px 14px; background:#F8FAFC; border-left:4px solid #3B82F6; border-radius:4px; font-size:13px; color:#1E3A8A;\">\n    🎯 <strong>REGLA DE ORO DE EXAMEN:</strong> 'ls -i' muestra el inodo. Renombrar un archivo (<code>mv a b</code> en el mismo filesystem) solo modifica la tabla del directorio, sin tocar el inodo ni mover un solo byte de datos.\n  </div>\n</div>\n"}, {"id": 3, "section": "103.3", "cat": "files", "type": "command", "title": "Inspección y Listado Detallado con ls", "lead": "La herramienta más ejecutada en Linux y sus opciones clave para el examen:", "ref": "250-254", "pdf": {"manual": "A", "pages": [250, 251, 252, 253, 254], "figure": null}, "coverage": ["103.3-CMD-001", "103.3-OPT-001", "103.3-OPT-002", "103.3-OPT-003"], "command": "ls [-l|-a|-h|-R|-t|-S|-d|-i] [ruta]", "purpose": "Listar contenidos de directorios mostrando permisos, propietarios, tamaños y marcas de tiempo", "terminal": {"command": "ls -lhd /etc /var; ls -la /root | head -n 3", "output": "drwxr-xr-x 135 root root 12K Oct 20 09:30 /etc\ndrwxr-xr-x  14 root root 4.0K Oct 18 10:15 /var\ntotal 28\ndrwx------  4 root root 4096 Oct 20 09:15 .\ndrwxr-xr-x 18 root root 4096 Oct 18 10:00 .."}, "options": [{"flag": "-l", "desc": "🎯 Formato largo (Long): tipo de archivo, 9 permisos, enlaces, propietario, grupo, tamaño, fecha y nombre."}, {"flag": "-a, --all", "desc": "🎯 Clave de Examen: Muestra TODOS los archivos, incluidos los ocultos que comienzan por punto (.) y los directorios '.' y '..'"}, {"flag": "-A, --almost-all", "desc": "Muestra archivos ocultos pero omite deliberadamente los directorios '.' y '..'"}, {"flag": "-h, --human-readable", "desc": "Muestra tamaños en formato legible para humanos (K, M, G) junto con la opción -l."}, {"flag": "-d, --directory", "desc": "🎯 Clave de Examen: Lista el directorio en sí mismo como un objeto, en lugar de listar su contenido interno (ej: 'ls -ld /etc')."}, {"flag": "-R, --recursive", "desc": "Lista recursivamente todos los subdirectorios y sus contenidos."}, {"flag": "-t / -S", "desc": "'-t' ordena por fecha de modificación (los más recientes primero); '-S' ordena por tamaño de archivo (los más grandes primero)."}, {"flag": "-i, --inode", "desc": "🎯 Imprime el número de inodo de cada archivo en la primera columna."}], "remember": "🎯 Clave de Examen: 'ls -d' lista las propiedades del directorio en lugar de su contenido; 'ls -a' muestra ficheros ocultos (que empiezan por '.').", "notes": "Muestra a la clase la diferencia radical entre 'ls /etc' (cientos de líneas) y 'ls -ld /etc' (exactamente 1 línea)."}, {"id": 4, "section": "103.3", "cat": "files", "type": "command", "title": "Creación, Marcas Temporales y Directorios: touch y mkdir", "lead": "¿Cómo crear archivos vacíos, actualizar fechas y estructurar jerarquías completas?", "ref": "254-257", "pdf": {"manual": "A", "pages": [254, 255, 256, 257], "figure": null}, "coverage": ["103.3-CMD-002", "103.3-CMD-003", "103.3-CMD-004", "103.3-OPT-004", "103.3-OPT-005"], "command": "touch [-a|-m|-t|-c] <archivo> | mkdir [-p|-m] <dir> | rmdir [-p] <dir>", "purpose": "Crear ficheros vacíos, manipular fechas de acceso/modificación y crear o borrar árboles de carpetas", "terminal": {"command": "mkdir -p /tmp/proy/v1/src; touch -t 202610201200 /tmp/proy/v1/src/main.c; ls -l /tmp/proy/v1/src", "output": "-rw-r--r-- 1 alumno alumno 0 Oct 20 12:00 main.c"}, "options": [{"flag": "touch <archivo>", "desc": "Crea el archivo vacío si no existe; si ya existe, actualiza sus marcas de acceso y modificación al momento actual."}, {"flag": "touch -c, --no-create", "desc": "No crea el archivo si no existe; solo actualiza fechas si ya está presente en el disco."}, {"flag": "touch -a / -m", "desc": "'-a' modifica solo la fecha de acceso (atime); '-m' modifica solo la fecha de modificación de datos (mtime)."}, {"flag": "touch -t [[CC]YY]MMDDhhmm[.ss]", "desc": "🎯 Clave de Examen: Fija una fecha y hora específica manual en el archivo."}, {"flag": "mkdir -p, --parents", "desc": "🎯 Clave de Examen: Crea los directorios padre intermedios necesarios si no existen sin dar error si ya existían."}, {"flag": "mkdir -m <modo>", "desc": "Establece los permisos octales al crear la carpeta (ej: mkdir -m 700 secreta)."}, {"flag": "rmdir [-p] <dir>", "desc": "🎯 Elimina directorios ÚNICAMENTE si están completamente vacíos (falla si contienen archivos)."}], "remember": "🎯 Clave de Examen: 'mkdir -p a/b/c' crea toda la ruta jerárquica de un solo golpe sin dar error si alguna carpeta ya existía.", "notes": "Recuerda que 'rmdir' es un comando defensivo: nunca borrará un directorio que tenga datos dentro."}, {"id": 5, "section": "103.3", "cat": "files", "type": "command", "title": "Copia, Movimiento y Borrado Seguro: cp, mv y rm", "lead": "Manipular archivos y preservar atributos esenciales como permisos y marcas de tiempo:", "ref": "257-261", "pdf": {"manual": "A", "pages": [257, 258, 259, 260, 261], "figure": null}, "coverage": ["103.3-CMD-005", "103.3-CMD-006", "103.3-CMD-007", "103.3-OPT-006", "103.3-OPT-007"], "command": "cp [-r|-p|-a|-u|-i] | mv [-i|-u|-f] | rm [-r|-f|-i]", "purpose": "Duplicar archivos o árboles, renombrar, trasladar y eliminar elementos del sistema de archivos", "terminal": {"command": "cp -p /etc/hosts /tmp/hosts_copia; mv /tmp/hosts_copia /tmp/hosts_renombrado; rm -f /tmp/hosts_renombrado", "output": "# Operaciones ejecutadas con éxito en silencio (código de retorno 0)."}, "options": [{"flag": "cp -r, -R", "short": "Recursivo estándar", "desc": "🎯 Copia carpetas y contenidos, pero reasigna la propiedad al usuario actual y actualiza marcas temporales."}, {"flag": "cp -p", "short": "Preservar atributos", "desc": "🎯 Preserva permisos, propietario, grupo y fechas de modificación originales."}, {"flag": "cp -a", "short": "Modo archivo (-dpR)", "desc": "🎯 Clave de Examen: Equivale a -dpR. Modo backup perfecto: preserva enlaces simbólicos y todos los atributos."}, {"flag": "cp -u / mv -u", "short": "Actualizar (update)", "desc": "Solo copia/mueve si el origen es más reciente que el destino."}, {"flag": "mv origen dest", "short": "Mover o renombrar", "desc": "Mueve a otro directorio o renombra en el mismo directorio (sin duplicar datos)."}, {"flag": "rm -rf", "short": "Borrado forzado", "desc": "🎯 -r borra recursivamente carpetas; -f fuerza sin pedir confirmación."}], "remember": "🎯 Diferencia Crítica de Examen: 'cp -r' copia contenido recursivo pero reasigna los permisos al usuario que copia; 'cp -a' o 'cp -p' conserva los permisos y dueños originales.", "notes": "Alerta de examen: al hacer backups de sistemas de archivos siempre se debe usar 'cp -a' para no alterar los permisos de /etc ni /home.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    ⚖️ Comparativa Crítica para Backups: <code>cp -r</code> frente a <code>cp -a</code>:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:12.5px;\">\n    <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#991B1B; font-size:13.5px;\">❌ cp -r /var/log /tmp/backup</strong><br>\n      • <strong>Dueño:</strong> Se cambia al usuario que ejecuta la copia.<br>\n      • <strong>Sellos de tiempo:</strong> Se actualizan al momento actual.<br>\n      • <strong>Enlaces simbólicos:</strong> Los sigue y copia el archivo real (duplica espacio).<br>\n      <span style=\"color:#7F1D1D; font-weight:700;\">¡NO sirve para copias de seguridad del sistema!</span>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">✅ cp -a /var/log /tmp/backup (o cp -dpR)</strong><br>\n      • <strong>Dueño:</strong> Preserva exactamente el UID y GID originales.<br>\n      • <strong>Sellos de tiempo:</strong> Conserva las fechas exactas de creación/modificación.<br>\n      • <strong>Enlaces simbólicos:</strong> Preserva los enlaces como enlaces (sin duplicar).<br>\n      <span style=\"color:#166534; font-weight:700;\">¡Opción estándar obligatoria para backups administrativos!</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 6, "section": "103.3", "cat": "files", "type": "concept", "title": "Comodines de Shell (Globbing) y Expansión de Llaves", "lead": "¿Cómo seleccionar múltiples archivos mediante patrones sin necesidad de nombrarlos uno a uno?", "ref": "261-264", "pdf": {"manual": "A", "pages": [261, 262, 263, 264], "figure": null}, "coverage": ["103.3-CON-002"], "points": [{"icon": "asterisk", "text": "El asterisco (*): Cero o más caracteres", "detail": "Coincide con cualquier cadena de texto de cualquier longitud (ej: '*.txt' coincide con 'a.txt', 'informe.txt' y '.txt'). No coincide con archivos ocultos a menos que se use '.*'."}, {"icon": "help-circle", "text": "La interrogación (?): Exactamente UN solo carácter", "detail": "🎯 Coincide con exactamente un carácter individual cualquiera (ej: 'archivo?.log' coincide con 'archivo1.log' pero no con 'archivo10.log')."}, {"icon": "brackets", "text": "Corchetes ([...]) y Negación ([!...]): Conjuntos y rangos", "detail": "🎯 '[0-9]' coincide con un dígito; '[a-z]' con una letra; '[!0-9]' o '[^0-9]' coincide con cualquier carácter que NO sea un dígito."}, {"icon": "layers", "text": "Expansión de Llaves ({...}): Generación de cadenas", "detail": "🎯 No busca en disco, genera combinaciones (ej: 'touch file_{1..3}.txt' crea file_1.txt, file_2.txt y file_3.txt de golpe)."}], "remember": "🎯 Clave de Examen: Globbing lo expande la SHELL antes de llamar al comando. Si escribes 'ls *.c', el comando 'ls' recibe la lista ya expandida.", "notes": "Muestra la diferencia entre comodines globbing de shell (esta slide) y expresiones regulares (tema 103.7).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:14px 20px; margin-top:14px;\">\n  <div style=\"font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🔍 ¿Cómo Funciona el Globbing de la Shell? (Expansión Previa):\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:13px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px 14px; flex:1;\">\n      <strong style=\"color:#1E40AF;\">1. Usuario teclea:</strong><br>\n      <code>rm *.log</code>\n    </div>\n\n    <span style=\"font-size:18px; color:#2563EB; font-weight:900; margin:0 10px;\">→</span>\n\n    <div style=\"background:#FEF3C7; border:1px solid #F59E0B; border-radius:8px; padding:10px 14px; flex:1.4;\">\n      <strong style=\"color:#B45309;\">2. La Shell Busca en Disco:</strong><br>\n      Expande <code>*.log</code> a:<br>\n      <code>access.log error.log auth.log</code>\n    </div>\n\n    <span style=\"font-size:18px; color:#2563EB; font-weight:900; margin:0 10px;\">→</span>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px; flex:1.4;\">\n      <strong style=\"color:#15803D;\">3. Ejecución del Comando:</strong><br>\n      <code>rm</code> recibe 3 argumentos directos:<br>\n      <code>rm access.log error.log auth.log</code>\n    </div>\n  </div>\n\n  <div style=\"margin-top:12px; display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; font-size:12px;\">\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; padding:6px 10px; border-radius:6px;\">\n      <code>*</code> : Cero o más caracteres cualesquiera.\n    </div>\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; padding:6px 10px; border-radius:6px;\">\n      <code>?</code> : Exactamente 1 solo carácter individual.\n    </div>\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; padding:6px 10px; border-radius:6px;\">\n      <code>[a-z] / [!0-9]</code> : Rangos o conjuntos negados.\n    </div>\n  </div>\n</div>\n"}, {"id": 7, "section": "103.3", "cat": "files", "type": "command", "title": "Búsqueda Exhaustiva con find: Nombres, Tipos y Tamaños", "lead": "El motor de rastreo más potente de Linux recorriendo el árbol en tiempo real:", "ref": "264-268", "pdf": {"manual": "A", "pages": [264, 265, 266, 267, 268], "figure": null}, "coverage": ["103.3-CMD-008", "103.3-OPT-008", "103.3-OPT-009", "103.3-OPT-010"], "command": "find [ruta] -name|-iname <patrón> -type <tipo> -size <tamaño>", "purpose": "Localizar archivos y directorios según criterios de atributos, tipo o tamaño en disco", "terminal": {"command": "find /etc -maxdepth 1 -name '*.conf' | head -n 3; find /var/log -type f -size +10M", "output": "/etc/host.conf\n/etc/resolv.conf\n/etc/sysctl.conf\n/var/log/journal/system.journal"}, "options": [{"flag": "find <ruta>", "short": "Ruta de inicio", "desc": "Punto de inicio recursivo (por defecto '.' directorio actual)."}, {"flag": "-name '<patrón>'", "short": "Por nombre exacto", "desc": "🎯 Busca por nombre (case-sensitive). ¡Siempre entrecomillar comodines!"}, {"flag": "-iname '<patrón>'", "short": "Ignorar mayúsculas", "desc": "Búsqueda case-insensitive (coincide con .LOG, .log, .Log)."}, {"flag": "-type [f|d|l]", "short": "Por tipo de nodo", "desc": "🎯 Clave de Examen: 'f' = fichero ordinario, 'd' = directorio, 'l' = symlink."}, {"flag": "-size [+|-]N[k|M|G]", "short": "Por tamaño en disco", "desc": "🎯 Clave de Examen: '+10M' = mayor de 10 MB, '-500k' = menor de 500 KB, '100c' = 100 bytes."}, {"flag": "-maxdepth N", "short": "Profundidad máxima", "desc": "Limita los niveles de subcarpetas a inspeccionar (ej: -maxdepth 1)."}], "remember": "🎯 Clave de Examen: '-type f' busca ficheros; '-type d' busca carpetas; '-size +100M' busca archivos que superen los 100 Megabytes.", "notes": "Alerta a los alumnos: nunca ejecutes 'find . -name *.log' sin comillas, porque la shell expandirá *.log antes de tiempo provocando un error de sintaxis si hay más de 1 log en el directorio actual.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🧩 Anatomía de un Comando <code>find</code> Estándar:\n  </div>\n\n  <div style=\"background:#0F172A; color:#F8FAFC; padding:8px 14px; border-radius:8px; font-family:monospace; font-size:15px; display:flex; gap:14px;\">\n    <span style=\"color:#38BDF8; font-weight:800;\">find</span>\n    <span style=\"color:#A78BFA;\">/var/log</span>\n    <span style=\"color:#F43F5E;\">-type f</span>\n    <span style=\"color:#4ADE80;\">-name '*.log'</span>\n    <span style=\"color:#FDE047;\">-size +10M</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; margin-top:8px; font-size:12px;\">\n    <div style=\"background:#F5F3FF; border:1px solid #DDD6FE; padding:6px; border-radius:6px;\">\n      <strong style=\"color:#6D28D9;\">/var/log:</strong><br>Punto de partida recursivo.\n    </div>\n    <div style=\"background:#FFF1F2; border:1px solid #FECDD3; padding:6px; border-radius:6px;\">\n      <strong style=\"color:#BE123C;\">-type f:</strong><br>Solo ficheros (no carpetas ni sockets).\n    </div>\n    <div style=\"background:#ECFDF5; border:1px solid #A7F3D0; padding:6px; border-radius:6px;\">\n      <strong style=\"color:#047857;\">-name '*.log':</strong><br>Nombre entrecomillado.\n    </div>\n    <div style=\"background:#FEFCE8; border:1px solid #FEF08A; padding:6px; border-radius:6px;\">\n      <strong style=\"color:#A16207;\">-size +10M:</strong><br>Tamaño superior a 10 MB.\n    </div>\n  </div>\n</div>\n"}, {"id": 8, "section": "103.3", "cat": "files", "type": "command", "title": "find Avanzado: Marcas Temporales, Usuarios y -exec", "lead": "¿Cómo encontrar archivos modificados recientemente y ejecutar acciones automáticas sobre ellos?", "ref": "268-272", "pdf": {"manual": "A", "pages": [268, 269, 270, 271, 272], "figure": null}, "coverage": ["103.3-CMD-008", "103.3-OPT-011", "103.3-OPT-012", "103.3-OPT-013"], "command": "find <ruta> -mtime|-user|-perm -exec <cmd> {} \\;", "purpose": "Filtrar por metadatos temporales y disparar acciones directas sobre cada resultado", "terminal": {"command": "find /tmp -type f -mtime +7 -delete; find /var/log -name '*.log' -exec ls -lh {} \\; | head -n 2", "output": "-rw-r--r-- 1 root root 45K Oct 20 09:00 /var/log/dpkg.log\n-rw-r----- 1 root adm  120K Oct 20 09:30 /var/log/auth.log"}, "options": [{"flag": "-mtime [+|-]N", "short": "Modificación en días", "desc": "🎯 '-mtime -2' = últimas 48h; '+7' = hace más de 7 días."}, {"flag": "-mmin [+|-]N", "short": "Modificación en minutos", "desc": "'-mmin -60' = modificado en la última hora."}, {"flag": "-user / -group", "short": "Por propietario/grupo", "desc": "Filtra por usuario o grupo dueño del archivo."}, {"flag": "-exec <cmd> {} \\;", "short": "Ejecutar comando (uno a uno)", "desc": "🎯 Clave Absoluta de Examen: Ejecuta <cmd> por cada archivo. Requiere '{}' y fin con ' \\;'."}, {"flag": "-exec <cmd> {} +", "short": "Ejecutar en bloque", "desc": "Pasa todos los archivos juntos en bloque (más eficiente)."}, {"flag": "-delete", "short": "Borrado directo", "desc": "🎯 Elimina directamente los ficheros encontrados sin invocar rm."}], "remember": "🎯 Sintaxis Innegociable de Examen: 'find /dir -type f -exec rm {} \\;'. Las llaves '{}' representan cada archivo; '\\;' escapa el delimitador de fin de comando.", "notes": "Esta sintaxis '-exec ... {} \\;' aparece en 9 de cada 10 exámenes LPIC-1.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    ⚙️ Desglose Obligatorio de Examen: <code>-exec &lt;comando&gt; {} \\;</code>:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:12.5px;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#1E40AF; font-size:13.5px;\">Las Llaves Vacías <code>{}</code>:</strong><br>\n      Representan el <strong>marcador de posición</strong> que <code>find</code> sustituye dinámicamente por la ruta de cada archivo encontrado.<br>\n      <em>Ejemplo: <code>rm /tmp/a.tmp</code>, luego <code>rm /tmp/b.tmp</code>.</em>\n    </div>\n\n    <div style=\"background:#FEF3C7; border:1px solid #FCD34D; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#B45309; font-size:13.5px;\">El Escape <code>\\;</code> (Barra y Punto y Coma):</strong><br>\n      Indica a <code>find</code> dónde termina la invocación del comando secundario.<br>\n      <span style=\"color:#92400E; font-weight:700;\">¡La barra invertida '\\' es obligatoria para que la Shell no interprete ';' como fin de línea!</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "103.3", "cat": "files", "type": "command", "title": "Empaquetado y Compresión con tar", "lead": "El Tape Archive tradicional de Unix y su integración moderna con compresores:", "ref": "272-275", "pdf": {"manual": "A", "pages": [272, 273, 274, 275], "figure": null}, "coverage": ["103.3-CMD-009", "103.3-OPT-014", "103.3-OPT-015", "103.3-OPT-016"], "command": "tar -[c|x|t][v][f archivo.tar] [-z|-j|-J] [rutas]", "purpose": "Crear, listar o extraer paquetes de archivos preservando permisos y directorios", "terminal": {"command": "tar -czvf /tmp/backup.tar.gz /etc/hosts /etc/issue; tar -tvf /tmp/backup.tar.gz", "output": "tar: Removing leading `/' from member names\n/etc/hosts\n/etc/issue\n-rw-r--r-- root/root       250 2026-10-20 09:00 etc/hosts\n-rw-r--r-- root/root        30 2026-10-20 09:00 etc/issue"}, "options": [{"flag": "-c / -x / -t", "short": "Crear / Extraer / Listar", "desc": "🎯 -c crea nuevo tar; -x extrae contenido; -t lista archivos sin extraer."}, {"flag": "-f <archivo>", "short": "Nombre del tar (obligatorio)", "desc": "🎯 ¡OBLIGATORIO! Especifica el archivo. Debe ir pegado justo antes del nombre."}, {"flag": "-z, --gzip", "short": "gzip (.tar.gz / .tgz)", "desc": "🎯 Compresión rápida y ligera estándar en Unix."}, {"flag": "-j, --bzip2", "short": "bzip2 (.tar.bz2 / .tbz2)", "desc": "🎯 Mayor compresión que gzip, pero requiere más tiempo de CPU."}, {"flag": "-J, --xz", "short": "xz (.tar.xz)", "desc": "🎯 Máxima compresión moderna con algoritmos LZMA2."}, {"flag": "-C <dir>", "short": "Directorio destino", "desc": "🎯 Cambia al directorio indicado antes de extraer (ej: tar -xf a.tar -C /opt/)."}], "remember": "🎯 Tabla de Banderas de Compresión de Examen: '-z' = gzip (.tar.gz); '-j' = bzip2 (.tar.bz2); '-J' = xz (.tar.xz). Operaciones: '-c' crear, '-x' extraer, '-t' listar.", "notes": "Pide a los alumnos que asocien mentalmente: z = gzip, j = bzip2, J mayúscula = xz.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    📦 Matriz de Banderas de Compresión y Operación en <code>tar</code>:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; font-size:12.5px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:8px;\">\n      <strong style=\"color:#1E40AF; font-size:14px;\">-z (gzip)</strong><br>\n      <code>.tar.gz</code> o <code>.tgz</code><br>\n      <span style=\"color:#475569; font-size:11.5px;\">Rápido y compatible universal</span>\n    </div>\n\n    <div style=\"background:#FEF3C7; border:1px solid #FCD34D; border-radius:8px; padding:8px;\">\n      <strong style=\"color:#B45309; font-size:14px;\">-j (bzip2)</strong><br>\n      <code>.tar.bz2</code> o <code>.tbz2</code><br>\n      <span style=\"color:#475569; font-size:11.5px;\">Compresión equilibrada</span>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:8px;\">\n      <strong style=\"color:#15803D; font-size:14px;\">-J (xz) [Mayúscula]</strong><br>\n      <code>.tar.xz</code><br>\n      <span style=\"color:#475569; font-size:11.5px;\">Máxima tasa de compresión</span>\n    </div>\n  </div>\n\n  <div style=\"margin-top:10px; padding:8px 12px; background:#FEF2F2; border-left:4px solid #EF4444; border-radius:4px; font-size:12px; color:#991B1B;\">\n    ⚠️ <strong>REGLA DE SINTAXIS:</strong> <code>-f</code> SIEMPRE va pegado al nombre del archivo: <code>tar -czvf backup.tar.gz /etc</code> (¡si pones <code>tar -cfzv ...</code> dará error porque intentará abrir el archivo 'z'!).\n  </div>\n</div>\n"}, {"id": 10, "section": "103.3", "cat": "files", "type": "command", "title": "Empaquetado Flexible con cpio", "lead": "El archivador clásico que procesa flujos de ficheros desde tuberías:", "ref": "275-277", "pdf": {"manual": "A", "pages": [275, 276, 277], "figure": null}, "coverage": ["103.3-CMD-010", "103.3-OPT-017", "103.3-OPT-018"], "command": "cpio -o | -i | -p [opciones]", "purpose": "Archivar o restaurar listas de ficheros leídas desde la entrada estándar", "terminal": {"command": "find /etc -name '*.conf' | cpio -ov > /tmp/confs.cpio; cpio -it < /tmp/confs.cpio | head -n 3", "output": "/etc/host.conf\n/etc/resolv.conf\n2 blocks\n/etc/host.conf\n/etc/resolv.conf"}, "options": [{"flag": "cpio -o, --create", "short": "Modo empaquetar", "desc": "🎯 Copy-out: Lee rutas por stdin y genera el fichero archivador en stdout."}, {"flag": "cpio -i, --extract", "short": "Modo extraer", "desc": "🎯 Copy-in: Lee el archivador por stdin y extrae los ficheros en disco."}, {"flag": "cpio -p", "short": "Modo copiar en vuelo", "desc": "🎯 Pass-through: Copia árboles de archivos directamente a otro directorio."}, {"flag": "-d, --make-directories", "short": "Crear carpetas", "desc": "Crea directorios intermedios al restaurar los ficheros."}, {"flag": "-t, --list", "short": "Listar contenido", "desc": "Lista los ficheros del archivador sin extraerlos."}], "remember": "🎯 Clave de Examen: cpio tiene 3 modos: '-o' para crear (empaquetar), '-i' para extraer (desempaquetar) y '-p' para copiar árboles en vuelo.", "notes": "Recuerda que cpio se usa internamente al arrancar Linux en las imágenes 'initramfs' y al extraer paquetes RPM con 'rpm2cpio'.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🔄 Los 3 Modos Operativos de <code>cpio</code>:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; font-size:12.5px;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#1E40AF;\">-o (Copy-out / Crear):</strong><br>\n      <code>find . | cpio -ov &gt; arch.cpio</code><br>\n      <span style=\"color:#475569; font-size:11.5px;\">Genera el empaquetado a través de stdout.</span>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#15803D;\">-i (Copy-in / Extraer):</strong><br>\n      <code>cpio -idv &lt; arch.cpio</code><br>\n      <span style=\"color:#475569; font-size:11.5px;\">Extrae creando carpetas intermedias (-d).</span>\n    </div>\n\n    <div style=\"background:#FAF5FF; border:1px solid #D8B4FE; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#6B21A8;\">-p (Pass / En vuelo):</strong><br>\n      <code>find . | cpio -pdum /backup/</code><br>\n      <span style=\"color:#475569; font-size:11.5px;\">Copia directa sin fichero temporal.</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 11, "section": "103.3", "cat": "files", "type": "command", "title": "Copia a Bajo Nivel por Bloques con dd", "lead": "¿Cómo clonar un disco duro entero, crear archivos vacíos de tamaño fijo o respaldar el MBR?", "ref": "277-279", "pdf": {"manual": "A", "pages": [277, 278, 279], "figure": null}, "coverage": ["103.3-CMD-011", "103.3-OPT-019", "103.3-OPT-020"], "command": "dd if=<origen> of=<destino> [bs=<bloque>] [count=<n>] [status=progress]", "purpose": "Copiar y convertir flujos de datos a bajo nivel respetando la estructura física de sectores", "terminal": {"command": "sudo dd if=/dev/sda of=/tmp/mbr_backup.bin bs=512 count=1 status=progress", "output": "512 bytes copied, 0.00012 s, 4.3 MB/s\n1+0 records in\n1+0 records out\n512 bytes copied"}, "options": [{"flag": "if=<ruta>", "short": "Input File (origen)", "desc": "🎯 Fichero o dispositivo origen (ej: if=/dev/sda o if=/dev/zero)."}, {"flag": "of=<ruta>", "short": "Output File (destino)", "desc": "🎯 Fichero o dispositivo destino (ej: of=/dev/sdb o of=backup.img)."}, {"flag": "bs=<bytes>", "short": "Block Size (bloque)", "desc": "🎯 Tamaño de bloque (ej: bs=512, bs=4k, bs=1M)."}, {"flag": "count=<N>", "short": "Número de bloques", "desc": "🎯 Cantidad de bloques a copiar antes de detenerse (ej: count=1)."}, {"flag": "conv=sync,noerror", "short": "Tolerancia a fallos", "desc": "🎯 'noerror' continúa tras errores I/O; 'sync' rellena bloques dañados con ceros."}, {"flag": "status=progress", "short": "Barra de progreso", "desc": "Muestra velocidad y bytes copiados en tiempo real."}], "remember": "🎯 Caso Típico de Examen: Para hacer una copia de seguridad del MBR físico del disco se usa: 'dd if=/dev/sda of=mbr.bin bs=512 count=1'.", "notes": "Advierte seriamente a los alumnos: un error tipográfico en 'of=' puede destruir por completo el disco duro del sistema ('dd' suele apodarse 'Disk Destroyer').", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    💾 Respaldo y Restauración del MBR con <code>dd</code> (Primeros 512 Bytes):\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:12.5px;\">\n    <div style=\"background:#0F172A; color:#F8FAFC; padding:8px 12px; border-radius:6px; font-family:monospace; flex:1.2;\">\n      dd if=/dev/sda of=mbr.bin <span style=\"color:#FDE047;\">bs=512 count=1</span>\n    </div>\n    <span style=\"margin:0 10px; font-size:18px; color:#2563EB;\">→</span>\n    <div style=\"display:flex; gap:6px; flex:2;\">\n      <div style=\"background:#EFF6FF; border:1px solid #93C5FD; padding:6px 8px; border-radius:6px; flex:2; text-align:center;\">\n        <strong style=\"color:#1E40AF;\">446 Bytes</strong><br>\n        <span style=\"font-size:11px; color:#64748B;\">Código Bootloader</span>\n      </div>\n      <div style=\"background:#FEF3C7; border:1px solid #FCD34D; padding:6px 8px; border-radius:6px; flex:1.2; text-align:center;\">\n        <strong style=\"color:#B45309;\">64 Bytes</strong><br>\n        <span style=\"font-size:11px; color:#78350F;\">Tabla Particiones</span>\n      </div>\n      <div style=\"background:#F0FDF4; border:1px solid #86EFAC; padding:6px 8px; border-radius:6px; flex:1; text-align:center;\">\n        <strong style=\"color:#15803D;\">2 Bytes</strong><br>\n        <span style=\"font-size:11px; color:#14532D;\">Firma 0x55AA</span>\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 12, "section": "103.3", "cat": "files", "type": "command", "title": "Identificación de Tipos de Contenido con file", "lead": "¿Por qué las extensiones de archivo no importan en Linux y cómo se detecta el formato real?", "ref": "279-280", "pdf": {"manual": "A", "pages": [279, 280], "figure": null}, "coverage": ["103.3-CMD-012", "103.3-OPT-021"], "command": "file [-b|-i|-z] <archivo>", "purpose": "Inspeccionar las firmas de cabecera (números mágicos) para determinar el tipo real de cualquier archivo", "terminal": {"command": "file /bin/ls /etc/passwd /tmp/backup.tar.gz", "output": "/bin/ls:            ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked\n/etc/passwd:        ASCII text\n/tmp/backup.tar.gz: gzip compressed data, from Unix, original size modulo 2^32 10240"}, "options": [{"flag": "file <archivo>", "desc": "Lee los primeros bytes del archivo consultando la base de datos mágica (/usr/share/misc/magic) para identificar su formato real."}, {"flag": "file -b, --brief", "desc": "🎯 Modo breve: omite el nombre del archivo al principio de la salida imprimiendo solo el tipo de formato."}, {"flag": "file -i, --mime", "desc": "🎯 Clave de Examen: Muestra el tipo MIME oficial del archivo (ej: 'text/plain; charset=us-ascii' o 'application/x-pie-executable')."}, {"flag": "file -z, --uncompress", "desc": "Intenta examinar el interior de archivos comprimidos para determinar qué tipo de datos albergan."}], "remember": "🎯 Clave de Examen: En Linux las extensiones (.txt, .exe, .sh) son puramente informativas para el usuario. El sistema operativo utiliza 'file' y los magic numbers de la cabecera para saber qué tipo de archivo es.", "notes": "Muestra que si renombras una foto 'foto.jpg' a 'foto.mp3', el comando 'file foto.mp3' sigue diciendo 'JPEG image data'."}, {"id": 13, "section": "103.3", "cat": "files", "type": "concept", "title": "Trampas Clásicas de Examen en Gestión de Archivos", "lead": "Los 4 errores que más puntos restan en las preguntas de administración de archivos:", "ref": "280", "pdf": {"manual": "A", "pages": [280], "figure": null}, "coverage": ["103.3-WARN-001", "103.3-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Posición del flag '-f' en el comando tar", "detail": "🎯 Trampa típica: 'tar -cfz archivo.tar'. ¡INCORRECTO! El flag '-f' exige que el argumento inmediato siguiente sea el nombre del archivo. Debe ser 'tar -czf archivo.tar.gz' o 'tar -cvf archivo.tar'."}, {"icon": "alert-triangle", "text": "2. Olvidar escapar el punto y coma en find -exec", "detail": "Si escribes 'find . -name '*.tmp' -exec rm {} ;', la shell se traga el punto y coma ';' como fin de línea y find dará error: 'find: missing argument to -exec'. Siempre debes escribir ' \\;'."}, {"icon": "alert-triangle", "text": "3. Diferencia entre cp -r y cp -a", "detail": "Si la pregunta pide 'crear una copia de seguridad conservando los permisos de usuario y enlaces simbólicos', responder 'cp -r' está mal. La respuesta correcta siempre es 'cp -a' o 'cp -p'."}, {"icon": "alert-triangle", "text": "4. Confundir los compresores en tar", "detail": "Recuerda: '-z' es gzip (.gz); '-j' (minúscula) es bzip2 (.bz2); '-J' (mayúscula) es xz (.xz). No los mezcles."}], "remember": "🎯 Mnemotecnia Rápida: En tar, '-f' siempre va pegado al nombre del archivo; en find, '-exec ... {} \\;' obligatorio; y para backups siempre 'cp -a'.", "notes": "Pide a los alumnos que anoten la posición de -f en sus cuadernos."}, {"id": 14, "section": "103.3", "cat": "files", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Jerarquías y Copia)", "ref": "Manual A - Pág 280", "pdf": {"manual": "A", "pages": [280], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 280): ¿Cuál es el comando exacto para crear de una sola vez la jerarquía de directorios '/tmp/backup/2026/octubre' asegurando que no dé error si alguna carpeta ya existe?", "command": "mkdir -p /tmp/backup/2026/octubre", "reason": "La opción -p (--parents) crea todas las carpetas intermedias necesarias en un solo paso y no genera errores si ya existían."}, {"action": "Caso 2 (Oficial Pág 280): ¿Qué comando copia recursivamente todo el directorio '/var/log' a '/tmp/log_backup' garantizando que se conserven exactamente los mismos propietarios, permisos y marcas temporales?", "command": "sudo cp -a /var/log /tmp/log_backup (o cp -dpR)", "reason": "La opción -a (--archive) preserva todos los atributos de archivos, propietarios, sellos de tiempo y enlaces simbólicos."}, {"action": "Caso 3 (Oficial Pág 280): ¿Cómo puedes actualizar la fecha de modificación del archivo 'version.h' a una fecha arbitraria (ej: 1 de enero de 2026 a las 10:00)?", "command": "touch -t 202601011000 version.h", "reason": "La opción -t de touch permite forzar una marca temporal manual en formato [[CC]YY]MMDDhhmm."}], "solution": {"explain": "mkdir -p resuelve árboles completos; cp -a garantiza la fidelidad de copias de seguridad administrativas; y touch -t manipula marcas temporales."}, "notes": "Recuerda que cp -a requiere privilegios de superusuario para poder conservar propietarios de otros usuarios."}, {"id": 15, "section": "103.3", "cat": "files", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: find y tar)", "ref": "Manual A - Pág 280", "pdf": {"manual": "A", "pages": [280], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 280): Escribe el comando completo con 'find' para localizar todos los directorios (y solo directorios) dentro de '/home' que pertenezcan al usuario 'alumno'.", "command": "find /home -type d -user alumno", "reason": "-type d limita la búsqueda a carpetas; -user alumno filtra por el propietario especificado."}, {"action": "Caso 5 (Oficial Pág 280): ¿Qué comando empaqueta y comprime con 'bzip2' todo el contenido del directorio '/etc' guardándolo en '/tmp/etc.tar.bz2'?", "command": "sudo tar -cjvf /tmp/etc.tar.bz2 /etc", "reason": "La opción -c crea el paquete, -j activa la compresión bzip2, -v activa el modo detallado y -f especifica la ruta del archivo de salida."}], "solution": {"explain": "find permite combinaciones precisas de tipo y propietario; tar -j integra la compresión bzip2 de forma nativa."}, "notes": "Recuerda que para descomprimir ese archivo se usaría 'tar -xjvf /tmp/etc.tar.bz2'."}, {"id": 16, "section": "103.3", "cat": "files", "type": "challenge", "title": "Retos de Exploración Oficiales (find -exec, dd y MBR)", "ref": "Manual A - Págs 280-281", "pdf": {"manual": "A", "pages": [280, 281], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un administrador necesita buscar todos los archivos con extensión '.log' en '/var/log' que superen los 5 MB de tamaño y comprimirlos con gzip uno por uno usando find y -exec.\n2. ¿Qué comando con 'dd' permite clonar de forma idéntica los primeros 512 bytes del disco '/dev/sdb' (el Master Boot Record) al archivo '/backup/mbr.img'?\n3. ¿Cómo listarías los contenidos del archivo empaquetado '/root/backup.tar.xz' sin descomprimirlo ni extraer ningún fichero en el disco?", "hint": "Recuerda: find con -exec gzip {} \\;; dd con if=/dev/sdb of=... bs=512 count=1; y tar -tvf (o -tJf).", "solution": {"explain": "1. Se ejecuta: find /var/log -type f -name '*.log' -size +5M -exec gzip {} \\;\n2. Se ejecuta: sudo dd if=/dev/sdb of=/backup/mbr.img bs=512 count=1\n3. Se ejecuta: tar -tvf /root/backup.tar.xz (o tar -tJf /root/backup.tar.xz)."}, "notes": "La combinación de find con -exec gzip es un clásico de rotación de logs manual en tareas de mantenimiento."}, {"id": 17, "section": "103.3", "cat": "files", "type": "review", "title": "Pregunta de Examen LPIC-1: Búsqueda y Ejecución con find", "q": "¿Cuál es la sintaxis correcta del comando 'find' para buscar todos los archivos que terminen en '.bak' en el directorio actual y eliminarlos de forma automática mediante la acción -exec?", "options": ["find . -name '*.bak' -exec rm () ;", "find . -name '*.bak' -exec rm {} \\;", "find . -name '*.bak' -exec rm [] \\;", "find . -name *.bak -exec rm {} ;"], "answer": 1, "why": "En la opción -exec de 'find', la pareja de llaves vacías '{}' representa el marcador de posición donde se inyecta cada ruta de archivo encontrada, y la secuencia ' \\;' (barra invertida y punto y coma) escapa el delimitador de finalización del comando para que la shell no lo interprete antes de tiempo.", "notes": "Pregunta imprescindible de examen. La sintaxis de -exec debe ser automática para cualquier alumno."}, {"id": 18, "section": "103.3", "cat": "files", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Gestión de Archivos 103.3", "deck": [{"front": "¿Qué comando y opción crea carpetas padre intermedias automáticamente?", "back": "mkdir -p /ruta/completa."}, {"front": "¿Qué opción de 'cp' preserva todos los atributos originales (modo archivador)?", "back": "cp -a (o cp -p)."}, {"front": "¿Qué opción de 'ls' muestra la información del directorio en sí y no de su interior?", "back": "ls -d (habitualmente combinado como ls -ld)."}, {"front": "¿Qué opción de 'find' filtra exclusivamente archivos ordinarios y cuál directorios?", "back": "-type f para archivos; -type d para directorios."}, {"front": "¿Cómo termina obligatoriamente la cláusula '-exec' en el comando find?", "back": "Termina con: {} \\; (llaves, espacio, barra invertida y punto y coma)."}, {"front": "¿Qué banderas de 'tar' corresponden a gzip, bzip2 y xz respectivamente?", "back": "-z (gzip), -j (bzip2) y -J mayúscula (xz)."}, {"front": "¿Qué comando con 'dd' copia los 512 bytes del MBR de un disco?", "back": "dd if=/dev/sda of=mbr.bin bs=512 count=1."}, {"front": "¿Qué comando determina el tipo real de un archivo sin importar su extensión?", "back": "file <archivo>."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.3."}, {"id": 19, "section": "103.3", "cat": "files", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.3", "takeaways": ["Operaciones Básicas: ls -ld para carpetas, mkdir -p para jerarquías, cp -a para preservar atributos de backup, touch -t para forzar marcas de tiempo.", "Comodines Globbing: * (cero o más), ? (exactamente uno), [a-z] (rango), {1..10} (expansión de llaves de shell).", "Buscador find: -name con comillas, -type (f, d, l), -size (+10M), -mtime, y ejecución de comandos con -exec cmd {} \\; o purgado con -delete.", "Empaquetado y Bloques: tar -c (crear), -x (extraer), -t (listar) con -z (gzip), -j (bzip2), -J (xz); cpio (-o, -i, -p); dd (if=, of=, bs=, count=) y file para detectar magic numbers."], "top3": [{"cmd": "find / -name '*.conf' -type f", "desc": "Busca archivos de configuración en todo el sistema de ficheros."}, {"cmd": "tar -czvf backup.tar.gz /ruta", "desc": "Empaqueta y comprime un directorio con gzip de forma interactiva."}, {"cmd": "cp -a origen destino", "desc": "Copia un árbol preservando dueños, permisos, fechas y enlaces simbólicos."}], "practice": {"name": "Practica 103.3: Gestión Básica de Archivos, Compresión y Empaquetado", "url": "../practicas/p-103-3-gestion-archivos.html", "desc": "Copia, mueve y organiza árboles de archivos con cp, mv, mkdir y rm; crea y analiza paquetes comprimidos con tar (gzip, bzip2, xz) y utiliza cpio y dd."}, "notes": "Concluimos el subtema 103.3. Los alumnos dominan ahora la administración básica de archivos en Linux."}];
     const ERRATAS = [{"id": "ERR-103.3-01", "section": "103.3", "ref": "p. 18", "manual_says": "tar -J comprime con bzip2.", "reality": "tar -j (minúscula) comprime con bzip2 (.bz2); tar -J (mayúscula) comprime con xz (.xz).", "exam_tip": "Diferencia estricta en el examen LPIC-1: -z (gzip), -j (bzip2), -J (xz)."}];
     const GLOSARIO = [{"id": "GLOS-103.3-001", "termino": "File Globbing", "definicion": "Mecanismo del shell para expandir patrones de nombres de archivo mediante comodines como el asterisco (*), el signo de interrogación (?) y corchetes ([ ])."}, {"id": "GLOS-103.3-002", "termino": "tar", "definicion": "Tape Archive. Utilidad estándar para agrupar múltiples archivos y directorios en un único fichero contenedor preservando permisos y metadatos."}, {"id": "GLOS-103.3-003", "termino": "cpio", "definicion": "Copy In, Copy Out. Herramienta de archivado que lee listas de nombres desde la entrada estándar y empaqueta o extrae archivos."}, {"id": "GLOS-103.3-004", "termino": "dd", "definicion": "Data Duplicator. Comando para copiar y convertir datos a bajo nivel bloque por bloque entre archivos o dispositivos de almacenamiento masivo."}, {"id": "GLOS-103.3-005", "termino": "find", "definicion": "Comando de búsqueda en tiempo real que recorre de forma recursiva árboles de directorios evaluando criterios de nombre, tipo, tamaño y fecha."}];
     const META = {"topic": "103.3", "title": "Administración básica de archivos", "weight": 4, "description": "ls, touch, cp, mv, rm, mkdir, comodines globbing, find, tar, cpio, dd y file (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1453,6 +1932,9 @@
           });
           html += `</div>`;
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.console || s.terminal) {
           html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
         }
@@ -1518,6 +2000,9 @@
         const termData = s.terminal || s.console;
         if (termData) {
           html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
         }
 
         if (s.trap || s.warning) {
@@ -1603,6 +2088,9 @@
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
 
         if (s.trap || s.warning) {
           html += `
@@ -1643,6 +2131,9 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.remember) {
           html += `
             <div class="callout-box callout-remember" style="margin-top:14px;">
@@ -1689,12 +2180,37 @@
             </div>
           `;
         }
+      } else if (s.type === 'diagram') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.diagram_html || s.raw_html || s.html || s.svg || s.content || '';
+        if (bodyContent) html += bodyContent;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         const steps = s.steps || s.nodes || s.diagram?.nodes || [];
-        if (steps.length > 0) {
+        if (steps.length > 0 && !s.diagram_html && !s.raw_html && !s.html && !s.svg) {
           html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
           steps.forEach((st, idx) => {
             const stitle = st.step || st.title || st.text || st.label || '';
@@ -2055,9 +2571,11 @@
           `;
         }
       } else {
-        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
-        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.raw_html || s.html || s.content;
+        if (bodyContent) html += bodyContent;
       }
       return html;
     }
@@ -2241,6 +2759,9 @@
 
     function closeModals() {
       document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+      if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
     }
 
     function closePopovers() {
@@ -2266,6 +2787,45 @@
       popover.style.top = `${rect.bottom + 8}px`;
       popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
       popover.classList.add('open');
+    }
+
+    function openPopover(targetOrEvent, html) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      let el = null;
+      if (targetOrEvent instanceof Event) {
+        targetOrEvent.stopPropagation();
+        el = targetOrEvent.currentTarget || targetOrEvent.target;
+      } else if (targetOrEvent && targetOrEvent.nodeType) {
+        el = targetOrEvent;
+      } else if (targetOrEvent && targetOrEvent.target) {
+        el = targetOrEvent.target;
+      }
+      const popover = document.getElementById('global-popover');
+      if (!popover) return;
+      popover.innerHTML = html || '<div>Sin detalles adicionales</div>';
+      if (el && el.getBoundingClientRect) {
+        const rect = el.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + 8}px`;
+        popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      }
+      popover.classList.add('open');
+    }
+
+    function toggleAnswer(btn) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      if (!btn) return;
+      const container = btn.closest('.quiz-reveal-container') || btn.parentElement;
+      if (!container) return;
+      const ans = container.querySelector('.quiz-answer-box');
+      if (ans) {
+        const isHidden = window.getComputedStyle(ans).display === 'none' || ans.style.display === 'none';
+        ans.style.display = isHidden ? 'block' : 'none';
+        btn.textContent = isHidden ? 'Ocultar Respuesta ▲' : 'Ver Respuesta ▼';
+      }
     }
     document.addEventListener('click', closePopovers);
 
@@ -2444,6 +3004,18 @@
         }
       }
       renderSlide(initSlide);
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length && num !== currentSlideIdx) {
+            renderSlide(num);
+          }
+        }
+      }
     });
   </script>
 </body>

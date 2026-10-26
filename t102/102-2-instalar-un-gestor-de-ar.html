@@ -322,17 +322,87 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 8px;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       background: var(--surface);
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
-    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
-    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); transform: translateY(-1px); }
+    .nav-btn:active { transform: translateY(0); }
+    .nav-btn.primary { background: #2563EB; color: #FFFFFF !important; border-color: #1D4ED8; box-shadow: 0 2px 4px rgba(37,99,235,0.25); }
+    .nav-btn.primary:hover { background: #1D4ED8; border-color: #1E40AF; }
+
+    /* Sistema Completo de Botones .btn */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      border: 1.5px solid transparent;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      user-select: none;
+      outline: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.12), 0 2px 4px -2px rgba(15, 23, 42, 0.08);
+    }
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: #FFFFFF !important;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      gap: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF !important;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+    }
 
     /* Contenedor del escenario (1920x1080) */
     #app-container {
@@ -498,6 +568,246 @@
       color: var(--info-ink);
       border-color: #BAE6FD;
     }
+    .callout-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      max-width: 24px !important;
+      min-height: 24px !important;
+      max-height: 24px !important;
+      border-radius: 50% !important;
+      background: #2563EB;
+      color: #FFFFFF !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+      text-align: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      margin: 0 4px !important;
+      user-select: none !important;
+    }
+    .badge-blue { background: #2563EB !important; color: #FFFFFF !important; }
+    .badge-amber { background: #D97706 !important; color: #FFFFFF !important; }
+    .badge-red { background: #DC2626 !important; color: #FFFFFF !important; }
+    .badge-green { background: #16A34A !important; color: #FFFFFF !important; }
+    .badge-purple { background: #7C3AED !important; color: #FFFFFF !important; }
+
+    /* Glosarios & Conceptos Clave Modernos */
+    /* Glosarios & Conceptos Clave Modernos */
+    .slide-glossary-box {
+      margin-top: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .slide-glossary-box .gl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .slide-glossary-box .gl-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563EB;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .slide-glossary-box .gl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .slide-glossary-box .gl-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+    .slide-glossary-box .gl-card:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+    .slide-glossary-box .gl-badge {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1D4ED8;
+      background: #EFF6FF;
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid #BFDBFE;
+      display: inline-block;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .slide-glossary-box .gl-def {
+      color: #334155;
+      font-size: 13.5px;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .slide-glossary-box .gl-def code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 4px;
+      color: #0F172A;
+    }
+
+    /* Compatibilidad strip con estilo pulido tipo chips */
+    .slide-glossary-strip {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .slide-glossary-strip .gl-title {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-glossary-strip .gl-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .slide-glossary-strip .gl-term {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #1D4ED8;
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM (Completo, accesible y moderno para interactivos y quizes)
+       ========================================================================== */
+    .btn, .quiz-reveal-container button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .btn:focus-visible, .quiz-reveal-container button:focus-visible {
+      outline: 2px solid #2563EB;
+      outline-offset: 2px;
+    }
+    .btn:active, .quiz-reveal-container button:active {
+      transform: translateY(1px);
+    }
+
+    /* Botón Primario (Azul vibrante) */
+    .btn-primary, .nav-btn.primary, .quiz-reveal-container button {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover, .nav-btn.primary:hover, .quiz-reveal-container button:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Botón Outline Primario */
+    .btn-outline-primary {
+      background: #FFFFFF;
+      color: #2563EB;
+      border-color: #2563EB;
+    }
+    .btn-outline-primary:hover {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-color: #1D4ED8;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Botón Secundario */
+    .btn-secondary {
+      background: #F1F5F9;
+      color: #334155;
+      border-color: #CBD5E1;
+    }
+    .btn-secondary:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+      border-color: #94A3B8;
+    }
+
+    /* Botón Éxito */
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+      border-color: #166534;
+      color: #FFFFFF;
+    }
+
+    /* Modificadores de Tamaño */
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14.5px;
+      border-radius: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+    }
 
     /* Terminal y Comandos (slides-terminal-comandos) */
     .term-wrapper {
@@ -517,20 +827,29 @@
       font-size: 18px;
       font-weight: 700;
     }
-    .term-copy-btn {
+    .term-copy-btn, .terminal-copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 12px;
       border-radius: 6px;
-      border: 2px solid var(--control-border);
+      border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-copy-btn:hover, .terminal-copy-btn:hover {
+      background: #F1F5F9;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+    .term-copy-btn:active, .terminal-copy-btn:active {
+      transform: scale(0.96);
+    }
     .term-code {
       padding: 14px 20px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -545,15 +864,169 @@
     .term-code::-webkit-scrollbar { width: 6px; }
     .term-code::-webkit-scrollbar-track { background: transparent; }
     .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
-    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+
+    /* Terminal Card (Real-life console frame) */
+    .terminal-card {
+      background: #0F172A;
+      border: 2px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .terminal-card .terminal-header {
+      background: #1E293B;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      gap: 12px;
+    }
+    .terminal-card .terminal-header::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 18px 0 0 #F59E0B, 36px 0 0 #10B981;
+      margin-right: 36px;
+      flex-shrink: 0;
+    }
+    .terminal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #94A3B8;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: 0.02em;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .terminal-card .terminal-copy-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #475569;
+    }
+    .terminal-card .terminal-copy-btn:hover {
+      background: #334155;
+      border-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .terminal-body {
+      padding: 16px 20px;
+      margin: 0;
+      background: #0F172A;
+      color: #E2E8F0;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      font-size: 15.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Mini-Terminal para llamadas o ejemplos dentro de cajas */
+    .mini-terminal {
+      background: #0F172A;
+      border: 1.5px solid #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+    }
+    .mini-term-header {
+      background: #1E293B;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    .mini-term-dots {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 12px 0 0 #F59E0B, 24px 0 0 #10B981;
+      margin-right: 22px;
+    }
+    .mini-term-title {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+    .mini-term-body {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #E2E8F0;
+      background: #0F172A;
+    }
+
+    /* High-contrast terminal syntax tokens for light mode by default */
+    .t-prompt { color: #0284C7; user-select: none; font-weight: 700; }
     .t-cmd { font-weight: 700; color: #0F172A; }
     .t-flag { color: #1D4ED8; font-weight: 600; }
-    .t-arg { color: #9A3412; font-weight: 500; }
-    .t-path { color: #15803D; font-weight: 500; }
-    .t-str { color: #A21CAF; }
-    .t-cmt { color: #5B6B82; font-style: italic; }
-    .t-err { color: #B91C1C; font-weight: 600; }
-    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+    .t-arg { color: #B45309; font-weight: 600; }
+    .t-path { color: #047857; font-weight: 600; }
+    .t-str { color: #7C3AED; }
+    .t-cmt, .term-comment { color: #64748B; font-style: italic; }
+    .t-err { color: #DC2626; font-weight: 600; }
+    .t-hl { background: rgba(254, 240, 138, 0.45); border-radius: 4px; padding: 0 6px; }
+
+    /* Dark context inside terminal-card and mini-terminal */
+    .terminal-card .term-prompt, .mini-terminal .term-prompt,
+    .terminal-card .t-prompt, .mini-terminal .t-prompt { color: #38BDF8; font-weight: 700; }
+    .terminal-card .term-cmd, .mini-terminal .term-cmd,
+    .terminal-card .t-cmd, .mini-terminal .t-cmd { font-weight: 700; color: #F8FAFC; }
+    .terminal-card .t-flag, .mini-terminal .t-flag { color: #60A5FA; }
+    .terminal-card .t-arg, .mini-terminal .t-arg { color: #FBBF24; }
+    .terminal-card .t-path, .mini-terminal .t-path { color: #34D399; }
+    .terminal-card .t-str, .mini-terminal .t-str { color: #E879F9; }
+    .terminal-card .term-comment, .mini-terminal .term-comment,
+    .terminal-card .t-cmt, .mini-terminal .t-cmt { color: #94A3B8; }
+    .terminal-card .t-err, .mini-terminal .t-err { color: #F87171; }
+
+    /* Estilos del Modal Autotest / Test Global */
+    .autotest-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--surface);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: border-color 0.15s ease;
+    }
+    .autotest-card:hover {
+      border-color: var(--primary);
+    }
+    .autotest-opt-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface-alt);
+      font-size: 18px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .autotest-opt-label:hover {
+      background: #EFF6FF;
+      border-color: #93C5FD;
+    }
+    .autotest-opt-label input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2563EB;
+      cursor: pointer;
+    }
 
     /* Chips de opciones interactivas */
     .options-row {
@@ -619,32 +1092,38 @@
     /* Tablas (≤5x4) */
     .table-container {
       width: 100%;
-      margin: 20px 0;
-      border: 2px solid var(--border);
-      border-radius: 14px;
+      margin: 12px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 12px;
       overflow: hidden;
-      background: #FFFFFF;
+      background: var(--surface);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 26px;
+      font-size: clamp(15px, 1.05vw, 18.5px);
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 16px 24px;
+      padding: 10px 18px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
+      font-size: clamp(15.5px, 1.1vw, 19.5px);
     }
     table.slide-table td {
-      padding: 16px 24px;
+      padding: 9px 18px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
+      line-height: 1.4;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
-    table.slide-table tr.highlighted { background: #FEF3C7; }
+    table.slide-table tr.highlighted { background: var(--warning-soft); }
+    [data-theme="dark"] .table-container {
+      background: var(--surface);
+    }
 
     /* Matrices comparativas y mapas de equivalencias */
     .matrix-container {
@@ -1131,7 +1610,7 @@
     <aside id="teacher-panel">
       <div class="panel-header">
         <span>Notas del Docente</span>
-        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+        <button class="nav-btn" onclick="toggleTeacherNotes()" aria-label="Cerrar panel docente"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
       </div>
       <div class="panel-body">
         <div class="panel-meta" id="panel-meta-info"></div>
@@ -1146,7 +1625,7 @@
   <!-- Modal de Erratas -->
   <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar notas y erratas"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
         <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
         Notas y Erratas del Manual Oficial
@@ -1158,7 +1637,7 @@
   <!-- Modal de Ayuda / Atajos -->
   <div class="modal-overlay" id="modal-help" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar ayuda de atajos"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
         <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
@@ -1181,7 +1660,7 @@
   <!-- Modal de Vista General (Overview) -->
   <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
     <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar vista general"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
       <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
     </div>
@@ -1197,7 +1676,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "102.2", "cat": "boot", "type": "cover", "title": "Instalación y configuración del gestor de arranque", "subtitle": "GRUB 2, GRUB Legacy, archivos de configuración, consola interactiva y recuperación (Modo Examen)", "ref": "75-76", "pdf": {"manual": "A", "pages": [75, 76], "figure": null}, "coverage": ["102.2-OBJ-001", "102.2-OBJ-002"], "meta": {"peso": 2, "paginas": "75–100", "duracion": "30 min"}, "icon": "disc", "notes": "Iniciamos el subtema 102.2 (peso 2), dedicado al gestor de arranque GRUB. El examen evalúa tanto el gestor actual (GRUB 2) como el histórico (GRUB Legacy), su sintaxis de discos y su consola interactiva de rescate."}, {"id": 2, "section": "102.2", "cat": "boot", "type": "concept", "title": "Evolución de los Gestores: GRUB Legacy frente a GRUB 2", "lead": "¿Por qué se rediseñó GRUB desde cero y qué diferencias fundamentales evalúa LPIC-1?", "ref": "76-78", "pdf": {"manual": "A", "pages": [76, 77, 78], "figure": null}, "coverage": ["102.2-CON-001", "102.2-CON-002"], "points": [{"icon": "archive", "text": "GRUB Legacy (versión 0.97 y anteriores)", "detail": "Monolítico. Se configuraba en un único archivo de texto editable a mano (/boot/grub/menu.lst o grub.conf). Solo entendía particiones MBR básicas y carecía de soporte nativo para GPT, LVM o RAID."}, {"icon": "layers", "text": "GRUB 2 (versión 1.98 en adelante, estándar actual)", "detail": "Totalmente modular y scriptable. Carga módulos dinámicos (.mod), soporta GPT, UEFI, LVM, RAID por software y sistemas de archivos modernos (Btrfs, XFS, ext4)."}, {"icon": "shield-alert", "text": "Diferencia de edición", "detail": "🎯 Clave de Examen: En Legacy se editaba menu.lst a mano. En GRUB 2 NUNCA se edita /boot/grub/grub.cfg directamente; se modifica /etc/default/grub y los scripts de /etc/grub.d/."}], "remember": "🎯 Clave de Examen: Si ves preguntas sobre 'menu.lst', se refieren a GRUB Legacy. Si mencionan 'grub-mkconfig' o 'grub.cfg', se refieren a GRUB 2.", "notes": "Explica a la clase que GRUB Legacy se mantiene en el temario porque muchos sistemas embebidos y servidores industriales antiguos siguen utilizándolo."}, {"id": 3, "section": "102.2", "cat": "boot", "type": "table", "title": "Nomenclatura de Discos y Particiones: Legacy vs GRUB 2", "lead": "¡ATENCIÓN! Esta diferencia de numeración es la trampa favorita del examen de certificación:", "ref": "78-80", "pdf": {"manual": "A", "pages": [78, 79, 80], "figure": null}, "coverage": ["102.2-CON-003"], "headers": ["Dispositivo Real Linux", "Nomenclatura GRUB Legacy (Versión 0.9x)", "Nomenclatura GRUB 2 (Versión 2.x)"], "rows": [["Primer Disco (/dev/sda)", "(hd0)", "(hd0)"], ["Segundo Disco (/dev/sdb)", "(hd1)", "(hd1)"], ["Primera partición de sda (/dev/sda1)", "🎯 (hd0,0)  <- Partición empieza en CERO", "🎯 (hd0,1) o (hd0,msdos1) <- Partición empieza en UNO"], ["Segunda partición de sda (/dev/sda2)", "(hd0,1)", "(hd0,2) o (hd0,msdos2)"], ["Primera partición de sdb (/dev/sdb1)", "(hd1,0)", "(hd1,1) o (hd1,msdos1)"], ["Partición GPT 1 de sda", "No soportado nativamente", "(hd0,gpt1)"]], "remember": "🎯 Regla Mnemotécnica de Examen: Los discos SIEMPRE empiezan en 0 en ambos. Las particiones empiezan en 0 en Legacy, pero empiezan en 1 en GRUB 2.", "notes": "Pide a todos los alumnos que anoten esto en rojo: /dev/sda1 es (hd0,0) en Legacy y (hd0,1) en GRUB 2."}, {"id": 4, "section": "102.2", "cat": "boot", "type": "file", "title": "Archivos del Kernel en /boot", "lead": "¿Qué componentes encuentra y carga GRUB en el directorio /boot?", "ref": "80-82", "pdf": {"manual": "A", "pages": [80, 81, 82], "figure": null}, "coverage": ["102.2-FIL-001"], "file": {"path": "/boot/", "purpose": "Almacenar los núcleos instalados, sistemas de arranque en RAM y mapas de símbolos", "content": "-rw-r--r-- 1 root root  8391808 Oct 15 08:00 vmlinuz-6.1.0-18-amd64\n-rw-r--r-- 1 root root 42194304 Oct 15 08:05 initrd.img-6.1.0-18-amd64\n-rw-r--r-- 1 root root   235920 Oct 15 08:00 config-6.1.0-18-amd64\n-rw-r--r-- 1 root root  6029312 Oct 15 08:00 System.map-6.1.0-18-amd64"}, "points": [{"icon": "cpu", "text": "vmlinuz-<versión>", "detail": "🎯 El ejecutable comprimido del kernel Linux. La 'z' final indica que está comprimido (zImage/bzImage)."}, {"icon": "archive", "text": "initrd.img / initramfs-<versión>", "detail": "Sistema de archivos temporal en RAM que contiene los controladores necesarios para montar la partición raíz."}, {"icon": "file-text", "text": "config-<versión>", "detail": "Archivo de texto que documenta las opciones de compilación exactas con las que se construyó ese núcleo (ej: CONFIG_EXT4_FS=y)."}, {"icon": "map", "text": "System.map-<versión>", "detail": "Tabla de símbolos que mapea las funciones del kernel con sus direcciones exactas de memoria RAM (usada para depuración y volcados de fallos)."}], "remember": "🎯 Clave de Examen: Para consultar la configuración de compilación del kernel en ejecución, también se puede leer /boot/config-$(uname -r) o /proc/config.gz (si está activo el módulo configs).", "notes": "Muestra los 4 archivos de /boot. Los esenciales para arrancar son vmlinuz e initrd."}, {"id": 5, "section": "102.2", "cat": "boot", "type": "command", "title": "Instalación del Cargador: grub-install", "lead": "¿Cómo instalamos físicamente GRUB en un disco duro nuevo o recuperamos el arranque dañado?", "ref": "82-84", "pdf": {"manual": "A", "pages": [82, 83, 84], "figure": null}, "coverage": ["102.2-CMD-001"], "command": "grub-install", "purpose": "Escribir el código de arranque en el MBR o copiar los ejecutables EFI en la partición ESP", "terminal": {"command": "sudo grub-install /dev/sda", "output": "Installing for i386-pc platform.\nInstallation finished. No error reported."}, "options": [{"flag": "/dev/sdX", "desc": "🎯 Clave de Examen: En BIOS se instala en el DISCO ENTERO (ej: /dev/sda, sin número de partición), escribiendo los 446 bytes del MBR."}, {"flag": "--boot-directory=<dir>", "desc": "Especifica una ruta alternativa donde reside el directorio /boot (útil al rescatar un sistema montado en /mnt)."}, {"flag": "--efi-directory=<dir>", "desc": "En UEFI, especifica la ruta de montaje de la partición ESP (habitualmente /boot/efi)."}, {"flag": "--recheck", "desc": "Fuerza a sondear de nuevo los discos y reconstruir el mapa /boot/grub/device.map."}], "remember": "🎯 Error Típico de Examen: En BIOS NUNCA se hace 'grub-install /dev/sda1' (en la partición), sino 'grub-install /dev/sda' (en el MBR del disco).", "notes": "Enfatiza la diferencia entre el disco (/dev/sda) y la partición (/dev/sda1). En MBR el código va al sector 0 del disco."}, {"id": 6, "section": "102.2", "cat": "boot", "type": "file", "title": "Arquitectura Modular de GRUB 2: /etc/grub.d/", "lead": "¿Cómo construye GRUB 2 el archivo maestro /boot/grub/grub.cfg?", "ref": "84-87", "pdf": {"manual": "A", "pages": [84, 85, 86, 87], "figure": null}, "coverage": ["102.2-FIL-002", "102.2-CMD-002"], "file": {"path": "/etc/grub.d/", "purpose": "Scripts ejecutables que generan secuencialmente las secciones de grub.cfg", "content": "00_header        # Configuración básica, variables globales y timeout\n05_debian_theme  # Colores, fuentes y temas visuales\n10_linux         # Detecta kernels instalados en /boot y genera entradas\n30_os-prober     # Detecta otros sistemas operativos (Windows, otras distros)\n40_custom        # Plantilla para añadir entradas manuales personalizadas"}, "points": [{"icon": "sliders", "text": "Orden numérico de ejecución", "detail": "Los scripts se ejecutan en estricto orden alfanumérico (00 -> 10 -> 30 -> 40). El prefijo numérico define la posición de sus entradas en el menú."}, {"icon": "terminal", "text": "Permiso de ejecución obligatorio", "detail": "🎯 Pregunta de Examen: Si un script en /etc/grub.d/ no tiene permisos de ejecución (chmod +x), grub-mkconfig lo ignorará por completo."}, {"icon": "refresh-cw", "text": "grub-mkconfig -o /boot/grub/grub.cfg", "detail": "Comando que lee /etc/default/grub, ejecuta los scripts de /etc/grub.d/ y escribe el archivo final /boot/grub/grub.cfg."}], "remember": "🎯 Clave de Examen: Para añadir una entrada personalizada permanente, se edita /etc/grub.d/40_custom y luego se ejecuta grub-mkconfig -o /boot/grub/grub.cfg.", "notes": "Muestra que el archivo /boot/grub/grub.cfg lleva un aviso en la primera línea: 'DO NOT EDIT THIS FILE'."}, {"id": 7, "section": "102.2", "cat": "boot", "type": "file", "title": "Entradas Manuales en /etc/grub.d/40_custom", "lead": "¿Cómo se escribe sintácticamente una entrada de menú personalizada en GRUB 2?", "ref": "87-89", "pdf": {"manual": "A", "pages": [87, 88, 89], "figure": null}, "coverage": ["102.2-FIL-003"], "file": {"path": "/etc/grub.d/40_custom", "purpose": "Añadir sistemas alternativos o entradas de rescate con parámetros propios", "content": "#!/bin/sh\nexec tail -n +3 $0\n\nmenuentry \"Linux Modo Seguro Rescate\" {\n    insmod ext4\n    set root=(hd0,1)\n    search --no-floppy --fs-uuid --set=root 3a7f8b91-1c2d-4e5f\n    linux /boot/vmlinuz-6.1.0-18-amd64 root=UUID=3a7f8b91-1c2d-4e5f ro single\n    initrd /boot/initrd.img-6.1.0-18-amd64\n}"}, "points": [{"icon": "box", "text": "Directiva menuentry 'Nombre' { ... }", "detail": "Delimita la entrada del menú. Las llaves '{' y '}' deben cerrarse correctamente."}, {"icon": "search", "text": "search --no-floppy --fs-uuid --set=root <UUID>", "detail": "🎯 Clave de Examen: Busca la partición por su UUID (evitando fallos si los discos cambian de orden sda/sdb) y fija la variable $root."}, {"icon": "play", "text": "linux e initrd", "detail": "Carga la imagen del kernel y el archivo initramfs correspondientes."}], "remember": "🎯 Clave de Examen: En GRUB 2 el comando se llama 'linux' e 'initrd'. En GRUB Legacy el comando se llamaba 'kernel' e 'initrd'.", "notes": "Destaca el uso de UUID en search: es el método moderno preferido frente a confiar en nombres frágiles como (hd0,1)."}, {"id": 8, "section": "102.2", "cat": "boot", "type": "command", "title": "Recuperación Interactiva en la Consola de GRUB 2", "lead": "Si el menú de GRUB se rompe y te deja en el prompt 'grub>', ¿cómo arrancas el sistema a mano?", "ref": "89-91", "pdf": {"manual": "A", "pages": [89, 90, 91], "figure": null}, "coverage": ["102.2-CMD-003"], "command": "grub> (Consola interactiva de comandos)", "purpose": "Localizar particiones, cargar módulos del kernel y arrancar paso a paso", "terminal": {"command": "grub> ls\n(hd0) (hd0,gpt1) (hd0,gpt2)\ngrub> set root=(hd0,gpt2)\ngrub> linux /vmlinuz root=/dev/sda2 ro\ngrub> initrd /initrd.img\ngrub> boot", "output": "[Iniciando el arranque manual del kernel...]"}, "options": [{"flag": "ls", "desc": "Lista todos los discos y particiones detectados por GRUB (ej: (hd0,msdos1), (hd1,gpt2))."}, {"flag": "set root=(hdX,Y)", "desc": "Define la partición de trabajo predeterminada para las rutas relativas."}, {"flag": "linux <ruta_kernel> [opciones]", "desc": "Carga el kernel en memoria RAM y le pasa los parámetros de arranque (root=...)."}, {"flag": "initrd <ruta_initrd>", "desc": "Carga el sistema de archivos inicial en memoria RAM."}, {"flag": "boot", "desc": "🎯 Comando final: Ordena a la CPU iniciar la ejecución del kernel cargado en memoria."}], "remember": "🎯 Secuencia de Examen: La secuencia manual de 4 pasos es: 1. set root -> 2. linux -> 3. initrd -> 4. boot.", "notes": "Haz que los alumnos memoricen el orden: linux -> initrd -> boot. Sin 'boot' al final, la máquina se queda parada en el prompt."}, {"id": 9, "section": "102.2", "cat": "boot", "type": "concept", "title": "Consola de Rescate: grub rescue>", "lead": "¿Qué significa si al encender la pantalla solo muestra 'error: unknown filesystem. grub rescue>'?", "ref": "91-92", "pdf": {"manual": "A", "pages": [91, 92], "figure": null}, "coverage": ["102.2-CON-004"], "points": [{"icon": "alert-triangle", "text": "¿Por qué ocurre?", "detail": "GRUB encontró el Stage 1 en el MBR, pero la partición donde residen sus módulos (/boot/grub/i386-pc/) ha cambiado de número o su sistema de archivos está corrupto."}, {"icon": "refresh-cw", "text": "Procedimiento de salvamento", "detail": "1. Localizar partición con 'ls';\n2. Fijar prefijo: 'set prefix=(hd0,msdos1)/boot/grub';\n3. Fijar raíz: 'set root=(hd0,msdos1)';\n4. Cargar el módulo normal: 'insmod normal';\n5. Ejecutar 'normal' para recuperar el menú gráfico completo."}], "remember": "🎯 Clave de Examen: El comando mágico que restaura la consola normal desde el modo rescue es 'insmod normal' seguido de 'normal'.", "notes": "Esta pantalla de 'grub rescue>' aterra a los usuarios novatos, pero conociendo 'prefix', 'root' e 'insmod normal' se soluciona en 30 segundos."}, {"id": 10, "section": "102.2", "cat": "boot", "type": "table", "title": "Gestor Heredado: GRUB Legacy (/boot/grub/menu.lst)", "lead": "¿Cómo era la sintaxis del archivo de configuración en GRUB Legacy?", "ref": "92-94", "pdf": {"manual": "A", "pages": [92, 93, 94], "figure": null}, "coverage": ["102.2-FIL-004", "102.2-CON-005"], "headers": ["Directiva Legacy", "Ejemplo en menu.lst", "Equivalente en GRUB 2"], "rows": [["Título de entrada", "title Debian GNU/Linux", "menuentry 'Debian GNU/Linux' {"], ["Definir raíz", "root (hd0,0)", "set root=(hd0,1)"], ["Cargar Kernel", "kernel /vmlinuz root=/dev/sda1 ro", "linux /vmlinuz root=/dev/sda1 ro"], ["Cargar Initrd", "initrd /initrd.img", "initrd /initrd.img"], ["Tiempo de espera", "timeout 10", "set timeout=10"], ["Carga en cadena", "chainloader +1", "chainloader +1"]], "remember": "🎯 Diferencias Clave de Examen: En Legacy: 'title' en vez de 'menuentry'; 'root (hd0,0)' con partición en 0; y 'kernel' en vez de 'linux'.", "notes": "Pregunta de examen habitual: Te muestran un fragmento con 'title' y 'kernel' y te preguntan qué versión de GRUB es. Respuesta: GRUB Legacy."}, {"id": 11, "section": "102.2", "cat": "boot", "type": "command", "title": "Instalación de GRUB Legacy: Consola grub", "lead": "En GRUB Legacy se podía instalar interactivamente desde su propia shell de sistema:", "ref": "94-95", "pdf": {"manual": "A", "pages": [94, 95], "figure": null}, "coverage": ["102.2-CMD-004"], "command": "grub (Shell de GRUB Legacy)", "purpose": "Instalar el gestor de arranque en el MBR mediante la consola interactiva legacy", "terminal": {"command": "sudo grub\ngrub> root (hd0,0)\ngrub> setup (hd0)\ngrub> quit", "output": "Checking if \"/boot/grub/stage1\" exists... yes\nChecking if \"/boot/grub/stage2\" exists... yes\nRunning \"install /boot/grub/stage1 (hd0)... succeeded\nDone."}, "options": [{"flag": "root (hdX,Y)", "desc": "Indica a GRUB dónde residen los archivos Stage 1 y Stage 2 (ej: partición /boot)."}, {"flag": "setup (hdX)", "desc": "🎯 Comando de Examen: Instala GRUB en el MBR del disco especificado (ej: (hd0))."}, {"flag": "find /boot/grub/stage1", "desc": "Busca automáticamente en qué partición se encuentra el archivo Stage 1 de GRUB."}, {"flag": "quit", "desc": "Sale de la consola interactiva de GRUB y regresa a la shell de Linux."}], "remember": "🎯 Pregunta de Examen: ¿Qué comando dentro de la consola interactiva de GRUB Legacy instala el cargador en el MBR del primer disco? Respuesta: setup (hd0).", "notes": "Muestra los dos pasos de Legacy: 'root (hd0,0)' para decirle dónde están los archivos, y 'setup (hd0)' para escribir en el MBR."}, {"id": 12, "section": "102.2", "cat": "boot", "type": "concept", "title": "Carga en Cadena (Chainloading) de Otros Sistemas", "lead": "¿Cómo arranca GRUB un sistema operativo que no es Linux, como Windows?", "ref": "95-96", "pdf": {"manual": "A", "pages": [95, 96], "figure": null}, "coverage": ["102.2-CON-006"], "points": [{"icon": "link", "text": "¿Qué es Chainloading?", "detail": "GRUB no puede interpretar el kernel de Windows (NTLDR / bootmgr). Por tanto, pasa el testigo cargando el primer sector (Volume Boot Record) de la partición de Windows y cediéndole la ejecución."}, {"icon": "file-code", "text": "Sintaxis en GRUB 2", "detail": "menuentry 'Windows 10' {\n    insmod ntfs\n    set root=(hd0,msdos2)\n    chainloader +1\n}"}], "remember": "🎯 Clave de Examen: La directiva 'chainloader +1' significa: 'lee 1 sector desde el principio de la partición de destino y ejecútalo'.", "notes": "Explica por qué 'chainloader +1' se llama así: es una cadena de relevos donde GRUB le pasa el testigo al gestor de arranque de Windows."}, {"id": 13, "section": "102.2", "cat": "boot", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: Archivos y Pasos)", "ref": "96-97", "pdf": {"manual": "A", "pages": [96, 97], "figure": null}, "scenario": "Casos prácticos de configuración de GRUB basados en el Manual Oficial LPIC-1 (Páginas 96-97):", "steps": [{"action": "Caso 1: En un sistema moderno con GRUB 2, ¿cuál es la ruta del archivo de configuración maestro y qué comando se utiliza para regenerarlo?", "command": "Ruta: /boot/grub/grub.cfg ; Comando: grub-mkconfig -o /boot/grub/grub.cfg (o update-grub en Debian)", "reason": "El archivo grub.cfg es generado dinámicamente combinando /etc/default/grub con los scripts modulares ejecutables de /etc/grub.d/."}, {"action": "Caso 2: ¿Cuáles son los pasos obligatorios para cambiar permanentemente el tiempo de espera del menú de GRUB 2 a 10 segundos?", "command": "1. Editar /etc/default/grub y fijar GRUB_TIMEOUT=10 ; 2. Ejecutar grub-mkconfig -o /boot/grub/grub.cfg", "reason": "Modificar el archivo /etc/default/grub no tiene efecto hasta que se recompila el grub.cfg en disco."}], "solution": {"explain": "El examen insiste en que nunca se debe tocar grub.cfg directamente; el flujo profesional siempre pasa por /etc/default/grub y grub-mkconfig."}, "notes": "Haz que todos los alumnos repitan el mantra: 'Edito /etc/default/grub y ejecuto grub-mkconfig'."}, {"id": 14, "section": "102.2", "cat": "boot", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: Entradas y Consola)", "ref": "97-98", "pdf": {"manual": "A", "pages": [97, 98], "figure": null}, "scenario": "Casos prácticos de personalización y consola interactiva (Manual Oficial LPIC-1 Páginas 97-98):", "steps": [{"action": "Caso 3: ¿En qué archivo de /etc/grub.d/ debe colocar el administrador sus entradas de arranque manuales personalizadas?", "command": "/etc/grub.d/40_custom", "reason": "El archivo 40_custom está reservado específicamente para que el administrador agregue entradas menuentry personalizadas que no se borren en actualizaciones."}, {"action": "Caso 4: Estás en el prompt 'grub>' y has cargado el kernel y el initramfs. ¿Qué comando ejecuta finalmente el arranque?", "command": "boot", "reason": "El comando 'boot' transfiere el control de la CPU al kernel que ha sido depositado previamente en memoria RAM."}], "solution": {"explain": "La consola de comandos de GRUB permite salvar sistemas caídos sin necesidad de arrancar un LiveCD si el kernel e initrd siguen intactos en el disco."}, "notes": "Muestra que el comando 'boot' es análogo a girar la llave de contacto del coche una vez metida la gasolina (kernel)."}, {"id": 15, "section": "102.2", "cat": "boot", "type": "challenge", "title": "Retos de Exploración del Manual Oficial", "ref": "98-99", "pdf": {"manual": "A", "pages": [98, 99], "figure": null}, "scenario": "Resuelve estos 4 retos de examen planteados en el manual oficial LPIC-1 (Páginas 98-99):\n1. Un alumno escribe '(hd1,0)' en GRUB 2 esperando acceder a la primera partición del segundo disco. ¿Por qué falla?\n2. ¿Cómo averiguarías el UUID de una partición desde la consola de comandos de Linux antes de escribir una entrada de GRUB?\n3. ¿Qué ocurre si eliminas los permisos de ejecución en /etc/grub.d/30_os-prober y ejecutas grub-mkconfig?\n4. ¿Cómo instalarías GRUB 2 en el MBR del segundo disco duro del equipo (/dev/sdb)?", "hint": "Recuerda: Numeración de particiones en GRUB 2; comando blkid; permisos ejecutables de scripts en grub.d; y sintaxis de grub-install.", "solution": {"explain": "1. Porque en GRUB 2 las particiones empiezan en 1. Para la primera partición de sdb debe escribir '(hd1,1)' o '(hd1,msdos1)'. (hd1,0) solo era válido en GRUB Legacy.\n2. Con el comando: blkid (o lsblk -f).\n3. grub-mkconfig ignorará el script; por tanto, el menú de GRUB dejará de mostrar otros sistemas operativos (como Windows).\n4. Se ejecuta: sudo grub-install /dev/sdb (en el disco entero, no en la partición sdb1)."}, "notes": "Estos retos cubren fallos típicos de examen: numeración 0 vs 1 y permisos en /etc/grub.d/."}, {"id": 16, "section": "102.2", "cat": "boot", "type": "review", "title": "Pregunta de Examen LPIC-1: Nomenclatura en GRUB 2", "q": "¿Cómo se referencia la segunda partición del primer disco duro en la sintaxis nativa de GRUB 2?", "options": ["(hd0,1)", "(hd0,2)", "(hd1,2)", "(sda,2)"], "answer": 1, "why": "En GRUB 2, los discos físicos se numeran desde 0 (hd0 = primer disco), pero las particiones se numeran desde 1 (partición 1 = 1, partición 2 = 2). Por tanto, la segunda partición de sda es (hd0,2). En GRUB Legacy habría sido (hd0,1).", "notes": "Pregunta clásica donde cae muchísima gente si no memoriza que en GRUB 2 las particiones empiezan en 1."}, {"id": 17, "section": "102.2", "cat": "boot", "type": "review", "title": "Pregunta de Examen LPIC-1: Configuración de GRUB 2", "q": "¿Cuál es el comando estándar oficial de GRUB 2 que genera el archivo de configuración final /boot/grub/grub.cfg combinando las plantillas modulares y las opciones de /etc/default/grub?", "options": ["grub-install", "grub-mkconfig", "grub-config", "grub-setup"], "answer": 1, "why": "grub-mkconfig es la herramienta oficial de GRUB 2 que lee /etc/default/grub y /etc/grub.d/ para generar la salida indicada con -o (habitualmente -o /boot/grub/grub.cfg). update-grub es solo un script alias presente en Debian/Ubuntu.", "notes": "Pregunta de examen 101. En RHEL/CentOS no existe update-grub, solo grub-mkconfig."}, {"id": 18, "section": "102.2", "cat": "boot", "type": "flashcards", "title": "Tarjetas de Memorización: GRUB Legacy y GRUB 2 (102.2)", "deck": [{"front": "¿Cómo se numera /dev/sda1 en GRUB Legacy y cómo en GRUB 2?", "back": "En Legacy: (hd0,0) [empieza en 0]. En GRUB 2: (hd0,1) o (hd0,msdos1) [empieza en 1]."}, {"front": "¿Qué archivo se edita para fijar opciones persistentes en GRUB 2 y cuál en Legacy?", "back": "GRUB 2: /etc/default/grub (y luego grub-mkconfig). GRUB Legacy: /boot/grub/menu.lst (o grub.conf)."}, {"front": "¿Dónde añade el administrador sus entradas personalizadas en GRUB 2?", "back": "En el archivo ejecutable /etc/grub.d/40_custom."}, {"front": "¿Qué comando instala GRUB 2 en el MBR del disco /dev/sda?", "back": "grub-install /dev/sda (en el disco completo, nunca en la partición sda1)."}, {"front": "¿Cuáles son los 4 comandos interactivos de arranque manual en la consola grub>?", "back": "1. set root -> 2. linux -> 3. initrd -> 4. boot."}, {"front": "¿Qué directiva se utiliza para arrancar sistemas no Linux como Windows?", "back": "chainloader +1 (carga en cadena el primer sector de la partición de destino)."}, {"front": "¿Qué comando restaura el entorno normal desde el prompt 'grub rescue>'?", "back": "insmod normal seguido del comando 'normal'."}, {"front": "¿Qué hace el comando 'blkid'?", "back": "Muestra los UUIDs, etiquetas y sistemas de archivos de todas las particiones detectadas."}], "notes": "Pasa estas tarjetas para consolidar la distinción absoluta entre Legacy y GRUB 2."}, {"id": 19, "section": "102.2", "cat": "boot", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 102.2", "takeaways": ["Evolución: GRUB Legacy usa menu.lst y particiones desde 0 (hd0,0). GRUB 2 usa grub.cfg y particiones desde 1 (hd0,1).", "Archivos /boot: vmlinuz (kernel comprimido), initrd/initramfs (drivers temporales), config (ajustes de compilación), System.map (símbolos).", "Configuración GRUB 2: /etc/default/grub (variables globales) + /etc/grub.d/ (scripts 00_header, 10_linux, 30_os-prober, 40_custom). Compilado con grub-mkconfig.", "Recuperación: grub-install /dev/sdX instala en MBR. En consola grub>: linux, initrd, boot. Carga de Windows: chainloader +1."], "top3": [{"cmd": "grub-mkconfig -o /boot/grub/grub.cfg", "desc": "Compila la configuración modular de GRUB 2 en el archivo maestro de arranque."}, {"cmd": "grub-install /dev/sda", "desc": "Instala el cargador de arranque en el primer sector (MBR) del disco duro."}, {"cmd": "boot (en consola grub>)", "desc": "Inicia la ejecución del kernel cargado manualmente en la consola de rescate."}], "practice": {"name": "Practica 102.2: Instalación y Configuración del Gestor de Arranque GRUB", "url": "../practicas/p-102-2-gestor-arranque-grub.html", "desc": "Domina la configuración de GRUB 2 mediante /etc/default/grub y /etc/grub.d/, comprende la regeneración de grub.cfg y compara su arquitectura con GRUB Legacy."}, "notes": "Concluimos el subtema 102.2. Los alumnos ya dominan los dos gestores de arranque de la certificación."}];
+    const SLIDES = [{"id": 1, "section": "102.2", "cat": "boot", "type": "cover", "title": "Instalación y configuración del gestor de arranque", "subtitle": "GRUB 2, GRUB Legacy, archivos de configuración, consola interactiva y recuperación (Modo Examen)", "ref": "75-76", "pdf": {"manual": "A", "pages": [75, 76], "figure": null}, "coverage": ["102.2-OBJ-001", "102.2-OBJ-002"], "meta": {"peso": 2, "paginas": "75–100", "duracion": "30 min"}, "icon": "disc", "notes": "Iniciamos el subtema 102.2 (peso 2), dedicado al gestor de arranque GRUB. El examen evalúa tanto el gestor actual (GRUB 2) como el histórico (GRUB Legacy), su sintaxis de discos y su consola interactiva de rescate."}, {"id": 2, "section": "102.2", "cat": "boot", "type": "diagram", "title": "Evolución de los Gestores: GRUB Legacy frente a GRUB 2", "lead": "Las 4 diferencias reales y visibles que entran en el examen LPIC-1 sin relleno técnico:", "ref": "76-78", "pdf": {"manual": "A", "pages": [76, 77, 78], "figure": null}, "coverage": ["102.2-CON-001", "102.2-CON-002"], "points": [], "remember": "🎯 PREGUNTA TOP DE EXAMEN: Si ves 'menu.lst', 'title' o '(hd0,0)', es GRUB Legacy (se edita a mano). Si ves 'grub.cfg', 'menuentry' o '(hd0,1)', es GRUB 2 (autogenerado con grub-mkconfig).", "notes": "Insiste a la clase: GRUB 2 NUNCA se edita a mano; cualquier cambio manual se borra en la siguiente actualización del kernel.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:9px; margin-top:2px;\">\n  \n  <!-- TABLA COMPARATIVA DIRECTA LADO A LADO -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px;\">\n    \n    <!-- GRUB Legacy -->\n    <div style=\"background:var(--surface); border:2px solid #FCA5A5; border-top:5px solid #DC2626; border-radius:12px; padding:9px 13px; box-shadow:0 3px 10px rgba(220,38,38,0.06); display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n          <div style=\"display:flex; align-items:center; gap:6px;\">\n            <span style=\"font-size:15px;\">📜</span>\n            <strong style=\"font-size:12.5px; color:#B91C1C;\">GRUB Legacy (Versión 0.9x - Antiguo)</strong>\n          </div>\n          <span style=\"font-size:8.5px; font-weight:800; background:#FEE2E2; color:#B91C1C; padding:1px 6px; border-radius:4px;\">Heredado / Histórico</span>\n        </div>\n\n        <div style=\"display:flex; flex-direction:column; gap:5px; margin-top:6px; font-size:9.5px;\">\n          <div style=\"background:var(--surface-alt); border-left:3px solid #DC2626; padding:4px 8px; border-radius:4px;\">\n            <strong>📄 Archivo de configuración:</strong> <code>/boot/grub/menu.lst</code> (o <code>grub.conf</code>).<br>\n            <span style=\"color:#B91C1C; font-weight:bold;\">✍️ Se edita SIEMPRE A MANO</span> directamente con nano o vim.\n          </div>\n          <div style=\"background:var(--surface-alt); border-left:3px solid #DC2626; padding:4px 8px; border-radius:4px;\">\n            <strong>🏷️ Definición de menú:</strong> <code>title Nombre del Sistema</code>\n          </div>\n          <div style=\"background:var(--surface-alt); border-left:3px solid #DC2626; padding:4px 8px; border-radius:4px;\">\n            <strong>⚙️ Comando para cargar el núcleo:</strong> <code>kernel /vmlinuz...</code>\n          </div>\n          <div style=\"background:var(--surface-alt); border-left:3px solid #DC2626; padding:4px 8px; border-radius:4px;\">\n            <strong>🔢 Particiones:</strong> Empiezan en <strong>0</strong> ➔ <code>(hd0,0)</code> es la 1ª partición.\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <!-- GRUB 2 -->\n    <div style=\"background:var(--surface); border:2px solid #86EFAC; border-top:5px solid #16A34A; border-radius:12px; padding:9px 13px; box-shadow:0 3px 10px rgba(22,163,74,0.06); display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n          <div style=\"display:flex; align-items:center; gap:6px;\">\n            <span style=\"font-size:15px;\">🚀</span>\n            <strong style=\"font-size:12.5px; color:#15803D;\">GRUB 2 (Versión 1.9x / 2.x - Actual)</strong>\n          </div>\n          <span style=\"font-size:8.5px; font-weight:800; background:#DCFCE7; color:#166534; padding:1px 6px; border-radius:4px;\">Estándar Moderno</span>\n        </div>\n\n        <div style=\"display:flex; flex-direction:column; gap:5px; margin-top:6px; font-size:9.5px;\">\n          <div style=\"background:var(--surface-alt); border-left:3px solid #16A34A; padding:4px 8px; border-radius:4px;\">\n            <strong>📄 Archivo de configuración:</strong> <code>/boot/grub/grub.cfg</code>.<br>\n            <span style=\"color:#B91C1C; font-weight:bold;\">🚫 ¡NUNCA SE EDITA A MANO!</span> Se autogenera con <code>grub-mkconfig</code>.\n          </div>\n          <div style=\"background:var(--surface-alt); border-left:3px solid #16A34A; padding:4px 8px; border-radius:4px;\">\n            <strong>🏷️ Definición de menú:</strong> <code>menuentry \"Nombre\" { ... }</code>\n          </div>\n          <div style=\"background:var(--surface-alt); border-left:3px solid #16A34A; padding:4px 8px; border-radius:4px;\">\n            <strong>⚙️ Comando para cargar el núcleo:</strong> <code>linux /boot/vmlinuz...</code>\n          </div>\n          <div style=\"background:var(--surface-alt); border-left:3px solid #16A34A; padding:4px 8px; border-radius:4px;\">\n            <strong>🔢 Particiones:</strong> Empiezan en <strong>1</strong> ➔ <code>(hd0,1)</code> es la 1ª partición.\n          </div>\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n  <!-- RESUMEN VISUAL DE LAS 4 DIFERENCIAS VISIBLES DE EXAMEN -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:7px 12px; box-shadow:0 3px 8px rgba(0,0,0,0.03);\">\n    <div style=\"font-size:11px; font-weight:800; color:var(--text); margin-bottom:4px; display:flex; align-items:center; gap:6px;\">\n      <span>🎯</span>\n      <span>Las 4 Preguntas Clave que te van a hacer en el Examen LPIC-1:</span>\n    </div>\n\n    <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; font-size:9px;\">\n      <div style=\"background:#EFF6FF; border:1px solid #BFDBFE; padding:4px 6px; border-radius:5px;\">\n        <strong>1. ¿Editar a mano?</strong><br>\n        • Legacy: <strong>SÍ</strong> (menu.lst).<br>\n        • GRUB 2: <strong>NO</strong> (grub-mkconfig).\n      </div>\n      <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; padding:4px 6px; border-radius:5px;\">\n        <strong>2. Nombre de entrada:</strong><br>\n        • Legacy: <code>title</code><br>\n        • GRUB 2: <code>menuentry</code>\n      </div>\n      <div style=\"background:#FFFBEB; border:1px solid #FDE68A; padding:4px 6px; border-radius:5px;\">\n        <strong>3. Cargar el kernel:</strong><br>\n        • Legacy: <code>kernel</code><br>\n        • GRUB 2: <code>linux</code>\n      </div>\n      <div style=\"background:#F0FDF4; border:1px solid #BBF7D0; padding:4px 6px; border-radius:5px;\">\n        <strong>4. Primera partición:</strong><br>\n        • Legacy: <code>(hd0,0)</code><br>\n        • GRUB 2: <code>(hd0,1)</code>\n      </div>\n    </div>\n  </div>\n\n</div>\n", "purpose": "Las 4 diferencias reales y visibles que entran en el examen LPIC-1 sin relleno técnico:"}, {"id": 3, "section": "102.2", "cat": "boot", "type": "diagram", "title": "Nomenclatura de Discos y Particiones: Legacy vs GRUB 2", "lead": "La trampa número 1 del examen explicada con un esquema visual limpio sin relleno:", "ref": "78-80", "pdf": {"manual": "A", "pages": [78, 79, 80], "figure": null}, "coverage": ["102.2-CON-003"], "headers": null, "rows": null, "remember": "🎯 TRUCO MNEMOTÉCNICO DE EXAMEN: Los discos duros se cuentan desde 0 en AMBOS gestores. La única diferencia son las particiones: en Legacy empiezan en 0, en GRUB 2 empiezan en 1 (igual que en Linux /dev/sda1).", "notes": "Pregunta trampa típica: ¿A qué equivale /dev/sdb2 en GRUB 2? Respuesta: (hd1,2). ¿Y en Legacy? Respuesta: (hd1,1).", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:9px; margin-top:2px;\">\n  \n  <!-- ESQUEMA VISUAL DEL DISCO DIVIDIDO EN PARTICIONES -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:9px 13px; box-shadow:0 3px 10px rgba(0,0,0,0.04);\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n      <div style=\"font-size:12px; font-weight:800; color:var(--text); display:flex; align-items:center; gap:6px;\">\n        <span>💽</span>\n        <span>Comparativa Visual: ¿Cómo llama cada uno a las particiones de un disco?</span>\n      </div>\n      <span style=\"font-size:9.5px; font-weight:700; color:#2563EB; background:#EFF6FF; padding:1px 7px; border-radius:4px; border:1px solid #BFDBFE;\">\n        Ejemplo: Primer disco duro (/dev/sda)\n      </span>\n    </div>\n\n    <!-- Barra de 3 Particiones -->\n    <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr; gap:8px;\">\n      \n      <!-- Partición 1 -->\n      <div style=\"background:var(--surface-alt); border:1.5px solid var(--border); border-top:4px solid #2563EB; border-radius:8px; padding:6px 8px; text-align:center;\">\n        <div style=\"font-size:11px; font-weight:800; color:var(--text); margin-bottom:3px;\">1ª Partición del 1º Disco</div>\n        <div style=\"font-family:'JetBrains Mono', monospace; font-size:11px; color:#2563EB; font-weight:bold; background:#EFF6FF; padding:2px; border-radius:3px;\">Linux: /dev/sda1</div>\n        <div style=\"display:flex; justify-content:space-around; margin-top:5px; font-size:9.5px;\">\n          <div><strong style=\"color:#DC2626;\">Legacy:</strong> <code>(hd0,0)</code></div>\n          <div><strong style=\"color:#16A34A;\">GRUB 2:</strong> <code>(hd0,1)</code></div>\n        </div>\n      </div>\n\n      <!-- Partición 2 -->\n      <div style=\"background:var(--surface-alt); border:1.5px solid var(--border); border-top:4px solid #D97706; border-radius:8px; padding:6px 8px; text-align:center;\">\n        <div style=\"font-size:11px; font-weight:800; color:var(--text); margin-bottom:3px;\">2ª Partición del 1º Disco</div>\n        <div style=\"font-family:'JetBrains Mono', monospace; font-size:11px; color:#D97706; font-weight:bold; background:#FEF3C7; padding:2px; border-radius:3px;\">Linux: /dev/sda2</div>\n        <div style=\"display:flex; justify-content:space-around; margin-top:5px; font-size:9.5px;\">\n          <div><strong style=\"color:#DC2626;\">Legacy:</strong> <code>(hd0,1)</code></div>\n          <div><strong style=\"color:#16A34A;\">GRUB 2:</strong> <code>(hd0,2)</code></div>\n        </div>\n      </div>\n\n      <!-- Partición 1 del Segundo Disco -->\n      <div style=\"background:var(--surface-alt); border:1.5px solid var(--border); border-top:4px solid #7C3AED; border-radius:8px; padding:6px 8px; text-align:center;\">\n        <div style=\"font-size:11px; font-weight:800; color:var(--text); margin-bottom:3px;\">1ª Partición del 2º Disco</div>\n        <div style=\"font-family:'JetBrains Mono', monospace; font-size:11px; color:#7C3AED; font-weight:bold; background:#F3E8FF; padding:2px; border-radius:3px;\">Linux: /dev/sdb1</div>\n        <div style=\"display:flex; justify-content:space-around; margin-top:5px; font-size:9.5px;\">\n          <div><strong style=\"color:#DC2626;\">Legacy:</strong> <code>(hd1,0)</code></div>\n          <div><strong style=\"color:#16A34A;\">GRUB 2:</strong> <code>(hd1,1)</code></div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <!-- TABLA DE TRADUCCIÓN RÁPIDA DE EXAMEN -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:8px 12px; box-shadow:0 3px 8px rgba(0,0,0,0.03);\">\n    <div style=\"font-size:11px; font-weight:800; color:var(--text); margin-bottom:5px; display:flex; justify-content:space-between; align-items:center;\">\n      <span>📋 Tabla de Traducción Directa (Memoriza esto para el Test):</span>\n      <span style=\"font-size:9px; color:var(--text-muted);\">En GRUB 2 las particiones coinciden con el número de Linux</span>\n    </div>\n\n    <table style=\"width:100%; border-collapse:collapse; font-size:9.5px; text-align:left;\">\n      <thead>\n        <tr style=\"background:var(--surface-alt); border-bottom:1.5px solid var(--border-strong);\">\n          <th style=\"padding:4px 8px;\">Dispositivo en Linux</th>\n          <th style=\"padding:4px 8px;\">¿Qué es físicamente?</th>\n          <th style=\"padding:4px 8px; color:#DC2626;\">Sintaxis GRUB Legacy</th>\n          <th style=\"padding:4px 8px; color:#16A34A;\">Sintaxis GRUB 2</th>\n          <th style=\"padding:4px 8px;\">Sintaxis GPT en GRUB 2</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr style=\"border-bottom:1px solid var(--border);\">\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; font-weight:bold;\">/dev/sda1</td>\n          <td style=\"padding:4px 8px;\">Disco 1, Partición 1</td>\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; color:#DC2626; font-weight:bold;\">(hd0,0)</td>\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; color:#16A34A; font-weight:bold;\">(hd0,1)</td>\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; color:#0284C7;\">(hd0,gpt1)</td>\n        </tr>\n        <tr style=\"border-bottom:1px solid var(--border);\">\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; font-weight:bold;\">/dev/sda2</td>\n          <td style=\"padding:4px 8px;\">Disco 1, Partición 2</td>\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; color:#DC2626; font-weight:bold;\">(hd0,1)</td>\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; color:#16A34A; font-weight:bold;\">(hd0,2)</td>\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; color:#0284C7;\">(hd0,gpt2)</td>\n        </tr>\n        <tr style=\"border-bottom:1px solid var(--border);\">\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; font-weight:bold;\">/dev/sdb1</td>\n          <td style=\"padding:4px 8px;\">Disco 2, Partición 1</td>\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; color:#DC2626; font-weight:bold;\">(hd1,0)</td>\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; color:#16A34A; font-weight:bold;\">(hd1,1)</td>\n          <td style=\"padding:4px 8px; font-family:'JetBrains Mono', monospace; color:#0284C7;\">(hd1,gpt1)</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n\n</div>\n", "purpose": "La trampa número 1 del examen explicada con un esquema visual limpio sin relleno:"}, {"id": 4, "section": "102.2", "cat": "boot", "type": "file", "title": "Archivos del Kernel en /boot", "lead": "¿Qué encuentra y carga GRUB en /boot? Los 4 archivos reales de un sistema en producción:", "ref": "80-82", "pdf": {"manual": "A", "pages": [80, 81, 82], "figure": null}, "coverage": ["102.2-FIL-001"], "file": null, "points": [], "remember": "🎯 Clave de Examen: 'vmlinuz' es el núcleo comprimido (la 'z' significa comprimido). 'initrd/initramfs' es el mini sistema en RAM con drivers para arrancar. Para ver la configuración del kernel actual: cat /boot/config-$(uname -r).", "notes": "Explica por qué /boot debe tener entre 512 MB y 1 GB: si se llena de versiones viejas de kernels, el sistema no puede actualizarse.", "purpose": "¿Qué encuentra y carga GRUB en /boot? Los 4 archivos reales de un sistema en producción:", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:9px; margin-top:2px;\">\n  \n  <!-- TERMINAL REAL CON LS -LH /BOOT -->\n  <div style=\"background:#0F172A; border:1.5px solid #334155; border-radius:10px; overflow:hidden; box-shadow:0 3px 10px rgba(15,23,42,0.15);\">\n    <div style=\"background:#1E293B; padding:5px 12px; border-bottom:1px solid #334155; display:flex; justify-content:space-between; align-items:center;\">\n      <span style=\"font-family:'JetBrains Mono', monospace; font-size:10px; color:#38BDF8; font-weight:bold;\">bash — archivos reales dentro de /boot</span>\n      <span style=\"font-size:8.5px; color:#94A3B8;\">ls -lh /boot</span>\n    </div>\n    <div style=\"padding:6px 12px; font-family:'JetBrains Mono', Consolas, monospace; font-size:9px; line-height:1.4; color:#F8FAFC;\">\n      <div><span style=\"color:#10B981;\">root@servidor:~#</span> ls -lh /boot</div>\n      <div style=\"color:#34D399;\">-rw-r--r-- 1 root root  8.1M oct 15 08:00 <strong style=\"color:#4ADE80;\">vmlinuz-6.1.0-18-amd64</strong>      <span style=\"color:#94A3B8;\"># 1. El Núcleo de Linux (Kernel)</span></div>\n      <div style=\"color:#38BDF8;\">-rw-r--r-- 1 root root   41M oct 15 08:05 <strong style=\"color:#67E8F9;\">initrd.img-6.1.0-18-amd64</strong>   <span style=\"color:#94A3B8;\"># 2. Ramdisk con drivers iniciales</span></div>\n      <div style=\"color:#FBBF24;\">-rw-r--r-- 1 root root  236K oct 15 08:00 <strong style=\"color:#FDE68A;\">config-6.1.0-18-amd64</strong>       <span style=\"color:#94A3B8;\"># 3. Opciones de compilación del kernel</span></div>\n      <div style=\"color:#CBD5E1;\">-rw-r--r-- 1 root root  5.8M oct 15 08:00 <strong style=\"color:#E2E8F0;\">System.map-6.1.0-18-amd64</strong>   <span style=\"color:#94A3B8;\"># 4. Tabla de símbolos de memoria</span></div>\n    </div>\n  </div>\n\n  <!-- LAS 4 FICHAS CLAVE EXPLICADAS PARA EL EXAMEN -->\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:8px;\">\n    \n    <!-- vmlinuz -->\n    <div style=\"background:var(--surface); border:1.5px solid #86EFAC; border-top:4px solid #16A34A; border-radius:8px; padding:6px 8px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"font-size:10px; font-weight:800; color:#15803D;\">1. vmlinuz</div>\n        <div style=\"font-size:8.5px; font-weight:bold; color:var(--text); margin:2px 0;\">El Núcleo Comprimido</div>\n        <div style=\"font-size:8.5px; color:var(--text-muted); line-height:1.3;\">\n          La «z» final significa <strong>comprimido</strong> (gzip/xz). Es el ejecutable principal que toma el control del hardware.\n        </div>\n      </div>\n      <div style=\"font-size:8px; color:#15803D; font-weight:bold; margin-top:4px;\">Obligatorio para arrancar</div>\n    </div>\n\n    <!-- initrd -->\n    <div style=\"background:var(--surface); border:1.5px solid #93C5FD; border-top:4px solid #2563EB; border-radius:8px; padding:6px 8px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"font-size:10px; font-weight:800; color:#1E40AF;\">2. initrd / initramfs</div>\n        <div style=\"font-size:8.5px; font-weight:bold; color:var(--text); margin:2px 0;\">Mini Linux en RAM</div>\n        <div style=\"font-size:8.5px; color:var(--text-muted); line-height:1.3;\">\n          Contiene los drivers (SATA, NVMe, LVM, RAID) necesarios para poder leer el disco y montar la raíz <code>/</code> real.\n        </div>\n      </div>\n      <div style=\"font-size:8px; color:#1E40AF; font-weight:bold; margin-top:4px;\">Cargado antes de montar disco</div>\n    </div>\n\n    <!-- config -->\n    <div style=\"background:var(--surface); border:1.5px solid #FDE68A; border-top:4px solid #D97706; border-radius:8px; padding:6px 8px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"font-size:10px; font-weight:800; color:#B45309;\">3. config-...</div>\n        <div style=\"font-size:8.5px; font-weight:bold; color:var(--text); margin:2px 0;\">Ajustes de Compilación</div>\n        <div style=\"font-size:8.5px; color:var(--text-muted); line-height:1.3;\">\n          Fichero de texto que guarda con qué opciones y módulos se compiló ese kernel. Se lee con <code>cat</code>.\n        </div>\n      </div>\n      <div style=\"font-size:8px; color:#B45309; font-weight:bold; margin-top:4px;\">cat /boot/config-$(uname -r)</div>\n    </div>\n\n    <!-- System.map -->\n    <div style=\"background:var(--surface); border:1.5px solid var(--border); border-top:4px solid #64748B; border-radius:8px; padding:6px 8px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"font-size:10px; font-weight:800; color:#475569;\">4. System.map</div>\n        <div style=\"font-size:8.5px; font-weight:bold; color:var(--text); margin:2px 0;\">Mapa de Memoria</div>\n        <div style=\"font-size:8.5px; color:var(--text-muted); line-height:1.3;\">\n          Tabla que relaciona nombres de funciones del kernel con direcciones hexadecimales de RAM (para depurar errores).\n        </div>\n      </div>\n      <div style=\"font-size:8px; color:#64748B; font-weight:bold; margin-top:4px;\">Diagnóstico de Kernel Panic</div>\n    </div>\n\n  </div>\n\n</div>\n"}, {"id": 5, "section": "102.2", "cat": "boot", "type": "command", "title": "Instalación del Cargador: grub-install", "lead": "¿Cómo se instala GRUB físicamente? Diferencias claras entre BIOS (MBR) y UEFI:", "ref": "82-84", "pdf": {"manual": "A", "pages": [82, 83, 84], "figure": null}, "coverage": ["102.2-CMD-001"], "command": "grub-install", "purpose": "¿Cómo se instala GRUB físicamente? Diferencias claras entre BIOS (MBR) y UEFI:", "terminal": null, "options": [], "remember": "🎯 ERROR TÍPICO DE EXAMEN: En BIOS tradicional NUNCA se hace 'grub-install /dev/sda1' (en una partición), sino 'grub-install /dev/sda' (en el MBR del disco completo). En UEFI se especifica --efi-directory=/boot/efi.", "notes": "Recuerda a los alumnos: grub-install copia los binarios y módulos a disco; update-grub solo compila el menú grub.cfg.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:9px; margin-top:2px;\">\n  \n  <!-- COMPARATIVA VISUAL: BIOS VS UEFI -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px;\">\n    \n    <!-- CASO BIOS MBR -->\n    <div style=\"background:var(--surface); border:2px solid #BFDBFE; border-top:5px solid #2563EB; border-radius:12px; padding:9px 13px; box-shadow:0 3px 10px rgba(37,99,235,0.06); display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n          <strong style=\"font-size:12px; color:#1E40AF;\">🖥️ En Sistemas BIOS Antiguos (MBR)</strong>\n          <span style=\"font-size:8.5px; font-weight:bold; background:#DBEAFE; color:#1E40AF; padding:1px 6px; border-radius:3px;\">Al Disco Entero</span>\n        </div>\n        <div style=\"font-size:9.5px; color:var(--text-muted); line-height:1.35; margin-bottom:6px;\">\n          Se escribe en los <strong>primeros 446 bytes del disco</strong> (el MBR) y el espacio intermedio antes de la primera partición.\n        </div>\n        <div style=\"background:#0F172A; border-radius:6px; padding:6px 10px; font-family:'JetBrains Mono', monospace; font-size:9px; color:#F8FAFC;\">\n          <div style=\"color:#64748B;\"># Comando exacto (disco /dev/sda sin números):</div>\n          <div><span style=\"color:#10B981;\">root@pc:~#</span> <strong style=\"color:#38BDF8;\">grub-install /dev/sda</strong></div>\n          <div style=\"color:#34D399; margin-top:2px;\">Installing for i386-pc platform.</div>\n          <div style=\"color:#34D399;\">Installation finished. No error reported.</div>\n        </div>\n      </div>\n      <div style=\"background:#FEF2F2; border-left:3px solid #DC2626; padding:3px 6px; border-radius:4px; font-size:8.5px; color:#991B1B; margin-top:5px;\">\n        ⚠️ <strong>¡Trampa!:</strong> Si pones <code>/dev/sda1</code> dañas el arranque. Va sin número.\n      </div>\n    </div>\n\n    <!-- CASO UEFI -->\n    <div style=\"background:var(--surface); border:2px solid #86EFAC; border-top:5px solid #16A34A; border-radius:12px; padding:9px 13px; box-shadow:0 3px 10px rgba(22,163,74,0.06); display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n          <strong style=\"font-size:12px; color:#15803D;\">⚡ En Sistemas UEFI Modernos (ESP)</strong>\n          <span style=\"font-size:8.5px; font-weight:bold; background:#DCFCE7; color:#166534; padding:1px 6px; border-radius:3px;\">A Partición FAT32</span>\n        </div>\n        <div style=\"font-size:9.5px; color:var(--text-muted); line-height:1.35; margin-bottom:6px;\">\n          No toca el MBR. Copia el archivo ejecutable <code>grubx64.efi</code> a la partición ESP (montada en <code>/boot/efi</code>).\n        </div>\n        <div style=\"background:#0F172A; border-radius:6px; padding:6px 10px; font-family:'JetBrains Mono', monospace; font-size:9px; color:#F8FAFC;\">\n          <div style=\"color:#64748B;\"># Comando UEFI especificando directorio EFI:</div>\n          <div><span style=\"color:#10B981;\">root@pc:~#</span> <strong style=\"color:#4ADE80;\">grub-install --target=x86_64-efi --efi-directory=/boot/efi</strong></div>\n          <div style=\"color:#34D399; margin-top:2px;\">Installing for x86_64-efi platform.</div>\n          <div style=\"color:#34D399;\">Installation finished. No error reported.</div>\n        </div>\n      </div>\n      <div style=\"background:#F0FDF4; border-left:3px solid #16A34A; padding:3px 6px; border-radius:4px; font-size:8.5px; color:#166534; margin-top:5px;\">\n        💡 En distros modernas, si arrancaste en UEFI, basta con ejecutar <code>grub-install</code> a secas.\n      </div>\n    </div>\n\n  </div>\n\n  <!-- DIFERENCIA CLAVE ENTRE grub-install Y update-grub -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:7px 12px; box-shadow:0 3px 8px rgba(0,0,0,0.03); display:flex; align-items:center; justify-content:space-between;\">\n    <div style=\"font-size:9.5px; line-height:1.35;\">\n      <strong>¿Cuándo se usa cada uno? (No los confundas):</strong><br>\n      • <strong>grub-install:</strong> Se usa cuando el ordenador <em>no arranca</em> o cambias de disco físico (instala los ejecutables en el disco).<br>\n      • <strong>grub-mkconfig / update-grub:</strong> Se usa cuando actualizas el kernel o añades sistemas operativos (solo genera el menú de texto <code>grub.cfg</code>).\n    </div>\n  </div>\n\n</div>\n"}, {"id": 6, "section": "102.2", "cat": "boot", "type": "file", "title": "Arquitectura Modular de GRUB 2: /etc/grub.d/", "lead": "¿Cómo se genera /boot/grub/grub.cfg? Ejemplo tangible de /etc/default/grub y los scripts numerados:", "ref": "84-87", "pdf": {"manual": "A", "pages": [84, 85, 86, 87], "figure": null}, "coverage": ["102.2-FIL-002", "102.2-CMD-002"], "file": null, "points": [], "remember": "🎯 Clave de Examen: Para cambiar el timeout o los parámetros del kernel, se edita /etc/default/grub (ej: GRUB_TIMEOUT=5). Para aplicar los cambios SIEMPRE se debe ejecutar: 'grub-mkconfig -o /boot/grub/grub.cfg' (o 'update-grub').", "notes": "Muestra a la clase el contenido real de /etc/default/grub: las variables controlan el comportamiento global y los scripts de /etc/grub.d generan los menús.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:8px; margin-top:2px;\">\n  \n  <!-- DIAGRAMA DEL PIPELINE DE COMPILACIÓN (ARRIBA) -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:7px 12px; box-shadow:0 3px 8px rgba(0,0,0,0.03);\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;\">\n      <div style=\"font-size:11.5px; font-weight:800; color:var(--text); display:flex; align-items:center; gap:6px;\">\n        <span>🔄</span>\n        <span>El Flujo de Generación de GRUB 2 (La «Batidora» que Crea el Menú)</span>\n      </div>\n      <span style=\"font-size:8.5px; font-weight:bold; color:#1E40AF; background:#EFF6FF; padding:1px 6px; border-radius:3px;\">\n        Archivos de Origen ➔ Procesador ➔ Archivo Final\n      </span>\n    </div>\n\n    <!-- 3 Fases en Fila -->\n    <div style=\"display:grid; grid-template-columns: 1fr 1fr 1.15fr; gap:8px; align-items:center;\">\n      \n      <!-- Entrada: 2 Fuentes -->\n      <div style=\"display:flex; flex-direction:column; gap:4px;\">\n        <div style=\"background:#EFF6FF; border:1px solid #BFDBFE; border-radius:5px; padding:3px 6px; font-size:8.5px;\">\n          <strong style=\"color:#1E40AF;\">1. /etc/default/grub</strong> (Variables globales)\n        </div>\n        <div style=\"background:#FEF3C7; border:1px solid #FDE68A; border-radius:5px; padding:3px 6px; font-size:8.5px;\">\n          <strong style=\"color:#92400E;\">2. /etc/grub.d/*</strong> (Scripts ejecutables)\n        </div>\n      </div>\n\n      <!-- El Comando Generador -->\n      <div style=\"background:#0F172A; border-radius:6px; padding:6px 8px; text-align:center; color:#F8FAFC;\">\n        <div style=\"font-size:8px; color:#38BDF8; font-weight:bold; text-transform:uppercase;\">Comando Compilador</div>\n        <code style=\"font-size:8.5px; color:#4ADE80; font-family:'JetBrains Mono', monospace; font-weight:bold; display:block; margin:2px 0;\">grub-mkconfig -o /boot/grub/grub.cfg</code>\n        <div style=\"font-size:7.5px; color:#94A3B8;\">(En Debian/Ubuntu: <code>sudo update-grub</code>)</div>\n      </div>\n\n      <!-- El Archivo Final -->\n      <div style=\"background:#F0FDF4; border:1.5px solid #86EFAC; border-radius:6px; padding:5px 8px; font-size:8.5px;\">\n        <strong style=\"color:#166534; font-size:9.5px;\">/boot/grub/grub.cfg</strong>\n        <div style=\"color:var(--text-muted); margin-top:1px; line-height:1.25;\">\n          El archivo maestro que lee la máquina al arrancar.<br>\n          <strong style=\"color:#DC2626;\">¡NUNCA SE EDITA A MANO!</strong> Se sobreescribiría.\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <!-- DOS COLUMNAS: EJEMPLO TANGIBLE DE /etc/default/grub VS LOS SCRIPTS DE /etc/grub.d/ -->\n  <div style=\"display:grid; grid-template-columns: 1.15fr 1fr; gap:11px;\">\n    \n    <!-- COLUMNA IZQUIERDA: CONTENIDO TANGIBLE DE /etc/default/grub -->\n    <div style=\"background:#0F172A; border:1.5px solid #334155; border-radius:10px; overflow:hidden; box-shadow:0 3px 10px rgba(15,23,42,0.15); display:flex; flex-direction:column; justify-content:space-between;\">\n      <div style=\"background:#1E293B; padding:5px 11px; border-bottom:1px solid #334155; display:flex; justify-content:space-between; align-items:center;\">\n        <span style=\"font-family:'JetBrains Mono', monospace; font-size:9.5px; color:#38BDF8; font-weight:bold;\">📄 /etc/default/grub — Ejemplo Real y Tangible</span>\n        <span style=\"font-size:8px; color:#4ADE80;\">Configuración Global</span>\n      </div>\n      <div style=\"padding:6px 11px; font-family:'JetBrains Mono', Consolas, monospace; font-size:8.5px; line-height:1.4; color:#F8FAFC;\">\n        <div style=\"color:#64748B;\"># Ajustes generales que edita el administrador:</div>\n        <div><strong style=\"color:#FBBF24;\">GRUB_DEFAULT=0</strong>              <span style=\"color:#94A3B8;\"># 0 = Arranca la 1ª opción del menú</span></div>\n        <div><strong style=\"color:#38BDF8;\">GRUB_TIMEOUT=5</strong>              <span style=\"color:#94A3B8;\"># 5 segundos de espera antes de arrancar</span></div>\n        <div><strong style=\"color:#A78BFA;\">GRUB_DISTRIBUTOR=\"Ubuntu\"</strong>   <span style=\"color:#94A3B8;\"># Nombre mostrado en la cabecera</span></div>\n        <div><strong style=\"color:#4ADE80;\">GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"</strong></div>\n        <div style=\"color:#64748B; margin-left:12px;\">↳ quiet = oculta mensajes técnicos · splash = muestra logo gráfico</div>\n        <div><strong style=\"color:#F472B6;\">GRUB_DISABLE_OS_PROBER=false</strong> <span style=\"color:#94A3B8;\"># false = Permite buscar Windows</span></div>\n      </div>\n      <div style=\"background:#1E293B; padding:4px 10px; font-size:8px; color:#94A3B8; border-top:1px solid #334155;\">\n        💡 Si cambias <code>GRUB_TIMEOUT=10</code>, no hace efecto hasta ejecutar: <code>sudo update-grub</code>.\n      </div>\n    </div>\n\n    <!-- COLUMNA DERECHA: LOS SCRIPTS NUMERADOS DE /etc/grub.d/ -->\n    <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:7px 11px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"font-size:10.5px; font-weight:800; color:var(--text); margin-bottom:3px; display:flex; justify-content:space-between; align-items:center;\">\n          <span>📂 Scripts Numerados de /etc/grub.d/</span>\n          <span style=\"font-size:8px; color:var(--text-muted);\">Orden numérico estricto</span>\n        </div>\n\n        <div style=\"display:flex; flex-direction:column; gap:4px; font-size:8.5px; line-height:1.3;\">\n          <div style=\"background:var(--surface-alt); border-left:3px solid #2563EB; padding:3px 6px; border-radius:4px;\">\n            <strong style=\"color:#2563EB; font-family:'JetBrains Mono', monospace;\">00_header:</strong> Carga las variables globales de <code>/etc/default/grub</code> (resolución, timeout).\n          </div>\n          <div style=\"background:var(--surface-alt); border-left:3px solid #16A34A; padding:3px 6px; border-radius:4px;\">\n            <strong style=\"color:#16A34A; font-family:'JetBrains Mono', monospace;\">10_linux:</strong> Escanea <code>/boot</code> y genera entradas para cada kernel de Linux instalado.\n          </div>\n          <div style=\"background:var(--surface-alt); border-left:3px solid #D97706; padding:3px 6px; border-radius:4px;\">\n            <strong style=\"color:#D97706; font-family:'JetBrains Mono', monospace;\">30_os-prober:</strong> Busca en otros discos sistemas operativos como <strong>Windows</strong>.\n          </div>\n          <div style=\"background:var(--surface-alt); border-left:3px solid #7C3AED; padding:3px 6px; border-radius:4px;\">\n            <strong style=\"color:#7C3AED; font-family:'JetBrains Mono', monospace;\">40_custom:</strong> Plantilla para tus entradas manuales personalizadas (al final del menú).\n          </div>\n        </div>\n      </div>\n\n      <div style=\"font-size:8px; color:var(--text-muted); margin-top:3px;\">\n        🎯 <strong>¿Por qué 00, 10, 30, 40?</strong> Porque Linux lee las carpetas en orden alfabético. Así cada sección del menú se monta en el orden correcto.\n      </div>\n    </div>\n\n  </div>\n\n</div>\n", "purpose": "¿Cómo se genera /boot/grub/grub.cfg? Ejemplo tangible de /etc/default/grub y los scripts numerados:"}, {"id": 7, "section": "102.2", "cat": "boot", "type": "file", "title": "Entradas Manuales en /etc/grub.d/40_custom", "lead": "¿Para qué sirve 40_custom, quién lo crea y cómo se escribe una entrada real paso a paso?", "ref": "87-89", "pdf": {"manual": "A", "pages": [87, 88, 89], "figure": null}, "coverage": ["102.2-FIL-003"], "file": null, "points": [], "remember": "🎯 Clave de Examen: En GRUB 2 los comandos dentro de menuentry son 'linux' (para cargar el kernel) e 'initrd' (para el ramdisk). El archivo se llama 40_custom para ejecutarse al final del menú.", "notes": "Explica a la clase que 'exec tail -n +3 $0' no se debe borrar; es el truco para que la shell lea el archivo como texto plano.", "purpose": "¿Para qué sirve 40_custom, quién lo crea y cómo se escribe una entrada real paso a paso?", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:9px; margin-top:2px;\">\n  \n  <!-- CASO REAL DE 40_CUSTOM CON COMENTARIOS Y LÍNEA TAIL EXPLICADA -->\n  <div style=\"display:grid; grid-template-columns: 1.15fr 1fr; gap:12px;\">\n    \n    <!-- El Archivo 40_custom Real -->\n    <div style=\"background:#0F172A; border:1.5px solid #334155; border-radius:10px; overflow:hidden; box-shadow:0 3px 10px rgba(15,23,42,0.15);\">\n      <div style=\"background:#1E293B; padding:5px 12px; border-bottom:1px solid #334155; display:flex; justify-content:space-between; align-items:center;\">\n        <span style=\"font-family:'JetBrains Mono', monospace; font-size:10px; color:#38BDF8; font-weight:bold;\">/etc/grub.d/40_custom — Ejemplo Real</span>\n        <span style=\"font-size:8.5px; color:#94A3B8;\">nano /etc/grub.d/40_custom</span>\n      </div>\n      <div style=\"padding:6px 12px; font-family:'JetBrains Mono', Consolas, monospace; font-size:9px; line-height:1.4; color:#F8FAFC;\">\n        <div style=\"color:#64748B;\">#!/bin/sh</div>\n        <div style=\"color:#F59E0B; font-weight:bold;\">exec tail -n +3 $0  <span style=\"color:#94A3B8;\"># ← ¡No borrar! Imprime a partir de la línea 3</span></div>\n        <div style=\"color:#64748B;\"># This file provides an easy way to add custom menu entries.</div>\n        <br>\n        <div style=\"color:#38BDF8;\"><strong style=\"color:#4ADE80;\">menuentry</strong> \"Linux Modo Rescate Seguro\" {</div>\n        <div style=\"color:#E2E8F0; padding-left:12px;\"><span style=\"color:#FBBF24;\">set root</span>=(hd0,2)</div>\n        <div style=\"color:#E2E8F0; padding-left:12px;\"><span style=\"color:#F472B6;\">linux</span> /boot/vmlinuz-6.1.0-18-amd64 root=/dev/sda2 ro single</div>\n        <div style=\"color:#E2E8F0; padding-left:12px;\"><span style=\"color:#A78BFA;\">initrd</span> /boot/initrd.img-6.1.0-18-amd64</div>\n        <div style=\"color:#38BDF8;\">}</div>\n      </div>\n    </div>\n\n    <!-- PREGUNTAS FRECUENTES Y PROCEDIMIENTO REAL -->\n    <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:9px 12px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"font-size:11px; font-weight:800; color:var(--text); margin-bottom:4px; display:flex; align-items:center; gap:6px;\">\n          <span>❓</span>\n          <span>¿Quién ha creado este archivo y por qué se llama 40_custom?</span>\n        </div>\n        <div style=\"font-size:9px; color:var(--text-muted); line-height:1.35;\">\n          • <strong>¿Lo he creado yo?</strong> No, viene preinstalado por GRUB como plantilla lista para usar.<br>\n          • <strong>¿Por qué se llama 40_?</strong> Para que se compile después de <code>10_linux</code> y <code>30_os-prober</code>, apareciendo tus entradas al final del menú.<br>\n          • <strong>¿Qué hace la línea <code>exec tail -n +3 $0</code>?</strong> Es un truco de shell: le dice a Linux <em>«copia al menú todo el texto que haya a partir de la línea 3»</em> sin intentar ejecutarlo como un script de bash.\n        </div>\n      </div>\n\n      <!-- Procedimiento en Consola -->\n      <div style=\"background:var(--surface-alt); border-left:3px solid #16A34A; padding:5px 8px; border-radius:4px; font-size:8.5px; margin-top:6px;\">\n        <strong style=\"color:#166534;\">El Flujo Real de Trabajo en 2 Pasos:</strong><br>\n        1. Editamos el archivo: <code>sudo nano /etc/grub.d/40_custom</code><br>\n        2. Recompilamos el menú: <code>sudo update-grub</code> (o <code>grub-mkconfig -o /boot/grub/grub.cfg</code>).\n      </div>\n    </div>\n\n  </div>\n\n</div>\n"}, {"id": 8, "section": "102.2", "cat": "boot", "type": "command", "title": "Recuperación Interactiva en la Consola de GRUB 2", "lead": "El menú gráfico no aparece y te deja en 'grub>'. Los 4 pasos obligatorios para arrancar a mano:", "ref": "89-91", "pdf": {"manual": "A", "pages": [89, 90, 91], "figure": null}, "coverage": ["102.2-CMD-003"], "command": "grub> (Consola interactiva de comandos)", "purpose": "El menú gráfico no aparece y te deja en 'grub>'. Los 4 pasos obligatorios para arrancar a mano:", "terminal": null, "options": [], "remember": "🎯 Secuencia de Examen LPIC-1: El orden inmutable para arrancar a mano desde 'grub>' es: 1. set root ➔ 2. linux ➔ 3. initrd ➔ 4. boot.", "notes": "Explica que 'boot' es el comando disparador final que le pasa el control al procesador.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:9px; margin-top:2px;\">\n  \n  <!-- ¿QUÉ ES EL PROMPT GRUB> Y POR QUÉ APARECE? -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:7px 12px; box-shadow:0 3px 8px rgba(0,0,0,0.03); display:flex; justify-content:space-between; align-items:center;\">\n    <div style=\"display:flex; align-items:center; gap:8px;\">\n      <span style=\"font-size:16px;\">🛑</span>\n      <div style=\"font-size:10px; color:var(--text); line-height:1.35;\">\n        <strong>¿Por qué sale la pantalla negra con «grub&gt;»?</strong><br>\n        GRUB está vivo y cargado en memoria, pero <strong>no encuentra el archivo de configuración <code>grub.cfg</code></strong> (se borró o cambiaste de disco). El sistema no sabe qué arrancar automáticamente y espera a que tú le des las órdenes a mano.\n      </div>\n    </div>\n  </div>\n\n  <!-- CONSOLA REAL Y LOS 4 PASOS DE RESCATE -->\n  <div style=\"display:grid; grid-template-columns: 1.15fr 1fr; gap:12px;\">\n    \n    <!-- Consola Real grub> -->\n    <div style=\"background:#0F172A; border:1.5px solid #334155; border-radius:10px; overflow:hidden; box-shadow:0 4px 12px rgba(15,23,42,0.15);\">\n      <div style=\"background:#1E293B; padding:5px 12px; border-bottom:1px solid #334155; display:flex; justify-content:space-between; align-items:center;\">\n        <span style=\"font-family:'JetBrains Mono', monospace; font-size:10px; color:#38BDF8; font-weight:bold;\">grub> (Consola de Rescate Interactiva)</span>\n        <span style=\"font-size:8.5px; color:#4ADE80;\">Secuencia Real</span>\n      </div>\n      <div style=\"padding:6px 12px; font-family:'JetBrains Mono', Consolas, monospace; font-size:9px; line-height:1.45; color:#F8FAFC;\">\n        <div style=\"color:#64748B;\"># Paso previo: Listar particiones para ver dónde está el sistema:</div>\n        <div><span style=\"color:#38BDF8;\">grub&gt;</span> ls</div>\n        <div style=\"color:#94A3B8;\">(hd0) (hd0,gpt1) (hd0,gpt2)</div>\n        <br>\n        <div style=\"color:#FBBF24;\"># 1. Definir la partición donde está /boot:</div>\n        <div><span style=\"color:#38BDF8;\">grub&gt;</span> <strong style=\"color:#FBBF24;\">set root=(hd0,gpt2)</strong></div>\n        <div style=\"color:#F472B6;\"># 2. Cargar el kernel en la memoria RAM:</div>\n        <div><span style=\"color:#38BDF8;\">grub&gt;</span> <strong style=\"color:#F472B6;\">linux /boot/vmlinuz-6.1 root=/dev/sda2 ro</strong></div>\n        <div style=\"color:#A78BFA;\"># 3. Cargar el ramdisk en memoria RAM:</div>\n        <div><span style=\"color:#38BDF8;\">grub&gt;</span> <strong style=\"color:#A78BFA;\">initrd /boot/initrd.img-6.1</strong></div>\n        <div style=\"color:#4ADE80;\"># 4. ¡Disparar la ejecución del sistema!:</div>\n        <div><span style=\"color:#38BDF8;\">grub&gt;</span> <strong style=\"color:#4ADE80;\">boot</strong></div>\n      </div>\n    </div>\n\n    <!-- INFOGRAFÍA DE LOS 4 PASOS (ORDEN INMUTABLE) -->\n    <div style=\"display:flex; flex-direction:column; gap:6px;\">\n      \n      <div style=\"background:var(--surface); border:1.5px solid #BFDBFE; border-left:4px solid #2563EB; border-radius:6px; padding:5px 8px;\">\n        <div style=\"font-size:9.5px; font-weight:800; color:#1E40AF;\">1. set root=(hdX,Y)</div>\n        <div style=\"font-size:8.5px; color:var(--text-muted);\">Le dice a GRUB en qué partición del disco tiene que buscar las rutas de los archivos del kernel.</div>\n      </div>\n\n      <div style=\"background:var(--surface); border:1.5px solid #FCA5A5; border-left:4px solid #DC2626; border-radius:6px; padding:5px 8px;\">\n        <div style=\"font-size:9.5px; font-weight:800; color:#B91C1C;\">2. linux /boot/vmlinuz... root=... ro</div>\n        <div style=\"font-size:8.5px; color:var(--text-muted);\">Copia el ejecutable del kernel a la RAM y le pasa el parámetro obligatorio <code>root=</code> con la partición real.</div>\n      </div>\n\n      <div style=\"background:var(--surface); border:1.5px solid #FDE68A; border-left:4px solid #D97706; border-radius:6px; padding:5px 8px;\">\n        <div style=\"font-size:9.5px; font-weight:800; color:#B45309;\">3. initrd /boot/initrd.img...</div>\n        <div style=\"font-size:8.5px; color:var(--text-muted);\">Copia a la RAM los drivers necesarios para montar el disco duro.</div>\n      </div>\n\n      <div style=\"background:var(--surface); border:1.5px solid #86EFAC; border-left:4px solid #16A34A; border-radius:6px; padding:5px 8px;\">\n        <div style=\"font-size:9.5px; font-weight:800; color:#15803D;\">4. boot</div>\n        <div style=\"font-size:8.5px; color:var(--text-muted);\">La orden final. GRUB le cede el procesador al kernel y Linux inicia.</div>\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n"}, {"id": 9, "section": "102.2", "cat": "boot", "type": "concept", "title": "Consola de Rescate: grub rescue>", "lead": "¿Por qué sale 'error: unknown filesystem. grub rescue>' y cuál es el procedimiento visual de recuperación?", "ref": "91-92", "pdf": {"manual": "A", "pages": [91, 92], "figure": null}, "coverage": ["102.2-CON-004"], "points": [], "remember": "🎯 Clave de Examen: El comando mágico que devuelve la consola normal desde el modo rescue es 'insmod normal' seguido de 'normal'.", "notes": "Explica que en rescue solo funcionan 4 comandos internos: ls, set, unset e insmod. No existe linux ni boot hasta cargar normal.", "purpose": "¿Por qué sale 'error: unknown filesystem. grub rescue>' y cuál es el procedimiento visual de recuperación?", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:9px; margin-top:2px;\">\n  \n  <!-- ¿POR QUÉ SALE RESCUE Y NO LA NORMAL? -->\n  <div style=\"background:var(--surface); border:2px solid #FCA5A5; border-radius:10px; padding:7px 12px; box-shadow:0 3px 8px rgba(220,38,38,0.05); display:flex; justify-content:space-between; align-items:center;\">\n    <div style=\"display:flex; align-items:center; gap:8px;\">\n      <span style=\"font-size:16px;\">🚨</span>\n      <div style=\"font-size:10px; color:var(--text); line-height:1.35;\">\n        <strong>¿Qué significa «grub rescue&gt;»? (Modo Emergencia Estricto):</strong><br>\n        Es más grave que la consola normal. Ocurre cuando GRUB <strong>ni siquiera sabe leer el formato del disco</strong> (le falta el driver de ext4/btrfs). En este modo solo existen 4 comandos: <code>ls</code>, <code>set</code>, <code>unset</code> e <code>insmod</code>.\n      </div>\n    </div>\n  </div>\n\n  <!-- ESQUEMA VISUAL DEL PROCEDIMIENTO DE RESCATE -->\n  <div style=\"display:grid; grid-template-columns: 1.15fr 1fr; gap:12px;\">\n    \n    <!-- Consola de Comandos Real -->\n    <div style=\"background:#0F172A; border:1.5px solid #334155; border-radius:10px; overflow:hidden; box-shadow:0 4px 12px rgba(15,23,42,0.15);\">\n      <div style=\"background:#1E293B; padding:5px 12px; border-bottom:1px solid #334155; display:flex; justify-content:space-between; align-items:center;\">\n        <span style=\"font-family:'JetBrains Mono', monospace; font-size:10px; color:#F87171; font-weight:bold;\">grub rescue> (Secuencia de Reparación)</span>\n        <span style=\"font-size:8.5px; color:#94A3B8;\">Comandos Reales</span>\n      </div>\n      <div style=\"padding:6px 12px; font-family:'JetBrains Mono', Consolas, monospace; font-size:9px; line-height:1.45; color:#F8FAFC;\">\n        <div style=\"color:#EF4444;\">error: unknown filesystem.</div>\n        <div style=\"color:#64748B;\"># 1. Encontrar la partición que tiene la carpeta de GRUB:</div>\n        <div><span style=\"color:#F87171;\">grub rescue&gt;</span> ls</div>\n        <div style=\"color:#94A3B8;\">(hd0) (hd0,msdos1) (hd0,msdos2)</div>\n        <br>\n        <div style=\"color:#38BDF8;\"># 2. Indicarle dónde están los módulos y drivers (.mod):</div>\n        <div><span style=\"color:#F87171;\">grub rescue&gt;</span> <strong style=\"color:#38BDF8;\">set prefix=(hd0,msdos1)/boot/grub</strong></div>\n        <div><span style=\"color:#F87171;\">grub rescue&gt;</span> <strong style=\"color:#38BDF8;\">set root=(hd0,msdos1)</strong></div>\n        <br>\n        <div style=\"color:#4ADE80;\"># 3. Cargar el módulo 'normal' y volver a la consola normal:</div>\n        <div><span style=\"color:#F87171;\">grub rescue&gt;</span> <strong style=\"color:#4ADE80;\">insmod normal</strong></div>\n        <div><span style=\"color:#F87171;\">grub rescue&gt;</span> <strong style=\"color:#4ADE80;\">normal</strong></div>\n        <div style=\"color:#34D399; margin-top:2px;\">[El menú gráfico de GRUB vuelve a aparecer en pantalla]</div>\n      </div>\n    </div>\n\n    <!-- EXPLICACIÓN PASO A PASO EN 3 NIVELES -->\n    <div style=\"display:flex; flex-direction:column; gap:6px;\">\n      \n      <div style=\"background:var(--surface); border:1.5px solid var(--border); border-left:4px solid #F59E0B; border-radius:6px; padding:6px 8px;\">\n        <div style=\"font-size:9.5px; font-weight:800; color:#B45309;\">1. Localizar: ls (hd0,X)/boot/grub</div>\n        <div style=\"font-size:8.5px; color:var(--text-muted); line-height:1.3;\">\n          Vas probando cada partición con <code>ls</code> hasta encontrar la que no devuelva <em>«unknown filesystem»</em>.\n        </div>\n      </div>\n\n      <div style=\"background:var(--surface); border:1.5px solid var(--border); border-left:4px solid #38BDF8; border-radius:6px; padding:6px 8px;\">\n        <div style=\"font-size:9.5px; font-weight:800; color:#0284C7;\">2. Apuntar: set prefix y set root</div>\n        <div style=\"font-size:8.5px; color:var(--text-muted); line-height:1.3;\">\n          <strong>prefix</strong> le dice a GRUB la ruta exacta de la carpeta con los módulos de disco.\n        </div>\n      </div>\n\n      <div style=\"background:var(--surface); border:1.5px solid var(--border); border-left:4px solid #10B981; border-radius:6px; padding:6px 8px;\">\n        <div style=\"font-size:9.5px; font-weight:800; color:#15803D;\">3. Restaurar: insmod normal && normal</div>\n        <div style=\"font-size:8.5px; color:var(--text-muted); line-height:1.3;\">\n          <strong>insmod</strong> (*Insert Module*) inyecta el módulo que sabe dibujar el menú y saltar al modo normal.\n        </div>\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n"}, {"id": 10, "section": "102.2", "cat": "boot", "type": "table", "title": "Gestor Heredado: GRUB Legacy (/boot/grub/menu.lst)", "lead": "El fichero de menú antiguo frente al moderno: la comparativa visual para no dudar en el examen:", "ref": "92-94", "pdf": {"manual": "A", "pages": [92, 93, 94], "figure": null}, "coverage": ["102.2-FIL-004", "102.2-CON-005"], "headers": null, "rows": null, "remember": "🎯 Pregunta Directa de Examen: ¿Cuál es el archivo de menú principal en GRUB Legacy? Respuesta: /boot/grub/menu.lst (o grub.conf). Directiva de entrada: 'title'. Comando del kernel: 'kernel'.", "notes": "Diferencia crítica: en GRUB Legacy la partición 1 del primer disco se escribe (hd0,0); en GRUB 2 es (hd0,1).", "purpose": "El fichero de menú antiguo frente al moderno: la comparativa visual para no dudar en el examen:", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:9px; margin-top:2px;\">\n  \n  <!-- ARCHIVO MENU.LST REAL COMPARADO VISUALMENTE -->\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px;\">\n    \n    <!-- GRUB Legacy: /boot/grub/menu.lst -->\n    <div style=\"background:#0F172A; border:1.5px solid #334155; border-radius:10px; overflow:hidden; box-shadow:0 3px 10px rgba(15,23,42,0.15);\">\n      <div style=\"background:#7F1D1D; padding:5px 12px; display:flex; justify-content:space-between; align-items:center;\">\n        <span style=\"font-family:'JetBrains Mono', monospace; font-size:10px; color:#FEE2E2; font-weight:bold;\">📜 GRUB Legacy: /boot/grub/menu.lst</span>\n        <span style=\"font-size:8.5px; color:#FECACA;\">Se edita a mano</span>\n      </div>\n      <div style=\"padding:6px 12px; font-family:'JetBrains Mono', Consolas, monospace; font-size:8.5px; line-height:1.4; color:#F8FAFC;\">\n        <div style=\"color:#94A3B8;\">default 0</div>\n        <div style=\"color:#94A3B8;\">timeout 10</div>\n        <br>\n        <div style=\"color:#F87171; font-weight:bold;\">title Debian GNU/Linux (Antiguo)</div>\n        <div style=\"color:#FBBF24; padding-left:10px;\">root <strong style=\"color:#F87171;\">(hd0,0)</strong>           <span style=\"color:#94A3B8;\"># ¡Empieza en 0!</span></div>\n        <div style=\"color:#4ADE80; padding-left:10px;\"><strong style=\"color:#F87171;\">kernel</strong> /vmlinuz-2.6 ro root=/dev/sda1</div>\n        <div style=\"color:#C084FC; padding-left:10px;\">initrd /initrd.img-2.6</div>\n      </div>\n    </div>\n\n    <!-- GRUB 2: /boot/grub/grub.cfg -->\n    <div style=\"background:#0F172A; border:1.5px solid #334155; border-radius:10px; overflow:hidden; box-shadow:0 3px 10px rgba(15,23,42,0.15);\">\n      <div style=\"background:#14532D; padding:5px 12px; display:flex; justify-content:space-between; align-items:center;\">\n        <span style=\"font-family:'JetBrains Mono', monospace; font-size:10px; color:#DCFCE7; font-weight:bold;\">🚀 GRUB 2: /boot/grub/grub.cfg</span>\n        <span style=\"font-size:8.5px; color:#BBF7D0;\">Autogenerado</span>\n      </div>\n      <div style=\"padding:6px 12px; font-family:'JetBrains Mono', Consolas, monospace; font-size:8.5px; line-height:1.4; color:#F8FAFC;\">\n        <div style=\"color:#94A3B8;\">set default=\"0\"</div>\n        <div style=\"color:#94A3B8;\">set timeout=10</div>\n        <br>\n        <div style=\"color:#4ADE80; font-weight:bold;\">menuentry \"Debian GNU/Linux\" {</div>\n        <div style=\"color:#FBBF24; padding-left:10px;\">set root=<strong style=\"color:#4ADE80;\">(hd0,1)</strong>       <span style=\"color:#94A3B8;\"># ¡Empieza en 1!</span></div>\n        <div style=\"color:#4ADE80; padding-left:10px;\"><strong style=\"color:#4ADE80;\">linux</strong> /boot/vmlinuz-6.1 ro root=/dev/sda1</div>\n        <div style=\"color:#C084FC; padding-left:10px;\">initrd /boot/initrd.img-6.1</div>\n        <div style=\"color:#4ADE80;\">}</div>\n      </div>\n    </div>\n\n  </div>\n\n  <!-- RESUMEN VISUAL DE LAS EQUIVALENCIAS EXACTAS -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:7px 12px; box-shadow:0 3px 8px rgba(0,0,0,0.03);\">\n    <div style=\"font-size:10.5px; font-weight:800; color:var(--text); margin-bottom:4px;\">\n      🔍 Equivalencias de Sintaxis para Memorizar en 30 Segundos:\n    </div>\n    <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; font-size:9px;\">\n      <div style=\"background:#FEF2F2; border-left:3px solid #DC2626; padding:3px 6px; border-radius:4px;\">\n        <strong>Título de Menú:</strong><br>\n        Legacy: <code>title</code> ➔ GRUB 2: <code>menuentry</code>\n      </div>\n      <div style=\"background:#FFFBEB; border-left:3px solid #D97706; padding:3px 6px; border-radius:4px;\">\n        <strong>Comando Kernel:</strong><br>\n        Legacy: <code>kernel</code> ➔ GRUB 2: <code>linux</code>\n      </div>\n      <div style=\"background:#F0FDF4; border-left:3px solid #16A34A; padding:3px 6px; border-radius:4px;\">\n        <strong>Partición 1:</strong><br>\n        Legacy: <code>(hd0,0)</code> ➔ GRUB 2: <code>(hd0,1)</code>\n      </div>\n    </div>\n  </div>\n\n</div>\n"}, {"id": 11, "section": "102.2", "cat": "boot", "type": "command", "title": "Instalación de GRUB Legacy: Consola grub", "lead": "Lo estrictamente necesario para el examen: la shell interactiva antigua y sus 3 comandos:", "ref": "94-95", "pdf": {"manual": "A", "pages": [94, 95], "figure": null}, "coverage": ["102.2-CMD-004"], "command": "grub (Shell de GRUB Legacy)", "purpose": "Lo estrictamente necesario para el examen: la shell interactiva antigua y sus 3 comandos:", "terminal": null, "options": [], "remember": "🎯 Pregunta de Examen: ¿Qué comando dentro de la consola de GRUB Legacy instala el gestor en el MBR del primer disco? Respuesta: setup (hd0).", "notes": "Subraya la diferencia: en GRUB Legacy se usaba 'setup (hd0)'; en GRUB 2 se usa el comando del sistema 'grub-install /dev/sda'.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:9px; margin-top:2px;\">\n  \n  <!-- CONSOLA INTERACTIVA DE GRUB LEGACY -->\n  <div style=\"display:grid; grid-template-columns: 1.15fr 1fr; gap:12px;\">\n    \n    <!-- Consola Real -->\n    <div style=\"background:#0F172A; border:1.5px solid #334155; border-radius:10px; overflow:hidden; box-shadow:0 3px 10px rgba(15,23,42,0.15);\">\n      <div style=\"background:#1E293B; padding:5px 12px; border-bottom:1px solid #334155; display:flex; justify-content:space-between; align-items:center;\">\n        <span style=\"font-family:'JetBrains Mono', monospace; font-size:10px; color:#F59E0B; font-weight:bold;\">bash ➔ grub (Shell Interactiva de Legacy)</span>\n        <span style=\"font-size:8.5px; color:#94A3B8;\">Examen LPIC-1</span>\n      </div>\n      <div style=\"padding:6px 12px; font-family:'JetBrains Mono', Consolas, monospace; font-size:9px; line-height:1.45; color:#F8FAFC;\">\n        <div style=\"color:#64748B;\"># 1. En Linux se entraba a su consola propia escribiendo grub:</div>\n        <div><span style=\"color:#10B981;\">root@servidor:~#</span> grub</div>\n        <div style=\"color:#94A3B8;\">[Minimal BASH-like line editing is supported...]</div>\n        <br>\n        <div style=\"color:#FBBF24;\"># 2. Indicar la partición donde residen los archivos de /boot:</div>\n        <div><span style=\"color:#F59E0B;\">grub&gt;</span> <strong style=\"color:#FBBF24;\">root (hd0,0)</strong></div>\n        <div style=\"color:#34D399;\">Filesystem type is ext2fs, partition type 0x83</div>\n        <br>\n        <div style=\"color:#F87171;\"># 3. ¡PREGUNTA DE EXAMEN! Instalar GRUB en el MBR del 1º disco:</div>\n        <div><span style=\"color:#F59E0B;\">grub&gt;</span> <strong style=\"color:#F87171;\">setup (hd0)</strong></div>\n        <div style=\"color:#34D399;\">Running \"embed /boot/grub/stage1_5 (hd0)\"... succeeded.</div>\n        <div style=\"color:#34D399;\">Running \"install /boot/grub/stage1 (hd0)... succeeded. Done.</div>\n        <br>\n        <div style=\"color:#94A3B8;\"># 4. Salir de la shell:</div>\n        <div><span style=\"color:#F59E0B;\">grub&gt;</span> quit</div>\n      </div>\n    </div>\n\n    <!-- EXPLICACIÓN DIRECTA SIN RELLENO -->\n    <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:9px 12px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"font-size:11px; font-weight:800; color:var(--text); margin-bottom:5px;\">\n          🎯 Lo Único que te Pueden Preguntar en el Examen:\n        </div>\n\n        <div style=\"display:flex; flex-direction:column; gap:5px; font-size:9px; line-height:1.35;\">\n          <div style=\"background:#EFF6FF; border-left:3px solid #2563EB; padding:4px 6px; border-radius:4px;\">\n            <strong>1. ¿Cómo se entraba?</strong> Ejecutando el comando <code>grub</code> desde la terminal de root de Linux.\n          </div>\n          <div style=\"background:#FEF3C7; border-left:3px solid #D97706; padding:4px 6px; border-radius:4px;\">\n            <strong>2. ¿Qué hacía <code>root (hd0,0)</code>?</strong> Le decía a la shell en qué disco y partición estaban los archivos de la etapa 2 (*Stage 2*).\n          </div>\n          <div style=\"background:#FEF2F2; border-left:3px solid #DC2626; padding:4px 6px; border-radius:4px;\">\n            <strong>3. ¿Qué hacía <code>setup (hd0)</code>?</strong> Escribía el cargador en el MBR del disco 0 (<code>/dev/sda</code>).\n          </div>\n        </div>\n      </div>\n\n      <div style=\"background:var(--surface-alt); border-radius:5px; padding:4px 6px; font-size:8.5px; color:var(--text); margin-top:6px;\">\n        💡 <strong>Comparativa de examen:</strong><br>\n        • Legacy: <code>setup (hd0)</code> dentro de la consola <code>grub&gt;</code>.<br>\n        • GRUB 2: <code>grub-install /dev/sda</code> como comando normal de Linux.\n      </div>\n    </div>\n\n  </div>\n\n</div>\n"}, {"id": 12, "section": "102.2", "cat": "boot", "type": "concept", "title": "Carga en Cadena (Chainloading) de Otros Sistemas", "lead": "¿Cómo arranca GRUB un sistema no-Linux como Windows? La analogía de los relevos y la sintaxis real:", "ref": "95-96", "pdf": {"manual": "A", "pages": [95, 96], "figure": null}, "coverage": ["102.2-CON-006"], "points": [], "remember": "🎯 Pregunta de Examen LPIC-1: 'chainloader +1' significa: 'pasa el control al primer sector (+1) de la partición de destino para que ejecute su propio cargador'.", "notes": "Explica que GRUB no entiende el kernel de Windows (NTOSKRNL); por eso le pasa el testigo al cargador de Microsoft.", "purpose": "¿Cómo arranca GRUB un sistema no-Linux como Windows? La analogía de los relevos y la sintaxis real:", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:9px; margin-top:2px;\">\n  \n  <!-- LA ANALOGÍA DE LA CARRERA DE RELEVOS -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:8px 12px; box-shadow:0 3px 8px rgba(0,0,0,0.03);\">\n    <div style=\"font-size:11.5px; font-weight:800; color:var(--text); margin-bottom:4px; display:flex; align-items:center; gap:6px;\">\n      <span>🏃‍♂️</span>\n      <span>¿Qué es el Chainloading? (La Metáfora de la Carrera de Relevos)</span>\n    </div>\n    <div style=\"font-size:9.5px; color:var(--text-muted); line-height:1.4;\">\n      GRUB sabe arrancar Linux de maravilla, pero <strong>no sabe cómo arrancar Windows ni FreeBSD</strong>. Cuando eliges «Windows» en el menú, GRUB no intenta cargarlo él mismo; simplemente <strong>le pasa el testigo de arranque al gestor propio de Microsoft (Bootmgr)</strong> para que sea él quien lo inicie.\n    </div>\n  </div>\n\n  <!-- CÓDIGO REAL EN 40_CUSTOM Y EXPLICACIÓN DE CHAINLOADER +1 -->\n  <div style=\"display:grid; grid-template-columns: 1.15fr 1fr; gap:12px;\">\n    \n    <!-- Código Real en GRUB 2 -->\n    <div style=\"background:#0F172A; border:1.5px solid #334155; border-radius:10px; overflow:hidden; box-shadow:0 3px 10px rgba(15,23,42,0.15);\">\n      <div style=\"background:#1E293B; padding:5px 12px; border-bottom:1px solid #334155; display:flex; justify-content:space-between; align-items:center;\">\n        <span style=\"font-family:'JetBrains Mono', monospace; font-size:10px; color:#38BDF8; font-weight:bold;\">Sintaxis Real en /etc/grub.d/40_custom</span>\n        <span style=\"font-size:8.5px; color:#4ADE80;\">GRUB 2</span>\n      </div>\n      <div style=\"padding:6px 12px; font-family:'JetBrains Mono', Consolas, monospace; font-size:9px; line-height:1.45; color:#F8FAFC;\">\n        <div style=\"color:#64748B;\"># Entrada para arrancar Windows en dual-boot:</div>\n        <div style=\"color:#38BDF8;\"><strong style=\"color:#4ADE80;\">menuentry</strong> \"Windows 11 / Windows 10\" {</div>\n        <div style=\"color:#E2E8F0; padding-left:12px;\"><span style=\"color:#38BDF8;\">insmod</span> ntfs           <span style=\"color:#64748B;\"># 1. Cargar soporte de lectura NTFS</span></div>\n        <div style=\"color:#E2E8F0; padding-left:12px;\"><span style=\"color:#FBBF24;\">set root</span>=(hd0,1)      <span style=\"color:#64748B;\"># 2. Apuntar a la partición de Windows</span></div>\n        <div style=\"color:#E2E8F0; padding-left:12px;\"><strong style=\"color:#F472B6;\">chainloader +1</strong>        <span style=\"color:#FDE68A;\"># 3. ¡PREGUNTA DE EXAMEN!</span></div>\n        <div style=\"color:#38BDF8;\">}</div>\n      </div>\n    </div>\n\n    <!-- QUÉ SIGNIFICA EXACTAMENTE CHAINLOADER +1 -->\n    <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:9px 12px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"font-size:11px; font-weight:800; color:var(--text); margin-bottom:4px; display:flex; align-items:center; gap:6px;\">\n          <span>🎯</span>\n          <span>¿Qué significa exactamente «chainloader +1»?</span>\n        </div>\n        <div style=\"background:#FFFBEB; border-left:3px solid #D97706; padding:5px 8px; border-radius:4px; font-size:9px; line-height:1.35; margin-bottom:5px;\">\n          <strong>«+1» significa el primer sector del disco:</strong><br>\n          Le ordena a GRUB: <em>«Lee el sector número 1 (los primeros 512 bytes del inicio de esa partición, donde reside el código de arranque de Windows) y ejecútalo»</em>.\n        </div>\n      </div>\n\n      <div style=\"background:var(--surface-alt); border-radius:5px; padding:4px 6px; font-size:8.5px; color:var(--text-muted); line-height:1.3;\">\n        💡 <strong>En GRUB Legacy antiguo era idéntico:</strong><br>\n        <code>title Windows</code><br>\n        <code>rootnoverify (hd0,0)</code><br>\n        <code>chainloader +1</code>\n      </div>\n    </div>\n\n  </div>\n\n</div>\n"}, {"id": 13, "section": "102.2", "cat": "boot", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: Archivos y Pasos)", "ref": "96-97", "pdf": {"manual": "A", "pages": [96, 97], "figure": null}, "scenario": "Casos prácticos de configuración de GRUB basados en el Manual Oficial LPIC-1 (Páginas 96-97):", "steps": [{"action": "Caso 1: En un sistema moderno con GRUB 2, ¿cuál es la ruta del archivo de configuración maestro y qué comando se utiliza para regenerarlo?", "command": "Ruta: /boot/grub/grub.cfg ; Comando: grub-mkconfig -o /boot/grub/grub.cfg (o update-grub en Debian)", "reason": "El archivo grub.cfg es generado dinámicamente combinando /etc/default/grub con los scripts modulares ejecutables de /etc/grub.d/."}, {"action": "Caso 2: ¿Cuáles son los pasos obligatorios para cambiar permanentemente el tiempo de espera del menú de GRUB 2 a 10 segundos?", "command": "1. Editar /etc/default/grub y fijar GRUB_TIMEOUT=10 ; 2. Ejecutar grub-mkconfig -o /boot/grub/grub.cfg", "reason": "Modificar el archivo /etc/default/grub no tiene efecto hasta que se recompila el grub.cfg en disco."}], "solution": {"explain": "El examen insiste en que nunca se debe tocar grub.cfg directamente; el flujo profesional siempre pasa por /etc/default/grub y grub-mkconfig."}, "notes": "Haz que todos los alumnos repitan el mantra: 'Edito /etc/default/grub y ejecuto grub-mkconfig'."}, {"id": 14, "section": "102.2", "cat": "boot", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: Entradas y Consola)", "ref": "97-98", "pdf": {"manual": "A", "pages": [97, 98], "figure": null}, "scenario": "Casos prácticos de personalización y consola interactiva (Manual Oficial LPIC-1 Páginas 97-98):", "steps": [{"action": "Caso 3: ¿En qué archivo de /etc/grub.d/ debe colocar el administrador sus entradas de arranque manuales personalizadas?", "command": "/etc/grub.d/40_custom", "reason": "El archivo 40_custom está reservado específicamente para que el administrador agregue entradas menuentry personalizadas que no se borren en actualizaciones."}, {"action": "Caso 4: Estás en el prompt 'grub>' y has cargado el kernel y el initramfs. ¿Qué comando ejecuta finalmente el arranque?", "command": "boot", "reason": "El comando 'boot' transfiere el control de la CPU al kernel que ha sido depositado previamente en memoria RAM."}], "solution": {"explain": "La consola de comandos de GRUB permite salvar sistemas caídos sin necesidad de arrancar un LiveCD si el kernel e initrd siguen intactos en el disco."}, "notes": "Muestra que el comando 'boot' es análogo a girar la llave de contacto del coche una vez metida la gasolina (kernel)."}, {"id": 15, "section": "102.2", "cat": "boot", "type": "challenge", "title": "Retos de Exploración del Manual Oficial", "ref": "98-99", "pdf": {"manual": "A", "pages": [98, 99], "figure": null}, "scenario": "Resuelve estos 4 retos de examen planteados en el manual oficial LPIC-1 (Páginas 98-99):\n1. Un alumno escribe '(hd1,0)' en GRUB 2 esperando acceder a la primera partición del segundo disco. ¿Por qué falla?\n2. ¿Cómo averiguarías el UUID de una partición desde la consola de comandos de Linux antes de escribir una entrada de GRUB?\n3. ¿Qué ocurre si eliminas los permisos de ejecución en /etc/grub.d/30_os-prober y ejecutas grub-mkconfig?\n4. ¿Cómo instalarías GRUB 2 en el MBR del segundo disco duro del equipo (/dev/sdb)?", "hint": "Recuerda: Numeración de particiones en GRUB 2; comando blkid; permisos ejecutables de scripts en grub.d; y sintaxis de grub-install.", "solution": {"explain": "1. Porque en GRUB 2 las particiones empiezan en 1. Para la primera partición de sdb debe escribir '(hd1,1)' o '(hd1,msdos1)'. (hd1,0) solo era válido en GRUB Legacy.\n2. Con el comando: blkid (o lsblk -f).\n3. grub-mkconfig ignorará el script; por tanto, el menú de GRUB dejará de mostrar otros sistemas operativos (como Windows).\n4. Se ejecuta: sudo grub-install /dev/sdb (en el disco entero, no en la partición sdb1)."}, "notes": "Estos retos cubren fallos típicos de examen: numeración 0 vs 1 y permisos en /etc/grub.d/."}, {"id": 16, "section": "102.2", "cat": "boot", "type": "review", "title": "Pregunta de Examen LPIC-1: Nomenclatura en GRUB 2", "q": "¿Cómo se referencia la segunda partición del primer disco duro en la sintaxis nativa de GRUB 2?", "options": ["(hd0,1)", "(hd0,2)", "(hd1,2)", "(sda,2)"], "answer": 1, "why": "En GRUB 2, los discos físicos se numeran desde 0 (hd0 = primer disco), pero las particiones se numeran desde 1 (partición 1 = 1, partición 2 = 2). Por tanto, la segunda partición de sda es (hd0,2). En GRUB Legacy habría sido (hd0,1).", "notes": "Pregunta clásica donde cae muchísima gente si no memoriza que en GRUB 2 las particiones empiezan en 1."}, {"id": 17, "section": "102.2", "cat": "boot", "type": "review", "title": "Pregunta de Examen LPIC-1: Configuración de GRUB 2", "q": "¿Cuál es el comando estándar oficial de GRUB 2 que genera el archivo de configuración final /boot/grub/grub.cfg combinando las plantillas modulares y las opciones de /etc/default/grub?", "options": ["grub-install", "grub-mkconfig", "grub-config", "grub-setup"], "answer": 1, "why": "grub-mkconfig es la herramienta oficial de GRUB 2 que lee /etc/default/grub y /etc/grub.d/ para generar la salida indicada con -o (habitualmente -o /boot/grub/grub.cfg). update-grub es solo un script alias presente en Debian/Ubuntu.", "notes": "Pregunta de examen 101. En RHEL/CentOS no existe update-grub, solo grub-mkconfig."}, {"id": 18, "section": "102.2", "cat": "boot", "type": "flashcards", "title": "Tarjetas de Memorización: GRUB Legacy y GRUB 2 (102.2)", "deck": [{"front": "¿Cómo se numera /dev/sda1 en GRUB Legacy y cómo en GRUB 2?", "back": "En Legacy: (hd0,0) [empieza en 0]. En GRUB 2: (hd0,1) o (hd0,msdos1) [empieza en 1]."}, {"front": "¿Qué archivo se edita para fijar opciones persistentes en GRUB 2 y cuál en Legacy?", "back": "GRUB 2: /etc/default/grub (y luego grub-mkconfig). GRUB Legacy: /boot/grub/menu.lst (o grub.conf)."}, {"front": "¿Dónde añade el administrador sus entradas personalizadas en GRUB 2?", "back": "En el archivo ejecutable /etc/grub.d/40_custom."}, {"front": "¿Qué comando instala GRUB 2 en el MBR del disco /dev/sda?", "back": "grub-install /dev/sda (en el disco completo, nunca en la partición sda1)."}, {"front": "¿Cuáles son los 4 comandos interactivos de arranque manual en la consola grub>?", "back": "1. set root -> 2. linux -> 3. initrd -> 4. boot."}, {"front": "¿Qué directiva se utiliza para arrancar sistemas no Linux como Windows?", "back": "chainloader +1 (carga en cadena el primer sector de la partición de destino)."}, {"front": "¿Qué comando restaura el entorno normal desde el prompt 'grub rescue>'?", "back": "insmod normal seguido del comando 'normal'."}, {"front": "¿Qué hace el comando 'blkid'?", "back": "Muestra los UUIDs, etiquetas y sistemas de archivos de todas las particiones detectadas."}], "notes": "Pasa estas tarjetas para consolidar la distinción absoluta entre Legacy y GRUB 2."}, {"id": 19, "section": "102.2", "cat": "boot", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 102.2", "takeaways": ["Evolución: GRUB Legacy usa menu.lst y particiones desde 0 (hd0,0). GRUB 2 usa grub.cfg y particiones desde 1 (hd0,1).", "Archivos /boot: vmlinuz (kernel comprimido), initrd/initramfs (drivers temporales), config (ajustes de compilación), System.map (símbolos).", "Configuración GRUB 2: /etc/default/grub (variables globales) + /etc/grub.d/ (scripts 00_header, 10_linux, 30_os-prober, 40_custom). Compilado con grub-mkconfig.", "Recuperación: grub-install /dev/sdX instala en MBR. En consola grub>: linux, initrd, boot. Carga de Windows: chainloader +1."], "top3": [{"cmd": "grub-mkconfig -o /boot/grub/grub.cfg", "desc": "Compila la configuración modular de GRUB 2 en el archivo maestro de arranque."}, {"cmd": "grub-install /dev/sda", "desc": "Instala el cargador de arranque en el primer sector (MBR) del disco duro."}, {"cmd": "boot (en consola grub>)", "desc": "Inicia la ejecución del kernel cargado manualmente en la consola de rescate."}], "practice": {"name": "Practica 102.2: Instalación y Configuración del Gestor de Arranque GRUB", "url": "../practicas/p-102-2-gestor-arranque-grub.html", "desc": "Domina la configuración de GRUB 2 mediante /etc/default/grub y /etc/grub.d/, comprende la regeneración de grub.cfg y compara su arquitectura con GRUB Legacy."}, "notes": "Concluimos el subtema 102.2. Los alumnos ya dominan los dos gestores de arranque de la certificación."}];
     const ERRATAS = [{"id": "ERR-102.2-01", "section": "102.2", "ref": "p. 10", "manual_says": "grub-install /dev/sda1 instala el gestor en el disco.", "reality": "grub-install /dev/sda1 instala en el sector de arranque de la partición (VBR), no en el MBR del disco (/dev/sda). En sistemas BIOS legacy debe instalarse en /dev/sda.", "exam_tip": "No confundir el dispositivo de bloque del disco (/dev/sda) con una de sus particiones (/dev/sda1)."}];
     const GLOSARIO = [{"id": "bootloader", "term": "bootloader", "def": "Programa de arranque que carga el núcleo del sistema operativo en memoria y le transfiere el control de ejecución."}, {"id": "grub2", "term": "GRUB 2", "def": "Grand Unified Bootloader versión 2, gestor de arranque modular y dinámico estándar en las distribuciones Linux actuales."}, {"id": "chainloading", "term": "chainloading", "def": "Mecanismo mediante el cual un gestor de arranque transfiere la ejecución al sector de arranque de otro cargador de SO."}, {"id": "mbr", "term": "MBR", "def": "Master Boot Record, primer sector de 512 bytes de un disco particionado que aloja el código de arranque primario y la tabla de particiones."}];
     const META = {"topic": "102.2", "title": "Instalación y configuración del gestor de arranque", "weight": 2, "description": "GRUB 2, GRUB Legacy, archivos de configuración, consola interactiva y recuperación (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1453,6 +1932,9 @@
           });
           html += `</div>`;
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.console || s.terminal) {
           html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
         }
@@ -1518,6 +2000,9 @@
         const termData = s.terminal || s.console;
         if (termData) {
           html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
         }
 
         if (s.trap || s.warning) {
@@ -1603,6 +2088,9 @@
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
 
         if (s.trap || s.warning) {
           html += `
@@ -1643,6 +2131,9 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.remember) {
           html += `
             <div class="callout-box callout-remember" style="margin-top:14px;">
@@ -1689,12 +2180,37 @@
             </div>
           `;
         }
+      } else if (s.type === 'diagram') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.diagram_html || s.raw_html || s.html || s.svg || s.content || '';
+        if (bodyContent) html += bodyContent;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         const steps = s.steps || s.nodes || s.diagram?.nodes || [];
-        if (steps.length > 0) {
+        if (steps.length > 0 && !s.diagram_html && !s.raw_html && !s.html && !s.svg) {
           html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
           steps.forEach((st, idx) => {
             const stitle = st.step || st.title || st.text || st.label || '';
@@ -2055,9 +2571,11 @@
           `;
         }
       } else {
-        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
-        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.raw_html || s.html || s.content;
+        if (bodyContent) html += bodyContent;
       }
       return html;
     }
@@ -2241,6 +2759,9 @@
 
     function closeModals() {
       document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+      if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
     }
 
     function closePopovers() {
@@ -2266,6 +2787,45 @@
       popover.style.top = `${rect.bottom + 8}px`;
       popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
       popover.classList.add('open');
+    }
+
+    function openPopover(targetOrEvent, html) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      let el = null;
+      if (targetOrEvent instanceof Event) {
+        targetOrEvent.stopPropagation();
+        el = targetOrEvent.currentTarget || targetOrEvent.target;
+      } else if (targetOrEvent && targetOrEvent.nodeType) {
+        el = targetOrEvent;
+      } else if (targetOrEvent && targetOrEvent.target) {
+        el = targetOrEvent.target;
+      }
+      const popover = document.getElementById('global-popover');
+      if (!popover) return;
+      popover.innerHTML = html || '<div>Sin detalles adicionales</div>';
+      if (el && el.getBoundingClientRect) {
+        const rect = el.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + 8}px`;
+        popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      }
+      popover.classList.add('open');
+    }
+
+    function toggleAnswer(btn) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      if (!btn) return;
+      const container = btn.closest('.quiz-reveal-container') || btn.parentElement;
+      if (!container) return;
+      const ans = container.querySelector('.quiz-answer-box');
+      if (ans) {
+        const isHidden = window.getComputedStyle(ans).display === 'none' || ans.style.display === 'none';
+        ans.style.display = isHidden ? 'block' : 'none';
+        btn.textContent = isHidden ? 'Ocultar Respuesta ▲' : 'Ver Respuesta ▼';
+      }
     }
     document.addEventListener('click', closePopovers);
 
@@ -2444,6 +3004,18 @@
         }
       }
       renderSlide(initSlide);
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length && num !== currentSlideIdx) {
+            renderSlide(num);
+          }
+        }
+      }
     });
   </script>
 </body>

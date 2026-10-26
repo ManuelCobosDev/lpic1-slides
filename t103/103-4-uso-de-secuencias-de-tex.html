@@ -322,17 +322,87 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 8px;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       background: var(--surface);
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
-    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
-    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); transform: translateY(-1px); }
+    .nav-btn:active { transform: translateY(0); }
+    .nav-btn.primary { background: #2563EB; color: #FFFFFF !important; border-color: #1D4ED8; box-shadow: 0 2px 4px rgba(37,99,235,0.25); }
+    .nav-btn.primary:hover { background: #1D4ED8; border-color: #1E40AF; }
+
+    /* Sistema Completo de Botones .btn */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      border: 1.5px solid transparent;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      user-select: none;
+      outline: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.12), 0 2px 4px -2px rgba(15, 23, 42, 0.08);
+    }
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: #FFFFFF !important;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      gap: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF !important;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+    }
 
     /* Contenedor del escenario (1920x1080) */
     #app-container {
@@ -498,6 +568,246 @@
       color: var(--info-ink);
       border-color: #BAE6FD;
     }
+    .callout-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      max-width: 24px !important;
+      min-height: 24px !important;
+      max-height: 24px !important;
+      border-radius: 50% !important;
+      background: #2563EB;
+      color: #FFFFFF !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+      text-align: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      margin: 0 4px !important;
+      user-select: none !important;
+    }
+    .badge-blue { background: #2563EB !important; color: #FFFFFF !important; }
+    .badge-amber { background: #D97706 !important; color: #FFFFFF !important; }
+    .badge-red { background: #DC2626 !important; color: #FFFFFF !important; }
+    .badge-green { background: #16A34A !important; color: #FFFFFF !important; }
+    .badge-purple { background: #7C3AED !important; color: #FFFFFF !important; }
+
+    /* Glosarios & Conceptos Clave Modernos */
+    /* Glosarios & Conceptos Clave Modernos */
+    .slide-glossary-box {
+      margin-top: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .slide-glossary-box .gl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .slide-glossary-box .gl-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563EB;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .slide-glossary-box .gl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .slide-glossary-box .gl-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+    .slide-glossary-box .gl-card:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+    .slide-glossary-box .gl-badge {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1D4ED8;
+      background: #EFF6FF;
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid #BFDBFE;
+      display: inline-block;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .slide-glossary-box .gl-def {
+      color: #334155;
+      font-size: 13.5px;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .slide-glossary-box .gl-def code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 4px;
+      color: #0F172A;
+    }
+
+    /* Compatibilidad strip con estilo pulido tipo chips */
+    .slide-glossary-strip {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .slide-glossary-strip .gl-title {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-glossary-strip .gl-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .slide-glossary-strip .gl-term {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #1D4ED8;
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM (Completo, accesible y moderno para interactivos y quizes)
+       ========================================================================== */
+    .btn, .quiz-reveal-container button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .btn:focus-visible, .quiz-reveal-container button:focus-visible {
+      outline: 2px solid #2563EB;
+      outline-offset: 2px;
+    }
+    .btn:active, .quiz-reveal-container button:active {
+      transform: translateY(1px);
+    }
+
+    /* Botón Primario (Azul vibrante) */
+    .btn-primary, .nav-btn.primary, .quiz-reveal-container button {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover, .nav-btn.primary:hover, .quiz-reveal-container button:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Botón Outline Primario */
+    .btn-outline-primary {
+      background: #FFFFFF;
+      color: #2563EB;
+      border-color: #2563EB;
+    }
+    .btn-outline-primary:hover {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-color: #1D4ED8;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Botón Secundario */
+    .btn-secondary {
+      background: #F1F5F9;
+      color: #334155;
+      border-color: #CBD5E1;
+    }
+    .btn-secondary:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+      border-color: #94A3B8;
+    }
+
+    /* Botón Éxito */
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+      border-color: #166534;
+      color: #FFFFFF;
+    }
+
+    /* Modificadores de Tamaño */
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14.5px;
+      border-radius: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+    }
 
     /* Terminal y Comandos (slides-terminal-comandos) */
     .term-wrapper {
@@ -517,20 +827,29 @@
       font-size: 18px;
       font-weight: 700;
     }
-    .term-copy-btn {
+    .term-copy-btn, .terminal-copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 12px;
       border-radius: 6px;
-      border: 2px solid var(--control-border);
+      border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-copy-btn:hover, .terminal-copy-btn:hover {
+      background: #F1F5F9;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+    .term-copy-btn:active, .terminal-copy-btn:active {
+      transform: scale(0.96);
+    }
     .term-code {
       padding: 14px 20px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -545,15 +864,169 @@
     .term-code::-webkit-scrollbar { width: 6px; }
     .term-code::-webkit-scrollbar-track { background: transparent; }
     .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
-    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+
+    /* Terminal Card (Real-life console frame) */
+    .terminal-card {
+      background: #0F172A;
+      border: 2px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .terminal-card .terminal-header {
+      background: #1E293B;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      gap: 12px;
+    }
+    .terminal-card .terminal-header::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 18px 0 0 #F59E0B, 36px 0 0 #10B981;
+      margin-right: 36px;
+      flex-shrink: 0;
+    }
+    .terminal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #94A3B8;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: 0.02em;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .terminal-card .terminal-copy-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #475569;
+    }
+    .terminal-card .terminal-copy-btn:hover {
+      background: #334155;
+      border-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .terminal-body {
+      padding: 16px 20px;
+      margin: 0;
+      background: #0F172A;
+      color: #E2E8F0;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      font-size: 15.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Mini-Terminal para llamadas o ejemplos dentro de cajas */
+    .mini-terminal {
+      background: #0F172A;
+      border: 1.5px solid #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+    }
+    .mini-term-header {
+      background: #1E293B;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    .mini-term-dots {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 12px 0 0 #F59E0B, 24px 0 0 #10B981;
+      margin-right: 22px;
+    }
+    .mini-term-title {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+    .mini-term-body {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #E2E8F0;
+      background: #0F172A;
+    }
+
+    /* High-contrast terminal syntax tokens for light mode by default */
+    .t-prompt { color: #0284C7; user-select: none; font-weight: 700; }
     .t-cmd { font-weight: 700; color: #0F172A; }
     .t-flag { color: #1D4ED8; font-weight: 600; }
-    .t-arg { color: #9A3412; font-weight: 500; }
-    .t-path { color: #15803D; font-weight: 500; }
-    .t-str { color: #A21CAF; }
-    .t-cmt { color: #5B6B82; font-style: italic; }
-    .t-err { color: #B91C1C; font-weight: 600; }
-    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+    .t-arg { color: #B45309; font-weight: 600; }
+    .t-path { color: #047857; font-weight: 600; }
+    .t-str { color: #7C3AED; }
+    .t-cmt, .term-comment { color: #64748B; font-style: italic; }
+    .t-err { color: #DC2626; font-weight: 600; }
+    .t-hl { background: rgba(254, 240, 138, 0.45); border-radius: 4px; padding: 0 6px; }
+
+    /* Dark context inside terminal-card and mini-terminal */
+    .terminal-card .term-prompt, .mini-terminal .term-prompt,
+    .terminal-card .t-prompt, .mini-terminal .t-prompt { color: #38BDF8; font-weight: 700; }
+    .terminal-card .term-cmd, .mini-terminal .term-cmd,
+    .terminal-card .t-cmd, .mini-terminal .t-cmd { font-weight: 700; color: #F8FAFC; }
+    .terminal-card .t-flag, .mini-terminal .t-flag { color: #60A5FA; }
+    .terminal-card .t-arg, .mini-terminal .t-arg { color: #FBBF24; }
+    .terminal-card .t-path, .mini-terminal .t-path { color: #34D399; }
+    .terminal-card .t-str, .mini-terminal .t-str { color: #E879F9; }
+    .terminal-card .term-comment, .mini-terminal .term-comment,
+    .terminal-card .t-cmt, .mini-terminal .t-cmt { color: #94A3B8; }
+    .terminal-card .t-err, .mini-terminal .t-err { color: #F87171; }
+
+    /* Estilos del Modal Autotest / Test Global */
+    .autotest-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--surface);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: border-color 0.15s ease;
+    }
+    .autotest-card:hover {
+      border-color: var(--primary);
+    }
+    .autotest-opt-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface-alt);
+      font-size: 18px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .autotest-opt-label:hover {
+      background: #EFF6FF;
+      border-color: #93C5FD;
+    }
+    .autotest-opt-label input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2563EB;
+      cursor: pointer;
+    }
 
     /* Chips de opciones interactivas */
     .options-row {
@@ -619,32 +1092,38 @@
     /* Tablas (≤5x4) */
     .table-container {
       width: 100%;
-      margin: 20px 0;
-      border: 2px solid var(--border);
-      border-radius: 14px;
+      margin: 12px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 12px;
       overflow: hidden;
-      background: #FFFFFF;
+      background: var(--surface);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 26px;
+      font-size: clamp(15px, 1.05vw, 18.5px);
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 16px 24px;
+      padding: 10px 18px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
+      font-size: clamp(15.5px, 1.1vw, 19.5px);
     }
     table.slide-table td {
-      padding: 16px 24px;
+      padding: 9px 18px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
+      line-height: 1.4;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
-    table.slide-table tr.highlighted { background: #FEF3C7; }
+    table.slide-table tr.highlighted { background: var(--warning-soft); }
+    [data-theme="dark"] .table-container {
+      background: var(--surface);
+    }
 
     /* Matrices comparativas y mapas de equivalencias */
     .matrix-container {
@@ -1131,7 +1610,7 @@
     <aside id="teacher-panel">
       <div class="panel-header">
         <span>Notas del Docente</span>
-        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+        <button class="nav-btn" onclick="toggleTeacherNotes()" aria-label="Cerrar panel docente"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
       </div>
       <div class="panel-body">
         <div class="panel-meta" id="panel-meta-info"></div>
@@ -1146,7 +1625,7 @@
   <!-- Modal de Erratas -->
   <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar notas y erratas"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
         <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
         Notas y Erratas del Manual Oficial
@@ -1158,7 +1637,7 @@
   <!-- Modal de Ayuda / Atajos -->
   <div class="modal-overlay" id="modal-help" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar ayuda de atajos"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
         <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
@@ -1181,7 +1660,7 @@
   <!-- Modal de Vista General (Overview) -->
   <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
     <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar vista general"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
       <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
     </div>
@@ -1197,7 +1676,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "103.4", "cat": "stream", "type": "cover", "title": "Uso de flujos, tuberías y redirecciones", "subtitle": "stdin, stdout, stderr, redirecciones (>, >>, <, <<), noclobber, tuberías (|), tee y xargs (Modo Examen)", "ref": "281-282", "pdf": {"manual": "A", "pages": [281, 282], "figure": null}, "coverage": ["103.4-OBJ-001", "103.4-OBJ-002", "103.4-OBJ-003", "103.4-OBJ-004"], "meta": {"peso": 4, "paginas": "281–310", "duracion": "30 min"}, "icon": "git-merge", "notes": "Iniciamos el subtema 103.4 (peso 4). Controlar el flujo de datos entre procesos y archivos es el corazón de la administración en Linux. Aprenderemos la gestión de los tres canales estándar (0, 1, 2), los operadores de redirección, la protección noclobber, la bifurcación con tee y el procesamiento por lotes con xargs."}, {"id": 2, "section": "103.4", "cat": "stream", "type": "concept", "title": "Descriptores Estándar en Linux: stdin, stdout y stderr", "lead": "¿Cómo se comunica cualquier proceso con el mundo exterior?", "ref": "282-284", "pdf": {"manual": "A", "pages": [282, 283, 284], "figure": null}, "coverage": ["103.4-CON-001"], "points": [{"icon": "log-in", "text": "Descriptor 0 (stdin - Standard Input)", "detail": "🎯 Entrada estándar: canal por donde el programa lee datos. Por defecto está conectado al teclado físico del usuario."}, {"icon": "log-out", "text": "Descriptor 1 (stdout - Standard Output)", "detail": "🎯 Salida estándar: canal por donde el programa emite sus resultados normales cuando todo funciona. Por defecto está conectado a la pantalla de la terminal."}, {"icon": "alert-circle", "text": "Descriptor 2 (stderr - Standard Error)", "detail": "🎯 Error estándar: canal independiente reservado exclusivamente para mensajes de diagnóstico, errores y advertencias. Por defecto también se muestra en la pantalla, pero viaja por un canal separado de stdout."}], "remember": "🎯 Clave Mnemotécnica de Examen: 0 = stdin (entrada/teclado); 1 = stdout (salida normal/pantalla); 2 = stderr (mensajes de error).", "notes": "Explica que cada proceso en Linux tiene su propia carpeta en /proc/$$/fd/ con enlaces simbólicos 0, 1 y 2."}, {"id": 3, "section": "103.4", "cat": "stream", "type": "command", "title": "Redirección de Salida Estándar y Descarte en /dev/null", "lead": "Desviar la salida normal de un comando hacia un archivo o silenciarla por completo:", "ref": "284-287", "pdf": {"manual": "A", "pages": [284, 285, 286, 287], "figure": null}, "coverage": ["103.4-CMD-001", "103.4-OPT-001", "103.4-OPT-002"], "command": "cmd > archivo | cmd >> archivo | cmd > /dev/null", "purpose": "Sobreescribir o concatenar el flujo de salida estándar (stdout / 1) en archivos", "terminal": {"command": "uname -r > kernel.txt; uptime >> kernel.txt; cat kernel.txt", "output": "5.10.0-18-amd64\n 10:15:20 up 2 days,  1:39,  1 user,  load average: 0.02, 0.01, 0.00"}, "options": [{"flag": "> archivo (o 1> archivo)", "desc": "🎯 Sobreescribe (overwrite): crea el archivo si no existe; SI YA EXISTÍA, BORRA SU CONTENIDO PREVIO por completo y escribe la nueva salida."}, {"flag": ">> archivo (o 1>> archivo)", "desc": "🎯 Concatena / Añade (append): crea el archivo si no existe; si ya existía, escribe los nuevos datos al final SIN borrar nada."}, {"flag": "> /dev/null", "desc": "🎯 Clave de Examen: El 'agujero negro' de Linux: un dispositivo especial de caracteres que descarta de forma instantánea y silenciosa todo lo que se escriba en él."}], "remember": "🎯 Clave de Examen: '>' sobrescribe el archivo borrando lo anterior; '>>' añade al final conservando los datos previos.", "notes": "Muestra que si no se indica número antes del '>', Bash asume implícitamente el descriptor 1 (stdout)."}, {"id": 4, "section": "103.4", "cat": "stream", "type": "command", "title": "Redirección de Errores y Fusión de Flujos: 2>, 2>&1 y &>", "lead": "¿Cómo capturar errores en un archivo o fusionar la salida normal y los errores juntos?", "ref": "287-290", "pdf": {"manual": "A", "pages": [287, 288, 289, 290], "figure": null}, "coverage": ["103.4-CMD-002", "103.4-OPT-003", "103.4-OPT-004"], "command": "cmd 2> errores.log | cmd > salida.log 2>&1 | cmd &> todo.log", "purpose": "Aislar los mensajes de error (descriptor 2) o unificarlos con la salida estándar", "terminal": {"command": "ls /root /tmp > salida.txt 2> errores.txt; cat errores.txt", "output": "ls: cannot open directory '/root': Permission denied"}, "options": [{"flag": "2> archivo", "desc": "🎯 Clave de Examen: Redirige ÚNICAMENTE los mensajes de error (stderr) al archivo, dejando la salida normal en la pantalla."}, {"flag": "2>> archivo", "desc": "Añade los mensajes de error al final del archivo sin sobreescribir."}, {"flag": "2> /dev/null", "desc": "🎯 Muy usado en examen: Silencia todos los errores (ej: 'find / -name hosts 2> /dev/null' oculta errores de 'Permission denied')."}, {"flag": "> archivo 2>&1", "desc": "🎯 Clave Absoluta de Examen: Redirige stdout al archivo y luego redirige stderr (2) al mismo destino que stdout (1). Ambos flujos se guardan juntos."}, {"flag": "&> archivo (o >& archivo)", "desc": "Sintaxis moderna de Bash equivalente a '> archivo 2>&1': captura salida y errores en un único fichero."}], "remember": "🎯 Trampa Clásica de Examen: En '> archivo 2>&1', el orden importa. Primero se redirige '>' a dónde va la salida, y luego '2>&1' copia ese destino. Si pones '2>&1 > archivo', no funcionará igual.", "notes": "Esta sintaxis '> archivo 2>&1' es una de las preguntas fijas más repetidas en LPIC-1."}, {"id": 5, "section": "103.4", "cat": "stream", "type": "command", "title": "Protección contra Sobreescritura: set -o noclobber", "lead": "¿Cómo evitar que un administrador borre por accidente un archivo crítico con un simple '>'?", "ref": "290-292", "pdf": {"manual": "A", "pages": [290, 291, 292], "figure": null}, "coverage": ["103.4-CMD-003", "103.4-OPT-005"], "command": "set -o noclobber | set +o noclobber | cmd >| archivo", "purpose": "Activar la protección de shell que impide sobreescribir archivos existentes con el operador >", "terminal": {"command": "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt", "output": "bash: kernel.txt: cannot overwrite existing file\nforzado"}, "options": [{"flag": "set -o noclobber (o set -C)", "desc": "🎯 Clave de Examen: Activa la protección: si intentas redirigir con '>' hacia un archivo que ya existe, Bash aborta la operación con error."}, {"flag": ">| archivo (operador clobber)", "desc": "🎯 Clave de Examen: Salto temporal: fuerza la sobreescritura del archivo incluso aunque noclobber esté activado."}, {"flag": "set +o noclobber (o set +C)", "desc": "🎯 Desactiva la protección permitiendo de nuevo la sobreescritura normal con '>'."}, {"flag": ">> (concatenación)", "desc": "El operador '>>' NO se ve afectado por noclobber, ya que concatenar datos nunca destruye los datos existentes."}], "remember": "🎯 Mnemotecnia de Flags en set: '-o' (con signo menos) ACTIVA una opción; '+o' (con signo más) DESACTIVA la opción.", "notes": "Explica la aparente contradicción de Bash: el signo menos activa y el signo más desactiva."}, {"id": 6, "section": "103.4", "cat": "stream", "type": "command", "title": "Redirección de Entrada y Here Documents: <, << y <<<", "lead": "Alimentar comandos desde archivos de texto o bloques embebidos en scripts:", "ref": "292-295", "pdf": {"manual": "A", "pages": [292, 293, 294, 295], "figure": null}, "coverage": ["103.4-CMD-004", "103.4-OPT-006", "103.4-OPT-007"], "command": "cmd < archivo | cmd <<DELIM ... DELIM | cmd <<< 'cadena'", "purpose": "Redirigir el canal de entrada estándar (stdin / 0) desde ficheros, bloques multilínea o cadenas", "terminal": {"command": "wc -l < /etc/passwd; cat <<EOF\nLinea 1\nLinea 2\nEOF", "output": "28\nLinea 1\nLinea 2"}, "options": [{"flag": "< archivo", "desc": "🎯 Redirige la entrada estándar desde un archivo (ej: 'wc -l < archivo.txt' cuenta líneas sin imprimir el nombre del archivo)."}, {"flag": "<< DELIMITADOR (Here Document)", "desc": "🎯 Clave de Examen: Pasa un bloque multilínea de texto directamente a un comando hasta encontrar una línea que contenga únicamente la palabra DELIMITADOR (suele usarse EOF o FIN)."}, {"flag": "<< 'DELIMITADOR'", "desc": "Si el delimitador va entrecomillado, se desactiva la expansión de variables dentro del bloque multilínea."}, {"flag": "<<< 'cadena' (Here String)", "desc": "Pasa una única cadena de texto directamente a la entrada estándar del comando (ej: 'bc <<< 5+3')."}], "remember": "🎯 Clave de Examen: '<<EOF' (Here Document) se utiliza en scripts bash para generar archivos de configuración o pasar menús interactivos sin intervención de usuario.", "notes": "Muestra cómo 'cat <<EOF > config.txt' permite redactar un archivo entero dentro de un script de instalación."}, {"id": 7, "section": "103.4", "cat": "stream", "type": "command", "title": "Tuberías (Pipes): Encadenamiento Directo en Memoria", "lead": "Conectar la salida estándar de un programa directamente a la entrada del siguiente:", "ref": "295-298", "pdf": {"manual": "A", "pages": [295, 296, 297, 298], "figure": null}, "coverage": ["103.4-CMD-005"], "command": "comando1 | comando2 | comando3", "purpose": "Encadenar procesos conectando el descriptor 1 (stdout) del primero al descriptor 0 (stdin) del segundo", "terminal": {"command": "cat /etc/passwd | cut -d: -f7 | sort | uniq -c | sort -nr | head -n 3", "output": "     25 /usr/sbin/nologin\n      2 /bin/bash\n      1 /bin/sync"}, "options": [{"flag": "Operador tubería (|)", "desc": "🎯 Conecta el stdout del comando de la izquierda al stdin del comando de la derecha. El intercambio ocurre en la memoria RAM (búfer de kernel) sin crear ningún archivo temporal en disco."}, {"flag": "Ejecución concurrente", "desc": "Ambos procesos se ejecutan al mismo tiempo; el segundo comando procesa los datos en streaming a medida que el primero los va generando."}, {"flag": "⚠️ Exclusión de stderr", "desc": "🎯 Clave de Examen: Una tubería ordinaria '|' solo transporta stdout (1). Los mensajes de error (2) NO entran en la tubería y salen directamente a la pantalla a menos que se redirijan con '2>&1 |' o con '|&'."}, {"flag": "|& (pipe de error de Bash)", "desc": "Atajo de Bash moderno para redirigir simultáneamente stdout y stderr hacia la tubería siguiente."}], "remember": "🎯 Clave de Examen: La tubería '|' solo transporta la salida estándar (1). Si el primer comando da un error (2), el error se proyecta en la pantalla y el segundo comando no recibe nada.", "notes": "Explica la elegancia de Unix: en lugar de guardar archivos intermedios temp1.txt, temp2.txt, la tubería lo procesa todo en la memoria."}, {"id": 8, "section": "103.4", "cat": "stream", "type": "command", "title": "Bifurcación de Flujos con tee: Pantalla y Disco a la Vez", "lead": "¿Cómo ver el progreso en tiempo real en la pantalla y guardarlo en un archivo simultáneamente?", "ref": "298-301", "pdf": {"manual": "A", "pages": [298, 299, 300, 301], "figure": null}, "coverage": ["103.4-CMD-006", "103.4-OPT-008"], "command": "cmd | tee [-a] <archivo> [archivo2...]", "purpose": "Duplicar el flujo de datos: envía una copia a la salida estándar (pantalla) y otra copia a uno o varios archivos", "terminal": {"command": "echo 'Instalacion completada' | tee -a /tmp/instalacion.log", "output": "Instalacion completada\n# El mensaje se ha mostrado en pantalla Y se ha guardado en /tmp/instalacion.log."}, "options": [{"flag": "tee <archivo>", "desc": "🎯 Escribe los datos en el archivo indicado (sobrescribiéndolo) y simultáneamente los reproduce en stdout."}, {"flag": "tee -a, --append", "desc": "🎯 Clave de Examen: Modo concatenación: añade los datos al final del archivo sin borrar lo existente."}, {"flag": "sudo tee <archivo_root>", "desc": "🎯 Truco Clásico de Sysadmin: Permite escribir en archivos protegidos de root dentro de una tubería: 'echo \"1\" | sudo tee /proc/sys/net/ipv4/ip_forward'."}], "remember": "🎯 Clave de Examen: 'tee' actúa como una 'T' de fontanería: divide el flujo en dos direcciones (hacia la pantalla y hacia el archivo). Para no sobreescribir se usa 'tee -a'.", "notes": "Muestra por qué 'sudo echo ... > /etc/protegido' falla (porque la redirección la hace la shell ordinaria, no sudo) y cómo 'tee' con sudo lo soluciona."}, {"id": 9, "section": "103.4", "cat": "stream", "type": "command", "title": "Sustitución de Comandos: $(cmd) frente a `cmd`", "lead": "¿Cómo insertar la salida de un comando como argumento dentro de otra orden?", "ref": "301-303", "pdf": {"manual": "A", "pages": [301, 302, 303], "figure": null}, "coverage": ["103.4-CON-002"], "command": "comando $(subcomando) | comando `subcomando`", "purpose": "Ejecutar una orden en una subshell y reemplazar la expresión por el resultado obtenido", "terminal": {"command": "tar -czf backup-$(date +%F).tar.gz /etc/issue; ls -l backup-*.tar.gz", "output": "-rw-r--r-- 1 alumno alumno 175 Oct 20 10:25 backup-2026-10-20.tar.gz"}, "options": [{"flag": "$(comando)", "desc": "🎯 Sintaxis estándar recomendada por POSIX y LPIC: permite anidamiento limpio y es altamente legible (ej: 'tar -czf backup-$(date +%Y%m%d).tar.gz')."}, {"flag": "`comando` (Backticks / Acentos graves)", "desc": "Sintaxis histórica de Unix heredada del shell Bourne original. Más difícil de leer y muy compleja de anidar."}, {"flag": "Anidamiento", "desc": "Con $(), anidar es trivial: 'echo $(basename $(pwd))'. Con backticks requiere escapar: '`basename \\`pwd\\``'."}], "remember": "🎯 Clave de Examen: Ambas sintaxis son equivalentes en ejecución, pero '$()' es la recomendada oficialmente por LPI debido a su soporte de anidamiento.", "notes": "Muestra cómo crear copias con sello temporal usando 'cp archivo archivo.$(date +%F)'."}, {"id": 10, "section": "103.4", "cat": "stream", "type": "command", "title": "Procesamiento por Lotes con xargs", "lead": "¿Qué hacer cuando un comando no acepta datos por tubería y exige argumentos de línea de comandos?", "ref": "303-306", "pdf": {"manual": "A", "pages": [303, 304, 305, 306], "figure": null}, "coverage": ["103.4-CMD-007", "103.4-OPT-009", "103.4-OPT-010"], "command": "cmd_origen | xargs [-n <N>] [-I {}] <cmd_destino>", "purpose": "Construir y ejecutar líneas de comando leyendo argumentos desde la entrada estándar", "terminal": {"command": "echo 'archivo1 archivo2 archivo3' | xargs touch; ls -l archivo[1-3]", "output": "-rw-r--r-- 1 alumno alumno 0 Oct 20 10:30 archivo1\n-rw-r--r-- 1 alumno alumno 0 Oct 20 10:30 archivo2\n-rw-r--r-- 1 alumno alumno 0 Oct 20 10:30 archivo3"}, "options": [{"flag": "xargs <comando>", "desc": "Lee elementos de stdin separados por espacios o saltos de línea y los pasa como argumentos al comando final."}, {"flag": "-n <N>", "desc": "🎯 Clave de Examen: Limita a un máximo de N argumentos por cada ejecución del comando destino (ej: 'xargs -n 1' ejecuta el comando una vez por cada elemento)."}, {"flag": "-I <marcador>", "desc": "🎯 Reemplazo posicional: sustituye el marcador (habitualmente '{}') en el comando destino (ej: 'cat lista.txt | xargs -I {} cp {} /backup/{}')."}, {"flag": "-p, --interactive", "desc": "Pregunta interactivamente al usuario si desea ejecutar la orden antes de cada invocación."}, {"flag": "-r, --no-run-if-empty", "desc": "Si la entrada estándar está completamente vacía, no ejecuta el comando destino."}], "remember": "🎯 Problema que resuelve xargs: Comandos como 'rm', 'cp' o 'kill' no leen de stdin; necesitan argumentos en su línea de órdenes. 'xargs' convierte líneas de stdin en argumentos.", "notes": "Explica la diferencia entre 'cat lista.txt | rm' (falla totalmente) y 'cat lista.txt | xargs rm' (funciona a la perfección)."}, {"id": 11, "section": "103.4", "cat": "stream", "type": "command", "title": "Manejo Seguro de Espacios: find -print0 y xargs -0", "lead": "¿Qué ocurre si un archivo contiene espacios en blanco en su nombre al procesarlo con xargs?", "ref": "306-308", "pdf": {"manual": "A", "pages": [306, 307, 308], "figure": null}, "coverage": ["103.4-CMD-007", "103.4-OPT-011"], "command": "find <ruta> -print0 | xargs -0 <comando>", "purpose": "Procesar ficheros de forma 100% segura delimitándolos con el byte nulo (\\0) en lugar de espacios", "terminal": {"command": "touch 'informe confidencial.pdf'; find . -name '*.pdf' -print0 | xargs -0 ls -l", "output": "-rw-r--r-- 1 alumno alumno 0 Oct 20 10:35 ./informe confidencial.pdf"}, "options": [{"flag": "El problema de los espacios", "desc": "⚠️ Si un archivo se llama 'mi foto.jpg', un 'xargs rm' ordinario intentará borrar dos archivos: 'mi' y 'foto.jpg', borrando datos incorrectos o fallando."}, {"flag": "find -print0", "desc": "🎯 Clave de Examen: Imprime cada ruta encontrada terminada por el carácter nulo ASCII 0 (\\0) en lugar de un salto de línea."}, {"flag": "xargs -0, --null", "desc": "🎯 Clave de Examen: Indica a xargs que los elementos de entrada están delimitados por el carácter nulo (\\0), tratando los espacios y comillas como texto literal."}, {"flag": "Sinergia Indestructible", "desc": "🎯 La combinación 'find ... -print0 | xargs -0 ...' es el estándar corporativo obligatorio para scripts en producción."}], "remember": "🎯 Pregunta Fija de Examen LPIC-1: ¿Qué par de opciones se utilizan juntas para procesar archivos con espacios de forma segura? -> 'find -print0' combinado con 'xargs -0'.", "notes": "Pide a los alumnos que memoricen el número cero: -print0 en find y -0 en xargs."}, {"id": 12, "section": "103.4", "cat": "stream", "type": "table", "title": "Tabla Maestra de Operadores de Redirección", "lead": "El mapa conceptual definitivo de redirecciones y descriptores para el examen:", "ref": "308", "pdf": {"manual": "A", "pages": [308], "figure": null}, "coverage": ["103.4-CON-001"], "headers": ["Operador", "Descriptor Afectado", "Función y Comportamiento", "Ejemplo Práctico"], "rows": [[">", "stdout (1)", "Sobreescribe el archivo con la salida normal.", "ls > lista.txt"], [">>", "stdout (1)", "Añade la salida normal al final del archivo.", "echo 'ok' >> registro.log"], ["2>", "stderr (2)", "Guarda los mensajes de error en un archivo.", "find / -name x 2> errores.log"], ["2>>", "stderr (2)", "Añade los mensajes de error al final del archivo.", "backup.sh 2>> errores.log"], ["> arch 2>&1", "stdout y stderr", "🎯 Fusiona salida y errores en el mismo archivo.", "make > compilacion.log 2>&1"], ["&>", "stdout y stderr", "Sintaxis moderna de Bash para fusionar flujos.", "systemctl status nginx &> log.txt"], ["<", "stdin (0)", "Lee la entrada estándar desde un archivo.", "sort < desordenado.txt"], ["<< EOF", "stdin (0)", "Pasa un bloque multilínea (Here Document).", "cat <<EOF > config.txt"], [">|", "stdout (1)", "🎯 Sobreescribe forzando aunque noclobber esté activo.", "echo 'forzar' >| protegido.txt"], ["|", "stdout -> stdin", "Conecta procesos en memoria RAM por tubería.", "ps aux | grep nginx"]], "remember": "🎯 Regla de Oro: Sin número es descriptor 1; con el '2' es descriptor de errores; con '&' se fusionan ambos.", "notes": "Usa esta diapositiva como chuleta de repaso rápido antes del examen."}, {"id": 13, "section": "103.4", "cat": "stream", "type": "concept", "title": "Trampas Clásicas de Examen en Flujos y Redirecciones", "lead": "Los 3 fallos que más se repiten en las preguntas de flujos:", "ref": "309", "pdf": {"manual": "A", "pages": [309], "figure": null}, "coverage": ["103.4-WARN-001", "103.4-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Creer que la tubería captura los errores", "detail": "🎯 En 'comando_erroneo | grep error', el mensaje de error sale directamente a la pantalla y grep no recibe nada, porque los errores viajan por stderr (2) y la tubería solo transporta stdout (1). Para que entre en la tubería se debe usar '2>&1 |' o '|&'."}, {"icon": "alert-triangle", "text": "2. Orden invertido en la fusión de descriptores", "detail": "'2>&1 > archivo' NO fusiona ambos en el archivo. Hace que stderr vaya a donde apuntaba stdout en ese momento (la pantalla) y luego envía stdout al archivo. La forma correcta SIEMPRE es '> archivo 2>&1'."}, {"icon": "alert-triangle", "text": "3. Redirigir entrada y salida al mismo archivo", "detail": "⚠️ Si ejecutas 'sort archivo.txt > archivo.txt', la shell truncará el archivo a 0 bytes ANTES de que sort pueda leerlo, destruyendo todos tus datos. Siempre se debe escribir en un archivo temporal."}], "remember": "🎯 Mnemotecnia Rápida: Los errores no entran en la tubería por defecto; '> arch 2>&1' siempre en ese orden; y nunca redirijas con '>' sobre el mismo archivo que estás leyendo.", "notes": "Advierte a la clase sobre el peligro de 'cat arch > arch': vacía el archivo instantáneamente."}, {"id": 14, "section": "103.4", "cat": "stream", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Descriptores y Errores)", "ref": "Manual A - Pág 309", "pdf": {"manual": "A", "pages": [309], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 309): Ejecuta una búsqueda de todos los archivos llamados 'config' en el sistema completo ('/') guardando la salida exitosa en 'encontrados.txt' y descartando por completo todos los mensajes de 'Permission denied'.", "command": "find / -name config > encontrados.txt 2> /dev/null", "reason": "La redirección '>' desvía stdout al archivo deseado y '2> /dev/null' silencia los errores arrojándolos al agujero negro."}, {"action": "Caso 2 (Oficial Pág 309): ¿Cuál es el comando exacto para compilar un programa con 'make' guardando tanto la salida estándar como los posibles errores en un mismo archivo de log llamado 'build.log'?", "command": "make > build.log 2>&1 (o make &> build.log)", "reason": "Redirige la salida normal a build.log y fusiona el canal 2 (stderr) con el canal 1 (stdout)."}, {"action": "Caso 3 (Oficial Pág 309): Tienes activada la opción 'set -o noclobber' y necesitas sobreescribir el archivo existente 'salida.txt'. ¿Qué operador de redirección debes utilizar?", "command": "echo 'datos' >| salida.txt", "reason": "El operador '>|' (clobber) elude temporalmente la protección de noclobber forzando la sobreescritura."}], "solution": {"explain": "2> /dev/null limpia salidas ruidosas; > arch 2>&1 captura auditorías completas; y >| desbloquea sobreescrituras controladas."}, "notes": "Enseña cómo verificar que encontrados.txt solo contiene rutas y ningún mensaje de error."}, {"id": 15, "section": "103.4", "cat": "stream", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: tee y xargs)", "ref": "Manual A - Pág 309", "pdf": {"manual": "A", "pages": [309], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 309): Ejecuta una comprobación del espacio en disco con 'df -h' mostrando el resultado en pantalla y al mismo tiempo añadiéndolo al final del archivo '/var/log/disco.log'.", "command": "df -h | tee -a /var/log/disco.log", "reason": "El comando 'tee' bifurca la salida hacia la terminal y hacia el fichero, y '-a' añade sin sobreescribir."}, {"action": "Caso 5 (Oficial Pág 309): Utiliza 'find' y 'xargs' para localizar todos los archivos con extensión '.tmp' en '/tmp' y eliminarlos con 'rm' de forma segura ante posibles nombres con espacios.", "command": "find /tmp -type f -name '*.tmp' -print0 | xargs -0 rm -f", "reason": "-print0 separa los resultados con bytes nulos y xargs -0 los procesa interpretando los espacios como texto plano."}], "solution": {"explain": "tee -a asegura persistencia sin perder visibilidad en vivo; find -print0 con xargs -0 garantiza robustez frente a espacios en blanco."}, "notes": "Recuerda que tee sin -a borraría el log anterior."}, {"id": 16, "section": "103.4", "cat": "stream", "type": "challenge", "title": "Retos de Exploración Oficiales (Here Document y Flujos Complejos)", "ref": "Manual A - Págs 309-310", "pdf": {"manual": "A", "pages": [309, 310], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un script de instalación debe generar un archivo de configuración '/etc/app.conf' con 3 directivas sin abrir un editor de texto interactivo. ¿Qué estructura con 'cat' y 'Here Document' debe emplear?\n2. ¿Cómo pasarías una lista de 100 usuarios en un archivo 'usuarios.txt' para crear sus carpetas en '/home' invocando el comando 'mkdir' de 1 en 1 usando xargs?\n3. ¿Qué operador conecta la salida de errores (stderr) directamente a una tubería sin usar archivos intermedios en una shell Bash moderna?", "hint": "Recuerda: cat <<EOF > /etc/app.conf; xargs -n 1; y el operador |&.", "solution": {"explain": "1. Se ejecuta:\ncat <<EOF > /etc/app.conf\nPORT=8080\nDEBUG=false\nTIMEOUT=30\nEOF\n2. Se ejecuta: cat usuarios.txt | xargs -n 1 -I {} mkdir /home/{}\n3. Se utiliza el operador: '|&' (o '2>&1 |')."}, "notes": "Here Document es la técnica más limpia para generar archivos de configuración dentro de scripts de despliegue."}, {"id": 17, "section": "103.4", "cat": "stream", "type": "review", "title": "Pregunta de Examen LPIC-1: Redirección Simultánea de Salida y Errores", "q": "¿Cuál de los siguientes comandos redirigirá TANTO la salida estándar (stdout) COMO la salida de errores (stderr) del programa 'miprograma' hacia el archivo 'salida.txt'?", "options": ["miprograma > salida.txt 2> salida.txt", "miprograma 2>&1 > salida.txt", "miprograma > salida.txt 2>&1", "miprograma >> salida.txt < 2"], "answer": 2, "why": "La construcción '> salida.txt 2>&1' primero desvía la salida estándar (descriptor 1) hacia el archivo 'salida.txt' y a continuación redirige el descriptor de error (descriptor 2) hacia donde apunta el descriptor 1 en ese instante (hacia el propio archivo).", "notes": "Pregunta clásica e indispensable de certificación."}, {"id": 18, "section": "103.4", "cat": "stream", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Flujos y Redirecciones 103.4", "deck": [{"front": "¿Qué número de descriptor de archivo corresponde a stdin, stdout y stderr?", "back": "0 = stdin (entrada), 1 = stdout (salida normal), 2 = stderr (errores)."}, {"front": "¿Qué diferencia hay entre '>' y '>>'?", "back": "'>' sobrescribe el archivo borrando lo anterior; '>>' añade al final sin borrar."}, {"front": "¿Cómo silenciar todos los mensajes de error de un comando?", "back": "Añadiendo '2> /dev/null' al final del comando."}, {"front": "¿Cómo redirigir salida y errores juntos al mismo archivo?", "back": "cmd > archivo 2>&1 (o cmd &> archivo)."}, {"front": "¿Qué comando activa la protección que impide sobreescribir archivos con '>'?", "back": "set -o noclobber."}, {"front": "¿Qué operador fuerza la sobreescritura cuando noclobber está activo?", "back": ">| (operador clobber)."}, {"front": "¿Qué comando bifurca un flujo enviándolo a pantalla y guardándolo en archivo?", "back": "tee (o tee -a para añadir)."}, {"front": "¿Qué opciones combinadas de find y xargs manejan espacios con seguridad?", "back": "find -print0 | xargs -0."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.4."}, {"id": 19, "section": "103.4", "cat": "stream", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.4", "takeaways": ["Descriptores: 0 stdin, 1 stdout, 2 stderr. /dev/null como vertedero de datos.", "Redirecciones: > sobreescribe, >> añade, 2> para errores, > arch 2>&1 para fusionar, < para entrada, <<EOF para Here Document multilínea.", "Protección: set -o noclobber impide destruir ficheros con >; el operador >| elude la protección.", "Tuberías y Procesamiento: | conecta procesos en memoria RAM; tee [-a] bifurca a pantalla y disco; $(cmd) para sustitución de comandos; xargs [-n|-0] para convertir flujos en argumentos seguros."], "top3": [{"cmd": "cmd > log.txt 2>&1", "desc": "Redirige salida normal y errores juntos al mismo archivo."}, {"cmd": "find / -name archivo 2> /dev/null", "desc": "Silencia los errores de permiso denegado durante búsquedas."}, {"cmd": "find . -type f -print0 | xargs -0 cmd", "desc": "Procesa archivos por lotes de forma 100% inmune a nombres con espacios."}], "practice": {"name": "Practica 103.4: Flujos Estándar, Tuberías y Redirecciones", "url": "../practicas/p-103-4-redirecciones-tuberias.html", "desc": "Domina los descriptores stdin (0), stdout (1) y stderr (2), redirige salidas y errores (>, >>, 2>, 2>&1, &>), bifurca con tee y automatiza con xargs."}, "notes": "Concluimos el subtema 103.4 y finalizamos la primera mitad del Tema 103."}];
+    const SLIDES = [{"id": 1, "section": "103.4", "cat": "stream", "type": "cover", "title": "Uso de flujos, tuberías y redirecciones", "subtitle": "stdin, stdout, stderr, redirecciones (>, >>, <, <<), noclobber, tuberías (|), tee y xargs (Modo Examen)", "ref": "281-282", "pdf": {"manual": "A", "pages": [281, 282], "figure": null}, "coverage": ["103.4-OBJ-001", "103.4-OBJ-002", "103.4-OBJ-003", "103.4-OBJ-004"], "meta": {"peso": 4, "paginas": "281–310", "duracion": "30 min"}, "icon": "git-merge", "notes": "Iniciamos el subtema 103.4 (peso 4). Controlar el flujo de datos entre procesos y archivos es el corazón de la administración en Linux. Aprenderemos la gestión de los tres canales estándar (0, 1, 2), los operadores de redirección, la protección noclobber, la bifurcación con tee y el procesamiento por lotes con xargs."}, {"id": 2, "section": "103.4", "cat": "stream", "type": "diagram", "title": "Los Tres Descriptores Estándar: stdin, stdout y stderr", "lead": "Todo proceso en Linux se inicia con tres canales de comunicación preconfigurados:", "ref": "282-284", "pdf": {"manual": "A", "pages": [282, 283, 284], "figure": null}, "coverage": ["103.4-CON-001"], "points": [{"icon": "log-in", "text": "Descriptor 0 (stdin - Standard Input)", "detail": "🎯 Entrada estándar: canal por donde el programa lee datos. Por defecto está conectado al teclado físico del usuario."}, {"icon": "log-out", "text": "Descriptor 1 (stdout - Standard Output)", "detail": "🎯 Salida estándar: canal por donde el programa emite sus resultados normales cuando todo funciona. Por defecto está conectado a la pantalla de la terminal."}, {"icon": "alert-circle", "text": "Descriptor 2 (stderr - Standard Error)", "detail": "🎯 Error estándar: canal independiente reservado exclusivamente para mensajes de diagnóstico, errores y advertencias. Por defecto también se muestra en la pantalla, pero viaja por un canal separado de stdout."}], "remember": "🎯 Clave Mnemotécnica de Examen: 0 = stdin (entrada/teclado); 1 = stdout (salida normal/pantalla); 2 = stderr (mensajes de error).", "notes": "Explica que cada proceso en Linux tiene su propia carpeta en /proc/$$/fd/ con enlaces simbólicos 0, 1 y 2.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:14px; padding:18px 24px; margin:14px 0;\">\n  <div style=\"font-size:15.5px; font-weight:800; color:var(--text); margin-bottom:12px;\">\n    🔌 Arquitectura de Canales de E/S de un Proceso en Linux:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:13px;\">\n    <!-- Entrada 0 -->\n    <div style=\"background:#EFF6FF; border:2px solid #93C5FD; border-radius:10px; padding:14px; width:28%; text-align:center;\">\n      <div style=\"background:#2563EB; color:#FFF; font-weight:800; font-size:12px; padding:3px 8px; border-radius:4px; margin-bottom:8px;\">\n        DESCRIPTOR 0 (stdin)\n      </div>\n      <strong style=\"color:#1E40AF; font-size:14px;\">Entrada Estándar</strong><br>\n      <span style=\"color:#475569; font-size:12px;\">Por defecto: <strong>Teclado</strong></span><br>\n      <code>/proc/$$/fd/0</code>\n    </div>\n\n    <!-- Flecha Entrada -->\n    <div style=\"font-size:22px; color:#2563EB; font-weight:900;\">→</div>\n\n    <!-- Proceso Central -->\n    <div style=\"background:#0F172A; color:#F8FAFC; border-radius:12px; padding:16px; width:30%; text-align:center; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);\">\n      <div style=\"font-size:16px; font-weight:800; color:#38BDF8; margin-bottom:4px;\">PROCESO</div>\n      <div style=\"font-size:12px; color:#94A3B8; font-family:monospace;\">(Bash / grep / ls / sort)</div>\n      <div style=\"margin-top:8px; font-size:11.5px; color:#CBD5E1; border-top:1px solid #334155; padding-top:6px;\">\n        Ejecución lógica interna\n      </div>\n    </div>\n\n    <!-- Flechas Salida -->\n    <div style=\"display:flex; flex-direction:column; gap:20px; font-size:20px; font-weight:900;\">\n      <span style=\"color:#16A34A;\">↗</span>\n      <span style=\"color:#DC2626;\">↘</span>\n    </div>\n\n    <!-- Salidas 1 y 2 -->\n    <div style=\"display:flex; flex-direction:column; gap:12px; width:28%;\">\n      <!-- Descriptor 1 -->\n      <div style=\"background:#F0FDF4; border:2px solid #86EFAC; border-radius:10px; padding:10px; text-align:center;\">\n        <div style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:11.5px; padding:2px 6px; border-radius:4px; margin-bottom:4px;\">\n          DESCRIPTOR 1 (stdout)\n        </div>\n        <strong style=\"color:#15803D; font-size:13px;\">Salida Normal (Pantalla)</strong><br>\n        <span style=\"color:#475569; font-size:11.5px;\">Resultados exitosos del programa</span>\n      </div>\n\n      <!-- Descriptor 2 -->\n      <div style=\"background:#FEF2F2; border:2px solid #FCA5A5; border-radius:10px; padding:10px; text-align:center;\">\n        <div style=\"background:#DC2626; color:#FFF; font-weight:800; font-size:11.5px; padding:2px 6px; border-radius:4px; margin-bottom:4px;\">\n          DESCRIPTOR 2 (stderr)\n        </div>\n        <strong style=\"color:#991B1B; font-size:13px;\">Error Estándar (Pantalla)</strong><br>\n        <span style=\"color:#475569; font-size:11.5px;\">Diagnósticos y advertencias</span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"margin-top:14px; padding:8px 14px; background:#F8FAFC; border-left:4px solid #3B82F6; border-radius:4px; font-size:13px; color:#1E3A8A;\">\n    🎯 <strong>MNEMOTECNIA DE EXAMEN:</strong> 0 = stdin (entrada), 1 = stdout (éxito), 2 = stderr (fallo). Aunque 1 y 2 van a la pantalla, son flujos independientes y se pueden redirigir por separado.\n  </div>\n</div>\n"}, {"id": 3, "section": "103.4", "cat": "stream", "type": "command", "title": "Redirección de Salida Estándar y Descarte en /dev/null", "lead": "Desviar la salida normal de un comando hacia un archivo o silenciarla por completo:", "ref": "284-287", "pdf": {"manual": "A", "pages": [284, 285, 286, 287], "figure": null}, "coverage": ["103.4-CMD-001", "103.4-OPT-001", "103.4-OPT-002"], "command": "cmd > archivo | cmd >> archivo | cmd > /dev/null", "purpose": "Sobreescribir o concatenar el flujo de salida estándar (stdout / 1) en archivos", "terminal": {"command": "uname -r > kernel.txt; uptime >> kernel.txt; cat kernel.txt", "output": "5.10.0-18-amd64\n 10:15:20 up 2 days,  1:39,  1 user,  load average: 0.02, 0.01, 0.00"}, "options": [{"flag": "> archivo (o 1>)", "short": "Sobreescribir (overwrite)", "desc": "🎯 Sobreescribe el archivo por completo. Si ya existía, trunca y borra todo su contenido."}, {"flag": ">> archivo (o 1>>)", "short": "Concatenar (append)", "desc": "🎯 Añade datos al final del fichero existente sin borrar lo anterior."}, {"flag": "> /dev/null", "short": "Silenciar / Descartar", "desc": "🎯 El agujero negro: descarta los datos de forma silenciosa e inmediata."}], "remember": "🎯 Clave de Examen: '>' sobrescribe el archivo borrando lo anterior; '>>' añade al final conservando los datos previos.", "notes": "Muestra que si no se indica número antes del '>', Bash asume implícitamente el descriptor 1 (stdout).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    ⚖️ Comparativa Visual: Sobreescritura (<code>&gt;</code>) frente a Concatenación (<code>&gt;&gt;</code>):\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:12.5px;\">\n    <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#991B1B; font-size:13.5px;\">Operador &gt; (Truncar / Sobreescribir)</strong><br>\n      1. Si el archivo no existe, lo crea.<br>\n      2. Si el archivo ya existía, <strong>elimina el 100% de los datos previos</strong>.<br>\n      3. Escribe únicamente la nueva salida al inicio.\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">Operador &gt;&gt; (Añadir / Append)</strong><br>\n      1. Si el archivo no existe, lo crea.<br>\n      2. Si el archivo ya existía, <strong>conserva todos los datos previos</strong>.<br>\n      3. Añade la nueva salida al final de la última línea.\n    </div>\n  </div>\n</div>\n"}, {"id": 4, "section": "103.4", "cat": "stream", "type": "command", "title": "Redirección de Errores y Fusión de Flujos: 2>, 2>&1 y &>", "lead": "¿Cómo capturar errores en un archivo o fusionar la salida normal y los errores juntos?", "ref": "287-290", "pdf": {"manual": "A", "pages": [287, 288, 289, 290], "figure": null}, "coverage": ["103.4-CMD-002", "103.4-OPT-003", "103.4-OPT-004"], "command": "cmd 2> errores.log | cmd > salida.log 2>&1 | cmd &> todo.log", "purpose": "Aislar los mensajes de error (descriptor 2) o unificarlos con la salida estándar", "terminal": {"command": "ls /root /tmp > salida.txt 2> errores.txt; cat errores.txt", "output": "ls: cannot open directory '/root': Permission denied"}, "options": [{"flag": "2> archivo", "short": "Solo errores (stderr)", "desc": "🎯 Redirige solo el canal de error al archivo; la salida normal sigue en pantalla."}, {"flag": "2>> archivo", "short": "Añadir errores (append)", "desc": "Añade errores al final del archivo sin borrar datos previos."}, {"flag": "2> /dev/null", "short": "Silenciar errores", "desc": "🎯 Clave de Examen: Oculta avisos de error (ej: 'find / -name hosts 2>/dev/null')."}, {"flag": "> archivo 2>&1", "short": "Fusión estándar POSIX", "desc": "🎯 Clave Absoluta de Examen: Redirige stdout a archivo y luego une stderr al mismo destino."}, {"flag": "&> archivo", "short": "Atajo Bash (&>)", "desc": "Sintaxis compacta de Bash equivalente a '> archivo 2>&1'."}], "remember": "🎯 Trampa Clásica de Examen: En '> archivo 2>&1', el orden importa. Primero se redirige '>' a dónde va la salida, y luego '2>&1' copia ese destino. Si pones '2>&1 > archivo', no funcionará igual.", "notes": "Esta sintaxis '> archivo 2>&1' es una de las preguntas fijas más repetidas en LPIC-1.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    ⚠️ La Pregunta Fija de Examen: El Orden en <code>&gt; archivo 2&gt;&amp;1</code>:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:12.5px;\">\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">✅ ORDEN CORRECTO: <code>&gt; log.txt 2&gt;&amp;1</code></strong><br>\n      <strong>Paso 1:</strong> <code>&gt; log.txt</code> apunta el canal 1 (stdout) hacia el archivo.<br>\n      <strong>Paso 2:</strong> <code>2&gt;&amp;1</code> duplica el destino del canal 1 en el canal 2.<br>\n      <span style=\"color:#166534; font-weight:700;\">Resultado: Tanto stdout como stderr van al archivo.</span>\n    </div>\n\n    <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#991B1B; font-size:13.5px;\">❌ ORDEN INCORRECTO: <code>2&gt;&amp;1 &gt; log.txt</code></strong><br>\n      <strong>Paso 1:</strong> <code>2&gt;&amp;1</code> copia el canal 1 (que aún apunta a la pantalla).<br>\n      <strong>Paso 2:</strong> <code>&gt; log.txt</code> redirige solo el canal 1 al archivo.<br>\n      <span style=\"color:#991B1B; font-weight:700;\">Resultado: ¡Los errores se siguen mostrando en la pantalla!</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 5, "section": "103.4", "cat": "stream", "type": "command", "title": "Protección contra Sobreescritura: set -o noclobber", "lead": "¿Cómo evitar que un administrador borre por accidente un archivo crítico con un simple '>'?", "ref": "290-292", "pdf": {"manual": "A", "pages": [290, 291, 292], "figure": null}, "coverage": ["103.4-CMD-003", "103.4-OPT-005"], "command": "set -o noclobber | set +o noclobber | cmd >| archivo", "purpose": "Activar la protección de shell que impide sobreescribir archivos existentes con el operador >", "terminal": {"command": "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt", "output": "bash: kernel.txt: cannot overwrite existing file\nforzado"}, "options": [{"flag": "set -o noclobber", "short": "Activar protección", "desc": "🎯 Activa la protección contra sobreescritura accidental con '>'."}, {"flag": ">| archivo", "short": "Sobreescritura forzada", "desc": "🎯 Clave de Examen: Operador 'clobber' que fuerza sobreescribir ignorando la protección."}, {"flag": "set +o noclobber", "short": "Desactivar protección", "desc": "🎯 Desactiva la protección permitiendo de nuevo '>' normal."}, {"flag": ">> (concatenar)", "short": "No afectado por noclobber", "desc": "La concatenación '>>' nunca destruye datos, por lo que noclobber la permite siempre."}], "remember": "🎯 Mnemotecnia de Flags en set: '-o' (con signo menos) ACTIVA una opción; '+o' (con signo más) DESACTIVA la opción.", "notes": "Explica la aparente contradicción de Bash: el signo menos activa y el signo más desactiva.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🛡️ Mecanismo de Seguridad: ¿Cómo Funciona <code>set -o noclobber</code>?\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:12.5px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:8px 12px; flex:1;\">\n      <code>echo 'dato' &gt; f.txt</code><br>\n      <span style=\"color:#64748B; font-size:11px;\">Intento de sobreescritura</span>\n    </div>\n\n    <span style=\"font-size:18px; color:#2563EB; margin:0 8px;\">→</span>\n\n    <div style=\"background:#FEF3C7; border:1px solid #FCD34D; border-radius:8px; padding:8px 12px; flex:1.4;\">\n      <strong>¿Existe f.txt?</strong><br>\n      <span style=\"color:#B45309;\">Con <code>noclobber</code> activo</span>\n    </div>\n\n    <span style=\"font-size:18px; color:#2563EB; margin:0 8px;\">→</span>\n\n    <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:8px 12px; flex:1.4;\">\n      <strong style=\"color:#991B1B;\">⛔ ABORTA OPERACIÓN:</strong><br>\n      <code style=\"font-size:11px; color:#B91C1C;\">cannot overwrite existing file</code>\n    </div>\n  </div>\n\n  <div style=\"margin-top:10px; padding:6px 12px; background:#F0FDF4; border-left:4px solid #10B981; border-radius:4px; font-size:12px; color:#166534;\">\n    🔓 <strong>EXCEPCIÓN DE EXAMEN:</strong> Para forzar la sobreescritura sin apagar la protección, se usa el operador pipe-redirección <code>&gt;|</code>: <code>echo 'forzado' &gt;| f.txt</code>.\n  </div>\n</div>\n"}, {"id": 6, "section": "103.4", "cat": "stream", "type": "command", "title": "Redirección de Entrada y Here Documents: <, << y <<<", "lead": "Alimentar comandos desde archivos de texto o bloques embebidos en scripts:", "ref": "292-295", "pdf": {"manual": "A", "pages": [292, 293, 294, 295], "figure": null}, "coverage": ["103.4-CMD-004", "103.4-OPT-006", "103.4-OPT-007"], "command": "cmd < archivo | cmd <<DELIM ... DELIM | cmd <<< 'cadena'", "purpose": "Redirigir el canal de entrada estándar (stdin / 0) desde ficheros, bloques multilínea o cadenas", "terminal": {"command": "wc -l < /etc/passwd; cat <<EOF\nLinea 1\nLinea 2\nEOF", "output": "28\nLinea 1\nLinea 2"}, "options": [{"flag": "< archivo", "desc": "🎯 Redirige la entrada estándar desde un archivo (ej: 'wc -l < archivo.txt' cuenta líneas sin imprimir el nombre del archivo)."}, {"flag": "<< DELIMITADOR (Here Document)", "desc": "🎯 Clave de Examen: Pasa un bloque multilínea de texto directamente a un comando hasta encontrar una línea que contenga únicamente la palabra DELIMITADOR (suele usarse EOF o FIN)."}, {"flag": "<< 'DELIMITADOR'", "desc": "Si el delimitador va entrecomillado, se desactiva la expansión de variables dentro del bloque multilínea."}, {"flag": "<<< 'cadena' (Here String)", "desc": "Pasa una única cadena de texto directamente a la entrada estándar del comando (ej: 'bc <<< 5+3')."}], "remember": "🎯 Clave de Examen: '<<EOF' (Here Document) se utiliza en scripts bash para generar archivos de configuración o pasar menús interactivos sin intervención de usuario.", "notes": "Muestra cómo 'cat <<EOF > config.txt' permite redactar un archivo entero dentro de un script de instalación."}, {"id": 7, "section": "103.4", "cat": "stream", "type": "command", "title": "Tuberías (Pipes): Encadenamiento Directo en Memoria", "lead": "Conectar la salida estándar de un programa directamente a la entrada del siguiente:", "ref": "295-298", "pdf": {"manual": "A", "pages": [295, 296, 297, 298], "figure": null}, "coverage": ["103.4-CMD-005"], "command": "comando1 | comando2 | comando3", "purpose": "Encadenar procesos conectando el descriptor 1 (stdout) del primero al descriptor 0 (stdin) del segundo", "terminal": {"command": "cat /etc/passwd | cut -d: -f7 | sort | uniq -c | sort -nr | head -n 3", "output": "     25 /usr/sbin/nologin\n      2 /bin/bash\n      1 /bin/sync"}, "options": [{"flag": "Operador tubería (|)", "desc": "🎯 Conecta el stdout del comando de la izquierda al stdin del comando de la derecha. El intercambio ocurre en la memoria RAM (búfer de kernel) sin crear ningún archivo temporal en disco."}, {"flag": "Ejecución concurrente", "desc": "Ambos procesos se ejecutan al mismo tiempo; el segundo comando procesa los datos en streaming a medida que el primero los va generando."}, {"flag": "⚠️ Exclusión de stderr", "desc": "🎯 Clave de Examen: Una tubería ordinaria '|' solo transporta stdout (1). Los mensajes de error (2) NO entran en la tubería y salen directamente a la pantalla a menos que se redirijan con '2>&1 |' o con '|&'."}, {"flag": "|& (pipe de error de Bash)", "desc": "Atajo de Bash moderno para redirigir simultáneamente stdout y stderr hacia la tubería siguiente."}], "remember": "🎯 Clave de Examen: La tubería '|' solo transporta la salida estándar (1). Si el primer comando da un error (2), el error se proyecta en la pantalla y el segundo comando no recibe nada.", "notes": "Explica la elegancia de Unix: en lugar de guardar archivos intermedios temp1.txt, temp2.txt, la tubería lo procesa todo en la memoria.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:14px 20px; margin-top:14px;\">\n  <div style=\"font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    ⛓️ Funcionamiento Interno de una Tubería en Linux:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:13px; text-align:center;\">\n    <!-- Proceso 1 -->\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px 14px; flex:1.2;\">\n      <strong style=\"color:#1E40AF; font-size:14px;\">PROCESO 1</strong><br>\n      <code>cat /etc/passwd</code><br>\n      <span style=\"color:#2563EB; font-weight:700; font-size:11.5px;\">stdout (Descriptor 1)</span>\n    </div>\n\n    <span style=\"font-size:20px; color:#2563EB; font-weight:900; margin:0 10px;\">→</span>\n\n    <!-- Búfer en RAM -->\n    <div style=\"background:#FEF3C7; border:2px dashed #F59E0B; border-radius:8px; padding:10px 14px; flex:1.4;\">\n      <strong style=\"color:#B45309; font-size:14px;\">BÚFER KERNEL EN RAM</strong><br>\n      <code style=\"font-size:12px;\">(Tubería FIFO: 64 KB)</code><br>\n      <span style=\"color:#78350F; font-size:11.5px;\">Cero escritura en disco físico</span>\n    </div>\n\n    <span style=\"font-size:20px; color:#2563EB; font-weight:900; margin:0 10px;\">→</span>\n\n    <!-- Proceso 2 -->\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px; flex:1.2;\">\n      <strong style=\"color:#15803D; font-size:14px;\">PROCESO 2</strong><br>\n      <code>grep bash</code><br>\n      <span style=\"color:#16A34A; font-weight:700; font-size:11.5px;\">stdin (Descriptor 0)</span>\n    </div>\n  </div>\n\n  <div style=\"margin-top:12px; padding:8px 12px; background:#FEF2F2; border-left:4px solid #EF4444; border-radius:4px; font-size:12.5px; color:#991B1B;\">\n    ⚠️ <strong>REGLA DE ORO DE EXAMEN:</strong> La tubería <code>|</code> transporta ÚNICAMENTE la salida normal (stdout). Los mensajes de error (stderr / 2) NO viajan por la tubería; salen directos a la pantalla del usuario.\n  </div>\n</div>\n"}, {"id": 8, "section": "103.4", "cat": "stream", "type": "command", "title": "Bifurcación de Flujos con tee: Pantalla y Disco a la Vez", "lead": "¿Cómo ver el progreso en tiempo real en la pantalla y guardarlo en un archivo simultáneamente?", "ref": "298-301", "pdf": {"manual": "A", "pages": [298, 299, 300, 301], "figure": null}, "coverage": ["103.4-CMD-006", "103.4-OPT-008"], "command": "cmd | tee [-a] <archivo> [archivo2...]", "purpose": "Duplicar el flujo de datos: envía una copia a la salida estándar (pantalla) y otra copia a uno o varios archivos", "terminal": {"command": "echo 'Instalacion completada' | tee -a /tmp/instalacion.log", "output": "Instalacion completada\n# El mensaje se ha mostrado en pantalla Y se ha guardado en /tmp/instalacion.log."}, "options": [{"flag": "cmd | tee arch", "short": "Sobreescribir y mostrar", "desc": "🎯 Escribe en el archivo y simultáneamente reproduce la salida en pantalla."}, {"flag": "cmd | tee -a arch", "short": "Concatenar y mostrar", "desc": "🎯 Clave de Examen: Modo append (-a): añade al final del archivo sin borrar."}, {"flag": "echo ... | sudo tee arch", "short": "Escritura root protegida", "desc": "🎯 Truco clásico: permite redirigir datos hacia archivos propiedad de root."}], "remember": "🎯 Clave de Examen: 'tee' actúa como una 'T' de fontanería: divide el flujo en dos direcciones (hacia la pantalla y hacia el archivo). Para no sobreescribir se usa 'tee -a'.", "notes": "Muestra por qué 'sudo echo ... > /etc/protegido' falla (porque la redirección la hace la shell ordinaria, no sudo) y cómo 'tee' con sudo lo soluciona.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🚰 Esquema de Bifurcación en Forma de T con <code>tee</code>:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:12.5px;\">\n    <!-- Entrada -->\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px; width:30%; text-align:center;\">\n      <strong style=\"color:#1E40AF;\">Entrada stdin:</strong><br>\n      <code>echo 'Servidor OK'</code>\n    </div>\n\n    <span style=\"font-size:20px; color:#2563EB; font-weight:900; margin:0 8px;\">→</span>\n\n    <!-- tee -->\n    <div style=\"background:#0F172A; color:#F8FAFC; border-radius:10px; padding:12px; width:25%; text-align:center;\">\n      <strong style=\"color:#38BDF8; font-size:14px;\">tee -a log.txt</strong><br>\n      <span style=\"font-size:11px; color:#94A3B8;\">(Duplicador de flujo)</span>\n    </div>\n\n    <!-- Flechas División -->\n    <div style=\"display:flex; flex-direction:column; gap:16px; font-size:18px; font-weight:900;\">\n      <span style=\"color:#16A34A;\">↗</span>\n      <span style=\"color:#2563EB;\">↘</span>\n    </div>\n\n    <!-- Destinos -->\n    <div style=\"display:flex; flex-direction:column; gap:8px; width:32%;\">\n      <div style=\"background:#F0FDF4; border:1px solid #86EFAC; padding:6px 10px; border-radius:6px; text-align:center;\">\n        <strong style=\"color:#15803D;\">Pantalla (stdout)</strong><br>\n        <span style=\"font-size:11px; color:#64748B;\">El usuario ve el progreso</span>\n      </div>\n      <div style=\"background:#EFF6FF; border:1px solid #93C5FD; padding:6px 10px; border-radius:6px; text-align:center;\">\n        <strong style=\"color:#1E40AF;\">Archivo en Disco (log.txt)</strong><br>\n        <span style=\"font-size:11px; color:#64748B;\">Registro guardado permanentemente</span>\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "103.4", "cat": "stream", "type": "command", "title": "Sustitución de Comandos: $(cmd) frente a `cmd`", "lead": "¿Cómo insertar la salida de un comando como argumento dentro de otra orden?", "ref": "301-303", "pdf": {"manual": "A", "pages": [301, 302, 303], "figure": null}, "coverage": ["103.4-CON-002"], "command": "comando $(subcomando) | comando `subcomando`", "purpose": "Ejecutar una orden en una subshell y reemplazar la expresión por el resultado obtenido", "terminal": {"command": "tar -czf backup-$(date +%F).tar.gz /etc/issue; ls -l backup-*.tar.gz", "output": "-rw-r--r-- 1 alumno alumno 175 Oct 20 10:25 backup-2026-10-20.tar.gz"}, "options": [{"flag": "$(comando)", "desc": "🎯 Sintaxis estándar recomendada por POSIX y LPIC: permite anidamiento limpio y es altamente legible (ej: 'tar -czf backup-$(date +%Y%m%d).tar.gz')."}, {"flag": "`comando` (Backticks / Acentos graves)", "desc": "Sintaxis histórica de Unix heredada del shell Bourne original. Más difícil de leer y muy compleja de anidar."}, {"flag": "Anidamiento", "desc": "Con $(), anidar es trivial: 'echo $(basename $(pwd))'. Con backticks requiere escapar: '`basename \\`pwd\\``'."}], "remember": "🎯 Clave de Examen: Ambas sintaxis son equivalentes en ejecución, pero '$()' es la recomendada oficialmente por LPI debido a su soporte de anidamiento.", "notes": "Muestra cómo crear copias con sello temporal usando 'cp archivo archivo.$(date +%F)'."}, {"id": 10, "section": "103.4", "cat": "stream", "type": "command", "title": "Procesamiento por Lotes con xargs", "lead": "¿Qué hacer cuando un comando no acepta datos por tubería y exige argumentos de línea de comandos?", "ref": "303-306", "pdf": {"manual": "A", "pages": [303, 304, 305, 306], "figure": null}, "coverage": ["103.4-CMD-007", "103.4-OPT-009", "103.4-OPT-010"], "command": "cmd_origen | xargs [-n <N>] [-I {}] <cmd_destino>", "purpose": "Construir y ejecutar líneas de comando leyendo argumentos desde la entrada estándar", "terminal": {"command": "echo 'archivo1 archivo2 archivo3' | xargs touch; ls -l archivo[1-3]", "output": "-rw-r--r-- 1 alumno alumno 0 Oct 20 10:30 archivo1\n-rw-r--r-- 1 alumno alumno 0 Oct 20 10:30 archivo2\n-rw-r--r-- 1 alumno alumno 0 Oct 20 10:30 archivo3"}, "options": [{"flag": "xargs <comando>", "short": "Conversión a argumentos", "desc": "Lee elementos de stdin y los pasa como argumentos de línea de comandos."}, {"flag": "xargs -n <N>", "short": "Límite de argumentos", "desc": "🎯 Clave de Examen: Ejecuta el comando en lotes de N argumentos (ej: -n 1 ejecuta una vez por ítem)."}, {"flag": "xargs -I {}", "short": "Marcador de posición {}", "desc": "🎯 Clave de Examen: Reemplaza '{}' por cada argumento en una posición fija."}, {"flag": "find ... -print0 | xargs -0", "short": "Espacios seguros", "desc": "🎯 Clave de Examen: Usa el byte nulo \\0 como separador para nombres con espacios."}], "remember": "🎯 Problema que resuelve xargs: Comandos como 'rm', 'cp' o 'kill' no leen de stdin; necesitan argumentos en su línea de órdenes. 'xargs' convierte líneas de stdin en argumentos.", "notes": "Explica la diferencia entre 'cat lista.txt | rm' (falla totalmente) y 'cat lista.txt | xargs rm' (funciona a la perfección).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🔄 ¿Por qué es Necesario <code>xargs</code>? De Flujo Stdin a Argumentos de Shell:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:12.5px;\">\n    <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#991B1B; font-size:13.5px;\">❌ Tubería Directa (Falla):</strong><br>\n      <code>cat lista.txt | rm</code><br>\n      <em>¡'rm' no acepta rutas por stdin!</em> El comando falla o no borra nada porque espera los archivos como argumentos de ejecución.\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">✅ Con xargs (Éxito Rotundo):</strong><br>\n      <code>cat lista.txt | xargs rm</code><br>\n      <em>'xargs' convierte el flujo de texto en:</em><br>\n      <code>rm arch1.tmp arch2.tmp arch3.tmp</code>\n    </div>\n  </div>\n</div>\n"}, {"id": 11, "section": "103.4", "cat": "stream", "type": "command", "title": "Manejo Seguro de Espacios: find -print0 y xargs -0", "lead": "¿Qué ocurre si un archivo contiene espacios en blanco en su nombre al procesarlo con xargs?", "ref": "306-308", "pdf": {"manual": "A", "pages": [306, 307, 308], "figure": null}, "coverage": ["103.4-CMD-007", "103.4-OPT-011"], "command": "find <ruta> -print0 | xargs -0 <comando>", "purpose": "Procesar ficheros de forma 100% segura delimitándolos con el byte nulo (\\0) en lugar de espacios", "terminal": {"command": "touch 'informe confidencial.pdf'; find . -name '*.pdf' -print0 | xargs -0 ls -l", "output": "-rw-r--r-- 1 alumno alumno 0 Oct 20 10:35 ./informe confidencial.pdf"}, "options": [{"flag": "El problema de los espacios", "desc": "⚠️ Si un archivo se llama 'mi foto.jpg', un 'xargs rm' ordinario intentará borrar dos archivos: 'mi' y 'foto.jpg', borrando datos incorrectos o fallando."}, {"flag": "find -print0", "desc": "🎯 Clave de Examen: Imprime cada ruta encontrada terminada por el carácter nulo ASCII 0 (\\0) en lugar de un salto de línea."}, {"flag": "xargs -0, --null", "desc": "🎯 Clave de Examen: Indica a xargs que los elementos de entrada están delimitados por el carácter nulo (\\0), tratando los espacios y comillas como texto literal."}, {"flag": "Sinergia Indestructible", "desc": "🎯 La combinación 'find ... -print0 | xargs -0 ...' es el estándar corporativo obligatorio para scripts en producción."}], "remember": "🎯 Pregunta Fija de Examen LPIC-1: ¿Qué par de opciones se utilizan juntas para procesar archivos con espacios de forma segura? -> 'find -print0' combinado con 'xargs -0'.", "notes": "Pide a los alumnos que memoricen el número cero: -print0 en find y -0 en xargs."}, {"id": 12, "section": "103.4", "cat": "stream", "type": "table", "title": "Tabla Maestra de Operadores de Redirección", "lead": "El mapa conceptual definitivo de redirecciones y descriptores para el examen:", "ref": "308", "pdf": {"manual": "A", "pages": [308], "figure": null}, "coverage": ["103.4-CON-001"], "headers": ["Operador", "Descriptor Afectado", "Función y Comportamiento", "Ejemplo Práctico"], "rows": [[">", "stdout (1)", "Sobreescribe el archivo con la salida normal.", "ls > lista.txt"], [">>", "stdout (1)", "Añade la salida normal al final del archivo.", "echo 'ok' >> registro.log"], ["2>", "stderr (2)", "Guarda los mensajes de error en un archivo.", "find / -name x 2> errores.log"], ["2>>", "stderr (2)", "Añade los mensajes de error al final del archivo.", "backup.sh 2>> errores.log"], ["> arch 2>&1", "stdout y stderr", "🎯 Fusiona salida y errores en el mismo archivo.", "make > compilacion.log 2>&1"], ["&>", "stdout y stderr", "Sintaxis moderna de Bash para fusionar flujos.", "systemctl status nginx &> log.txt"], ["<", "stdin (0)", "Lee la entrada estándar desde un archivo.", "sort < desordenado.txt"], ["<< EOF", "stdin (0)", "Pasa un bloque multilínea (Here Document).", "cat <<EOF > config.txt"], [">|", "stdout (1)", "🎯 Sobreescribe forzando aunque noclobber esté activo.", "echo 'forzar' >| protegido.txt"], ["|", "stdout -> stdin", "Conecta procesos en memoria RAM por tubería.", "ps aux | grep nginx"]], "remember": "🎯 Regla de Oro: Sin número es descriptor 1; con el '2' es descriptor de errores; con '&' se fusionan ambos.", "notes": "Usa esta diapositiva como chuleta de repaso rápido antes del examen."}, {"id": 13, "section": "103.4", "cat": "stream", "type": "concept", "title": "Trampas Clásicas de Examen en Flujos y Redirecciones", "lead": "Los 3 fallos que más se repiten en las preguntas de flujos:", "ref": "309", "pdf": {"manual": "A", "pages": [309], "figure": null}, "coverage": ["103.4-WARN-001", "103.4-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Creer que la tubería captura los errores", "detail": "🎯 En 'comando_erroneo | grep error', el mensaje de error sale directamente a la pantalla y grep no recibe nada, porque los errores viajan por stderr (2) y la tubería solo transporta stdout (1). Para que entre en la tubería se debe usar '2>&1 |' o '|&'."}, {"icon": "alert-triangle", "text": "2. Orden invertido en la fusión de descriptores", "detail": "'2>&1 > archivo' NO fusiona ambos en el archivo. Hace que stderr vaya a donde apuntaba stdout en ese momento (la pantalla) y luego envía stdout al archivo. La forma correcta SIEMPRE es '> archivo 2>&1'."}, {"icon": "alert-triangle", "text": "3. Redirigir entrada y salida al mismo archivo", "detail": "⚠️ Si ejecutas 'sort archivo.txt > archivo.txt', la shell truncará el archivo a 0 bytes ANTES de que sort pueda leerlo, destruyendo todos tus datos. Siempre se debe escribir en un archivo temporal."}], "remember": "🎯 Mnemotecnia Rápida: Los errores no entran en la tubería por defecto; '> arch 2>&1' siempre en ese orden; y nunca redirijas con '>' sobre el mismo archivo que estás leyendo.", "notes": "Advierte a la clase sobre el peligro de 'cat arch > arch': vacía el archivo instantáneamente."}, {"id": 14, "section": "103.4", "cat": "stream", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Descriptores y Errores)", "ref": "Manual A - Pág 309", "pdf": {"manual": "A", "pages": [309], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 309): Ejecuta una búsqueda de todos los archivos llamados 'config' en el sistema completo ('/') guardando la salida exitosa en 'encontrados.txt' y descartando por completo todos los mensajes de 'Permission denied'.", "command": "find / -name config > encontrados.txt 2> /dev/null", "reason": "La redirección '>' desvía stdout al archivo deseado y '2> /dev/null' silencia los errores arrojándolos al agujero negro."}, {"action": "Caso 2 (Oficial Pág 309): ¿Cuál es el comando exacto para compilar un programa con 'make' guardando tanto la salida estándar como los posibles errores en un mismo archivo de log llamado 'build.log'?", "command": "make > build.log 2>&1 (o make &> build.log)", "reason": "Redirige la salida normal a build.log y fusiona el canal 2 (stderr) con el canal 1 (stdout)."}, {"action": "Caso 3 (Oficial Pág 309): Tienes activada la opción 'set -o noclobber' y necesitas sobreescribir el archivo existente 'salida.txt'. ¿Qué operador de redirección debes utilizar?", "command": "echo 'datos' >| salida.txt", "reason": "El operador '>|' (clobber) elude temporalmente la protección de noclobber forzando la sobreescritura."}], "solution": {"explain": "2> /dev/null limpia salidas ruidosas; > arch 2>&1 captura auditorías completas; y >| desbloquea sobreescrituras controladas."}, "notes": "Enseña cómo verificar que encontrados.txt solo contiene rutas y ningún mensaje de error."}, {"id": 15, "section": "103.4", "cat": "stream", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: tee y xargs)", "ref": "Manual A - Pág 309", "pdf": {"manual": "A", "pages": [309], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 309): Ejecuta una comprobación del espacio en disco con 'df -h' mostrando el resultado en pantalla y al mismo tiempo añadiéndolo al final del archivo '/var/log/disco.log'.", "command": "df -h | tee -a /var/log/disco.log", "reason": "El comando 'tee' bifurca la salida hacia la terminal y hacia el fichero, y '-a' añade sin sobreescribir."}, {"action": "Caso 5 (Oficial Pág 309): Utiliza 'find' y 'xargs' para localizar todos los archivos con extensión '.tmp' en '/tmp' y eliminarlos con 'rm' de forma segura ante posibles nombres con espacios.", "command": "find /tmp -type f -name '*.tmp' -print0 | xargs -0 rm -f", "reason": "-print0 separa los resultados con bytes nulos y xargs -0 los procesa interpretando los espacios como texto plano."}], "solution": {"explain": "tee -a asegura persistencia sin perder visibilidad en vivo; find -print0 con xargs -0 garantiza robustez frente a espacios en blanco."}, "notes": "Recuerda que tee sin -a borraría el log anterior."}, {"id": 16, "section": "103.4", "cat": "stream", "type": "challenge", "title": "Retos de Exploración Oficiales (Here Document y Flujos Complejos)", "ref": "Manual A - Págs 309-310", "pdf": {"manual": "A", "pages": [309, 310], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un script de instalación debe generar un archivo de configuración '/etc/app.conf' con 3 directivas sin abrir un editor de texto interactivo. ¿Qué estructura con 'cat' y 'Here Document' debe emplear?\n2. ¿Cómo pasarías una lista de 100 usuarios en un archivo 'usuarios.txt' para crear sus carpetas en '/home' invocando el comando 'mkdir' de 1 en 1 usando xargs?\n3. ¿Qué operador conecta la salida de errores (stderr) directamente a una tubería sin usar archivos intermedios en una shell Bash moderna?", "hint": "Recuerda: cat <<EOF > /etc/app.conf; xargs -n 1; y el operador |&.", "solution": {"explain": "1. Se ejecuta:\ncat <<EOF > /etc/app.conf\nPORT=8080\nDEBUG=false\nTIMEOUT=30\nEOF\n2. Se ejecuta: cat usuarios.txt | xargs -n 1 -I {} mkdir /home/{}\n3. Se utiliza el operador: '|&' (o '2>&1 |')."}, "notes": "Here Document es la técnica más limpia para generar archivos de configuración dentro de scripts de despliegue."}, {"id": 17, "section": "103.4", "cat": "stream", "type": "review", "title": "Pregunta de Examen LPIC-1: Redirección Simultánea de Salida y Errores", "q": "¿Cuál de los siguientes comandos redirigirá TANTO la salida estándar (stdout) COMO la salida de errores (stderr) del programa 'miprograma' hacia el archivo 'salida.txt'?", "options": ["miprograma > salida.txt 2> salida.txt", "miprograma 2>&1 > salida.txt", "miprograma > salida.txt 2>&1", "miprograma >> salida.txt < 2"], "answer": 2, "why": "La construcción '> salida.txt 2>&1' primero desvía la salida estándar (descriptor 1) hacia el archivo 'salida.txt' y a continuación redirige el descriptor de error (descriptor 2) hacia donde apunta el descriptor 1 en ese instante (hacia el propio archivo).", "notes": "Pregunta clásica e indispensable de certificación."}, {"id": 18, "section": "103.4", "cat": "stream", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Flujos y Redirecciones 103.4", "deck": [{"front": "¿Qué número de descriptor de archivo corresponde a stdin, stdout y stderr?", "back": "0 = stdin (entrada), 1 = stdout (salida normal), 2 = stderr (errores)."}, {"front": "¿Qué diferencia hay entre '>' y '>>'?", "back": "'>' sobrescribe el archivo borrando lo anterior; '>>' añade al final sin borrar."}, {"front": "¿Cómo silenciar todos los mensajes de error de un comando?", "back": "Añadiendo '2> /dev/null' al final del comando."}, {"front": "¿Cómo redirigir salida y errores juntos al mismo archivo?", "back": "cmd > archivo 2>&1 (o cmd &> archivo)."}, {"front": "¿Qué comando activa la protección que impide sobreescribir archivos con '>'?", "back": "set -o noclobber."}, {"front": "¿Qué operador fuerza la sobreescritura cuando noclobber está activo?", "back": ">| (operador clobber)."}, {"front": "¿Qué comando bifurca un flujo enviándolo a pantalla y guardándolo en archivo?", "back": "tee (o tee -a para añadir)."}, {"front": "¿Qué opciones combinadas de find y xargs manejan espacios con seguridad?", "back": "find -print0 | xargs -0."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.4."}, {"id": 19, "section": "103.4", "cat": "stream", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.4", "takeaways": ["Descriptores: 0 stdin, 1 stdout, 2 stderr. /dev/null como vertedero de datos.", "Redirecciones: > sobreescribe, >> añade, 2> para errores, > arch 2>&1 para fusionar, < para entrada, <<EOF para Here Document multilínea.", "Protección: set -o noclobber impide destruir ficheros con >; el operador >| elude la protección.", "Tuberías y Procesamiento: | conecta procesos en memoria RAM; tee [-a] bifurca a pantalla y disco; $(cmd) para sustitución de comandos; xargs [-n|-0] para convertir flujos en argumentos seguros."], "top3": [{"cmd": "cmd > log.txt 2>&1", "desc": "Redirige salida normal y errores juntos al mismo archivo."}, {"cmd": "find / -name archivo 2> /dev/null", "desc": "Silencia los errores de permiso denegado durante búsquedas."}, {"cmd": "find . -type f -print0 | xargs -0 cmd", "desc": "Procesa archivos por lotes de forma 100% inmune a nombres con espacios."}], "practice": {"name": "Practica 103.4: Flujos Estándar, Tuberías y Redirecciones", "url": "../practicas/p-103-4-redirecciones-tuberias.html", "desc": "Domina los descriptores stdin (0), stdout (1) y stderr (2), redirige salidas y errores (>, >>, 2>, 2>&1, &>), bifurca con tee y automatiza con xargs."}, "notes": "Concluimos el subtema 103.4 y finalizamos la primera mitad del Tema 103."}];
     const ERRATAS = [{"id": "ERR-103.4-01", "section": "103.4", "ref": "p. 14", "manual_says": "comando > archivo 2> archivo redirige stdout y stderr de forma segura.", "reality": "Abrir el mismo archivo dos veces con '>' provoca colisiones de escritura entre descriptores. Lo correcto es comando > archivo 2>&1 o comando &> archivo.", "exam_tip": "No marques respuestas con redirecciones duplicadas concurrentes sin duplicación de descriptores (2>&1)."}];
     const GLOSARIO = [{"id": "pipe", "term": "Pipeline (Tubería |)", "def": "Mecanismo IPC de Unix que conecta la salida estándar de un proceso con la entrada estándar de otro.", "ref": "p. 1-6"}, {"id": "redirection", "term": "Redirección (<, >, >>)", "def": "Operador de la shell que desvía los flujos estándar (stdin, stdout, stderr) hacia o desde archivos.", "ref": "p. 7-15"}, {"id": "tee", "term": "tee", "def": "Comando en T que replica la entrada estándar hacia la pantalla y a uno o más ficheros a la vez.", "ref": "p. 16-20"}, {"id": "xargs", "term": "xargs", "def": "Utilidad que lee elementos de la entrada estándar y construye líneas de comando para ejecutarlas.", "ref": "p. 21-28"}, {"id": "dev-null", "term": "/dev/null", "def": "Dispositivo de caracteres especial que descarta toda la información que se escribe en él.", "ref": "p. 12-14"}];
     const META = {"topic": "103.4", "title": "Uso de secuencias de texto, tuberías y redireccionamientos", "weight": 4, "description": "stdin, stdout, stderr, redirecciones (>, >>, <, <<), noclobber, tuberías (|), tee y xargs (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1453,6 +1932,9 @@
           });
           html += `</div>`;
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.console || s.terminal) {
           html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
         }
@@ -1518,6 +2000,9 @@
         const termData = s.terminal || s.console;
         if (termData) {
           html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
         }
 
         if (s.trap || s.warning) {
@@ -1603,6 +2088,9 @@
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
 
         if (s.trap || s.warning) {
           html += `
@@ -1643,6 +2131,9 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.remember) {
           html += `
             <div class="callout-box callout-remember" style="margin-top:14px;">
@@ -1689,12 +2180,37 @@
             </div>
           `;
         }
+      } else if (s.type === 'diagram') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.diagram_html || s.raw_html || s.html || s.svg || s.content || '';
+        if (bodyContent) html += bodyContent;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         const steps = s.steps || s.nodes || s.diagram?.nodes || [];
-        if (steps.length > 0) {
+        if (steps.length > 0 && !s.diagram_html && !s.raw_html && !s.html && !s.svg) {
           html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
           steps.forEach((st, idx) => {
             const stitle = st.step || st.title || st.text || st.label || '';
@@ -2055,9 +2571,11 @@
           `;
         }
       } else {
-        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
-        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.raw_html || s.html || s.content;
+        if (bodyContent) html += bodyContent;
       }
       return html;
     }
@@ -2241,6 +2759,9 @@
 
     function closeModals() {
       document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+      if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
     }
 
     function closePopovers() {
@@ -2266,6 +2787,45 @@
       popover.style.top = `${rect.bottom + 8}px`;
       popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
       popover.classList.add('open');
+    }
+
+    function openPopover(targetOrEvent, html) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      let el = null;
+      if (targetOrEvent instanceof Event) {
+        targetOrEvent.stopPropagation();
+        el = targetOrEvent.currentTarget || targetOrEvent.target;
+      } else if (targetOrEvent && targetOrEvent.nodeType) {
+        el = targetOrEvent;
+      } else if (targetOrEvent && targetOrEvent.target) {
+        el = targetOrEvent.target;
+      }
+      const popover = document.getElementById('global-popover');
+      if (!popover) return;
+      popover.innerHTML = html || '<div>Sin detalles adicionales</div>';
+      if (el && el.getBoundingClientRect) {
+        const rect = el.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + 8}px`;
+        popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      }
+      popover.classList.add('open');
+    }
+
+    function toggleAnswer(btn) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      if (!btn) return;
+      const container = btn.closest('.quiz-reveal-container') || btn.parentElement;
+      if (!container) return;
+      const ans = container.querySelector('.quiz-answer-box');
+      if (ans) {
+        const isHidden = window.getComputedStyle(ans).display === 'none' || ans.style.display === 'none';
+        ans.style.display = isHidden ? 'block' : 'none';
+        btn.textContent = isHidden ? 'Ocultar Respuesta ▲' : 'Ver Respuesta ▼';
+      }
     }
     document.addEventListener('click', closePopovers);
 
@@ -2444,6 +3004,18 @@
         }
       }
       renderSlide(initSlide);
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length && num !== currentSlideIdx) {
+            renderSlide(num);
+          }
+        }
+      }
     });
   </script>
 </body>

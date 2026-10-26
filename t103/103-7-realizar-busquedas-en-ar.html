@@ -322,17 +322,87 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 8px;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       background: var(--surface);
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
-    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
-    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); transform: translateY(-1px); }
+    .nav-btn:active { transform: translateY(0); }
+    .nav-btn.primary { background: #2563EB; color: #FFFFFF !important; border-color: #1D4ED8; box-shadow: 0 2px 4px rgba(37,99,235,0.25); }
+    .nav-btn.primary:hover { background: #1D4ED8; border-color: #1E40AF; }
+
+    /* Sistema Completo de Botones .btn */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      border: 1.5px solid transparent;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      user-select: none;
+      outline: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.12), 0 2px 4px -2px rgba(15, 23, 42, 0.08);
+    }
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: #FFFFFF !important;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      gap: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF !important;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+    }
 
     /* Contenedor del escenario (1920x1080) */
     #app-container {
@@ -498,6 +568,246 @@
       color: var(--info-ink);
       border-color: #BAE6FD;
     }
+    .callout-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      max-width: 24px !important;
+      min-height: 24px !important;
+      max-height: 24px !important;
+      border-radius: 50% !important;
+      background: #2563EB;
+      color: #FFFFFF !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+      text-align: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      margin: 0 4px !important;
+      user-select: none !important;
+    }
+    .badge-blue { background: #2563EB !important; color: #FFFFFF !important; }
+    .badge-amber { background: #D97706 !important; color: #FFFFFF !important; }
+    .badge-red { background: #DC2626 !important; color: #FFFFFF !important; }
+    .badge-green { background: #16A34A !important; color: #FFFFFF !important; }
+    .badge-purple { background: #7C3AED !important; color: #FFFFFF !important; }
+
+    /* Glosarios & Conceptos Clave Modernos */
+    /* Glosarios & Conceptos Clave Modernos */
+    .slide-glossary-box {
+      margin-top: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .slide-glossary-box .gl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .slide-glossary-box .gl-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563EB;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .slide-glossary-box .gl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .slide-glossary-box .gl-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+    .slide-glossary-box .gl-card:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+    .slide-glossary-box .gl-badge {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1D4ED8;
+      background: #EFF6FF;
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid #BFDBFE;
+      display: inline-block;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .slide-glossary-box .gl-def {
+      color: #334155;
+      font-size: 13.5px;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .slide-glossary-box .gl-def code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 4px;
+      color: #0F172A;
+    }
+
+    /* Compatibilidad strip con estilo pulido tipo chips */
+    .slide-glossary-strip {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .slide-glossary-strip .gl-title {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-glossary-strip .gl-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .slide-glossary-strip .gl-term {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #1D4ED8;
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM (Completo, accesible y moderno para interactivos y quizes)
+       ========================================================================== */
+    .btn, .quiz-reveal-container button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .btn:focus-visible, .quiz-reveal-container button:focus-visible {
+      outline: 2px solid #2563EB;
+      outline-offset: 2px;
+    }
+    .btn:active, .quiz-reveal-container button:active {
+      transform: translateY(1px);
+    }
+
+    /* Botón Primario (Azul vibrante) */
+    .btn-primary, .nav-btn.primary, .quiz-reveal-container button {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover, .nav-btn.primary:hover, .quiz-reveal-container button:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Botón Outline Primario */
+    .btn-outline-primary {
+      background: #FFFFFF;
+      color: #2563EB;
+      border-color: #2563EB;
+    }
+    .btn-outline-primary:hover {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-color: #1D4ED8;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Botón Secundario */
+    .btn-secondary {
+      background: #F1F5F9;
+      color: #334155;
+      border-color: #CBD5E1;
+    }
+    .btn-secondary:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+      border-color: #94A3B8;
+    }
+
+    /* Botón Éxito */
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+      border-color: #166534;
+      color: #FFFFFF;
+    }
+
+    /* Modificadores de Tamaño */
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14.5px;
+      border-radius: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+    }
 
     /* Terminal y Comandos (slides-terminal-comandos) */
     .term-wrapper {
@@ -517,20 +827,29 @@
       font-size: 18px;
       font-weight: 700;
     }
-    .term-copy-btn {
+    .term-copy-btn, .terminal-copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 12px;
       border-radius: 6px;
-      border: 2px solid var(--control-border);
+      border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-copy-btn:hover, .terminal-copy-btn:hover {
+      background: #F1F5F9;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+    .term-copy-btn:active, .terminal-copy-btn:active {
+      transform: scale(0.96);
+    }
     .term-code {
       padding: 14px 20px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -545,15 +864,169 @@
     .term-code::-webkit-scrollbar { width: 6px; }
     .term-code::-webkit-scrollbar-track { background: transparent; }
     .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
-    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+
+    /* Terminal Card (Real-life console frame) */
+    .terminal-card {
+      background: #0F172A;
+      border: 2px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .terminal-card .terminal-header {
+      background: #1E293B;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      gap: 12px;
+    }
+    .terminal-card .terminal-header::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 18px 0 0 #F59E0B, 36px 0 0 #10B981;
+      margin-right: 36px;
+      flex-shrink: 0;
+    }
+    .terminal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #94A3B8;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: 0.02em;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .terminal-card .terminal-copy-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #475569;
+    }
+    .terminal-card .terminal-copy-btn:hover {
+      background: #334155;
+      border-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .terminal-body {
+      padding: 16px 20px;
+      margin: 0;
+      background: #0F172A;
+      color: #E2E8F0;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      font-size: 15.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Mini-Terminal para llamadas o ejemplos dentro de cajas */
+    .mini-terminal {
+      background: #0F172A;
+      border: 1.5px solid #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+    }
+    .mini-term-header {
+      background: #1E293B;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    .mini-term-dots {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 12px 0 0 #F59E0B, 24px 0 0 #10B981;
+      margin-right: 22px;
+    }
+    .mini-term-title {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+    .mini-term-body {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #E2E8F0;
+      background: #0F172A;
+    }
+
+    /* High-contrast terminal syntax tokens for light mode by default */
+    .t-prompt { color: #0284C7; user-select: none; font-weight: 700; }
     .t-cmd { font-weight: 700; color: #0F172A; }
     .t-flag { color: #1D4ED8; font-weight: 600; }
-    .t-arg { color: #9A3412; font-weight: 500; }
-    .t-path { color: #15803D; font-weight: 500; }
-    .t-str { color: #A21CAF; }
-    .t-cmt { color: #5B6B82; font-style: italic; }
-    .t-err { color: #B91C1C; font-weight: 600; }
-    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+    .t-arg { color: #B45309; font-weight: 600; }
+    .t-path { color: #047857; font-weight: 600; }
+    .t-str { color: #7C3AED; }
+    .t-cmt, .term-comment { color: #64748B; font-style: italic; }
+    .t-err { color: #DC2626; font-weight: 600; }
+    .t-hl { background: rgba(254, 240, 138, 0.45); border-radius: 4px; padding: 0 6px; }
+
+    /* Dark context inside terminal-card and mini-terminal */
+    .terminal-card .term-prompt, .mini-terminal .term-prompt,
+    .terminal-card .t-prompt, .mini-terminal .t-prompt { color: #38BDF8; font-weight: 700; }
+    .terminal-card .term-cmd, .mini-terminal .term-cmd,
+    .terminal-card .t-cmd, .mini-terminal .t-cmd { font-weight: 700; color: #F8FAFC; }
+    .terminal-card .t-flag, .mini-terminal .t-flag { color: #60A5FA; }
+    .terminal-card .t-arg, .mini-terminal .t-arg { color: #FBBF24; }
+    .terminal-card .t-path, .mini-terminal .t-path { color: #34D399; }
+    .terminal-card .t-str, .mini-terminal .t-str { color: #E879F9; }
+    .terminal-card .term-comment, .mini-terminal .term-comment,
+    .terminal-card .t-cmt, .mini-terminal .t-cmt { color: #94A3B8; }
+    .terminal-card .t-err, .mini-terminal .t-err { color: #F87171; }
+
+    /* Estilos del Modal Autotest / Test Global */
+    .autotest-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--surface);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: border-color 0.15s ease;
+    }
+    .autotest-card:hover {
+      border-color: var(--primary);
+    }
+    .autotest-opt-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface-alt);
+      font-size: 18px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .autotest-opt-label:hover {
+      background: #EFF6FF;
+      border-color: #93C5FD;
+    }
+    .autotest-opt-label input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2563EB;
+      cursor: pointer;
+    }
 
     /* Chips de opciones interactivas */
     .options-row {
@@ -619,32 +1092,38 @@
     /* Tablas (≤5x4) */
     .table-container {
       width: 100%;
-      margin: 20px 0;
-      border: 2px solid var(--border);
-      border-radius: 14px;
+      margin: 12px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 12px;
       overflow: hidden;
-      background: #FFFFFF;
+      background: var(--surface);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 26px;
+      font-size: clamp(15px, 1.05vw, 18.5px);
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 16px 24px;
+      padding: 10px 18px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
+      font-size: clamp(15.5px, 1.1vw, 19.5px);
     }
     table.slide-table td {
-      padding: 16px 24px;
+      padding: 9px 18px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
+      line-height: 1.4;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
-    table.slide-table tr.highlighted { background: #FEF3C7; }
+    table.slide-table tr.highlighted { background: var(--warning-soft); }
+    [data-theme="dark"] .table-container {
+      background: var(--surface);
+    }
 
     /* Matrices comparativas y mapas de equivalencias */
     .matrix-container {
@@ -1131,7 +1610,7 @@
     <aside id="teacher-panel">
       <div class="panel-header">
         <span>Notas del Docente</span>
-        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+        <button class="nav-btn" onclick="toggleTeacherNotes()" aria-label="Cerrar panel docente"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
       </div>
       <div class="panel-body">
         <div class="panel-meta" id="panel-meta-info"></div>
@@ -1146,7 +1625,7 @@
   <!-- Modal de Erratas -->
   <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar notas y erratas"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
         <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
         Notas y Erratas del Manual Oficial
@@ -1158,7 +1637,7 @@
   <!-- Modal de Ayuda / Atajos -->
   <div class="modal-overlay" id="modal-help" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar ayuda de atajos"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
         <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
@@ -1181,7 +1660,7 @@
   <!-- Modal de Vista General (Overview) -->
   <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
     <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar vista general"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
       <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
     </div>
@@ -1197,7 +1676,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "103.7", "cat": "text", "type": "cover", "title": "Búsquedas con expresiones regulares", "subtitle": "BRE frente a ERE, anclas (^, $), clases POSIX, familia grep (grep, egrep, fgrep), sed y less (Modo Examen)", "ref": "361-362", "pdf": {"manual": "A", "pages": [361, 362], "figure": null}, "coverage": ["103.7-OBJ-001", "103.7-OBJ-002", "103.7-OBJ-003"], "meta": {"peso": 3, "paginas": "361–386", "duracion": "30 min"}, "icon": "search", "notes": "Iniciamos el subtema 103.7 (peso 3). Las expresiones regulares (regex) son el lenguaje universal para describir patrones de texto en Linux. Aprenderemos la diferencia vital entre expresiones básicas (BRE) y extendidas (ERE), la familia de comandos grep y su uso en auditorías de seguridad y filtrado de logs."}, {"id": 2, "section": "103.7", "cat": "text", "type": "concept", "title": "Fundamentos de Expresiones Regulares: Anclas y Punto", "lead": "¿Cómo definir patrones de texto con precisión matemática en lugar de búsquedas simples?", "ref": "362-364", "pdf": {"manual": "A", "pages": [362, 363, 364], "figure": null}, "coverage": ["103.7-CON-001"], "points": [{"icon": "arrow-up", "text": "El acento circunflejo (^): Ancla de Inicio de Línea", "detail": "🎯 Coincide únicamente si el patrón se encuentra justo al principio de la línea (ej: '^root' coincide con líneas que empiezan por 'root')."}, {"icon": "arrow-down", "text": "El signo de dólar ($): Ancla de Fin de Línea", "detail": "🎯 Coincide únicamente si el patrón está al final exacto de la línea (ej: 'bash$' coincide con líneas que terminan en 'bash')."}, {"icon": "disc", "text": "Líneas Vacías (^$) y Comentarios (^#)", "detail": "🎯 Clave de Examen: '^$' representa una línea completamente vacía (inicio seguido inmediatamente de fin). 'grep -v '^#' archivo | grep -v '^$'' es el truco universal para ver solo la configuración útil sin comentarios ni líneas en blanco."}, {"icon": "circle", "text": "El punto (.): El comodín universal de 1 carácter", "detail": "Coincide con exactamente cualquier carácter individual (letra, número, espacio, símbolo), excepto el salto de línea."}], "remember": "🎯 Clave de Examen: '^' fija el inicio; '$' fija el final; '^$' detecta líneas en blanco; '.' coincide con cualquier carácter.", "notes": "Muestra a los alumnos cómo filtrar /etc/ssh/sshd_config con 'grep -vE \"^(#|$)\"' para leer un archivo limpio de 15 líneas."}, {"id": 3, "section": "103.7", "cat": "text", "type": "table", "title": "Comparativa Esencial: BRE (Básico) frente a ERE (Extendido)", "lead": "¿Por qué un patrón funciona en egrep pero da error o no coincide en grep estándar?", "ref": "364-366", "pdf": {"manual": "A", "pages": [364, 365, 366], "figure": null}, "coverage": ["103.7-CON-002"], "headers": ["Operador / Metacarácter", "BRE (grep estándar)", "ERE (egrep o grep -E)", "Significado del Patrón"], "rows": [["Uno o más (+)", "Requiere escape: \\+", "🎯 Nativo directo: +", "Coincide con 1 o más repeticiones del elemento previo."], ["Cero o uno (?)", "Requiere escape: \\?", "🎯 Nativo directo: ?", "Coincide con 0 o 1 ocurrencia (elemento opcional)."], ["Alternancia (OR / |)", "Requiere escape: \\|", "🎯 Nativo directo: |", "Operación lógica: 'patronA|patronB'."], ["Agrupamiento ()", "Requiere escape: \\( \\)", "🎯 Nativo directo: ( )", "Agrupa elementos y crea referencias hacia atrás."], ["Intervalos {n,m}", "Requiere escape: \\{n,m\\}", "🎯 Nativo directo: {n,m}", "Entre n y m repeticiones exactas."], ["Cero o más (*)", "Nativo directo: *", "Nativo directo: *", "Coincide con 0 o más repeticiones en ambos motores."]], "remember": "🎯 Regla de Oro de Examen: En BRE (+, ?, |, (, {) son caracteres ordinarios y necesitan '\\' para actuar como regex. En ERE (egrep) actúan como regex directamente sin barra invertida.", "notes": "Insiste: si usas egrep o grep -E, NUNCA pongas barra invertida antes de +, ?, ( o |."}, {"id": 4, "section": "103.7", "cat": "text", "type": "command", "title": "Conjuntos y Clases de Caracteres POSIX", "lead": "Filtrar rangos de caracteres de forma inmune a configuraciones de idioma (locales):", "ref": "366-369", "pdf": {"manual": "A", "pages": [366, 367, 368, 369], "figure": null}, "coverage": ["103.7-CON-003"], "command": "grep '[a-z]' | grep '[^0-9]' | grep '[[:alnum:]]'", "purpose": "Emparejar caracteres por pertenencia a conjuntos o clases internacionales POSIX", "terminal": {"command": "echo 'Port 22' | grep -E '[[:alpha:]]+ [[:digit:]]+'", "output": "Port 22\n# Coincidencia con una o más letras seguidas de espacio y dígitos."}, "options": [{"flag": "[abc] / [a-z]", "desc": "Coincide con cualquiera de los caracteres contenidos entre los corchetes o en el rango alfabético."}, {"flag": "[^abc] / [!abc]", "desc": "🎯 Negación: coincide con cualquier carácter que NO esté listado dentro del corchete."}, {"flag": "[[:alnum:]]", "desc": "🎯 Caracteres alfanuméricos: equivale a [a-zA-Z0-9]."}, {"flag": "[[:alpha:]]", "desc": "🎯 Solo letras alfabéticas: equivale a [a-zA-Z]."}, {"flag": "[[:digit:]]", "desc": "🎯 Solo dígitos numéricos: equivale a [0-9]."}, {"flag": "[[:lower:]] / [[:upper:]]", "desc": "Solo letras minúsculas o solo letras mayúsculas."}, {"flag": "[[:space:]]", "desc": "Espacios en blanco, tabulaciones y saltos de línea."}, {"flag": "⚠️ Doble Corchete", "desc": "🎯 Clave de Examen: La clase POSIX debe ir SIEMPRE dentro de los corchetes de conjunto: '[[:digit:]]'."}], "remember": "🎯 Clave de Examen: Las clases POSIX requieren doble corchete: '[[:digit:]]' y no '[:digit:]'.", "notes": "Muestra que si escribes 'grep [:digit:]', grep buscará los caracteres individuales :, d, i, g, t."}, {"id": 5, "section": "103.7", "cat": "text", "type": "command", "title": "Cuantificadores de Repetición: *, +, ? y {n,m}", "lead": "¿Cuántas veces debe aparecer un carácter para que la expresión coincida?", "ref": "369-372", "pdf": {"manual": "A", "pages": [369, 370, 371, 372], "figure": null}, "coverage": ["103.7-CON-004"], "command": "egrep 'a*|a+|a?|a{2,4}'", "purpose": "Controlar la frecuencia de repetición del carácter o grupo inmediatamente anterior", "terminal": {"command": "printf 'color\\ncolour\\n' | grep -E 'colou?r'", "output": "color\ncolour\n# Coincide con 'color' (0 u) y con 'colour' (1 u)."}, "options": [{"flag": "* (Cero o más)", "desc": "El elemento previo puede aparecer 0 veces, 1 vez o cientos de veces (ej: 'ba*' coincide con 'b', 'ba', 'baa')."}, {"flag": "+ (Uno o más - ERE)", "desc": "🎯 Clave de Examen: El elemento previo debe aparecer OBLIGATORIAMENTE al menos 1 vez (ej: 'ba+' coincide con 'ba', pero NO con 'b')."}, {"flag": "? (Cero o uno - ERE)", "desc": "🎯 Clave de Examen: El elemento previo es OPCIONAL: puede no aparecer o aparecer exactamente 1 vez (ej: 'https?' coincide con http y https)."}, {"flag": "{n} (Exactamente n)", "desc": "Debe repetirse exactamente n veces (ej: '[0-9]{4}' busca años de 4 dígitos)."}, {"flag": "{n,m} (Entre n y m)", "desc": "Debe repetirse entre un mínimo de n y un máximo de m veces (ej: '[0-9]{1,3}')."}, {"flag": "{n,} (Al menos n)", "desc": "Debe repetirse al menos n veces sin límite superior."}], "remember": "🎯 Diferencia Crítica: '*' = 0 o más; '+' = 1 o más (al menos uno); '?' = 0 o 1 (opcional).", "notes": "Muestra a los alumnos que '.*' significa 'cualquier cadena de cualquier longitud' (el equivalente en regex del asterisco '*' en globbing)."}, {"id": 6, "section": "103.7", "cat": "text", "type": "command", "title": "Alternancia (|) y Agrupamiento con Paréntesis en ERE", "lead": "Construir búsquedas condicionales OR y aplicar repeticiones a frases completas:", "ref": "372-374", "pdf": {"manual": "A", "pages": [372, 373, 374], "figure": null}, "coverage": ["103.7-CON-005"], "command": "egrep '(patrónA|patrónB)' <archivo>", "purpose": "Buscar múltiples términos alternativos y agrupar subexpresiones", "terminal": {"command": "echo -e 'error fatal\\naviso leve\\npanico kernel' | grep -E '(error|panico)'", "output": "error fatal\npanico kernel"}, "options": [{"flag": "| (Pipe / Alternancia)", "desc": "🎯 Clave de Examen: Actúa como el operador lógico booleano OR. Coincide si se cumple el patrón de la izquierda O el de la derecha."}, {"flag": "( ) (Paréntesis / Agrupamiento)", "desc": "🎯 Delimita el alcance de la alternancia o de un cuantificador (ej: 'auto(movil|bus)' coincide con automovil y autobus)."}, {"flag": "Agrupamiento con cuantificador", "desc": "Aplica el cuantificador a todo el bloque: '(ab)+' coincide con ab, abab, ababab."}, {"flag": "Backreferences (\\1, \\2)", "desc": "🎯 Clave de Examen: Recuerda el texto capturado por los paréntesis para buscar repeticiones idénticas (ej: '([a-z]+) \\1' detecta palabras duplicadas seguidas como 'el el')."}], "remember": "🎯 Clave de Examen: En ERE (egrep o grep -E), el operador '|' busca alternativas 'uno u otro' sin necesidad de barras invertidas.", "notes": "Explica la diferencia entre corchetes '[ab]' (busca la letra 'a' o la letra 'b') y paréntesis '(ab)' (busca la secuencia 'ab' junta)."}, {"id": 7, "section": "103.7", "cat": "text", "type": "command", "title": "La Familia grep: grep, egrep y fgrep", "lead": "¿Por qué existen tres comandos grep y qué diferencias evalúa la certificación?", "ref": "374-376", "pdf": {"manual": "A", "pages": [374, 375, 376], "figure": null}, "coverage": ["103.7-CMD-001", "103.7-CMD-002", "103.7-CMD-003"], "command": "grep (BRE) | egrep / grep -E (ERE) | fgrep / grep -F (Fixed Strings)", "purpose": "Seleccionar el motor de búsqueda adecuado según el tipo de patrón o rendimiento deseado", "terminal": {"command": "echo 'a+b=c' | fgrep 'a+b'; echo 'a+b=c' | grep -F 'a+b'", "output": "a+b=c\na+b=c\n# Coincidencia literal exacta sin interpretar el signo '+' como regex."}, "options": [{"flag": "grep [opciones] patrón", "desc": "🎯 Motor estándar BRE: procesa expresiones regulares básicas (requiere \\+ y \\?)."}, {"flag": "egrep (o grep -E)", "desc": "🎯 Extended Grep: activa el motor ERE completo (+, ?, |, (), {} directos sin barras invertidas)."}, {"flag": "fgrep (o grep -F)", "desc": "🎯 Clave Absoluta de Examen: Fixed Grep: busca cadenas de texto PLANAS Y LITERALES. Desactiva por completo el motor de regex. Trata '.', '*', '+' y '[' como letras ordinarias. Es el más rápido en ficheros gigantes."}], "remember": "🎯 La Pregunta Estrella de Examen: ¿Qué comando busca texto literal tratando los caracteres de regex como texto plano sin interpretarlos? Respuesta: 'fgrep' (o 'grep -F').", "notes": "Pide a los alumnos que memoricen: fgrep = Fixed strings = Cero expresiones regulares."}, {"id": 8, "section": "103.7", "cat": "text", "type": "command", "title": "Opciones Clave de grep: -i, -v, -c y -n", "lead": "Los modificadores más recurrentes en las preguntas de certificación LPIC-1:", "ref": "376-379", "pdf": {"manual": "A", "pages": [376, 377, 378, 379], "figure": null}, "coverage": ["103.7-CMD-001", "103.7-OPT-001", "103.7-OPT-002", "103.7-OPT-003", "103.7-OPT-004"], "command": "grep [-i] [-v] [-c] [-n] <patrón> <archivo>", "purpose": "Modificar el comportamiento de coincidencia y el formato de salida de las búsquedas", "terminal": {"command": "grep -iv 'nologin' /etc/passwd | grep -n 'bash'", "output": "1:root:x:0:0:root:/root:/bin/bash\n28:alumno:x:1000:1000:Alumno LPIC:/home/alumno:/bin/bash"}, "options": [{"flag": "-i, --ignore-case", "desc": "🎯 Clave de Examen: Ignora diferencias entre mayúsculas y minúsculas (ej: 'grep -i error' coincide con ERROR, Error y error)."}, {"flag": "-v, --invert-match", "desc": "🎯 Clave de Examen: Inversión: selecciona ÚNICAMENTE las líneas que NO coinciden con el patrón (ej: 'grep -v ^#' omite comentarios)."}, {"flag": "-c, --count", "desc": "🎯 Clave de Examen: Imprime únicamente el número total de líneas coincidentes en lugar de mostrarlas."}, {"flag": "-n, --line-number", "desc": "🎯 Clave de Examen: Prefija cada línea coincidente con su número de línea real en el archivo (1-indexed)."}], "remember": "🎯 Clave Mnemotécnica: -i = ignore case; -v = invert (invertir); -c = count (contar líneas); -n = number (número de línea).", "notes": "Muestra cómo 'grep -c' ahorra tener que encadenar una tubería con 'wc -l'."}, {"id": 9, "section": "103.7", "cat": "text", "type": "command", "title": "Filtrado de Archivos y Coincidencia Exacta: -l, -w, -x y -o", "lead": "¿Cómo buscar en múltiples archivos mostrando solo los nombres o aislar palabras exactas?", "ref": "379-382", "pdf": {"manual": "A", "pages": [379, 380, 381, 382], "figure": null}, "coverage": ["103.7-CMD-001", "103.7-OPT-005", "103.7-OPT-006", "103.7-OPT-007", "103.7-OPT-008"], "command": "grep [-l|-L|-w|-x|-o] <patrón> <archivos...>", "purpose": "Aislar coincidencias exactas por palabra, línea completa o listar ficheros contenedores", "terminal": {"command": "grep -lw 'root' /etc/* 2>/dev/null | head -n 3; echo 'IP: 192.168.1.1' | grep -oE '[0-9.]+'", "output": "/etc/group\n/etc/passwd\n/etc/shadow\n192.168.1.1"}, "options": [{"flag": "-l, --files-with-matches", "desc": "🎯 Clave de Examen: Muestra ÚNICAMENTE el nombre de los archivos que contienen coincidencias, sin imprimir las líneas de texto."}, {"flag": "-L, --files-without-match", "desc": "Muestra únicamente el nombre de los archivos que NO contienen ninguna coincidencia."}, {"flag": "-w, --word-regexp", "desc": "🎯 Clave de Examen: Coincidencia por palabra completa: solo coincide si el patrón está rodeado por límites de palabra (evita que 'red' coincida con 'redes')."}, {"flag": "-x, --line-regexp", "desc": "Coincidencia de línea completa: la línea entera debe coincidir de principio a fin."}, {"flag": "-o, --only-matching", "desc": "🎯 Clave de Examen: Imprime ÚNICAMENTE la parte exacta del texto que coincidió con la regex, en lugar de toda la línea."}], "remember": "🎯 Clave de Examen: 'grep -l' para saber qué archivos contienen una palabra; 'grep -w' para buscar la palabra exacta aislada; 'grep -o' para extraer solo el valor coincidente (ej: extraer IPs).", "notes": "Muestra a la clase la enorme utilidad de 'grep -o' para parsear logs y extraer correos o direcciones IP."}, {"id": 10, "section": "103.7", "cat": "text", "type": "command", "title": "Búsqueda Recursiva y Contexto: -r, -A, -B y -C", "lead": "Rastrear directorios enteros y ver las líneas anteriores y posteriores a un error:", "ref": "382-384", "pdf": {"manual": "A", "pages": [382, 383, 384], "figure": null}, "coverage": ["103.7-CMD-001", "103.7-OPT-009", "103.7-OPT-010"], "command": "grep -r[n] <patrón> <directorio> | grep -C <N> <patrón> <archivo>", "purpose": "Inspeccionar árboles completos de carpetas y mostrar el contexto de las incidencias", "terminal": {"command": "grep -rn 'PermitRootLogin' /etc/ssh/ 2>/dev/null; grep -B 1 -A 1 '127.0.0.1' /etc/hosts", "output": "/etc/ssh/sshd_config:34:PermitRootLogin no\n# The following lines are desirable for IPv4\n127.0.0.1 localhost\n# The following lines are desirable for IPv6"}, "options": [{"flag": "-r, --recursive", "desc": "🎯 Clave de Examen: Busca de forma recursiva en todos los subdirectorios y ficheros del directorio indicado."}, {"flag": "-R, --dereference-recursive", "desc": "Búsqueda recursiva siguiendo además todos los enlaces simbólicos."}, {"flag": "-A <N>, --after-context", "desc": "🎯 Imprime N líneas de contexto POSTERIORES (After) a la línea coincidente."}, {"flag": "-B <N>, --before-context", "desc": "🎯 Imprime N líneas de contexto ANTERIORES (Before) a la línea coincidente."}, {"flag": "-C <N>, --context", "desc": "🎯 Imprime N líneas de contexto tanto anteriores como posteriores (Before y After simultáneamente)."}], "remember": "🎯 Mnemotecnia de Contexto: -B = Before (antes); -A = After (después); -C = Context (ambas direcciones).", "notes": "Enseña cómo 'grep -B 2 -A 5 Exception log.txt' permite a los sysadmins ver el stack trace completo de un error."}, {"id": 11, "section": "103.7", "cat": "text", "type": "command", "title": "Expresiones Regulares en sed: -E y Backreferences", "lead": "¿Cómo aplicar expresiones regulares avanzadas para reescribir flujos de texto?", "ref": "384-385", "pdf": {"manual": "A", "pages": [384, 385], "figure": null}, "coverage": ["103.7-CMD-004", "103.7-OPT-011"], "command": "sed -E 's/(patrón1) (patrón2)/\\2 \\1/' <archivo>", "purpose": "Utilizar expresiones regulares extendidas y referencias hacia atrás para transformar texto", "terminal": {"command": "echo 'Juan Perez' | sed -E 's/([A-Za-z]+) ([A-Za-z]+)/\\2, \\1/'", "output": "Perez, Juan\n# Invierte el orden del nombre y apellido usando backreferences."}, "options": [{"flag": "sed -E (o sed -r)", "desc": "🎯 Clave de Examen: Activa el motor de expresiones regulares extendidas (ERE) en sed, permitiendo paréntesis '(' y '+' sin barras invertidas."}, {"flag": "Backreferences (\\1, \\2)", "desc": "🎯 Clave de Examen: Reutiliza en la parte de reemplazo el contenido exacto capturado por el primer grupo '\\1' o segundo grupo '\\2'."}, {"flag": "sed -n '/^root/p'", "desc": "Modo silencioso (-n): imprime ÚNICAMENTE las líneas que coincidan con la expresión regular /patrón/."}], "remember": "🎯 Clave de Examen: 'sed -E' habilita ERE moderno; '\\1' y '\\2' inyectan los grupos capturados entre paréntesis.", "notes": "Muestra cómo invertir columnas o reordenar fechas de 'AAAA-MM-DD' a 'DD/MM/AAAA' con sed -E."}, {"id": 12, "section": "103.7", "cat": "text", "type": "command", "title": "Búsqueda Interactiva con Regex en el Paginador less", "lead": "Navegar y rastrear patrones en archivos gigantescos sin cargarlos en memoria:", "ref": "385-386", "pdf": {"manual": "A", "pages": [385, 386], "figure": null}, "coverage": ["103.7-CMD-005"], "command": "less <archivo> (dentro de less usar '/' o '?')", "purpose": "Ejecutar búsquedas interactivas con soporte nativo de expresiones regulares en el visor less", "terminal": {"command": "# Al abrir un log con 'less /var/log/syslog':\n/kernel.*error\n# Salta a la primera coincidencia hacia adelante.", "output": "[124.50] kernel: ACPI error ...\n[125.10] kernel: USB error ..."}, "options": [{"flag": "/patrón", "desc": "🎯 Clave de Examen: Busca hacia ADELANTE (hacia el final del archivo) el patrón de expresión regular."}, {"flag": "?patrón", "desc": "🎯 Clave de Examen: Busca hacia ATRÁS (hacia el inicio del archivo) el patrón de expresión regular."}, {"flag": "n", "desc": "🎯 Salta a la SIGUIENTE coincidencia en la misma dirección de la búsqueda."}, {"flag": "N", "desc": "🎯 Salta a la coincidencia ANTERIOR en la dirección opuesta."}, {"flag": "q", "desc": "Sale inmediatamente del paginador less regresando a la terminal."}], "remember": "🎯 Clave de Examen en 'less' y 'man': '/' busca hacia abajo; '?' busca hacia arriba; 'n' repite búsqueda; 'q' sale.", "notes": "Recuerda que estas mismas teclas (/ y ?) funcionan idénticamente dentro de las páginas de man y en el editor vi."}, {"id": 13, "section": "103.7", "cat": "text", "type": "concept", "title": "Trampas Clásicas de Examen en Expresiones Regulares", "lead": "Las 3 confusiones más destructivas en las preguntas de regex:", "ref": "386", "pdf": {"manual": "A", "pages": [386], "figure": null}, "coverage": ["103.7-WARN-001", "103.7-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Confundir comodines de Shell (Globbing) con Regex", "detail": "🎯 ¡Peligro mayúsculo! En Globbing de shell, '*' significa 'cualquier cadena'. En Expresiones Regulares, '*' significa 'cero o más repeticiones del carácter anterior'. En Regex, 'cualquier cadena' se escribe estrictamente '.*' (punto asterisco)."}, {"icon": "alert-triangle", "text": "2. Creer que fgrep entiende regex", "detail": "Si ejecutas 'fgrep 'a.*b' archivo', fgrep buscará literalmente el carácter 'a', seguido de un punto '.' y un asterisco '*'. fgrep NO interpreta expresiones regulares."}, {"icon": "alert-triangle", "text": "3. Invertir las anclas ^ y $", "detail": "'^' siempre va al principio ('^root'); '$' siempre va al final ('bash$'). Si pones 'root^' o '$bash', no coincidirá."}], "remember": "🎯 Mnemotecnia Rápida: En shell '*' es comodín; en Regex '.*' es comodín. fgrep busca texto plano; '^' al principio y '$' al final.", "notes": "Pide a los alumnos que anoten la diferencia entre '*' en shell y '.*' en regex."}, {"id": 14, "section": "103.7", "cat": "text", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Anclas y grep -v)", "ref": "Manual A - Pág 386", "pdf": {"manual": "A", "pages": [386], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 386): Escribe el comando con 'grep' para visualizar el archivo '/etc/login.defs' omitiendo todas las líneas de comentarios (que empiezan por '#') y todas las líneas completamente vacías.", "command": "grep -vE '^(#|$)' /etc/login.defs (o grep -v '^#' /etc/login.defs | grep -v '^$')", "reason": "El patrón '^#' detecta líneas que inician con almohadilla, '^$' detecta líneas vacías y '-v' invierte la coincidencia excluyéndolas."}, {"action": "Caso 2 (Oficial Pág 386): ¿Qué comando localiza qué usuarios de '/etc/passwd' tienen asignada una shell que termine exactamente en 'sh' (ej: /bin/bash, /bin/sh, /bin/dash)?", "command": "grep 'sh$' /etc/passwd", "reason": "El ancla '$' al final asegura que la línea concluya estrictamente con los caracteres 'sh'."}, {"action": "Caso 3 (Oficial Pág 386): ¿Cómo buscar de forma insensible a mayúsculas la palabra 'timeout' en todos los archivos del directorio '/etc/systemd/' mostrando el número de línea?", "command": "grep -rin 'timeout' /etc/systemd/ 2>/dev/null", "reason": "La opción -r busca recursivamente, -i ignora mayúsculas/minúsculas y -n añade el número de línea."}], "solution": {"explain": "grep -vE '^(#|$)' es el limpiador universal de configs; $ fija el final; -rin combina recursión con formato de línea."}, "notes": "Enseña que este filtro en login.defs reduce un archivo de 400 líneas a solo 30 directivas activas."}, {"id": 15, "section": "103.7", "cat": "text", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: ERE y fgrep)", "ref": "Manual A - Pág 386", "pdf": {"manual": "A", "pages": [386], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 386): Un fichero de log contiene registros de 'warning', 'error' y 'critical'. ¿Qué comando con egrep muestra únicamente las líneas que contengan cualquiera de esos tres términos?", "command": "egrep -i '(warning|error|critical)' app.log (o grep -Ei)", "reason": "El operador de alternancia '|' dentro de paréntesis en ERE realiza la operación lógica OR entre los tres patrones."}, {"action": "Caso 5 (Oficial Pág 386): Tienes un archivo de código C y necesitas buscar la cadena literal 'printf(\"%d\");' de la forma más rápida y sin tener que escapar paréntesis ni comillas. ¿Qué comando utilizas?", "command": "fgrep 'printf(\"%d\");' main.c (o grep -F)", "reason": "fgrep desactiva la interpretación de todos los caracteres especiales de expresiones regulares tratando todo como texto plano."}], "solution": {"explain": "egrep maneja alternancias múltiples con |; fgrep garantiza velocidad y neutraliza caracteres especiales."}, "notes": "Recuerda a los alumnos que fgrep es ideal para buscar cadenas con muchos corchetes o símbolos de puntuación."}, {"id": 16, "section": "103.7", "cat": "text", "type": "challenge", "title": "Retos de Exploración Oficiales (Extracción de IPs y sed)", "ref": "Manual A - Pág 386", "pdf": {"manual": "A", "pages": [386], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un archivo de configuración de red contiene direcciones IPv4. ¿Qué expresión regular extendida básica con grep -oE permite extraer únicamente las direcciones IP aisladas (ej: cuatro bloques de 1 a 3 dígitos separados por puntos)?\n2. ¿Cómo reemplazarías en un archivo 'datos.txt' todas las fechas con formato '2026-10-20' al formato europeo '20/10/2026' usando sed y backreferences?\n3. ¿Qué comando de grep muestra la lista de nombres de archivos en '/etc/' que NO contienen la palabra 'Linux'?", "hint": "Recuerda: [0-9]{1,3}(\\.[0-9]{1,3}){3}; sed -E con \\1, \\2, \\3; y la opción -L en grep.", "solution": {"explain": "1. Se ejecuta: grep -oE '([0-9]{1,3}\\.){3}[0-9]{1,3}' red.conf\n2. Se ejecuta: sed -E 's/([0-9]{4})-([0-9]{2})-([0-9]{2})/\\3\\/\\2\\/\\1/g' datos.txt\n3. Se ejecuta: grep -rL 'Linux' /etc/ 2>/dev/null"}, "notes": "El reto 1 y el reto 3 evalúan opciones avanzadas que distinguen a los candidatos de alta puntuación."}, {"id": 17, "section": "103.7", "cat": "text", "type": "review", "title": "Pregunta de Examen LPIC-1: Búsqueda Literal con fgrep", "q": "¿Cuál de los siguientes comandos buscará la cadena exacta '10.0.0.1' en el archivo 'hosts.txt' tratando el punto '.' como un punto literal y NO como el comodín que coincide con cualquier carácter?", "options": ["grep 10.0.0.1 hosts.txt", "egrep 10.0.0.1 hosts.txt", "fgrep 10.0.0.1 hosts.txt", "sed /10.0.0.1/p hosts.txt"], "answer": 2, "why": "El comando 'fgrep' (equivalente a 'grep -F') realiza búsquedas de cadenas fijas (Fixed strings), tratando absolutamente todos los caracteres especiales (incluido el punto '.') como texto literal plano sin interpretar expresiones regulares.", "notes": "Pregunta fija de examen para comprobar el conocimiento de la herramienta fgrep."}, {"id": 18, "section": "103.7", "cat": "text", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Expresiones Regulares 103.7", "deck": [{"front": "¿Qué representa el ancla '^' en una expresión regular?", "back": "El inicio de línea."}, {"front": "¿Qué representa el ancla '$' en una expresión regular?", "back": "El final de línea."}, {"front": "¿Qué patrón coincide con una línea completamente vacía?", "back": "^$ (inicio seguido de fin de línea)."}, {"front": "¿Qué diferencia hay entre grep, egrep y fgrep?", "back": "grep = BRE; egrep = ERE (expresiones extendidas); fgrep = cadenas fijas literales sin regex."}, {"front": "¿Qué opción de grep invierte la coincidencia mostrando lo que NO coincide?", "back": "grep -v."}, {"front": "¿Qué opción de grep muestra solo los nombres de los archivos coincidentes?", "back": "grep -l."}, {"front": "¿Qué opción de grep busca de forma recursiva en carpetas?", "back": "grep -r (o grep -R)."}, {"front": "¿Qué diferencia hay entre '+' y '*' en expresiones regulares?", "back": "'+' exige al menos una coincidencia (1 o más); '*' permite cero coincidencias (0 o más)."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.7."}, {"id": 19, "section": "103.7", "cat": "text", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.7", "takeaways": ["Anclas y Comodines: ^ inicio, $ fin, ^$ líneas vacías, . cualquier carácter. Globbing '*' vs Regex '.*'.", "Motores: BRE (grep estándar con escapes \\+, \\?) frente a ERE (egrep / grep -E con +, ?, |, () directos).", "fgrep: Fixed strings para buscar texto plano a máxima velocidad sin interpretar regex.", "Opciones Clave de grep: -i (ignorar mayúsculas), -v (invertir/excluir), -c (contar), -n (número de línea), -l (solo nombres de archivo), -w (palabra completa), -r (recursivo), -C (contexto)."], "top3": [{"cmd": "grep -vE '^(#|$)' <archivo>", "desc": "Muestra un archivo de configuración limpio sin comentarios ni líneas vacías."}, {"cmd": "grep -rin 'patrón' /directorio/", "desc": "Búsqueda recursiva e insensible a mayúsculas indicando número de línea."}, {"cmd": "fgrep 'texto.literal' <archivo>", "desc": "Búsqueda ultra-rápida de texto plano sin interpretar caracteres de expresiones regulares."}], "practice": {"name": "Practica 103.7: Expresiones Regulares Básicas y Extendidas con Grep", "url": "../practicas/p-103-7-expresiones-regulares-grep.html", "desc": "Domina los metacaracteres de expresiones regulares (^, $, ., *, [], [^], |, +, ?), busca patrones con grep (-i, -v, -n, -E) y diferencia BRE de ERE."}, "notes": "Concluimos el subtema 103.7. Los alumnos dominan ahora las expresiones regulares para el examen."}];
+    const SLIDES = [{"id": 1, "section": "103.7", "cat": "text", "type": "cover", "title": "Búsquedas con expresiones regulares", "subtitle": "BRE frente a ERE, anclas (^, $), clases POSIX, familia grep (grep, egrep, fgrep), sed y less (Modo Examen)", "ref": "361-362", "pdf": {"manual": "A", "pages": [361, 362], "figure": null}, "coverage": ["103.7-OBJ-001", "103.7-OBJ-002", "103.7-OBJ-003"], "meta": {"peso": 3, "paginas": "361–386", "duracion": "30 min"}, "icon": "search", "notes": "Iniciamos el subtema 103.7 (peso 3). Las expresiones regulares (regex) son el lenguaje universal para describir patrones de texto en Linux. Aprenderemos la diferencia vital entre expresiones básicas (BRE) y extendidas (ERE), la familia de comandos grep y su uso en auditorías de seguridad y filtrado de logs."}, {"id": 2, "section": "103.7", "cat": "text", "type": "diagram", "title": "Anclas de Expresiones Regulares: Inicio (^), Fin ($) y Comodín (.)", "lead": "Las anclas no coinciden con caracteres físicos; fijan la posición espacial dentro de la línea de texto:", "ref": "362-364", "pdf": {"manual": "A", "pages": [362, 363, 364], "figure": null}, "coverage": ["103.7-CON-001"], "points": [{"icon": "arrow-up", "text": "El acento circunflejo (^): Ancla de Inicio de Línea", "detail": "🎯 Coincide únicamente si el patrón se encuentra justo al principio de la línea (ej: '^root' coincide con líneas que empiezan por 'root')."}, {"icon": "arrow-down", "text": "El signo de dólar ($): Ancla de Fin de Línea", "detail": "🎯 Coincide únicamente si el patrón está al final exacto de la línea (ej: 'bash$' coincide con líneas que terminan en 'bash')."}, {"icon": "disc", "text": "Líneas Vacías (^$) y Comentarios (^#)", "detail": "🎯 Clave de Examen: '^$' representa una línea completamente vacía (inicio seguido inmediatamente de fin). 'grep -v '^#' archivo | grep -v '^$'' es el truco universal para ver solo la configuración útil sin comentarios ni líneas en blanco."}, {"icon": "circle", "text": "El punto (.): El comodín universal de 1 carácter", "detail": "Coincide con exactamente cualquier carácter individual (letra, número, espacio, símbolo), excepto el salto de línea."}], "remember": "🎯 Clave de Examen: '^' fija el inicio; '$' fija el final; '^$' detecta líneas en blanco; '.' coincide con cualquier carácter individual.", "notes": "Muestra a los alumnos cómo filtrar /etc/ssh/sshd_config con 'grep -vE \"^(#|$)\"' para leer un archivo limpio de 15 líneas.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:14px; padding:18px 24px; margin:14px 0;\">\n  <div style=\"font-size:15.5px; font-weight:800; color:var(--text); margin-bottom:12px;\">\n    🎯 Posicionamiento Espacial en la Línea de Texto:\n  </div>\n\n  <div style=\"background:#0F172A; color:#F8FAFC; border-radius:10px; padding:14px 20px; font-family:monospace; font-size:16px; display:flex; justify-content:space-between; align-items:center;\">\n    <span style=\"color:#F43F5E; font-weight:900; background:#371B28; padding:3px 8px; border-radius:4px;\">^ (Inicio de Línea)</span>\n    <span style=\"color:#38BDF8;\">r</span>\n    <span style=\"color:#38BDF8;\">o</span>\n    <span style=\"color:#38BDF8;\">o</span>\n    <span style=\"color:#38BDF8;\">t</span>\n    <span style=\"color:#94A3B8;\">:x:0:0:...:</span>\n    <span style=\"color:#4ADE80;\">b</span>\n    <span style=\"color:#4ADE80;\">a</span>\n    <span style=\"color:#4ADE80;\">s</span>\n    <span style=\"color:#4ADE80;\">h</span>\n    <span style=\"color:#FDE047; font-weight:900; background:#393318; padding:3px 8px; border-radius:4px;\">$ (Fin de Línea)</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:14px; font-size:12.5px;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#1E40AF;\">^root</strong><br>\n      Coincide solo si 'root' está al principio estricto de la línea.\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#15803D;\">bash$</strong><br>\n      Coincide solo si 'bash' está al final estricto de la línea.\n    </div>\n\n    <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#991B1B;\">^$ (Línea Vacía)</strong><br>\n      Inicio seguido de fin sin nada en medio (líneas en blanco).\n    </div>\n  </div>\n\n  <div style=\"margin-top:12px; padding:8px 14px; background:#F8FAFC; border-left:4px solid #10B981; border-radius:4px; font-size:13px; color:#065F46;\">\n    💡 <strong>TRUCO MAESTRO DE AUDITORÍA:</strong> <code>grep -vE '^(#|$)' archivo.conf</code> omite todas las líneas de comentario (<code>^#</code>) y todas las líneas vacías (<code>^$</code>), dejando solo la configuración real activa.\n  </div>\n</div>\n"}, {"id": 3, "section": "103.7", "cat": "text", "type": "table", "title": "Comparativa Esencial: BRE (Básico) frente a ERE (Extendido)", "lead": "¿Por qué un patrón funciona en egrep pero da error o no coincide en grep estándar?", "ref": "364-366", "pdf": {"manual": "A", "pages": [364, 365, 366], "figure": null}, "coverage": ["103.7-CON-002"], "headers": ["Operador / Metacarácter", "BRE (grep estándar)", "ERE (egrep o grep -E)", "Significado del Patrón"], "rows": [["Uno o más (+)", "Requiere escape: \\+", "🎯 Nativo directo: +", "Coincide con 1 o más repeticiones del elemento previo."], ["Cero o uno (?)", "Requiere escape: \\?", "🎯 Nativo directo: ?", "Coincide con 0 o 1 ocurrencia (elemento opcional)."], ["Alternancia (OR / |)", "Requiere escape: \\|", "🎯 Nativo directo: |", "Operación lógica: 'patronA|patronB'."], ["Agrupamiento ()", "Requiere escape: \\( \\)", "🎯 Nativo directo: ( )", "Agrupa elementos y crea referencias hacia atrás."], ["Intervalos {n,m}", "Requiere escape: \\{n,m\\}", "🎯 Nativo directo: {n,m}", "Entre n y m repeticiones exactas."], ["Cero o más (*)", "Nativo directo: *", "Nativo directo: *", "Coincide con 0 o más repeticiones en ambos motores."]], "remember": "🎯 Regla de Oro de Examen: En BRE (+, ?, |, (, {) son caracteres ordinarios y necesitan '\\' para actuar como regex. En ERE (egrep) actúan como regex directamente sin barra invertida.", "notes": "Insiste: si usas egrep o grep -E, NUNCA pongas barra invertida antes de +, ?, ( o |.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    ⚖️ La Gran Frontera: ¿Cuándo Necesita Barra Invertida <code>\\</code>?\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:12.5px;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#1E40AF; font-size:13.5px;\">BRE: <code>grep</code> Estándar</strong><br>\n      • Los símbolos <code>+</code>, <code>?</code>, <code>|</code>, <code>( )</code>, <code>{ }</code> son letras normales.<br>\n      • <strong>Para usarlos como regex REQUIEREN ESCAPE:</strong><br>\n      <code>grep 'a\\+'</code> , <code>grep 'a\\?'</code> , <code>grep 'a\\|b'</code>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">ERE: <code>egrep</code> o <code>grep -E</code></strong><br>\n      • Los símbolos actúan como operadores de regex <strong>DIRECTAMENTE</strong>.<br>\n      • <strong>¡NUNCA se les pone barra invertida!</strong><br>\n      <code>egrep 'a+'</code> , <code>egrep 'a?'</code> , <code>egrep 'a|b'</code>\n    </div>\n  </div>\n</div>\n"}, {"id": 4, "section": "103.7", "cat": "text", "type": "command", "title": "Conjuntos y Clases de Caracteres POSIX", "lead": "Filtrar rangos de caracteres de forma inmune a configuraciones de idioma (locales):", "ref": "366-369", "pdf": {"manual": "A", "pages": [366, 367, 368, 369], "figure": null}, "coverage": ["103.7-CON-003"], "command": "grep '[a-z]' | grep '[^0-9]' | grep '[[:alnum:]]'", "purpose": "Emparejar caracteres por pertenencia a conjuntos o clases internacionales POSIX", "terminal": {"command": "echo 'Port 22' | grep -E '[[:alpha:]]+ [[:digit:]]+'", "output": "Port 22\n# Coincidencia con una o más letras seguidas de espacio y dígitos."}, "options": [{"flag": "[abc] / [a-z]", "desc": "Coincide con cualquiera de los caracteres contenidos entre los corchetes o en el rango alfabético."}, {"flag": "[^abc] / [!abc]", "desc": "🎯 Negación: coincide con cualquier carácter que NO esté listado dentro del corchete."}, {"flag": "[[:alnum:]]", "desc": "🎯 Caracteres alfanuméricos: equivale a [a-zA-Z0-9]."}, {"flag": "[[:alpha:]]", "desc": "🎯 Solo letras alfabéticas: equivale a [a-zA-Z]."}, {"flag": "[[:digit:]]", "desc": "🎯 Solo dígitos numéricos: equivale a [0-9]."}, {"flag": "[[:lower:]] / [[:upper:]]", "desc": "Solo letras minúsculas o solo letras mayúsculas."}, {"flag": "[[:space:]]", "desc": "Espacios en blanco, tabulaciones y saltos de línea."}, {"flag": "⚠️ Doble Corchete", "desc": "🎯 Clave de Examen: La clase POSIX debe ir SIEMPRE dentro de los corchetes de conjunto: '[[:digit:]]'."}], "remember": "🎯 Clave de Examen: Las clases POSIX requieren doble corchete: '[[:digit:]]' y no '[:digit:]'.", "notes": "Muestra que si escribes 'grep [:digit:]', grep buscará los caracteres individuales :, d, i, g, t."}, {"id": 5, "section": "103.7", "cat": "text", "type": "command", "title": "Cuantificadores de Repetición: *, +, ? y {n,m}", "lead": "¿Cuántas veces debe aparecer un carácter para que la expresión coincida?", "ref": "369-372", "pdf": {"manual": "A", "pages": [369, 370, 371, 372], "figure": null}, "coverage": ["103.7-CON-004"], "command": "egrep 'a*|a+|a?|a{2,4}'", "purpose": "Controlar la frecuencia de repetición del carácter o grupo inmediatamente anterior", "terminal": {"command": "printf 'color\\ncolour\\n' | grep -E 'colou?r'", "output": "color\ncolour\n# Coincide con 'color' (0 u) y con 'colour' (1 u)."}, "options": [{"flag": "* (Cero o más)", "short": "0, 1 o muchas veces", "desc": "Coincide con cualquier número de repeticiones (incluso ninguna)."}, {"flag": "+ (Uno o más - ERE)", "short": "Al menos 1 obligatoria", "desc": "🎯 Clave de Examen: El elemento debe aparecer como mínimo 1 vez (no coincide con 0)."}, {"flag": "? (Cero o uno - ERE)", "short": "Opcional (0 o 1)", "desc": "🎯 Clave de Examen: El elemento es opcional (ej: 'https?' coincide con http y https)."}, {"flag": "{n,m}", "short": "Rango exacto", "desc": "Entre n y m repeticiones (ej: '[0-9]{1,3}')."}], "remember": "🎯 Diferencia Crítica: '*' = 0 o más; '+' = 1 o más (al menos uno); '?' = 0 o 1 (opcional).", "notes": "Muestra a los alumnos que '.*' significa 'cualquier cadena de cualquier longitud' (el equivalente en regex del asterisco '*' en globbing).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    📊 Comparativa de Cuantificadores con la Cadena <code>colou...r</code>:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; font-size:12.5px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:8px;\">\n      <strong style=\"color:#1E40AF; font-size:13.5px;\">colou*r (*)</strong><br>\n      0 o más veces la 'u'<br>\n      <span style=\"color:#166534; font-size:11.5px;\">✅ color, colour, colouur</span>\n    </div>\n\n    <div style=\"background:#FEF3C7; border:1px solid #FCD34D; border-radius:8px; padding:8px;\">\n      <strong style=\"color:#B45309; font-size:13.5px;\">colou+r (+)</strong><br>\n      Al menos 1 vez la 'u'<br>\n      <span style=\"color:#991B1B; font-size:11.5px;\">❌ color</span> | <span style=\"color:#166534; font-size:11.5px;\">✅ colour</span>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:8px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">colou?r (?)</strong><br>\n      Máximo 1 vez la 'u'<br>\n      <span style=\"color:#166534; font-size:11.5px;\">✅ color, colour</span> | <span style=\"color:#991B1B; font-size:11.5px;\">❌ colouur</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 6, "section": "103.7", "cat": "text", "type": "command", "title": "Alternancia (|) y Agrupamiento con Paréntesis en ERE", "lead": "Construir búsquedas condicionales OR y aplicar repeticiones a frases completas:", "ref": "372-374", "pdf": {"manual": "A", "pages": [372, 373, 374], "figure": null}, "coverage": ["103.7-CON-005"], "command": "egrep '(patrónA|patrónB)' <archivo>", "purpose": "Buscar múltiples términos alternativos y agrupar subexpresiones", "terminal": {"command": "echo -e 'error fatal\\naviso leve\\npanico kernel' | grep -E '(error|panico)'", "output": "error fatal\npanico kernel"}, "options": [{"flag": "| (Pipe / Alternancia)", "desc": "🎯 Clave de Examen: Actúa como el operador lógico booleano OR. Coincide si se cumple el patrón de la izquierda O el de la derecha."}, {"flag": "( ) (Paréntesis / Agrupamiento)", "desc": "🎯 Delimita el alcance de la alternancia o de un cuantificador (ej: 'auto(movil|bus)' coincide con automovil y autobus)."}, {"flag": "Agrupamiento con cuantificador", "desc": "Aplica el cuantificador a todo el bloque: '(ab)+' coincide con ab, abab, ababab."}, {"flag": "Backreferences (\\1, \\2)", "desc": "🎯 Clave de Examen: Recuerda el texto capturado por los paréntesis para buscar repeticiones idénticas (ej: '([a-z]+) \\1' detecta palabras duplicadas seguidas como 'el el')."}], "remember": "🎯 Clave de Examen: En ERE (egrep o grep -E), el operador '|' busca alternativas 'uno u otro' sin necesidad de barras invertidas.", "notes": "Explica la diferencia entre corchetes '[ab]' (busca la letra 'a' o la letra 'b') y paréntesis '(ab)' (busca la secuencia 'ab' junta)."}, {"id": 7, "section": "103.7", "cat": "text", "type": "command", "title": "La Familia grep: grep, egrep y fgrep", "lead": "¿Por qué existen tres comandos grep y qué diferencias evalúa la certificación?", "ref": "374-376", "pdf": {"manual": "A", "pages": [374, 375, 376], "figure": null}, "coverage": ["103.7-CMD-001", "103.7-CMD-002", "103.7-CMD-003"], "command": "grep (BRE) | egrep / grep -E (ERE) | fgrep / grep -F (Fixed Strings)", "purpose": "Seleccionar el motor de búsqueda adecuado según el tipo de patrón o rendimiento deseado", "terminal": {"command": "echo 'a+b=c' | fgrep 'a+b'; echo 'a+b=c' | grep -F 'a+b'", "output": "a+b=c\na+b=c\n# Coincidencia literal exacta sin interpretar el signo '+' como regex."}, "options": [{"flag": "grep (BRE)", "short": "Básico (requiere \\+)", "desc": "🎯 Motor básico: \\+ y \\? para cuantificadores avanzados."}, {"flag": "egrep / grep -E", "short": "Extendido (ERE directo)", "desc": "🎯 Motor extendido: +, ?, |, (), {} directos sin barras invertidas."}, {"flag": "fgrep / grep -F", "short": "Texto literal (Fixed)", "desc": "🎯 Clave Absoluta de Examen: CERO regex. Trata '.', '*', '+' como letras ordinarias. El más rápido."}], "remember": "🎯 La Pregunta Estrella de Examen: ¿Qué comando busca texto literal tratando los caracteres de regex como texto plano sin interpretarlos? Respuesta: 'fgrep' (o 'grep -F').", "notes": "Pide a los alumnos que memoricen: fgrep = Fixed strings = Cero expresiones regulares.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🔍 La Familia <code>grep</code> y sus Tres Motores de Búsqueda:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; font-size:12.5px;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#1E40AF; font-size:13.5px;\">1. grep (BRE)</strong><br>\n      Motor estándar original.<br>\n      Requiere barras <code>\\+</code> y <code>\\?</code> para cuantificadores extendidos.\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">2. egrep (grep -E)</strong><br>\n      Extended Grep.<br>\n      Todos los metacarácteres funcionan de forma nativa sin escapar.\n    </div>\n\n    <div style=\"background:#FEF2F2; border:2px solid #EF4444; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#DC2626; font-size:13.5px;\">3. fgrep (grep -F)</strong><br>\n      <strong>Fixed Strings (Texto Fijo).</strong><br>\n      ⚠️ ¡Cero expresiones regulares! Busca caracteres literales exactos.\n    </div>\n  </div>\n</div>\n"}, {"id": 8, "section": "103.7", "cat": "text", "type": "command", "title": "Opciones Clave de grep: -i, -v, -c y -n", "lead": "Los modificadores más recurrentes en las preguntas de certificación LPIC-1:", "ref": "376-379", "pdf": {"manual": "A", "pages": [376, 377, 378, 379], "figure": null}, "coverage": ["103.7-CMD-001", "103.7-OPT-001", "103.7-OPT-002", "103.7-OPT-003", "103.7-OPT-004"], "command": "grep [-i] [-v] [-c] [-n] <patrón> <archivo>", "purpose": "Modificar el comportamiento de coincidencia y el formato de salida de las búsquedas", "terminal": {"command": "grep -iv 'nologin' /etc/passwd | grep -n 'bash'", "output": "1:root:x:0:0:root:/root:/bin/bash\n28:alumno:x:1000:1000:Alumno LPIC:/home/alumno:/bin/bash"}, "options": [{"flag": "-i, --ignore-case", "short": "Ignorar mayúsculas", "desc": "🎯 Coincide con texto sin distinguir mayúsculas ni minúsculas."}, {"flag": "-v, --invert-match", "short": "Invertir coincidencia", "desc": "🎯 Clave de Examen: Muestra las líneas que NO coinciden con el patrón."}, {"flag": "-c, --count", "short": "Contar líneas", "desc": "🎯 Imprime únicamente el total de líneas coincidentes (reemplaza a wc -l)."}, {"flag": "-n, --line-number", "short": "Número de línea", "desc": "🎯 Prefija cada línea con su número de línea real en el fichero."}], "remember": "🎯 Clave Mnemotécnica: -i = ignore case; -v = invert (invertir); -c = count (contar líneas); -n = number (número de línea).", "notes": "Muestra cómo 'grep -c' ahorra tener que encadenar una tubería con 'wc -l'.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🎛️ Las 4 Opciones Fundamentales de <code>grep</code> en el Examen:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; font-size:12px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:6px; padding:8px;\">\n      <strong style=\"color:#1E40AF; font-size:13.5px;\">-i (Ignore)</strong><br>\n      <code>grep -i error</code><br>\n      <span style=\"color:#475569; font-size:11px;\">ERROR = error = Error</span>\n    </div>\n\n    <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:6px; padding:8px;\">\n      <strong style=\"color:#991B1B; font-size:13.5px;\">-v (Invert)</strong><br>\n      <code>grep -v '^#'</code><br>\n      <span style=\"color:#475569; font-size:11px;\">Descarta comentarios</span>\n    </div>\n\n    <div style=\"background:#FEF3C7; border:1px solid #FCD34D; border-radius:6px; padding:8px;\">\n      <strong style=\"color:#B45309; font-size:13.5px;\">-c (Count)</strong><br>\n      <code>grep -c 'bash'</code><br>\n      <span style=\"color:#475569; font-size:11px;\">Imprime '2' (recuento)</span>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:6px; padding:8px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">-n (Number)</strong><br>\n      <code>grep -n 'root'</code><br>\n      <span style=\"color:#475569; font-size:11px;\">Imprime '1:root:x...'</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "103.7", "cat": "text", "type": "command", "title": "Filtrado de Archivos y Coincidencia Exacta: -l, -w, -x y -o", "lead": "¿Cómo buscar en múltiples archivos mostrando solo los nombres o aislar palabras exactas?", "ref": "379-382", "pdf": {"manual": "A", "pages": [379, 380, 381, 382], "figure": null}, "coverage": ["103.7-CMD-001", "103.7-OPT-005", "103.7-OPT-006", "103.7-OPT-007", "103.7-OPT-008"], "command": "grep [-l|-L|-w|-x|-o] <patrón> <archivos...>", "purpose": "Aislar coincidencias exactas por palabra, línea completa o listar ficheros contenedores", "terminal": {"command": "grep -lw 'root' /etc/* 2>/dev/null | head -n 3; echo 'IP: 192.168.1.1' | grep -oE '[0-9.]+'", "output": "/etc/group\n/etc/passwd\n/etc/shadow\n192.168.1.1"}, "options": [{"flag": "-l, --files-with-matches", "desc": "🎯 Clave de Examen: Muestra ÚNICAMENTE el nombre de los archivos que contienen coincidencias, sin imprimir las líneas de texto."}, {"flag": "-L, --files-without-match", "desc": "Muestra únicamente el nombre de los archivos que NO contienen ninguna coincidencia."}, {"flag": "-w, --word-regexp", "desc": "🎯 Clave de Examen: Coincidencia por palabra completa: solo coincide si el patrón está rodeado por límites de palabra (evita que 'red' coincida con 'redes')."}, {"flag": "-x, --line-regexp", "desc": "Coincidencia de línea completa: la línea entera debe coincidir de principio a fin."}, {"flag": "-o, --only-matching", "desc": "🎯 Clave de Examen: Imprime ÚNICAMENTE la parte exacta del texto que coincidió con la regex, en lugar de toda la línea."}], "remember": "🎯 Clave de Examen: 'grep -l' para saber qué archivos contienen una palabra; 'grep -w' para buscar la palabra exacta aislada; 'grep -o' para extraer solo el valor coincidente (ej: extraer IPs).", "notes": "Muestra a la clase la enorme utilidad de 'grep -o' para parsear logs y extraer correos o direcciones IP."}, {"id": 10, "section": "103.7", "cat": "text", "type": "command", "title": "Búsqueda Recursiva y Contexto: -r, -A, -B y -C", "lead": "Rastrear directorios enteros y ver las líneas anteriores y posteriores a un error:", "ref": "382-384", "pdf": {"manual": "A", "pages": [382, 383, 384], "figure": null}, "coverage": ["103.7-CMD-001", "103.7-OPT-009", "103.7-OPT-010"], "command": "grep -r[n] <patrón> <directorio> | grep -C <N> <patrón> <archivo>", "purpose": "Inspeccionar árboles completos de carpetas y mostrar el contexto de las incidencias", "terminal": {"command": "grep -rn 'PermitRootLogin' /etc/ssh/ 2>/dev/null; grep -B 1 -A 1 '127.0.0.1' /etc/hosts", "output": "/etc/ssh/sshd_config:34:PermitRootLogin no\n# The following lines are desirable for IPv4\n127.0.0.1 localhost\n# The following lines are desirable for IPv6"}, "options": [{"flag": "-r, --recursive", "desc": "🎯 Clave de Examen: Busca de forma recursiva en todos los subdirectorios y ficheros del directorio indicado."}, {"flag": "-R, --dereference-recursive", "desc": "Búsqueda recursiva siguiendo además todos los enlaces simbólicos."}, {"flag": "-A <N>, --after-context", "desc": "🎯 Imprime N líneas de contexto POSTERIORES (After) a la línea coincidente."}, {"flag": "-B <N>, --before-context", "desc": "🎯 Imprime N líneas de contexto ANTERIORES (Before) a la línea coincidente."}, {"flag": "-C <N>, --context", "desc": "🎯 Imprime N líneas de contexto tanto anteriores como posteriores (Before y After simultáneamente)."}], "remember": "🎯 Mnemotecnia de Contexto: -B = Before (antes); -A = After (después); -C = Context (ambas direcciones).", "notes": "Enseña cómo 'grep -B 2 -A 5 Exception log.txt' permite a los sysadmins ver el stack trace completo de un error."}, {"id": 11, "section": "103.7", "cat": "text", "type": "command", "title": "Expresiones Regulares en sed: -E y Backreferences", "lead": "¿Cómo aplicar expresiones regulares avanzadas para reescribir flujos de texto?", "ref": "384-385", "pdf": {"manual": "A", "pages": [384, 385], "figure": null}, "coverage": ["103.7-CMD-004", "103.7-OPT-011"], "command": "sed -E 's/(patrón1) (patrón2)/\\2 \\1/' <archivo>", "purpose": "Utilizar expresiones regulares extendidas y referencias hacia atrás para transformar texto", "terminal": {"command": "echo 'Juan Perez' | sed -E 's/([A-Za-z]+) ([A-Za-z]+)/\\2, \\1/'", "output": "Perez, Juan\n# Invierte el orden del nombre y apellido usando backreferences."}, "options": [{"flag": "sed -E (o sed -r)", "desc": "🎯 Clave de Examen: Activa el motor de expresiones regulares extendidas (ERE) en sed, permitiendo paréntesis '(' y '+' sin barras invertidas."}, {"flag": "Backreferences (\\1, \\2)", "desc": "🎯 Clave de Examen: Reutiliza en la parte de reemplazo el contenido exacto capturado por el primer grupo '\\1' o segundo grupo '\\2'."}, {"flag": "sed -n '/^root/p'", "desc": "Modo silencioso (-n): imprime ÚNICAMENTE las líneas que coincidan con la expresión regular /patrón/."}], "remember": "🎯 Clave de Examen: 'sed -E' habilita ERE moderno; '\\1' y '\\2' inyectan los grupos capturados entre paréntesis.", "notes": "Muestra cómo invertir columnas o reordenar fechas de 'AAAA-MM-DD' a 'DD/MM/AAAA' con sed -E."}, {"id": 12, "section": "103.7", "cat": "text", "type": "command", "title": "Búsqueda Interactiva con Regex en el Paginador less", "lead": "Navegar y rastrear patrones en archivos gigantescos sin cargarlos en memoria:", "ref": "385-386", "pdf": {"manual": "A", "pages": [385, 386], "figure": null}, "coverage": ["103.7-CMD-005"], "command": "less <archivo> (dentro de less usar '/' o '?')", "purpose": "Ejecutar búsquedas interactivas con soporte nativo de expresiones regulares en el visor less", "terminal": {"command": "# Al abrir un log con 'less /var/log/syslog':\n/kernel.*error\n# Salta a la primera coincidencia hacia adelante.", "output": "[124.50] kernel: ACPI error ...\n[125.10] kernel: USB error ..."}, "options": [{"flag": "/patrón", "desc": "🎯 Clave de Examen: Busca hacia ADELANTE (hacia el final del archivo) el patrón de expresión regular."}, {"flag": "?patrón", "desc": "🎯 Clave de Examen: Busca hacia ATRÁS (hacia el inicio del archivo) el patrón de expresión regular."}, {"flag": "n", "desc": "🎯 Salta a la SIGUIENTE coincidencia en la misma dirección de la búsqueda."}, {"flag": "N", "desc": "🎯 Salta a la coincidencia ANTERIOR en la dirección opuesta."}, {"flag": "q", "desc": "Sale inmediatamente del paginador less regresando a la terminal."}], "remember": "🎯 Clave de Examen en 'less' y 'man': '/' busca hacia abajo; '?' busca hacia arriba; 'n' repite búsqueda; 'q' sale.", "notes": "Recuerda que estas mismas teclas (/ y ?) funcionan idénticamente dentro de las páginas de man y en el editor vi."}, {"id": 13, "section": "103.7", "cat": "text", "type": "concept", "title": "Trampas Clásicas de Examen en Expresiones Regulares", "lead": "Las 3 confusiones más destructivas en las preguntas de regex:", "ref": "386", "pdf": {"manual": "A", "pages": [386], "figure": null}, "coverage": ["103.7-WARN-001", "103.7-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Confundir comodines de Shell (Globbing) con Regex", "detail": "🎯 ¡Peligro mayúsculo! En Globbing de shell, '*' significa 'cualquier cadena'. En Expresiones Regulares, '*' significa 'cero o más repeticiones del carácter anterior'. En Regex, 'cualquier cadena' se escribe estrictamente '.*' (punto asterisco)."}, {"icon": "alert-triangle", "text": "2. Creer que fgrep entiende regex", "detail": "Si ejecutas 'fgrep 'a.*b' archivo', fgrep buscará literalmente el carácter 'a', seguido de un punto '.' y un asterisco '*'. fgrep NO interpreta expresiones regulares."}, {"icon": "alert-triangle", "text": "3. Invertir las anclas ^ y $", "detail": "'^' siempre va al principio ('^root'); '$' siempre va al final ('bash$'). Si pones 'root^' o '$bash', no coincidirá."}], "remember": "🎯 Mnemotecnia Rápida: En shell '*' es comodín; en Regex '.*' es comodín. fgrep busca texto plano; '^' al principio y '$' al final.", "notes": "Pide a los alumnos que anoten la diferencia entre '*' en shell y '.*' en regex."}, {"id": 14, "section": "103.7", "cat": "text", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Anclas y grep -v)", "ref": "Manual A - Pág 386", "pdf": {"manual": "A", "pages": [386], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 386): Escribe el comando con 'grep' para visualizar el archivo '/etc/login.defs' omitiendo todas las líneas de comentarios (que empiezan por '#') y todas las líneas completamente vacías.", "command": "grep -vE '^(#|$)' /etc/login.defs (o grep -v '^#' /etc/login.defs | grep -v '^$')", "reason": "El patrón '^#' detecta líneas que inician con almohadilla, '^$' detecta líneas vacías y '-v' invierte la coincidencia excluyéndolas."}, {"action": "Caso 2 (Oficial Pág 386): ¿Qué comando localiza qué usuarios de '/etc/passwd' tienen asignada una shell que termine exactamente en 'sh' (ej: /bin/bash, /bin/sh, /bin/dash)?", "command": "grep 'sh$' /etc/passwd", "reason": "El ancla '$' al final asegura que la línea concluya estrictamente con los caracteres 'sh'."}, {"action": "Caso 3 (Oficial Pág 386): ¿Cómo buscar de forma insensible a mayúsculas la palabra 'timeout' en todos los archivos del directorio '/etc/systemd/' mostrando el número de línea?", "command": "grep -rin 'timeout' /etc/systemd/ 2>/dev/null", "reason": "La opción -r busca recursivamente, -i ignora mayúsculas/minúsculas y -n añade el número de línea."}], "solution": {"explain": "grep -vE '^(#|$)' es el limpiador universal de configs; $ fija el final; -rin combina recursión con formato de línea."}, "notes": "Enseña que este filtro en login.defs reduce un archivo de 400 líneas a solo 30 directivas activas."}, {"id": 15, "section": "103.7", "cat": "text", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: ERE y fgrep)", "ref": "Manual A - Pág 386", "pdf": {"manual": "A", "pages": [386], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 386): Un fichero de log contiene registros de 'warning', 'error' y 'critical'. ¿Qué comando con egrep muestra únicamente las líneas que contengan cualquiera de esos tres términos?", "command": "egrep -i '(warning|error|critical)' app.log (o grep -Ei)", "reason": "El operador de alternancia '|' dentro de paréntesis en ERE realiza la operación lógica OR entre los tres patrones."}, {"action": "Caso 5 (Oficial Pág 386): Tienes un archivo de código C y necesitas buscar la cadena literal 'printf(\"%d\");' de la forma más rápida y sin tener que escapar paréntesis ni comillas. ¿Qué comando utilizas?", "command": "fgrep 'printf(\"%d\");' main.c (o grep -F)", "reason": "fgrep desactiva la interpretación de todos los caracteres especiales de expresiones regulares tratando todo como texto plano."}], "solution": {"explain": "egrep maneja alternancias múltiples con |; fgrep garantiza velocidad y neutraliza caracteres especiales."}, "notes": "Recuerda a los alumnos que fgrep es ideal para buscar cadenas con muchos corchetes o símbolos de puntuación."}, {"id": 16, "section": "103.7", "cat": "text", "type": "challenge", "title": "Retos de Exploración Oficiales (Extracción de IPs y sed)", "ref": "Manual A - Pág 386", "pdf": {"manual": "A", "pages": [386], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un archivo de configuración de red contiene direcciones IPv4. ¿Qué expresión regular extendida básica con grep -oE permite extraer únicamente las direcciones IP aisladas (ej: cuatro bloques de 1 a 3 dígitos separados por puntos)?\n2. ¿Cómo reemplazarías en un archivo 'datos.txt' todas las fechas con formato '2026-10-20' al formato europeo '20/10/2026' usando sed y backreferences?\n3. ¿Qué comando de grep muestra la lista de nombres de archivos en '/etc/' que NO contienen la palabra 'Linux'?", "hint": "Recuerda: [0-9]{1,3}(\\.[0-9]{1,3}){3}; sed -E con \\1, \\2, \\3; y la opción -L en grep.", "solution": {"explain": "1. Se ejecuta: grep -oE '([0-9]{1,3}\\.){3}[0-9]{1,3}' red.conf\n2. Se ejecuta: sed -E 's/([0-9]{4})-([0-9]{2})-([0-9]{2})/\\3\\/\\2\\/\\1/g' datos.txt\n3. Se ejecuta: grep -rL 'Linux' /etc/ 2>/dev/null"}, "notes": "El reto 1 y el reto 3 evalúan opciones avanzadas que distinguen a los candidatos de alta puntuación."}, {"id": 17, "section": "103.7", "cat": "text", "type": "review", "title": "Pregunta de Examen LPIC-1: Búsqueda Literal con fgrep", "q": "¿Cuál de los siguientes comandos buscará la cadena exacta '10.0.0.1' en el archivo 'hosts.txt' tratando el punto '.' como un punto literal y NO como el comodín que coincide con cualquier carácter?", "options": ["grep 10.0.0.1 hosts.txt", "egrep 10.0.0.1 hosts.txt", "fgrep 10.0.0.1 hosts.txt", "sed /10.0.0.1/p hosts.txt"], "answer": 2, "why": "El comando 'fgrep' (equivalente a 'grep -F') realiza búsquedas de cadenas fijas (Fixed strings), tratando absolutamente todos los caracteres especiales (incluido el punto '.') como texto literal plano sin interpretar expresiones regulares.", "notes": "Pregunta fija de examen para comprobar el conocimiento de la herramienta fgrep."}, {"id": 18, "section": "103.7", "cat": "text", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Expresiones Regulares 103.7", "deck": [{"front": "¿Qué representa el ancla '^' en una expresión regular?", "back": "El inicio de línea."}, {"front": "¿Qué representa el ancla '$' en una expresión regular?", "back": "El final de línea."}, {"front": "¿Qué patrón coincide con una línea completamente vacía?", "back": "^$ (inicio seguido de fin de línea)."}, {"front": "¿Qué diferencia hay entre grep, egrep y fgrep?", "back": "grep = BRE; egrep = ERE (expresiones extendidas); fgrep = cadenas fijas literales sin regex."}, {"front": "¿Qué opción de grep invierte la coincidencia mostrando lo que NO coincide?", "back": "grep -v."}, {"front": "¿Qué opción de grep muestra solo los nombres de los archivos coincidentes?", "back": "grep -l."}, {"front": "¿Qué opción de grep busca de forma recursiva en carpetas?", "back": "grep -r (o grep -R)."}, {"front": "¿Qué diferencia hay entre '+' y '*' en expresiones regulares?", "back": "'+' exige al menos una coincidencia (1 o más); '*' permite cero coincidencias (0 o más)."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.7."}, {"id": 19, "section": "103.7", "cat": "text", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.7", "takeaways": ["Anclas y Comodines: ^ inicio, $ fin, ^$ líneas vacías, . cualquier carácter. Globbing '*' vs Regex '.*'.", "Motores: BRE (grep estándar con escapes \\+, \\?) frente a ERE (egrep / grep -E con +, ?, |, () directos).", "fgrep: Fixed strings para buscar texto plano a máxima velocidad sin interpretar regex.", "Opciones Clave de grep: -i (ignorar mayúsculas), -v (invertir/excluir), -c (contar), -n (número de línea), -l (solo nombres de archivo), -w (palabra completa), -r (recursivo), -C (contexto)."], "top3": [{"cmd": "grep -vE '^(#|$)' <archivo>", "desc": "Muestra un archivo de configuración limpio sin comentarios ni líneas vacías."}, {"cmd": "grep -rin 'patrón' /directorio/", "desc": "Búsqueda recursiva e insensible a mayúsculas indicando número de línea."}, {"cmd": "fgrep 'texto.literal' <archivo>", "desc": "Búsqueda ultra-rápida de texto plano sin interpretar caracteres de expresiones regulares."}], "practice": {"name": "Practica 103.7: Expresiones Regulares Básicas y Extendidas con Grep", "url": "../practicas/p-103-7-expresiones-regulares-grep.html", "desc": "Domina los metacaracteres de expresiones regulares (^, $, ., *, [], [^], |, +, ?), busca patrones con grep (-i, -v, -n, -E) y diferencia BRE de ERE."}, "notes": "Concluimos el subtema 103.7. Los alumnos dominan ahora las expresiones regulares para el examen."}];
     const ERRATAS = [{"id": "ERR-103.7-01", "section": "103.7", "ref": "p. 15", "manual_says": "grep 'a+' encuentra una o más 'a'.", "reality": "En grep básico (BRE), '+' es un carácter literal. Se debe escapar como grep 'a\\+' o usar expresiones regulares extendidas (grep -E o egrep).", "exam_tip": "Trampa clásica de examen LPIC-1 entre BRE (grep básico) y ERE (egrep / grep -E)."}];
     const GLOSARIO = [{"id": "regex", "term": "Expresión Regular (RegEx)", "def": "Patrón formal que describe un conjunto de cadenas de texto utilizado por grep, sed y awk.", "ref": "p. 1-8"}, {"id": "grep", "term": "grep", "def": "Herramienta de búsqueda global de expresiones regulares que imprime las líneas coincidentes.", "ref": "p. 9-18"}, {"id": "egrep", "term": "egrep (grep -E)", "def": "Variante de grep con soporte para expresiones regulares extendidas (+, ?, |, ()).", "ref": "p. 19-24"}, {"id": "sed", "term": "sed (Stream Editor)", "def": "Editor de flujo de texto para realizar transformaciones, sustituciones y filtrado automatizado.", "ref": "p. 25-30"}];
     const META = {"topic": "103.7", "title": "Realizar búsquedas en archivos de texto usando expresiones regulares", "weight": 2, "description": "BRE frente a ERE, anclas (^, $), clases POSIX, familia grep (grep, egrep, fgrep), sed y less (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1453,6 +1932,9 @@
           });
           html += `</div>`;
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.console || s.terminal) {
           html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
         }
@@ -1518,6 +2000,9 @@
         const termData = s.terminal || s.console;
         if (termData) {
           html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
         }
 
         if (s.trap || s.warning) {
@@ -1603,6 +2088,9 @@
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
 
         if (s.trap || s.warning) {
           html += `
@@ -1643,6 +2131,9 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.remember) {
           html += `
             <div class="callout-box callout-remember" style="margin-top:14px;">
@@ -1689,12 +2180,37 @@
             </div>
           `;
         }
+      } else if (s.type === 'diagram') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.diagram_html || s.raw_html || s.html || s.svg || s.content || '';
+        if (bodyContent) html += bodyContent;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         const steps = s.steps || s.nodes || s.diagram?.nodes || [];
-        if (steps.length > 0) {
+        if (steps.length > 0 && !s.diagram_html && !s.raw_html && !s.html && !s.svg) {
           html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
           steps.forEach((st, idx) => {
             const stitle = st.step || st.title || st.text || st.label || '';
@@ -2055,9 +2571,11 @@
           `;
         }
       } else {
-        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
-        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.raw_html || s.html || s.content;
+        if (bodyContent) html += bodyContent;
       }
       return html;
     }
@@ -2241,6 +2759,9 @@
 
     function closeModals() {
       document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+      if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
     }
 
     function closePopovers() {
@@ -2266,6 +2787,45 @@
       popover.style.top = `${rect.bottom + 8}px`;
       popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
       popover.classList.add('open');
+    }
+
+    function openPopover(targetOrEvent, html) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      let el = null;
+      if (targetOrEvent instanceof Event) {
+        targetOrEvent.stopPropagation();
+        el = targetOrEvent.currentTarget || targetOrEvent.target;
+      } else if (targetOrEvent && targetOrEvent.nodeType) {
+        el = targetOrEvent;
+      } else if (targetOrEvent && targetOrEvent.target) {
+        el = targetOrEvent.target;
+      }
+      const popover = document.getElementById('global-popover');
+      if (!popover) return;
+      popover.innerHTML = html || '<div>Sin detalles adicionales</div>';
+      if (el && el.getBoundingClientRect) {
+        const rect = el.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + 8}px`;
+        popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      }
+      popover.classList.add('open');
+    }
+
+    function toggleAnswer(btn) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      if (!btn) return;
+      const container = btn.closest('.quiz-reveal-container') || btn.parentElement;
+      if (!container) return;
+      const ans = container.querySelector('.quiz-answer-box');
+      if (ans) {
+        const isHidden = window.getComputedStyle(ans).display === 'none' || ans.style.display === 'none';
+        ans.style.display = isHidden ? 'block' : 'none';
+        btn.textContent = isHidden ? 'Ocultar Respuesta ▲' : 'Ver Respuesta ▼';
+      }
     }
     document.addEventListener('click', closePopovers);
 
@@ -2444,6 +3004,18 @@
         }
       }
       renderSlide(initSlide);
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length && num !== currentSlideIdx) {
+            renderSlide(num);
+          }
+        }
+      }
     });
   </script>
 </body>

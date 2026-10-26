@@ -322,17 +322,87 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 8px;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       background: var(--surface);
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
-    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
-    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); transform: translateY(-1px); }
+    .nav-btn:active { transform: translateY(0); }
+    .nav-btn.primary { background: #2563EB; color: #FFFFFF !important; border-color: #1D4ED8; box-shadow: 0 2px 4px rgba(37,99,235,0.25); }
+    .nav-btn.primary:hover { background: #1D4ED8; border-color: #1E40AF; }
+
+    /* Sistema Completo de Botones .btn */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      border: 1.5px solid transparent;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      user-select: none;
+      outline: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.12), 0 2px 4px -2px rgba(15, 23, 42, 0.08);
+    }
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: #FFFFFF !important;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      gap: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF !important;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+    }
 
     /* Contenedor del escenario (1920x1080) */
     #app-container {
@@ -498,6 +568,246 @@
       color: var(--info-ink);
       border-color: #BAE6FD;
     }
+    .callout-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      max-width: 24px !important;
+      min-height: 24px !important;
+      max-height: 24px !important;
+      border-radius: 50% !important;
+      background: #2563EB;
+      color: #FFFFFF !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+      text-align: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      margin: 0 4px !important;
+      user-select: none !important;
+    }
+    .badge-blue { background: #2563EB !important; color: #FFFFFF !important; }
+    .badge-amber { background: #D97706 !important; color: #FFFFFF !important; }
+    .badge-red { background: #DC2626 !important; color: #FFFFFF !important; }
+    .badge-green { background: #16A34A !important; color: #FFFFFF !important; }
+    .badge-purple { background: #7C3AED !important; color: #FFFFFF !important; }
+
+    /* Glosarios & Conceptos Clave Modernos */
+    /* Glosarios & Conceptos Clave Modernos */
+    .slide-glossary-box {
+      margin-top: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .slide-glossary-box .gl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .slide-glossary-box .gl-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563EB;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .slide-glossary-box .gl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .slide-glossary-box .gl-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+    .slide-glossary-box .gl-card:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+    .slide-glossary-box .gl-badge {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1D4ED8;
+      background: #EFF6FF;
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid #BFDBFE;
+      display: inline-block;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .slide-glossary-box .gl-def {
+      color: #334155;
+      font-size: 13.5px;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .slide-glossary-box .gl-def code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 4px;
+      color: #0F172A;
+    }
+
+    /* Compatibilidad strip con estilo pulido tipo chips */
+    .slide-glossary-strip {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .slide-glossary-strip .gl-title {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-glossary-strip .gl-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .slide-glossary-strip .gl-term {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #1D4ED8;
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM (Completo, accesible y moderno para interactivos y quizes)
+       ========================================================================== */
+    .btn, .quiz-reveal-container button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .btn:focus-visible, .quiz-reveal-container button:focus-visible {
+      outline: 2px solid #2563EB;
+      outline-offset: 2px;
+    }
+    .btn:active, .quiz-reveal-container button:active {
+      transform: translateY(1px);
+    }
+
+    /* Botón Primario (Azul vibrante) */
+    .btn-primary, .nav-btn.primary, .quiz-reveal-container button {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover, .nav-btn.primary:hover, .quiz-reveal-container button:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Botón Outline Primario */
+    .btn-outline-primary {
+      background: #FFFFFF;
+      color: #2563EB;
+      border-color: #2563EB;
+    }
+    .btn-outline-primary:hover {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-color: #1D4ED8;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Botón Secundario */
+    .btn-secondary {
+      background: #F1F5F9;
+      color: #334155;
+      border-color: #CBD5E1;
+    }
+    .btn-secondary:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+      border-color: #94A3B8;
+    }
+
+    /* Botón Éxito */
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+      border-color: #166534;
+      color: #FFFFFF;
+    }
+
+    /* Modificadores de Tamaño */
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14.5px;
+      border-radius: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+    }
 
     /* Terminal y Comandos (slides-terminal-comandos) */
     .term-wrapper {
@@ -517,20 +827,29 @@
       font-size: 18px;
       font-weight: 700;
     }
-    .term-copy-btn {
+    .term-copy-btn, .terminal-copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 12px;
       border-radius: 6px;
-      border: 2px solid var(--control-border);
+      border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-copy-btn:hover, .terminal-copy-btn:hover {
+      background: #F1F5F9;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+    .term-copy-btn:active, .terminal-copy-btn:active {
+      transform: scale(0.96);
+    }
     .term-code {
       padding: 14px 20px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -545,15 +864,169 @@
     .term-code::-webkit-scrollbar { width: 6px; }
     .term-code::-webkit-scrollbar-track { background: transparent; }
     .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
-    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+
+    /* Terminal Card (Real-life console frame) */
+    .terminal-card {
+      background: #0F172A;
+      border: 2px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .terminal-card .terminal-header {
+      background: #1E293B;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      gap: 12px;
+    }
+    .terminal-card .terminal-header::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 18px 0 0 #F59E0B, 36px 0 0 #10B981;
+      margin-right: 36px;
+      flex-shrink: 0;
+    }
+    .terminal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #94A3B8;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: 0.02em;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .terminal-card .terminal-copy-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #475569;
+    }
+    .terminal-card .terminal-copy-btn:hover {
+      background: #334155;
+      border-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .terminal-body {
+      padding: 16px 20px;
+      margin: 0;
+      background: #0F172A;
+      color: #E2E8F0;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      font-size: 15.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Mini-Terminal para llamadas o ejemplos dentro de cajas */
+    .mini-terminal {
+      background: #0F172A;
+      border: 1.5px solid #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+    }
+    .mini-term-header {
+      background: #1E293B;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    .mini-term-dots {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 12px 0 0 #F59E0B, 24px 0 0 #10B981;
+      margin-right: 22px;
+    }
+    .mini-term-title {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+    .mini-term-body {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #E2E8F0;
+      background: #0F172A;
+    }
+
+    /* High-contrast terminal syntax tokens for light mode by default */
+    .t-prompt { color: #0284C7; user-select: none; font-weight: 700; }
     .t-cmd { font-weight: 700; color: #0F172A; }
     .t-flag { color: #1D4ED8; font-weight: 600; }
-    .t-arg { color: #9A3412; font-weight: 500; }
-    .t-path { color: #15803D; font-weight: 500; }
-    .t-str { color: #A21CAF; }
-    .t-cmt { color: #5B6B82; font-style: italic; }
-    .t-err { color: #B91C1C; font-weight: 600; }
-    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+    .t-arg { color: #B45309; font-weight: 600; }
+    .t-path { color: #047857; font-weight: 600; }
+    .t-str { color: #7C3AED; }
+    .t-cmt, .term-comment { color: #64748B; font-style: italic; }
+    .t-err { color: #DC2626; font-weight: 600; }
+    .t-hl { background: rgba(254, 240, 138, 0.45); border-radius: 4px; padding: 0 6px; }
+
+    /* Dark context inside terminal-card and mini-terminal */
+    .terminal-card .term-prompt, .mini-terminal .term-prompt,
+    .terminal-card .t-prompt, .mini-terminal .t-prompt { color: #38BDF8; font-weight: 700; }
+    .terminal-card .term-cmd, .mini-terminal .term-cmd,
+    .terminal-card .t-cmd, .mini-terminal .t-cmd { font-weight: 700; color: #F8FAFC; }
+    .terminal-card .t-flag, .mini-terminal .t-flag { color: #60A5FA; }
+    .terminal-card .t-arg, .mini-terminal .t-arg { color: #FBBF24; }
+    .terminal-card .t-path, .mini-terminal .t-path { color: #34D399; }
+    .terminal-card .t-str, .mini-terminal .t-str { color: #E879F9; }
+    .terminal-card .term-comment, .mini-terminal .term-comment,
+    .terminal-card .t-cmt, .mini-terminal .t-cmt { color: #94A3B8; }
+    .terminal-card .t-err, .mini-terminal .t-err { color: #F87171; }
+
+    /* Estilos del Modal Autotest / Test Global */
+    .autotest-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--surface);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: border-color 0.15s ease;
+    }
+    .autotest-card:hover {
+      border-color: var(--primary);
+    }
+    .autotest-opt-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface-alt);
+      font-size: 18px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .autotest-opt-label:hover {
+      background: #EFF6FF;
+      border-color: #93C5FD;
+    }
+    .autotest-opt-label input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2563EB;
+      cursor: pointer;
+    }
 
     /* Chips de opciones interactivas */
     .options-row {
@@ -619,32 +1092,38 @@
     /* Tablas (≤5x4) */
     .table-container {
       width: 100%;
-      margin: 20px 0;
-      border: 2px solid var(--border);
-      border-radius: 14px;
+      margin: 12px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 12px;
       overflow: hidden;
-      background: #FFFFFF;
+      background: var(--surface);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 26px;
+      font-size: clamp(15px, 1.05vw, 18.5px);
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 16px 24px;
+      padding: 10px 18px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
+      font-size: clamp(15.5px, 1.1vw, 19.5px);
     }
     table.slide-table td {
-      padding: 16px 24px;
+      padding: 9px 18px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
+      line-height: 1.4;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
-    table.slide-table tr.highlighted { background: #FEF3C7; }
+    table.slide-table tr.highlighted { background: var(--warning-soft); }
+    [data-theme="dark"] .table-container {
+      background: var(--surface);
+    }
 
     /* Matrices comparativas y mapas de equivalencias */
     .matrix-container {
@@ -1131,7 +1610,7 @@
     <aside id="teacher-panel">
       <div class="panel-header">
         <span>Notas del Docente</span>
-        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+        <button class="nav-btn" onclick="toggleTeacherNotes()" aria-label="Cerrar panel docente"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
       </div>
       <div class="panel-body">
         <div class="panel-meta" id="panel-meta-info"></div>
@@ -1146,7 +1625,7 @@
   <!-- Modal de Erratas -->
   <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar notas y erratas"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
         <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
         Notas y Erratas del Manual Oficial
@@ -1158,7 +1637,7 @@
   <!-- Modal de Ayuda / Atajos -->
   <div class="modal-overlay" id="modal-help" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar ayuda de atajos"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
         <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
@@ -1181,7 +1660,7 @@
   <!-- Modal de Vista General (Overview) -->
   <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
     <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar vista general"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
       <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
     </div>
@@ -1197,7 +1676,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "101.2", "cat": "boot", "type": "cover", "title": "Arranque del sistema (Boot Process)", "subtitle": "Secuencia de arranque, firmware, GRUB, initramfs y registros (Modo Examen)", "ref": "19-20", "pdf": {"manual": "A", "pages": [19, 20], "figure": null}, "coverage": ["101.2-OBJ-001", "101.2-OBJ-002"], "meta": {"peso": 3, "paginas": "19–36", "duracion": "30 min"}, "icon": "power", "notes": "Iniciamos el subtema 101.2, uno de los más importantes del primer examen (peso 3). Comprenderemos cronológicamente cada milisegundo desde que pulsamos el botón de encendido hasta que el sistema presenta el prompt de login."}, {"id": 2, "section": "101.2", "cat": "boot", "type": "flow", "title": "Secuencia Completa de Arranque en Linux", "lead": "¿Qué ocurre paso a paso en el ordenador? La secuencia se divide en 5 etapas cronológicas inmutables:", "ref": "20-22", "pdf": {"manual": "A", "pages": [20, 21, 22], "figure": null}, "coverage": ["101.2-CON-001"], "steps": [{"step": "1. Firmware (BIOS / UEFI)", "desc": "Ejecuta el POST, detecta el hardware y localiza el cargador de arranque en el MBR o en la partición ESP."}, {"step": "2. Bootloader (GRUB 2)", "desc": "Presenta el menú interactivo, carga el binario del kernel (vmlinuz) y el initramfs en la memoria RAM."}, {"step": "3. Kernel Linux", "desc": "Inicializa los drivers compilados estáticamente, monta el initramfs temporal e inicia el descubrimiento de hardware."}, {"step": "4. Entorno initramfs", "desc": "Carga los módulos de almacenamiento (SATA/NVMe/RAID), localiza el disco raíz real y lo monta en solo lectura."}, {"step": "5. Primer Proceso (PID 1: systemd / init)", "desc": "El kernel ejecuta /sbin/init (o systemd), que arranca los servicios, monta /etc/fstab y muestra la pantalla de login."}], "remember": "🎯 Clave de Examen: Si el kernel no encuentra el ejecutable init especificado, se produce el temido 'Kernel Panic - not syncing: Attempted to kill init!'.", "notes": "Haz énfasis en esta línea de tiempo. Casi todas las preguntas de arranque evalúan qué componente es responsable de cada fase."}, {"id": 3, "section": "101.2", "cat": "boot", "type": "table", "title": "Firmware de Arranque: BIOS/MBR frente a UEFI/GPT", "lead": "¿Dónde busca el firmware el gestor de arranque en cada arquitectura?", "ref": "22-24", "pdf": {"manual": "A", "pages": [22, 23, 24], "figure": null}, "coverage": ["101.2-CON-002", "101.2-CON-003"], "headers": ["Aspecto", "BIOS + MBR (Legacy)", "UEFI + GPT (Moderno)"], "rows": [["Primer Sector", "Sector 0 del disco (512 bytes): 446 bytes código de arranque + 64 bytes tabla de particiones + 2 bytes firma mágica (0x55AA).", "Protective MBR (LBA 0) para evitar que utilidades antiguas borren el disco GPT."], ["Ubicación de GRUB", "GRUB Stage 1 en MBR (446 bytes); Stage 1.5 en el espacio libre entre MBR y partición 1; Stage 2 en /boot/grub/.", "Archivo ejecutable EFI (grubx64.efi) almacenado en la partición ESP FAT32 (ej: /boot/efi/EFI/debian/)."], ["Gestor de Entradas", "Fijo en disco físico según orden de prioridad de la BIOS en CMOS.", "Variables NVRAM gestionadas con efibootmgr desde el propio sistema operativo."], ["Secure Boot", "Incompatible (sin verificación criptográfica).", "Comprueba firmas digitales de la clave de Microsoft/distribución antes de ejecutar el binario .efi."]], "remember": "🎯 Clave de Examen: En BIOS, si se sobreescriben los primeros 446 bytes del MBR, el sistema no arrancará pero las particiones seguirán intactas (están en los 64 bytes siguientes).", "notes": "Explica la estructura física del MBR: 446 + 64 + 2 = 512 bytes. Es una pregunta clásica de certificación."}, {"id": 4, "section": "101.2", "cat": "boot", "type": "concept", "title": "El Gestor de Arranque GRUB y Acceso al Menú", "lead": "GRUB (Grand Unified Bootloader) es el estándar absoluto en distribuciones Linux:", "ref": "24-25", "pdf": {"manual": "A", "pages": [24, 25], "figure": null}, "coverage": ["101.2-CON-004", "101.2-CON-005"], "points": [{"icon": "keyboard", "text": "Invocación del Menú Oculto", "detail": "🎯 Clave de Examen: Si el menú de GRUB está oculto con timeout 0, en sistemas BIOS tradicionales se mantiene pulsada la tecla Shift; en sistemas UEFI se pulsa repetidamente la tecla Esc."}, {"icon": "edit-3", "text": "Edición Interactiva en Vivo (Tecla 'e')", "detail": "Al pulsar la tecla 'e' sobre una entrada, se abre el editor en vivo. Permite modificar los parámetros del kernel para esa sesión de arranque sin alterar los archivos de disco."}, {"icon": "terminal", "text": "Línea de Comandos de GRUB (Tecla 'c')", "detail": "Permite abrir una consola interactiva mínima de GRUB (grub>) para cargar manualmente kernels con comandos como 'linux' e 'initrd'."}, {"icon": "play", "text": "Arrancar tras la edición", "detail": "Una vez editada la línea del kernel, se inicia el arranque pulsando Ctrl+X o la tecla F10."}], "remember": "🎯 Diferencia de examen: Shift para BIOS; Esc para UEFI. Recuerda: 'e' para editar la entrada; 'c' para línea de comandos grub>.", "notes": "Muestra a los alumnos que las modificaciones hechas con la tecla 'e' son temporales. Al reiniciar volverá la configuración guardada."}, {"id": 5, "section": "101.2", "cat": "boot", "type": "command", "title": "Parámetros del Kernel en Tiempo de Arranque", "lead": "¿Qué opciones pasamos al kernel en la línea 'linux /vmlinuz...' de GRUB para controlar el inicio?", "ref": "25-27", "pdf": {"manual": "A", "pages": [25, 26, 27], "figure": null}, "coverage": ["101.2-CMD-001"], "command": "linux /boot/vmlinuz root=UUID=... [opciones]", "purpose": "Configurar el comportamiento del kernel, el montaje de la partición raíz y el nivel de mensajes", "terminal": {"command": "cat /proc/cmdline", "output": "BOOT_IMAGE=/boot/vmlinuz-6.1.0-18-amd64 root=UUID=3a7f8b91-1c2d-4e5f-a6b7-8c9d0e1f2a3b ro quiet splash acpi=off mem=4G"}, "options": [{"flag": "root=<dispositivo|UUID>", "desc": "🎯 Clave de Examen: Especifica la partición raíz real que montará el sistema (ej: root=/dev/sda1 o root=UUID=...)."}, {"flag": "ro / rw", "desc": "Monta inicialmente la partición raíz en solo lectura (ro, recomendado para permitir fsck seguro) o en lectura-escritura (rw)."}, {"flag": "quiet", "desc": "Oculta la mayoría de los mensajes de arranque del kernel en la pantalla."}, {"flag": "splash", "desc": "Muestra una animación o pantalla gráfica de bienvenida (Plymouth) ocultando la consola de texto."}, {"flag": "acpi=off", "desc": "Desactiva la interfaz avanzada de energía (útil para arrancar placas madre con bugs de ACPI)."}, {"flag": "mem=<tamaño>", "desc": "Limita la memoria RAM visible para el kernel (ej: mem=2G para simular servidores pequeños o aislar RAM defectuosa)."}, {"flag": "maxcpus=<número>", "desc": "Limita el número máximo de núcleos/CPUs lógicas que activará el kernel durante el arranque."}], "remember": "🎯 Clave de Examen: Para consultar exactamente qué parámetros utilizó el kernel en el arranque actual, se lee el archivo /proc/cmdline.", "notes": "Enseña a los alumnos por qué 'ro' es tan importante: si la raíz se montara en 'rw' de inmediato, fsck no podría reparar posibles fallos en el sistema de archivos de forma segura."}, {"id": 6, "section": "101.2", "cat": "boot", "type": "command", "title": "Recuperación de Emergencia con init=/bin/bash", "lead": "¿Qué hacer si has olvidado la contraseña del usuario root y no puedes entrar al sistema?", "ref": "27-28", "pdf": {"manual": "A", "pages": [27, 28], "figure": null}, "coverage": ["101.2-CMD-002"], "command": "init=/bin/bash (o init=/bin/sh)", "purpose": "Saltarse completamente el proceso init/systemd y arrancar directamente una shell root sin contraseña", "terminal": {"command": "# 1. En GRUB editar la línea 'linux ...' añadiendo: init=/bin/bash\n# 2. Al arrancar en la shell monousuario, remontar la raíz:\nmount -o remount,rw /\npasswd root\nexec /sbin/init", "output": "[root@(none) /]# mount -o remount,rw /\n[root@(none) /]# passwd root\nNew password: \nRetype new password: \npasswd: password updated successfully"}, "options": [{"flag": "init=/bin/bash", "desc": "Indica al kernel que el primer proceso ejecutado no sea systemd sino una consola bash como root sin login."}, {"flag": "systemd.unit=rescue.target", "desc": "Alternativa moderna en systemd: Arranca en modo rescate monousuario pero pide clave de root."}, {"flag": "systemd.unit=emergency.target", "desc": "Modo de emergencia mínimo con solo la raíz montada en solo lectura."}, {"flag": "single / 1 / S", "desc": "Arranque clásico en monousuario para tareas de mantenimiento."}], "remember": "🎯 Pregunta Clásica de Examen: Al arrancar con init=/bin/bash, la raíz está en solo lectura (ro). Si intentas ejecutar 'passwd', fallará con error 'Authentication token manipulation error'. ¡Debes ejecutar 'mount -o remount,rw /' antes!", "notes": "Este procedimiento cae en casi todos los exámenes LPIC-1. Recuérdales que tras cambiar la clave, se remonta en ro o se usa 'exec /sbin/init' o 'sync && reboot -f'."}, {"id": 7, "section": "101.2", "cat": "boot", "type": "file", "title": "Configuración de GRUB: /etc/default/grub y grub-mkconfig", "lead": "Nunca se edita /boot/grub/grub.cfg directamente: se modifica /etc/default/grub y se compila:", "ref": "28-30", "pdf": {"manual": "A", "pages": [28, 29, 30], "figure": null}, "coverage": ["101.2-FIL-001", "101.2-CMD-003"], "file": {"path": "/etc/default/grub", "purpose": "Definir el menú predeterminado, tiempos de espera y parámetros del kernel", "content": "GRUB_DEFAULT=0\nGRUB_TIMEOUT=5\nGRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`\nGRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"\nGRUB_CMDLINE_LINUX=\"\""}, "points": [{"icon": "clock", "text": "GRUB_TIMEOUT=N y GRUB_DEFAULT=N", "detail": "Segundos de espera antes de arrancar automáticamente. Si es -1, espera indefinidamente. GRUB_DEFAULT define qué entrada se selecciona por defecto (0 es la primera)."}, {"icon": "terminal", "text": "GRUB_CMDLINE_LINUX_DEFAULT", "detail": "Parámetros que solo se aplican en el arranque normal (ej: quiet splash). En el modo rescate no se aplican."}, {"icon": "cpu", "text": "grub-mkconfig -o /boot/grub/grub.cfg", "detail": "🎯 Comando de Examen: Script que lee /etc/default/grub y los scripts ejecutables en /etc/grub.d/ para generar el archivo final /boot/grub/grub.cfg (en Debian existe el alias update-grub)."}], "remember": "🎯 Clave de Examen: Si añades un parámetro en /etc/default/grub y no ejecutas grub-mkconfig -o /boot/grub/grub.cfg, el cambio no tendrá ningún efecto.", "notes": "Pregunta de examen habitual: ¿Cuál es el archivo de configuración generado automáticamente por grub-mkconfig? Respuesta: /boot/grub/grub.cfg."}, {"id": 8, "section": "101.2", "cat": "boot", "type": "concept", "title": "El Sistema Raíz Temporal: initramfs e initrd", "lead": "¿Por qué el kernel necesita un sistema de archivos temporal en RAM antes de montar la raíz real?", "ref": "30-31", "pdf": {"manual": "A", "pages": [30, 31], "figure": null}, "coverage": ["101.2-CON-006"], "points": [{"icon": "help-circle", "text": "El dilema del huevo y la gallina", "detail": "El disco raíz puede estar en un RAID por software, un volumen LVM cifrado con LUKS o un disco SCSI que requiere drivers que están guardados... ¡dentro del propio disco raíz!"}, {"icon": "archive", "text": "Qué es initramfs (Initial RAM File System)", "detail": "Es un archivo comprimido cpio.gz que GRUB carga en RAM. Contiene un entorno Linux mínimo con los módulos necesarios (scsi, ahci, lvm, dm-crypt) para acceder al disco."}, {"icon": "refresh-cw", "text": "Traspaso de control con switch_root", "detail": "Una vez localizado y montado el sistema de archivos raíz real en /sysroot, el script del initramfs ejecuta switch_root (antiguamente pivot_root), borra la RAM temporal y cede el control al /sbin/init real."}, {"icon": "tool", "text": "Comandos de generación", "detail": "En Debian/Ubuntu: update-initramfs -u. En RHEL/CentOS/Fedora: dracut --force o mkinitrd."}], "remember": "🎯 Clave de Examen: initramfs es un archivo cpio comprimido; su predecesor heredado era initrd (imagen de bloque con sistema de archivos ext2).", "notes": "Explica la diferencia entre cpio (initramfs moderno) y el disco virtual emulado antiguo (initrd)."}, {"id": 9, "section": "101.2", "cat": "boot", "type": "table", "title": "Evolución de los Sistemas de Inicio: SysV vs Upstart vs systemd", "lead": "El examen LPIC-1 evalúa la comparativa directa entre los 3 administradores de servicios de Linux:", "ref": "31-32", "pdf": {"manual": "A", "pages": [31, 32], "figure": null}, "coverage": ["101.2-CON-007"], "headers": ["Característica", "SysVinit (Heredado)", "Upstart (Transición)", "systemd (Estándar Actual)"], "rows": [["Primer Proceso", "/sbin/init (PID 1)", "/sbin/init (PID 1)", "/lib/systemd/systemd (PID 1)"], ["Filosofía de Inicio", "Secuencial síncrono mediante scripts bash numerados.", "Basado en eventos y trabajos asíncronos.", "Paralelo, basado en sockets, buses D-Bus y unidades."], ["Archivos de Configuración", "/etc/inittab y enlaces en /etc/rcX.d/", "Archivos de trabajo en /etc/init/*.conf", "Archivos de unidad en /etc/systemd/system/ y /lib/systemd/system/"], ["Concepto de Estado", "Niveles de ejecución (Runlevels 0 a 6).", "Estados guiados por eventos (startup, stopped).", "Objetivos de arranque (Targets, ej: multi-user.target)."], ["Comando Principal", "service, /etc/init.d/script, telinit", "initctl, start, stop, status", "systemctl"]], "remember": "🎯 Clave de Examen: Aunque tu distribución use systemd, /sbin/init sigue existiendo como un enlace simbólico que apunta a /lib/systemd/systemd.", "notes": "Destaca la columna de systemd: es el estándar universal actual, pero el examen sigue preguntando equivalencias con SysVinit y Upstart."}, {"id": 10, "section": "101.2", "cat": "boot", "type": "command", "title": "El Kernel Ring Buffer y el Comando dmesg", "lead": "¿Dónde van a parar los mensajes de arranque antes de que el demonio de logs esté activo en disco?", "ref": "32-34", "pdf": {"manual": "A", "pages": [32, 33, 34], "figure": null}, "coverage": ["101.2-CMD-004", "101.2-CMD-005"], "command": "dmesg", "purpose": "Inspeccionar el búfer circular en memoria RAM del kernel con todos los eventos de hardware detectados", "terminal": {"command": "dmesg -T -l err,warn | head -n 4", "output": "[Mon Oct 19 09:14:02 2026] ACPI BIOS Warning (bug): Optional FADT field PM2ControlBlock has zero length\n[Mon Oct 19 09:14:03 2026] ata1.00: supports DRM functions and may not be fully accessible\n[Mon Oct 19 09:14:05 2026] iwlwifi 0000:00:14.3: Direct firmware load for iwlwifi-Qu-c0-hr-b0-77.ucode failed\n[Mon Oct 19 09:14:06 2026] thermal thermal_zone0: critical temperature reached (102 C), shutting down"}, "options": [{"flag": "-T / --ctime", "desc": "🎯 Clave de Examen: Convierte los segundos transcurridos desde el inicio en marcas de fecha y hora humanas legibles."}, {"flag": "-l / --level <niveles>", "desc": "Filtra por severidad separada por comas: emerg, alert, crit, err, warn, notice, info, debug."}, {"flag": "-H / --human", "desc": "Activa modo legible por humanos: colorea la salida y abre automáticamente un paginador (less)."}, {"flag": "-c / --read-clear", "desc": "Lee el contenido del buffer y lo borra inmediatamente de la memoria RAM."}, {"flag": "-w / --follow", "desc": "Se queda a la escucha mostrando nuevos mensajes del kernel en tiempo real (como tail -f)."}], "remember": "🎯 Clave de Examen: El búfer del kernel es 'circular': si se llena, los mensajes nuevos sobrescriben a los más antiguos.", "notes": "Muestra la diferencia entre 'dmesg' a secas (que muestra segundos flotantes tipo [    0.000000]) y 'dmesg -T' que muestra fechas reales."}, {"id": 11, "section": "101.2", "cat": "boot", "type": "command", "title": "El Registro Moderno: journalctl y Botas de Arranque", "lead": "¿Qué herramienta unifica los logs del kernel y de los servicios en sistemas con systemd?", "ref": "34-35", "pdf": {"manual": "A", "pages": [34, 35], "figure": null}, "coverage": ["101.2-CMD-006", "101.2-CMD-007"], "command": "journalctl", "purpose": "Consultar y filtrar la base de datos binaria indexada gestionada por systemd-journald", "terminal": {"command": "journalctl --list-boots; echo '---'; journalctl -b -1 -k -p err", "output": " -1 5b1a78e9124446b89... Sun 2026-10-18 18:22:01 CEST—Sun 2026-10-18 23:45:12 CEST\n  0 8c2b91f0412347c1a... Mon 2026-10-19 08:30:00 CEST—Mon 2026-10-19 10:15:33 CEST\n---\nOct 18 18:22:05 debian-server kernel: EXT4-fs (sda1): unable to read superblock"}, "options": [{"flag": "-b [ID|offset]", "desc": "🎯 Clave de Examen: Filtra por sesión de arranque. Sin argumento o con 0 muestra el arranque actual; con -1 el arranque anterior."}, {"flag": "--list-boots", "desc": "Muestra el listado histórico de todos los arranques registrados con sus fechas y UUIDs."}, {"flag": "-k / --dmesg", "desc": "Filtra únicamente los mensajes del kernel (equivalente a dmesg)."}, {"flag": "-u <unidad>", "desc": "Filtra logs de un servicio concreto (ej: -u ssh.service o -u nginx)."}, {"flag": "-p <prioridad>", "desc": "Filtra por prioridad según estándar syslog (0:emerg a 7:debug, ej: -p err)."}, {"flag": "-f / --follow", "desc": "Sigue los logs en tiempo real."}], "remember": "🎯 Pregunta de Examen: ¿Cómo ves los mensajes de error del kernel ocurridos durante el apagado o arranque anterior? Respuesta: journalctl -b -1 -k -p err.", "notes": "Explica la enorme ventaja de journalctl frente a los archivos .log planos antiguos: los logs de journald están indexados y no se corrompen en caídas."}, {"id": 12, "section": "101.2", "cat": "boot", "type": "file", "title": "Persistencia de Logs y Análisis Forense: /var/log/journal", "lead": "¿Dónde guarda systemd los registros? ¿Se pierden al reiniciar o se conservan en disco?", "ref": "35-36", "pdf": {"manual": "A", "pages": [35, 36], "figure": null}, "coverage": ["101.2-FIL-002", "101.2-CMD-008"], "file": {"path": "/etc/systemd/journald.conf", "purpose": "Configurar la persistencia, límites de tamaño y rotación de los logs", "content": "[Journal]\nStorage=persistent\nSystemMaxUse=1G\nForwardToSyslog=no"}, "points": [{"icon": "hard-drive", "text": "Almacenamiento Volátil vs Persistente", "detail": "Por defecto, si no existe /var/log/journal/, systemd guarda los logs en /run/log/journal/ (volátil en RAM: se borran al apagar). Con 'Storage=persistent' se guardan en /var/log/journal/."}, {"icon": "folder-search", "text": "Análisis de sistemas caídos con journalctl -D", "detail": "🎯 Clave de Examen: Si un servidor no arranca y montas su disco en un equipo de rescate, puedes leer sus logs con: journalctl -D /mnt/disco_rescate/var/log/journal/."}, {"icon": "alert-octagon", "text": "⚠️ Errata Oficial del Manual LPI", "detail": "En la página 35 del manual en español se afirma que -D requiere permisos especiales; en realidad requiere pertenecer a los grupos 'systemd-journal' o 'adm', o usar sudo."}], "remember": "🎯 Clave de Examen: Para que journald empiece a almacenar logs persistentes en disco, basta con crear el directorio 'mkdir -p /var/log/journal' y reiniciar el servicio o el equipo.", "notes": "Muestra la utilidad de journalctl -D: es el comando forense por excelencia cuando rescatas una máquina rota desde un LiveCD."}, {"id": 13, "section": "101.2", "cat": "boot", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: Firmware, BIOS y ESP)", "ref": "34", "pdf": {"manual": "A", "pages": [34], "figure": null}, "scenario": "Casos prácticos sobre código de arranque y particiones EFI (Manual Oficial LPIC-1 Página 34):", "steps": [{"action": "Caso 1: En un sistema BIOS tradicional, ¿dónde reside físicamente el código que la BIOS ejecuta tras el POST y cuántos bytes ocupa?", "command": "Primer sector del disco duro (MBR / Sector 0), en los primeros 446 bytes", "reason": "El MBR ocupa 512 bytes: los primeros 446 son código ejecutable (Stage 1 de GRUB); los siguientes 64 bytes son la tabla de 4 particiones primarias y los 2 últimos la firma 0x55AA."}, {"action": "Caso 2: En un equipo UEFI, el sistema no encuentra el bootloader tras clonar el disco. ¿Qué se debe comprobar?", "command": "Comprobar que la partición ESP es tipo 'c12a7328-f81f-11d2-ba4b-00a0c93ec93b', tiene sistema FAT32 y contiene el archivo /EFI/debian/grubx64.efi", "reason": "El firmware UEFI no lee el MBR; navega directamente por la partición FAT32 buscando el binario .efi registrado en la NVRAM mediante efibootmgr."}], "solution": {"explain": "El examen compara continuamente la arquitectura de sectores físicos del MBR tradicional frente al sistema de archivos FAT de la partición ESP de UEFI."}, "notes": "Haz énfasis en que en BIOS el código se ejecuta directamente de los sectores crudos del disco; en UEFI se ejecuta un binario dentro de un sistema de archivos."}, {"id": 14, "section": "101.2", "cat": "boot", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: Parámetros y Errores)", "ref": "34-35", "pdf": {"manual": "A", "pages": [34, 35], "figure": null}, "scenario": "Casos prácticos de parámetros de kernel y errores de arranque (Manual Oficial LPIC-1 Páginas 34-35):", "steps": [{"action": "Caso 3: Un servidor entra en Kernel Panic con el mensaje 'VFS: Unable to mount root fs on unknown-block(0,0)'. ¿Qué parámetro de GRUB está mal?", "command": "Revisar el parámetro 'root=' en la línea de comando del kernel", "reason": "Indica que el kernel no encuentra el disco raíz especificado en root= (por UUID cambiado tras clonar o disco renombrado de sda a sdb)."}, {"action": "Caso 4: Necesitamos averiguar qué errores críticos registró el kernel durante el arranque de ayer antes de un apagón repentino.", "command": "journalctl -b -1 -k -p err", "reason": "El flag -b -1 selecciona el arranque previo; -k restringe a mensajes del núcleo y -p err descarta avisos de menor severidad."}], "solution": {"explain": "El diagnóstico del arranque exige correlacionar el parámetro root de GRUB con las herramientas de inspección histórica de journalctl."}, "notes": "Muestra a los alumnos cómo simular esto en un examen: el 90% de los 'Kernel Panic' en clase se deben a un parámetro root erróneo."}, {"id": 15, "section": "101.2", "cat": "boot", "type": "challenge", "title": "Retos de Exploración del Manual Oficial", "ref": "35-36", "pdf": {"manual": "A", "pages": [35, 36], "figure": null}, "scenario": "Resuelve estos 4 retos de examen planteados en el manual oficial LPIC-1 (Páginas 35-36):\n1. ¿Qué ocurre exactamente si en un disco GPT ejecutas 'dd if=/dev/zero of=/dev/sda bs=446 count=1'?\n2. ¿Cómo forzarías al kernel a ignorar los primeros 8 GB de RAM si sospechas que un módulo DIMM falla?\n3. ¿Por qué el comando 'dmesg' pierde los mensajes iniciales del arranque en servidores que llevan 300 días encendidos?\n4. ¿Cómo analizar los logs de un disco de servidor montado en /mnt/recuperacion?", "hint": "Recuerda: Protective MBR en GPT; parámetro mem= en el kernel; buffer circular en RAM; y la opción de directorio de journalctl.", "solution": {"explain": "1. En GPT el Protective MBR solo ocupa el LBA 0 para protección; el arranque UEFI ignora el código del MBR y seguirá arrancando normalmente desde la partición ESP.\n2. Para limitar la memoria a 8 GB se añade el parámetro 'mem=8G' en la línea del kernel en GRUB.\n3. Porque dmesg lee un búfer circular en memoria RAM de tamaño finito: conforme ocurren eventos de red o discos a lo largo de meses, los mensajes viejos se van pisando.\n4. Se utiliza el comando: journalctl -D /mnt/recuperacion/var/log/journal/."}, "notes": "Estos retos cubren preguntas de situaciones límite en el examen de certificación."}, {"id": 16, "section": "101.2", "cat": "boot", "type": "review", "title": "Pregunta de Examen LPIC-1: Parámetros del Kernel", "q": "¿Qué parámetro debe pasarse al kernel de Linux en el menú de GRUB para arrancar directamente en una shell de root saltándose la autenticación y la inicialización de servicios?", "options": ["single-user=true", "init=/bin/bash", "systemd.mode=root", "boot=emergency"], "answer": 1, "why": "init=/bin/bash le indica al kernel que ejecute una shell interactiva como proceso PID 1 en lugar del administrador de inicio estándar. Las opciones A, C y D son nombres ficticios o incorrectos.", "notes": "Pregunta fija de examen. Haz que los alumnos recuerden que también se puede usar init=/bin/sh."}, {"id": 17, "section": "101.2", "cat": "boot", "type": "review", "title": "Pregunta de Examen LPIC-1: journalctl y Diagnóstico", "q": "¿Qué comando muestra exclusivamente los mensajes del kernel ocurridos durante el arranque anterior del sistema?", "options": ["dmesg --previous", "journalctl -b -1 -k", "journalctl --last-boot -k", "cat /var/log/boot.prev"], "answer": 1, "why": "journalctl -b -1 selecciona el arranque inmediatamente anterior al actual (offset -1) y la opción -k (o --dmesg) filtra solo los mensajes del kernel. dmesg solo muestra el arranque actual en memoria viva.", "notes": "Resalta por qué la opción C es un distractor: el flag correcto es --list-boots o -b -1, no existe --last-boot."}, {"id": 18, "section": "101.2", "cat": "boot", "type": "flashcards", "title": "Tarjetas de Memorización: Arranque y Registros 101.2", "deck": [{"front": "¿Qué tecla abre el menú oculto de GRUB en BIOS y cuál en UEFI?", "back": "BIOS: tecla Shift (mantener pulsada). UEFI: tecla Esc (pulsar repetidamente)."}, {"front": "¿Dónde almacena UEFI los ejecutables de arranque y qué formato de archivo exige?", "back": "En la partición ESP (EFI System Partition), obligatoriamente formateada en FAT16 o FAT32 (montada en /boot/efi)."}, {"front": "¿En qué archivo se configuran las opciones permanentes de GRUB y qué comando las compila?", "back": "Se configuran en /etc/default/grub y se compilan con 'grub-mkconfig -o /boot/grub/grub.cfg'."}, {"front": "¿Qué archivo virtual muestra los parámetros exactos con los que arrancó el kernel?", "back": "/proc/cmdline (muestra en vivo la línea de parámetros del arranque actual)."}, {"front": "¿Qué hace el comando 'dmesg -T'?", "back": "Muestra el búfer circular del kernel traduciendo los segundos en marcas de fecha y hora legibles para humanos."}, {"front": "¿Qué comando lista todos los arranques registrados por systemd?", "back": "journalctl --list-boots (muestra offset, UUID y rango de fechas de cada sesión)."}, {"front": "¿Qué comando permite analizar logs de un disco externo montado?", "back": "journalctl -D /ruta/al/directorio/journal/ (análisis forense sin usar el journal del host)."}, {"front": "¿Qué hace el comando 'switch_root' en el initramfs?", "back": "Cambia la raíz del sistema de la memoria RAM al disco duro real montado y ejecuta el /sbin/init definitivo."}], "notes": "Estas 8 tarjetas resumen las preguntas más frecuentes de todo el bloque de arranque de LPIC-1."}, {"id": 19, "section": "101.2", "cat": "boot", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 101.2", "takeaways": ["Secuencia: Firmware (POST) -> Bootloader (GRUB) -> Kernel (vmlinuz) -> initramfs (drivers) -> Init (PID 1).", "Firmware: BIOS ejecuta MBR (446 bytes código + 64 bytes tabla); UEFI ejecuta binario .efi en partición ESP FAT32.", "GRUB: Shift en BIOS, Esc en UEFI. Tecla 'e' edita; 'c' consola; 'init=/bin/bash' para rescate; /etc/default/grub se compila con grub-mkconfig.", "Registros: dmesg (-T hora legible, -c limpia); journalctl (-b sesión, --list-boots historial, -k kernel, -D directorio externo)."], "top3": [{"cmd": "grub-mkconfig -o /boot/grub/grub.cfg", "desc": "Compila y regenera el menú de arranque de GRUB tras modificar /etc/default/grub."}, {"cmd": "dmesg -T", "desc": "Inspecciona el buffer del kernel con marcas de tiempo legibles para diagnosticar periféricos."}, {"cmd": "journalctl -b -1 -k", "desc": "Filtra los eventos del kernel del arranque inmediatamente anterior al actual."}], "practice": {"name": "Practica 101.2: Arranque del Sistema, Parámetros del Kernel y Registros", "url": "../practicas/p-101-2-arranque-sistema.html", "desc": "Examina la secuencia de arranque de Linux desde el BIOS/UEFI hasta el espacio de usuario, audita dmesg y consulta el journal del arranque previo con journalctl."}, "notes": "Concluimos el subtema 101.2. Los alumnos tienen una comprensión sólida del proceso de inicio completo de Linux."}];
+    const SLIDES = [{"id": 1, "section": "101.2", "cat": "boot", "type": "cover", "title": "Arranque del sistema (Boot Process)", "subtitle": "Secuencia de arranque, firmware, GRUB, initramfs y registros (Modo Examen)", "ref": "19-20", "pdf": {"manual": "A", "pages": [19, 20], "figure": null}, "coverage": ["101.2-OBJ-001", "101.2-OBJ-002"], "meta": {"peso": 3, "paginas": "19–36", "duracion": "30 min"}, "icon": "power", "notes": "Iniciamos el subtema 101.2, uno de los más importantes del primer examen (peso 3). Comprenderemos cronológicamente cada milisegundo desde que pulsamos el botón de encendido hasta que el sistema presenta el prompt de login."}, {"id": 2, "section": "101.2", "cat": "boot", "type": "diagram", "title": "Secuencia de Arranque: Del Botón de Encendido al Login", "lead": "¿Qué ocurre en tu ordenador exactamente durante los primeros segundos antes de pedirte la contraseña?", "ref": "20-22", "pdf": {"manual": "A", "pages": [20, 21, 22], "figure": null}, "coverage": ["101.2-CON-001"], "steps": [{"step": "1. BIOS / UEFI (El Despertador)", "desc": "Comprueba el hardware básico (autotest POST) y localiza el disco donde está el cargador de arranque."}, {"step": "2. GRUB 2 (El Menú)", "desc": "Muestra la pantalla para elegir el sistema operativo y copia el Kernel (vmlinuz) en la memoria RAM."}, {"step": "3. Kernel Linux (El Cerebro)", "desc": "El núcleo toma el mando total del procesador y la memoria, preparando el equipo para funcionar."}, {"step": "4. initramfs (La Llave del Disco)", "desc": "Mini-sistema temporal en RAM con los drivers necesarios para poder abrir y montar tu disco duro real."}, {"step": "5. systemd / init (Primer Proceso)", "desc": "¿Qué es systemd? Es el gestor maestro de servicios y programas de Linux. Es el primer proceso de todos (PID 1), arranca la red, los discos secundarios y te muestra la pantalla de login."}], "remember": "🎯 CLAVE TOP DE EXAMEN: El primer proceso que ejecuta el Kernel siempre tiene el PID 1 (/sbin/init o systemd). Si el kernel no lo encuentra en el disco, el arranque se bloquea con un Kernel Panic («Attempted to kill init!»).", "notes": "Guión didáctico sencillo para el profesor en clase:\n1. DEFINICIÓN DE SYSTEMD: Explica a los alumnos que systemd es el 'director de orquesta' del sistema. Sustituyó al antiguo SysVinit porque arranca todo en paralelo mucho más rápido. Es el proceso padre (PID 1) de todo lo que corre en Linux.\n2. LAS 5 FASES EN LENGUAJE HUMANO:\n   - 1. BIOS/UEFI: Chequea corriente, procesador y busca el disco.\n   - 2. GRUB: Elige con qué Linux arrancar y lo mete en la RAM.\n   - 3. Kernel: Despierta el cerebro y toma el control.\n   - 4. initramfs: Un mini-disco auxiliar en RAM con los drivers para poder leer el disco duro real.\n   - 5. systemd (PID 1): Enciende la red, los programas y te pide usuario y contraseña.\n3. PREGUNTAS CLÁSICAS DE EXAMEN:\n   - ¿Quién pone el kernel en RAM? ➔ GRUB.\n   - ¿Por qué existe initramfs? ➔ Para cargar drivers antes de montar la raíz '/'.\n   - ¿Cuál es el proceso padre de todos? ➔ PID 1 (init o systemd).", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:14px; margin:10px 0;\">\n  <!-- Pipeline horizontal de 5 fases sencillas -->\n  <div style=\"display:grid; grid-template-columns: repeat(5, 1fr); gap:12px;\">\n    \n    <!-- Fase 1 -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid #4F46E5; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;\">\n          <span style=\"background:#4F46E5; color:#FFF; font-weight:800; font-size:12px; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;\">1</span>\n          <span style=\"font-size:11px; font-weight:800; color:#4F46E5; text-transform:uppercase;\">🔌 Encendido</span>\n        </div>\n        <div style=\"font-size:16px; font-weight:800; color:var(--text); margin-bottom:4px;\">BIOS / UEFI</div>\n        <div style=\"font-size:13px; color:var(--text-muted); line-height:1.4;\"><strong>El Despertador:</strong> Hace un test rápido del hardware (POST) y busca en qué disco duro está el arranque.</div>\n      </div>\n      <div style=\"margin-top:10px; padding:4px 8px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:11.5px; font-weight:700; color:var(--primary);\">\n        ➔ Encuentra el disco\n      </div>\n    </div>\n\n    <!-- Fase 2 -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid #0284C7; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;\">\n          <span style=\"background:#0284C7; color:#FFF; font-weight:800; font-size:12px; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;\">2</span>\n          <span style=\"font-size:11px; font-weight:800; color:#0284C7; text-transform:uppercase;\">📋 Selección</span>\n        </div>\n        <div style=\"font-size:16px; font-weight:800; color:var(--text); margin-bottom:4px;\">GRUB 2</div>\n        <div style=\"font-size:13px; color:var(--text-muted); line-height:1.4;\"><strong>El Menú:</strong> Muestra la lista de sistemas para elegir y copia el <strong>Kernel</strong> a la memoria RAM.</div>\n      </div>\n      <div style=\"margin-top:10px; padding:4px 8px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:11.5px; font-weight:700; color:#0284C7;\">\n        ➔ Carga Kernel en RAM\n      </div>\n    </div>\n\n    <!-- Fase 3 -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid var(--success); border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;\">\n          <span style=\"background:var(--success); color:#FFF; font-weight:800; font-size:12px; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;\">3</span>\n          <span style=\"font-size:11px; font-weight:800; color:var(--success); text-transform:uppercase;\">🧠 Núcleo</span>\n        </div>\n        <div style=\"font-size:16px; font-weight:800; color:var(--text); margin-bottom:4px;\">Kernel Linux</div>\n        <div style=\"font-size:13px; color:var(--text-muted); line-height:1.4;\"><strong>El Cerebro:</strong> Toma el mando absoluto del ordenador, gestiona la CPU y organiza la memoria RAM.</div>\n      </div>\n      <div style=\"margin-top:10px; padding:4px 8px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:11.5px; font-weight:700; color:var(--success);\">\n        ➔ Controla el hardware\n      </div>\n    </div>\n\n    <!-- Fase 4 -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid var(--warning); border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;\">\n          <span style=\"background:var(--warning); color:#FFF; font-weight:800; font-size:12px; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;\">4</span>\n          <span style=\"font-size:11px; font-weight:800; color:var(--warning-ink); text-transform:uppercase;\">🔑 Auxiliar</span>\n        </div>\n        <div style=\"font-size:16px; font-weight:800; color:var(--text); margin-bottom:4px;\">initramfs</div>\n        <div style=\"font-size:13px; color:var(--text-muted); line-height:1.4;\"><strong>La Llave del Disco:</strong> Mini-disco en RAM con los drivers necesarios para poder abrir y montar tu disco real <code>/</code>.</div>\n      </div>\n      <div style=\"margin-top:10px; padding:4px 8px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:11.5px; font-weight:700; color:var(--warning-ink);\">\n        ➔ Abre el disco real /\n      </div>\n    </div>\n\n    <!-- Fase 5 -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid #9333EA; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;\">\n          <span style=\"background:#9333EA; color:#FFF; font-weight:800; font-size:12px; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;\">5</span>\n          <span style=\"font-size:11px; font-weight:800; color:#9333EA; text-transform:uppercase;\">🖥️ Mayordomo</span>\n        </div>\n        <div style=\"font-size:16px; font-weight:800; color:var(--text); margin-bottom:4px;\">systemd (PID 1)</div>\n        <div style=\"font-size:12px; color:var(--text-muted); line-height:1.35;\"><strong>¿Qué es?</strong> El gestor maestro de servicios (reemplazo moderno de <code>init</code>). Es el primer proceso de todos (PID 1), arranca la red y saca la pantalla de <strong>login</strong>.</div>\n      </div>\n      <div style=\"margin-top:10px; padding:4px 8px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:11.5px; font-weight:700; color:#9333EA;\">\n        ➔ ¡Listo para usar!\n      </div>\n    </div>\n\n  </div>\n\n  <!-- Resumen de Examen: Las 3 Preguntas Clásicas LPIC-1 -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px;\">\n    <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; gap:8px;\">\n      <span>🎯</span>\n      <span>Las 3 Preguntas de Examen que debes memorizar de esta secuencia:</span>\n    </div>\n    <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; font-size:13px;\">\n      <div style=\"background:var(--surface-alt); border-left:4px solid var(--primary); padding:8px 12px; border-radius:6px;\">\n        <strong style=\"color:var(--primary);\">1. ¿Quién carga el Kernel en RAM?</strong><br>\n        El gestor de arranque <strong>GRUB</strong>.\n      </div>\n      <div style=\"background:var(--surface-alt); border-left:4px solid var(--warning); padding:8px 12px; border-radius:6px;\">\n        <strong style=\"color:var(--warning-ink);\">2. ¿Para qué sirve initramfs?</strong><br>\n        Para cargar drivers y <strong>montar la raíz real <code>/</code></strong>.\n      </div>\n      <div style=\"background:var(--surface-alt); border-left:4px solid #9333EA; padding:8px 12px; border-radius:6px;\">\n        <strong style=\"color:#9333EA;\">3. ¿Cuál es el primer proceso?</strong><br>\n        Siempre tiene el <strong>PID 1</strong> (<code>systemd</code> o el antiguo <code>init</code>).\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 3, "section": "101.2", "cat": "boot", "type": "table", "title": "Firmware de Arranque: BIOS/MBR frente a UEFI/GPT", "lead": "¿Dónde busca el firmware el gestor de arranque en cada arquitectura?", "ref": "22-24", "pdf": {"manual": "A", "pages": [22, 23, 24], "figure": null}, "coverage": ["101.2-CON-002", "101.2-CON-003"], "headers": ["Característica Clave", "BIOS Clásica + MBR (Antiguo)", "UEFI Moderna + GPT (Estándar Actual)"], "rows": [["¿Dónde busca el arranque?", "En el sector físico 0 (MBR rígido de 512 bytes).", "En un archivo ejecutable '.efi' dentro de la partición ESP (FAT32)."], ["Capacidad máxima de disco", "Máximo 2 TB (incompatible con discos modernos más grandes).", "Discos gigantes (>2 TB, hasta Zettabytes sin límite práctico)."], ["Límite de particiones", "Solo 4 particiones primarias (requiere partición extendida).", "Hasta 128 particiones directas sin necesidad de trucos."], ["Seguridad (Secure Boot)", "❌ Sin protección (cualquiera puede sobreescribir el MBR).", "🛡️ Secure Boot (solo arranca código con firma criptográfica válida)."], ["Configuración del firmware", "Menú azul antiguo de la placa base (CMOS).", "Menú moderno con ratón y configurable desde Linux con efibootmgr."]], "remember": "🎯 Clave de Examen: En BIOS, si se sobreescriben los primeros 446 bytes del MBR, el sistema no arrancará pero las particiones seguirán intactas (están en los 64 bytes siguientes).", "notes": "Explica la estructura física del MBR: 446 + 64 + 2 = 512 bytes. Es una pregunta clásica de certificación.", "diagram_html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:12px;\">\n  <!-- Tarjeta Izquierda: MBR -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:12px 16px;\">\n    <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:6px;\">\n      <span>💾</span>\n      <span>Anatomía del MBR (Primer sector físico de 512 bytes):</span>\n    </div>\n    <div style=\"display:flex; height:32px; border-radius:6px; overflow:hidden; font-weight:800; font-size:12px; text-align:center; line-height:32px; margin-bottom:8px;\">\n      <div style=\"flex:446; background:#3B82F6; color:#FFF;\" title=\"446 bytes\">Código GRUB (446 B)</div>\n      <div style=\"flex:64; background:#F59E0B; color:#FFF;\" title=\"64 bytes\">Particiones (64 B)</div>\n      <div style=\"flex:2; background:#EF4444; color:#FFF;\" title=\"2 bytes\">Firma (2B)</div>\n    </div>\n    <div style=\"font-size:12px; color:var(--text-muted); line-height:1.4;\">\n      • <strong>446 B:</strong> Código del gestor de arranque.<br>\n      • <strong>64 B:</strong> 4 particiones primarias de 16 B cada una.<br>\n      • <strong>2 B:</strong> Firma mágica <code>0x55AA</code> (valida que es arrancable).\n    </div>\n  </div>\n\n  <!-- Tarjeta Derecha: UEFI / ESP -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:12px 16px;\">\n    <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:6px;\">\n      <span>⚡</span>\n      <span>Estructura UEFI: Partición ESP (EFI System Partition):</span>\n    </div>\n    <div style=\"background:var(--surface-alt); border:1px solid var(--border); border-radius:6px; padding:8px 12px; font-family:monospace; font-size:12px; color:var(--text); margin-bottom:6px;\">\n      /boot/efi/EFI/debian/grubx64.efi\n    </div>\n    <div style=\"font-size:12px; color:var(--text-muted); line-height:1.4;\">\n      • <strong>Sistema FAT32:</strong> Es una partición normal, no un sector oculto.<br>\n      • <strong>Varios Sistemas:</strong> Cada SO tiene su propio archivo ejecutable <code>.efi</code>.<br>\n      • <strong>efibootmgr:</strong> Comando de Linux para ver y cambiar el orden de arranque.\n    </div>\n  </div>\n</div>\n"}, {"id": 4, "section": "101.2", "cat": "boot", "type": "diagram", "title": "El Gestor de Arranque GRUB y Acceso al Menú", "lead": "¿Por qué un administrador necesita acceder a este menú en la vida real y cómo invocarlo?", "ref": "24-25", "pdf": {"manual": "A", "pages": [24, 25], "figure": null}, "coverage": ["101.2-CON-004", "101.2-CON-005"], "points": [{"icon": "keyboard", "text": "Invocación del Menú Oculto", "detail": "🎯 Clave de Examen: Si GRUB está oculto (timeout 0), mantén pulsado Shift en sistemas BIOS tradicionales o pulsa repetidamente Esc en sistemas UEFI modernos."}, {"icon": "edit-3", "text": "Edición Interactiva en Vivo (Tecla 'e')", "detail": "Al pulsar la tecla 'e' sobre una entrada, se abre el editor en pantalla. Permite modificar parámetros del kernel para esa sesión concreta sin alterar los archivos del disco."}, {"icon": "terminal", "text": "Línea de Comandos de GRUB (Tecla 'c')", "detail": "Abre la consola mínima 'grub>' para inspeccionar discos con 'ls' o cargar kernels manualmente si la configuración falló."}, {"icon": "play", "text": "Arrancar tras la edición (Ctrl+X o F10)", "detail": "Inicia el arranque inmediatamente con las opciones modificadas temporalmente. Al reiniciar, todo vuelve a la normalidad."}], "remember": "🎯 PREGUNTA TOP DE EXAMEN: Mantén 'Shift' para BIOS; pulsa 'Esc' para UEFI. Tecla 'e' para editar la entrada; 'c' para la consola grub>; Ctrl+X para arrancar.", "notes": "Explicación en clase:\n¿Por qué entramos a este menú en la vida real?\n1. Cuando una actualización de Linux rompe los drivers y la máquina no enciende.\n2. Cuando se olvida la contraseña de root (añades init=/bin/bash).\n3. Cuando la pantalla se queda en negro (añades nomodeset o quitas quiet splash).\n4. Para arrancar en Recovery Mode y reparar el disco con fsck.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:12px; margin:10px 0;\">\n  <!-- Atajos de Teclado -->\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:12px;\">\n    <!-- Shift / Esc -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid var(--primary); border-radius:12px; padding:12px;\">\n      <div style=\"display:flex; align-items:center; gap:6px; margin-bottom:6px;\">\n        <kbd style=\"background:var(--surface); border:1px solid var(--border-strong); border-radius:4px; padding:2px 8px; font-weight:800; font-size:13px; color:var(--text);\">Shift</kbd>\n        <kbd style=\"background:var(--surface); border:1px solid var(--border-strong); border-radius:4px; padding:2px 8px; font-weight:800; font-size:13px; color:var(--text);\">Esc</kbd>\n      </div>\n      <div style=\"font-weight:800; font-size:15px; color:var(--text); margin-bottom:2px;\">Mostrar Menú Oculto</div>\n      <div style=\"font-size:12.5px; color:var(--text-muted); line-height:1.35;\">\n        <kbd>Shift</kbd> para <strong>BIOS</strong>.<br>\n        <kbd>Esc</kbd> para <strong>UEFI</strong>.\n      </div>\n    </div>\n\n    <!-- Tecla 'e' -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid var(--success); border-radius:12px; padding:12px;\">\n      <div style=\"display:flex; align-items:center; gap:6px; margin-bottom:6px;\">\n        <kbd style=\"background:var(--surface); border:1px solid #16A34A; color:#15803D; border-radius:4px; padding:2px 10px; font-weight:800; font-size:15px;\">e</kbd>\n      </div>\n      <div style=\"font-weight:800; font-size:15px; color:var(--text); margin-bottom:2px;\">Editar Entrada (Edit)</div>\n      <div style=\"font-size:12.5px; color:var(--text-muted); line-height:1.35;\">\n        Modifica parámetros en memoria solo para este arranque.\n      </div>\n    </div>\n\n    <!-- Tecla 'c' -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid var(--warning); border-radius:12px; padding:12px;\">\n      <div style=\"display:flex; align-items:center; gap:6px; margin-bottom:6px;\">\n        <kbd style=\"background:var(--surface); border:1px solid #D97706; color:#B45309; border-radius:4px; padding:2px 10px; font-weight:800; font-size:15px;\">c</kbd>\n      </div>\n      <div style=\"font-weight:800; font-size:15px; color:var(--text); margin-bottom:2px;\">Consola de Comandos</div>\n      <div style=\"font-size:12.5px; color:var(--text-muted); line-height:1.35;\">\n        Abre la terminal <code>grub></code> para rescate manual con <code>ls</code>.\n      </div>\n    </div>\n\n    <!-- Ctrl+X -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid #9333EA; border-radius:12px; padding:12px;\">\n      <div style=\"display:flex; align-items:center; gap:6px; margin-bottom:6px;\">\n        <kbd style=\"background:var(--surface); border:1px solid #9333EA; color:#7E22CE; border-radius:4px; padding:2px 6px; font-weight:800; font-size:13px;\">Ctrl+X</kbd>\n        <kbd style=\"background:var(--surface); border:1px solid #9333EA; color:#7E22CE; border-radius:4px; padding:2px 6px; font-weight:800; font-size:13px;\">F10</kbd>\n      </div>\n      <div style=\"font-weight:800; font-size:15px; color:var(--text); margin-bottom:2px;\">Arrancar (Boot)</div>\n      <div style=\"font-size:12.5px; color:var(--text-muted); line-height:1.35;\">\n        Ejecuta el arranque con los cambios realizados.\n      </div>\n    </div>\n  </div>\n\n  <!-- ¿Por qué es útil en la vida real? -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:12px 16px;\">\n    <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; gap:8px;\">\n      <span>💡</span>\n      <span>¿Para qué utiliza un Administrador este menú en la vida real?</span>\n    </div>\n    <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; font-size:12.5px;\">\n      <div style=\"background:var(--surface-alt); border-left:3px solid var(--primary); padding:8px 10px; border-radius:6px;\">\n        <strong style=\"color:var(--primary);\">1. Actualización rota</strong><br>\n        Arrancar con un Kernel anterior que funcionaba bien.\n      </div>\n      <div style=\"background:var(--surface-alt); border-left:3px solid var(--warning); padding:8px 10px; border-radius:6px;\">\n        <strong style=\"color:var(--warning-ink);\">2. Contraseña olvidada</strong><br>\n        Añadir <code>init=/bin/bash</code> para resetear root sin clave.\n      </div>\n      <div style=\"background:var(--surface-alt); border-left:3px solid var(--success); padding:8px 10px; border-radius:6px;\">\n        <strong style=\"color:var(--success);\">3. Fallo de vídeo / pantalla negra</strong><br>\n        Añadir <code>nomodeset</code> o quitar <code>quiet splash</code>.\n      </div>\n      <div style=\"background:var(--surface-alt); border-left:3px solid #9333EA; padding:8px 10px; border-radius:6px;\">\n        <strong style=\"color:#9333EA;\">4. Modo Recuperación (Recovery)</strong><br>\n        Entrar a reparar el sistema de archivos con <code>fsck</code>.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 5, "section": "101.2", "cat": "boot", "type": "command", "title": "Parámetros del Kernel en Tiempo de Arranque", "lead": "¿Qué opciones pasamos al kernel en la línea 'linux /vmlinuz...' y cómo ver con cuáles arrancó el sistema?", "ref": "25-27", "pdf": {"manual": "A", "pages": [25, 26, 27], "figure": null}, "coverage": ["101.2-CMD-001"], "command": "linux /boot/vmlinuz root=UUID=... [opciones]", "purpose": "Inspeccionar con /proc/cmdline los parámetros reales y saber cuándo añadir opciones de emergencia", "terminal": {"command": "cat /proc/cmdline", "output": "BOOT_IMAGE=/boot/vmlinuz-6.1.0-18-amd64 root=UUID=3a7f-8b91-4c2d ro quiet splash nomodeset"}, "options": [{"flag": "root=UUID=... (o /dev/sda1)", "desc": "🎯 Clave de Examen: Indica qué partición del disco contiene el sistema operativo real '/'. Se prefiere UUID porque nunca cambia."}, {"flag": "ro", "desc": "Monta inicialmente la raíz en Solo Lectura para que el sistema revise el disco de forma segura antes de escribir nada."}, {"flag": "quiet splash", "desc": "Silencia los mensajes técnicos del kernel y muestra la pantalla gráfica con el logotipo de carga de la distribución."}, {"flag": "nomodeset", "desc": "Ejemplo real: Desactiva los drivers gráficos avanzados si la pantalla se queda congelada en negro al arrancar."}, {"flag": "acpi=off", "desc": "Ejemplo real: Desactiva la gestión de energía de la placa base si el equipo se bloquea al suspender o encender."}, {"flag": "mem=2G", "desc": "Ejemplo real: Limita la RAM a 2 GB para simular servidores pequeños o esquivar un módulo de memoria roto."}], "remember": "🎯 PREGUNTA TOP DE EXAMEN: El archivo /proc/cmdline contiene exactamente la línea de comandos con la que arrancó el kernel actual.", "notes": "Enseña a los alumnos por qué 'ro' es tan importante: si la raíz se montara en 'rw' de inmediato, fsck no podría reparar posibles fallos en el sistema de archivos de forma segura.", "diagram_html": "\n<div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; gap:8px;\">\n    <span>🔍</span>\n    <span>¿Qué significa cada parámetro de <code>/proc/cmdline</code> en el mundo real?</span>\n  </div>\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; font-size:13px;\">\n    <div style=\"background:var(--surface-alt); border-left:4px solid var(--primary); padding:8px 12px; border-radius:6px;\">\n      <strong style=\"color:var(--primary);\">root=UUID=...</strong><br>\n      Dónde están instalados tus archivos del sistema (partición <code>/</code>).\n    </div>\n    <div style=\"background:var(--surface-alt); border-left:4px solid var(--success); padding:8px 12px; border-radius:6px;\">\n      <strong style=\"color:var(--success);\">ro (Read Only)</strong><br>\n      Monta en solo lectura inicial para permitir una revisión segura con <code>fsck</code>.\n    </div>\n    <div style=\"background:var(--surface-alt); border-left:4px solid var(--warning); padding:8px 12px; border-radius:6px;\">\n      <strong style=\"color:var(--warning-ink);\">quiet & splash</strong><br>\n      Oculta mensajes técnicos y dibuja el logo de carga. Si falla, se borran para ver el error.\n    </div>\n  </div>\n</div>\n"}, {"id": 6, "section": "101.2", "cat": "boot", "type": "command", "title": "Recuperación de Emergencia con init=/bin/bash", "lead": "¿Has olvidado la contraseña de root? Así es como un SysAdmin entra sin contraseña y la resetea:", "ref": "27-28", "pdf": {"manual": "A", "pages": [27, 28], "figure": null}, "coverage": ["101.2-CMD-002"], "command": "init=/bin/bash", "purpose": "Saltarse la pantalla de login para obtener una consola directa de root y cambiar la contraseña olvidada", "terminal": {"command": "# 1. En la consola de root que arranca, re-montar el disco con permisos de escritura:\nmount -o remount,rw /\n# 2. Ahora sí podemos cambiar la contraseña:\npasswd root\n# 3. Guardar cambios en disco y reiniciar:\nsync && reboot -f", "output": "root@(none):/# mount -o remount,rw /\nroot@(none):/# passwd root\nNew password: \nRetype new password: \npasswd: password updated successfully\nroot@(none):/# sync && reboot -f"}, "options": [{"flag": "¿Por qué hacemos esto?", "desc": "Porque la pantalla de login normal te exige contraseña. Al decirle al kernel 'init=/bin/bash', se salta el inicio de systemd y te da una consola root directa."}, {"flag": "El tropiezo clásico: 'ro'", "desc": "Al entrar con init=/bin/bash, el disco está en solo lectura. Si intentas 'passwd root', fallará diciendo: 'Authentication token manipulation error'."}, {"flag": "mount -o remount,rw /", "desc": "🎯 Comando de Examen VITAL: Vuelve a montar la partición raíz en modo lectura y escritura para permitir guardar la nueva contraseña."}, {"flag": "systemd.unit=emergency.target", "desc": "Alternativa oficial en systemd: Modo de emergencia mínimo (aunque este sí te pedirá la clave actual de root si no la has quitado)."}], "remember": "🎯 PREGUNTA TOP DE EXAMEN: Si al usar init=/bin/bash el comando passwd falla con 'Authentication token manipulation error', es porque el disco está en solo lectura (ro). ¡La solución obligatoria es 'mount -o remount,rw /'!", "notes": "Este procedimiento cae en casi todos los exámenes LPIC-1. Recuérdales que tras cambiar la clave, se remonta en ro o se usa 'exec /sbin/init' o 'sync && reboot -f'.", "diagram_html": "\n<div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; gap:8px;\">\n    <span>🚨</span>\n    <span>Los 4 Pasos Reales para Resetear la Contraseña de Root:</span>\n  </div>\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; font-size:12.5px;\">\n    <div style=\"background:var(--surface-alt); border:1px solid var(--border); border-top:3px solid var(--primary); padding:10px; border-radius:8px;\">\n      <strong style=\"color:var(--primary);\">1. Editar en GRUB</strong><br>\n      Pulsa <kbd>e</kbd>, busca la línea que empieza por <code>linux</code> y añade al final <code>init=/bin/bash</code>. Arranca con <kbd>Ctrl+X</kbd>.\n    </div>\n    <div style=\"background:var(--surface-alt); border:1px solid var(--border); border-top:3px solid #0284C7; padding:10px; border-radius:8px;\">\n      <strong style=\"color:#0284C7;\">2. Consola Directa</strong><br>\n      Aparece <code>root@(none):/#</code>. Eres el usuario root del sistema ¡sin haber puesto ninguna contraseña!\n    </div>\n    <div style=\"background:var(--surface-alt); border:1px solid var(--border); border-top:3px solid var(--warning); padding:10px; border-radius:8px;\">\n      <strong style=\"color:var(--warning-ink);\">3. ¡Comando Salvavidas!</strong><br>\n      Escribe obligatoriamente:<br>\n      <code>mount -o remount,rw /</code><br>\n      (Si no lo haces, <code>passwd</code> dará error).\n    </div>\n    <div style=\"background:var(--surface-alt); border:1px solid var(--border); border-top:3px solid var(--success); padding:10px; border-radius:8px;\">\n      <strong style=\"color:var(--success);\">4. Cambiar y Reiniciar</strong><br>\n      Ejecuta <code>passwd root</code>, pon la nueva clave y reinicia con:<br>\n      <code>sync && reboot -f</code>\n    </div>\n  </div>\n</div>\n"}, {"id": 7, "section": "101.2", "cat": "boot", "type": "file", "title": "Configuración de GRUB: /etc/default/grub y update-grub", "lead": "La Regla de Oro: Nunca edites /boot/grub/grub.cfg a mano. Editas el archivo sencillo y luego compilas:", "ref": "28-30", "pdf": {"manual": "A", "pages": [28, 29, 30], "figure": null}, "coverage": ["101.2-FIL-001", "101.2-CMD-003"], "file": {"path": "/etc/default/grub", "purpose": "Configurar tiempos de espera, sistema por defecto y parámetros del kernel", "content": "GRUB_DEFAULT=0\nGRUB_TIMEOUT=10\nGRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`\nGRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"\nGRUB_CMDLINE_LINUX=\"\""}, "points": [{"icon": "file-text", "text": "La Regla de Oro que no puedes olvidar", "detail": "GRUB lee el archivo '/boot/grub/grub.cfg', pero NUNCA se modifica directamente porque tiene cientos de líneas complejas y se borra solo en las actualizaciones. Siempre se edita '/etc/default/grub'."}, {"icon": "clock", "text": "GRUB_TIMEOUT=10 y GRUB_DEFAULT=0", "detail": "Ejemplos reales: 'GRUB_TIMEOUT=10' hace que el menú espere 10 segundos antes de arrancar solo. 'GRUB_DEFAULT=0' arranca la primera opción de la lista."}, {"icon": "refresh-cw", "text": "Compilar cambios: update-grub o grub-mkconfig", "detail": "🎯 Pregunta de Examen: Tras editar '/etc/default/grub', debes compilar con: 'grub-mkconfig -o /boot/grub/grub.cfg' (o el atajo 'update-grub' en Debian/Ubuntu). Si no lo haces, los cambios no se aplican."}], "remember": "🎯 CLAVE TOP DE EXAMEN: Si modificas /etc/default/grub y no ejecutas 'grub-mkconfig -o /boot/grub/grub.cfg' (o update-grub), el cambio NUNCA tendrá efecto en el siguiente arranque.", "notes": "Pregunta de examen habitual: ¿Cuál es el archivo de configuración generado automáticamente por grub-mkconfig? Respuesta: /boot/grub/grub.cfg.", "diagram_html": "\n<div style=\"display:grid; grid-template-columns: 1fr 140px 1fr; gap:14px; align-items:center; margin-top:12px;\">\n  <!-- Origen -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:14px;\">\n    <div style=\"font-size:14.5px; font-weight:800; color:var(--primary); margin-bottom:6px;\">1. Lo que tú editas (Humano)</div>\n    <div style=\"font-size:13px; color:var(--text); line-height:1.45;\">\n      📄 <code>/etc/default/grub</code><br>\n      <span style=\"color:var(--text-muted);\">Archivo de texto sencillo de 10 líneas con variables claras (timeout, opciones del kernel, resolución).</span>\n    </div>\n  </div>\n\n  <!-- Flecha de Compilación -->\n  <div style=\"text-align:center; background:var(--surface-alt); border:1px solid var(--border); padding:10px; border-radius:8px;\">\n    <div style=\"font-size:18px; color:var(--primary); font-weight:800;\">➔</div>\n    <div style=\"font-size:11.5px; font-weight:800; color:var(--text); font-family:monospace;\">update-grub</div>\n    <div style=\"font-size:10.5px; color:var(--text-muted);\">grub-mkconfig -o ...</div>\n  </div>\n\n  <!-- Destino -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:14px;\">\n    <div style=\"font-size:14.5px; font-weight:800; color:var(--success); margin-bottom:6px;\">2. Lo que lee el PC (¡No tocar!)</div>\n    <div style=\"font-size:13px; color:var(--text); line-height:1.45;\">\n      🔒 <code>/boot/grub/grub.cfg</code><br>\n      <span style=\"color:var(--text-muted);\">Script complejo de más de 300 líneas autogenerado. Si lo editas a mano, se sobrescribirá solo.</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 8, "section": "101.2", "cat": "boot", "type": "diagram", "title": "initramfs: La Llave de Emergencia para Abrir tu Disco Duro", "lead": "¿Cómo puede el Kernel leer tu disco duro si los drivers que necesita están guardados dentro del propio disco?", "ref": "30-31", "pdf": {"manual": "A", "pages": [30, 31], "figure": null}, "coverage": ["101.2-CON-006"], "points": [{"icon": "lock", "text": "El Dilema de la Llave Encerrada", "detail": "Para leer tu disco (especialmente si es NVMe, RAID o está cifrado con contraseña), el Kernel necesita los drivers adecuados. Pero esos drivers están guardados dentro de ese mismo disco. Sin ayuda, Linux se quedaría bloqueado sin poder arrancar."}, {"icon": "archive", "text": "La Solución: initramfs en la Memoria RAM", "detail": "Antes de pasarle el control al Kernel, GRUB coloca en la memoria RAM una pequeña 'caja de herramientas' temporal llamada initramfs (Initial RAM File System). Contiene únicamente los drivers mínimos para despertar tu disco duro."}, {"icon": "check-circle", "text": "Misión Cumplida y Traspaso de Mando", "detail": "El Kernel usa esa caja de herramientas de la RAM para montar tu disco duro real en la raíz '/'. En cuanto el disco ya es accesible, la caja temporal de la RAM se borra para no ocupar espacio y systemd toma el control."}, {"icon": "terminal", "text": "Comandos Clave de Administración", "detail": "Si cambias de disco, añades cifrado o actualizas el Kernel, debes regenerar esta caja de herramientas: en Debian/Ubuntu usas 'update-initramfs -u' y en Red Hat/CentOS usas 'dracut' (o 'mkinitrd')."}], "remember": "🎯 CLAVE TOP DE EXAMEN: initramfs es un archivo comprimido (cpio.gz) que se carga en la RAM para poder montar la raíz real '/'. Pregunta segura: en Debian/Ubuntu se genera con 'update-initramfs -u' y en Red Hat/Fedora con 'dracut' (o 'mkinitrd').", "notes": "Guión didáctico sencillo para explicar en clase:\n1. LA ANALOGÍA DEL DORMITORIO CERRADO:\n   - Imagina que dejas las llaves de tu casa dentro de tu habitación cerrada con llave. ¿Cómo entras a por ellas?\n   - Los drivers del disco duro están guardados dentro de /lib/modules/... en el propio disco duro. Si el kernel no sabe leer ese disco (por ejemplo si es RAID, NVMe o está cifrado con LUKS), nunca podría llegar a ellos.\n   - initramfs es la 'copia de repuesto' que GRUB le deja al Kernel directamente en la RAM.\n2. DIFERENCIA HISTÓRICA ENTRE INITRD E INITRAMFS:\n   - initrd (antiguo): Emulaba un disco duro virtual con sistema de archivos ext2. Lento y rígido de tamaño fijo.\n   - initramfs (moderno): Es simplemente un archivo comprimido cpio que se descomprime en RAM como tmpfs. Rápido y dinámico.\n3. PREGUNTAS TÍPICAS DE EXAMEN LPIC-1:\n   - ¿Qué comando actualiza el initramfs en Debian? -> update-initramfs -u (-u = update).\n   - ¿Qué comando se usa en RHEL/CentOS/Fedora moderno? -> dracut --force (antiguamente mkinitrd).\n   - ¿Qué formato interno tiene initramfs? -> Archivo cpio comprimido con gzip.", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:14px; margin-top:8px;\">\n  <!-- Flujo Visual de 3 Pasos Sencillos -->\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;\">\n    \n    <!-- Paso 1: El Dilema -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid var(--warning); border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;\">\n          <span style=\"background:var(--warning); color:#FFF; font-weight:800; font-size:12px; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;\">1</span>\n          <span style=\"font-size:12px; font-weight:800; color:var(--warning-ink); text-transform:uppercase;\">🔒 El Problema</span>\n        </div>\n        <div style=\"font-size:16px; font-weight:800; color:var(--text); margin-bottom:6px;\">El Disco está Bloqueado</div>\n        <div style=\"font-size:13px; color:var(--text-muted); line-height:1.45;\">\n          El Kernel necesita drivers especiales (RAID, SSD NVMe, cifrado de disco) para poder leer la partición raíz <code>/</code>. Pero esos drivers están <strong>dentro del propio disco</strong>.\n        </div>\n      </div>\n      <div style=\"margin-top:10px; padding:6px 10px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:12px; font-weight:700; color:var(--warning-ink);\">\n        ❌ Paradoja: ¿Cómo lo leo?\n      </div>\n    </div>\n\n    <!-- Paso 2: La Solución -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid var(--primary); border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;\">\n          <span style=\"background:var(--primary); color:#FFF; font-weight:800; font-size:12px; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;\">2</span>\n          <span style=\"font-size:12px; font-weight:800; color:var(--primary); text-transform:uppercase;\">🔑 La Solución</span>\n        </div>\n        <div style=\"font-size:16px; font-weight:800; color:var(--text); margin-bottom:6px;\">initramfs en Memoria RAM</div>\n        <div style=\"font-size:13px; color:var(--text-muted); line-height:1.45;\">\n          GRUB le entrega al Kernel una 'caja de herramientas' temporal en la RAM: un archivo comprimido (<code>cpio</code>) con los drivers necesarios para poder abrir el disco.\n        </div>\n      </div>\n      <div style=\"margin-top:10px; padding:6px 10px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:12px; font-weight:700; color:var(--primary);\">\n        📦 Llave temporal lista en RAM\n      </div>\n    </div>\n\n    <!-- Paso 3: El Resultado -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid var(--success); border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;\">\n          <span style=\"background:var(--success); color:#FFF; font-weight:800; font-size:12px; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;\">3</span>\n          <span style=\"font-size:12px; font-weight:800; color:var(--success); text-transform:uppercase;\">🚀 Resultado</span>\n        </div>\n        <div style=\"font-size:16px; font-weight:800; color:var(--text); margin-bottom:6px;\">Disco Abierto y Listo</div>\n        <div style=\"font-size:13px; color:var(--text-muted); line-height:1.45;\">\n          El Kernel monta la raíz real <code>/</code>, <strong>libera la memoria RAM</strong> ocupada por el initramfs y le pasa el mando definitivo a <code>systemd</code> (PID 1).\n        </div>\n      </div>\n      <div style=\"margin-top:10px; padding:6px 10px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:12px; font-weight:700; color:var(--success);\">\n        ✔️ Sistema real funcionando\n      </div>\n    </div>\n\n  </div>\n\n  <!-- Tarjeta de Comandos y Conceptos de Examen LPIC-1 -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px;\">\n    <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; gap:8px;\">\n      <span>🎯</span>\n      <span>Lo que DEBES memorizar para el Examen LPIC-1:</span>\n    </div>\n    <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; font-size:13px;\">\n      \n      <div style=\"background:var(--surface-alt); border-left:4px solid var(--primary); padding:10px 12px; border-radius:6px;\">\n        <strong style=\"color:var(--primary); font-size:13.5px;\">Debian / Ubuntu</strong><br>\n        <code style=\"font-size:12.5px; font-weight:bold; color:var(--text);\">update-initramfs -u</code><br>\n        <span style=\"font-size:12px; color:var(--text-muted);\">La opción <code>-u</code> significa <em>update</em> (actualizar).</span>\n      </div>\n\n      <div style=\"background:var(--surface-alt); border-left:4px solid var(--warning); padding:10px 12px; border-radius:6px;\">\n        <strong style=\"color:var(--warning-ink); font-size:13.5px;\">Red Hat / CentOS / Fedora</strong><br>\n        <code style=\"font-size:12.5px; font-weight:bold; color:var(--text);\">dracut --force</code><br>\n        <span style=\"font-size:12px; color:var(--text-muted);\">(Antiguamente se utilizaba el comando <code>mkinitrd</code>).</span>\n      </div>\n\n      <div style=\"background:var(--surface-alt); border-left:4px solid var(--success); padding:10px 12px; border-radius:6px;\">\n        <strong style=\"color:var(--success); font-size:13.5px;\">initramfs vs initrd (Antiguo)</strong><br>\n        <span style=\"font-size:12.5px; color:var(--text);\">• <strong>initramfs:</strong> Archivo <code>cpio.gz</code> (moderno).<br>• <strong>initrd:</strong> Disco virtual <code>ext2</code> (obsoleto).</span>\n      </div>\n\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "101.2", "cat": "boot", "type": "diagram", "title": "Evolución de los Sistemas de Inicio: SysV frente a systemd", "lead": "¿Por qué Linux abandonó el clásico SysVinit y adoptó el estándar moderno systemd?", "ref": "31-32", "pdf": {"manual": "A", "pages": [31, 32], "figure": null}, "coverage": ["101.2-CON-007"], "headers": ["Característica", "SysVinit (Heredado)", "Upstart (Transición)", "systemd (Estándar Actual)"], "rows": [["Primer Proceso", "/sbin/init (PID 1)", "/sbin/init (PID 1)", "/lib/systemd/systemd (PID 1)"], ["Filosofía de Inicio", "Secuencial síncrono mediante scripts bash numerados.", "Basado en eventos y trabajos asíncronos.", "Paralelo, basado en sockets, buses D-Bus y unidades."], ["Archivos de Configuración", "/etc/inittab y enlaces en /etc/rcX.d/", "Archivos de trabajo en /etc/init/*.conf", "Archivos de unidad en /etc/systemd/system/ y /lib/systemd/system/"], ["Concepto de Estado", "Niveles de ejecución (Runlevels 0 a 6).", "Estados guiados por eventos (startup, stopped).", "Objetivos de arranque (Targets, ej: multi-user.target)."], ["Comando Principal", "service, /etc/init.d/script, telinit", "initctl, start, stop, status", "systemctl"]], "remember": "🎯 CLAVE TOP DE EXAMEN: Aunque hoy casi todo Linux usa systemd, /sbin/init sigue existiendo como un enlace simbólico que apunta al binario /lib/systemd/systemd.", "notes": "En clase:\n1. Explica la analogía de la fila india: SysV era como una fila en la que nadie puede avanzar hasta que el de delante termine.\n2. systemd es como una autopista de 8 carriles: arranca la red, los discos y los servicios a la vez.\n3. Pregunta típica: Runlevels en SysV (0 a 6) vs Targets en systemd (multi-user.target, graphical.target).", "diagram_html": "\n<div style=\"display:flex; flex-direction:column; gap:12px; margin:8px 0;\">\n  <!-- 3 Columnas Visuales Comparativas -->\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;\">\n    \n    <!-- SysVinit -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid #64748B; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;\">\n          <span style=\"font-size:11px; font-weight:800; color:var(--text-muted); text-transform:uppercase;\">El Pasado (Años 80–2000)</span>\n          <span style=\"font-size:18px;\">🐢</span>\n        </div>\n        <div style=\"font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px;\">SysVinit (Heredado)</div>\n        <div style=\"font-size:12.5px; color:var(--text-muted); line-height:1.45;\">\n          • <strong>Fila India (Secuencial):</strong> Un servicio no empieza hasta que el anterior termina.<br>\n          • <strong>Scripts Bash:</strong> Enlaces en carpetas <code>/etc/rc0.d/</code> a <code>/etc/rc6.d/</code>.<br>\n          • <strong>Niveles (Runlevels):</strong> Runlevel 1 (rescate), 3 (servidor), 5 (gráfico).<br>\n          • <strong>Comando:</strong> <code>service apache2 restart</code> o <code>telinit 3</code>.\n        </div>\n      </div>\n      <div style=\"margin-top:10px; padding:4px 8px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:11.5px; font-weight:700; color:var(--text-muted);\">\n        Arranque lento y rígido\n      </div>\n    </div>\n\n    <!-- Upstart -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid #0284C7; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;\">\n          <span style=\"font-size:11px; font-weight:800; color:#0284C7; text-transform:uppercase;\">Transición (2006–2014)</span>\n          <span style=\"font-size:18px;\">⚡</span>\n        </div>\n        <div style=\"font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px;\">Upstart (Ubuntu)</div>\n        <div style=\"font-size:12.5px; color:var(--text-muted); line-height:1.45;\">\n          • <strong>Basado en Eventos:</strong> Reacciona cuando pasa algo (ej: «se conectó el cable de red»).<br>\n          • <strong>Archivos .conf:</strong> Trabajos guardados en la carpeta <code>/etc/init/</code>.<br>\n          • <strong>Compatibilidad:</strong> Emulaba los runlevels de SysVinit.<br>\n          • <strong>Comando:</strong> <code>initctl</code>, <code>start</code>, <code>stop</code>.\n        </div>\n      </div>\n      <div style=\"margin-top:10px; padding:4px 8px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:11.5px; font-weight:700; color:#0284C7;\">\n        Paso intermedio hacia eventos\n      </div>\n    </div>\n\n    <!-- systemd -->\n    <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-top:4px solid var(--success); border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;\">\n          <span style=\"font-size:11px; font-weight:800; color:var(--success); text-transform:uppercase;\">El Estándar Actual (2010 a hoy)</span>\n          <span style=\"font-size:18px;\">🚀</span>\n        </div>\n        <div style=\"font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px;\">systemd (Moderno)</div>\n        <div style=\"font-size:12.5px; color:var(--text-muted); line-height:1.45;\">\n          • <strong>Paralelo Masivo:</strong> Enciende todos los servicios a la vez usando todos los núcleos de la CPU.<br>\n          • <strong>Targets en vez de Runlevels:</strong> <code>multi-user.target</code> (servidor) y <code>graphical.target</code> (escritorio).<br>\n          • <strong>Unidades .service:</strong> En <code>/lib/systemd/system/</code>.<br>\n          • <strong>Comando Único:</strong> <code>systemctl</code>.\n        </div>\n      </div>\n      <div style=\"margin-top:10px; padding:4px 8px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-size:11.5px; font-weight:700; color:var(--success);\">\n        El estándar en Debian, Ubuntu, RHEL\n      </div>\n    </div>\n\n  </div>\n\n  <!-- Tabla de Equivalencias de Examen -->\n  <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px;\">\n    <div style=\"font-size:13.5px; font-weight:800; color:var(--text); margin-bottom:6px;\">\n      🎯 Tabla de Equivalencias que SIEMPRE cae en el examen:\n    </div>\n    <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; font-size:12.5px;\">\n      <div style=\"background:var(--surface-alt); padding:6px 10px; border-radius:6px;\">\n        <strong>Modo Rescate / Monousuario:</strong><br>\n        Runlevel 1 ➔ <code>rescue.target</code>\n      </div>\n      <div style=\"background:var(--surface-alt); padding:6px 10px; border-radius:6px;\">\n        <strong>Modo Servidor (Texto y Red):</strong><br>\n        Runlevel 3 ➔ <code>multi-user.target</code>\n      </div>\n      <div style=\"background:var(--surface-alt); padding:6px 10px; border-radius:6px;\">\n        <strong>Modo Escritorio Gráfico:</strong><br>\n        Runlevel 5 ➔ <code>graphical.target</code>\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 10, "section": "101.2", "cat": "boot", "type": "command", "title": "El Registro del Kernel: dmesg y el Búfer Circular", "lead": "¿Qué hace el kernel cuando falla el hardware y los discos aún no están montados?", "ref": "32-34", "pdf": {"manual": "A", "pages": [32, 33, 34], "figure": null}, "coverage": ["101.2-CMD-004", "101.2-CMD-005"], "command": "dmesg", "purpose": "Inspeccionar el historial de detección de hardware en la memoria RAM con el comando dmesg", "terminal": {"command": "dmesg -T -l err,warn", "output": "[Sun Oct 25 10:14:02 2026] ata1.00: failed to set xfermode (error -16)\n[Sun Oct 25 10:14:03 2026] iwlwifi: Direct firmware load failed (-2)\n[Sun Oct 25 10:14:05 2026] thermal thermal_zone0: critical temperature reached (98 C)"}, "options": [{"flag": "¿Para qué sirve dmesg en la vida real?", "desc": "Es la primera herramienta del SysAdmin cuando algo de hardware falla: un disco que da errores de lectura, una tarjeta Wi-Fi que no conecta o un puerto USB que no reconoce un dispositivo."}, {"flag": "dmesg -T (Human-readable time)", "desc": "🎯 Clave de Examen: Convierte los segundos incomprensibles [  12.451234] en fechas y horas humanas reales (ej: 'Sun Oct 25 10:14:02 2026')."}, {"flag": "dmesg -l err,warn", "desc": "Filtra la salida para no leer miles de líneas y ver únicamente los errores y advertencias de hardware."}, {"flag": "dmesg -w (Follow / En vivo)", "desc": "Se queda a la escucha en directo (como tail -f): conectas un pendrive USB y ves salir los mensajes del kernel al instante."}], "remember": "🎯 CLAVE TOP DE EXAMEN: El búfer del kernel es circular (Ring Buffer). Está en memoria RAM y tiene tamaño fijo: si se llena de mensajes, los nuevos sobrescriben a los más antiguos.", "notes": "Muestra la diferencia entre 'dmesg' a secas (que muestra segundos flotantes tipo [    0.000000]) y 'dmesg -T' que muestra fechas reales.", "diagram_html": "\n<div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; gap:8px;\">\n    <span>🔄</span>\n    <span>¿Por qué el Kernel usa un Búfer Circular en memoria RAM?</span>\n  </div>\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; font-size:12.5px;\">\n    <div style=\"background:var(--surface-alt); border-left:4px solid var(--primary); padding:8px 12px; border-radius:6px;\">\n      <strong style=\"color:var(--primary);\">1. Antes de los discos</strong><br>\n      Cuando el PC arranca, los discos duros aún no existen. El kernel anota todo en la memoria RAM temporal.\n    </div>\n    <div style=\"background:var(--surface-alt); border-left:4px solid var(--warning); padding:8px 12px; border-radius:6px;\">\n      <strong style=\"color:var(--warning-ink);\">2. Memoria fija (Circular)</strong><br>\n      Para no comerse toda la RAM, tiene un tamaño fijo: los eventos nuevos borran a los más antiguos si se llena.\n    </div>\n    <div style=\"background:var(--surface-alt); border-left:4px solid var(--success); padding:8px 12px; border-radius:6px;\">\n      <strong style=\"color:var(--success);\">3. Pasar a disco</strong><br>\n      Cuando systemd arranca, copia este búfer a los archivos de log de disco (<code>/var/log/</code>) para guardarlos.\n    </div>\n  </div>\n</div>\n"}, {"id": 11, "section": "101.2", "cat": "boot", "type": "command", "title": "El Diario Digital de systemd: journalctl", "lead": "¿Cómo busca un administrador los fallos del sistema sin tener que abrir 10 archivos de texto distintos?", "ref": "34-35", "pdf": {"manual": "A", "pages": [34, 35], "figure": null}, "coverage": ["101.2-CMD-006", "101.2-CMD-007"], "command": "journalctl", "purpose": "Consultar y filtrar en segundos los logs del kernel, del arranque y de los servicios en una base de datos indexada", "terminal": {"command": "journalctl -b -1 -p err", "output": "Oct 24 23:45:10 servidor-prod kernel: EXT4-fs (sda1): unable to read superblock\nOct 24 23:45:12 servidor-prod systemd[1]: Failed to start PostgreSQL Database Server.\nOct 24 23:45:15 servidor-prod systemd[1]: System is powering down."}, "options": [{"flag": "journalctl -b", "desc": "Muestra todos los logs generados desde que encendiste el ordenador en la sesión actual."}, {"flag": "journalctl -b -1", "desc": "🎯 Clave de Examen: Muestra los logs del arranque ANTERIOR (vital cuando un servidor se reinició inesperadamente y quieres saber por qué cayó)."}, {"flag": "journalctl -u nginx -f", "desc": "Filtra por un servicio concreto (ej: servidor web nginx) y se queda en directo (-f / follow) viendo accesos o errores."}, {"flag": "journalctl -k -p err", "desc": "Muestra solo mensajes del Kernel (-k) con prioridad de error grave (-p err)."}, {"flag": "journalctl --list-boots", "desc": "Lista todos los arranques que el sistema tiene guardados en su historial con sus fechas y horas exactas."}], "remember": "🎯 PREGUNTA TOP DE EXAMEN: Para investigar qué provocó la caída de un servidor en el reinicio anterior, se usa: 'journalctl -b -1'.", "notes": "Explica la enorme ventaja de journalctl frente a los archivos .log planos antiguos: los logs de journald están indexados y no se corrompen en caídas.", "diagram_html": "\n<div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; gap:8px;\">\n    <span>⚡</span>\n    <span>Los 4 filtros de <code>journalctl</code> que todo SysAdmin usa a diario:</span>\n  </div>\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; font-size:12.5px;\">\n    <div style=\"background:var(--surface-alt); border-left:3px solid var(--primary); padding:8px 10px; border-radius:6px;\">\n      <strong style=\"color:var(--primary); font-family:monospace;\">journalctl -b -1</strong><br>\n      ¿Qué provocó la caída del servidor antes de reiniciarse?\n    </div>\n    <div style=\"background:var(--surface-alt); border-left:3px solid var(--success); padding:8px 10px; border-radius:6px;\">\n      <strong style=\"color:var(--success); font-family:monospace;\">journalctl -u ssh -f</strong><br>\n      Monitorear en vivo quién intenta conectarse por SSH.\n    </div>\n    <div style=\"background:var(--surface-alt); border-left:3px solid var(--warning); padding:8px 10px; border-radius:6px;\">\n      <strong style=\"color:var(--warning-ink); font-family:monospace;\">journalctl -k -p err</strong><br>\n      Ver solo errores críticos de hardware y del Kernel.\n    </div>\n    <div style=\"background:var(--surface-alt); border-left:3px solid #9333EA; padding:8px 10px; border-radius:6px;\">\n      <strong style=\"color:#9333EA; font-family:monospace;\">--since \"1 hour ago\"</strong><br>\n      Ver únicamente los sucesos ocurridos en la última hora.\n    </div>\n  </div>\n</div>\n"}, {"id": 12, "section": "101.2", "cat": "boot", "type": "file", "title": "Persistencia de Logs y Análisis Forense: /etc/systemd/journald.conf", "lead": "¿Cómo evitar que los logs se borren al reiniciar y cómo auditar un servidor que no arranca con journalctl -D?", "ref": "35-36", "pdf": {"manual": "A", "pages": [35, 36], "figure": null}, "coverage": ["101.2-FIL-002", "101.2-CMD-008"], "file": {"path": "/etc/systemd/journald.conf", "purpose": "Configurar si los logs se guardan en la memoria RAM o en el disco duro permanentemente", "content": ""}, "points": [], "remember": "🎯 CLAVE TOP DE EXAMEN: Si /var/log/journal/ no existe o Storage=volatile, los logs van a la RAM (/run) y se pierden al apagar. Para auditar los logs de un disco de servidor roto conectado a otro equipo, el comando oficial de certificación es: 'journalctl -D <ruta_al_directorio_journal>'.", "notes": "Guión didáctico sencillo para el profesor:\n1. EL PROBLEMA DE LOS LOGS VOLÁTILES:\n   - Por defecto en muchas instalaciones mínimas, systemd guarda los logs en /run/log/journal (RAM). Si el servidor se apaga o se bloquea, ¡pierdes todas las pistas de por qué falló!\n   - Para que sea persistente en disco duro, debe existir la ruta /var/log/journal/.\n2. DOS FORMAS DE ACTIVAR LA PERSISTENCIA:\n   - Método A (Automático): Ejecutar 'mkdir -p /var/log/journal && systemctl restart systemd-journald'.\n   - Método B (Configuración): Editar /etc/systemd/journald.conf y poner 'Storage=persistent'.\n3. LA PREGUNTA ESTRELLA DE EXAMEN - ANÁLISIS FORENSE CON -D:\n   - Imagina que un servidor se rompe y no arranca ni a modo rescate.\n   - Sacas el disco, lo pinchas en tu portátil o arrancas con un LiveCD y lo montas en /mnt/servidor_caido.\n   - ¿Cómo lees sus logs de systemd si journalctl por defecto lee los de tu máquina actual?\n   - Usando la opción -D (Directory): 'journalctl -D /mnt/servidor_caido/var/log/journal/'.", "diagram_html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:8px;\">\n  \n  <!-- COLUMNA IZQUIERDA: EL ARCHIVO /etc/systemd/journald.conf -->\n  <div style=\"display:flex; flex-direction:column; gap:12px;\">\n    \n    <!-- Bloque de Código del Archivo -->\n    <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:12px; overflow:hidden;\">\n      <div style=\"background:var(--surface-alt); padding:8px 14px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between;\">\n        <div style=\"display:flex; align-items:center; gap:8px;\">\n          <span style=\"font-size:16px;\">📄</span>\n          <code style=\"font-size:13.5px; font-weight:800; color:var(--text);\">/etc/systemd/journald.conf</code>\n        </div>\n        <span style=\"font-size:11px; font-weight:700; color:var(--primary); background:var(--primary-soft); padding:3px 8px; border-radius:6px;\">Configuración</span>\n      </div>\n      <div style=\"padding:12px 16px; font-family:'JetBrains Mono', Consolas, monospace; font-size:13px; line-height:1.5; background:var(--surface);\">\n        <span style=\"color:#64748B;\"># Configuración del demonio systemd-journald</span><br>\n        <strong style=\"color:var(--primary);\">[Journal]</strong><br>\n        <span style=\"color:#64748B;\"># Opciones: persistent (disco) | volatile (RAM) | auto</span><br>\n        <span style=\"color:var(--text); font-weight:bold;\">Storage</span>=<span style=\"color:var(--success); font-weight:bold;\">persistent</span><br>\n        <br>\n        <span style=\"color:#64748B;\"># Límite máximo de espacio que ocuparán los logs</span><br>\n        <span style=\"color:var(--text); font-weight:bold;\">SystemMaxUse</span>=<span style=\"color:var(--warning-ink); font-weight:bold;\">500M</span>\n      </div>\n    </div>\n\n    <!-- Comparativa Visual de Modos -->\n    <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:10px;\">\n      <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-left:4px solid var(--warning); border-radius:10px; padding:10px 12px;\">\n        <div style=\"font-size:12.5px; font-weight:800; color:var(--warning-ink); margin-bottom:3px;\">❌ Modo Volátil (En RAM)</div>\n        <div style=\"font-family:monospace; font-size:11.5px; color:var(--text); font-weight:700; margin-bottom:4px;\">/run/log/journal/</div>\n        <div style=\"font-size:11.5px; color:var(--text-muted); line-height:1.35;\">\n          En memoria RAM (tmpfs). Al reiniciar o apagarse, <strong>todos los logs se borran</strong>.\n        </div>\n      </div>\n\n      <div style=\"background:var(--surface-alt); border:2px solid var(--border-strong); border-left:4px solid var(--success); border-radius:10px; padding:10px 12px;\">\n        <div style=\"font-size:12.5px; font-weight:800; color:var(--success); margin-bottom:3px;\">✔️ Modo Persistente (En Disco)</div>\n        <div style=\"font-family:monospace; font-size:11.5px; color:var(--text); font-weight:700; margin-bottom:4px;\">/var/log/journal/</div>\n        <div style=\"font-size:11.5px; color:var(--text-muted); line-height:1.35;\">\n          En disco duro. Conserva el historial para auditar caídas con <code>journalctl -b -1</code>.\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n  <!-- COLUMNA DERECHA: CONSOLA DE COMANDOS REALES -->\n  <div style=\"display:flex; flex-direction:column; gap:12px;\">\n    \n    <!-- Terminal Realista de Consola -->\n    <div style=\"background:#0F172A; border:2px solid #334155; border-radius:12px; overflow:hidden; box-shadow:0 6px 16px rgba(15,23,42,0.18);\">\n      <div style=\"background:#1E293B; padding:8px 14px; border-bottom:1px solid #334155; display:flex; align-items:center; justify-content:space-between;\">\n        <div style=\"display:flex; align-items:center; gap:6px;\">\n          <span style=\"width:10px; height:10px; border-radius:50%; background:#EF4444; display:inline-block;\"></span>\n          <span style=\"width:10px; height:10px; border-radius:50%; background:#F59E0B; display:inline-block;\"></span>\n          <span style=\"width:10px; height:10px; border-radius:50%; background:#10B981; display:inline-block;\"></span>\n          <span style=\"font-family:monospace; font-size:12px; color:#94A3B8; margin-left:8px;\">terminal — bash</span>\n        </div>\n        <span style=\"font-size:11px; color:#38BDF8; font-weight:700;\">Comandos Oficiales LPIC-1</span>\n      </div>\n      <div style=\"padding:14px 16px; font-family:'JetBrains Mono', Consolas, monospace; font-size:12.5px; line-height:1.55; color:#F8FAFC;\">\n        \n        <div style=\"color:#64748B;\"># 1. Habilitar persistencia de inmediato creando la carpeta:</div>\n        <div style=\"color:#38BDF8;\"><span style=\"color:#10B981;\">root@debian:~#</span> mkdir -p /var/log/journal</div>\n        <div style=\"color:#38BDF8;\"><span style=\"color:#10B981;\">root@debian:~#</span> systemctl restart systemd-journald</div>\n        \n        <div style=\"color:#64748B; margin-top:8px;\"># 2. RESCATE FORENSE: Servidor caído montado en disco externo:</div>\n        <div style=\"color:#FCD34D;\"><span style=\"color:#10B981;\">root@debian:~#</span> journalctl -D /mnt/servidor_caido/var/log/journal/</div>\n        \n        <div style=\"color:#64748B; margin-top:8px;\"># 3. Comprobar cuánto espacio ocupan los logs en disco:</div>\n        <div style=\"color:#38BDF8;\"><span style=\"color:#10B981;\">root@debian:~#</span> journalctl --disk-usage</div>\n        <div style=\"color:#94A3B8;\">Archived and active journals take up 144.0M in the file system.</div>\n      </div>\n    </div>\n\n    <!-- Tarjeta Clave de Rescate Forense -->\n    <div style=\"background:var(--surface); border:2px solid var(--border-strong); border-radius:10px; padding:10px 14px;\">\n      <div style=\"font-size:12.5px; font-weight:800; color:var(--text); margin-bottom:4px; display:flex; align-items:center; gap:6px;\">\n        <span>🎯</span>\n        <span>¿Por qué preguntan tanto por 'journalctl -D' en el examen?</span>\n      </div>\n      <div style=\"font-size:12px; color:var(--text-muted); line-height:1.4;\">\n        Por defecto, <code>journalctl</code> solo lee los logs del sistema que está encendido. La opción <strong style=\"color:var(--primary);\">-D &lt;directorio&gt;</strong> es la única forma de auditar los registros de una máquina externa o caída desde un LiveCD.\n      </div>\n    </div>\n\n  </div>\n\n</div>\n"}, {"id": 13, "section": "101.2", "cat": "boot", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: Firmware, BIOS y ESP)", "ref": "34", "pdf": {"manual": "A", "pages": [34], "figure": null}, "scenario": "Casos prácticos sobre código de arranque y particiones EFI (Manual Oficial LPIC-1 Página 34):", "steps": [{"action": "Caso 1: En un sistema BIOS tradicional, ¿dónde reside físicamente el código que la BIOS ejecuta tras el POST y cuántos bytes ocupa?", "command": "Primer sector del disco duro (MBR / Sector 0), en los primeros 446 bytes", "reason": "El MBR ocupa 512 bytes: los primeros 446 son código ejecutable (Stage 1 de GRUB); los siguientes 64 bytes son la tabla de 4 particiones primarias y los 2 últimos la firma 0x55AA."}, {"action": "Caso 2: En un equipo UEFI, el sistema no encuentra el bootloader tras clonar el disco. ¿Qué se debe comprobar?", "command": "Comprobar que la partición ESP es tipo 'c12a7328-f81f-11d2-ba4b-00a0c93ec93b', tiene sistema FAT32 y contiene el archivo /EFI/debian/grubx64.efi", "reason": "El firmware UEFI no lee el MBR; navega directamente por la partición FAT32 buscando el binario .efi registrado en la NVRAM mediante efibootmgr."}], "solution": {"explain": "El examen compara continuamente la arquitectura de sectores físicos del MBR tradicional frente al sistema de archivos FAT de la partición ESP de UEFI."}, "notes": "Haz énfasis en que en BIOS el código se ejecuta directamente de los sectores crudos del disco; en UEFI se ejecuta un binario dentro de un sistema de archivos."}, {"id": 14, "section": "101.2", "cat": "boot", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: Parámetros y Errores)", "ref": "34-35", "pdf": {"manual": "A", "pages": [34, 35], "figure": null}, "scenario": "Casos prácticos de parámetros de kernel y errores de arranque (Manual Oficial LPIC-1 Páginas 34-35):", "steps": [{"action": "Caso 3: Un servidor entra en Kernel Panic con el mensaje 'VFS: Unable to mount root fs on unknown-block(0,0)'. ¿Qué parámetro de GRUB está mal?", "command": "Revisar el parámetro 'root=' en la línea de comando del kernel", "reason": "Indica que el kernel no encuentra el disco raíz especificado en root= (por UUID cambiado tras clonar o disco renombrado de sda a sdb)."}, {"action": "Caso 4: Necesitamos averiguar qué errores críticos registró el kernel durante el arranque de ayer antes de un apagón repentino.", "command": "journalctl -b -1 -k -p err", "reason": "El flag -b -1 selecciona el arranque previo; -k restringe a mensajes del núcleo y -p err descarta avisos de menor severidad."}], "solution": {"explain": "El diagnóstico del arranque exige correlacionar el parámetro root de GRUB con las herramientas de inspección histórica de journalctl."}, "notes": "Muestra a los alumnos cómo simular esto en un examen: el 90% de los 'Kernel Panic' en clase se deben a un parámetro root erróneo."}, {"id": 15, "section": "101.2", "cat": "boot", "type": "challenge", "title": "Retos de Exploración del Manual Oficial", "ref": "35-36", "pdf": {"manual": "A", "pages": [35, 36], "figure": null}, "scenario": "Resuelve estos 4 retos de examen planteados en el manual oficial LPIC-1 (Páginas 35-36):\n1. ¿Qué ocurre exactamente si en un disco GPT ejecutas 'dd if=/dev/zero of=/dev/sda bs=446 count=1'?\n2. ¿Cómo forzarías al kernel a ignorar los primeros 8 GB de RAM si sospechas que un módulo DIMM falla?\n3. ¿Por qué el comando 'dmesg' pierde los mensajes iniciales del arranque en servidores que llevan 300 días encendidos?\n4. ¿Cómo analizar los logs de un disco de servidor montado en /mnt/recuperacion?", "hint": "Recuerda: Protective MBR en GPT; parámetro mem= en el kernel; buffer circular en RAM; y la opción de directorio de journalctl.", "solution": {"explain": "1. En GPT el Protective MBR solo ocupa el LBA 0 para protección; el arranque UEFI ignora el código del MBR y seguirá arrancando normalmente desde la partición ESP.\n2. Para limitar la memoria a 8 GB se añade el parámetro 'mem=8G' en la línea del kernel en GRUB.\n3. Porque dmesg lee un búfer circular en memoria RAM de tamaño finito: conforme ocurren eventos de red o discos a lo largo de meses, los mensajes viejos se van pisando.\n4. Se utiliza el comando: journalctl -D /mnt/recuperacion/var/log/journal/."}, "notes": "Estos retos cubren preguntas de situaciones límite en el examen de certificación."}, {"id": 16, "section": "101.2", "cat": "boot", "type": "review", "title": "Pregunta de Examen LPIC-1: Parámetros del Kernel", "q": "¿Qué parámetro debe pasarse al kernel de Linux en el menú de GRUB para arrancar directamente en una shell de root saltándose la autenticación y la inicialización de servicios?", "options": ["single-user=true", "init=/bin/bash", "systemd.mode=root", "boot=emergency"], "answer": 1, "why": "init=/bin/bash le indica al kernel que ejecute una shell interactiva como proceso PID 1 en lugar del administrador de inicio estándar. Las opciones A, C y D son nombres ficticios o incorrectos.", "notes": "Pregunta fija de examen. Haz que los alumnos recuerden que también se puede usar init=/bin/sh."}, {"id": 17, "section": "101.2", "cat": "boot", "type": "review", "title": "Pregunta de Examen LPIC-1: journalctl y Diagnóstico", "q": "¿Qué comando muestra exclusivamente los mensajes del kernel ocurridos durante el arranque anterior del sistema?", "options": ["dmesg --previous", "journalctl -b -1 -k", "journalctl --last-boot -k", "cat /var/log/boot.prev"], "answer": 1, "why": "journalctl -b -1 selecciona el arranque inmediatamente anterior al actual (offset -1) y la opción -k (o --dmesg) filtra solo los mensajes del kernel. dmesg solo muestra el arranque actual en memoria viva.", "notes": "Resalta por qué la opción C es un distractor: el flag correcto es --list-boots o -b -1, no existe --last-boot."}, {"id": 18, "section": "101.2", "cat": "boot", "type": "flashcards", "title": "Tarjetas de Memorización: Arranque y Registros 101.2", "deck": [{"front": "¿Qué tecla abre el menú oculto de GRUB en BIOS y cuál en UEFI?", "back": "BIOS: tecla Shift (mantener pulsada). UEFI: tecla Esc (pulsar repetidamente)."}, {"front": "¿Dónde almacena UEFI los ejecutables de arranque y qué formato de archivo exige?", "back": "En la partición ESP (EFI System Partition), obligatoriamente formateada en FAT16 o FAT32 (montada en /boot/efi)."}, {"front": "¿En qué archivo se configuran las opciones permanentes de GRUB y qué comando las compila?", "back": "Se configuran en /etc/default/grub y se compilan con 'grub-mkconfig -o /boot/grub/grub.cfg'."}, {"front": "¿Qué archivo virtual muestra los parámetros exactos con los que arrancó el kernel?", "back": "/proc/cmdline (muestra en vivo la línea de parámetros del arranque actual)."}, {"front": "¿Qué hace el comando 'dmesg -T'?", "back": "Muestra el búfer circular del kernel traduciendo los segundos en marcas de fecha y hora legibles para humanos."}, {"front": "¿Qué comando lista todos los arranques registrados por systemd?", "back": "journalctl --list-boots (muestra offset, UUID y rango de fechas de cada sesión)."}, {"front": "¿Qué comando permite analizar logs de un disco externo montado?", "back": "journalctl -D /ruta/al/directorio/journal/ (análisis forense sin usar el journal del host)."}, {"front": "¿Qué hace el comando 'switch_root' en el initramfs?", "back": "Cambia la raíz del sistema de la memoria RAM al disco duro real montado y ejecuta el /sbin/init definitivo."}], "notes": "Estas 8 tarjetas resumen las preguntas más frecuentes de todo el bloque de arranque de LPIC-1."}, {"id": 19, "section": "101.2", "cat": "boot", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 101.2", "takeaways": ["Secuencia: Firmware (POST) -> Bootloader (GRUB) -> Kernel (vmlinuz) -> initramfs (drivers) -> Init (PID 1).", "Firmware: BIOS ejecuta MBR (446 bytes código + 64 bytes tabla); UEFI ejecuta binario .efi en partición ESP FAT32.", "GRUB: Shift en BIOS, Esc en UEFI. Tecla 'e' edita; 'c' consola; 'init=/bin/bash' para rescate; /etc/default/grub se compila con grub-mkconfig.", "Registros: dmesg (-T hora legible, -c limpia); journalctl (-b sesión, --list-boots historial, -k kernel, -D directorio externo)."], "top3": [{"cmd": "grub-mkconfig -o /boot/grub/grub.cfg", "desc": "Compila y regenera el menú de arranque de GRUB tras modificar /etc/default/grub."}, {"cmd": "dmesg -T", "desc": "Inspecciona el buffer del kernel con marcas de tiempo legibles para diagnosticar periféricos."}, {"cmd": "journalctl -b -1 -k", "desc": "Filtra los eventos del kernel del arranque inmediatamente anterior al actual."}], "practice": {"name": "Practica 101.2: Arranque del Sistema, Parámetros del Kernel y Registros", "url": "../practicas/p-101-2-arranque-sistema.html", "desc": "Examina la secuencia de arranque de Linux desde el BIOS/UEFI hasta el espacio de usuario, audita dmesg y consulta el journal del arranque previo con journalctl."}, "notes": "Concluimos el subtema 101.2. Los alumnos tienen una comprensión sólida del proceso de inicio completo de Linux."}];
     const ERRATAS = [{"id": "E-003", "pdf": "pág. 11 (impresa 29)", "original": "se almacenan en texto sin formato, se requiere el comando journalctl para leerlos", "correct": "se almacenan en formato binario estructurado e indexado", "kind": "técnica / traducción", "note": "El manual oficial afirma erróneamente que los mensajes de journald son texto sin formato. En realidad son binarios indexados; por eso no se pueden ver con cat y se requiere journalctl."}];
     const GLOSARIO = [{"id": "BIOS", "term": "BIOS", "def": "Basic Input/Output System: firmware clásico de placas x86 que ejecuta el POST y lee el primer sector MBR.", "ref": "p. 4", "see": ["UEFI", "MBR"]}, {"id": "UEFI", "term": "UEFI", "def": "Unified Extensible Firmware Interface: sucesor de BIOS capaz de leer sistemas de archivos y ejecutar aplicaciones EFI.", "ref": "p. 4", "see": ["BIOS", "ESP"]}, {"id": "MBR", "term": "MBR", "def": "Master Boot Record: sector de 512 bytes al inicio del disco con 440 bytes de bootstrap y tabla de particiones DOS.", "ref": "p. 4", "see": ["BIOS"]}, {"id": "ESP", "term": "ESP", "def": "EFI System Partition: partición formateada en FAT32 que almacena aplicaciones EFI y gestores de arranque.", "ref": "p. 5", "see": ["UEFI"]}, {"id": "GRUB", "term": "GRUB", "def": "Grand Unified Bootloader: gestor de arranque estándar de Linux que presenta menús y carga el kernel.", "ref": "p. 5", "see": ["kernel"]}, {"id": "initramfs", "term": "initramfs", "def": "Initial RAM filesystem: sistema raíz temporal cargado en memoria que suministra drivers para montar la raíz definitiva.", "ref": "p. 8", "see": ["init", "fstab"]}, {"id": "systemd", "term": "systemd", "def": "Administrador moderno de sistemas y servicios en Linux con arranque concurrente, cgroups y sockets.", "ref": "p. 8", "see": ["SysVinit", "journald"]}, {"id": "dmesg", "term": "dmesg", "def": "Comando para consultar y controlar los mensajes del kernel almacenados en el ring buffer circular en RAM.", "ref": "p. 9", "see": ["journalctl"]}, {"id": "journalctl", "term": "journalctl", "def": "Herramienta de consulta del diario binario indexado generado por el servicio systemd-journald.", "ref": "p. 10", "see": ["systemd-journald", "dmesg"]}];
     const META = {"topic": "101.2", "title": "Arranque del sistema", "weight": 3, "description": "Secuencia de arranque, firmware, GRUB, initramfs y registros (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1453,6 +1932,9 @@
           });
           html += `</div>`;
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.console || s.terminal) {
           html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
         }
@@ -1518,6 +2000,9 @@
         const termData = s.terminal || s.console;
         if (termData) {
           html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
         }
 
         if (s.trap || s.warning) {
@@ -1603,6 +2088,9 @@
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
 
         if (s.trap || s.warning) {
           html += `
@@ -1643,6 +2131,9 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.remember) {
           html += `
             <div class="callout-box callout-remember" style="margin-top:14px;">
@@ -1689,12 +2180,37 @@
             </div>
           `;
         }
+      } else if (s.type === 'diagram') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.diagram_html || s.raw_html || s.html || s.svg || s.content || '';
+        if (bodyContent) html += bodyContent;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         const steps = s.steps || s.nodes || s.diagram?.nodes || [];
-        if (steps.length > 0) {
+        if (steps.length > 0 && !s.diagram_html && !s.raw_html && !s.html && !s.svg) {
           html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
           steps.forEach((st, idx) => {
             const stitle = st.step || st.title || st.text || st.label || '';
@@ -2055,9 +2571,11 @@
           `;
         }
       } else {
-        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
-        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.raw_html || s.html || s.content;
+        if (bodyContent) html += bodyContent;
       }
       return html;
     }
@@ -2241,6 +2759,9 @@
 
     function closeModals() {
       document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+      if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
     }
 
     function closePopovers() {
@@ -2266,6 +2787,45 @@
       popover.style.top = `${rect.bottom + 8}px`;
       popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
       popover.classList.add('open');
+    }
+
+    function openPopover(targetOrEvent, html) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      let el = null;
+      if (targetOrEvent instanceof Event) {
+        targetOrEvent.stopPropagation();
+        el = targetOrEvent.currentTarget || targetOrEvent.target;
+      } else if (targetOrEvent && targetOrEvent.nodeType) {
+        el = targetOrEvent;
+      } else if (targetOrEvent && targetOrEvent.target) {
+        el = targetOrEvent.target;
+      }
+      const popover = document.getElementById('global-popover');
+      if (!popover) return;
+      popover.innerHTML = html || '<div>Sin detalles adicionales</div>';
+      if (el && el.getBoundingClientRect) {
+        const rect = el.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + 8}px`;
+        popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      }
+      popover.classList.add('open');
+    }
+
+    function toggleAnswer(btn) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      if (!btn) return;
+      const container = btn.closest('.quiz-reveal-container') || btn.parentElement;
+      if (!container) return;
+      const ans = container.querySelector('.quiz-answer-box');
+      if (ans) {
+        const isHidden = window.getComputedStyle(ans).display === 'none' || ans.style.display === 'none';
+        ans.style.display = isHidden ? 'block' : 'none';
+        btn.textContent = isHidden ? 'Ocultar Respuesta ▲' : 'Ver Respuesta ▼';
+      }
     }
     document.addEventListener('click', closePopovers);
 
@@ -2444,6 +3004,18 @@
         }
       }
       renderSlide(initSlide);
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length && num !== currentSlideIdx) {
+            renderSlide(num);
+          }
+        }
+      }
     });
   </script>
 </body>

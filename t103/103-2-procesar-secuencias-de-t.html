@@ -322,17 +322,87 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 8px;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       background: var(--surface);
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
-    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); }
-    .nav-btn.primary { background: var(--primary-soft); color: var(--primary-ink); border-color: var(--primary); }
+    .nav-btn:hover { background: var(--surface-alt); border-color: var(--control-border); transform: translateY(-1px); }
+    .nav-btn:active { transform: translateY(0); }
+    .nav-btn.primary { background: #2563EB; color: #FFFFFF !important; border-color: #1D4ED8; box-shadow: 0 2px 4px rgba(37,99,235,0.25); }
+    .nav-btn.primary:hover { background: #1D4ED8; border-color: #1E40AF; }
+
+    /* Sistema Completo de Botones .btn */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      border: 1.5px solid transparent;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      user-select: none;
+      outline: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.12), 0 2px 4px -2px rgba(15, 23, 42, 0.08);
+    }
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: #FFFFFF !important;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      gap: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF !important;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+    }
 
     /* Contenedor del escenario (1920x1080) */
     #app-container {
@@ -498,6 +568,246 @@
       color: var(--info-ink);
       border-color: #BAE6FD;
     }
+    .callout-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      max-width: 24px !important;
+      min-height: 24px !important;
+      max-height: 24px !important;
+      border-radius: 50% !important;
+      background: #2563EB;
+      color: #FFFFFF !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+      text-align: center !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      margin: 0 4px !important;
+      user-select: none !important;
+    }
+    .badge-blue { background: #2563EB !important; color: #FFFFFF !important; }
+    .badge-amber { background: #D97706 !important; color: #FFFFFF !important; }
+    .badge-red { background: #DC2626 !important; color: #FFFFFF !important; }
+    .badge-green { background: #16A34A !important; color: #FFFFFF !important; }
+    .badge-purple { background: #7C3AED !important; color: #FFFFFF !important; }
+
+    /* Glosarios & Conceptos Clave Modernos */
+    /* Glosarios & Conceptos Clave Modernos */
+    .slide-glossary-box {
+      margin-top: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .slide-glossary-box .gl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .slide-glossary-box .gl-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563EB;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .slide-glossary-box .gl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .slide-glossary-box .gl-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+    .slide-glossary-box .gl-card:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+    .slide-glossary-box .gl-badge {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1D4ED8;
+      background: #EFF6FF;
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid #BFDBFE;
+      display: inline-block;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .slide-glossary-box .gl-def {
+      color: #334155;
+      font-size: 13.5px;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .slide-glossary-box .gl-def code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 4px;
+      color: #0F172A;
+    }
+
+    /* Compatibilidad strip con estilo pulido tipo chips */
+    .slide-glossary-strip {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .slide-glossary-strip .gl-title {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-glossary-strip .gl-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .slide-glossary-strip .gl-term {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #1D4ED8;
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM (Completo, accesible y moderno para interactivos y quizes)
+       ========================================================================== */
+    .btn, .quiz-reveal-container button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .btn:focus-visible, .quiz-reveal-container button:focus-visible {
+      outline: 2px solid #2563EB;
+      outline-offset: 2px;
+    }
+    .btn:active, .quiz-reveal-container button:active {
+      transform: translateY(1px);
+    }
+
+    /* Botón Primario (Azul vibrante) */
+    .btn-primary, .nav-btn.primary, .quiz-reveal-container button {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #1D4ED8;
+    }
+    .btn-primary:hover, .nav-btn.primary:hover, .quiz-reveal-container button:hover {
+      background: #1D4ED8;
+      border-color: #1E40AF;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Botón Outline Primario */
+    .btn-outline-primary {
+      background: #FFFFFF;
+      color: #2563EB;
+      border-color: #2563EB;
+    }
+    .btn-outline-primary:hover {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-color: #1D4ED8;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Botón Secundario */
+    .btn-secondary {
+      background: #F1F5F9;
+      color: #334155;
+      border-color: #CBD5E1;
+    }
+    .btn-secondary:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+      border-color: #94A3B8;
+    }
+
+    /* Botón Éxito */
+    .btn-success {
+      background: #16A34A;
+      color: #FFFFFF;
+      border-color: #15803D;
+    }
+    .btn-success:hover {
+      background: #15803D;
+      border-color: #166534;
+      color: #FFFFFF;
+    }
+
+    /* Modificadores de Tamaño */
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 14.5px;
+      border-radius: 6px;
+    }
+    .btn-lg {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+    }
 
     /* Terminal y Comandos (slides-terminal-comandos) */
     .term-wrapper {
@@ -517,20 +827,29 @@
       font-size: 18px;
       font-weight: 700;
     }
-    .term-copy-btn {
+    .term-copy-btn, .terminal-copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 12px;
       border-radius: 6px;
-      border: 2px solid var(--control-border);
+      border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    .term-copy-btn:hover { background: #F8FAFC; }
+    .term-copy-btn:hover, .terminal-copy-btn:hover {
+      background: #F1F5F9;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+    .term-copy-btn:active, .terminal-copy-btn:active {
+      transform: scale(0.96);
+    }
     .term-code {
       padding: 14px 20px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -545,15 +864,169 @@
     .term-code::-webkit-scrollbar { width: 6px; }
     .term-code::-webkit-scrollbar-track { background: transparent; }
     .term-code::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
-    .t-prompt { color: #5B6B82; user-select: none; font-weight: 600; }
+
+    /* Terminal Card (Real-life console frame) */
+    .terminal-card {
+      background: #0F172A;
+      border: 2px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .terminal-card .terminal-header {
+      background: #1E293B;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      gap: 12px;
+    }
+    .terminal-card .terminal-header::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 18px 0 0 #F59E0B, 36px 0 0 #10B981;
+      margin-right: 36px;
+      flex-shrink: 0;
+    }
+    .terminal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #94A3B8;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: 0.02em;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .terminal-card .terminal-copy-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #475569;
+    }
+    .terminal-card .terminal-copy-btn:hover {
+      background: #334155;
+      border-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .terminal-body {
+      padding: 16px 20px;
+      margin: 0;
+      background: #0F172A;
+      color: #E2E8F0;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      font-size: 15.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Mini-Terminal para llamadas o ejemplos dentro de cajas */
+    .mini-terminal {
+      background: #0F172A;
+      border: 1.5px solid #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+      box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+    }
+    .mini-term-header {
+      background: #1E293B;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    .mini-term-dots {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 12px 0 0 #F59E0B, 24px 0 0 #10B981;
+      margin-right: 22px;
+    }
+    .mini-term-title {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+    .mini-term-body {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #E2E8F0;
+      background: #0F172A;
+    }
+
+    /* High-contrast terminal syntax tokens for light mode by default */
+    .t-prompt { color: #0284C7; user-select: none; font-weight: 700; }
     .t-cmd { font-weight: 700; color: #0F172A; }
     .t-flag { color: #1D4ED8; font-weight: 600; }
-    .t-arg { color: #9A3412; font-weight: 500; }
-    .t-path { color: #15803D; font-weight: 500; }
-    .t-str { color: #A21CAF; }
-    .t-cmt { color: #5B6B82; font-style: italic; }
-    .t-err { color: #B91C1C; font-weight: 600; }
-    .t-hl { background: #FEF3C7; border-radius: 4px; padding: 0 6px; }
+    .t-arg { color: #B45309; font-weight: 600; }
+    .t-path { color: #047857; font-weight: 600; }
+    .t-str { color: #7C3AED; }
+    .t-cmt, .term-comment { color: #64748B; font-style: italic; }
+    .t-err { color: #DC2626; font-weight: 600; }
+    .t-hl { background: rgba(254, 240, 138, 0.45); border-radius: 4px; padding: 0 6px; }
+
+    /* Dark context inside terminal-card and mini-terminal */
+    .terminal-card .term-prompt, .mini-terminal .term-prompt,
+    .terminal-card .t-prompt, .mini-terminal .t-prompt { color: #38BDF8; font-weight: 700; }
+    .terminal-card .term-cmd, .mini-terminal .term-cmd,
+    .terminal-card .t-cmd, .mini-terminal .t-cmd { font-weight: 700; color: #F8FAFC; }
+    .terminal-card .t-flag, .mini-terminal .t-flag { color: #60A5FA; }
+    .terminal-card .t-arg, .mini-terminal .t-arg { color: #FBBF24; }
+    .terminal-card .t-path, .mini-terminal .t-path { color: #34D399; }
+    .terminal-card .t-str, .mini-terminal .t-str { color: #E879F9; }
+    .terminal-card .term-comment, .mini-terminal .term-comment,
+    .terminal-card .t-cmt, .mini-terminal .t-cmt { color: #94A3B8; }
+    .terminal-card .t-err, .mini-terminal .t-err { color: #F87171; }
+
+    /* Estilos del Modal Autotest / Test Global */
+    .autotest-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--surface);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: border-color 0.15s ease;
+    }
+    .autotest-card:hover {
+      border-color: var(--primary);
+    }
+    .autotest-opt-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--surface-alt);
+      font-size: 18px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .autotest-opt-label:hover {
+      background: #EFF6FF;
+      border-color: #93C5FD;
+    }
+    .autotest-opt-label input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2563EB;
+      cursor: pointer;
+    }
 
     /* Chips de opciones interactivas */
     .options-row {
@@ -619,32 +1092,38 @@
     /* Tablas (≤5x4) */
     .table-container {
       width: 100%;
-      margin: 20px 0;
-      border: 2px solid var(--border);
-      border-radius: 14px;
+      margin: 12px 0;
+      border: 2px solid var(--border-strong);
+      border-radius: 12px;
       overflow: hidden;
-      background: #FFFFFF;
+      background: var(--surface);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 26px;
+      font-size: clamp(15px, 1.05vw, 18.5px);
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 16px 24px;
+      padding: 10px 18px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
+      font-size: clamp(15.5px, 1.1vw, 19.5px);
     }
     table.slide-table td {
-      padding: 16px 24px;
+      padding: 9px 18px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
+      line-height: 1.4;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
-    table.slide-table tr.highlighted { background: #FEF3C7; }
+    table.slide-table tr.highlighted { background: var(--warning-soft); }
+    [data-theme="dark"] .table-container {
+      background: var(--surface);
+    }
 
     /* Matrices comparativas y mapas de equivalencias */
     .matrix-container {
@@ -1131,7 +1610,7 @@
     <aside id="teacher-panel">
       <div class="panel-header">
         <span>Notas del Docente</span>
-        <button class="nav-btn" onclick="toggleTeacherNotes()"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
+        <button class="nav-btn" onclick="toggleTeacherNotes()" aria-label="Cerrar panel docente"><svg class="ic ic-sm"><use href="#i-x"/></svg></button>
       </div>
       <div class="panel-body">
         <div class="panel-meta" id="panel-meta-info"></div>
@@ -1146,7 +1625,7 @@
   <!-- Modal de Erratas -->
   <div class="modal-overlay" id="modal-erratas" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar notas y erratas"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
         <svg class="ic ic-lg" style="color:var(--warning);"><use href="#i-message-square-warning"/></svg>
         Notas y Erratas del Manual Oficial
@@ -1158,7 +1637,7 @@
   <!-- Modal de Ayuda / Atajos -->
   <div class="modal-overlay" id="modal-help" onclick="closeModals()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar ayuda de atajos"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:20px;">Atajos de Teclado y Control</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; font-size:22px;">
         <div><kbd>Space</kbd> / <kbd>→</kbd> : Siguiente paso / slide</div>
@@ -1181,7 +1660,7 @@
   <!-- Modal de Vista General (Overview) -->
   <div class="modal-overlay" id="modal-overview" onclick="closeModals()">
     <div class="modal-box" style="width:1400px;" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModals()"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
+      <button class="modal-close" onclick="closeModals()" aria-label="Cerrar vista general"><svg class="ic ic-md"><use href="#i-x"/></svg></button>
       <h2 style="font-size:36px; margin-bottom:24px;">Vista General de Diapositivas</h2>
       <div id="overview-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;"></div>
     </div>
@@ -1197,7 +1676,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "103.2", "cat": "text", "type": "cover", "title": "Procesar flujos de texto usando filtros", "subtitle": "cat, head, tail, wc, cut, paste, sort, uniq, tr, sed, split, od y sumas hash (Modo Examen)", "ref": "215-216", "pdf": {"manual": "A", "pages": [215, 216], "figure": null}, "coverage": ["103.2-OBJ-001", "103.2-OBJ-002", "103.2-OBJ-003"], "meta": {"peso": 3, "paginas": "215–246", "duracion": "30 min"}, "icon": "filter", "notes": "Iniciamos el subtema 103.2 (peso 3). En Linux 'todo es texto'. Los administradores automatizan auditorías y tareas combinando herramientas GNU textutils para transformar, filtrar, recortar y verificar datos."}, {"id": 2, "section": "103.2", "cat": "text", "type": "concept", "title": "La Filosofía de Filtros en Unix", "lead": "¿Qué es un filtro de texto y cómo se encadenan las herramientas estándar?", "ref": "216-218", "pdf": {"manual": "A", "pages": [216, 217, 218], "figure": null}, "coverage": ["103.2-CON-001"], "points": [{"icon": "arrow-right", "text": "Entrada estándar -> Transformación -> Salida estándar", "detail": "Un filtro lee un flujo de texto línea por línea (desde un archivo o desde stdin), aplica una única transformación simple y escribe el resultado en stdout."}, {"icon": "git-commit", "text": "Inmutabilidad de los datos originales", "detail": "Los filtros de texto NO modifican el archivo original en el disco (salvo excepciones como 'sed -i'). La salida filtrada se proyecta en la pantalla o se redirige a un archivo nuevo."}, {"icon": "layers", "text": "Modularidad: el principio 'Haz una sola cosa y hazla bien'", "detail": "En lugar de un programa gigantesco, Unix ofrece utilidades especializadas (wc para contar, sort para ordenar, uniq para deduplicar, cut para recortar) que se combinan mediante tuberías (|)."}], "remember": "🎯 Clave de Examen: Los filtros no alteran el archivo original; procesan el flujo de texto hacia la salida estándar.", "notes": "Muestra a la clase que casi todos los filtros aceptan tanto un nombre de archivo como entrada por tubería (stdin)."}, {"id": 3, "section": "103.2", "cat": "text", "type": "command", "title": "Visualización y Paginación: cat, tac, head y tail", "lead": "Visualizar archivos completos o inspeccionar el principio y el final de un flujo:", "ref": "218-222", "pdf": {"manual": "A", "pages": [218, 219, 220, 221, 222], "figure": null}, "coverage": ["103.2-CMD-001", "103.2-CMD-002", "103.2-CMD-003", "103.2-CMD-004", "103.2-OPT-001", "103.2-OPT-002"], "command": "cat [-n|-s|-T] | tac | head [-n|-c] | tail [-n|-f]", "purpose": "Concatenar, invertir o extraer líneas iniciales y finales de documentos de texto", "terminal": {"command": "cat -n /etc/issue; head -n 2 /etc/passwd; tail -n 2 /etc/passwd", "output": "     1  Debian GNU/Linux 11 \\n \\l\n     2\nroot:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin\nsystemd-network:x:100:102:systemd Network:/run/systemd:/usr/sbin/nologin\nalumno:x:1000:1000:Alumno LPIC:/home/alumno:/bin/bash"}, "options": [{"flag": "cat -n", "desc": "🎯 Numera todas las líneas de salida de principio a fin."}, {"flag": "cat -s", "desc": "Comprime múltiples líneas vacías consecutivas en una sola línea en blanco."}, {"flag": "cat -T / -A", "desc": "Muestra las tabulaciones como '^I' y los fines de línea como '$' (ideal para detectar errores de sintaxis)."}, {"flag": "tac <archivo>", "desc": "🎯 Invierte el orden: imprime las líneas en orden inverso, de la última a la primera."}, {"flag": "head -n <N>", "desc": "🎯 Clave de Examen: Imprime las primeras N líneas del archivo (por defecto N=10)."}, {"flag": "head -c <N>", "desc": "Imprime los primeros N bytes del archivo."}, {"flag": "tail -n <N>", "desc": "🎯 Imprime las últimas N líneas del archivo (por defecto N=10)."}, {"flag": "tail -f <archivo>", "desc": "🎯 Clave de Examen: Modo 'follow': mantiene el archivo abierto y muestra en tiempo real las nuevas líneas añadidas al final (ideal para logs en /var/log/syslog)."}], "remember": "🎯 Clave de Examen: 'tail -f' monitoriza archivos de log en tiempo real; 'tac' invierte el orden de las líneas.", "notes": "Enseña 'tail -f /var/log/auth.log' como la herramienta principal para auditar intentos de inicio de sesión en directo."}, {"id": 4, "section": "103.2", "cat": "text", "type": "command", "title": "Estadísticas y Numeración: wc y nl", "lead": "¿Cuántas líneas, palabras o bytes contiene un archivo o salida de comando?", "ref": "222-225", "pdf": {"manual": "A", "pages": [222, 223, 224, 225], "figure": null}, "coverage": ["103.2-CMD-005", "103.2-CMD-006", "103.2-OPT-003", "103.2-OPT-004"], "command": "wc [-l|-w|-c|-m] <archivo> | nl [-b|-s] <archivo>", "purpose": "Contar elementos de texto o numerar líneas con formato profesional", "terminal": {"command": "wc /etc/issue; wc -l /etc/passwd; nl -ba /etc/issue", "output": " 2  6 40 /etc/issue\n28 /etc/passwd\n     1  Debian GNU/Linux 11 \\n \\l\n     2"}, "options": [{"flag": "wc (sin opciones)", "desc": "Imprime 3 columnas: número de líneas, número de palabras y número de bytes."}, {"flag": "wc -l", "desc": "🎯 Clave de Examen: Cuenta ÚNICAMENTE el número de saltos de línea (ideal en tuberías: 'ls | wc -l')."}, {"flag": "wc -w", "desc": "Cuenta únicamente el número de palabras delimitadas por espacios o tabulaciones."}, {"flag": "wc -c", "desc": "🎯 Cuenta el número total de bytes del archivo."}, {"flag": "wc -m", "desc": "Cuenta el número de caracteres (teniendo en cuenta caracteres multibyte UTF-8)."}, {"flag": "nl <archivo>", "desc": "Numera líneas de forma avanzada (por defecto omite líneas vacías)."}, {"flag": "nl -ba", "desc": "Numera absolutamente todas las líneas (incluso las líneas completamente en blanco)."}], "remember": "🎯 Clave de Examen: 'wc -l' es el contador universal en los exámenes LPIC para responder preguntas como '¿Cuántos usuarios hay en el sistema?': 'cat /etc/passwd | wc -l'.", "notes": "Muestra que 'wc -c' mide bytes mientras que 'wc -m' mide caracteres lógicos en documentos con tildes o caracteres especiales."}, {"id": 5, "section": "103.2", "cat": "text", "type": "command", "title": "Extracción y Fusión de Columnas: cut y paste", "lead": "Trabajar con datos tabulares y archivos delimitados como /etc/passwd o CSVs:", "ref": "225-228", "pdf": {"manual": "A", "pages": [225, 226, 227, 228], "figure": null}, "coverage": ["103.2-CMD-007", "103.2-CMD-008", "103.2-OPT-005", "103.2-OPT-006"], "command": "cut -d<delim> -f<campos> | paste -d<delim> [-s]", "purpose": "Recortar campos verticales de texto o unir archivos horizontalmente en columnas", "terminal": {"command": "cut -d: -f1,7 /etc/passwd | head -n 3", "output": "root:/bin/bash\ndaemon:/usr/sbin/nologin\nbin:/usr/sbin/nologin"}, "options": [{"flag": "cut -d '<carácter>'", "desc": "🎯 Clave de Examen: Define el delimitador de campo (por defecto es tabulador). En /etc/passwd se usa '-d:'."}, {"flag": "cut -f <lista>", "desc": "🎯 Clave de Examen: Especifica los campos a extraer (ej: '-f1' para usuarios, '-f1,3' para campos 1 y 3, '-f1-3' para rango)."}, {"flag": "cut -c <posiciones>", "desc": "Corta por posición de caracteres fijos (ej: cut -c 1-8)."}, {"flag": "paste arch1 arch2", "desc": "🎯 Une archivos horizontalmente línea por línea colocando un tabulador entre ellos."}, {"flag": "paste -d <carácter>", "desc": "Especifica el delimitador que separará las columnas unidas (ej: paste -d, arch1 arch2)."}, {"flag": "paste -s", "desc": "Modo secuencial: une todas las líneas de un mismo archivo en una sola línea horizontal."}], "remember": "🎯 Clave de Examen: 'cut -d: -f1 /etc/passwd' extrae los nombres de usuario del sistema; 'cut -d: -f7' extrae sus shells de inicio.", "notes": "Recuerda que si el delimitador contiene caracteres especiales como espacios o punto y coma, debe entrecomillarse: cut -d' ' -f2."}, {"id": 6, "section": "103.2", "cat": "text", "type": "command", "title": "Ordenación de Líneas con sort", "lead": "¿Cómo ordenar listas alfabéticamente, numéricamente o por columnas específicas?", "ref": "228-232", "pdf": {"manual": "A", "pages": [228, 229, 230, 231, 232], "figure": null}, "coverage": ["103.2-CMD-009", "103.2-OPT-007", "103.2-OPT-008", "103.2-OPT-009"], "command": "sort [-n|-r|-k|-t|-u|-R] <archivo>", "purpose": "Ordenar líneas de texto según criterios alfabéticos, numéricos o por posición de campo", "terminal": {"command": "sort -t: -k3,3 -n /etc/passwd | cut -d: -f1,3 | head -n 4", "output": "root:0\ndaemon:1\nbin:2\nsys:3"}, "options": [{"flag": "sort (sin opciones)", "desc": "Ordenación alfabética ascendente estándar (orden ASCII/Unicode)."}, {"flag": "sort -n", "desc": "🎯 Clave de Examen: Ordenación NUMÉRICA (trata '10' como mayor que '2'; sin -n, '10' iría antes que '2')."}, {"flag": "sort -r", "desc": "🎯 Ordenación inversa (reverse): invierte el resultado (de Z a A o de mayor a menor)."}, {"flag": "sort -t <delim>", "desc": "🎯 Define el delimitador de campos para ordenar por una columna concreta (ej: -t:)."}, {"flag": "sort -k <pos>", "desc": "🎯 Clave de Examen: Especifica la clave de ordenación (Key). Ejemplo: '-k3,3n' ordena numéricamente por la columna 3."}, {"flag": "sort -u", "desc": "🎯 Clave de Examen: Único (Unique): elimina líneas repetidas conservando solo la primera ocurrencia."}, {"flag": "sort -R", "desc": "Ordenación aleatoria (Random shuffle), ideal para sorteos o pruebas."}], "remember": "🎯 Clave de Examen: 'sort -n' para números; 'sort -t: -k3 -n' para ordenar /etc/passwd por UID del usuario.", "notes": "Muestra a los alumnos el error de ordenar números sin '-n': 1, 10, 100, 2, 20. Con '-n': 1, 2, 10, 20, 100."}, {"id": 7, "section": "103.2", "cat": "text", "type": "command", "title": "Deduplicación con uniq: Recuento y Repetidos", "lead": "¿Cómo eliminar o contar líneas duplicadas en un flujo de datos?", "ref": "232-234", "pdf": {"manual": "A", "pages": [232, 233, 234], "figure": null}, "coverage": ["103.2-CMD-010", "103.2-OPT-010", "103.2-OPT-011"], "command": "uniq [-c|-d|-u|-i] [entrada [salida]]", "purpose": "Omitir, contar o aislar líneas repetidas consecutivas en flujos de texto", "terminal": {"command": "cut -d: -f7 /etc/passwd | sort | uniq -c", "output": "      2 /bin/bash\n      1 /bin/sync\n     25 /usr/sbin/nologin"}, "options": [{"flag": "⚠️ Regla de Oro", "desc": "🎯 ¡OBLIGATORIO EN EXAMEN! 'uniq' SOLO detecta duplicados que sean estrictamente CONSECUTIVOS (uno tras otro). Si las líneas iguales están separadas, NO las detecta. SIEMPRE se debe ordenar antes con 'sort': 'sort archivo | uniq'."}, {"flag": "uniq -c", "desc": "🎯 Clave de Examen: Prefija cada línea con el número de veces que se repite (recuento de frecuencia)."}, {"flag": "uniq -d", "desc": "🎯 Muestra ÚNICAMENTE las líneas que aparecen duplicadas (omite las que son únicas)."}, {"flag": "uniq -u", "desc": "🎯 Muestra ÚNICAMENTE las líneas que aparecen una sola vez (omite todas las repetidas)."}, {"flag": "uniq -i", "desc": "Ignora diferencias entre mayúsculas y minúsculas al comparar."}], "remember": "🎯 La Pregunta Fija de LPIC-1: '¿Por qué uniq no eliminó las líneas duplicadas?' -> Porque el archivo no estaba ordenado previamente con sort.", "notes": "Graba a fuego en los alumnos: el patrón siempre es '... | sort | uniq -c | sort -nr'."}, {"id": 8, "section": "103.2", "cat": "text", "type": "command", "title": "Transformación de Caracteres con tr", "lead": "Sustituir, comprimir o borrar caracteres individuales de forma instantánea:", "ref": "234-237", "pdf": {"manual": "A", "pages": [234, 235, 236, 237], "figure": null}, "coverage": ["103.2-CMD-011", "103.2-OPT-012", "103.2-OPT-013"], "command": "tr [-d|-s|-c] <conjunto1> [conjunto2]", "purpose": "Traducir, comprimir o eliminar caracteres desde la entrada estándar (stdin)", "terminal": {"command": "echo 'lpic-1 certification' | tr '[:lower:]' '[:upper:]'; echo 'hola    mundo' | tr -s ' '", "output": "LPIC-1 CERTIFICATION\nhola mundo"}, "options": [{"flag": "⚠️ Limitación Crítica", "desc": "🎯 Clave de Examen: 'tr' NO acepta nombres de archivos como argumento (ej: 'tr a A archivo.txt' da error). SOLO lee desde la entrada estándar (mediante tubería '|' o redirección '<')."}, {"flag": "tr 'a-z' 'A-Z'", "desc": "🎯 Traduce minúsculas a mayúsculas (también con clases POSIX: 'tr \"[:lower:]\" \"[:upper:]\"')."}, {"flag": "tr -d <caracteres>", "desc": "🎯 Clave de Examen: Elimina (delete) todos los caracteres del conjunto indicado (ej: 'tr -d \"\\r\"' elimina retornos de carro de Windows)."}, {"flag": "tr -s <carácter>", "desc": "🎯 Clave de Examen: Comprime (squeeze) secuencias repetidas del carácter en una sola ocurrencia (ej: 'tr -s \" \"' convierte múltiples espacios en uno solo)."}, {"flag": "tr -c <conjunto>", "desc": "Complemento: aplica la acción sobre todos los caracteres que NO pertenezcan al conjunto indicado."}], "remember": "🎯 Diferencia Vital de Examen: 'tr' opera a nivel de caracteres individuales, NO de palabras. Para sustituir palabras completas se utiliza 'sed'.", "notes": "Recuerda que 'tr' siempre debe recibir datos con tubería: 'cat archivo | tr ...' o 'tr ... < archivo'."}, {"id": 9, "section": "103.2", "cat": "text", "type": "command", "title": "Editor de Flujo sed: Sustitución y Filtrado", "lead": "El stream editor por excelencia para modificar flujos de texto en movimiento:", "ref": "237-240", "pdf": {"manual": "A", "pages": [237, 238, 239, 240], "figure": null}, "coverage": ["103.2-CMD-012", "103.2-OPT-014", "103.2-OPT-015"], "command": "sed [-i] [-e] 's/buscar/reemplazar/[g]' <archivo>", "purpose": "Realizar sustituciones de cadenas, supresión de líneas o edición en sitio sobre archivos de texto", "terminal": {"command": "echo 'puerto 8080' | sed 's/8080/443/'; sed -n '1,3p' /etc/issue", "output": "puerto 443\nDebian GNU/Linux 11 \\n \\l"}, "options": [{"flag": "s/antiguo/nuevo/", "desc": "🎯 Sustituye la primera coincidencia de 'antiguo' por 'nuevo' en cada línea."}, {"flag": "s/antiguo/nuevo/g", "desc": "🎯 Modificador global (/g): sustituye TODAS las coincidencias que aparezcan en la línea, no solo la primera."}, {"flag": "sed -i <archivo>", "desc": "🎯 Clave de Examen: Edición en sitio (in-place): modifica y guarda los cambios directamente sobre el archivo en disco."}, {"flag": "sed -i.bak <archivo>", "desc": "Modifica el archivo en sitio creando automáticamente una copia de seguridad con extensión .bak."}, {"flag": "sed '/patrón/d'", "desc": "🎯 Suprime (delete) todas las líneas que coincidan con el patrón (ej: sed '/^#/d' elimina comentarios)."}, {"flag": "sed -n 'Np'", "desc": "Imprime únicamente la línea número N (ej: sed -n '5p' archivo imprime solo la línea 5)."}], "remember": "🎯 Clave de Examen: 'sed -i' modifica el archivo físico; el modificador 'g' al final de 's///g' realiza sustitución global en toda la línea.", "notes": "Muestra cómo 'sed '/^$/d'' elimina todas las líneas en blanco de un archivo de configuración."}, {"id": 10, "section": "103.2", "cat": "text", "type": "command", "title": "Integridad y Sumas Criptográficas: md5sum y sha256sum", "lead": "¿Cómo garantizar que un archivo no ha sido corrompido durante la descarga ni alterado por un atacante?", "ref": "240-242", "pdf": {"manual": "A", "pages": [240, 241, 242], "figure": null}, "coverage": ["103.2-CMD-013", "103.2-CMD-014", "103.2-OPT-016"], "command": "md5sum | sha256sum | sha512sum [-c archivo_hashes]", "purpose": "Calcular huellas hash criptográficas de archivos y verificar su integridad de forma desatendida", "terminal": {"command": "sha256sum /etc/issue > hashes.txt; sha256sum -c hashes.txt", "output": "/etc/issue: OK"}, "options": [{"flag": "md5sum <archivo>", "desc": "Calcula el hash MD5 (huella de 128 bits / 32 caracteres hexadecimales). Rápido pero desaconsejado en seguridad criptográfica moderna."}, {"flag": "sha256sum <archivo>", "desc": "🎯 Clave de Examen: Calcula la huella SHA-2 de 256 bits (64 caracteres hexadecimales), estándar actual en descargas Linux."}, {"flag": "sha512sum <archivo>", "desc": "Calcula la huella SHA-2 de 512 bits (128 caracteres hexadecimales) para máxima seguridad."}, {"flag": "-c, --check <archivo>", "desc": "🎯 Clave de Examen: Lee una lista de hashes y nombres de archivo y comprueba si los archivos coinciden devolviendo 'OK' o 'FAILED'."}, {"flag": "--status", "desc": "No genera ninguna salida en pantalla; solo devuelve código de salida 0 si todos los hashes coinciden (ideal para scripts de backup)."}], "remember": "🎯 Clave de Examen: Para verificar un archivo descargado contra su suma oficial se usa la opción '-c' (ej: sha256sum -c SHA256SUMS).", "notes": "Explica que si cambia un solo bit en un archivo de 10 GB, el hash resultante cambia por completo (efecto avalancha)."}, {"id": 11, "section": "103.2", "cat": "text", "type": "command", "title": "Inspección Binaria y Fragmentación: od y split", "lead": "Examinar bytes ocultos en archivos y dividir ficheros gigantescos para su transporte:", "ref": "242-244", "pdf": {"manual": "A", "pages": [242, 243, 244], "figure": null}, "coverage": ["103.2-CMD-015", "103.2-CMD-016", "103.2-OPT-017", "103.2-OPT-018"], "command": "od [-c|-x|-b] <archivo> | split [-b|-l|-d] <archivo> [prefijo]", "purpose": "Volcar datos en octal/hexadecimal/caracteres y fragmentar archivos grandes en partes", "terminal": {"command": "echo 'A B' | od -c; split -b 10M -d backup.tar.gz part_", "output": "0000000   A       B  \\n\n0000004\n# Genera archivos part_00, part_01 de 10 MB cada uno."}, "options": [{"flag": "od (Octal Dump)", "desc": "Vuelca el contenido exacto de cualquier archivo (incluso binarios o caracteres invisibles)."}, {"flag": "od -c", "desc": "🎯 Clave de Examen: Muestra los bytes como caracteres ASCII legibles o secuencias de escape de control (\\n, \\t, \\r, \\0)."}, {"flag": "od -x / -t x1", "desc": "Muestra la salida en formato hexadecimal de 2 o 4 bytes."}, {"flag": "split -b <tamaño>", "desc": "🎯 Clave de Examen: Divide el archivo por tamaño en bytes (ej: '-b 100M', '-b 1G', '-b 700M')."}, {"flag": "split -l <líneas>", "desc": "🎯 Divide el archivo de texto en partes de N líneas cada una (ej: '-l 1000')."}, {"flag": "split -d", "desc": "🎯 Utiliza sufijos numéricos (00, 01, 02) en lugar de letras alfabéticas (aa, ab, ac)."}], "remember": "🎯 Clave de Examen: 'od -c' permite descubrir saltos de línea Windows (\\r\\n) ocultos en scripts; 'split -b' divide archivos por tamaño.", "notes": "Muestra cómo recomponer las partes divididas por split usando simplemente 'cat part_* > original.tar.gz'."}, {"id": 12, "section": "103.2", "cat": "text", "type": "table", "title": "Formateo e Impresión de Texto: pr, expand y unexpand", "lead": "Ajustar flujos para impresoras o convertir tabuladores en espacios:", "ref": "244-245", "pdf": {"manual": "A", "pages": [244, 245], "figure": null}, "coverage": ["103.2-CMD-017", "103.2-CMD-018", "103.2-CMD-019"], "headers": ["Comando", "Propósito en el Examen LPIC-1", "Opciones Clave y Ejemplo"], "rows": [["pr", "Pagina y formatea archivos de texto para impresión física con cabeceras de fecha, hora y página.", "🎯 '-l <líneas>' (longitud de página), '-h <título>' (encabezado personalizado), '-2' o '-3' (imprimir en 2 o 3 columnas)."], ["expand", "🎯 Convierte caracteres de tabulación en secuencias de espacios en blanco equivalentes.", "'-t <N>' define cuántos espacios equivale cada tabulador (por defecto 8). 'expand -t 4 código.c'."], ["unexpand", "🎯 Operación inversa: convierte secuencias consecutivas de espacios en blanco en caracteres de tabulación.", "'-a' convierte todos los espacios posibles en tabuladores, no solo los que están al inicio de línea."]], "remember": "🎯 Clave Mnemotécnica: 'expand' expande tabs a espacios; 'unexpand' condensa espacios a tabs; 'pr' prepara el documento para impresión paginada.", "notes": "Explica que expand es muy útil para solucionar errores de indentación en archivos de Python o Makefiles."}, {"id": 13, "section": "103.2", "cat": "text", "type": "concept", "title": "Trampas Clásicas de Examen en Filtros de Texto", "lead": "Los 4 descuidos más habituales en las preguntas de procesamiento de texto:", "ref": "245-246", "pdf": {"manual": "A", "pages": [245, 246], "figure": null}, "coverage": ["103.2-WARN-001", "103.2-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Usar uniq sin ordenar previamente", "detail": "Si en una pregunta te piden contar valores únicos y respondes 'cut ... | uniq -c', es un error. La respuesta correcta siempre incluye sort: 'cut ... | sort | uniq -c'."}, {"icon": "alert-triangle", "text": "2. Pasar archivos como parámetro a 'tr'", "detail": "🎯 'tr a-z A-Z archivo.txt' FALLA. 'tr' no sabe abrir archivos, solo lee por stdin. Debes usar redirección: 'tr a-z A-Z < archivo.txt'."}, {"icon": "alert-triangle", "text": "3. Olvidar el modificador '/g' en sed", "detail": "'sed 's/foo/bar/'' solo cambiará la primera aparición de cada línea. Si una línea contiene tres veces 'foo', las dos últimas quedarán intactas a menos que pongas 's/foo/bar/g'."}, {"icon": "alert-triangle", "text": "4. Confundir cut -f con cut -c", "detail": "'-f' es para fields (columnas delimitadas por comas, dos puntos, etc.); '-c' es para characters (posiciones numéricas fijas de caracteres)."}], "remember": "🎯 Mnemotecnia Rápida: uniq siempre detrás de sort; tr solo por tubería; sed necesita /g para todo; y cut -f para delimitadores.", "notes": "Estos 4 puntos son los que marcan la diferencia entre aprobar o suspender la sección de filtros."}, {"id": 14, "section": "103.2", "cat": "text", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: cut, wc y sort)", "ref": "Manual A - Pág 246", "pdf": {"manual": "A", "pages": [246], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 246): ¿Qué pipeline de comandos cuenta cuántos procesadores o cores tiene el sistema leyendo el archivo '/proc/cpuinfo'?", "command": "grep -c '^processor' /proc/cpuinfo (o grep '^processor' /proc/cpuinfo | wc -l)", "reason": "Cada línea que comienza por 'processor' representa un núcleo lógico; 'wc -l' o 'grep -c' cuenta los saltos de línea coincidentes."}, {"action": "Caso 2 (Oficial Pág 246): ¿Qué comando extrae únicamente el nombre de usuario y el identificador UID del archivo '/etc/passwd' ordenando el resultado de menor a mayor UID numérico?", "command": "sort -t: -k3 -n /etc/passwd | cut -d: -f1,3", "reason": "sort -t: -k3 -n ordena las líneas numéricamente por el tercer campo (UID), y cut -d: -f1,3 recorta los campos deseados."}, {"action": "Caso 3 (Oficial Pág 246): ¿Cómo contar cuántos usuarios del sistema tienen asignada la shell '/bin/bash' en /etc/passwd?", "command": "grep -c '/bin/bash$' /etc/passwd (o grep '/bin/bash' /etc/passwd | wc -l)", "reason": "Filtra las líneas que terminan en /bin/bash y cuenta el total de ocurrencias."}], "solution": {"explain": "La combinación de grep, sort -n y cut permite extraer y normalizar datos del sistema de ficheros virtual y administrativo."}, "notes": "Muestra a los alumnos cómo el orden de los comandos en la tubería altera el resultado (ordenar antes de cortar vs cortar antes de ordenar)."}, {"id": 15, "section": "103.2", "cat": "text", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: sed, tr y sha256sum)", "ref": "Manual A - Pág 246", "pdf": {"manual": "A", "pages": [246], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 246): Un archivo de texto 'datos.txt' contiene caracteres de retorno de carro de Windows (^M o \\r). ¿Qué comando con 'tr' los elimina por completo?", "command": "tr -d '\\r' < datos.txt > limpio.txt", "reason": "La opción -d (delete) de tr suprime todos los caracteres indicados leyendo desde stdin."}, {"action": "Caso 5 (Oficial Pág 246): Tienes un archivo 'SHA256SUMS' descargado de un servidor de Debian junto con una imagen ISO. ¿Qué comando verifica automáticamente que la ISO no esté corrupta?", "command": "sha256sum -c SHA256SUMS", "reason": "La opción -c (--check) lee los nombres de archivo y sus sumas en el documento y calcula el hash de los ficheros locales para validar coincidencias."}], "solution": {"explain": "tr -d limpia caracteres de control indeseados; sha256sum -c verifica la firma de integridad de descargas."}, "notes": "Recuerda que sha256sum -c busca los archivos en el mismo directorio donde se ejecuta el comando."}, {"id": 16, "section": "103.2", "cat": "text", "type": "challenge", "title": "Retos de Exploración Oficiales (Pipelines de Auditoría y Logs)", "ref": "Manual A - Pág 246", "pdf": {"manual": "A", "pages": [246], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un administrador necesita listar las 5 direcciones IP que más peticiones han realizado leyendo un archivo de log web 'access.log' donde la IP es la primera columna.\n2. ¿Qué comando con 'sed' sustituye directamente en el archivo '/etc/default/grub' el valor 'GRUB_TIMEOUT=5' por 'GRUB_TIMEOUT=0' sin necesidad de usar un editor interactivo?\n3. ¿Cómo dividirías un archivo de base de datos de 5 GB llamado 'dump.sql' en trozos de 500 MB con nombres 'backup_00', 'backup_01', etc.?", "hint": "Recuerda: cut -> sort -> uniq -c -> sort -nr -> head; sed -i; y split -b con sufijos numéricos (-d).", "solution": {"explain": "1. Se ejecuta: cut -d' ' -f1 access.log | sort | uniq -c | sort -nr | head -n 5\n2. Se ejecuta: sudo sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub\n3. Se ejecuta: split -b 500M -d dump.sql backup_"}, "notes": "El pipeline del Reto 1 es la secuencia de análisis de logs más utilizada en el mundo real por administradores y analistas de ciberseguridad."}, {"id": 17, "section": "103.2", "cat": "text", "type": "review", "title": "Pregunta de Examen LPIC-1: Extracción de Campos con cut", "q": "¿Cuál de los siguientes comandos mostrará en pantalla únicamente los nombres de las cuentas de usuario definidas en '/etc/passwd'?", "options": ["cut -c 1 /etc/passwd", "cut -d: -f1 /etc/passwd", "cut -f: -d1 /etc/passwd", "paste -d: -f1 /etc/passwd"], "answer": 1, "why": "En el comando 'cut', la opción '-d' define el delimitador de campos (en este caso dos puntos ':') y la opción '-f1' selecciona el primer campo (field), que en la estructura estándar de /etc/passwd corresponde al nombre de usuario (login name).", "notes": "Pregunta directa y fija de certificación."}, {"id": 18, "section": "103.2", "cat": "text", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Filtros de Texto 103.2", "deck": [{"front": "¿Qué comando monitoriza un archivo de registro en tiempo real mientras crece?", "back": "tail -f <archivo>."}, {"front": "¿Qué opción de 'wc' cuenta únicamente el número de líneas?", "back": "wc -l."}, {"front": "¿Qué comando recorta columnas de texto delimitadas por un separador?", "back": "cut -d<separador> -f<campo> (ej: cut -d: -f1)."}, {"front": "¿Por qué es obligatorio ordenar con 'sort' antes de usar 'uniq'?", "back": "Porque 'uniq' solo detecta líneas duplicadas consecutivas."}, {"front": "¿Qué opción de 'sort' ordena numéricamente y no alfabéticamente?", "back": "sort -n."}, {"front": "¿Qué limitación crítica tiene el comando 'tr'?", "back": "No acepta nombres de archivos; solo lee datos desde la entrada estándar (stdin)."}, {"front": "¿Qué opción de 'sed' modifica el archivo original en disco?", "back": "sed -i (edición in-place)."}, {"front": "¿Qué comando y opción verifica una lista de sumas hash?", "back": "sha256sum -c <archivo_hashes> (o md5sum -c)."}], "notes": "Repasa estas 8 tarjetas para fijar los filtros de texto de examen."}, {"id": 19, "section": "103.2", "cat": "text", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.2", "takeaways": ["Visualización: cat -n (numerar), tac (invertir), head -n (primeras líneas), tail -f (monitorizar logs en tiempo real).", "Columnas y Ordenación: cut -d: -f1 para extraer campos, paste para unir, sort -n para números, sort -k para columnas.", "Deduplicación y Transformación: uniq -c tras ordenar con sort; tr para sustituir caracteres individuales leyendo por stdin; sed 's///g' para cadenas completas.", "Integridad y Formatos: sha256sum -c para validar hashes; split -b para fragmentar archivos; od -c para volcar bytes ocultos."], "top3": [{"cmd": "cut -d: -f1,7 /etc/passwd", "desc": "Extrae el usuario y su shell asignada del archivo de cuentas."}, {"cmd": "sort archivo | uniq -c | sort -nr", "desc": "Calcula el ranking de frecuencia de líneas ordenadas de mayor a menor."}, {"cmd": "sed -i 's/buscar/reemplazar/g' archivo", "desc": "Sustituye cadenas de forma permanente en el archivo en disco."}], "practice": {"name": "Practica 103.2: Procesar Secuencias de Texto con Filtros", "url": "../practicas/p-103-2-filtros-de-texto.html", "desc": "Domina el filtrado de flujos de texto en Linux usando cat, tac, head, tail, cut, sort, uniq, tr, wc y sed sobre datos reales del sistema."}, "notes": "Concluimos el subtema 103.2. Los alumnos dominan ahora los filtros de texto GNU para el examen."}];
+    const SLIDES = [{"id": 1, "section": "103.2", "cat": "text", "type": "cover", "title": "Procesar flujos de texto usando filtros", "subtitle": "cat, head, tail, wc, cut, paste, sort, uniq, tr, sed, split, od y sumas hash (Modo Examen)", "ref": "215-216", "pdf": {"manual": "A", "pages": [215, 216], "figure": null}, "coverage": ["103.2-OBJ-001", "103.2-OBJ-002", "103.2-OBJ-003"], "meta": {"peso": 3, "paginas": "215–246", "duracion": "30 min"}, "icon": "filter", "notes": "Iniciamos el subtema 103.2 (peso 3). En Linux 'todo es texto'. Los administradores automatizan auditorías y tareas combinando herramientas GNU textutils para transformar, filtrar, recortar y verificar datos."}, {"id": 2, "section": "103.2", "cat": "text", "type": "diagram", "title": "La Filosofía de Filtros en Unix: Tuberías y Flujos en Cadena", "lead": "Los comandos de texto no modifican los archivos originales; transforman flujos de datos en memoria:", "ref": "216-218", "pdf": {"manual": "A", "pages": [216, 217, 218], "figure": null}, "coverage": ["103.2-CON-001"], "points": [{"icon": "arrow-right", "text": "Entrada estándar -> Transformación -> Salida estándar", "detail": "Un filtro lee un flujo de texto línea por línea (desde un archivo o desde stdin), aplica una única transformación simple y escribe el resultado en stdout."}, {"icon": "git-commit", "text": "Inmutabilidad de los datos originales", "detail": "Los filtros de texto NO modifican el archivo original en el disco (salvo excepciones como 'sed -i'). La salida filtrada se proyecta en la pantalla o se redirige a un archivo nuevo."}, {"icon": "layers", "text": "Modularidad: el principio 'Haz una sola cosa y hazla bien'", "detail": "En lugar de un programa gigantesco, Unix ofrece utilidades especializadas (wc para contar, sort para ordenar, uniq para deduplicar, cut para recortar) que se combinan mediante tuberías (|)."}], "remember": "🎯 PRINCIPIO DE EXAMEN: Los filtros de texto no modifican los archivos originales; leen desde stdin o archivo y escriben el flujo resultante en stdout.", "notes": "Muestra a la clase que casi todos los filtros aceptan tanto un nombre de archivo como entrada por tubería (stdin).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:14px; padding:18px 24px; margin:16px 0;\">\n  <div style=\"font-size:16px; font-weight:800; color:var(--text); margin-bottom:12px;\">\n    ⛓️ Pipeline Típico de Auditoría: Delimitador → Ordenación → Deduplicación:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:13px; text-align:center;\">\n    <!-- Paso 1 -->\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px 14px; flex:1;\">\n      <strong style=\"color:#1E40AF; font-size:14px;\">1. cut -d: -f7</strong><br>\n      <code>/etc/passwd</code><br>\n      <span style=\"color:#64748B; font-size:12px;\">Extrae la columna shell</span>\n    </div>\n\n    <span style=\"font-size:20px; color:#2563EB; font-weight:900; margin:0 8px;\">|</span>\n\n    <!-- Paso 2 -->\n    <div style=\"background:#FEF3C7; border:1px solid #F59E0B; border-radius:8px; padding:10px 14px; flex:1;\">\n      <strong style=\"color:#B45309; font-size:14px;\">2. sort</strong><br>\n      <code>(en memoria)</code><br>\n      <span style=\"color:#78350F; font-size:12px;\">Agrupa líneas iguales juntas</span>\n    </div>\n\n    <span style=\"font-size:20px; color:#2563EB; font-weight:900; margin:0 8px;\">|</span>\n\n    <!-- Paso 3 -->\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px; flex:1;\">\n      <strong style=\"color:#15803D; font-size:14px;\">3. uniq -c</strong><br>\n      <code>(recuento)</code><br>\n      <span style=\"color:#166534; font-size:12px;\">Cuenta apariciones</span>\n    </div>\n\n    <span style=\"font-size:20px; color:#2563EB; font-weight:900; margin:0 8px;\">|</span>\n\n    <!-- Paso 4 -->\n    <div style=\"background:#FAF5FF; border:1px solid #C084FC; border-radius:8px; padding:10px 14px; flex:1;\">\n      <strong style=\"color:#581C87; font-size:14px;\">4. sort -nr</strong><br>\n      <code>(resultado)</code><br>\n      <span style=\"color:#6B21A8; font-size:12px;\">Ordena de más a menos</span>\n    </div>\n  </div>\n\n  <div style=\"margin-top:14px; padding:10px 14px; background:#F8FAFC; border-left:4px solid #10B981; border-radius:4px; font-size:13.5px; color:#065F46;\">\n    💡 <strong>INMUTABILIDAD:</strong> El archivo <code>/etc/passwd</code> permanece 100% intacto en el disco. La transformación ocurre exclusivamente en la memoria RAM y se proyecta a la pantalla (stdout).\n  </div>\n</div>\n"}, {"id": 3, "section": "103.2", "cat": "text", "type": "command", "title": "Visualización y Paginación: cat, tac, head y tail", "lead": "Visualizar archivos completos o inspeccionar el principio y el final de un flujo:", "ref": "218-222", "pdf": {"manual": "A", "pages": [218, 219, 220, 221, 222], "figure": null}, "coverage": ["103.2-CMD-001", "103.2-CMD-002", "103.2-CMD-003", "103.2-CMD-004", "103.2-OPT-001", "103.2-OPT-002"], "command": "cat [-n|-s|-T] | tac | head [-n|-c] | tail [-n|-f]", "purpose": "Concatenar, invertir o extraer líneas iniciales y finales de documentos de texto", "terminal": {"command": "cat -n /etc/issue; head -n 2 /etc/passwd; tail -n 2 /etc/passwd", "output": "     1  Debian GNU/Linux 11 \\n \\l\n     2\nroot:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin\nsystemd-network:x:100:102:systemd Network:/run/systemd:/usr/sbin/nologin\nalumno:x:1000:1000:Alumno LPIC:/home/alumno:/bin/bash"}, "options": [{"flag": "cat -n", "desc": "🎯 Numera todas las líneas de salida de principio a fin."}, {"flag": "cat -s", "desc": "Comprime múltiples líneas vacías consecutivas en una sola línea en blanco."}, {"flag": "cat -T / -A", "desc": "Muestra las tabulaciones como '^I' y los fines de línea como '$' (ideal para detectar errores de sintaxis)."}, {"flag": "tac <archivo>", "desc": "🎯 Invierte el orden: imprime las líneas en orden inverso, de la última a la primera."}, {"flag": "head -n <N>", "desc": "🎯 Clave de Examen: Imprime las primeras N líneas del archivo (por defecto N=10)."}, {"flag": "head -c <N>", "desc": "Imprime los primeros N bytes del archivo."}, {"flag": "tail -n <N>", "desc": "🎯 Imprime las últimas N líneas del archivo (por defecto N=10)."}, {"flag": "tail -f <archivo>", "desc": "🎯 Clave de Examen: Modo 'follow': mantiene el archivo abierto y muestra en tiempo real las nuevas líneas añadidas al final (ideal para logs en /var/log/syslog)."}], "remember": "🎯 Clave de Examen: 'tail -f' monitoriza archivos de log en tiempo real; 'tac' invierte el orden de las líneas.", "notes": "Enseña 'tail -f /var/log/auth.log' como la herramienta principal para auditar intentos de inicio de sesión en directo."}, {"id": 4, "section": "103.2", "cat": "text", "type": "command", "title": "Estadísticas y Numeración: wc y nl", "lead": "¿Cuántas líneas, palabras o bytes contiene un archivo o salida de comando?", "ref": "222-225", "pdf": {"manual": "A", "pages": [222, 223, 224, 225], "figure": null}, "coverage": ["103.2-CMD-005", "103.2-CMD-006", "103.2-OPT-003", "103.2-OPT-004"], "command": "wc [-l|-w|-c|-m] <archivo> | nl [-b|-s] <archivo>", "purpose": "Contar elementos de texto o numerar líneas con formato profesional", "terminal": {"command": "wc /etc/issue; wc -l /etc/passwd; nl -ba /etc/issue", "output": " 2  6 40 /etc/issue\n28 /etc/passwd\n     1  Debian GNU/Linux 11 \\n \\l\n     2"}, "options": [{"flag": "wc (sin opciones)", "desc": "Imprime 3 columnas: número de líneas, número de palabras y número de bytes."}, {"flag": "wc -l", "desc": "🎯 Clave de Examen: Cuenta ÚNICAMENTE el número de saltos de línea (ideal en tuberías: 'ls | wc -l')."}, {"flag": "wc -w", "desc": "Cuenta únicamente el número de palabras delimitadas por espacios o tabulaciones."}, {"flag": "wc -c", "desc": "🎯 Cuenta el número total de bytes del archivo."}, {"flag": "wc -m", "desc": "Cuenta el número de caracteres (teniendo en cuenta caracteres multibyte UTF-8)."}, {"flag": "nl <archivo>", "desc": "Numera líneas de forma avanzada (por defecto omite líneas vacías)."}, {"flag": "nl -ba", "desc": "Numera absolutamente todas las líneas (incluso las líneas completamente en blanco)."}], "remember": "🎯 Clave de Examen: 'wc -l' es el contador universal en los exámenes LPIC para responder preguntas como '¿Cuántos usuarios hay en el sistema?': 'cat /etc/passwd | wc -l'.", "notes": "Muestra que 'wc -c' mide bytes mientras que 'wc -m' mide caracteres lógicos en documentos con tildes o caracteres especiales."}, {"id": 5, "section": "103.2", "cat": "text", "type": "command", "title": "Extracción y Fusión de Columnas: cut y paste", "lead": "Trabajar con datos tabulares y archivos delimitados como /etc/passwd o CSVs:", "ref": "225-228", "pdf": {"manual": "A", "pages": [225, 226, 227, 228], "figure": null}, "coverage": ["103.2-CMD-007", "103.2-CMD-008", "103.2-OPT-005", "103.2-OPT-006"], "command": "cut -d<delim> -f<campos> | paste -d<delim> [-s]", "purpose": "Recortar campos verticales de texto o unir archivos horizontalmente en columnas", "terminal": {"command": "cut -d: -f1,7 /etc/passwd | head -n 3", "output": "root:/bin/bash\ndaemon:/usr/sbin/nologin\nbin:/usr/sbin/nologin"}, "options": [{"flag": "cut -d: -f1,7", "short": "Recorte por delimitador", "desc": "🎯 Define el delimitador (-d) y extrae las columnas indicadas (-f). En /etc/passwd se usa -d:."}, {"flag": "cut -c 1-8", "short": "Recorte por caracteres", "desc": "Corta por posición de caracteres fijos."}, {"flag": "paste arch1 arch2", "short": "Unión horizontal", "desc": "🎯 Une archivos horizontalmente línea por línea colocando un delimitador entre ellos."}, {"flag": "paste -d, arch1 arch2", "short": "Delimitador de unión", "desc": "Especifica el carácter que separará las columnas unidas."}, {"flag": "paste -s", "short": "Modo secuencial", "desc": "Une todas las líneas de un mismo archivo en una sola línea horizontal."}], "remember": "🎯 Clave de Examen: 'cut -d: -f1 /etc/passwd' extrae los nombres de usuario del sistema; 'cut -d: -f7' extrae sus shells de inicio.", "notes": "Recuerda que si el delimitador contiene caracteres especiales como espacios o punto y coma, debe entrecomillarse: cut -d' ' -f2.", "diagram_html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:14px;\">\n  <!-- cut -->\n  <div style=\"background:#EFF6FF; border:2px solid #93C5FD; border-radius:12px; padding:14px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n      <span style=\"background:#2563EB; color:#FFF; font-weight:800; font-size:11px; padding:1px 6px; border-radius:4px;\">CORTE VERTICAL</span>\n      <code style=\"font-size:14px; font-weight:800; color:#1E40AF;\">cut -d: -f1,7 /etc/passwd</code>\n    </div>\n    <div style=\"font-size:13px; color:#1E3A8A; line-height:1.4;\">\n      Extrae campos verticales específicos de cada línea.<br>\n      • <code>-d:</code> usa los dos puntos como separador.<br>\n      • <code>-f1</code> extrae el usuario; <code>-f7</code> extrae la shell.\n    </div>\n  </div>\n\n  <!-- paste -->\n  <div style=\"background:#F0FDF4; border:2px solid #86EFAC; border-radius:12px; padding:14px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n      <span style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:11px; padding:1px 6px; border-radius:4px;\">UNIÓN HORIZONTAL</span>\n      <code style=\"font-size:14px; font-weight:800; color:#15803D;\">paste -d, usuarios.txt ips.txt</code>\n    </div>\n    <div style=\"font-size:13px; color:#14532D; line-height:1.4;\">\n      Pega dos archivos lado a lado, uniendo sus líneas correspondientes con el delimitador indicado (por defecto un tabulador).\n    </div>\n  </div>\n</div>\n"}, {"id": 6, "section": "103.2", "cat": "text", "type": "command", "title": "Ordenación de Líneas con sort", "lead": "¿Cómo ordenar listas alfabéticamente, numéricamente o por columnas específicas?", "ref": "228-232", "pdf": {"manual": "A", "pages": [228, 229, 230, 231, 232], "figure": null}, "coverage": ["103.2-CMD-009", "103.2-OPT-007", "103.2-OPT-008", "103.2-OPT-009"], "command": "sort [-n|-r|-k|-t|-u|-R] <archivo>", "purpose": "Ordenar líneas de texto según criterios alfabéticos, numéricos o por posición de campo", "terminal": {"command": "sort -t: -k3,3 -n /etc/passwd | cut -d: -f1,3 | head -n 4", "output": "root:0\ndaemon:1\nbin:2\nsys:3"}, "options": [{"flag": "sort", "short": "Alfabético estándar", "desc": "Ordenación alfabética ascendente estándar (orden ASCII/Unicode)."}, {"flag": "sort -n", "short": "Orden numérico real", "desc": "🎯 Clave de Examen: Trata '10' como mayor que '2'; sin -n, '10' iría antes que '2'."}, {"flag": "sort -r", "short": "Orden inverso (reverse)", "desc": "🎯 Invierte el resultado (de mayor a menor o de Z a A)."}, {"flag": "sort -t: -k3,3n", "short": "Por columna y número", "desc": "🎯 Clave de Examen: -t define delimitador; -k3,3n ordena numéricamente por la columna 3."}, {"flag": "sort -u", "short": "Único (deduplica)", "desc": "🎯 Elimina líneas repetidas conservando solo una ocurrencia."}], "remember": "🎯 Clave de Examen: 'sort -n' para números; 'sort -t: -k3 -n' para ordenar /etc/passwd por UID del usuario.", "notes": "Muestra a los alumnos el error de ordenar números sin '-n': 1, 10, 100, 2, 20. Con '-n': 1, 2, 10, 20, 100.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:14px 20px; margin-top:14px;\">\n  <div style=\"font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    ⚠️ La Trampa de Examen de <code>sort</code>: Orden Alfabético (ASCII) frente a Numérico (<code>-n</code>):\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:16px; font-size:13px;\">\n    <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#991B1B;\">❌ Sin la opción -n (Orden Alfabético ASCII):</strong><br>\n      Compara carácter a carácter como si fueran letras:<br>\n      <code style=\"color:#B91C1C; font-weight:700;\">1, 10, 100, 2, 20, 3</code><br>\n      <em>(¡El número 10 se coloca antes que el 2 porque '1' va antes que '2'!)</em>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#15803D;\">✅ Con la opción -n (Orden Numérico Aritmético):</strong><br>\n      Evalúa el valor cuantitativo completo:<br>\n      <code style=\"color:#166534; font-weight:700;\">1, 2, 3, 10, 20, 100</code><br>\n      <em>(Obligatorio para ordenar por UIDs, PIDs o tamaños de archivo).</em>\n    </div>\n  </div>\n</div>\n"}, {"id": 7, "section": "103.2", "cat": "text", "type": "command", "title": "Deduplicación con uniq: Recuento y Repetidos", "lead": "¿Cómo eliminar o contar líneas duplicadas en un flujo de datos?", "ref": "232-234", "pdf": {"manual": "A", "pages": [232, 233, 234], "figure": null}, "coverage": ["103.2-CMD-010", "103.2-OPT-010", "103.2-OPT-011"], "command": "uniq [-c|-d|-u|-i] [entrada [salida]]", "purpose": "Omitir, contar o aislar líneas repetidas consecutivas en flujos de texto", "terminal": {"command": "cut -d: -f7 /etc/passwd | sort | uniq -c", "output": "      2 /bin/bash\n      1 /bin/sync\n     25 /usr/sbin/nologin"}, "options": [{"flag": "uniq -c", "short": "Contar apariciones", "desc": "🎯 Prefija cada línea con el número de veces que se repite."}, {"flag": "uniq -d", "short": "Solo repetidas", "desc": "🎯 Muestra ÚNICAMENTE las líneas que aparecen duplicadas."}, {"flag": "uniq -u", "short": "Solo únicas", "desc": "🎯 Muestra ÚNICAMENTE las líneas que aparecen una sola vez."}, {"flag": "uniq -i", "short": "Ignorar mayúsculas", "desc": "Ignora diferencias entre mayúsculas y minúsculas."}], "remember": "🎯 La Pregunta Fija de LPIC-1: '¿Por qué uniq no eliminó las líneas duplicadas?' -> Porque el archivo no estaba ordenado previamente con sort.", "notes": "Graba a fuego en los alumnos: el patrón siempre es '... | sort | uniq -c | sort -nr'.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:14px 20px; margin-top:14px;\">\n  <div style=\"font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🚨 REGLA DE ORO DE EXAMEN: ¿Por qué <code>uniq</code> exige que el texto esté ordenado?\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:16px; font-size:13px;\">\n    <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#991B1B;\">❌ Entrada sin ordenar (uniq falla):</strong><br>\n      Texto: <code>manzana, pera, manzana</code><br>\n      Salida de <code>uniq</code>: <code>manzana, pera, manzana</code><br>\n      <span style=\"color:#7F1D1D;\">¡No eliminó nada porque las manzanas no estaban consecutivas!</span>\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#15803D;\">✅ Con tubería previa (sort | uniq):</strong><br>\n      Texto tras sort: <code>manzana, manzana, pera</code><br>\n      Salida de <code>sort | uniq</code>: <code>manzana, pera</code><br>\n      <span style=\"color:#166534;\">Deduplicación perfecta porque las líneas iguales quedaron contiguas.</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 8, "section": "103.2", "cat": "text", "type": "command", "title": "Transformación de Caracteres con tr", "lead": "Sustituir, comprimir o borrar caracteres individuales de forma instantánea:", "ref": "234-237", "pdf": {"manual": "A", "pages": [234, 235, 236, 237], "figure": null}, "coverage": ["103.2-CMD-011", "103.2-OPT-012", "103.2-OPT-013"], "command": "tr [-d|-s|-c] <conjunto1> [conjunto2]", "purpose": "Traducir, comprimir o eliminar caracteres desde la entrada estándar (stdin)", "terminal": {"command": "echo 'lpic-1 certification' | tr '[:lower:]' '[:upper:]'; echo 'hola    mundo' | tr -s ' '", "output": "LPIC-1 CERTIFICATION\nhola mundo"}, "options": [{"flag": "tr 'a-z' 'A-Z'", "short": "Mayúsculas/minúsculas", "desc": "🎯 Traduce minúsculas a mayúsculas."}, {"flag": "tr -d '<chars>'", "short": "Eliminar caracteres", "desc": "🎯 Elimina (delete) los caracteres indicados (ej: tr -d '\\r' para archivos Windows)."}, {"flag": "tr -s '<char>'", "short": "Comprimir repetidos", "desc": "🎯 Comprime (squeeze) secuencias repetidas en un único carácter (ej: tr -s ' ')."}, {"flag": "tr -c '<set>'", "short": "Complemento", "desc": "Aplica la acción sobre todos los caracteres que NO pertenezcan al conjunto."}], "remember": "🎯 Diferencia Vital de Examen: 'tr' opera a nivel de caracteres individuales, NO de palabras. Para sustituir palabras completas se utiliza 'sed'.", "notes": "Recuerda que 'tr' siempre debe recibir datos con tubería: 'cat archivo | tr ...' o 'tr ... < archivo'.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:#DC2626; margin-bottom:6px;\">\n    ⚠️ TRAMPA VITAL DE EXAMEN: <code>tr</code> NO acepta archivos como argumento.\n  </div>\n  <div style=\"display:flex; justify-content:space-between; font-size:13px;\">\n    <div style=\"background:#FEF2F2; padding:6px 12px; border-radius:6px; color:#991B1B;\">\n      ❌ <code>tr a A archivo.txt</code> → <strong>¡ERROR DE SINTAXIS!</strong>\n    </div>\n    <div style=\"background:#F0FDF4; padding:6px 12px; border-radius:6px; color:#14532D;\">\n      ✅ <code>cat archivo.txt | tr a A</code> o <code>tr a A &lt; archivo.txt</code> → <strong>CORRECTO</strong>\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "103.2", "cat": "text", "type": "command", "title": "Editor de Flujo sed: Sustitución y Filtrado", "lead": "El stream editor por excelencia para modificar flujos de texto en movimiento:", "ref": "237-240", "pdf": {"manual": "A", "pages": [237, 238, 239, 240], "figure": null}, "coverage": ["103.2-CMD-012", "103.2-OPT-014", "103.2-OPT-015"], "command": "sed [-i] [-e] 's/buscar/reemplazar/[g]' <archivo>", "purpose": "Realizar sustituciones de cadenas, supresión de líneas o edición en sitio sobre archivos de texto", "terminal": {"command": "echo 'puerto 8080' | sed 's/8080/443/'; sed -n '1,3p' /etc/issue", "output": "puerto 443\nDebian GNU/Linux 11 \\n \\l"}, "options": [{"flag": "s/antiguo/nuevo/", "short": "1ª coincidencia", "desc": "🎯 Sustituye solo la primera aparición en cada línea."}, {"flag": "s/antiguo/nuevo/g", "short": "Global (/g)", "desc": "🎯 Sustituye TODAS las apariciones que aparezcan en la línea."}, {"flag": "sed -i", "short": "Edición en sitio", "desc": "🎯 Clave de Examen: Modifica y guarda los cambios directamente en el archivo en disco."}, {"flag": "sed '/^#/d'", "short": "Suprimir líneas", "desc": "🎯 Borra (delete) todas las líneas que coincidan con la expresión regular (ej: comentarios)."}, {"flag": "sed -n 'Np'", "short": "Imprimir línea N", "desc": "Imprime únicamente la línea número N (ej: sed -n '5p')."}], "remember": "🎯 Clave de Examen: 'sed -i' modifica el archivo físico; el modificador 'g' al final de 's///g' realiza sustitución global en toda la línea.", "notes": "Muestra cómo 'sed '/^$/d'' elimina todas las líneas en blanco de un archivo de configuración.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:14px 20px; margin-top:14px;\">\n  <div style=\"font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    📋 Anatomía de una Expresión de Sustitución en <code>sed</code>:\n  </div>\n\n  <div style=\"background:#0F172A; color:#F8FAFC; padding:10px 14px; border-radius:8px; font-family:monospace; font-size:16px; display:flex; gap:16px;\">\n    <span style=\"color:#F43F5E; font-weight:800;\">s</span>\n    <span style=\"color:#64748B;\">/</span>\n    <span style=\"color:#38BDF8;\">http</span>\n    <span style=\"color:#64748B;\">/</span>\n    <span style=\"color:#4ADE80;\">https</span>\n    <span style=\"color:#64748B;\">/</span>\n    <span style=\"color:#FDE047; font-weight:800;\">g</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; margin-top:10px; font-size:12.5px;\">\n    <div style=\"background:#FFF1F2; border:1px solid #FDA4AF; padding:6px 8px; border-radius:6px;\">\n      <strong style=\"color:#9F1239;\">s (Substitute):</strong><br>\n      Orden de sustitución de cadenas de texto.\n    </div>\n    <div style=\"background:#F0F9FF; border:1px solid #BAE6FD; padding:6px 8px; border-radius:6px;\">\n      <strong style=\"color:#0284C7;\">buscar:</strong><br>\n      Patrón o texto a localizar en la línea.\n    </div>\n    <div style=\"background:#ECFDF5; border:1px solid #A7F3D0; padding:6px 8px; border-radius:6px;\">\n      <strong style=\"color:#059669;\">reemplazar:</strong><br>\n      Nuevo texto que sustituirá al anterior.\n    </div>\n    <div style=\"background:#FEFCE8; border:1px solid #FDE047; padding:6px 8px; border-radius:6px;\">\n      <strong style=\"color:#CA8A04;\">g (Global):</strong><br>\n      🎯 Sin 'g' solo cambia la 1ª; con 'g' cambia todas.\n    </div>\n  </div>\n</div>\n"}, {"id": 10, "section": "103.2", "cat": "text", "type": "command", "title": "Integridad y Sumas Criptográficas: md5sum y sha256sum", "lead": "¿Cómo garantizar que un archivo no ha sido corrompido durante la descarga ni alterado por un atacante?", "ref": "240-242", "pdf": {"manual": "A", "pages": [240, 241, 242], "figure": null}, "coverage": ["103.2-CMD-013", "103.2-CMD-014", "103.2-OPT-016"], "command": "md5sum | sha256sum | sha512sum [-c archivo_hashes]", "purpose": "Calcular huellas hash criptográficas de archivos y verificar su integridad de forma desatendida", "terminal": {"command": "sha256sum /etc/issue > hashes.txt; sha256sum -c hashes.txt", "output": "/etc/issue: OK"}, "options": [{"flag": "md5sum <archivo>", "desc": "Calcula el hash MD5 (huella de 128 bits / 32 caracteres hexadecimales). Rápido pero desaconsejado en seguridad criptográfica moderna."}, {"flag": "sha256sum <archivo>", "desc": "🎯 Clave de Examen: Calcula la huella SHA-2 de 256 bits (64 caracteres hexadecimales), estándar actual en descargas Linux."}, {"flag": "sha512sum <archivo>", "desc": "Calcula la huella SHA-2 de 512 bits (128 caracteres hexadecimales) para máxima seguridad."}, {"flag": "-c, --check <archivo>", "desc": "🎯 Clave de Examen: Lee una lista de hashes y nombres de archivo y comprueba si los archivos coinciden devolviendo 'OK' o 'FAILED'."}, {"flag": "--status", "desc": "No genera ninguna salida en pantalla; solo devuelve código de salida 0 si todos los hashes coinciden (ideal para scripts de backup)."}], "remember": "🎯 Clave de Examen: Para verificar un archivo descargado contra su suma oficial se usa la opción '-c' (ej: sha256sum -c SHA256SUMS).", "notes": "Explica que si cambia un solo bit en un archivo de 10 GB, el hash resultante cambia por completo (efecto avalancha)."}, {"id": 11, "section": "103.2", "cat": "text", "type": "command", "title": "Inspección Binaria y Fragmentación: od y split", "lead": "Examinar bytes ocultos en archivos y dividir ficheros gigantescos para su transporte:", "ref": "242-244", "pdf": {"manual": "A", "pages": [242, 243, 244], "figure": null}, "coverage": ["103.2-CMD-015", "103.2-CMD-016", "103.2-OPT-017", "103.2-OPT-018"], "command": "od [-c|-x|-b] <archivo> | split [-b|-l|-d] <archivo> [prefijo]", "purpose": "Volcar datos en octal/hexadecimal/caracteres y fragmentar archivos grandes en partes", "terminal": {"command": "echo 'A B' | od -c; split -b 10M -d backup.tar.gz part_", "output": "0000000   A       B  \\n\n0000004\n# Genera archivos part_00, part_01 de 10 MB cada uno."}, "options": [{"flag": "od (Octal Dump)", "desc": "Vuelca el contenido exacto de cualquier archivo (incluso binarios o caracteres invisibles)."}, {"flag": "od -c", "desc": "🎯 Clave de Examen: Muestra los bytes como caracteres ASCII legibles o secuencias de escape de control (\\n, \\t, \\r, \\0)."}, {"flag": "od -x / -t x1", "desc": "Muestra la salida en formato hexadecimal de 2 o 4 bytes."}, {"flag": "split -b <tamaño>", "desc": "🎯 Clave de Examen: Divide el archivo por tamaño en bytes (ej: '-b 100M', '-b 1G', '-b 700M')."}, {"flag": "split -l <líneas>", "desc": "🎯 Divide el archivo de texto en partes de N líneas cada una (ej: '-l 1000')."}, {"flag": "split -d", "desc": "🎯 Utiliza sufijos numéricos (00, 01, 02) en lugar de letras alfabéticas (aa, ab, ac)."}], "remember": "🎯 Clave de Examen: 'od -c' permite descubrir saltos de línea Windows (\\r\\n) ocultos en scripts; 'split -b' divide archivos por tamaño.", "notes": "Muestra cómo recomponer las partes divididas por split usando simplemente 'cat part_* > original.tar.gz'."}, {"id": 12, "section": "103.2", "cat": "text", "type": "table", "title": "Formateo e Impresión de Texto: pr, expand y unexpand", "lead": "Ajustar flujos para impresoras o convertir tabuladores en espacios:", "ref": "244-245", "pdf": {"manual": "A", "pages": [244, 245], "figure": null}, "coverage": ["103.2-CMD-017", "103.2-CMD-018", "103.2-CMD-019"], "headers": ["Comando", "Propósito en el Examen LPIC-1", "Opciones Clave y Ejemplo"], "rows": [["pr", "Pagina y formatea archivos de texto para impresión física con cabeceras de fecha, hora y página.", "🎯 '-l <líneas>' (longitud de página), '-h <título>' (encabezado personalizado), '-2' o '-3' (imprimir en 2 o 3 columnas)."], ["expand", "🎯 Convierte caracteres de tabulación en secuencias de espacios en blanco equivalentes.", "'-t <N>' define cuántos espacios equivale cada tabulador (por defecto 8). 'expand -t 4 código.c'."], ["unexpand", "🎯 Operación inversa: convierte secuencias consecutivas de espacios en blanco en caracteres de tabulación.", "'-a' convierte todos los espacios posibles en tabuladores, no solo los que están al inicio de línea."]], "remember": "🎯 Clave Mnemotécnica: 'expand' expande tabs a espacios; 'unexpand' condensa espacios a tabs; 'pr' prepara el documento para impresión paginada.", "notes": "Explica que expand es muy útil para solucionar errores de indentación en archivos de Python o Makefiles."}, {"id": 13, "section": "103.2", "cat": "text", "type": "concept", "title": "Trampas Clásicas de Examen en Filtros de Texto", "lead": "Los 4 descuidos más habituales en las preguntas de procesamiento de texto:", "ref": "245-246", "pdf": {"manual": "A", "pages": [245, 246], "figure": null}, "coverage": ["103.2-WARN-001", "103.2-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Usar uniq sin ordenar previamente", "detail": "Si en una pregunta te piden contar valores únicos y respondes 'cut ... | uniq -c', es un error. La respuesta correcta siempre incluye sort: 'cut ... | sort | uniq -c'."}, {"icon": "alert-triangle", "text": "2. Pasar archivos como parámetro a 'tr'", "detail": "🎯 'tr a-z A-Z archivo.txt' FALLA. 'tr' no sabe abrir archivos, solo lee por stdin. Debes usar redirección: 'tr a-z A-Z < archivo.txt'."}, {"icon": "alert-triangle", "text": "3. Olvidar el modificador '/g' en sed", "detail": "'sed 's/foo/bar/'' solo cambiará la primera aparición de cada línea. Si una línea contiene tres veces 'foo', las dos últimas quedarán intactas a menos que pongas 's/foo/bar/g'."}, {"icon": "alert-triangle", "text": "4. Confundir cut -f con cut -c", "detail": "'-f' es para fields (columnas delimitadas por comas, dos puntos, etc.); '-c' es para characters (posiciones numéricas fijas de caracteres)."}], "remember": "🎯 Mnemotecnia Rápida: uniq siempre detrás de sort; tr solo por tubería; sed necesita /g para todo; y cut -f para delimitadores.", "notes": "Estos 4 puntos son los que marcan la diferencia entre aprobar o suspender la sección de filtros."}, {"id": 14, "section": "103.2", "cat": "text", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: cut, wc y sort)", "ref": "Manual A - Pág 246", "pdf": {"manual": "A", "pages": [246], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 246): ¿Qué pipeline de comandos cuenta cuántos procesadores o cores tiene el sistema leyendo el archivo '/proc/cpuinfo'?", "command": "grep -c '^processor' /proc/cpuinfo (o grep '^processor' /proc/cpuinfo | wc -l)", "reason": "Cada línea que comienza por 'processor' representa un núcleo lógico; 'wc -l' o 'grep -c' cuenta los saltos de línea coincidentes."}, {"action": "Caso 2 (Oficial Pág 246): ¿Qué comando extrae únicamente el nombre de usuario y el identificador UID del archivo '/etc/passwd' ordenando el resultado de menor a mayor UID numérico?", "command": "sort -t: -k3 -n /etc/passwd | cut -d: -f1,3", "reason": "sort -t: -k3 -n ordena las líneas numéricamente por el tercer campo (UID), y cut -d: -f1,3 recorta los campos deseados."}, {"action": "Caso 3 (Oficial Pág 246): ¿Cómo contar cuántos usuarios del sistema tienen asignada la shell '/bin/bash' en /etc/passwd?", "command": "grep -c '/bin/bash$' /etc/passwd (o grep '/bin/bash' /etc/passwd | wc -l)", "reason": "Filtra las líneas que terminan en /bin/bash y cuenta el total de ocurrencias."}], "solution": {"explain": "La combinación de grep, sort -n y cut permite extraer y normalizar datos del sistema de ficheros virtual y administrativo."}, "notes": "Muestra a los alumnos cómo el orden de los comandos en la tubería altera el resultado (ordenar antes de cortar vs cortar antes de ordenar)."}, {"id": 15, "section": "103.2", "cat": "text", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: sed, tr y sha256sum)", "ref": "Manual A - Pág 246", "pdf": {"manual": "A", "pages": [246], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 246): Un archivo de texto 'datos.txt' contiene caracteres de retorno de carro de Windows (^M o \\r). ¿Qué comando con 'tr' los elimina por completo?", "command": "tr -d '\\r' < datos.txt > limpio.txt", "reason": "La opción -d (delete) de tr suprime todos los caracteres indicados leyendo desde stdin."}, {"action": "Caso 5 (Oficial Pág 246): Tienes un archivo 'SHA256SUMS' descargado de un servidor de Debian junto con una imagen ISO. ¿Qué comando verifica automáticamente que la ISO no esté corrupta?", "command": "sha256sum -c SHA256SUMS", "reason": "La opción -c (--check) lee los nombres de archivo y sus sumas en el documento y calcula el hash de los ficheros locales para validar coincidencias."}], "solution": {"explain": "tr -d limpia caracteres de control indeseados; sha256sum -c verifica la firma de integridad de descargas."}, "notes": "Recuerda que sha256sum -c busca los archivos en el mismo directorio donde se ejecuta el comando."}, {"id": 16, "section": "103.2", "cat": "text", "type": "challenge", "title": "Retos de Exploración Oficiales (Pipelines de Auditoría y Logs)", "ref": "Manual A - Pág 246", "pdf": {"manual": "A", "pages": [246], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Un administrador necesita listar las 5 direcciones IP que más peticiones han realizado leyendo un archivo de log web 'access.log' donde la IP es la primera columna.\n2. ¿Qué comando con 'sed' sustituye directamente en el archivo '/etc/default/grub' el valor 'GRUB_TIMEOUT=5' por 'GRUB_TIMEOUT=0' sin necesidad de usar un editor interactivo?\n3. ¿Cómo dividirías un archivo de base de datos de 5 GB llamado 'dump.sql' en trozos de 500 MB con nombres 'backup_00', 'backup_01', etc.?", "hint": "Recuerda: cut -> sort -> uniq -c -> sort -nr -> head; sed -i; y split -b con sufijos numéricos (-d).", "solution": {"explain": "1. Se ejecuta: cut -d' ' -f1 access.log | sort | uniq -c | sort -nr | head -n 5\n2. Se ejecuta: sudo sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub\n3. Se ejecuta: split -b 500M -d dump.sql backup_"}, "notes": "El pipeline del Reto 1 es la secuencia de análisis de logs más utilizada en el mundo real por administradores y analistas de ciberseguridad."}, {"id": 17, "section": "103.2", "cat": "text", "type": "review", "title": "Pregunta de Examen LPIC-1: Extracción de Campos con cut", "q": "¿Cuál de los siguientes comandos mostrará en pantalla únicamente los nombres de las cuentas de usuario definidas en '/etc/passwd'?", "options": ["cut -c 1 /etc/passwd", "cut -d: -f1 /etc/passwd", "cut -f: -d1 /etc/passwd", "paste -d: -f1 /etc/passwd"], "answer": 1, "why": "En el comando 'cut', la opción '-d' define el delimitador de campos (en este caso dos puntos ':') y la opción '-f1' selecciona el primer campo (field), que en la estructura estándar de /etc/passwd corresponde al nombre de usuario (login name).", "notes": "Pregunta directa y fija de certificación."}, {"id": 18, "section": "103.2", "cat": "text", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Filtros de Texto 103.2", "deck": [{"front": "¿Qué comando monitoriza un archivo de registro en tiempo real mientras crece?", "back": "tail -f <archivo>."}, {"front": "¿Qué opción de 'wc' cuenta únicamente el número de líneas?", "back": "wc -l."}, {"front": "¿Qué comando recorta columnas de texto delimitadas por un separador?", "back": "cut -d<separador> -f<campo> (ej: cut -d: -f1)."}, {"front": "¿Por qué es obligatorio ordenar con 'sort' antes de usar 'uniq'?", "back": "Porque 'uniq' solo detecta líneas duplicadas consecutivas."}, {"front": "¿Qué opción de 'sort' ordena numéricamente y no alfabéticamente?", "back": "sort -n."}, {"front": "¿Qué limitación crítica tiene el comando 'tr'?", "back": "No acepta nombres de archivos; solo lee datos desde la entrada estándar (stdin)."}, {"front": "¿Qué opción de 'sed' modifica el archivo original en disco?", "back": "sed -i (edición in-place)."}, {"front": "¿Qué comando y opción verifica una lista de sumas hash?", "back": "sha256sum -c <archivo_hashes> (o md5sum -c)."}], "notes": "Repasa estas 8 tarjetas para fijar los filtros de texto de examen."}, {"id": 19, "section": "103.2", "cat": "text", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.2", "takeaways": ["Visualización: cat -n (numerar), tac (invertir), head -n (primeras líneas), tail -f (monitorizar logs en tiempo real).", "Columnas y Ordenación: cut -d: -f1 para extraer campos, paste para unir, sort -n para números, sort -k para columnas.", "Deduplicación y Transformación: uniq -c tras ordenar con sort; tr para sustituir caracteres individuales leyendo por stdin; sed 's///g' para cadenas completas.", "Integridad y Formatos: sha256sum -c para validar hashes; split -b para fragmentar archivos; od -c para volcar bytes ocultos."], "top3": [{"cmd": "cut -d: -f1,7 /etc/passwd", "desc": "Extrae el usuario y su shell asignada del archivo de cuentas."}, {"cmd": "sort archivo | uniq -c | sort -nr", "desc": "Calcula el ranking de frecuencia de líneas ordenadas de mayor a menor."}, {"cmd": "sed -i 's/buscar/reemplazar/g' archivo", "desc": "Sustituye cadenas de forma permanente en el archivo en disco."}], "practice": {"name": "Practica 103.2: Procesar Secuencias de Texto con Filtros", "url": "../practicas/p-103-2-filtros-de-texto.html", "desc": "Domina el filtrado de flujos de texto en Linux usando cat, tac, head, tail, cut, sort, uniq, tr, wc y sed sobre datos reales del sistema."}, "notes": "Concluimos el subtema 103.2. Los alumnos dominan ahora los filtros de texto GNU para el examen."}];
     const ERRATAS = [{"id": "E-007", "page": 22, "original": "zcat: Permite el procesamiento o la lectura de archivos comprimidos utilizando el método xz.", "corrected": "zcat: Permite el procesamiento o la lectura de archivos comprimidos utilizando el método gzip.", "explanation": "El resumen del manual copia erróneamente la descripción de xzcat en lugar de indicar el método gzip para zcat.", "type": "technique"}];
     const GLOSARIO = [{"id": "GLOS-103.2-001", "termino": "Filtro UNIX", "definicion": "Programa que lee datos de su entrada estándar (stdin), realiza transformaciones deterministas sobre ellos y emite los resultados por la salida estándar (stdout)."}, {"id": "GLOS-103.2-002", "termino": "zcat / bzcat / xzcat", "definicion": "Utilidades para visualizar y procesar en flujos estándar archivos comprimidos con gzip, bzip2 y xz respectivamente, sin descomprimirlos previamente en disco."}, {"id": "GLOS-103.2-003", "termino": "cut", "definicion": "Orden para extraer secciones verticales o campos de cada línea de un archivo basándose en delimitadores de caracteres o posiciones fijas de caracteres."}, {"id": "GLOS-103.2-004", "termino": "uniq", "definicion": "Comando para filtrar, contar (-c) o reportar líneas duplicadas adyacentes consecutivas, requiriendo típicamente una ordenación previa con sort."}, {"id": "GLOS-103.2-005", "termino": "sed", "definicion": "Stream Editor. Editor de flujo no interactivo para aplicar transformaciones, filtrados (/patrón/p), borrados (/patrón/d) y sustituciones de expresiones regulares (s///)."}, {"id": "GLOS-103.2-006", "termino": "sha256sum", "definicion": "Utilidad criptográfica para generar y verificar (-c) resúmenes hash de 256 bits, garantizando la integridad inmutable de archivos y descargas."}];
     const META = {"topic": "103.2", "title": "Procesar flujos de texto usando filtros", "weight": 3, "description": "cat, head, tail, wc, cut, paste, sort, uniq, tr, sed, split, od y sumas hash (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1453,6 +1932,9 @@
           });
           html += `</div>`;
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.console || s.terminal) {
           html += renderTerminalBox(s.console || s.terminal, s.command || 'bash');
         }
@@ -1518,6 +2000,9 @@
         const termData = s.terminal || s.console;
         if (termData) {
           html += renderTerminalBox(termData, s.command || s.name || 'bash');
+        }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
         }
 
         if (s.trap || s.warning) {
@@ -1603,6 +2088,9 @@
         if (fileTerm) {
           html += renderTerminalBox(fileTerm, s.command || 'bash');
         }
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
 
         if (s.trap || s.warning) {
           html += `
@@ -1643,6 +2131,9 @@
           html += `</tr>`;
         });
         html += `</tbody></table></div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         if (s.remember) {
           html += `
             <div class="callout-box callout-remember" style="margin-top:14px;">
@@ -1689,12 +2180,37 @@
             </div>
           `;
         }
+      } else if (s.type === 'diagram') {
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || s.purpose || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.diagram_html || s.raw_html || s.html || s.svg || s.content || '';
+        if (bodyContent) html += bodyContent;
+        if (s.remember) {
+          html += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        if (s.trap || s.warning) {
+          html += `
+            <div class="callout-box callout-warning" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-triangle-alert"/></svg>
+              <span><strong>Trampa de examen:</strong> ${renderRichText(s.trap || s.warning)}</span>
+            </div>
+          `;
+        }
       } else if (s.type === 'flow') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        if (s.diagram_html || s.raw_html || s.html || s.svg) {
+          html += (s.diagram_html || s.raw_html || s.html || s.svg);
+        }
         const steps = s.steps || s.nodes || s.diagram?.nodes || [];
-        if (steps.length > 0) {
+        if (steps.length > 0 && !s.diagram_html && !s.raw_html && !s.html && !s.svg) {
           html += `<div style="display:grid; grid-template-columns: repeat(${Math.min(steps.length, 4)}, 1fr); gap:18px; margin-top:18px;">`;
           steps.forEach((st, idx) => {
             const stitle = st.step || st.title || st.text || st.label || '';
@@ -2055,9 +2571,11 @@
           `;
         }
       } else {
-        html += `<h1 class="slide-title">${escapeHTML(s.title)}</h1>`;
+        html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
-        if (lead) html += `<div class="slide-lead">${escapeHTML(lead)}</div>`;
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+        const bodyContent = s.raw_html || s.html || s.content;
+        if (bodyContent) html += bodyContent;
       }
       return html;
     }
@@ -2241,6 +2759,9 @@
 
     function closeModals() {
       document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+      if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
     }
 
     function closePopovers() {
@@ -2266,6 +2787,45 @@
       popover.style.top = `${rect.bottom + 8}px`;
       popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
       popover.classList.add('open');
+    }
+
+    function openPopover(targetOrEvent, html) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      let el = null;
+      if (targetOrEvent instanceof Event) {
+        targetOrEvent.stopPropagation();
+        el = targetOrEvent.currentTarget || targetOrEvent.target;
+      } else if (targetOrEvent && targetOrEvent.nodeType) {
+        el = targetOrEvent;
+      } else if (targetOrEvent && targetOrEvent.target) {
+        el = targetOrEvent.target;
+      }
+      const popover = document.getElementById('global-popover');
+      if (!popover) return;
+      popover.innerHTML = html || '<div>Sin detalles adicionales</div>';
+      if (el && el.getBoundingClientRect) {
+        const rect = el.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + 8}px`;
+        popover.style.left = `${Math.min(rect.left, window.innerWidth - 420)}px`;
+      }
+      popover.classList.add('open');
+    }
+
+    function toggleAnswer(btn) {
+      if (window.event) {
+        try { window.event.stopPropagation(); } catch (err) {}
+      }
+      if (!btn) return;
+      const container = btn.closest('.quiz-reveal-container') || btn.parentElement;
+      if (!container) return;
+      const ans = container.querySelector('.quiz-answer-box');
+      if (ans) {
+        const isHidden = window.getComputedStyle(ans).display === 'none' || ans.style.display === 'none';
+        ans.style.display = isHidden ? 'block' : 'none';
+        btn.textContent = isHidden ? 'Ocultar Respuesta ▲' : 'Ver Respuesta ▼';
+      }
     }
     document.addEventListener('click', closePopovers);
 
@@ -2444,6 +3004,18 @@
         }
       }
       renderSlide(initSlide);
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        const match = window.location.hash.match(/#\/(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10) - 1;
+          if (num >= 0 && num < SLIDES.length && num !== currentSlideIdx) {
+            renderSlide(num);
+          }
+        }
+      }
     });
   </script>
 </body>
