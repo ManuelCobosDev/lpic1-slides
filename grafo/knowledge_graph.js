@@ -2,7 +2,7 @@ window.LPIC_GRAPH_DATA = {
   "metadata": {
     "title": "Grafo de Conocimiento y Mapa Mental LPIC-1 (Examen 101-500: Temas 101 a 104 v5.0)",
     "version": "1.0",
-    "total_nodes": 192,
+    "total_nodes": 191,
     "total_edges": 299,
     "total_temas": 4,
     "temas": {
@@ -1709,27 +1709,23 @@ window.LPIC_GRAPH_DATA = {
         },
         {
           "flag": "cpio -o, --create",
-          "desc": "🎯 Copy-out: Lee rutas por stdin y genera el fichero archivador en stdout."
+          "desc": "🎯 Lee la lista de rutas por 'stdin' y escribe el archivo empaquetado resultante en 'stdout'."
         },
         {
           "flag": "cpio -i, --extract",
-          "desc": "🎯 Copy-in: Lee el archivador por stdin y extrae los ficheros en disco."
+          "desc": "🎯 Lee el archivo empaquetado por 'stdin' y extrae los archivos en el disco duro."
         },
         {
           "flag": "cpio -p",
-          "desc": "🎯 Pass-through: Copia árboles de archivos directamente a otro directorio."
+          "desc": "🎯 Copia un árbol de directorios directamente a otra carpeta sin crear fichero intermedio."
         },
         {
-          "flag": "-d, --make-directories",
-          "desc": "Crea directorios intermedios al restaurar los ficheros."
-        },
-        {
-          "flag": "-t, --list",
-          "desc": "Lista los ficheros del archivador sin extraerlos."
+          "flag": "cpio -t",
+          "desc": "Muestra la lista de ficheros contenidos en el archivo sin extraerlos en disco."
         }
       ],
       "examples": [
-        "find /etc -name '*.conf' | cpio -ov > /tmp/confs.cpio; cpio -it < /tmp/confs.cpio | head -n 3"
+        "find /etc/nginx -name '*.conf' | cpio -ov > /tmp/confs.cpio; cpio -it < /tmp/confs.cpio"
       ],
       "exam_tips": [],
       "slide_url": "t102/102-5-gestion-de-paquetes-rpm.html#/5",
@@ -1769,27 +1765,23 @@ window.LPIC_GRAPH_DATA = {
         },
         {
           "flag": "cpio -o, --create",
-          "desc": "🎯 Copy-out: Lee rutas por stdin y genera el fichero archivador en stdout."
+          "desc": "🎯 Lee la lista de rutas por 'stdin' y escribe el archivo empaquetado resultante en 'stdout'."
         },
         {
           "flag": "cpio -i, --extract",
-          "desc": "🎯 Copy-in: Lee el archivador por stdin y extrae los ficheros en disco."
+          "desc": "🎯 Lee el archivo empaquetado por 'stdin' y extrae los archivos en el disco duro."
         },
         {
           "flag": "cpio -p",
-          "desc": "🎯 Pass-through: Copia árboles de archivos directamente a otro directorio."
+          "desc": "🎯 Copia un árbol de directorios directamente a otra carpeta sin crear fichero intermedio."
         },
         {
-          "flag": "-d, --make-directories",
-          "desc": "Crea directorios intermedios al restaurar los ficheros."
-        },
-        {
-          "flag": "-t, --list",
-          "desc": "Lista los ficheros del archivador sin extraerlos."
+          "flag": "cpio -t",
+          "desc": "Muestra la lista de ficheros contenidos en el archivo sin extraerlos en disco."
         }
       ],
       "examples": [
-        "find /etc -name '*.conf' | cpio -ov > /tmp/confs.cpio; cpio -it < /tmp/confs.cpio | head -n 3"
+        "find /etc/nginx -name '*.conf' | cpio -ov > /tmp/confs.cpio; cpio -it < /tmp/confs.cpio"
       ],
       "exam_tips": [
         {
@@ -2719,40 +2711,36 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.1",
       "title": "Comando: uname",
-      "desc": "Imprimir información sobre el kernel, la arquitectura del hardware y navegar por directorios",
-      "syntax": "uname -a; pwd; cd .. && pwd",
+      "desc": "Auditoría inicial de kernel, hardware y rutas antes de operar en consola",
+      "syntax": "uname [opciones] | pwd | cd [directorio]",
       "flags": [
         {
           "flag": "uname -a",
-          "desc": "🎯 Imprime toda la información del sistema: nombre de kernel, hostname, versión, arquitectura y SO."
+          "desc": "🎯 Imprime nombre de SO, hostname, versión kernel, arquitectura y plataforma."
         },
         {
           "flag": "uname -r",
-          "desc": "🎯 Muestra exclusivamente la versión de release del kernel (ej: 5.10.0-18-amd64)."
+          "desc": "🎯 Versión exacta de release del kernel (ej: 6.1.0-21-amd64). ¡Dato clave para compilar drivers!"
         },
         {
           "flag": "uname -m",
-          "desc": "🎯 Muestra la arquitectura del hardware de la CPU (ej: x86_64, aarch64, i686)."
-        },
-        {
-          "flag": "uname -n",
-          "desc": "Muestra el nombre de host de red (nodename) asignado al equipo."
-        },
-        {
-          "flag": "uname -s",
-          "desc": "Muestra el nombre del sistema operativo del kernel (Linux)."
+          "desc": "🎯 Arquitectura de hardware (x86_64 para 64 bits PC, aarch64 para ARM, i686 para 32 bits)."
         },
         {
           "flag": "pwd",
-          "desc": "Print Working Directory: muestra la ruta absoluta del directorio de trabajo actual."
+          "desc": "Print Working Directory: muestra la ruta absoluta del directorio donde estás parado."
         },
         {
-          "flag": "cd [ruta]",
-          "desc": "Cambia de directorio. Sin argumentos o con 'cd ~' regresa al HOME; 'cd -' regresa al directorio anterior."
+          "flag": "cd ~ / cd",
+          "desc": "Sin argumentos o con virgulilla (~), vuelve de golpe al directorio personal del usuario."
+        },
+        {
+          "flag": "cd -",
+          "desc": "🎯 Regresa al directorio inmediatamente anterior usando la variable interna $OLDPWD."
         }
       ],
       "examples": [
-        "uname -a; pwd; cd .. && pwd"
+        "uname -a; pwd; cd /etc && pwd; cd -"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-1-trabajar-desde-la-linea.html#/3",
@@ -2767,40 +2755,36 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.1",
       "title": "Comando: pwd",
-      "desc": "Imprimir información sobre el kernel, la arquitectura del hardware y navegar por directorios",
-      "syntax": "uname -a; pwd; cd .. && pwd",
+      "desc": "Auditoría inicial de kernel, hardware y rutas antes de operar en consola",
+      "syntax": "uname [opciones] | pwd | cd [directorio]",
       "flags": [
         {
           "flag": "uname -a",
-          "desc": "🎯 Imprime toda la información del sistema: nombre de kernel, hostname, versión, arquitectura y SO."
+          "desc": "🎯 Imprime nombre de SO, hostname, versión kernel, arquitectura y plataforma."
         },
         {
           "flag": "uname -r",
-          "desc": "🎯 Muestra exclusivamente la versión de release del kernel (ej: 5.10.0-18-amd64)."
+          "desc": "🎯 Versión exacta de release del kernel (ej: 6.1.0-21-amd64). ¡Dato clave para compilar drivers!"
         },
         {
           "flag": "uname -m",
-          "desc": "🎯 Muestra la arquitectura del hardware de la CPU (ej: x86_64, aarch64, i686)."
-        },
-        {
-          "flag": "uname -n",
-          "desc": "Muestra el nombre de host de red (nodename) asignado al equipo."
-        },
-        {
-          "flag": "uname -s",
-          "desc": "Muestra el nombre del sistema operativo del kernel (Linux)."
+          "desc": "🎯 Arquitectura de hardware (x86_64 para 64 bits PC, aarch64 para ARM, i686 para 32 bits)."
         },
         {
           "flag": "pwd",
-          "desc": "Print Working Directory: muestra la ruta absoluta del directorio de trabajo actual."
+          "desc": "Print Working Directory: muestra la ruta absoluta del directorio donde estás parado."
         },
         {
-          "flag": "cd [ruta]",
-          "desc": "Cambia de directorio. Sin argumentos o con 'cd ~' regresa al HOME; 'cd -' regresa al directorio anterior."
+          "flag": "cd ~ / cd",
+          "desc": "Sin argumentos o con virgulilla (~), vuelve de golpe al directorio personal del usuario."
+        },
+        {
+          "flag": "cd -",
+          "desc": "🎯 Regresa al directorio inmediatamente anterior usando la variable interna $OLDPWD."
         }
       ],
       "examples": [
-        "uname -a; pwd; cd .. && pwd"
+        "uname -a; pwd; cd /etc && pwd; cd -"
       ],
       "exam_tips": [
         {
@@ -2823,40 +2807,36 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.1",
       "title": "Comando: cd",
-      "desc": "Imprimir información sobre el kernel, la arquitectura del hardware y navegar por directorios",
-      "syntax": "uname -a; pwd; cd .. && pwd",
+      "desc": "Auditoría inicial de kernel, hardware y rutas antes de operar en consola",
+      "syntax": "uname [opciones] | pwd | cd [directorio]",
       "flags": [
         {
           "flag": "uname -a",
-          "desc": "🎯 Imprime toda la información del sistema: nombre de kernel, hostname, versión, arquitectura y SO."
+          "desc": "🎯 Imprime nombre de SO, hostname, versión kernel, arquitectura y plataforma."
         },
         {
           "flag": "uname -r",
-          "desc": "🎯 Muestra exclusivamente la versión de release del kernel (ej: 5.10.0-18-amd64)."
+          "desc": "🎯 Versión exacta de release del kernel (ej: 6.1.0-21-amd64). ¡Dato clave para compilar drivers!"
         },
         {
           "flag": "uname -m",
-          "desc": "🎯 Muestra la arquitectura del hardware de la CPU (ej: x86_64, aarch64, i686)."
-        },
-        {
-          "flag": "uname -n",
-          "desc": "Muestra el nombre de host de red (nodename) asignado al equipo."
-        },
-        {
-          "flag": "uname -s",
-          "desc": "Muestra el nombre del sistema operativo del kernel (Linux)."
+          "desc": "🎯 Arquitectura de hardware (x86_64 para 64 bits PC, aarch64 para ARM, i686 para 32 bits)."
         },
         {
           "flag": "pwd",
-          "desc": "Print Working Directory: muestra la ruta absoluta del directorio de trabajo actual."
+          "desc": "Print Working Directory: muestra la ruta absoluta del directorio donde estás parado."
         },
         {
-          "flag": "cd [ruta]",
-          "desc": "Cambia de directorio. Sin argumentos o con 'cd ~' regresa al HOME; 'cd -' regresa al directorio anterior."
+          "flag": "cd ~ / cd",
+          "desc": "Sin argumentos o con virgulilla (~), vuelve de golpe al directorio personal del usuario."
+        },
+        {
+          "flag": "cd -",
+          "desc": "🎯 Regresa al directorio inmediatamente anterior usando la variable interna $OLDPWD."
         }
       ],
       "examples": [
-        "uname -a; pwd; cd .. && pwd"
+        "uname -a; pwd; cd /etc && pwd; cd -"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-1-trabajar-desde-la-linea.html#/3",
@@ -2872,39 +2852,31 @@ window.LPIC_GRAPH_DATA = {
       "subtopic_id": "103.1",
       "title": "Comando: type",
       "desc": "Averiguar la naturaleza exacta de un comando y su ubicación en el sistema",
-      "syntax": "type cd; type ls; type -a echo; which ls",
+      "syntax": "type [-a] <cmd> | which <cmd> | whereis <cmd> | hash [-r]",
       "flags": [
         {
-          "flag": "type",
-          "desc": "🎯 Describe si el comando es builtin, alias, función o archivo en disco."
+          "flag": "type <cmd>",
+          "desc": "🎯 Comando interno de Bash. Descubre si es builtin, alias, función o archivo en disco."
         },
         {
-          "flag": "type -a",
-          "desc": "🎯 Muestra todas las ubicaciones en orden de precedencia de ejecución."
-        },
-        {
-          "flag": "which",
-          "desc": "🎯 Busca solo binarios en disco en . ¡No encuentra builtins como cd!"
-        },
-        {
-          "flag": "whereis",
-          "desc": "Localiza binario, código fuente y páginas de manual en rutas estándar."
-        },
-        {
-          "flag": "hash",
-          "desc": "Muestra la tabla hash en memoria donde Bash guarda rutas ejecutadas (-r la limpia)."
+          "flag": "type -a <cmd>",
+          "desc": "🎯 Muestra todas las versiones de la orden en orden estricto de prioridad de ejecución."
         },
         {
           "flag": "which <cmd>",
-          "desc": "🎯 Clave de Examen: Busca ÚNICAMENTE en las carpetas de la variable $PATH y devuelve el primer ejecutable."
+          "desc": "🎯 Busca ejecutables en disco según $PATH. ¡No encuentra builtins como cd o exit!"
+        },
+        {
+          "flag": "whereis <cmd>",
+          "desc": "Localiza el archivo ejecutable, el código fuente y las páginas man en rutas estándar."
+        },
+        {
+          "flag": "hash [-r]",
+          "desc": "Muestra la tabla hash en RAM con rutas ya ejecutadas. 'hash -r' la vacía por completo."
         },
         {
           "flag": "which -a <cmd>",
           "desc": "Muestra todas las coincidencias en $PATH, no solo la primera."
-        },
-        {
-          "flag": "whereis <cmd>",
-          "desc": "🎯 Busca en un conjunto fijo de rutas estándar del sistema binarios, manuales y fuentes."
         },
         {
           "flag": "whereis -b",
@@ -2919,16 +2891,8 @@ window.LPIC_GRAPH_DATA = {
           "desc": "Muestra únicamente el código fuente del comando si está presente."
         },
         {
-          "flag": "type <cmd>",
-          "desc": "🎯 Clave de Examen: Describe detalladamente la naturaleza del comando en lenguaje natural."
-        },
-        {
           "flag": "type -t <cmd>",
           "desc": "🎯 Clave de Examen: Devuelve una sola palabra: builtin, alias, file o function."
-        },
-        {
-          "flag": "type -a <cmd>",
-          "desc": "Muestra todas las definiciones del comando en orden de prioridad de resolución de Bash."
         },
         {
           "flag": "¿Por qué which falla?",
@@ -2936,7 +2900,7 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "type cd; type ls; type -a echo; which ls",
+        "type cd; which cd; type ls; type -a echo; whereis grep",
         "which passwd; whereis passwd",
         "type cd; type -t cd; type -t ls; type -t grep"
       ],
@@ -2976,39 +2940,31 @@ window.LPIC_GRAPH_DATA = {
       "subtopic_id": "103.1",
       "title": "Comando: which",
       "desc": "Averiguar la naturaleza exacta de un comando y su ubicación en el sistema",
-      "syntax": "type cd; type ls; type -a echo; which ls",
+      "syntax": "type [-a] <cmd> | which <cmd> | whereis <cmd> | hash [-r]",
       "flags": [
         {
-          "flag": "type",
-          "desc": "🎯 Describe si el comando es builtin, alias, función o archivo en disco."
+          "flag": "type <cmd>",
+          "desc": "🎯 Comando interno de Bash. Descubre si es builtin, alias, función o archivo en disco."
         },
         {
-          "flag": "type -a",
-          "desc": "🎯 Muestra todas las ubicaciones en orden de precedencia de ejecución."
-        },
-        {
-          "flag": "which",
-          "desc": "🎯 Busca solo binarios en disco en . ¡No encuentra builtins como cd!"
-        },
-        {
-          "flag": "whereis",
-          "desc": "Localiza binario, código fuente y páginas de manual en rutas estándar."
-        },
-        {
-          "flag": "hash",
-          "desc": "Muestra la tabla hash en memoria donde Bash guarda rutas ejecutadas (-r la limpia)."
+          "flag": "type -a <cmd>",
+          "desc": "🎯 Muestra todas las versiones de la orden en orden estricto de prioridad de ejecución."
         },
         {
           "flag": "which <cmd>",
-          "desc": "🎯 Clave de Examen: Busca ÚNICAMENTE en las carpetas de la variable $PATH y devuelve el primer ejecutable."
+          "desc": "🎯 Busca ejecutables en disco según $PATH. ¡No encuentra builtins como cd o exit!"
+        },
+        {
+          "flag": "whereis <cmd>",
+          "desc": "Localiza el archivo ejecutable, el código fuente y las páginas man en rutas estándar."
+        },
+        {
+          "flag": "hash [-r]",
+          "desc": "Muestra la tabla hash en RAM con rutas ya ejecutadas. 'hash -r' la vacía por completo."
         },
         {
           "flag": "which -a <cmd>",
           "desc": "Muestra todas las coincidencias en $PATH, no solo la primera."
-        },
-        {
-          "flag": "whereis <cmd>",
-          "desc": "🎯 Busca en un conjunto fijo de rutas estándar del sistema binarios, manuales y fuentes."
         },
         {
           "flag": "whereis -b",
@@ -3023,16 +2979,8 @@ window.LPIC_GRAPH_DATA = {
           "desc": "Muestra únicamente el código fuente del comando si está presente."
         },
         {
-          "flag": "type <cmd>",
-          "desc": "🎯 Clave de Examen: Describe detalladamente la naturaleza del comando en lenguaje natural."
-        },
-        {
           "flag": "type -t <cmd>",
           "desc": "🎯 Clave de Examen: Devuelve una sola palabra: builtin, alias, file o function."
-        },
-        {
-          "flag": "type -a <cmd>",
-          "desc": "Muestra todas las definiciones del comando en orden de prioridad de resolución de Bash."
         },
         {
           "flag": "¿Por qué which falla?",
@@ -3040,7 +2988,7 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "type cd; type ls; type -a echo; which ls",
+        "type cd; which cd; type ls; type -a echo; whereis grep",
         "which passwd; whereis passwd",
         "type cd; type -t cd; type -t ls; type -t grep"
       ],
@@ -3080,39 +3028,31 @@ window.LPIC_GRAPH_DATA = {
       "subtopic_id": "103.1",
       "title": "Comando: whereis",
       "desc": "Averiguar la naturaleza exacta de un comando y su ubicación en el sistema",
-      "syntax": "type cd; type ls; type -a echo; which ls",
+      "syntax": "type [-a] <cmd> | which <cmd> | whereis <cmd> | hash [-r]",
       "flags": [
         {
-          "flag": "type",
-          "desc": "🎯 Describe si el comando es builtin, alias, función o archivo en disco."
+          "flag": "type <cmd>",
+          "desc": "🎯 Comando interno de Bash. Descubre si es builtin, alias, función o archivo en disco."
         },
         {
-          "flag": "type -a",
-          "desc": "🎯 Muestra todas las ubicaciones en orden de precedencia de ejecución."
-        },
-        {
-          "flag": "which",
-          "desc": "🎯 Busca solo binarios en disco en . ¡No encuentra builtins como cd!"
-        },
-        {
-          "flag": "whereis",
-          "desc": "Localiza binario, código fuente y páginas de manual en rutas estándar."
-        },
-        {
-          "flag": "hash",
-          "desc": "Muestra la tabla hash en memoria donde Bash guarda rutas ejecutadas (-r la limpia)."
+          "flag": "type -a <cmd>",
+          "desc": "🎯 Muestra todas las versiones de la orden en orden estricto de prioridad de ejecución."
         },
         {
           "flag": "which <cmd>",
-          "desc": "🎯 Clave de Examen: Busca ÚNICAMENTE en las carpetas de la variable $PATH y devuelve el primer ejecutable."
+          "desc": "🎯 Busca ejecutables en disco según $PATH. ¡No encuentra builtins como cd o exit!"
+        },
+        {
+          "flag": "whereis <cmd>",
+          "desc": "Localiza el archivo ejecutable, el código fuente y las páginas man en rutas estándar."
+        },
+        {
+          "flag": "hash [-r]",
+          "desc": "Muestra la tabla hash en RAM con rutas ya ejecutadas. 'hash -r' la vacía por completo."
         },
         {
           "flag": "which -a <cmd>",
           "desc": "Muestra todas las coincidencias en $PATH, no solo la primera."
-        },
-        {
-          "flag": "whereis <cmd>",
-          "desc": "🎯 Busca en un conjunto fijo de rutas estándar del sistema binarios, manuales y fuentes."
         },
         {
           "flag": "whereis -b",
@@ -3127,16 +3067,8 @@ window.LPIC_GRAPH_DATA = {
           "desc": "Muestra únicamente el código fuente del comando si está presente."
         },
         {
-          "flag": "type <cmd>",
-          "desc": "🎯 Clave de Examen: Describe detalladamente la naturaleza del comando en lenguaje natural."
-        },
-        {
           "flag": "type -t <cmd>",
           "desc": "🎯 Clave de Examen: Devuelve una sola palabra: builtin, alias, file o function."
-        },
-        {
-          "flag": "type -a <cmd>",
-          "desc": "Muestra todas las definiciones del comando en orden de prioridad de resolución de Bash."
         },
         {
           "flag": "¿Por qué which falla?",
@@ -3144,7 +3076,7 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "type cd; type ls; type -a echo; which ls",
+        "type cd; which cd; type ls; type -a echo; whereis grep",
         "which passwd; whereis passwd",
         "type cd; type -t cd; type -t ls; type -t grep"
       ],
@@ -3162,39 +3094,31 @@ window.LPIC_GRAPH_DATA = {
       "subtopic_id": "103.1",
       "title": "Comando: hash",
       "desc": "Averiguar la naturaleza exacta de un comando y su ubicación en el sistema",
-      "syntax": "type cd; type ls; type -a echo; which ls",
+      "syntax": "type [-a] <cmd> | which <cmd> | whereis <cmd> | hash [-r]",
       "flags": [
         {
-          "flag": "type",
-          "desc": "🎯 Describe si el comando es builtin, alias, función o archivo en disco."
+          "flag": "type <cmd>",
+          "desc": "🎯 Comando interno de Bash. Descubre si es builtin, alias, función o archivo en disco."
         },
         {
-          "flag": "type -a",
-          "desc": "🎯 Muestra todas las ubicaciones en orden de precedencia de ejecución."
-        },
-        {
-          "flag": "which",
-          "desc": "🎯 Busca solo binarios en disco en . ¡No encuentra builtins como cd!"
-        },
-        {
-          "flag": "whereis",
-          "desc": "Localiza binario, código fuente y páginas de manual en rutas estándar."
-        },
-        {
-          "flag": "hash",
-          "desc": "Muestra la tabla hash en memoria donde Bash guarda rutas ejecutadas (-r la limpia)."
+          "flag": "type -a <cmd>",
+          "desc": "🎯 Muestra todas las versiones de la orden en orden estricto de prioridad de ejecución."
         },
         {
           "flag": "which <cmd>",
-          "desc": "🎯 Clave de Examen: Busca ÚNICAMENTE en las carpetas de la variable $PATH y devuelve el primer ejecutable."
+          "desc": "🎯 Busca ejecutables en disco según $PATH. ¡No encuentra builtins como cd o exit!"
+        },
+        {
+          "flag": "whereis <cmd>",
+          "desc": "Localiza el archivo ejecutable, el código fuente y las páginas man en rutas estándar."
+        },
+        {
+          "flag": "hash [-r]",
+          "desc": "Muestra la tabla hash en RAM con rutas ya ejecutadas. 'hash -r' la vacía por completo."
         },
         {
           "flag": "which -a <cmd>",
           "desc": "Muestra todas las coincidencias en $PATH, no solo la primera."
-        },
-        {
-          "flag": "whereis <cmd>",
-          "desc": "🎯 Busca en un conjunto fijo de rutas estándar del sistema binarios, manuales y fuentes."
         },
         {
           "flag": "whereis -b",
@@ -3209,16 +3133,8 @@ window.LPIC_GRAPH_DATA = {
           "desc": "Muestra únicamente el código fuente del comando si está presente."
         },
         {
-          "flag": "type <cmd>",
-          "desc": "🎯 Clave de Examen: Describe detalladamente la naturaleza del comando en lenguaje natural."
-        },
-        {
           "flag": "type -t <cmd>",
           "desc": "🎯 Clave de Examen: Devuelve una sola palabra: builtin, alias, file o function."
-        },
-        {
-          "flag": "type -a <cmd>",
-          "desc": "Muestra todas las definiciones del comando en orden de prioridad de resolución de Bash."
         },
         {
           "flag": "¿Por qué which falla?",
@@ -3226,7 +3142,7 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "type cd; type ls; type -a echo; which ls",
+        "type cd; which cd; type ls; type -a echo; whereis grep",
         "which passwd; whereis passwd",
         "type cd; type -t cd; type -t ls; type -t grep"
       ],
@@ -3243,40 +3159,32 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.1",
       "title": "Comando: history",
-      "desc": "Inspeccionar, vaciar o volver a ejecutar comandos del historial de la sesión",
-      "syntax": "history | tail -n 4; !-2",
+      "desc": "Ahorrar tiempo y evitar errores repitiendo y buscando órdenes ejecutadas",
+      "syntax": "history [N] | history -c | history -w | !! | !<número>",
       "flags": [
         {
-          "flag": "history",
-          "desc": "Muestra la lista numerada de comandos ejecutados en la sesión actual."
-        },
-        {
-          "flag": "history -c",
-          "desc": "🎯 Vacía (clear) el historial completo de comandos de la memoria de la sesión actual."
-        },
-        {
-          "flag": "history -w",
-          "desc": "🎯 Escribe de forma inmediata el historial de la memoria en el archivo ~/.bash_history en disco."
-        },
-        {
-          "flag": "!N",
-          "desc": "🎯 Vuelve a ejecutar el comando con el número de línea 'N' del historial (ej: !1015)."
-        },
-        {
-          "flag": "!-N",
-          "desc": "Vuelve a ejecutar el comando ejecutado 'N' pasos atrás (ej: !-1 equivale a !!)."
+          "flag": "history [N]",
+          "desc": "🎯 Muestra la lista numerada de comandos ejecutados (opcionalmente solo los últimos N)."
         },
         {
           "flag": "!!",
-          "desc": "🎯 Clave de Examen: Vuelve a ejecutar el último comando tecleado (muy útil: 'sudo !!')."
+          "desc": "🎯 Vuelve a ejecutar la última orden tecleada. Imprescindible: 'sudo !!' al olvidar permisos."
+        },
+        {
+          "flag": "!n",
+          "desc": "🎯 Ejecuta directamente la orden con el número de índice 'n' del historial (ej: !1050)."
+        },
+        {
+          "flag": "!-n",
+          "desc": "Ejecuta el comando tecleado hace 'n' pasos atrás (ej: !-1 es idéntico a !!)."
         },
         {
           "flag": "!cadena",
-          "desc": "Vuelve a ejecutar el comando más reciente que empiece por 'cadena' (ej: '!apt')."
+          "desc": "Ejecuta el comando más reciente que empiece por 'cadena' (ej: !systemctl)."
         },
         {
           "flag": "Ctrl + R",
-          "desc": "Búsqueda incremental inversa interactiva en el historial mientras escribes."
+          "desc": "Búsqueda incremental inversa en el historial mientras vas escribiendo caracteres."
         },
         {
           "flag": "kill -l",
@@ -3300,7 +3208,7 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "history | tail -n 4; !-2",
+        "apt-get update; sudo !!; history 3; !1050",
         "kill -l | tr ' ' '\\n' | head -n 9; kill -15 28540; kill -9 28540"
       ],
       "exam_tips": [],
@@ -3316,7 +3224,7 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.1",
       "title": "Archivo/Ruta: ~/.bash_history y variables HISTSIZE / HISTFILESIZE",
-      "desc": "¿Dónde se guarda el historial entre sesiones y cómo se controla su tamaño?",
+      "desc": "¿Dónde se guardan los comandos entre sesiones y qué leches son HISTSIZE y HISTFILESIZE?",
       "syntax": "~/.bash_history y variables HISTSIZE / HISTFILESIZE",
       "flags": [],
       "examples": [],
@@ -3333,28 +3241,44 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.1",
       "title": "Comando: export",
-      "desc": "Crear variables locales de shell, exportarlas como variables de entorno o eliminarlas",
-      "syntax": "CURSO='LPIC-1'; export CURSO; echo $CURSO; unset CURSO; echo \"CURSO=$CURSO\"",
+      "desc": "Almacenar datos, configurar procesos y controlar la visibilidad entre shells",
+      "syntax": "NOMBRE=valor | export NOMBRE | env | unset NOMBRE",
       "flags": [
         {
           "flag": "VAR=valor",
-          "desc": "🎯 Crea una variable de shell local. ¡Sin espacios alrededor del '='! Solo existe en la shell actual."
+          "desc": "🎯 Define una variable en la shell actual. ¡OBLIGATORIO: sin espacios alrededor del '='!"
         },
         {
           "flag": "export VAR",
-          "desc": "🎯 Exporta la variable para que cualquier proceso hijo o script herede su valor."
+          "desc": "🎯 Exporta la variable para que cualquier proceso hijo o script herede una copia de su valor."
         },
         {
           "flag": "env / printenv",
-          "desc": "🎯 Muestra todas las variables de entorno actualmente exportadas en el sistema."
+          "desc": "🎯 Lista exclusivamente las variables de entorno exportadas en el sistema."
         },
         {
           "flag": "set",
-          "desc": "🎯 Muestra TODAS las variables (locales y de entorno) y funciones de Bash."
+          "desc": "🎯 Lista TODAS las variables (locales y exportadas) más las funciones activas de Bash."
         },
         {
           "flag": "unset VAR",
-          "desc": "🎯 Elimina la variable de la memoria (¡sin poner el signo '$' al nombrarla!)."
+          "desc": "🎯 Borra la variable de la memoria (¡se escribe el nombre pelado, NUNCA 'unset $VAR'!)."
+        },
+        {
+          "flag": "set -o noclobber",
+          "desc": "🎯 Activa la protección contra sobreescritura accidental con '>'."
+        },
+        {
+          "flag": ">| archivo",
+          "desc": "🎯 Clave de Examen: Operador 'clobber' que fuerza sobreescribir ignorando la protección."
+        },
+        {
+          "flag": "set +o noclobber",
+          "desc": "🎯 Desactiva la protección permitiendo de nuevo '>' normal."
+        },
+        {
+          "flag": ">> (concatenar)",
+          "desc": "La concatenación '>>' nunca destruye datos, por lo que noclobber la permite siempre."
         },
         {
           "flag": "EDITOR",
@@ -3370,7 +3294,8 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "CURSO='LPIC-1'; export CURSO; echo $CURSO; unset CURSO; echo \"CURSO=$CURSO\"",
+        "APP_PORT=8080; bash -c 'echo \"En subshell: $APP_PORT\"'; export APP_PORT; bash -c 'echo \"Exportada: $APP_PORT\"'; unset APP_PORT",
+        "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt",
         "export EDITOR=vi; crontab -e"
       ],
       "exam_tips": [],
@@ -3386,28 +3311,44 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.1",
       "title": "Comando: env",
-      "desc": "Crear variables locales de shell, exportarlas como variables de entorno o eliminarlas",
-      "syntax": "CURSO='LPIC-1'; export CURSO; echo $CURSO; unset CURSO; echo \"CURSO=$CURSO\"",
+      "desc": "Almacenar datos, configurar procesos y controlar la visibilidad entre shells",
+      "syntax": "NOMBRE=valor | export NOMBRE | env | unset NOMBRE",
       "flags": [
         {
           "flag": "VAR=valor",
-          "desc": "🎯 Crea una variable de shell local. ¡Sin espacios alrededor del '='! Solo existe en la shell actual."
+          "desc": "🎯 Define una variable en la shell actual. ¡OBLIGATORIO: sin espacios alrededor del '='!"
         },
         {
           "flag": "export VAR",
-          "desc": "🎯 Exporta la variable para que cualquier proceso hijo o script herede su valor."
+          "desc": "🎯 Exporta la variable para que cualquier proceso hijo o script herede una copia de su valor."
         },
         {
           "flag": "env / printenv",
-          "desc": "🎯 Muestra todas las variables de entorno actualmente exportadas en el sistema."
+          "desc": "🎯 Lista exclusivamente las variables de entorno exportadas en el sistema."
         },
         {
           "flag": "set",
-          "desc": "🎯 Muestra TODAS las variables (locales y de entorno) y funciones de Bash."
+          "desc": "🎯 Lista TODAS las variables (locales y exportadas) más las funciones activas de Bash."
         },
         {
           "flag": "unset VAR",
-          "desc": "🎯 Elimina la variable de la memoria (¡sin poner el signo '$' al nombrarla!)."
+          "desc": "🎯 Borra la variable de la memoria (¡se escribe el nombre pelado, NUNCA 'unset $VAR'!)."
+        },
+        {
+          "flag": "set -o noclobber",
+          "desc": "🎯 Activa la protección contra sobreescritura accidental con '>'."
+        },
+        {
+          "flag": ">| archivo",
+          "desc": "🎯 Clave de Examen: Operador 'clobber' que fuerza sobreescribir ignorando la protección."
+        },
+        {
+          "flag": "set +o noclobber",
+          "desc": "🎯 Desactiva la protección permitiendo de nuevo '>' normal."
+        },
+        {
+          "flag": ">> (concatenar)",
+          "desc": "La concatenación '>>' nunca destruye datos, por lo que noclobber la permite siempre."
         },
         {
           "flag": "EDITOR",
@@ -3423,7 +3364,8 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "CURSO='LPIC-1'; export CURSO; echo $CURSO; unset CURSO; echo \"CURSO=$CURSO\"",
+        "APP_PORT=8080; bash -c 'echo \"En subshell: $APP_PORT\"'; export APP_PORT; bash -c 'echo \"Exportada: $APP_PORT\"'; unset APP_PORT",
+        "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt",
         "export EDITOR=vi; crontab -e"
       ],
       "exam_tips": [],
@@ -3432,35 +3374,51 @@ window.LPIC_GRAPH_DATA = {
       "weight": 2
     },
     {
-      "id": "cmd-printenv",
-      "label": "printenv",
+      "id": "cmd-set",
+      "label": "set",
       "type": "command",
       "exam": "101",
       "tema": "103",
       "subtopic_id": "103.1",
-      "title": "Comando: printenv",
-      "desc": "Crear variables locales de shell, exportarlas como variables de entorno o eliminarlas",
-      "syntax": "CURSO='LPIC-1'; export CURSO; echo $CURSO; unset CURSO; echo \"CURSO=$CURSO\"",
+      "title": "Comando: set",
+      "desc": "Almacenar datos, configurar procesos y controlar la visibilidad entre shells",
+      "syntax": "NOMBRE=valor | export NOMBRE | env | unset NOMBRE",
       "flags": [
         {
           "flag": "VAR=valor",
-          "desc": "🎯 Crea una variable de shell local. ¡Sin espacios alrededor del '='! Solo existe en la shell actual."
+          "desc": "🎯 Define una variable en la shell actual. ¡OBLIGATORIO: sin espacios alrededor del '='!"
         },
         {
           "flag": "export VAR",
-          "desc": "🎯 Exporta la variable para que cualquier proceso hijo o script herede su valor."
+          "desc": "🎯 Exporta la variable para que cualquier proceso hijo o script herede una copia de su valor."
         },
         {
           "flag": "env / printenv",
-          "desc": "🎯 Muestra todas las variables de entorno actualmente exportadas en el sistema."
+          "desc": "🎯 Lista exclusivamente las variables de entorno exportadas en el sistema."
         },
         {
           "flag": "set",
-          "desc": "🎯 Muestra TODAS las variables (locales y de entorno) y funciones de Bash."
+          "desc": "🎯 Lista TODAS las variables (locales y exportadas) más las funciones activas de Bash."
         },
         {
           "flag": "unset VAR",
-          "desc": "🎯 Elimina la variable de la memoria (¡sin poner el signo '$' al nombrarla!)."
+          "desc": "🎯 Borra la variable de la memoria (¡se escribe el nombre pelado, NUNCA 'unset $VAR'!)."
+        },
+        {
+          "flag": "set -o noclobber",
+          "desc": "🎯 Activa la protección contra sobreescritura accidental con '>'."
+        },
+        {
+          "flag": ">| archivo",
+          "desc": "🎯 Clave de Examen: Operador 'clobber' que fuerza sobreescribir ignorando la protección."
+        },
+        {
+          "flag": "set +o noclobber",
+          "desc": "🎯 Desactiva la protección permitiendo de nuevo '>' normal."
+        },
+        {
+          "flag": ">> (concatenar)",
+          "desc": "La concatenación '>>' nunca destruye datos, por lo que noclobber la permite siempre."
         },
         {
           "flag": "EDITOR",
@@ -3476,10 +3434,33 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "CURSO='LPIC-1'; export CURSO; echo $CURSO; unset CURSO; echo \"CURSO=$CURSO\"",
+        "APP_PORT=8080; bash -c 'echo \"En subshell: $APP_PORT\"'; export APP_PORT; bash -c 'echo \"Exportada: $APP_PORT\"'; unset APP_PORT",
+        "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt",
         "export EDITOR=vi; crontab -e"
       ],
-      "exam_tips": [],
+      "exam_tips": [
+        {
+          "q_num": 76,
+          "exam": "101",
+          "stem": "Which of the following commands is used to change options and positional parameters within a running Bash shell?",
+          "answer": "set",
+          "explanation": "El comando interno set ( help set en Bash) permite activar o desactivar opciones del comportamiento de la shell en ejecución (como set -e o set -x ) y definir los parámetros posicionales ( $1 , $2 , etc.)."
+        },
+        {
+          "q_num": 97,
+          "exam": "101",
+          "stem": "What is the correct way to set the default systemd boot target to multi-user?",
+          "answer": "systemctl set-default multi-user.target",
+          "explanation": "Según man 1 systemctl , el subcomando set-default establece el objetivo de arranque predeterminado creando el enlace simbólico /etc/systemd/system/default.target hacia el archivo de unidad indicado. ( isolate solo cambia el estado actual sin hacerlo persistente para el próximo arranque)."
+        },
+        {
+          "q_num": 101,
+          "exam": "101",
+          "stem": "Which System V init configuration file is commonly used to set the default run level? (Specify the full name of the file, including path.)",
+          "answer": "/etc/inittab",
+          "explanation": "En sistemas basados en System V init, el archivo de configuración principal es /etc/inittab ( man 5 inittab ), donde la directiva initdefault (por ejemplo, id:3:initdefault: ) define el nivel de ejecución predeterminado al arrancar."
+        }
+      ],
       "slide_url": "t103/103-1-trabajar-desde-la-linea.html#/8",
       "practice_url": "practicas/p-103-1-linea-de-comandos.html",
       "weight": 2
@@ -3492,28 +3473,44 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.1",
       "title": "Comando: unset",
-      "desc": "Crear variables locales de shell, exportarlas como variables de entorno o eliminarlas",
-      "syntax": "CURSO='LPIC-1'; export CURSO; echo $CURSO; unset CURSO; echo \"CURSO=$CURSO\"",
+      "desc": "Almacenar datos, configurar procesos y controlar la visibilidad entre shells",
+      "syntax": "NOMBRE=valor | export NOMBRE | env | unset NOMBRE",
       "flags": [
         {
           "flag": "VAR=valor",
-          "desc": "🎯 Crea una variable de shell local. ¡Sin espacios alrededor del '='! Solo existe en la shell actual."
+          "desc": "🎯 Define una variable en la shell actual. ¡OBLIGATORIO: sin espacios alrededor del '='!"
         },
         {
           "flag": "export VAR",
-          "desc": "🎯 Exporta la variable para que cualquier proceso hijo o script herede su valor."
+          "desc": "🎯 Exporta la variable para que cualquier proceso hijo o script herede una copia de su valor."
         },
         {
           "flag": "env / printenv",
-          "desc": "🎯 Muestra todas las variables de entorno actualmente exportadas en el sistema."
+          "desc": "🎯 Lista exclusivamente las variables de entorno exportadas en el sistema."
         },
         {
           "flag": "set",
-          "desc": "🎯 Muestra TODAS las variables (locales y de entorno) y funciones de Bash."
+          "desc": "🎯 Lista TODAS las variables (locales y exportadas) más las funciones activas de Bash."
         },
         {
           "flag": "unset VAR",
-          "desc": "🎯 Elimina la variable de la memoria (¡sin poner el signo '$' al nombrarla!)."
+          "desc": "🎯 Borra la variable de la memoria (¡se escribe el nombre pelado, NUNCA 'unset $VAR'!)."
+        },
+        {
+          "flag": "set -o noclobber",
+          "desc": "🎯 Activa la protección contra sobreescritura accidental con '>'."
+        },
+        {
+          "flag": ">| archivo",
+          "desc": "🎯 Clave de Examen: Operador 'clobber' que fuerza sobreescribir ignorando la protección."
+        },
+        {
+          "flag": "set +o noclobber",
+          "desc": "🎯 Desactiva la protección permitiendo de nuevo '>' normal."
+        },
+        {
+          "flag": ">> (concatenar)",
+          "desc": "La concatenación '>>' nunca destruye datos, por lo que noclobber la permite siempre."
         },
         {
           "flag": "EDITOR",
@@ -3529,7 +3526,8 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "CURSO='LPIC-1'; export CURSO; echo $CURSO; unset CURSO; echo \"CURSO=$CURSO\"",
+        "APP_PORT=8080; bash -c 'echo \"En subshell: $APP_PORT\"'; export APP_PORT; bash -c 'echo \"Exportada: $APP_PORT\"'; unset APP_PORT",
+        "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt",
         "export EDITOR=vi; crontab -e"
       ],
       "exam_tips": [],
@@ -3545,44 +3543,36 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: cat",
-      "desc": "Concatenar, invertir o extraer líneas iniciales y finales de documentos de texto",
-      "syntax": "cat -n /etc/issue; head -n 2 /etc/passwd; tail -n 2 /etc/passwd",
+      "desc": "Inspeccionar archivos completos, invertidos o solo sus cabeceras y colas",
+      "syntax": "cat [opts] <file> | tac <file> | head -n <N> <file> | tail -n <N> [-f] <file>",
       "flags": [
         {
           "flag": "cat -n",
-          "desc": "🎯 Numera todas las líneas de salida de principio a fin."
+          "desc": "🎯 Numera todas las líneas de salida de la primera a la última."
         },
         {
           "flag": "cat -s",
-          "desc": "Comprime múltiples líneas vacías consecutivas en una sola línea en blanco."
+          "desc": "Reduce múltiples líneas consecutivas en blanco a una sola."
         },
         {
-          "flag": "cat -T / -A",
-          "desc": "Muestra las tabulaciones como '^I' y los fines de línea como '$' (ideal para detectar errores de sintaxis)."
-        },
-        {
-          "flag": "tac <archivo>",
-          "desc": "🎯 Invierte el orden: imprime las líneas en orden inverso, de la última a la primera."
+          "flag": "tac <fichero>",
+          "desc": "🎯 Invierte las líneas: muestra el archivo empezando por el final."
         },
         {
           "flag": "head -n <N>",
-          "desc": "🎯 Clave de Examen: Imprime las primeras N líneas del archivo (por defecto N=10)."
-        },
-        {
-          "flag": "head -c <N>",
-          "desc": "Imprime los primeros N bytes del archivo."
+          "desc": "🎯 Muestra las primeras N líneas (por defecto 10 si no indicas número)."
         },
         {
           "flag": "tail -n <N>",
-          "desc": "🎯 Imprime las últimas N líneas del archivo (por defecto N=10)."
+          "desc": "🎯 Muestra las últimas N líneas del fichero (por defecto 10)."
         },
         {
-          "flag": "tail -f <archivo>",
-          "desc": "🎯 Clave de Examen: Modo 'follow': mantiene el archivo abierto y muestra en tiempo real las nuevas líneas añadidas al final (ideal para logs en /var/log/syslog)."
+          "flag": "tail -f",
+          "desc": "🎯 Modo follow: no se cierra, monitoriza nuevas líneas añadidas al log en tiempo real."
         }
       ],
       "examples": [
-        "cat -n /etc/issue; head -n 2 /etc/passwd; tail -n 2 /etc/passwd"
+        "cat -n srv.txt; tac srv.txt | head -n 1; head -n 1 srv.txt; tail -n 1 srv.txt"
       ],
       "exam_tips": [
         {
@@ -3612,44 +3602,36 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: tac",
-      "desc": "Concatenar, invertir o extraer líneas iniciales y finales de documentos de texto",
-      "syntax": "cat -n /etc/issue; head -n 2 /etc/passwd; tail -n 2 /etc/passwd",
+      "desc": "Inspeccionar archivos completos, invertidos o solo sus cabeceras y colas",
+      "syntax": "cat [opts] <file> | tac <file> | head -n <N> <file> | tail -n <N> [-f] <file>",
       "flags": [
         {
           "flag": "cat -n",
-          "desc": "🎯 Numera todas las líneas de salida de principio a fin."
+          "desc": "🎯 Numera todas las líneas de salida de la primera a la última."
         },
         {
           "flag": "cat -s",
-          "desc": "Comprime múltiples líneas vacías consecutivas en una sola línea en blanco."
+          "desc": "Reduce múltiples líneas consecutivas en blanco a una sola."
         },
         {
-          "flag": "cat -T / -A",
-          "desc": "Muestra las tabulaciones como '^I' y los fines de línea como '$' (ideal para detectar errores de sintaxis)."
-        },
-        {
-          "flag": "tac <archivo>",
-          "desc": "🎯 Invierte el orden: imprime las líneas en orden inverso, de la última a la primera."
+          "flag": "tac <fichero>",
+          "desc": "🎯 Invierte las líneas: muestra el archivo empezando por el final."
         },
         {
           "flag": "head -n <N>",
-          "desc": "🎯 Clave de Examen: Imprime las primeras N líneas del archivo (por defecto N=10)."
-        },
-        {
-          "flag": "head -c <N>",
-          "desc": "Imprime los primeros N bytes del archivo."
+          "desc": "🎯 Muestra las primeras N líneas (por defecto 10 si no indicas número)."
         },
         {
           "flag": "tail -n <N>",
-          "desc": "🎯 Imprime las últimas N líneas del archivo (por defecto N=10)."
+          "desc": "🎯 Muestra las últimas N líneas del fichero (por defecto 10)."
         },
         {
-          "flag": "tail -f <archivo>",
-          "desc": "🎯 Clave de Examen: Modo 'follow': mantiene el archivo abierto y muestra en tiempo real las nuevas líneas añadidas al final (ideal para logs en /var/log/syslog)."
+          "flag": "tail -f",
+          "desc": "🎯 Modo follow: no se cierra, monitoriza nuevas líneas añadidas al log en tiempo real."
         }
       ],
       "examples": [
-        "cat -n /etc/issue; head -n 2 /etc/passwd; tail -n 2 /etc/passwd"
+        "cat -n srv.txt; tac srv.txt | head -n 1; head -n 1 srv.txt; tail -n 1 srv.txt"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/3",
@@ -3664,44 +3646,36 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: head",
-      "desc": "Concatenar, invertir o extraer líneas iniciales y finales de documentos de texto",
-      "syntax": "cat -n /etc/issue; head -n 2 /etc/passwd; tail -n 2 /etc/passwd",
+      "desc": "Inspeccionar archivos completos, invertidos o solo sus cabeceras y colas",
+      "syntax": "cat [opts] <file> | tac <file> | head -n <N> <file> | tail -n <N> [-f] <file>",
       "flags": [
         {
           "flag": "cat -n",
-          "desc": "🎯 Numera todas las líneas de salida de principio a fin."
+          "desc": "🎯 Numera todas las líneas de salida de la primera a la última."
         },
         {
           "flag": "cat -s",
-          "desc": "Comprime múltiples líneas vacías consecutivas en una sola línea en blanco."
+          "desc": "Reduce múltiples líneas consecutivas en blanco a una sola."
         },
         {
-          "flag": "cat -T / -A",
-          "desc": "Muestra las tabulaciones como '^I' y los fines de línea como '$' (ideal para detectar errores de sintaxis)."
-        },
-        {
-          "flag": "tac <archivo>",
-          "desc": "🎯 Invierte el orden: imprime las líneas en orden inverso, de la última a la primera."
+          "flag": "tac <fichero>",
+          "desc": "🎯 Invierte las líneas: muestra el archivo empezando por el final."
         },
         {
           "flag": "head -n <N>",
-          "desc": "🎯 Clave de Examen: Imprime las primeras N líneas del archivo (por defecto N=10)."
-        },
-        {
-          "flag": "head -c <N>",
-          "desc": "Imprime los primeros N bytes del archivo."
+          "desc": "🎯 Muestra las primeras N líneas (por defecto 10 si no indicas número)."
         },
         {
           "flag": "tail -n <N>",
-          "desc": "🎯 Imprime las últimas N líneas del archivo (por defecto N=10)."
+          "desc": "🎯 Muestra las últimas N líneas del fichero (por defecto 10)."
         },
         {
-          "flag": "tail -f <archivo>",
-          "desc": "🎯 Clave de Examen: Modo 'follow': mantiene el archivo abierto y muestra en tiempo real las nuevas líneas añadidas al final (ideal para logs en /var/log/syslog)."
+          "flag": "tail -f",
+          "desc": "🎯 Modo follow: no se cierra, monitoriza nuevas líneas añadidas al log en tiempo real."
         }
       ],
       "examples": [
-        "cat -n /etc/issue; head -n 2 /etc/passwd; tail -n 2 /etc/passwd"
+        "cat -n srv.txt; tac srv.txt | head -n 1; head -n 1 srv.txt; tail -n 1 srv.txt"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/3",
@@ -3716,44 +3690,36 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: tail",
-      "desc": "Concatenar, invertir o extraer líneas iniciales y finales de documentos de texto",
-      "syntax": "cat -n /etc/issue; head -n 2 /etc/passwd; tail -n 2 /etc/passwd",
+      "desc": "Inspeccionar archivos completos, invertidos o solo sus cabeceras y colas",
+      "syntax": "cat [opts] <file> | tac <file> | head -n <N> <file> | tail -n <N> [-f] <file>",
       "flags": [
         {
           "flag": "cat -n",
-          "desc": "🎯 Numera todas las líneas de salida de principio a fin."
+          "desc": "🎯 Numera todas las líneas de salida de la primera a la última."
         },
         {
           "flag": "cat -s",
-          "desc": "Comprime múltiples líneas vacías consecutivas en una sola línea en blanco."
+          "desc": "Reduce múltiples líneas consecutivas en blanco a una sola."
         },
         {
-          "flag": "cat -T / -A",
-          "desc": "Muestra las tabulaciones como '^I' y los fines de línea como '$' (ideal para detectar errores de sintaxis)."
-        },
-        {
-          "flag": "tac <archivo>",
-          "desc": "🎯 Invierte el orden: imprime las líneas en orden inverso, de la última a la primera."
+          "flag": "tac <fichero>",
+          "desc": "🎯 Invierte las líneas: muestra el archivo empezando por el final."
         },
         {
           "flag": "head -n <N>",
-          "desc": "🎯 Clave de Examen: Imprime las primeras N líneas del archivo (por defecto N=10)."
-        },
-        {
-          "flag": "head -c <N>",
-          "desc": "Imprime los primeros N bytes del archivo."
+          "desc": "🎯 Muestra las primeras N líneas (por defecto 10 si no indicas número)."
         },
         {
           "flag": "tail -n <N>",
-          "desc": "🎯 Imprime las últimas N líneas del archivo (por defecto N=10)."
+          "desc": "🎯 Muestra las últimas N líneas del fichero (por defecto 10)."
         },
         {
-          "flag": "tail -f <archivo>",
-          "desc": "🎯 Clave de Examen: Modo 'follow': mantiene el archivo abierto y muestra en tiempo real las nuevas líneas añadidas al final (ideal para logs en /var/log/syslog)."
+          "flag": "tail -f",
+          "desc": "🎯 Modo follow: no se cierra, monitoriza nuevas líneas añadidas al log en tiempo real."
         }
       ],
       "examples": [
-        "cat -n /etc/issue; head -n 2 /etc/passwd; tail -n 2 /etc/passwd"
+        "cat -n srv.txt; tac srv.txt | head -n 1; head -n 1 srv.txt; tail -n 1 srv.txt"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/3",
@@ -3768,36 +3734,32 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: wc",
-      "desc": "Contar elementos de texto o numerar líneas con formato profesional",
-      "syntax": "wc /etc/issue; wc -l /etc/passwd; nl -ba /etc/issue",
+      "desc": "Contar elementos de texto y formatear números de línea profesionales",
+      "syntax": "wc [opciones] <fichero> | nl [opciones] <fichero>",
       "flags": [
         {
-          "flag": "wc (sin opciones)",
-          "desc": "Imprime 3 columnas: número de líneas, número de palabras y número de bytes."
+          "flag": "wc (sin flags)",
+          "desc": "Imprime 3 cifras: total líneas, total palabras y total bytes."
         },
         {
           "flag": "wc -l",
-          "desc": "🎯 Clave de Examen: Cuenta ÚNICAMENTE el número de saltos de línea (ideal en tuberías: 'ls | wc -l')."
+          "desc": "🎯 Cuenta únicamente los saltos de línea. El comodín en tuberías: 'cat arch | wc -l'."
         },
         {
           "flag": "wc -w",
-          "desc": "Cuenta únicamente el número de palabras delimitadas por espacios o tabulaciones."
+          "desc": "Cuenta palabras delimitadas por espacios en blanco o tabuladores."
         },
         {
           "flag": "wc -c",
-          "desc": "🎯 Cuenta el número total de bytes del archivo."
+          "desc": "🎯 Cuenta el tamaño total del archivo medido en bytes."
         },
         {
           "flag": "wc -m",
-          "desc": "Cuenta el número de caracteres (teniendo en cuenta caracteres multibyte UTF-8)."
-        },
-        {
-          "flag": "nl <archivo>",
-          "desc": "Numera líneas de forma avanzada (por defecto omite líneas vacías)."
+          "desc": "Cuenta caracteres lógicos (diferencia caracteres acentuados o emojis de sus bytes)."
         },
         {
           "flag": "nl -ba",
-          "desc": "Numera absolutamente todas las líneas (incluso las líneas completamente en blanco)."
+          "desc": "🎯 Numera absolutamente todas las líneas (incluso las líneas vacías)."
         }
       ],
       "examples": [
@@ -3816,36 +3778,32 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: nl",
-      "desc": "Contar elementos de texto o numerar líneas con formato profesional",
-      "syntax": "wc /etc/issue; wc -l /etc/passwd; nl -ba /etc/issue",
+      "desc": "Contar elementos de texto y formatear números de línea profesionales",
+      "syntax": "wc [opciones] <fichero> | nl [opciones] <fichero>",
       "flags": [
         {
-          "flag": "wc (sin opciones)",
-          "desc": "Imprime 3 columnas: número de líneas, número de palabras y número de bytes."
+          "flag": "wc (sin flags)",
+          "desc": "Imprime 3 cifras: total líneas, total palabras y total bytes."
         },
         {
           "flag": "wc -l",
-          "desc": "🎯 Clave de Examen: Cuenta ÚNICAMENTE el número de saltos de línea (ideal en tuberías: 'ls | wc -l')."
+          "desc": "🎯 Cuenta únicamente los saltos de línea. El comodín en tuberías: 'cat arch | wc -l'."
         },
         {
           "flag": "wc -w",
-          "desc": "Cuenta únicamente el número de palabras delimitadas por espacios o tabulaciones."
+          "desc": "Cuenta palabras delimitadas por espacios en blanco o tabuladores."
         },
         {
           "flag": "wc -c",
-          "desc": "🎯 Cuenta el número total de bytes del archivo."
+          "desc": "🎯 Cuenta el tamaño total del archivo medido en bytes."
         },
         {
           "flag": "wc -m",
-          "desc": "Cuenta el número de caracteres (teniendo en cuenta caracteres multibyte UTF-8)."
-        },
-        {
-          "flag": "nl <archivo>",
-          "desc": "Numera líneas de forma avanzada (por defecto omite líneas vacías)."
+          "desc": "Cuenta caracteres lógicos (diferencia caracteres acentuados o emojis de sus bytes)."
         },
         {
           "flag": "nl -ba",
-          "desc": "Numera absolutamente todas las líneas (incluso las líneas completamente en blanco)."
+          "desc": "🎯 Numera absolutamente todas las líneas (incluso las líneas vacías)."
         }
       ],
       "examples": [
@@ -3865,31 +3823,31 @@ window.LPIC_GRAPH_DATA = {
       "subtopic_id": "103.2",
       "title": "Comando: cut",
       "desc": "Recortar campos verticales de texto o unir archivos horizontalmente en columnas",
-      "syntax": "cut -d: -f1,7 /etc/passwd | head -n 3",
+      "syntax": "cut -d':' -f1,7 <file> | paste -d',' arch1 arch2",
       "flags": [
         {
-          "flag": "cut -d: -f1,7",
-          "desc": "🎯 Define el delimitador (-d) y extrae las columnas indicadas (-f). En /etc/passwd se usa -d:."
+          "flag": "cut -d<delim>",
+          "desc": "🎯 Define el carácter separador de columnas (por defecto tabulador). En /etc/passwd es ':'."
         },
         {
-          "flag": "cut -c 1-8",
-          "desc": "Corta por posición de caracteres fijos."
+          "flag": "cut -f<campos>",
+          "desc": "🎯 Número de columnas a recortar: '-f1' (primera), '-f1,7' (primera y séptima), '-f1-3' (rango)."
+        },
+        {
+          "flag": "cut -c<rango>",
+          "desc": "🎯 Extrae por posición fija de caracteres: 'cut -c 1-8' (de la letra 1 a la 8)."
         },
         {
           "flag": "paste arch1 arch2",
-          "desc": "🎯 Une archivos horizontalmente línea por línea colocando un delimitador entre ellos."
-        },
-        {
-          "flag": "paste -d, arch1 arch2",
-          "desc": "Especifica el carácter que separará las columnas unidas."
+          "desc": "🎯 Junta archivos lado a lado, línea 1 con línea 1, línea 2 con línea 2."
         },
         {
           "flag": "paste -s",
-          "desc": "Une todas las líneas de un mismo archivo en una sola línea horizontal."
+          "desc": "Convierte todas las líneas verticales de un mismo archivo en una sola línea horizontal."
         }
       ],
       "examples": [
-        "cut -d: -f1,7 /etc/passwd | head -n 3"
+        "cut -d: -f1,7 /etc/passwd | head -n 3; paste -d',' users.txt shells.txt"
       ],
       "exam_tips": [
         {
@@ -3920,31 +3878,31 @@ window.LPIC_GRAPH_DATA = {
       "subtopic_id": "103.2",
       "title": "Comando: paste",
       "desc": "Recortar campos verticales de texto o unir archivos horizontalmente en columnas",
-      "syntax": "cut -d: -f1,7 /etc/passwd | head -n 3",
+      "syntax": "cut -d':' -f1,7 <file> | paste -d',' arch1 arch2",
       "flags": [
         {
-          "flag": "cut -d: -f1,7",
-          "desc": "🎯 Define el delimitador (-d) y extrae las columnas indicadas (-f). En /etc/passwd se usa -d:."
+          "flag": "cut -d<delim>",
+          "desc": "🎯 Define el carácter separador de columnas (por defecto tabulador). En /etc/passwd es ':'."
         },
         {
-          "flag": "cut -c 1-8",
-          "desc": "Corta por posición de caracteres fijos."
+          "flag": "cut -f<campos>",
+          "desc": "🎯 Número de columnas a recortar: '-f1' (primera), '-f1,7' (primera y séptima), '-f1-3' (rango)."
+        },
+        {
+          "flag": "cut -c<rango>",
+          "desc": "🎯 Extrae por posición fija de caracteres: 'cut -c 1-8' (de la letra 1 a la 8)."
         },
         {
           "flag": "paste arch1 arch2",
-          "desc": "🎯 Une archivos horizontalmente línea por línea colocando un delimitador entre ellos."
-        },
-        {
-          "flag": "paste -d, arch1 arch2",
-          "desc": "Especifica el carácter que separará las columnas unidas."
+          "desc": "🎯 Junta archivos lado a lado, línea 1 con línea 1, línea 2 con línea 2."
         },
         {
           "flag": "paste -s",
-          "desc": "Une todas las líneas de un mismo archivo en una sola línea horizontal."
+          "desc": "Convierte todas las líneas verticales de un mismo archivo en una sola línea horizontal."
         }
       ],
       "examples": [
-        "cut -d: -f1,7 /etc/passwd | head -n 3"
+        "cut -d: -f1,7 /etc/passwd | head -n 3; paste -d',' users.txt shells.txt"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/5",
@@ -3959,32 +3917,57 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: sort",
-      "desc": "Ordenar líneas de texto según criterios alfabéticos, numéricos o por posición de campo",
-      "syntax": "sort -t: -k3,3 -n /etc/passwd | cut -d: -f1,3 | head -n 4",
+      "desc": "Reorganizar registros alfabética o numéricamente por columnas",
+      "syntax": "sort [-n] [-r] [-t<delim>] [-k<columna>] <fichero>",
       "flags": [
         {
-          "flag": "sort",
-          "desc": "Ordenación alfabética ascendente estándar (orden ASCII/Unicode)."
+          "flag": "sort (sin flags)",
+          "desc": "Ordena alfabéticamente. ⚠️ Atención: '10' va antes que '2'."
         },
         {
           "flag": "sort -n",
-          "desc": "🎯 Clave de Examen: Trata '10' como mayor que '2'; sin -n, '10' iría antes que '2'."
+          "desc": "🎯 Clave de Examen: Compara los valores como números reales (2 antes que 10)."
         },
         {
           "flag": "sort -r",
-          "desc": "🎯 Invierte el resultado (de mayor a menor o de Z a A)."
+          "desc": "🎯 Invierte el criterio de ordenación (de mayor a menor o de Z a A)."
         },
         {
-          "flag": "sort -t: -k3,3n",
-          "desc": "🎯 Clave de Examen: -t define delimitador; -k3,3n ordena numéricamente por la columna 3."
+          "flag": "sort -k <N>",
+          "desc": "🎯 Key: selecciona la columna N por la que se ordenará la tabla."
+        },
+        {
+          "flag": "sort -t <delim>",
+          "desc": "🎯 Define el separador de campos para usar con '-k' (ej: '-t:' en /etc/passwd)."
         },
         {
           "flag": "sort -u",
-          "desc": "🎯 Elimina líneas repetidas conservando solo una ocurrencia."
+          "desc": "Elimina líneas duplicadas durante la propia ordenación."
+        },
+        {
+          "flag": "uniq (sin flags)",
+          "desc": "🎯 Suprime líneas duplicadas que sean adyacentes (una detrás de otra)."
+        },
+        {
+          "flag": "uniq -c",
+          "desc": "🎯 Clave de Examen: Prefija cada línea con el número de veces que aparece en el texto."
+        },
+        {
+          "flag": "uniq -d",
+          "desc": "🎯 Muestra exclusivamente las líneas que aparecen duplicadas (descarta las únicas)."
+        },
+        {
+          "flag": "uniq -u",
+          "desc": "🎯 Muestra exclusivamente las líneas que NO se repiten nunca (descarta duplicadas)."
+        },
+        {
+          "flag": "uniq -i",
+          "desc": "Ignora la diferencia entre mayúsculas y minúsculas al comparar."
         }
       ],
       "examples": [
-        "sort -t: -k3,3 -n /etc/passwd | cut -d: -f1,3 | head -n 4"
+        "sort numeros.txt; sort -n numeros.txt",
+        "uniq frutas.txt; sort frutas.txt | uniq -c"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/6",
@@ -3999,28 +3982,32 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: uniq",
-      "desc": "Omitir, contar o aislar líneas repetidas consecutivas en flujos de texto",
-      "syntax": "cut -d: -f7 /etc/passwd | sort | uniq -c",
+      "desc": "Eliminar líneas duplicadas consecutivas o contar sus apariciones",
+      "syntax": "uniq [-c] [-d] [-u] [-i] [fichero_entrada] [fichero_salida]",
       "flags": [
         {
+          "flag": "uniq (sin flags)",
+          "desc": "🎯 Suprime líneas duplicadas que sean adyacentes (una detrás de otra)."
+        },
+        {
           "flag": "uniq -c",
-          "desc": "🎯 Prefija cada línea con el número de veces que se repite."
+          "desc": "🎯 Clave de Examen: Prefija cada línea con el número de veces que aparece en el texto."
         },
         {
           "flag": "uniq -d",
-          "desc": "🎯 Muestra ÚNICAMENTE las líneas que aparecen duplicadas."
+          "desc": "🎯 Muestra exclusivamente las líneas que aparecen duplicadas (descarta las únicas)."
         },
         {
           "flag": "uniq -u",
-          "desc": "🎯 Muestra ÚNICAMENTE las líneas que aparecen una sola vez."
+          "desc": "🎯 Muestra exclusivamente las líneas que NO se repiten nunca (descarta duplicadas)."
         },
         {
           "flag": "uniq -i",
-          "desc": "Ignora diferencias entre mayúsculas y minúsculas."
+          "desc": "Ignora la diferencia entre mayúsculas y minúsculas al comparar."
         }
       ],
       "examples": [
-        "cut -d: -f7 /etc/passwd | sort | uniq -c"
+        "uniq frutas.txt; sort frutas.txt | uniq -c"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/7",
@@ -4035,28 +4022,28 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: tr",
-      "desc": "Traducir, comprimir o eliminar caracteres desde la entrada estándar (stdin)",
-      "syntax": "echo 'lpic-1 certification' | tr '[:lower:]' '[:upper:]'; echo 'hola    mundo' | tr -s ' '",
+      "desc": "Traducir, sustituir, exprimir o borrar caracteres individuales mediante stdin",
+      "syntax": "tr [opciones] SET1 [SET2] < fichero",
       "flags": [
         {
           "flag": "tr 'a-z' 'A-Z'",
-          "desc": "🎯 Traduce minúsculas a mayúsculas."
+          "desc": "🎯 Reemplaza cada carácter del conjunto 1 por el correspondiente del conjunto 2."
         },
         {
-          "flag": "tr -d '<chars>'",
-          "desc": "🎯 Elimina (delete) los caracteres indicados (ej: tr -d '\\r' para archivos Windows)."
+          "flag": "tr -d <SET>",
+          "desc": "🎯 Delete: elimina de la salida todos los caracteres especificados en SET."
         },
         {
-          "flag": "tr -s '<char>'",
-          "desc": "🎯 Comprime (squeeze) secuencias repetidas en un único carácter (ej: tr -s ' ')."
+          "flag": "tr -s <SET>",
+          "desc": "🎯 Comprime secuencias consecutivas repetidas del mismo carácter en uno solo."
         },
         {
-          "flag": "tr -c '<set>'",
-          "desc": "Aplica la acción sobre todos los caracteres que NO pertenezcan al conjunto."
+          "flag": "tr -c <SET>",
+          "desc": "Aplica la operación sobre todos los caracteres que NO están en SET."
         }
       ],
       "examples": [
-        "echo 'lpic-1 certification' | tr '[:lower:]' '[:upper:]'; echo 'hola    mundo' | tr -s ' '"
+        "echo 'lpic 103' | tr 'a-z' 'A-Z'; echo 'tel: 123-456' | tr -d '0-9'; echo 'hola    mundo' | tr -s ' '"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/8",
@@ -4071,28 +4058,24 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: sed",
-      "desc": "Realizar sustituciones de cadenas, supresión de líneas o edición en sitio sobre archivos de texto",
-      "syntax": "echo 'puerto 8080' | sed 's/8080/443/'; sed -n '1,3p' /etc/issue",
+      "desc": "Transformar, sustituir y filtrar flujos de texto de forma no interactiva",
+      "syntax": "sed 's/origen/destino/g' <file> | sed -n '5p' <file>",
       "flags": [
         {
-          "flag": "s/antiguo/nuevo/",
-          "desc": "🎯 Sustituye solo la primera aparición en cada línea."
-        },
-        {
           "flag": "s/antiguo/nuevo/g",
-          "desc": "🎯 Sustituye TODAS las apariciones que aparezcan en la línea."
-        },
-        {
-          "flag": "sed -i",
-          "desc": "🎯 Clave de Examen: Modifica y guarda los cambios directamente en el archivo en disco."
-        },
-        {
-          "flag": "sed '/^#/d'",
-          "desc": "🎯 Borra (delete) todas las líneas que coincidan con la expresión regular (ej: comentarios)."
+          "desc": "🎯 's' (substitute), busca 'antiguo' y lo cambia por 'nuevo'. 'g' lo hace en toda la línea."
         },
         {
           "flag": "sed -n 'Np'",
-          "desc": "Imprime únicamente la línea número N (ej: sed -n '5p')."
+          "desc": "🎯 '-n' suprime la salida por defecto; 'Np' le ordena imprimir exclusivamente la línea N."
+        },
+        {
+          "flag": "sed -i 's/.../'",
+          "desc": "🎯 Peligro: Modifica el archivo físico directamente en el disco en lugar de solo mostrarlo."
+        },
+        {
+          "flag": "sed '/patrón/d'",
+          "desc": "Elimina de la salida todas las líneas que coincidan con la expresión regular."
         },
         {
           "flag": "sed -E (o sed -r)",
@@ -4108,51 +4091,11 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "echo 'puerto 8080' | sed 's/8080/443/'; sed -n '1,3p' /etc/issue",
+        "echo 'v1:v1:v1' | sed 's/v1/v2/'; echo 'v1:v1:v1' | sed 's/v1/v2/g'; sed -n '3p' /etc/passwd",
         "echo 'Juan Perez' | sed -E 's/([A-Za-z]+) ([A-Za-z]+)/\\2, \\1/'"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/9",
-      "practice_url": "practicas/p-103-2-filtros-de-texto.html",
-      "weight": 2
-    },
-    {
-      "id": "cmd-md5sum",
-      "label": "md5sum",
-      "type": "command",
-      "exam": "101",
-      "tema": "103",
-      "subtopic_id": "103.2",
-      "title": "Comando: md5sum",
-      "desc": "Calcular huellas hash criptográficas de archivos y verificar su integridad de forma desatendida",
-      "syntax": "sha256sum /etc/issue > hashes.txt; sha256sum -c hashes.txt",
-      "flags": [
-        {
-          "flag": "md5sum <archivo>",
-          "desc": "Calcula el hash MD5 (huella de 128 bits / 32 caracteres hexadecimales). Rápido pero desaconsejado en seguridad criptográfica moderna."
-        },
-        {
-          "flag": "sha256sum <archivo>",
-          "desc": "🎯 Clave de Examen: Calcula la huella SHA-2 de 256 bits (64 caracteres hexadecimales), estándar actual en descargas Linux."
-        },
-        {
-          "flag": "sha512sum <archivo>",
-          "desc": "Calcula la huella SHA-2 de 512 bits (128 caracteres hexadecimales) para máxima seguridad."
-        },
-        {
-          "flag": "-c, --check <archivo>",
-          "desc": "🎯 Clave de Examen: Lee una lista de hashes y nombres de archivo y comprueba si los archivos coinciden devolviendo 'OK' o 'FAILED'."
-        },
-        {
-          "flag": "--status",
-          "desc": "No genera ninguna salida en pantalla; solo devuelve código de salida 0 si todos los hashes coinciden (ideal para scripts de backup)."
-        }
-      ],
-      "examples": [
-        "sha256sum /etc/issue > hashes.txt; sha256sum -c hashes.txt"
-      ],
-      "exam_tips": [],
-      "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/10",
       "practice_url": "practicas/p-103-2-filtros-de-texto.html",
       "weight": 2
     },
@@ -4164,32 +4107,64 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: sha256sum",
-      "desc": "Calcular huellas hash criptográficas de archivos y verificar su integridad de forma desatendida",
-      "syntax": "sha256sum /etc/issue > hashes.txt; sha256sum -c hashes.txt",
+      "desc": "Garantizar que un archivo no ha sido corrompido ni alterado maliciosamente",
+      "syntax": "sha256sum <file> | sha256sum -c SHA256SUMS",
       "flags": [
         {
-          "flag": "md5sum <archivo>",
-          "desc": "Calcula el hash MD5 (huella de 128 bits / 32 caracteres hexadecimales). Rápido pero desaconsejado en seguridad criptográfica moderna."
+          "flag": "sha256sum <file>",
+          "desc": "🎯 Calcula un hash de 256 bits (64 caracteres hex). El estándar moderno oficial."
         },
         {
-          "flag": "sha256sum <archivo>",
-          "desc": "🎯 Clave de Examen: Calcula la huella SHA-2 de 256 bits (64 caracteres hexadecimales), estándar actual en descargas Linux."
+          "flag": "md5sum <file>",
+          "desc": "Calcula un hash de 128 bits (32 caracteres hex). Rápido pero inseguro criptográficamente."
         },
         {
-          "flag": "sha512sum <archivo>",
-          "desc": "Calcula la huella SHA-2 de 512 bits (128 caracteres hexadecimales) para máxima seguridad."
-        },
-        {
-          "flag": "-c, --check <archivo>",
-          "desc": "🎯 Clave de Examen: Lee una lista de hashes y nombres de archivo y comprueba si los archivos coinciden devolviendo 'OK' o 'FAILED'."
+          "flag": "-c, --check",
+          "desc": "🎯 Clave de Examen: Lee el archivo de hashes y comprueba los ficheros devolviendo 'OK' o 'FAILED'."
         },
         {
           "flag": "--status",
-          "desc": "No genera ninguna salida en pantalla; solo devuelve código de salida 0 si todos los hashes coinciden (ideal para scripts de backup)."
+          "desc": "No imprime nada; solo devuelve código de salida 0 si todos los hashes son válidos."
         }
       ],
       "examples": [
-        "sha256sum /etc/issue > hashes.txt; sha256sum -c hashes.txt"
+        "sha256sum debian.iso > HASHES.txt; sha256sum -c HASHES.txt"
+      ],
+      "exam_tips": [],
+      "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/10",
+      "practice_url": "practicas/p-103-2-filtros-de-texto.html",
+      "weight": 2
+    },
+    {
+      "id": "cmd-md5sum",
+      "label": "md5sum",
+      "type": "command",
+      "exam": "101",
+      "tema": "103",
+      "subtopic_id": "103.2",
+      "title": "Comando: md5sum",
+      "desc": "Garantizar que un archivo no ha sido corrompido ni alterado maliciosamente",
+      "syntax": "sha256sum <file> | sha256sum -c SHA256SUMS",
+      "flags": [
+        {
+          "flag": "sha256sum <file>",
+          "desc": "🎯 Calcula un hash de 256 bits (64 caracteres hex). El estándar moderno oficial."
+        },
+        {
+          "flag": "md5sum <file>",
+          "desc": "Calcula un hash de 128 bits (32 caracteres hex). Rápido pero inseguro criptográficamente."
+        },
+        {
+          "flag": "-c, --check",
+          "desc": "🎯 Clave de Examen: Lee el archivo de hashes y comprueba los ficheros devolviendo 'OK' o 'FAILED'."
+        },
+        {
+          "flag": "--status",
+          "desc": "No imprime nada; solo devuelve código de salida 0 si todos los hashes son válidos."
+        }
+      ],
+      "examples": [
+        "sha256sum debian.iso > HASHES.txt; sha256sum -c HASHES.txt"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/10",
@@ -4204,32 +4179,28 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: sha512sum",
-      "desc": "Calcular huellas hash criptográficas de archivos y verificar su integridad de forma desatendida",
-      "syntax": "sha256sum /etc/issue > hashes.txt; sha256sum -c hashes.txt",
+      "desc": "Garantizar que un archivo no ha sido corrompido ni alterado maliciosamente",
+      "syntax": "sha256sum <file> | sha256sum -c SHA256SUMS",
       "flags": [
         {
-          "flag": "md5sum <archivo>",
-          "desc": "Calcula el hash MD5 (huella de 128 bits / 32 caracteres hexadecimales). Rápido pero desaconsejado en seguridad criptográfica moderna."
+          "flag": "sha256sum <file>",
+          "desc": "🎯 Calcula un hash de 256 bits (64 caracteres hex). El estándar moderno oficial."
         },
         {
-          "flag": "sha256sum <archivo>",
-          "desc": "🎯 Clave de Examen: Calcula la huella SHA-2 de 256 bits (64 caracteres hexadecimales), estándar actual en descargas Linux."
+          "flag": "md5sum <file>",
+          "desc": "Calcula un hash de 128 bits (32 caracteres hex). Rápido pero inseguro criptográficamente."
         },
         {
-          "flag": "sha512sum <archivo>",
-          "desc": "Calcula la huella SHA-2 de 512 bits (128 caracteres hexadecimales) para máxima seguridad."
-        },
-        {
-          "flag": "-c, --check <archivo>",
-          "desc": "🎯 Clave de Examen: Lee una lista de hashes y nombres de archivo y comprueba si los archivos coinciden devolviendo 'OK' o 'FAILED'."
+          "flag": "-c, --check",
+          "desc": "🎯 Clave de Examen: Lee el archivo de hashes y comprueba los ficheros devolviendo 'OK' o 'FAILED'."
         },
         {
           "flag": "--status",
-          "desc": "No genera ninguna salida en pantalla; solo devuelve código de salida 0 si todos los hashes coinciden (ideal para scripts de backup)."
+          "desc": "No imprime nada; solo devuelve código de salida 0 si todos los hashes son válidos."
         }
       ],
       "examples": [
-        "sha256sum /etc/issue > hashes.txt; sha256sum -c hashes.txt"
+        "sha256sum debian.iso > HASHES.txt; sha256sum -c HASHES.txt"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/10",
@@ -4244,36 +4215,28 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: od",
-      "desc": "Volcar datos en octal/hexadecimal/caracteres y fragmentar archivos grandes en partes",
-      "syntax": "echo 'A B' | od -c; split -b 10M -d backup.tar.gz part_",
+      "desc": "Examinar bytes ocultos en archivos y dividir ficheros gigantescos en trozos",
+      "syntax": "od -c <file> | split -b 50M -d <file> parte_",
       "flags": [
         {
-          "flag": "od (Octal Dump)",
-          "desc": "Vuelca el contenido exacto de cualquier archivo (incluso binarios o caracteres invisibles)."
-        },
-        {
           "flag": "od -c",
-          "desc": "🎯 Clave de Examen: Muestra los bytes como caracteres ASCII legibles o secuencias de escape de control (\\n, \\t, \\r, \\0)."
-        },
-        {
-          "flag": "od -x / -t x1",
-          "desc": "Muestra la salida en formato hexadecimal de 2 o 4 bytes."
+          "desc": "🎯 Octal Dump: revela caracteres no imprimibles (saltos de línea \\n, retornos \\r, tabuladores \\t)."
         },
         {
           "flag": "split -b <tamaño>",
-          "desc": "🎯 Clave de Examen: Divide el archivo por tamaño en bytes (ej: '-b 100M', '-b 1G', '-b 700M')."
+          "desc": "🎯 Fragmenta el archivo por tamaño en bytes (ej: '-b 50M', '-b 1G', '-b 700M')."
         },
         {
           "flag": "split -l <líneas>",
-          "desc": "🎯 Divide el archivo de texto en partes de N líneas cada una (ej: '-l 1000')."
+          "desc": "🎯 Divide un archivo de texto en trozos de N líneas (ej: '-l 1000')."
         },
         {
           "flag": "split -d",
-          "desc": "🎯 Utiliza sufijos numéricos (00, 01, 02) en lugar de letras alfabéticas (aa, ab, ac)."
+          "desc": "🎯 Utiliza números (00, 01, 02) en vez de letras alfabéticas (aa, ab, ac)."
         }
       ],
       "examples": [
-        "echo 'A B' | od -c; split -b 10M -d backup.tar.gz part_"
+        "printf 'A\\r\\n' | od -c; split -b 10M -d backup.tar.gz part_"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/11",
@@ -4288,36 +4251,28 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.2",
       "title": "Comando: split",
-      "desc": "Volcar datos en octal/hexadecimal/caracteres y fragmentar archivos grandes en partes",
-      "syntax": "echo 'A B' | od -c; split -b 10M -d backup.tar.gz part_",
+      "desc": "Examinar bytes ocultos en archivos y dividir ficheros gigantescos en trozos",
+      "syntax": "od -c <file> | split -b 50M -d <file> parte_",
       "flags": [
         {
-          "flag": "od (Octal Dump)",
-          "desc": "Vuelca el contenido exacto de cualquier archivo (incluso binarios o caracteres invisibles)."
-        },
-        {
           "flag": "od -c",
-          "desc": "🎯 Clave de Examen: Muestra los bytes como caracteres ASCII legibles o secuencias de escape de control (\\n, \\t, \\r, \\0)."
-        },
-        {
-          "flag": "od -x / -t x1",
-          "desc": "Muestra la salida en formato hexadecimal de 2 o 4 bytes."
+          "desc": "🎯 Octal Dump: revela caracteres no imprimibles (saltos de línea \\n, retornos \\r, tabuladores \\t)."
         },
         {
           "flag": "split -b <tamaño>",
-          "desc": "🎯 Clave de Examen: Divide el archivo por tamaño en bytes (ej: '-b 100M', '-b 1G', '-b 700M')."
+          "desc": "🎯 Fragmenta el archivo por tamaño en bytes (ej: '-b 50M', '-b 1G', '-b 700M')."
         },
         {
           "flag": "split -l <líneas>",
-          "desc": "🎯 Divide el archivo de texto en partes de N líneas cada una (ej: '-l 1000')."
+          "desc": "🎯 Divide un archivo de texto en trozos de N líneas (ej: '-l 1000')."
         },
         {
           "flag": "split -d",
-          "desc": "🎯 Utiliza sufijos numéricos (00, 01, 02) en lugar de letras alfabéticas (aa, ab, ac)."
+          "desc": "🎯 Utiliza números (00, 01, 02) en vez de letras alfabéticas (aa, ab, ac)."
         }
       ],
       "examples": [
-        "echo 'A B' | od -c; split -b 10M -d backup.tar.gz part_"
+        "printf 'A\\r\\n' | od -c; split -b 10M -d backup.tar.gz part_"
       ],
       "exam_tips": [
         {
@@ -4340,40 +4295,32 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.3",
       "title": "Comando: ls",
-      "desc": "Listar contenidos de directorios mostrando permisos, propietarios, tamaños y marcas de tiempo",
-      "syntax": "ls -lhd /etc /var; ls -la /root | head -n 3",
+      "desc": "Consultar permisos, propietarios, tamaños reales y metadatos de archivos y carpetas",
+      "syntax": "ls -lhd <carpeta> | ls -lai <fichero>",
       "flags": [
         {
-          "flag": "-l",
-          "desc": "🎯 Formato largo (Long): tipo de archivo, 9 permisos, enlaces, propietario, grupo, tamaño, fecha y nombre."
+          "flag": "ls -l",
+          "desc": "🎯 Imprime 8 columnas: tipo, 9 permisos, enlaces, dueño UID, grupo GID, tamaño, fecha y nombre."
         },
         {
-          "flag": "-a, --all",
-          "desc": "🎯 Clave de Examen: Muestra TODOS los archivos, incluidos los ocultos que comienzan por punto (.) y los directorios '.' y '..'"
+          "flag": "ls -a",
+          "desc": "🎯 Clave de Examen: Muestra todos los ficheros, incluidos los ocultos que inician por punto (.) y '.' / '..'"
         },
         {
-          "flag": "-A, --almost-all",
-          "desc": "Muestra archivos ocultos pero omite deliberadamente los directorios '.' y '..'"
+          "flag": "ls -d",
+          "desc": "🎯 Clave de Examen: Lista las propiedades de la carpeta en sí, sin entrar a listar su contenido."
         },
         {
-          "flag": "-h, --human-readable",
-          "desc": "Muestra tamaños en formato legible para humanos (K, M, G) junto con la opción -l."
+          "flag": "ls -h",
+          "desc": "🎯 Convierte los bytes en unidades entendibles (K, M, G, T) junto con la opción -l."
         },
         {
-          "flag": "-d, --directory",
-          "desc": "🎯 Clave de Examen: Lista el directorio en sí mismo como un objeto, en lugar de listar su contenido interno (ej: 'ls -ld /etc')."
+          "flag": "ls -i",
+          "desc": "🎯 Muestra el identificador numérico de inodo en la primera columna."
         },
         {
-          "flag": "-R, --recursive",
-          "desc": "Lista recursivamente todos los subdirectorios y sus contenidos."
-        },
-        {
-          "flag": "-t / -S",
-          "desc": "'-t' ordena por fecha de modificación (los más recientes primero); '-S' ordena por tamaño de archivo (los más grandes primero)."
-        },
-        {
-          "flag": "-i, --inode",
-          "desc": "🎯 Imprime el número de inodo de cada archivo en la primera columna."
+          "flag": "ls -t / -S",
+          "desc": "'-t' ordena cronológicamente (más recientes primero); '-S' por tamaño descendente."
         },
         {
           "flag": "screen",
@@ -4401,59 +4348,11 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "ls -lhd /etc /var; ls -la /root | head -n 3",
+        "ls -ld /var/log; ls -lh /var/log/syslog; ls -lai .bashrc",
         "screen -ls; tmux ls"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-3-administracion-basica-de.html#/3",
-      "practice_url": "practicas/p-103-3-gestion-archivos.html",
-      "weight": 2
-    },
-    {
-      "id": "cmd-touch",
-      "label": "touch",
-      "type": "command",
-      "exam": "101",
-      "tema": "103",
-      "subtopic_id": "103.3",
-      "title": "Comando: touch",
-      "desc": "Crear ficheros vacíos, manipular fechas de acceso/modificación y crear o borrar árboles de carpetas",
-      "syntax": "mkdir -p /tmp/proy/v1/src; touch -t 202610201200 /tmp/proy/v1/src/main.c; ls -l /tmp/proy/v1/src",
-      "flags": [
-        {
-          "flag": "touch <archivo>",
-          "desc": "Crea el archivo vacío si no existe; si ya existe, actualiza sus marcas de acceso y modificación al momento actual."
-        },
-        {
-          "flag": "touch -c, --no-create",
-          "desc": "No crea el archivo si no existe; solo actualiza fechas si ya está presente en el disco."
-        },
-        {
-          "flag": "touch -a / -m",
-          "desc": "'-a' modifica solo la fecha de acceso (atime); '-m' modifica solo la fecha de modificación de datos (mtime)."
-        },
-        {
-          "flag": "touch -t [[CC]YY]MMDDhhmm[.ss]",
-          "desc": "🎯 Clave de Examen: Fija una fecha y hora específica manual en el archivo."
-        },
-        {
-          "flag": "mkdir -p, --parents",
-          "desc": "🎯 Clave de Examen: Crea los directorios padre intermedios necesarios si no existen sin dar error si ya existían."
-        },
-        {
-          "flag": "mkdir -m <modo>",
-          "desc": "Establece los permisos octales al crear la carpeta (ej: mkdir -m 700 secreta)."
-        },
-        {
-          "flag": "rmdir [-p] <dir>",
-          "desc": "🎯 Elimina directorios ÚNICAMENTE si están completamente vacíos (falla si contienen archivos)."
-        }
-      ],
-      "examples": [
-        "mkdir -p /tmp/proy/v1/src; touch -t 202610201200 /tmp/proy/v1/src/main.c; ls -l /tmp/proy/v1/src"
-      ],
-      "exam_tips": [],
-      "slide_url": "t103/103-3-administracion-basica-de.html#/4",
       "practice_url": "practicas/p-103-3-gestion-archivos.html",
       "weight": 2
     },
@@ -4465,40 +4364,72 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.3",
       "title": "Comando: mkdir",
-      "desc": "Crear ficheros vacíos, manipular fechas de acceso/modificación y crear o borrar árboles de carpetas",
-      "syntax": "mkdir -p /tmp/proy/v1/src; touch -t 202610201200 /tmp/proy/v1/src/main.c; ls -l /tmp/proy/v1/src",
+      "desc": "Crear ficheros vacíos, modificar fechas de acceso/modificación y construir árboles de carpetas",
+      "syntax": "mkdir -p dir1/dir2/dir3 | touch -t 202610251200 file.c | rmdir dir",
       "flags": [
         {
-          "flag": "touch <archivo>",
-          "desc": "Crea el archivo vacío si no existe; si ya existe, actualiza sus marcas de acceso y modificación al momento actual."
-        },
-        {
-          "flag": "touch -c, --no-create",
-          "desc": "No crea el archivo si no existe; solo actualiza fechas si ya está presente en el disco."
-        },
-        {
-          "flag": "touch -a / -m",
-          "desc": "'-a' modifica solo la fecha de acceso (atime); '-m' modifica solo la fecha de modificación de datos (mtime)."
-        },
-        {
-          "flag": "touch -t [[CC]YY]MMDDhhmm[.ss]",
-          "desc": "🎯 Clave de Examen: Fija una fecha y hora específica manual en el archivo."
-        },
-        {
-          "flag": "mkdir -p, --parents",
-          "desc": "🎯 Clave de Examen: Crea los directorios padre intermedios necesarios si no existen sin dar error si ya existían."
+          "flag": "mkdir -p",
+          "desc": "🎯 Clave de Examen: Crea directorios padre intermedios automáticamente sin error si ya existían."
         },
         {
           "flag": "mkdir -m <modo>",
-          "desc": "Establece los permisos octales al crear la carpeta (ej: mkdir -m 700 secreta)."
+          "desc": "Define permisos octales al crear la carpeta (ej: 'mkdir -m 700 secreta')."
         },
         {
-          "flag": "rmdir [-p] <dir>",
-          "desc": "🎯 Elimina directorios ÚNICAMENTE si están completamente vacíos (falla si contienen archivos)."
+          "flag": "touch <archivo>",
+          "desc": "🎯 Si el archivo no existe lo crea vacío (0 bytes); si ya existe, actualiza su fecha al segundo actual."
+        },
+        {
+          "flag": "touch -t YYYYMMDDhhmm",
+          "desc": "🎯 Clave de Examen: Sobrescribe la marca temporal con una fecha y hora exacta arbitraria."
+        },
+        {
+          "flag": "rmdir <directorio>",
+          "desc": "🎯 Comando defensivo: borra la carpeta ÚNICAMENTE si está 100% vacía. Falla si contiene archivos."
         }
       ],
       "examples": [
-        "mkdir -p /tmp/proy/v1/src; touch -t 202610201200 /tmp/proy/v1/src/main.c; ls -l /tmp/proy/v1/src"
+        "mkdir -p app/v1/src; touch -t 202610251200 app/v1/src/main.c; rmdir app/v1/src"
+      ],
+      "exam_tips": [],
+      "slide_url": "t103/103-3-administracion-basica-de.html#/4",
+      "practice_url": "practicas/p-103-3-gestion-archivos.html",
+      "weight": 2
+    },
+    {
+      "id": "cmd-touch",
+      "label": "touch",
+      "type": "command",
+      "exam": "101",
+      "tema": "103",
+      "subtopic_id": "103.3",
+      "title": "Comando: touch",
+      "desc": "Crear ficheros vacíos, modificar fechas de acceso/modificación y construir árboles de carpetas",
+      "syntax": "mkdir -p dir1/dir2/dir3 | touch -t 202610251200 file.c | rmdir dir",
+      "flags": [
+        {
+          "flag": "mkdir -p",
+          "desc": "🎯 Clave de Examen: Crea directorios padre intermedios automáticamente sin error si ya existían."
+        },
+        {
+          "flag": "mkdir -m <modo>",
+          "desc": "Define permisos octales al crear la carpeta (ej: 'mkdir -m 700 secreta')."
+        },
+        {
+          "flag": "touch <archivo>",
+          "desc": "🎯 Si el archivo no existe lo crea vacío (0 bytes); si ya existe, actualiza su fecha al segundo actual."
+        },
+        {
+          "flag": "touch -t YYYYMMDDhhmm",
+          "desc": "🎯 Clave de Examen: Sobrescribe la marca temporal con una fecha y hora exacta arbitraria."
+        },
+        {
+          "flag": "rmdir <directorio>",
+          "desc": "🎯 Comando defensivo: borra la carpeta ÚNICAMENTE si está 100% vacía. Falla si contiene archivos."
+        }
+      ],
+      "examples": [
+        "mkdir -p app/v1/src; touch -t 202610251200 app/v1/src/main.c; rmdir app/v1/src"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-3-administracion-basica-de.html#/4",
@@ -4513,40 +4444,32 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.3",
       "title": "Comando: rmdir",
-      "desc": "Crear ficheros vacíos, manipular fechas de acceso/modificación y crear o borrar árboles de carpetas",
-      "syntax": "mkdir -p /tmp/proy/v1/src; touch -t 202610201200 /tmp/proy/v1/src/main.c; ls -l /tmp/proy/v1/src",
+      "desc": "Crear ficheros vacíos, modificar fechas de acceso/modificación y construir árboles de carpetas",
+      "syntax": "mkdir -p dir1/dir2/dir3 | touch -t 202610251200 file.c | rmdir dir",
       "flags": [
         {
-          "flag": "touch <archivo>",
-          "desc": "Crea el archivo vacío si no existe; si ya existe, actualiza sus marcas de acceso y modificación al momento actual."
-        },
-        {
-          "flag": "touch -c, --no-create",
-          "desc": "No crea el archivo si no existe; solo actualiza fechas si ya está presente en el disco."
-        },
-        {
-          "flag": "touch -a / -m",
-          "desc": "'-a' modifica solo la fecha de acceso (atime); '-m' modifica solo la fecha de modificación de datos (mtime)."
-        },
-        {
-          "flag": "touch -t [[CC]YY]MMDDhhmm[.ss]",
-          "desc": "🎯 Clave de Examen: Fija una fecha y hora específica manual en el archivo."
-        },
-        {
-          "flag": "mkdir -p, --parents",
-          "desc": "🎯 Clave de Examen: Crea los directorios padre intermedios necesarios si no existen sin dar error si ya existían."
+          "flag": "mkdir -p",
+          "desc": "🎯 Clave de Examen: Crea directorios padre intermedios automáticamente sin error si ya existían."
         },
         {
           "flag": "mkdir -m <modo>",
-          "desc": "Establece los permisos octales al crear la carpeta (ej: mkdir -m 700 secreta)."
+          "desc": "Define permisos octales al crear la carpeta (ej: 'mkdir -m 700 secreta')."
         },
         {
-          "flag": "rmdir [-p] <dir>",
-          "desc": "🎯 Elimina directorios ÚNICAMENTE si están completamente vacíos (falla si contienen archivos)."
+          "flag": "touch <archivo>",
+          "desc": "🎯 Si el archivo no existe lo crea vacío (0 bytes); si ya existe, actualiza su fecha al segundo actual."
+        },
+        {
+          "flag": "touch -t YYYYMMDDhhmm",
+          "desc": "🎯 Clave de Examen: Sobrescribe la marca temporal con una fecha y hora exacta arbitraria."
+        },
+        {
+          "flag": "rmdir <directorio>",
+          "desc": "🎯 Comando defensivo: borra la carpeta ÚNICAMENTE si está 100% vacía. Falla si contiene archivos."
         }
       ],
       "examples": [
-        "mkdir -p /tmp/proy/v1/src; touch -t 202610201200 /tmp/proy/v1/src/main.c; ls -l /tmp/proy/v1/src"
+        "mkdir -p app/v1/src; touch -t 202610251200 app/v1/src/main.c; rmdir app/v1/src"
       ],
       "exam_tips": [
         {
@@ -4569,32 +4492,28 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.3",
       "title": "Comando: cp",
-      "desc": "Duplicar archivos o árboles, renombrar, trasladar y eliminar elementos del sistema de archivos",
-      "syntax": "cp -p /etc/hosts /tmp/hosts_copia; mv /tmp/hosts_copia /tmp/hosts_renombrado; rm -f /tmp/hosts_renombrado",
+      "desc": "Duplicar árboles preservando permisos de seguridad, renombrar y purgar ficheros",
+      "syntax": "cp -a /origen /destino | mv origen nuevo_nombre | rm -rf /tmp/basura",
       "flags": [
         {
+          "flag": "cp -a",
+          "desc": "🎯 Clave Absoluta de Examen: Equivale a '-dpR'. Preserva permisos, dueños UID/GID, timestamps y enlaces simbólicos."
+        },
+        {
           "flag": "cp -r, -R",
-          "desc": "🎯 Copia carpetas y contenidos, pero reasigna la propiedad al usuario actual y actualiza marcas temporales."
+          "desc": "🎯 Copia carpetas pero cambia el dueño al usuario que ejecuta el comando y actualiza las fechas al momento actual."
         },
         {
           "flag": "cp -p",
-          "desc": "🎯 Preserva permisos, propietario, grupo y fechas de modificación originales."
-        },
-        {
-          "flag": "cp -a",
-          "desc": "🎯 Clave de Examen: Equivale a -dpR. Modo backup perfecto: preserva enlaces simbólicos y todos los atributos."
-        },
-        {
-          "flag": "cp -u / mv -u",
-          "desc": "Solo copia/mueve si el origen es más reciente que el destino."
+          "desc": "🎯 Preserva permisos originales, dueño y sellos de tiempo (incluido dentro de -a)."
         },
         {
           "flag": "mv origen dest",
-          "desc": "Mueve a otro directorio o renombra en el mismo directorio (sin duplicar datos)."
+          "desc": "🎯 Si el destino es la misma carpeta, renombra. Si es otra carpeta, traslada el archivo."
         },
         {
-          "flag": "rm -rf",
-          "desc": "🎯 -r borra recursivamente carpetas; -f fuerza sin pedir confirmación."
+          "flag": "rm -rf <dir>",
+          "desc": "🎯 '-r' desciende por todas las carpetas; '-f' fuerza el borrado sin preguntar ni avisar de errores."
         },
         {
           "flag": "readlink <enlace>",
@@ -4614,7 +4533,7 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "cp -p /etc/hosts /tmp/hosts_copia; mv /tmp/hosts_copia /tmp/hosts_renombrado; rm -f /tmp/hosts_renombrado",
+        "sudo cp -a /etc/nginx /backup/nginx_bkp; mv /backup/nginx_bkp /backup/nginx_2026; rm -rf /backup/nginx_2026",
         "readlink -f /bin/sh; unlink /tmp/enlace_prueba"
       ],
       "exam_tips": [],
@@ -4630,32 +4549,28 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.3",
       "title": "Comando: mv",
-      "desc": "Duplicar archivos o árboles, renombrar, trasladar y eliminar elementos del sistema de archivos",
-      "syntax": "cp -p /etc/hosts /tmp/hosts_copia; mv /tmp/hosts_copia /tmp/hosts_renombrado; rm -f /tmp/hosts_renombrado",
+      "desc": "Duplicar árboles preservando permisos de seguridad, renombrar y purgar ficheros",
+      "syntax": "cp -a /origen /destino | mv origen nuevo_nombre | rm -rf /tmp/basura",
       "flags": [
         {
+          "flag": "cp -a",
+          "desc": "🎯 Clave Absoluta de Examen: Equivale a '-dpR'. Preserva permisos, dueños UID/GID, timestamps y enlaces simbólicos."
+        },
+        {
           "flag": "cp -r, -R",
-          "desc": "🎯 Copia carpetas y contenidos, pero reasigna la propiedad al usuario actual y actualiza marcas temporales."
+          "desc": "🎯 Copia carpetas pero cambia el dueño al usuario que ejecuta el comando y actualiza las fechas al momento actual."
         },
         {
           "flag": "cp -p",
-          "desc": "🎯 Preserva permisos, propietario, grupo y fechas de modificación originales."
-        },
-        {
-          "flag": "cp -a",
-          "desc": "🎯 Clave de Examen: Equivale a -dpR. Modo backup perfecto: preserva enlaces simbólicos y todos los atributos."
-        },
-        {
-          "flag": "cp -u / mv -u",
-          "desc": "Solo copia/mueve si el origen es más reciente que el destino."
+          "desc": "🎯 Preserva permisos originales, dueño y sellos de tiempo (incluido dentro de -a)."
         },
         {
           "flag": "mv origen dest",
-          "desc": "Mueve a otro directorio o renombra en el mismo directorio (sin duplicar datos)."
+          "desc": "🎯 Si el destino es la misma carpeta, renombra. Si es otra carpeta, traslada el archivo."
         },
         {
-          "flag": "rm -rf",
-          "desc": "🎯 -r borra recursivamente carpetas; -f fuerza sin pedir confirmación."
+          "flag": "rm -rf <dir>",
+          "desc": "🎯 '-r' desciende por todas las carpetas; '-f' fuerza el borrado sin preguntar ni avisar de errores."
         },
         {
           "flag": "readlink <enlace>",
@@ -4675,7 +4590,7 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "cp -p /etc/hosts /tmp/hosts_copia; mv /tmp/hosts_copia /tmp/hosts_renombrado; rm -f /tmp/hosts_renombrado",
+        "sudo cp -a /etc/nginx /backup/nginx_bkp; mv /backup/nginx_bkp /backup/nginx_2026; rm -rf /backup/nginx_2026",
         "readlink -f /bin/sh; unlink /tmp/enlace_prueba"
       ],
       "exam_tips": [],
@@ -4691,56 +4606,52 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.3",
       "title": "Comando: find",
-      "desc": "Localizar archivos y directorios según criterios de atributos, tipo o tamaño en disco",
-      "syntax": "find /etc -maxdepth 1 -name '*.conf' | head -n 3; find /var/log -type f -size +10M",
+      "desc": "Rastrear recursivamente el árbol de archivos en tiempo real según criterios precisos",
+      "syntax": "find /var/log -type f -name '*.log' -size +10M",
       "flags": [
         {
           "flag": "find <ruta>",
-          "desc": "Punto de inicio recursivo (por defecto '.' directorio actual)."
+          "desc": "Punto de partida recursivo (por defecto '.' si no indicas ruta)."
         },
         {
           "flag": "-name '<patrón>'",
-          "desc": "🎯 Busca por nombre (case-sensitive). ¡Siempre entrecomillar comodines!"
+          "desc": "🎯 Sensible a mayúsculas. ¡OBLIGATORIO entrecomillar los comodines ('*.log')!"
         },
         {
           "flag": "-iname '<patrón>'",
-          "desc": "Búsqueda case-insensitive (coincide con .LOG, .log, .Log)."
+          "desc": "Case-insensitive: coincide tanto con '.log' como con '.LOG' o '.Log'."
         },
         {
           "flag": "-type [f|d|l]",
-          "desc": "🎯 Clave de Examen: 'f' = fichero ordinario, 'd' = directorio, 'l' = symlink."
+          "desc": "🎯 Clave de Examen: 'f' = fichero regular, 'd' = carpeta/directorio, 'l' = enlace simbólico."
         },
         {
           "flag": "-size [+|-]N[k|M|G]",
-          "desc": "🎯 Clave de Examen: '+10M' = mayor de 10 MB, '-500k' = menor de 500 KB, '100c' = 100 bytes."
+          "desc": "🎯 Clave de Examen: '+50M' = mayor de 50 MB, '-100k' = menor de 100 KB, '500c' = exactamente 500 bytes."
         },
         {
           "flag": "-maxdepth N",
-          "desc": "Limita los niveles de subcarpetas a inspeccionar (ej: -maxdepth 1)."
+          "desc": "🎯 Limita el rastreo a N niveles de subcarpetas (evita búsquedas infinitas)."
         },
         {
           "flag": "-mtime [+|-]N",
-          "desc": "🎯 '-mtime -2' = últimas 48h; '+7' = hace más de 7 días."
+          "desc": "🎯 '-mtime -2' = últimas 48h; '-mtime +30' = hace más de 30 días."
         },
         {
           "flag": "-mmin [+|-]N",
-          "desc": "'-mmin -60' = modificado en la última hora."
+          "desc": "🎯 '-mmin -60' = modificado en la última hora (vital para auditoría forense)."
         },
         {
           "flag": "-user / -group",
-          "desc": "Filtra por usuario o grupo dueño del archivo."
+          "desc": "🎯 Filtra por el usuario o grupo propietario (ej: '-user www-data' o '-user root')."
         },
         {
           "flag": "-exec <cmd> {} \\;",
-          "desc": "🎯 Clave Absoluta de Examen: Ejecuta <cmd> por cada archivo. Requiere '{}' y fin con ' \\;'."
-        },
-        {
-          "flag": "-exec <cmd> {} +",
-          "desc": "Pasa todos los archivos juntos en bloque (más eficiente)."
+          "desc": "🎯 Clave Absoluta de Examen: Inyecta la ruta en '{}' y cierra obligatoriamente con ' \\;'."
         },
         {
           "flag": "-delete",
-          "desc": "🎯 Elimina directamente los ficheros encontrados sin invocar rm."
+          "desc": "🎯 Elimina directamente los ficheros encontrados sin necesidad de invocar 'rm'."
         },
         {
           "flag": "El problema de los espacios",
@@ -4776,8 +4687,8 @@ window.LPIC_GRAPH_DATA = {
         }
       ],
       "examples": [
-        "find /etc -maxdepth 1 -name '*.conf' | head -n 3; find /var/log -type f -size +10M",
-        "find /tmp -type f -mtime +7 -delete; find /var/log -name '*.log' -exec ls -lh {} \\; | head -n 2",
+        "find /etc -maxdepth 1 -name '*.conf' | head -n 2; find /var/log -type f -size +10M",
+        "find /var/log -name '*.log' -exec ls -lh {} \\; | head -n 2",
         "touch 'informe confidencial.pdf'; find . -name '*.pdf' -print0 | xargs -0 ls -l",
         "find /etc -samefile /etc/hosts 2>/dev/null; find /home -type l | head -n 2"
       ],
@@ -4816,36 +4727,36 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.3",
       "title": "Comando: tar",
-      "desc": "Crear, listar o extraer paquetes de archivos preservando permisos y directorios",
-      "syntax": "tar -czvf /tmp/backup.tar.gz /etc/hosts /etc/issue; tar -tvf /tmp/backup.tar.gz",
+      "desc": "Crear, listar y restaurar archivos empaquetados preservando permisos y directorios",
+      "syntax": "tar -czvf bkp.tar.gz /etc | tar -tvf bkp.tar.gz | tar -xvf bkp.tar.gz -C /opt",
       "flags": [
         {
-          "flag": "-c / -x / -t",
-          "desc": "🎯 -c crea nuevo tar; -x extrae contenido; -t lista archivos sin extraer."
+          "flag": "tar -c / -x / -t",
+          "desc": "🎯 Operaciones: '-c' (Create / nuevo tar), '-x' (eXtract / restaurar), '-t' (Test / listar contenido sin extraer)."
         },
         {
-          "flag": "-f <archivo>",
-          "desc": "🎯 ¡OBLIGATORIO! Especifica el archivo. Debe ir pegado justo antes del nombre."
+          "flag": "tar -f <archivo>",
+          "desc": "🎯 ¡OBLIGATORIO! Especifica el fichero contenedor. Debe ir siempre inmediatamente pegado al nombre del archivo."
         },
         {
-          "flag": "-z, --gzip",
-          "desc": "🎯 Compresión rápida y ligera estándar en Unix."
+          "flag": "tar -z",
+          "desc": "🎯 Compresión gzip estándar: rápida y ultracompatible en todos los Unix."
         },
         {
-          "flag": "-j, --bzip2",
-          "desc": "🎯 Mayor compresión que gzip, pero requiere más tiempo de CPU."
+          "flag": "tar -j",
+          "desc": "🎯 Compresión bzip2: archivos más pequeños a costa de mayor uso de CPU."
         },
         {
-          "flag": "-J, --xz",
-          "desc": "🎯 Máxima compresión moderna con algoritmos LZMA2."
+          "flag": "tar -J (Mayúscula)",
+          "desc": "🎯 Compresión xz: máxima tasa de compresión moderna con algoritmo LZMA2."
         },
         {
-          "flag": "-C <dir>",
-          "desc": "🎯 Cambia al directorio indicado antes de extraer (ej: tar -xf a.tar -C /opt/)."
+          "flag": "tar -C <directorio>",
+          "desc": "🎯 Cambia a la carpeta indicada antes de extraer (ej: 'tar -xvf bkp.tar.gz -C /var/www')."
         }
       ],
       "examples": [
-        "tar -czvf /tmp/backup.tar.gz /etc/hosts /etc/issue; tar -tvf /tmp/backup.tar.gz"
+        "tar -czvf /backup/nginx.tar.gz /etc/nginx; tar -tvf /backup/nginx.tar.gz | head -n 2"
       ],
       "exam_tips": [
         {
@@ -4875,36 +4786,32 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.3",
       "title": "Comando: dd",
-      "desc": "Copiar y convertir flujos de datos a bajo nivel respetando la estructura física de sectores",
-      "syntax": "sudo dd if=/dev/sda of=/tmp/mbr_backup.bin bs=512 count=1 status=progress",
+      "desc": "Clonar discos, crear imágenes binarias idénticas y respaldar el MBR sector a sector",
+      "syntax": "dd if=/dev/sda of=/backup/mbr.bin bs=512 count=1 status=progress",
       "flags": [
         {
           "flag": "if=<ruta>",
-          "desc": "🎯 Fichero o dispositivo origen (ej: if=/dev/sda o if=/dev/zero)."
+          "desc": "🎯 Fichero o dispositivo físico origen (ej: 'if=/dev/sda', 'if=/dev/zero', 'if=debian.iso')."
         },
         {
           "flag": "of=<ruta>",
-          "desc": "🎯 Fichero o dispositivo destino (ej: of=/dev/sdb o of=backup.img)."
+          "desc": "🎯 Fichero o dispositivo físico destino (ej: 'of=/dev/sdb', 'of=/backup/disco.img')."
         },
         {
-          "flag": "bs=<bytes>",
-          "desc": "🎯 Tamaño de bloque (ej: bs=512, bs=4k, bs=1M)."
+          "flag": "bs=<tamaño>",
+          "desc": "🎯 Tamaño de cada bloque a transferir (ej: 'bs=512', 'bs=4k', 'bs=1M')."
         },
         {
           "flag": "count=<N>",
-          "desc": "🎯 Cantidad de bloques a copiar antes de detenerse (ej: count=1)."
-        },
-        {
-          "flag": "conv=sync,noerror",
-          "desc": "🎯 'noerror' continúa tras errores I/O; 'sync' rellena bloques dañados con ceros."
+          "desc": "🎯 Número total de bloques a copiar antes de detenerse (ej: 'count=1')."
         },
         {
           "flag": "status=progress",
-          "desc": "Muestra velocidad y bytes copiados en tiempo real."
+          "desc": "Muestra la velocidad de transferencia y bytes copiados en directo."
         }
       ],
       "examples": [
-        "sudo dd if=/dev/sda of=/tmp/mbr_backup.bin bs=512 count=1 status=progress"
+        "sudo dd if=/dev/sda of=/backup/mbr.bin bs=512 count=1 status=progress"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-3-administracion-basica-de.html#/11",
@@ -4919,28 +4826,28 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.3",
       "title": "Comando: file",
-      "desc": "Inspeccionar las firmas de cabecera (números mágicos) para determinar el tipo real de cualquier archivo",
-      "syntax": "file /bin/ls /etc/passwd /tmp/backup.tar.gz",
+      "desc": "Inspeccionar las cabeceras (Magic Numbers) para descubrir el formato real de cualquier archivo",
+      "syntax": "file script.sh | file -b /etc/passwd | file -i imagen.png",
       "flags": [
         {
           "flag": "file <archivo>",
-          "desc": "Lee los primeros bytes del archivo consultando la base de datos mágica (/usr/share/misc/magic) para identificar su formato real."
+          "desc": "🎯 Lee los primeros bytes (números mágicos) comparándolos con la base de datos de firmas (/etc/magic)."
         },
         {
           "flag": "file -b, --brief",
-          "desc": "🎯 Modo breve: omite el nombre del archivo al principio de la salida imprimiendo solo el tipo de formato."
+          "desc": "🎯 Omite el nombre del archivo al inicio de la salida, imprimiendo solo el tipo de archivo."
         },
         {
           "flag": "file -i, --mime",
-          "desc": "🎯 Clave de Examen: Muestra el tipo MIME oficial del archivo (ej: 'text/plain; charset=us-ascii' o 'application/x-pie-executable')."
+          "desc": "🎯 Clave de Examen: Devuelve el tipo MIME estándar (ej: 'text/plain', 'application/x-executable')."
         },
         {
           "flag": "file -z, --uncompress",
-          "desc": "Intenta examinar el interior de archivos comprimidos para determinar qué tipo de datos albergan."
+          "desc": "Intenta examinar el interior de ficheros comprimidos para averiguar qué formato albergan."
         }
       ],
       "examples": [
-        "file /bin/ls /etc/passwd /tmp/backup.tar.gz"
+        "file /bin/bash; file /etc/passwd; file factura.pdf; file -b -i /etc/issue"
       ],
       "exam_tips": [
         {
@@ -4967,64 +4874,6 @@ window.LPIC_GRAPH_DATA = {
       ],
       "slide_url": "t103/103-3-administracion-basica-de.html#/12",
       "practice_url": "practicas/p-103-3-gestion-archivos.html",
-      "weight": 2
-    },
-    {
-      "id": "cmd-set",
-      "label": "set",
-      "type": "command",
-      "exam": "101",
-      "tema": "103",
-      "subtopic_id": "103.4",
-      "title": "Comando: set",
-      "desc": "Activar la protección de shell que impide sobreescribir archivos existentes con el operador >",
-      "syntax": "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt",
-      "flags": [
-        {
-          "flag": "set -o noclobber",
-          "desc": "🎯 Activa la protección contra sobreescritura accidental con '>'."
-        },
-        {
-          "flag": ">| archivo",
-          "desc": "🎯 Clave de Examen: Operador 'clobber' que fuerza sobreescribir ignorando la protección."
-        },
-        {
-          "flag": "set +o noclobber",
-          "desc": "🎯 Desactiva la protección permitiendo de nuevo '>' normal."
-        },
-        {
-          "flag": ">> (concatenar)",
-          "desc": "La concatenación '>>' nunca destruye datos, por lo que noclobber la permite siempre."
-        }
-      ],
-      "examples": [
-        "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt"
-      ],
-      "exam_tips": [
-        {
-          "q_num": 76,
-          "exam": "101",
-          "stem": "Which of the following commands is used to change options and positional parameters within a running Bash shell?",
-          "answer": "set",
-          "explanation": "El comando interno set ( help set en Bash) permite activar o desactivar opciones del comportamiento de la shell en ejecución (como set -e o set -x ) y definir los parámetros posicionales ( $1 , $2 , etc.)."
-        },
-        {
-          "q_num": 97,
-          "exam": "101",
-          "stem": "What is the correct way to set the default systemd boot target to multi-user?",
-          "answer": "systemctl set-default multi-user.target",
-          "explanation": "Según man 1 systemctl , el subcomando set-default establece el objetivo de arranque predeterminado creando el enlace simbólico /etc/systemd/system/default.target hacia el archivo de unidad indicado. ( isolate solo cambia el estado actual sin hacerlo persistente para el próximo arranque)."
-        },
-        {
-          "q_num": 101,
-          "exam": "101",
-          "stem": "Which System V init configuration file is commonly used to set the default run level? (Specify the full name of the file, including path.)",
-          "answer": "/etc/inittab",
-          "explanation": "En sistemas basados en System V init, el archivo de configuración principal es /etc/inittab ( man 5 inittab ), donde la directiva initdefault (por ejemplo, id:3:initdefault: ) define el nivel de ejecución predeterminado al arrancar."
-        }
-      ],
-      "slide_url": "t103/103-4-uso-de-secuencias-de-tex.html#/5",
-      "practice_url": "practicas/p-103-4-redirecciones-tuberias.html",
       "weight": 2
     },
     {
@@ -8764,7 +8613,7 @@ window.LPIC_GRAPH_DATA = {
     {
       "id": "e_83",
       "from": "sub-103-1",
-      "to": "cmd-printenv",
+      "to": "cmd-set",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8876,7 +8725,7 @@ window.LPIC_GRAPH_DATA = {
     {
       "id": "e_97",
       "from": "sub-103-2",
-      "to": "cmd-md5sum",
+      "to": "cmd-sha256sum",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8884,7 +8733,7 @@ window.LPIC_GRAPH_DATA = {
     {
       "id": "e_98",
       "from": "sub-103-2",
-      "to": "cmd-sha256sum",
+      "to": "cmd-md5sum",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8924,7 +8773,7 @@ window.LPIC_GRAPH_DATA = {
     {
       "id": "e_103",
       "from": "sub-103-3",
-      "to": "cmd-touch",
+      "to": "cmd-mkdir",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8932,7 +8781,7 @@ window.LPIC_GRAPH_DATA = {
     {
       "id": "e_104",
       "from": "sub-103-3",
-      "to": "cmd-mkdir",
+      "to": "cmd-touch",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
