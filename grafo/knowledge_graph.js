@@ -4654,20 +4654,20 @@ window.LPIC_GRAPH_DATA = {
           "desc": "🎯 Elimina directamente los ficheros encontrados sin necesidad de invocar 'rm'."
         },
         {
-          "flag": "El problema de los espacios",
-          "desc": "⚠️ Si un archivo se llama 'mi foto.jpg', un 'xargs rm' ordinario intentará borrar dos archivos: 'mi' y 'foto.jpg', borrando datos incorrectos o fallando."
+          "flag": "El peligro de los espacios",
+          "desc": "⚠️ Si un archivo se llama 'Factura Mayo.pdf', un xargs ordinario intentará procesar 'Factura' y 'Mayo.pdf' por separado."
         },
         {
           "flag": "find -print0",
-          "desc": "🎯 Clave de Examen: Imprime cada ruta encontrada terminada por el carácter nulo ASCII 0 (\\0) en lugar de un salto de línea."
+          "desc": "🎯 Clave de Examen: Imprime cada resultado seguido del byte nulo ASCII 0 (\\0) en lugar de un salto de línea (\\n)."
         },
         {
-          "flag": "xargs -0, --null",
-          "desc": "🎯 Clave de Examen: Indica a xargs que los elementos de entrada están delimitados por el carácter nulo (\\0), tratando los espacios y comillas como texto literal."
+          "flag": "xargs -0 (o --null)",
+          "desc": "🎯 Clave de Examen: Le indica a xargs que separe los argumentos ÚNICAMENTE al encontrar un byte nulo (\\0)."
         },
         {
           "flag": "Sinergia Indestructible",
-          "desc": "🎯 La combinación 'find ... -print0 | xargs -0 ...' es el estándar corporativo obligatorio para scripts en producción."
+          "desc": "🎯 'find ... -print0 | xargs -0 ...' es el estándar corporativo obligatorio para scripts en producción y preguntas LPIC-1."
         },
         {
           "flag": "find -samefile <archivo>",
@@ -4689,7 +4689,7 @@ window.LPIC_GRAPH_DATA = {
       "examples": [
         "find /etc -maxdepth 1 -name '*.conf' | head -n 2; find /var/log -type f -size +10M",
         "find /var/log -name '*.log' -exec ls -lh {} \\; | head -n 2",
-        "touch 'informe confidencial.pdf'; find . -name '*.pdf' -print0 | xargs -0 ls -l",
+        "find . -name '*.pdf' -print0 | xargs -0 ls -lh",
         "find /etc -samefile /etc/hosts 2>/dev/null; find /home -type l | head -n 2"
       ],
       "exam_tips": [
@@ -4884,24 +4884,24 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.4",
       "title": "Comando: tee",
-      "desc": "Duplicar el flujo de datos: envía una copia a la salida estándar (pantalla) y otra copia a uno o varios archivos",
-      "syntax": "echo 'Instalacion completada' | tee -a /tmp/instalacion.log",
+      "desc": "Ver el progreso en tiempo real y registrarlo de forma persistente en uno o más ficheros",
+      "syntax": "echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf",
       "flags": [
         {
-          "flag": "cmd | tee arch",
-          "desc": "🎯 Escribe en el archivo y simultáneamente reproduce la salida en pantalla."
+          "flag": "cmd | tee archivo",
+          "desc": "🎯 Trunca el archivo y escribe los datos nuevos, mostrando al mismo tiempo el resultado en la pantalla."
         },
         {
-          "flag": "cmd | tee -a arch",
-          "desc": "🎯 Clave de Examen: Modo append (-a): añade al final del archivo sin borrar."
+          "flag": "cmd | tee -a archivo",
+          "desc": "🎯 Clave de Examen: Añade datos al final del fichero existente sin borrar registros previos (ideal para logs)."
         },
         {
-          "flag": "echo ... | sudo tee arch",
-          "desc": "🎯 Truco clásico: permite redirigir datos hacia archivos propiedad de root."
+          "flag": "cmd | sudo tee [-a] archivo",
+          "desc": "🎯 Clave de Examen: Permite a un usuario con sudo escribir en ficheros protegidos como /etc/ donde '>' fallaría con Permission Denied."
         }
       ],
       "examples": [
-        "echo 'Instalacion completada' | tee -a /tmp/instalacion.log"
+        "echo 'nameserver 1.1.1.1' | sudo tee -a /etc/resolv.conf; tail -n 1 /etc/resolv.conf"
       ],
       "exam_tips": [
         {
@@ -4924,45 +4924,45 @@ window.LPIC_GRAPH_DATA = {
       "tema": "103",
       "subtopic_id": "103.4",
       "title": "Comando: xargs",
-      "desc": "Construir y ejecutar líneas de comando leyendo argumentos desde la entrada estándar",
-      "syntax": "echo 'archivo1 archivo2 archivo3' | xargs touch; ls -l archivo[1-3]",
+      "desc": "Hacer de puente entre programas que emiten texto por tubería y programas que exigen parámetros en su llamada",
+      "syntax": "find /tmp -name '*.tmp' | xargs rm -f | cat servidores.txt | xargs -n 1 ping -c 1",
       "flags": [
         {
           "flag": "xargs <comando>",
-          "desc": "Lee elementos de stdin y los pasa como argumentos de línea de comandos."
+          "desc": "🎯 Lee elementos de stdin y los concatena como una única lista gigante al final del comando ('rm f1 f2 f3...')."
         },
         {
           "flag": "xargs -n <N>",
-          "desc": "🎯 Clave de Examen: Ejecuta el comando en lotes de N argumentos (ej: -n 1 ejecuta una vez por ítem)."
+          "desc": "🎯 Clave de Examen: Ejecuta el comando en grupos de N elementos (ej: '-n 1' ejecuta el comando una vez por cada línea)."
         },
         {
           "flag": "xargs -I {}",
-          "desc": "🎯 Clave de Examen: Reemplaza '{}' por cada argumento en una posición fija."
+          "desc": "🎯 Clave de Examen: Reemplaza '{}' por cada argumento donde tú elijas (esencial para 'cp {} /backup/' o 'mv')."
         },
         {
-          "flag": "find ... -print0 | xargs -0",
-          "desc": "🎯 Clave de Examen: Usa el byte nulo \\0 como separador para nombres con espacios."
+          "flag": "xargs -p",
+          "desc": "Pregunta antes de cada ejecución '¿ejecutar comando? [y/N]' para evitar desastres al borrar archivos."
         },
         {
-          "flag": "El problema de los espacios",
-          "desc": "⚠️ Si un archivo se llama 'mi foto.jpg', un 'xargs rm' ordinario intentará borrar dos archivos: 'mi' y 'foto.jpg', borrando datos incorrectos o fallando."
+          "flag": "El peligro de los espacios",
+          "desc": "⚠️ Si un archivo se llama 'Factura Mayo.pdf', un xargs ordinario intentará procesar 'Factura' y 'Mayo.pdf' por separado."
         },
         {
           "flag": "find -print0",
-          "desc": "🎯 Clave de Examen: Imprime cada ruta encontrada terminada por el carácter nulo ASCII 0 (\\0) en lugar de un salto de línea."
+          "desc": "🎯 Clave de Examen: Imprime cada resultado seguido del byte nulo ASCII 0 (\\0) en lugar de un salto de línea (\\n)."
         },
         {
-          "flag": "xargs -0, --null",
-          "desc": "🎯 Clave de Examen: Indica a xargs que los elementos de entrada están delimitados por el carácter nulo (\\0), tratando los espacios y comillas como texto literal."
+          "flag": "xargs -0 (o --null)",
+          "desc": "🎯 Clave de Examen: Le indica a xargs que separe los argumentos ÚNICAMENTE al encontrar un byte nulo (\\0)."
         },
         {
           "flag": "Sinergia Indestructible",
-          "desc": "🎯 La combinación 'find ... -print0 | xargs -0 ...' es el estándar corporativo obligatorio para scripts en producción."
+          "desc": "🎯 'find ... -print0 | xargs -0 ...' es el estándar corporativo obligatorio para scripts en producción y preguntas LPIC-1."
         }
       ],
       "examples": [
-        "echo 'archivo1 archivo2 archivo3' | xargs touch; ls -l archivo[1-3]",
-        "touch 'informe confidencial.pdf'; find . -name '*.pdf' -print0 | xargs -0 ls -l"
+        "find /tmp -name '*.tmp' | xargs -n 2 rm -v",
+        "find . -name '*.pdf' -print0 | xargs -0 ls -lh"
       ],
       "exam_tips": [
         {

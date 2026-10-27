@@ -1402,15 +1402,15 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-4-uso-de-secuencias-de-tex.html#/4" class="slide-link">Diapositiva 4 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Aislar los mensajes de error (descriptor 2) o unificarlos con la salida estándar</div>
+                        <div>Separar fallos de diagnósticos o fusionar ambos canales para auditoría de scripts y cron</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">ls /root /tmp > salida.txt 2> errores.txt; cat errores.txt</code>
-                          <button class="copy-btn-mini" onclick="copyText('ls /root /tmp > salida.txt 2> errores.txt; cat errores.txt')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">tar -czf bkp.tar.gz /var/www /root > bkp.log 2>&1 | find / -name '*.conf' 2> /dev/null</code>
+                          <button class="copy-btn-mini" onclick="copyText('tar -czf bkp.tar.gz /var/www /root > bkp.log 2>&1 | find / -name \'*.conf\' 2> /dev/null')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Redirige solo el canal de error al archivo; la salida normal sigue en pantalla."><code class="pill-code">2> archivo</code><span class="pill-desc">Redirige solo el canal de error al archivo; la ...</span></div><div class="opt-pill" title="Añade errores al final del archivo sin borrar datos previos."><code class="pill-code">2>> archivo</code><span class="pill-desc">Añade errores al final del archivo sin borrar d...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Oculta avisos de error (ej: 'find / -name hosts 2>/dev/null')."><code class="pill-code">2> /dev/null</code><span class="pill-desc">Oculta avisos de error (ej: 'find / -name hosts...</span></div><div class="opt-pill" title="🎯 Clave Absoluta de Examen: Redirige stdout a archivo y luego une stderr al mismo destino."><code class="pill-code">> archivo 2>&1</code><span class="pill-desc">Clave Absoluta de Examen: Redirige stdout a arc...</span></div><div class="opt-pill" title="Sintaxis compacta de Bash equivalente a '> archivo 2>&1'."><code class="pill-code">&> archivo</code><span class="pill-desc">Sintaxis compacta de Bash equivalente a '> arch...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Desvía únicamente los mensajes de fallo a un archivo; la salida exitosa sigue mostrándose en pantalla."><code class="pill-code">2> archivo</code><span class="pill-desc">Desvía únicamente los mensajes de fallo a un ar...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Oculta avisos de fallo como 'Permiso denegado' (ej: 'find / -name hosts 2>/dev/null')."><code class="pill-code">2> /dev/null</code><span class="pill-desc">Oculta avisos de fallo como 'Permiso denegado' ...</span></div><div class="opt-pill" title="🎯 Clave Absoluta de Examen: Redirige stdout (1) al archivo y luego envía stderr (2) al mismo destino. Válido en cualquier Unix."><code class="pill-code">> archivo 2>&1</code><span class="pill-desc">Clave Absoluta de Examen: Redirige stdout (1) a...</span></div><div class="opt-pill" title="Sintaxis rápida de Bash equivalente a '> archivo 2>&1'. Incompatible con shells POSIX estrictas (/bin/sh en Debian/Ubuntu)."><code class="pill-code">&> archivo</code><span class="pill-desc">Sintaxis rápida de Bash equivalente a '> archiv...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1436,21 +1436,15 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-4-uso-de-secuencias-de-tex.html#/6" class="slide-link">Diapositiva 6 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Redirigir el canal de entrada estándar (stdin / 0) desde ficheros, bloques multilínea o cadenas</div>
+                        <div>Hacer que un comando lea datos sin esperar al teclado físico ni recibir nombres como argumentos</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">wc -l < /etc/passwd; cat <<EOF
-Linea 1
-Linea 2
-EOF</code>
-                          <button class="copy-btn-mini" onclick="copyText('wc -l < /etc/passwd; cat <<EOF
-Linea 1
-Linea 2
-EOF')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">wc -l < /etc/passwd | cat <<EOF > app.env | bc <<< '2^8'</code>
+                          <button class="copy-btn-mini" onclick="copyText('wc -l < /etc/passwd | cat <<EOF > app.env | bc <<< \'2^8\'')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Redirige la entrada estándar desde un archivo (ej: 'wc -l < archivo.txt' cuenta líneas sin imprimir el nombre del archivo)."><code class="pill-code">< archivo</code><span class="pill-desc">Redirige la entrada estándar desde un archivo (...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Pasa un bloque multilínea de texto directamente a un comando hasta encontrar una línea que contenga únicamente la palabra DELIMITADOR (suele usarse EOF o FIN)."><code class="pill-code"><< DELIMITADOR (Here Document)</code><span class="pill-desc">Pasa un bloque multilínea de texto directamente...</span></div><div class="opt-pill" title="Si el delimitador va entrecomillado, se desactiva la expansión de variables dentro del bloque multilínea."><code class="pill-code"><< 'DELIMITADOR'</code><span class="pill-desc">Si el delimitador va entrecomillado, se desacti...</span></div><div class="opt-pill" title="Pasa una única cadena de texto directamente a la entrada estándar del comando (ej: 'bc <<< 5+3')."><code class="pill-code"><<< 'cadena' (Here String)</code><span class="pill-desc">Pasa una única cadena de texto directamente a l...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Inyecta el contenido de un archivo directamente en stdin (0). El comando no sabe de qué archivo provienen los datos."><code class="pill-code">< archivo</code><span class="pill-desc">Inyecta el contenido de un archivo directamente...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Introduce texto línea a línea hasta encontrar la palabra exacta de cierre (habitualmente EOF o FIN)."><code class="pill-code"><< DELIM (Here Document)</code><span class="pill-desc">Introduce texto línea a línea hasta encontrar l...</span></div><div class="opt-pill" title="Al entrecomillar 'EOF', impide que Bash evalúe variables como $USER o subcomandos dentro del bloque de texto."><code class="pill-code"><< 'DELIM' (Con comillas)</code><span class="pill-desc">Al entrecomillar 'EOF', impide que Bash evalúe ...</span></div><div class="opt-pill" title="Pasa un texto o cálculo a stdin sin necesidad de crear una tubería con echo (ej: 'bc <<< 10*5')."><code class="pill-code"><<< 'cadena' (Here String)</code><span class="pill-desc">Pasa un texto o cálculo a stdin sin necesidad d...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1459,15 +1453,15 @@ EOF')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-4-uso-de-secuencias-de-tex.html#/7" class="slide-link">Diapositiva 7 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Encadenar procesos conectando el descriptor 1 (stdout) del primero al descriptor 0 (stdin) del segundo</div>
+                        <div>Procesar datos en streaming mediante memoria RAM sin crear molestos archivos temporales en disco</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">cat /etc/passwd | cut -d: -f7 | sort | uniq -c | sort -nr | head -n 3</code>
-                          <button class="copy-btn-mini" onclick="copyText('cat /etc/passwd | cut -d: -f7 | sort | uniq -c | sort -nr | head -n 3')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">ps aux --sort=-%mem | awk '{print $1, $4, $11}' | head -n 4</code>
+                          <button class="copy-btn-mini" onclick="copyText('ps aux --sort=-%mem | awk \'{print $1, $4, $11}\' | head -n 4')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Conecta el stdout del comando de la izquierda al stdin del comando de la derecha. El intercambio ocurre en la memoria RAM (búfer de kernel) sin crear ningún archivo temporal en disco."><code class="pill-code">Operador tubería (|)</code><span class="pill-desc">Conecta el stdout del comando de la izquierda a...</span></div><div class="opt-pill" title="Ambos procesos se ejecutan al mismo tiempo; el segundo comando procesa los datos en streaming a medida que el primero los va generando."><code class="pill-code">Ejecución concurrente</code><span class="pill-desc">Ambos procesos se ejecutan al mismo tiempo; el ...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Una tubería ordinaria '|' solo transporta stdout (1). Los mensajes de error (2) NO entran en la tubería y salen directamente a la pantalla a menos que se redirijan con '2>&1 |' o con '|&'."><code class="pill-code">⚠️ Exclusión de stderr</code><span class="pill-desc">Una tubería ordinaria '|' solo transporta stdou...</span></div><div class="opt-pill" title="Atajo de Bash moderno para redirigir simultáneamente stdout y stderr hacia la tubería siguiente."><code class="pill-code">|& (pipe de error de Bash)</code><span class="pill-desc">Atajo de Bash moderno para redirigir simultánea...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Conecta directamente la salida del comando izquierdo a la entrada del derecho mediante un búfer circular en RAM (64 KB). Cero I/O en disco."><code class="pill-code">Operador tubería (|)</code><span class="pill-desc">Conecta directamente la salida del comando izqu...</span></div><div class="opt-pill" title="Los comandos no esperan a que el anterior termine: el segundo va procesando líneas según el primero las va emitiendo."><code class="pill-code">Streaming Concurrente</code><span class="pill-desc">Los comandos no esperan a que el anterior termi...</span></div><div class="opt-pill" title="🎯 Clave Absoluta de Examen: La tubería '|' solo transporta stdout (1). Los errores (stderr / 2) saltan directos a la pantalla."><code class="pill-code">⚠️ Exclusión de stderr</code><span class="pill-desc">Clave Absoluta de Examen: La tubería '|' solo t...</span></div><div class="opt-pill" title="🎯 Atajo moderno de Bash equivalente a '2>&1 |': envía tanto la salida exitosa como los errores al siguiente filtro."><code class="pill-code">|& (Pipe de error Bash)</code><span class="pill-desc">Atajo moderno de Bash equivalente a '2>&1 |': e...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1476,15 +1470,15 @@ EOF')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-4-uso-de-secuencias-de-tex.html#/8" class="slide-link">Diapositiva 8 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Duplicar el flujo de datos: envía una copia a la salida estándar (pantalla) y otra copia a uno o varios archivos</div>
+                        <div>Ver el progreso en tiempo real y registrarlo de forma persistente en uno o más ficheros</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">echo 'Instalacion completada' | tee -a /tmp/instalacion.log</code>
-                          <button class="copy-btn-mini" onclick="copyText('echo \'Instalacion completada\' | tee -a /tmp/instalacion.log')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf</code>
+                          <button class="copy-btn-mini" onclick="copyText('echo \'nameserver 8.8.8.8\' | sudo tee -a /etc/resolv.conf')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Escribe en el archivo y simultáneamente reproduce la salida en pantalla."><code class="pill-code">cmd | tee arch</code><span class="pill-desc">Escribe en el archivo y simultáneamente reprodu...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Modo append (-a): añade al final del archivo sin borrar."><code class="pill-code">cmd | tee -a arch</code><span class="pill-desc">Modo append (-a): añade al final del archivo si...</span></div><div class="opt-pill" title="🎯 Truco clásico: permite redirigir datos hacia archivos propiedad de root."><code class="pill-code">echo ... | sudo tee arch</code><span class="pill-desc">Truco clásico: permite redirigir datos hacia ar...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Trunca el archivo y escribe los datos nuevos, mostrando al mismo tiempo el resultado en la pantalla."><code class="pill-code">cmd | tee archivo</code><span class="pill-desc">Trunca el archivo y escribe los datos nuevos, m...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Añade datos al final del fichero existente sin borrar registros previos (ideal para logs)."><code class="pill-code">cmd | tee -a archivo</code><span class="pill-desc">Añade datos al final del fichero existente sin ...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Permite a un usuario con sudo escribir en ficheros protegidos como /etc/ donde '>' fallaría con Permission Denied."><code class="pill-code">cmd | sudo tee [-a] archivo</code><span class="pill-desc">Permite a un usuario con sudo escribir en fiche...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1493,15 +1487,15 @@ EOF')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-4-uso-de-secuencias-de-tex.html#/9" class="slide-link">Diapositiva 9 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Ejecutar una orden en una subshell y reemplazar la expresión por el resultado obtenido</div>
+                        <div>Inyectar dinámicamente fechas, rutas, PIDs o parámetros calculados dentro de una orden de terminal</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">tar -czf backup-$(date +%F).tar.gz /etc/issue; ls -l backup-*.tar.gz</code>
-                          <button class="copy-btn-mini" onclick="copyText('tar -czf backup-$(date +%F).tar.gz /etc/issue; ls -l backup-*.tar.gz')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">tar -czf bkp-$(date +%F).tar.gz /var/www | kill -9 $(pgrep nginx)</code>
+                          <button class="copy-btn-mini" onclick="copyText('tar -czf bkp-$(date +%F).tar.gz /var/www | kill -9 $(pgrep nginx)')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Sintaxis estándar recomendada por POSIX y LPIC: permite anidamiento limpio y es altamente legible (ej: 'tar -czf backup-$(date +%Y%m%d).tar.gz')."><code class="pill-code">$(comando)</code><span class="pill-desc">Sintaxis estándar recomendada por POSIX y LPIC:...</span></div><div class="opt-pill" title="Sintaxis histórica de Unix heredada del shell Bourne original. Más difícil de leer y muy compleja de anidar."><code class="pill-code">`comando` (Backticks / Acentos graves)</code><span class="pill-desc">Sintaxis histórica de Unix heredada del shell B...</span></div><div class="opt-pill" title="Con $(), anidar es trivial: 'echo $(basename $(pwd))'. Con backticks requiere escapar: '`basename \`pwd\``'."><code class="pill-code">Anidamiento</code><span class="pill-desc">Con $(), anidar es trivial: 'echo $(basename $(...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Recomendada por LPI y administradores: legible, limpia y permite anidar comandos infinitamente sin errores."><code class="pill-code">$(comando)</code><span class="pill-desc">Recomendada por LPI y administradores: legible,...</span></div><div class="opt-pill" title="Heredada de la shell Bourne original. Se confunde fácilmente con comillas simples (') y es muy difícil de anidar."><code class="pill-code">`comando` (Backticks)</code><span class="pill-desc">Heredada de la shell Bourne original. Se confun...</span></div><div class="opt-pill" title="🎯 Con $(...) se anida directo: 'echo $(basename $(pwd))'. Con backticks requiere engorrosos escapes: '`basename \`pwd\``'."><code class="pill-code">Anidamiento limpio</code><span class="pill-desc">Con $(...) se anida directo: 'echo $(basename $...</span></div><div class="opt-pill" title="El comando interno se ejecuta en un proceso hijo independiente; las variables creadas dentro se destruyen al terminar."><code class="pill-code">Ejecución en Subshell</code><span class="pill-desc">El comando interno se ejecuta en un proceso hij...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1510,15 +1504,15 @@ EOF')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-4-uso-de-secuencias-de-tex.html#/10" class="slide-link">Diapositiva 10 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Construir y ejecutar líneas de comando leyendo argumentos desde la entrada estándar</div>
+                        <div>Hacer de puente entre programas que emiten texto por tubería y programas que exigen parámetros en su llamada</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">echo 'archivo1 archivo2 archivo3' | xargs touch; ls -l archivo[1-3]</code>
-                          <button class="copy-btn-mini" onclick="copyText('echo \'archivo1 archivo2 archivo3\' | xargs touch; ls -l archivo[1-3]')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">find /tmp -name '*.tmp' | xargs rm -f | cat servidores.txt | xargs -n 1 ping -c 1</code>
+                          <button class="copy-btn-mini" onclick="copyText('find /tmp -name \'*.tmp\' | xargs rm -f | cat servidores.txt | xargs -n 1 ping -c 1')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Lee elementos de stdin y los pasa como argumentos de línea de comandos."><code class="pill-code">xargs <comando></code><span class="pill-desc">Lee elementos de stdin y los pasa como argument...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Ejecuta el comando en lotes de N argumentos (ej: -n 1 ejecuta una vez por ítem)."><code class="pill-code">xargs -n <N></code><span class="pill-desc">Ejecuta el comando en lotes de N argumentos (ej...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Reemplaza '{}' por cada argumento en una posición fija."><code class="pill-code">xargs -I {}</code><span class="pill-desc">Reemplaza '{}' por cada argumento en una posici...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Usa el byte nulo \0 como separador para nombres con espacios."><code class="pill-code">find ... -print0 | xargs -0</code><span class="pill-desc">Usa el byte nulo \0 como separador para nombres...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Lee elementos de stdin y los concatena como una única lista gigante al final del comando ('rm f1 f2 f3...')."><code class="pill-code">xargs <comando></code><span class="pill-desc">Lee elementos de stdin y los concatena como una...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Ejecuta el comando en grupos de N elementos (ej: '-n 1' ejecuta el comando una vez por cada línea)."><code class="pill-code">xargs -n <N></code><span class="pill-desc">Ejecuta el comando en grupos de N elementos (ej...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Reemplaza '{}' por cada argumento donde tú elijas (esencial para 'cp {} /backup/' o 'mv')."><code class="pill-code">xargs -I {}</code><span class="pill-desc">Reemplaza '{}' por cada argumento donde tú elij...</span></div><div class="opt-pill" title="Pregunta antes de cada ejecución '¿ejecutar comando? [y/N]' para evitar desastres al borrar archivos."><code class="pill-code">xargs -p</code><span class="pill-desc">Pregunta antes de cada ejecución '¿ejecutar com...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1527,15 +1521,15 @@ EOF')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-4-uso-de-secuencias-de-tex.html#/11" class="slide-link">Diapositiva 11 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Procesar ficheros de forma 100% segura delimitándolos con el byte nulo (\0) en lugar de espacios</div>
+                        <div>Garantizar que nombres con espacios o comillas se procesen como un solo bloque atómico indestructible</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">touch 'informe confidencial.pdf'; find . -name '*.pdf' -print0 | xargs -0 ls -l</code>
-                          <button class="copy-btn-mini" onclick="copyText('touch \'informe confidencial.pdf\'; find . -name \'*.pdf\' -print0 | xargs -0 ls -l')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">find /var/backups -type f -name '*.tar.gz' -print0 | xargs -0 ls -lh</code>
+                          <button class="copy-btn-mini" onclick="copyText('find /var/backups -type f -name \'*.tar.gz\' -print0 | xargs -0 ls -lh')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="⚠️ Si un archivo se llama 'mi foto.jpg', un 'xargs rm' ordinario intentará borrar dos archivos: 'mi' y 'foto.jpg', borrando datos incorrectos o fallando."><code class="pill-code">El problema de los espacios</code><span class="pill-desc">⚠️ Si un archivo se llama 'mi foto.jpg', un 'xa...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Imprime cada ruta encontrada terminada por el carácter nulo ASCII 0 (\0) en lugar de un salto de línea."><code class="pill-code">find -print0</code><span class="pill-desc">Imprime cada ruta encontrada terminada por el c...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Indica a xargs que los elementos de entrada están delimitados por el carácter nulo (\0), tratando los espacios y comillas como texto literal."><code class="pill-code">xargs -0, --null</code><span class="pill-desc">Indica a xargs que los elementos de entrada est...</span></div><div class="opt-pill" title="🎯 La combinación 'find ... -print0 | xargs -0 ...' es el estándar corporativo obligatorio para scripts en producción."><code class="pill-code">Sinergia Indestructible</code><span class="pill-desc">La combinación 'find ... -print0 | xargs -0 ......</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="⚠️ Si un archivo se llama 'Factura Mayo.pdf', un xargs ordinario intentará procesar 'Factura' y 'Mayo.pdf' por separado."><code class="pill-code">El peligro de los espacios</code><span class="pill-desc">⚠️ Si un archivo se llama 'Factura Mayo.pdf', u...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Imprime cada resultado seguido del byte nulo ASCII 0 (\0) en lugar de un salto de línea (\n)."><code class="pill-code">find -print0</code><span class="pill-desc">Imprime cada resultado seguido del byte nulo AS...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Le indica a xargs que separe los argumentos ÚNICAMENTE al encontrar un byte nulo (\0)."><code class="pill-code">xargs -0 (o --null)</code><span class="pill-desc">Le indica a xargs que separe los argumentos ÚNI...</span></div><div class="opt-pill" title="🎯 'find ... -print0 | xargs -0 ...' es el estándar corporativo obligatorio para scripts en producción y preguntas LPIC-1."><code class="pill-code">Sinergia Indestructible</code><span class="pill-desc">'find ... -print0 | xargs -0 ...' es el estánda...</span></div></div></td>
                     </tr>
                 
                   </tbody>
