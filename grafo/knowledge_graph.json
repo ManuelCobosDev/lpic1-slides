@@ -2,8 +2,8 @@
   "metadata": {
     "title": "Grafo de Conocimiento y Mapa Mental LPIC-1 (Examen 101-500: Temas 101 a 104 v5.0)",
     "version": "1.0",
-    "total_nodes": 191,
-    "total_edges": 299,
+    "total_nodes": 194,
+    "total_edges": 302,
     "total_temas": 4,
     "temas": {
       "101": {
@@ -1972,115 +1972,119 @@
         },
         {
           "flag": "[abc] / [a-z]",
-          "desc": "Coincide con cualquiera de los caracteres contenidos entre los corchetes o en el rango alfabético."
+          "desc": "Coincide con exactamente UN carácter de los listados o dentro del rango alfabético especificado."
         },
         {
-          "flag": "[^abc] / [!abc]",
-          "desc": "🎯 Negación: coincide con cualquier carácter que NO esté listado dentro del corchete."
-        },
-        {
-          "flag": "[[:alnum:]]",
-          "desc": "🎯 Caracteres alfanuméricos: equivale a [a-zA-Z0-9]."
-        },
-        {
-          "flag": "[[:alpha:]]",
-          "desc": "🎯 Solo letras alfabéticas: equivale a [a-zA-Z]."
+          "flag": "[^0-9] / [^abc]",
+          "desc": "🎯 Negación de conjunto: coincide con cualquier carácter que NO sea uno de los indicados dentro del corchete."
         },
         {
           "flag": "[[:digit:]]",
-          "desc": "🎯 Solo dígitos numéricos: equivale a [0-9]."
+          "desc": "🎯 Solo dígitos numéricos [0-9]. Totalmente portable ante cualquier configuración de idioma del servidor."
         },
         {
-          "flag": "[[:lower:]] / [[:upper:]]",
-          "desc": "Solo letras minúsculas o solo letras mayúsculas."
+          "flag": "[[:alpha:]]",
+          "desc": "🎯 Solo letras alfabéticas [a-zA-Z], respetando caracteres del idioma."
+        },
+        {
+          "flag": "[[:alnum:]]",
+          "desc": "🎯 Caracteres alfanuméricos: unión de letras y dígitos ([a-zA-Z0-9])."
         },
         {
           "flag": "[[:space:]]",
-          "desc": "Espacios en blanco, tabulaciones y saltos de línea."
+          "desc": "Espacios en blanco, tabulaciones (\\t) y saltos de línea (\\n)."
         },
         {
           "flag": "⚠️ Doble Corchete",
-          "desc": "🎯 Clave de Examen: La clase POSIX debe ir SIEMPRE dentro de los corchetes de conjunto: '[[:digit:]]'."
+          "desc": "🎯 ¡Regla de Examen!: '[:digit:]' es el NOMBRE de la clase; para usarlo como conjunto DEBE ir dentro de '[ ]': '[[:digit:]]'."
         },
         {
           "flag": "* (Cero o más)",
-          "desc": "Coincide con cualquier número de repeticiones (incluso ninguna)."
+          "desc": "El elemento previo puede no aparecer o repetirse infinitas veces. Disponible de serie tanto en BRE como en ERE."
         },
         {
           "flag": "+ (Uno o más - ERE)",
-          "desc": "🎯 Clave de Examen: El elemento debe aparecer como mínimo 1 vez (no coincide con 0)."
+          "desc": "🎯 El elemento previo DEBE aparecer al menos una vez (obligatorio). En BRE requiere escape: '\\+'."
         },
         {
           "flag": "? (Cero o uno - ERE)",
-          "desc": "🎯 Clave de Examen: El elemento es opcional (ej: 'https?' coincide con http y https)."
+          "desc": "🎯 Elemento opcional: aparece una sola vez o ninguna. Ideal para variantes gramaticales. En BRE requiere: '\\?'."
         },
         {
-          "flag": "{n,m}",
-          "desc": "Entre n y m repeticiones (ej: '[0-9]{1,3}')."
+          "flag": "{n} (Exactamente n - ERE)",
+          "desc": "Coincide exactamente n repeticiones (ej: '[0-9]{4}' para años de 4 dígitos). En BRE: '\\{n\\}'."
         },
         {
-          "flag": "| (Pipe / Alternancia)",
-          "desc": "🎯 Clave de Examen: Actúa como el operador lógico booleano OR. Coincide si se cumple el patrón de la izquierda O el de la derecha."
+          "flag": "{n,m} (Entre n y m - ERE)",
+          "desc": "Rango cerrado: mínimo n repeticiones y máximo m repeticiones (ej: '[0-9]{1,3}' para octetos de IP)."
         },
         {
-          "flag": "( ) (Paréntesis / Agrupamiento)",
-          "desc": "🎯 Delimita el alcance de la alternancia o de un cuantificador (ej: 'auto(movil|bus)' coincide con automovil y autobus)."
+          "flag": "{n,} (Al menos n - ERE)",
+          "desc": "Rango abierto superior: mínimo n repeticiones sin límite máximo."
         },
         {
-          "flag": "Agrupamiento con cuantificador",
-          "desc": "Aplica el cuantificador a todo el bloque: '(ab)+' coincide con ab, abab, ababab."
+          "flag": "| (Alternancia OR)",
+          "desc": "🎯 Operador lógico 'O': coincide si se cumple el patrón a la izquierda O el patrón a la derecha ('A|B')."
         },
         {
-          "flag": "Backreferences (\\1, \\2)",
-          "desc": "🎯 Clave de Examen: Recuerda el texto capturado por los paréntesis para buscar repeticiones idénticas (ej: '([a-z]+) \\1' detecta palabras duplicadas seguidas como 'el el')."
+          "flag": "( ) (Agrupamiento)",
+          "desc": "🎯 Delimita el alcance de la alternancia o cuantificador: 'gr(a|e)y' busca 'gray' o 'grey' (evita que 'gray|ey' busque 'gray' o 'ey')."
         },
         {
-          "flag": "grep (BRE)",
-          "desc": "🎯 Motor básico: \\+ y \\? para cuantificadores avanzados."
+          "flag": "\\1, \\2 (Backreferences)",
+          "desc": "🎯 Referencias hacia atrás: reutiliza el texto exacto capturado por el grupo 1 o grupo 2. Ej: '([a-z]+) \\1' detecta palabras duplicadas."
         },
         {
-          "flag": "egrep / grep -E",
-          "desc": "🎯 Motor extendido: +, ?, |, (), {} directos sin barras invertidas."
+          "flag": "⚠️ Trampa en BRE",
+          "desc": "En 'grep' estándar sin '-E', el operador OR requiere barra: 'grep \"A\\|B\"' y los grupos 'grep \"\\(A\\|B\\)\"'."
         },
         {
-          "flag": "fgrep / grep -F",
-          "desc": "🎯 Clave Absoluta de Examen: CERO regex. Trata '.', '*', '+' como letras ordinarias. El más rápido."
+          "flag": "grep (Global Regexp Print)",
+          "desc": "🎯 Motor estándar BRE por defecto. Los operadores avanzados (+, ?, |, ()) requieren barra invertida."
+        },
+        {
+          "flag": "egrep (grep -E)",
+          "desc": "🎯 Extended grep: motor ERE. Soporta toda la sintaxis moderna (+, ?, |, ()) de forma directa y nativa."
+        },
+        {
+          "flag": "fgrep (grep -F)",
+          "desc": "🎯 Fixed grep: ¡CERO expresiones regulares! Busca cadenas de texto literal puro a máxima velocidad."
+        },
+        {
+          "flag": "⚡ Ventaja de fgrep",
+          "desc": "🎯 Inmunidad a metacaracteres: Si buscas '192.168.1.1' o '$100', los puntos y dólares son texto real. Ultra-rápido en ficheros gigantes."
         },
         {
           "flag": "-i, --ignore-case",
-          "desc": "🎯 Coincide con texto sin distinguir mayúsculas ni minúsculas."
+          "desc": "🎯 Ignora diferencias entre mayúsculas y minúsculas: 'error', 'Error' y 'ERROR' coinciden por igual."
         },
         {
           "flag": "-v, --invert-match",
-          "desc": "🎯 Clave de Examen: Muestra las líneas que NO coinciden con el patrón."
+          "desc": "🎯 Invierte el filtro: muestra ÚNICAMENTE las líneas que NO contienen el patrón indicado (vital para filtrar ruido)."
         },
         {
           "flag": "-c, --count",
-          "desc": "🎯 Imprime únicamente el total de líneas coincidentes (reemplaza a wc -l)."
+          "desc": "🎯 Conteo de coincidencias: en lugar de imprimir las líneas de texto, imprime solo el número total de coincidencias."
         },
         {
           "flag": "-n, --line-number",
-          "desc": "🎯 Prefija cada línea con su número de línea real en el fichero."
+          "desc": "🎯 Número de línea: antepone el número de línea original del fichero a cada coincidencia (ideal para abrir con vim +N)."
         },
         {
           "flag": "-l, --files-with-matches",
-          "desc": "🎯 Clave de Examen: Muestra ÚNICAMENTE el nombre de los archivos que contienen coincidencias, sin imprimir las líneas de texto."
-        },
-        {
-          "flag": "-L, --files-without-match",
-          "desc": "Muestra únicamente el nombre de los archivos que NO contienen ninguna coincidencia."
+          "desc": "🎯 Clave de Examen: Imprime SOLO los nombres de los ficheros que contienen coincidencias, sin imprimir su contenido."
         },
         {
           "flag": "-w, --word-regexp",
-          "desc": "🎯 Clave de Examen: Coincidencia por palabra completa: solo coincide si el patrón está rodeado por límites de palabra (evita que 'red' coincida con 'redes')."
+          "desc": "🎯 Palabra completa: solo coincide si el patrón está rodeado por límites de palabra (evita que 'red' coincida con 'redes')."
         },
         {
           "flag": "-x, --line-regexp",
-          "desc": "Coincidencia de línea completa: la línea entera debe coincidir de principio a fin."
+          "desc": "Coincidencia de línea completa estricta: toda la línea debe ser exactamente idéntica al patrón (equivale a '^patron$')."
         },
         {
           "flag": "-o, --only-matching",
-          "desc": "🎯 Clave de Examen: Imprime ÚNICAMENTE la parte exacta del texto que coincidió con la regex, en lugar de toda la línea."
+          "desc": "🎯 La Navaja Suiza: Imprime ÚNICAMENTE el trozo de texto coincidente con la regex en lugar de la línea entera (ideal para extraer IPs/tokens)."
         },
         {
           "flag": "-r, --recursive",
@@ -2088,29 +2092,29 @@
         },
         {
           "flag": "-R, --dereference-recursive",
-          "desc": "Búsqueda recursiva siguiendo además todos los enlaces simbólicos."
+          "desc": "Búsqueda recursiva que además sigue y desreferencia todos los enlaces simbólicos (symlinks)."
         },
         {
           "flag": "-A <N>, --after-context",
-          "desc": "🎯 Imprime N líneas de contexto POSTERIORES (After) a la línea coincidente."
+          "desc": "🎯 Imprime N líneas de contexto POSTERIORES (After) a la línea coincidente (para ver el mensaje de error)."
         },
         {
           "flag": "-B <N>, --before-context",
-          "desc": "🎯 Imprime N líneas de contexto ANTERIORES (Before) a la línea coincidente."
+          "desc": "🎯 Imprime N líneas de contexto ANTERIORES (Before) a la línea coincidente (para ver el comando causante)."
         },
         {
           "flag": "-C <N>, --context",
-          "desc": "🎯 Imprime N líneas de contexto tanto anteriores como posteriores (Before y After simultáneamente)."
+          "desc": "🎯 Imprime N líneas de contexto tanto anteriores como posteriores simultáneamente (Before + After)."
         }
       ],
       "examples": [
-        "echo 'Port 22' | grep -E '[[:alpha:]]+ [[:digit:]]+'",
-        "printf 'color\\ncolour\\n' | grep -E 'colou?r'",
-        "echo -e 'error fatal\\naviso leve\\npanico kernel' | grep -E '(error|panico)'",
-        "echo 'a+b=c' | fgrep 'a+b'; echo 'a+b=c' | grep -F 'a+b'",
-        "grep -iv 'nologin' /etc/passwd | grep -n 'bash'",
-        "grep -lw 'root' /etc/* 2>/dev/null | head -n 3; echo 'IP: 192.168.1.1' | grep -oE '[0-9.]+'",
-        "grep -rn 'PermitRootLogin' /etc/ssh/ 2>/dev/null; grep -B 1 -A 1 '127.0.0.1' /etc/hosts"
+        "ss -tuln | grep -E ':[[:digit:]]+' | head -n 2; grep -E '^[[:alpha:]]+:[^:]+:[[:digit:]]+:' /etc/passwd | head -n 2",
+        "echo -e 'color\\ncolour\\ncolouur' | grep -E 'colou?r'; grep -E 'HTTP/1\\.[01]\" [2-5][0-9]{2}' /var/log/nginx/access.log 2>/dev/null | head -n 2",
+        "grep -E '(Failed|Accepted) password for' /var/log/auth.log 2>/dev/null | head -n 3",
+        "fgrep '192.168.1.1' /etc/hosts; grep -F '*.tar.gz' /var/log/dpkg.log 2>/dev/null | head -n 2",
+        "grep -vn 'nologin' /etc/passwd | head -n 3; grep -ci 'failed password' /var/log/auth.log 2>/dev/null || echo '42'",
+        "grep -lw 'PermitRootLogin' /etc/ssh/*; grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' /etc/hosts | head -n 2",
+        "grep -rn -C 1 'ServerRoot' /etc/apache2/ 2>/dev/null || grep -B 1 -A 1 '127.0.0.1' /etc/hosts"
       ],
       "exam_tips": [
         {
@@ -2168,115 +2172,119 @@
         },
         {
           "flag": "[abc] / [a-z]",
-          "desc": "Coincide con cualquiera de los caracteres contenidos entre los corchetes o en el rango alfabético."
+          "desc": "Coincide con exactamente UN carácter de los listados o dentro del rango alfabético especificado."
         },
         {
-          "flag": "[^abc] / [!abc]",
-          "desc": "🎯 Negación: coincide con cualquier carácter que NO esté listado dentro del corchete."
-        },
-        {
-          "flag": "[[:alnum:]]",
-          "desc": "🎯 Caracteres alfanuméricos: equivale a [a-zA-Z0-9]."
-        },
-        {
-          "flag": "[[:alpha:]]",
-          "desc": "🎯 Solo letras alfabéticas: equivale a [a-zA-Z]."
+          "flag": "[^0-9] / [^abc]",
+          "desc": "🎯 Negación de conjunto: coincide con cualquier carácter que NO sea uno de los indicados dentro del corchete."
         },
         {
           "flag": "[[:digit:]]",
-          "desc": "🎯 Solo dígitos numéricos: equivale a [0-9]."
+          "desc": "🎯 Solo dígitos numéricos [0-9]. Totalmente portable ante cualquier configuración de idioma del servidor."
         },
         {
-          "flag": "[[:lower:]] / [[:upper:]]",
-          "desc": "Solo letras minúsculas o solo letras mayúsculas."
+          "flag": "[[:alpha:]]",
+          "desc": "🎯 Solo letras alfabéticas [a-zA-Z], respetando caracteres del idioma."
+        },
+        {
+          "flag": "[[:alnum:]]",
+          "desc": "🎯 Caracteres alfanuméricos: unión de letras y dígitos ([a-zA-Z0-9])."
         },
         {
           "flag": "[[:space:]]",
-          "desc": "Espacios en blanco, tabulaciones y saltos de línea."
+          "desc": "Espacios en blanco, tabulaciones (\\t) y saltos de línea (\\n)."
         },
         {
           "flag": "⚠️ Doble Corchete",
-          "desc": "🎯 Clave de Examen: La clase POSIX debe ir SIEMPRE dentro de los corchetes de conjunto: '[[:digit:]]'."
+          "desc": "🎯 ¡Regla de Examen!: '[:digit:]' es el NOMBRE de la clase; para usarlo como conjunto DEBE ir dentro de '[ ]': '[[:digit:]]'."
         },
         {
           "flag": "* (Cero o más)",
-          "desc": "Coincide con cualquier número de repeticiones (incluso ninguna)."
+          "desc": "El elemento previo puede no aparecer o repetirse infinitas veces. Disponible de serie tanto en BRE como en ERE."
         },
         {
           "flag": "+ (Uno o más - ERE)",
-          "desc": "🎯 Clave de Examen: El elemento debe aparecer como mínimo 1 vez (no coincide con 0)."
+          "desc": "🎯 El elemento previo DEBE aparecer al menos una vez (obligatorio). En BRE requiere escape: '\\+'."
         },
         {
           "flag": "? (Cero o uno - ERE)",
-          "desc": "🎯 Clave de Examen: El elemento es opcional (ej: 'https?' coincide con http y https)."
+          "desc": "🎯 Elemento opcional: aparece una sola vez o ninguna. Ideal para variantes gramaticales. En BRE requiere: '\\?'."
         },
         {
-          "flag": "{n,m}",
-          "desc": "Entre n y m repeticiones (ej: '[0-9]{1,3}')."
+          "flag": "{n} (Exactamente n - ERE)",
+          "desc": "Coincide exactamente n repeticiones (ej: '[0-9]{4}' para años de 4 dígitos). En BRE: '\\{n\\}'."
         },
         {
-          "flag": "| (Pipe / Alternancia)",
-          "desc": "🎯 Clave de Examen: Actúa como el operador lógico booleano OR. Coincide si se cumple el patrón de la izquierda O el de la derecha."
+          "flag": "{n,m} (Entre n y m - ERE)",
+          "desc": "Rango cerrado: mínimo n repeticiones y máximo m repeticiones (ej: '[0-9]{1,3}' para octetos de IP)."
         },
         {
-          "flag": "( ) (Paréntesis / Agrupamiento)",
-          "desc": "🎯 Delimita el alcance de la alternancia o de un cuantificador (ej: 'auto(movil|bus)' coincide con automovil y autobus)."
+          "flag": "{n,} (Al menos n - ERE)",
+          "desc": "Rango abierto superior: mínimo n repeticiones sin límite máximo."
         },
         {
-          "flag": "Agrupamiento con cuantificador",
-          "desc": "Aplica el cuantificador a todo el bloque: '(ab)+' coincide con ab, abab, ababab."
+          "flag": "| (Alternancia OR)",
+          "desc": "🎯 Operador lógico 'O': coincide si se cumple el patrón a la izquierda O el patrón a la derecha ('A|B')."
         },
         {
-          "flag": "Backreferences (\\1, \\2)",
-          "desc": "🎯 Clave de Examen: Recuerda el texto capturado por los paréntesis para buscar repeticiones idénticas (ej: '([a-z]+) \\1' detecta palabras duplicadas seguidas como 'el el')."
+          "flag": "( ) (Agrupamiento)",
+          "desc": "🎯 Delimita el alcance de la alternancia o cuantificador: 'gr(a|e)y' busca 'gray' o 'grey' (evita que 'gray|ey' busque 'gray' o 'ey')."
         },
         {
-          "flag": "grep (BRE)",
-          "desc": "🎯 Motor básico: \\+ y \\? para cuantificadores avanzados."
+          "flag": "\\1, \\2 (Backreferences)",
+          "desc": "🎯 Referencias hacia atrás: reutiliza el texto exacto capturado por el grupo 1 o grupo 2. Ej: '([a-z]+) \\1' detecta palabras duplicadas."
         },
         {
-          "flag": "egrep / grep -E",
-          "desc": "🎯 Motor extendido: +, ?, |, (), {} directos sin barras invertidas."
+          "flag": "⚠️ Trampa en BRE",
+          "desc": "En 'grep' estándar sin '-E', el operador OR requiere barra: 'grep \"A\\|B\"' y los grupos 'grep \"\\(A\\|B\\)\"'."
         },
         {
-          "flag": "fgrep / grep -F",
-          "desc": "🎯 Clave Absoluta de Examen: CERO regex. Trata '.', '*', '+' como letras ordinarias. El más rápido."
+          "flag": "grep (Global Regexp Print)",
+          "desc": "🎯 Motor estándar BRE por defecto. Los operadores avanzados (+, ?, |, ()) requieren barra invertida."
+        },
+        {
+          "flag": "egrep (grep -E)",
+          "desc": "🎯 Extended grep: motor ERE. Soporta toda la sintaxis moderna (+, ?, |, ()) de forma directa y nativa."
+        },
+        {
+          "flag": "fgrep (grep -F)",
+          "desc": "🎯 Fixed grep: ¡CERO expresiones regulares! Busca cadenas de texto literal puro a máxima velocidad."
+        },
+        {
+          "flag": "⚡ Ventaja de fgrep",
+          "desc": "🎯 Inmunidad a metacaracteres: Si buscas '192.168.1.1' o '$100', los puntos y dólares son texto real. Ultra-rápido en ficheros gigantes."
         },
         {
           "flag": "-i, --ignore-case",
-          "desc": "🎯 Coincide con texto sin distinguir mayúsculas ni minúsculas."
+          "desc": "🎯 Ignora diferencias entre mayúsculas y minúsculas: 'error', 'Error' y 'ERROR' coinciden por igual."
         },
         {
           "flag": "-v, --invert-match",
-          "desc": "🎯 Clave de Examen: Muestra las líneas que NO coinciden con el patrón."
+          "desc": "🎯 Invierte el filtro: muestra ÚNICAMENTE las líneas que NO contienen el patrón indicado (vital para filtrar ruido)."
         },
         {
           "flag": "-c, --count",
-          "desc": "🎯 Imprime únicamente el total de líneas coincidentes (reemplaza a wc -l)."
+          "desc": "🎯 Conteo de coincidencias: en lugar de imprimir las líneas de texto, imprime solo el número total de coincidencias."
         },
         {
           "flag": "-n, --line-number",
-          "desc": "🎯 Prefija cada línea con su número de línea real en el fichero."
+          "desc": "🎯 Número de línea: antepone el número de línea original del fichero a cada coincidencia (ideal para abrir con vim +N)."
         },
         {
           "flag": "-l, --files-with-matches",
-          "desc": "🎯 Clave de Examen: Muestra ÚNICAMENTE el nombre de los archivos que contienen coincidencias, sin imprimir las líneas de texto."
-        },
-        {
-          "flag": "-L, --files-without-match",
-          "desc": "Muestra únicamente el nombre de los archivos que NO contienen ninguna coincidencia."
+          "desc": "🎯 Clave de Examen: Imprime SOLO los nombres de los ficheros que contienen coincidencias, sin imprimir su contenido."
         },
         {
           "flag": "-w, --word-regexp",
-          "desc": "🎯 Clave de Examen: Coincidencia por palabra completa: solo coincide si el patrón está rodeado por límites de palabra (evita que 'red' coincida con 'redes')."
+          "desc": "🎯 Palabra completa: solo coincide si el patrón está rodeado por límites de palabra (evita que 'red' coincida con 'redes')."
         },
         {
           "flag": "-x, --line-regexp",
-          "desc": "Coincidencia de línea completa: la línea entera debe coincidir de principio a fin."
+          "desc": "Coincidencia de línea completa estricta: toda la línea debe ser exactamente idéntica al patrón (equivale a '^patron$')."
         },
         {
           "flag": "-o, --only-matching",
-          "desc": "🎯 Clave de Examen: Imprime ÚNICAMENTE la parte exacta del texto que coincidió con la regex, en lugar de toda la línea."
+          "desc": "🎯 La Navaja Suiza: Imprime ÚNICAMENTE el trozo de texto coincidente con la regex en lugar de la línea entera (ideal para extraer IPs/tokens)."
         },
         {
           "flag": "-r, --recursive",
@@ -2284,29 +2292,29 @@
         },
         {
           "flag": "-R, --dereference-recursive",
-          "desc": "Búsqueda recursiva siguiendo además todos los enlaces simbólicos."
+          "desc": "Búsqueda recursiva que además sigue y desreferencia todos los enlaces simbólicos (symlinks)."
         },
         {
           "flag": "-A <N>, --after-context",
-          "desc": "🎯 Imprime N líneas de contexto POSTERIORES (After) a la línea coincidente."
+          "desc": "🎯 Imprime N líneas de contexto POSTERIORES (After) a la línea coincidente (para ver el mensaje de error)."
         },
         {
           "flag": "-B <N>, --before-context",
-          "desc": "🎯 Imprime N líneas de contexto ANTERIORES (Before) a la línea coincidente."
+          "desc": "🎯 Imprime N líneas de contexto ANTERIORES (Before) a la línea coincidente (para ver el comando causante)."
         },
         {
           "flag": "-C <N>, --context",
-          "desc": "🎯 Imprime N líneas de contexto tanto anteriores como posteriores (Before y After simultáneamente)."
+          "desc": "🎯 Imprime N líneas de contexto tanto anteriores como posteriores simultáneamente (Before + After)."
         }
       ],
       "examples": [
-        "echo 'Port 22' | grep -E '[[:alpha:]]+ [[:digit:]]+'",
-        "printf 'color\\ncolour\\n' | grep -E 'colou?r'",
-        "echo -e 'error fatal\\naviso leve\\npanico kernel' | grep -E '(error|panico)'",
-        "echo 'a+b=c' | fgrep 'a+b'; echo 'a+b=c' | grep -F 'a+b'",
-        "grep -iv 'nologin' /etc/passwd | grep -n 'bash'",
-        "grep -lw 'root' /etc/* 2>/dev/null | head -n 3; echo 'IP: 192.168.1.1' | grep -oE '[0-9.]+'",
-        "grep -rn 'PermitRootLogin' /etc/ssh/ 2>/dev/null; grep -B 1 -A 1 '127.0.0.1' /etc/hosts"
+        "ss -tuln | grep -E ':[[:digit:]]+' | head -n 2; grep -E '^[[:alpha:]]+:[^:]+:[[:digit:]]+:' /etc/passwd | head -n 2",
+        "echo -e 'color\\ncolour\\ncolouur' | grep -E 'colou?r'; grep -E 'HTTP/1\\.[01]\" [2-5][0-9]{2}' /var/log/nginx/access.log 2>/dev/null | head -n 2",
+        "grep -E '(Failed|Accepted) password for' /var/log/auth.log 2>/dev/null | head -n 3",
+        "fgrep '192.168.1.1' /etc/hosts; grep -F '*.tar.gz' /var/log/dpkg.log 2>/dev/null | head -n 2",
+        "grep -vn 'nologin' /etc/passwd | head -n 3; grep -ci 'failed password' /var/log/auth.log 2>/dev/null || echo '42'",
+        "grep -lw 'PermitRootLogin' /etc/ssh/*; grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' /etc/hosts | head -n 2",
+        "grep -rn -C 1 'ServerRoot' /etc/apache2/ 2>/dev/null || grep -B 1 -A 1 '127.0.0.1' /etc/hosts"
       ],
       "exam_tips": [],
       "slide_url": "t102/102-6-linux-como-sistema-virtu.html#/5",
@@ -2342,115 +2350,119 @@
         },
         {
           "flag": "[abc] / [a-z]",
-          "desc": "Coincide con cualquiera de los caracteres contenidos entre los corchetes o en el rango alfabético."
+          "desc": "Coincide con exactamente UN carácter de los listados o dentro del rango alfabético especificado."
         },
         {
-          "flag": "[^abc] / [!abc]",
-          "desc": "🎯 Negación: coincide con cualquier carácter que NO esté listado dentro del corchete."
-        },
-        {
-          "flag": "[[:alnum:]]",
-          "desc": "🎯 Caracteres alfanuméricos: equivale a [a-zA-Z0-9]."
-        },
-        {
-          "flag": "[[:alpha:]]",
-          "desc": "🎯 Solo letras alfabéticas: equivale a [a-zA-Z]."
+          "flag": "[^0-9] / [^abc]",
+          "desc": "🎯 Negación de conjunto: coincide con cualquier carácter que NO sea uno de los indicados dentro del corchete."
         },
         {
           "flag": "[[:digit:]]",
-          "desc": "🎯 Solo dígitos numéricos: equivale a [0-9]."
+          "desc": "🎯 Solo dígitos numéricos [0-9]. Totalmente portable ante cualquier configuración de idioma del servidor."
         },
         {
-          "flag": "[[:lower:]] / [[:upper:]]",
-          "desc": "Solo letras minúsculas o solo letras mayúsculas."
+          "flag": "[[:alpha:]]",
+          "desc": "🎯 Solo letras alfabéticas [a-zA-Z], respetando caracteres del idioma."
+        },
+        {
+          "flag": "[[:alnum:]]",
+          "desc": "🎯 Caracteres alfanuméricos: unión de letras y dígitos ([a-zA-Z0-9])."
         },
         {
           "flag": "[[:space:]]",
-          "desc": "Espacios en blanco, tabulaciones y saltos de línea."
+          "desc": "Espacios en blanco, tabulaciones (\\t) y saltos de línea (\\n)."
         },
         {
           "flag": "⚠️ Doble Corchete",
-          "desc": "🎯 Clave de Examen: La clase POSIX debe ir SIEMPRE dentro de los corchetes de conjunto: '[[:digit:]]'."
+          "desc": "🎯 ¡Regla de Examen!: '[:digit:]' es el NOMBRE de la clase; para usarlo como conjunto DEBE ir dentro de '[ ]': '[[:digit:]]'."
         },
         {
           "flag": "* (Cero o más)",
-          "desc": "Coincide con cualquier número de repeticiones (incluso ninguna)."
+          "desc": "El elemento previo puede no aparecer o repetirse infinitas veces. Disponible de serie tanto en BRE como en ERE."
         },
         {
           "flag": "+ (Uno o más - ERE)",
-          "desc": "🎯 Clave de Examen: El elemento debe aparecer como mínimo 1 vez (no coincide con 0)."
+          "desc": "🎯 El elemento previo DEBE aparecer al menos una vez (obligatorio). En BRE requiere escape: '\\+'."
         },
         {
           "flag": "? (Cero o uno - ERE)",
-          "desc": "🎯 Clave de Examen: El elemento es opcional (ej: 'https?' coincide con http y https)."
+          "desc": "🎯 Elemento opcional: aparece una sola vez o ninguna. Ideal para variantes gramaticales. En BRE requiere: '\\?'."
         },
         {
-          "flag": "{n,m}",
-          "desc": "Entre n y m repeticiones (ej: '[0-9]{1,3}')."
+          "flag": "{n} (Exactamente n - ERE)",
+          "desc": "Coincide exactamente n repeticiones (ej: '[0-9]{4}' para años de 4 dígitos). En BRE: '\\{n\\}'."
         },
         {
-          "flag": "| (Pipe / Alternancia)",
-          "desc": "🎯 Clave de Examen: Actúa como el operador lógico booleano OR. Coincide si se cumple el patrón de la izquierda O el de la derecha."
+          "flag": "{n,m} (Entre n y m - ERE)",
+          "desc": "Rango cerrado: mínimo n repeticiones y máximo m repeticiones (ej: '[0-9]{1,3}' para octetos de IP)."
         },
         {
-          "flag": "( ) (Paréntesis / Agrupamiento)",
-          "desc": "🎯 Delimita el alcance de la alternancia o de un cuantificador (ej: 'auto(movil|bus)' coincide con automovil y autobus)."
+          "flag": "{n,} (Al menos n - ERE)",
+          "desc": "Rango abierto superior: mínimo n repeticiones sin límite máximo."
         },
         {
-          "flag": "Agrupamiento con cuantificador",
-          "desc": "Aplica el cuantificador a todo el bloque: '(ab)+' coincide con ab, abab, ababab."
+          "flag": "| (Alternancia OR)",
+          "desc": "🎯 Operador lógico 'O': coincide si se cumple el patrón a la izquierda O el patrón a la derecha ('A|B')."
         },
         {
-          "flag": "Backreferences (\\1, \\2)",
-          "desc": "🎯 Clave de Examen: Recuerda el texto capturado por los paréntesis para buscar repeticiones idénticas (ej: '([a-z]+) \\1' detecta palabras duplicadas seguidas como 'el el')."
+          "flag": "( ) (Agrupamiento)",
+          "desc": "🎯 Delimita el alcance de la alternancia o cuantificador: 'gr(a|e)y' busca 'gray' o 'grey' (evita que 'gray|ey' busque 'gray' o 'ey')."
         },
         {
-          "flag": "grep (BRE)",
-          "desc": "🎯 Motor básico: \\+ y \\? para cuantificadores avanzados."
+          "flag": "\\1, \\2 (Backreferences)",
+          "desc": "🎯 Referencias hacia atrás: reutiliza el texto exacto capturado por el grupo 1 o grupo 2. Ej: '([a-z]+) \\1' detecta palabras duplicadas."
         },
         {
-          "flag": "egrep / grep -E",
-          "desc": "🎯 Motor extendido: +, ?, |, (), {} directos sin barras invertidas."
+          "flag": "⚠️ Trampa en BRE",
+          "desc": "En 'grep' estándar sin '-E', el operador OR requiere barra: 'grep \"A\\|B\"' y los grupos 'grep \"\\(A\\|B\\)\"'."
         },
         {
-          "flag": "fgrep / grep -F",
-          "desc": "🎯 Clave Absoluta de Examen: CERO regex. Trata '.', '*', '+' como letras ordinarias. El más rápido."
+          "flag": "grep (Global Regexp Print)",
+          "desc": "🎯 Motor estándar BRE por defecto. Los operadores avanzados (+, ?, |, ()) requieren barra invertida."
+        },
+        {
+          "flag": "egrep (grep -E)",
+          "desc": "🎯 Extended grep: motor ERE. Soporta toda la sintaxis moderna (+, ?, |, ()) de forma directa y nativa."
+        },
+        {
+          "flag": "fgrep (grep -F)",
+          "desc": "🎯 Fixed grep: ¡CERO expresiones regulares! Busca cadenas de texto literal puro a máxima velocidad."
+        },
+        {
+          "flag": "⚡ Ventaja de fgrep",
+          "desc": "🎯 Inmunidad a metacaracteres: Si buscas '192.168.1.1' o '$100', los puntos y dólares son texto real. Ultra-rápido en ficheros gigantes."
         },
         {
           "flag": "-i, --ignore-case",
-          "desc": "🎯 Coincide con texto sin distinguir mayúsculas ni minúsculas."
+          "desc": "🎯 Ignora diferencias entre mayúsculas y minúsculas: 'error', 'Error' y 'ERROR' coinciden por igual."
         },
         {
           "flag": "-v, --invert-match",
-          "desc": "🎯 Clave de Examen: Muestra las líneas que NO coinciden con el patrón."
+          "desc": "🎯 Invierte el filtro: muestra ÚNICAMENTE las líneas que NO contienen el patrón indicado (vital para filtrar ruido)."
         },
         {
           "flag": "-c, --count",
-          "desc": "🎯 Imprime únicamente el total de líneas coincidentes (reemplaza a wc -l)."
+          "desc": "🎯 Conteo de coincidencias: en lugar de imprimir las líneas de texto, imprime solo el número total de coincidencias."
         },
         {
           "flag": "-n, --line-number",
-          "desc": "🎯 Prefija cada línea con su número de línea real en el fichero."
+          "desc": "🎯 Número de línea: antepone el número de línea original del fichero a cada coincidencia (ideal para abrir con vim +N)."
         },
         {
           "flag": "-l, --files-with-matches",
-          "desc": "🎯 Clave de Examen: Muestra ÚNICAMENTE el nombre de los archivos que contienen coincidencias, sin imprimir las líneas de texto."
-        },
-        {
-          "flag": "-L, --files-without-match",
-          "desc": "Muestra únicamente el nombre de los archivos que NO contienen ninguna coincidencia."
+          "desc": "🎯 Clave de Examen: Imprime SOLO los nombres de los ficheros que contienen coincidencias, sin imprimir su contenido."
         },
         {
           "flag": "-w, --word-regexp",
-          "desc": "🎯 Clave de Examen: Coincidencia por palabra completa: solo coincide si el patrón está rodeado por límites de palabra (evita que 'red' coincida con 'redes')."
+          "desc": "🎯 Palabra completa: solo coincide si el patrón está rodeado por límites de palabra (evita que 'red' coincida con 'redes')."
         },
         {
           "flag": "-x, --line-regexp",
-          "desc": "Coincidencia de línea completa: la línea entera debe coincidir de principio a fin."
+          "desc": "Coincidencia de línea completa estricta: toda la línea debe ser exactamente idéntica al patrón (equivale a '^patron$')."
         },
         {
           "flag": "-o, --only-matching",
-          "desc": "🎯 Clave de Examen: Imprime ÚNICAMENTE la parte exacta del texto que coincidió con la regex, en lugar de toda la línea."
+          "desc": "🎯 La Navaja Suiza: Imprime ÚNICAMENTE el trozo de texto coincidente con la regex en lugar de la línea entera (ideal para extraer IPs/tokens)."
         },
         {
           "flag": "-r, --recursive",
@@ -2458,29 +2470,29 @@
         },
         {
           "flag": "-R, --dereference-recursive",
-          "desc": "Búsqueda recursiva siguiendo además todos los enlaces simbólicos."
+          "desc": "Búsqueda recursiva que además sigue y desreferencia todos los enlaces simbólicos (symlinks)."
         },
         {
           "flag": "-A <N>, --after-context",
-          "desc": "🎯 Imprime N líneas de contexto POSTERIORES (After) a la línea coincidente."
+          "desc": "🎯 Imprime N líneas de contexto POSTERIORES (After) a la línea coincidente (para ver el mensaje de error)."
         },
         {
           "flag": "-B <N>, --before-context",
-          "desc": "🎯 Imprime N líneas de contexto ANTERIORES (Before) a la línea coincidente."
+          "desc": "🎯 Imprime N líneas de contexto ANTERIORES (Before) a la línea coincidente (para ver el comando causante)."
         },
         {
           "flag": "-C <N>, --context",
-          "desc": "🎯 Imprime N líneas de contexto tanto anteriores como posteriores (Before y After simultáneamente)."
+          "desc": "🎯 Imprime N líneas de contexto tanto anteriores como posteriores simultáneamente (Before + After)."
         }
       ],
       "examples": [
-        "echo 'Port 22' | grep -E '[[:alpha:]]+ [[:digit:]]+'",
-        "printf 'color\\ncolour\\n' | grep -E 'colou?r'",
-        "echo -e 'error fatal\\naviso leve\\npanico kernel' | grep -E '(error|panico)'",
-        "echo 'a+b=c' | fgrep 'a+b'; echo 'a+b=c' | grep -F 'a+b'",
-        "grep -iv 'nologin' /etc/passwd | grep -n 'bash'",
-        "grep -lw 'root' /etc/* 2>/dev/null | head -n 3; echo 'IP: 192.168.1.1' | grep -oE '[0-9.]+'",
-        "grep -rn 'PermitRootLogin' /etc/ssh/ 2>/dev/null; grep -B 1 -A 1 '127.0.0.1' /etc/hosts"
+        "ss -tuln | grep -E ':[[:digit:]]+' | head -n 2; grep -E '^[[:alpha:]]+:[^:]+:[[:digit:]]+:' /etc/passwd | head -n 2",
+        "echo -e 'color\\ncolour\\ncolouur' | grep -E 'colou?r'; grep -E 'HTTP/1\\.[01]\" [2-5][0-9]{2}' /var/log/nginx/access.log 2>/dev/null | head -n 2",
+        "grep -E '(Failed|Accepted) password for' /var/log/auth.log 2>/dev/null | head -n 3",
+        "fgrep '192.168.1.1' /etc/hosts; grep -F '*.tar.gz' /var/log/dpkg.log 2>/dev/null | head -n 2",
+        "grep -vn 'nologin' /etc/passwd | head -n 3; grep -ci 'failed password' /var/log/auth.log 2>/dev/null || echo '42'",
+        "grep -lw 'PermitRootLogin' /etc/ssh/*; grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' /etc/hosts | head -n 2",
+        "grep -rn -C 1 'ServerRoot' /etc/apache2/ 2>/dev/null || grep -B 1 -A 1 '127.0.0.1' /etc/hosts"
       ],
       "exam_tips": [],
       "slide_url": "t102/102-6-linux-como-sistema-virtu.html#/5",
@@ -3187,29 +3199,29 @@
           "desc": "Búsqueda incremental inversa en el historial mientras vas escribiendo caracteres."
         },
         {
-          "flag": "kill -l",
-          "desc": "🎯 Lista todas las señales disponibles en el sistema con sus nombres y números oficiales."
-        },
-        {
           "flag": "kill <PID>",
-          "desc": "🎯 Clave de Examen: Sin opciones, envía por defecto la señal 15 (SIGTERM)."
+          "desc": "🎯 Clave de Examen: Sin opciones, envía siempre la señal 15 para un cierre ordenado."
         },
         {
-          "flag": "kill -9 <PID> (o kill -SIGKILL <PID>)",
-          "desc": "🎯 Fuerza el cierre inmediato de un proceso colgado o bloqueado que no responde a SIGTERM."
+          "flag": "kill -9 <PID>",
+          "desc": "🎯 Cierre forzado inmediato por el kernel. Úsalo solo si el proceso no responde a SIGTERM."
         },
         {
-          "flag": "kill -1 <PID> (o kill -HUP <PID>)",
-          "desc": "Envía SIGHUP para recargar la configuración del servicio."
+          "flag": "kill -1 <PID>",
+          "desc": "🎯 Ordena al demonio recargar su archivo de configuración sin reiniciar (ej: Nginx o Apache)."
         },
         {
-          "flag": "kill %1",
-          "desc": "🎯 Clave de Examen: Si antepones el signo de porcentaje '%', envía la señal al JOB número 1 de la shell en lugar de al PID 1."
+          "flag": "kill %N",
+          "desc": "🎯 Clave de Examen: Anteponer '%' envía la señal al JOB N de la shell en vez de al PID N del sistema."
+        },
+        {
+          "flag": "kill -l",
+          "desc": "Muestra los nombres y números de las 64 señales disponibles en Linux."
         }
       ],
       "examples": [
         "apt-get update; sudo !!; history 3; !1050",
-        "kill -l | tr ' ' '\\n' | head -n 9; kill -15 28540; kill -9 28540"
+        "kill 41205; kill -9 41205; kill %1"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-1-trabajar-desde-la-linea.html#/6",
@@ -3281,22 +3293,26 @@
           "desc": "La concatenación '>>' nunca destruye datos, por lo que noclobber la permite siempre."
         },
         {
-          "flag": "EDITOR",
-          "desc": "🎯 Clave de Examen: Variable de entorno estándar POSIX que especifica el editor de texto para terminales de línea de comandos."
+          "flag": "$VISUAL",
+          "desc": "🎯 Máxima Prioridad: Variable pensada para terminales de pantalla completa. Si está definida, los programas interactivos (crontab, visudo, git) la usan ANTES que $EDITOR."
         },
         {
-          "flag": "VISUAL",
-          "desc": "Variable de entorno histórica que especifica el editor para terminales de pantalla completa (tiene preferencia sobre EDITOR)."
+          "flag": "$EDITOR",
+          "desc": "🎯 Estándar POSIX: Variable histórica para editores de texto. Se utiliza si $VISUAL no está definida o en utilidades en línea de comandos."
         },
         {
-          "flag": "update-alternatives (Debian)",
-          "desc": "🎯 Comando alternativo en Debian/Ubuntu para fijar el editor del sistema entre nano, vim.basic o vim.tiny: 'sudo update-alternatives --config editor'."
+          "flag": "update-alternatives",
+          "desc": "🎯 Configuración Global del Sistema: Comando de Debian/Ubuntu para cambiar el enlace simbólico maestro /usr/bin/editor entre nano, vim.basic o vim.tiny."
+        },
+        {
+          "flag": "select-editor",
+          "desc": "Comando interactivo para usuarios sin privilegios de root que guarda la preferencia personal en ~/.selected_editor."
         }
       ],
       "examples": [
         "APP_PORT=8080; bash -c 'echo \"En subshell: $APP_PORT\"'; export APP_PORT; bash -c 'echo \"Exportada: $APP_PORT\"'; unset APP_PORT",
         "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt",
-        "export EDITOR=vi; crontab -e"
+        "export EDITOR=nano; export VISUAL=vim; crontab -e"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-1-trabajar-desde-la-linea.html#/8",
@@ -3351,22 +3367,26 @@
           "desc": "La concatenación '>>' nunca destruye datos, por lo que noclobber la permite siempre."
         },
         {
-          "flag": "EDITOR",
-          "desc": "🎯 Clave de Examen: Variable de entorno estándar POSIX que especifica el editor de texto para terminales de línea de comandos."
+          "flag": "$VISUAL",
+          "desc": "🎯 Máxima Prioridad: Variable pensada para terminales de pantalla completa. Si está definida, los programas interactivos (crontab, visudo, git) la usan ANTES que $EDITOR."
         },
         {
-          "flag": "VISUAL",
-          "desc": "Variable de entorno histórica que especifica el editor para terminales de pantalla completa (tiene preferencia sobre EDITOR)."
+          "flag": "$EDITOR",
+          "desc": "🎯 Estándar POSIX: Variable histórica para editores de texto. Se utiliza si $VISUAL no está definida o en utilidades en línea de comandos."
         },
         {
-          "flag": "update-alternatives (Debian)",
-          "desc": "🎯 Comando alternativo en Debian/Ubuntu para fijar el editor del sistema entre nano, vim.basic o vim.tiny: 'sudo update-alternatives --config editor'."
+          "flag": "update-alternatives",
+          "desc": "🎯 Configuración Global del Sistema: Comando de Debian/Ubuntu para cambiar el enlace simbólico maestro /usr/bin/editor entre nano, vim.basic o vim.tiny."
+        },
+        {
+          "flag": "select-editor",
+          "desc": "Comando interactivo para usuarios sin privilegios de root que guarda la preferencia personal en ~/.selected_editor."
         }
       ],
       "examples": [
         "APP_PORT=8080; bash -c 'echo \"En subshell: $APP_PORT\"'; export APP_PORT; bash -c 'echo \"Exportada: $APP_PORT\"'; unset APP_PORT",
         "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt",
-        "export EDITOR=vi; crontab -e"
+        "export EDITOR=nano; export VISUAL=vim; crontab -e"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-1-trabajar-desde-la-linea.html#/8",
@@ -3421,22 +3441,26 @@
           "desc": "La concatenación '>>' nunca destruye datos, por lo que noclobber la permite siempre."
         },
         {
-          "flag": "EDITOR",
-          "desc": "🎯 Clave de Examen: Variable de entorno estándar POSIX que especifica el editor de texto para terminales de línea de comandos."
+          "flag": "$VISUAL",
+          "desc": "🎯 Máxima Prioridad: Variable pensada para terminales de pantalla completa. Si está definida, los programas interactivos (crontab, visudo, git) la usan ANTES que $EDITOR."
         },
         {
-          "flag": "VISUAL",
-          "desc": "Variable de entorno histórica que especifica el editor para terminales de pantalla completa (tiene preferencia sobre EDITOR)."
+          "flag": "$EDITOR",
+          "desc": "🎯 Estándar POSIX: Variable histórica para editores de texto. Se utiliza si $VISUAL no está definida o en utilidades en línea de comandos."
         },
         {
-          "flag": "update-alternatives (Debian)",
-          "desc": "🎯 Comando alternativo en Debian/Ubuntu para fijar el editor del sistema entre nano, vim.basic o vim.tiny: 'sudo update-alternatives --config editor'."
+          "flag": "update-alternatives",
+          "desc": "🎯 Configuración Global del Sistema: Comando de Debian/Ubuntu para cambiar el enlace simbólico maestro /usr/bin/editor entre nano, vim.basic o vim.tiny."
+        },
+        {
+          "flag": "select-editor",
+          "desc": "Comando interactivo para usuarios sin privilegios de root que guarda la preferencia personal en ~/.selected_editor."
         }
       ],
       "examples": [
         "APP_PORT=8080; bash -c 'echo \"En subshell: $APP_PORT\"'; export APP_PORT; bash -c 'echo \"Exportada: $APP_PORT\"'; unset APP_PORT",
         "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt",
-        "export EDITOR=vi; crontab -e"
+        "export EDITOR=nano; export VISUAL=vim; crontab -e"
       ],
       "exam_tips": [
         {
@@ -3513,22 +3537,26 @@
           "desc": "La concatenación '>>' nunca destruye datos, por lo que noclobber la permite siempre."
         },
         {
-          "flag": "EDITOR",
-          "desc": "🎯 Clave de Examen: Variable de entorno estándar POSIX que especifica el editor de texto para terminales de línea de comandos."
+          "flag": "$VISUAL",
+          "desc": "🎯 Máxima Prioridad: Variable pensada para terminales de pantalla completa. Si está definida, los programas interactivos (crontab, visudo, git) la usan ANTES que $EDITOR."
         },
         {
-          "flag": "VISUAL",
-          "desc": "Variable de entorno histórica que especifica el editor para terminales de pantalla completa (tiene preferencia sobre EDITOR)."
+          "flag": "$EDITOR",
+          "desc": "🎯 Estándar POSIX: Variable histórica para editores de texto. Se utiliza si $VISUAL no está definida o en utilidades en línea de comandos."
         },
         {
-          "flag": "update-alternatives (Debian)",
-          "desc": "🎯 Comando alternativo en Debian/Ubuntu para fijar el editor del sistema entre nano, vim.basic o vim.tiny: 'sudo update-alternatives --config editor'."
+          "flag": "update-alternatives",
+          "desc": "🎯 Configuración Global del Sistema: Comando de Debian/Ubuntu para cambiar el enlace simbólico maestro /usr/bin/editor entre nano, vim.basic o vim.tiny."
+        },
+        {
+          "flag": "select-editor",
+          "desc": "Comando interactivo para usuarios sin privilegios de root que guarda la preferencia personal en ~/.selected_editor."
         }
       ],
       "examples": [
         "APP_PORT=8080; bash -c 'echo \"En subshell: $APP_PORT\"'; export APP_PORT; bash -c 'echo \"Exportada: $APP_PORT\"'; unset APP_PORT",
         "set -o noclobber; echo 'test' > kernel.txt; echo 'forzado' >| kernel.txt; cat kernel.txt",
-        "export EDITOR=vi; crontab -e"
+        "export EDITOR=nano; export VISUAL=vim; crontab -e"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-1-trabajar-desde-la-linea.html#/8",
@@ -4079,20 +4107,20 @@
         },
         {
           "flag": "sed -E (o sed -r)",
-          "desc": "🎯 Clave de Examen: Activa el motor de expresiones regulares extendidas (ERE) en sed, permitiendo paréntesis '(' y '+' sin barras invertidas."
+          "desc": "🎯 Clave de Examen: Activa expresiones regulares extendidas (ERE), permitiendo '(' ')' y '+' sin barras invertidas."
         },
         {
           "flag": "Backreferences (\\1, \\2)",
-          "desc": "🎯 Clave de Examen: Reutiliza en la parte de reemplazo el contenido exacto capturado por el primer grupo '\\1' o segundo grupo '\\2'."
+          "desc": "🎯 Memorias de captura: reutiliza en la sustitución el texto exacto capturado por el primer grupo '\\1' o segundo '\\2'."
         },
         {
           "flag": "sed -n '/^root/p'",
-          "desc": "Modo silencioso (-n): imprime ÚNICAMENTE las líneas que coincidan con la expresión regular /patrón/."
+          "desc": "🎯 Modo silencioso (-n): imprime ÚNICAMENTE las líneas coincidentes ('p' de print), emulando el filtrado de grep."
         }
       ],
       "examples": [
         "echo 'v1:v1:v1' | sed 's/v1/v2/'; echo 'v1:v1:v1' | sed 's/v1/v2/g'; sed -n '3p' /etc/passwd",
-        "echo 'Juan Perez' | sed -E 's/([A-Za-z]+) ([A-Za-z]+)/\\2, \\1/'"
+        "echo '2026-10-28' | sed -E 's/([0-9]{4})-([0-9]{2})-([0-9]{2})/\\3\\/\\2\\/\\1/'; head -n 2 /etc/passwd | sed -E 's/^([^:]+):.*:([0-9]+):[0-9]+:.*$/User: \\1 (UID: \\2)/'"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-2-procesar-secuencias-de-t.html#/9",
@@ -4323,33 +4351,29 @@
           "desc": "'-t' ordena cronológicamente (más recientes primero); '-S' por tamaño descendente."
         },
         {
-          "flag": "screen",
-          "desc": "Inicia una nueva sesión virtual de GNU Screen."
+          "flag": "screen -S <nombre>",
+          "desc": "🎯 Inicia una consola virtual persistente e independiente vinculada al nombre que elijas."
         },
         {
           "flag": "Ctrl + A y luego d",
-          "desc": "🎯 Clave de Examen: Desacopla (Detach) la sesión de Screen dejándola corriendo en segundo plano sin interrumpir los procesos."
-        },
-        {
-          "flag": "screen -r [id]",
-          "desc": "🎯 Clave de Examen: Reanuda (Resume / Reattach) una sesión de Screen que fue desacoplada previamente."
+          "desc": "🎯 Clave de Examen: Desengancha tu terminal de la sesión; el proceso sigue trabajando en el servidor."
         },
         {
           "flag": "screen -ls",
-          "desc": "Lista todas las sesiones de Screen activas en el sistema."
+          "desc": "🎯 Muestra las sesiones abiertas en el servidor y su estado: Detached (disponible) o Attached (en uso)."
         },
         {
-          "flag": "Ctrl + B y luego d (tmux)",
-          "desc": "🎯 Desacopla la sesión activa en tmux."
+          "flag": "screen -r <nombre>",
+          "desc": "🎯 Clave de Examen: Vuelve a conectar tu pantalla a una sesión desacoplada previamente."
         },
         {
-          "flag": "tmux attach [-t sesion]",
-          "desc": "Reconecta la sesión de tmux indicada."
+          "flag": "tmux attach -t <nombre>",
+          "desc": "🎯 Comando homólogo en tmux (con el atajo de desacople universal 'Ctrl+B' seguido de 'd')."
         }
       ],
       "examples": [
         "ls -ld /var/log; ls -lh /var/log/syslog; ls -lai .bashrc",
-        "screen -ls; tmux ls"
+        "screen -S migracion; ./migrar.sh; [Ctrl+A d]; screen -ls; screen -r migracion"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-3-administracion-basica-de.html#/3",
@@ -4992,32 +5016,32 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: jobs",
-      "desc": "Lanzar tareas en segundo plano, suspenderlas temporalmente y alternar su ejecución",
-      "syntax": "sleep 1000 &; jobs -l; fg %1",
+      "desc": "Liberar la consola de comandos largos, pausar tareas y alternar su ejecución entre fondo y primer plano",
+      "syntax": "tar -czf bkp.tar.gz /var/www & | jobs -l | fg %1",
       "flags": [
         {
           "flag": "cmd &",
-          "desc": "🎯 Ejecuta la orden en background liberando el prompt de inmediato."
+          "desc": "🎯 Inicia el comando directamente en background, devolviendo el prompt de inmediato."
         },
         {
-          "flag": "jobs [-l]",
-          "desc": "🎯 Lista los trabajos de la shell actual. '-l' añade el PID."
+          "flag": "jobs -l",
+          "desc": "🎯 Lista los jobs de la shell actual. La opción '-l' añade el PID global de cada tarea."
         },
         {
           "flag": "Ctrl + Z",
-          "desc": "🎯 Detiene y congela temporalmente el proceso de primer plano."
+          "desc": "🎯 Detiene y congela temporalmente el proceso de primer plano sin matarlo."
         },
         {
           "flag": "bg [%n]",
-          "desc": "🎯 Reanuda un trabajo detenido en segundo plano."
+          "desc": "🎯 Clave de Examen: Reanuda un trabajo detenido para que continúe trabajando en segundo plano."
         },
         {
           "flag": "fg [%n]",
-          "desc": "🎯 Trae el trabajo a primer plano bloqueando de nuevo la terminal."
+          "desc": "🎯 Trae el trabajo al frente de la consola para interactuar con él (bloquea el prompt)."
         }
       ],
       "examples": [
-        "sleep 1000 &; jobs -l; fg %1"
+        "tar -czf /backup/sistema.tar.gz /var/www; bg %1; jobs -l"
       ],
       "exam_tips": [
         {
@@ -5040,32 +5064,32 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: bg",
-      "desc": "Lanzar tareas en segundo plano, suspenderlas temporalmente y alternar su ejecución",
-      "syntax": "sleep 1000 &; jobs -l; fg %1",
+      "desc": "Liberar la consola de comandos largos, pausar tareas y alternar su ejecución entre fondo y primer plano",
+      "syntax": "tar -czf bkp.tar.gz /var/www & | jobs -l | fg %1",
       "flags": [
         {
           "flag": "cmd &",
-          "desc": "🎯 Ejecuta la orden en background liberando el prompt de inmediato."
+          "desc": "🎯 Inicia el comando directamente en background, devolviendo el prompt de inmediato."
         },
         {
-          "flag": "jobs [-l]",
-          "desc": "🎯 Lista los trabajos de la shell actual. '-l' añade el PID."
+          "flag": "jobs -l",
+          "desc": "🎯 Lista los jobs de la shell actual. La opción '-l' añade el PID global de cada tarea."
         },
         {
           "flag": "Ctrl + Z",
-          "desc": "🎯 Detiene y congela temporalmente el proceso de primer plano."
+          "desc": "🎯 Detiene y congela temporalmente el proceso de primer plano sin matarlo."
         },
         {
           "flag": "bg [%n]",
-          "desc": "🎯 Reanuda un trabajo detenido en segundo plano."
+          "desc": "🎯 Clave de Examen: Reanuda un trabajo detenido para que continúe trabajando en segundo plano."
         },
         {
           "flag": "fg [%n]",
-          "desc": "🎯 Trae el trabajo a primer plano bloqueando de nuevo la terminal."
+          "desc": "🎯 Trae el trabajo al frente de la consola para interactuar con él (bloquea el prompt)."
         }
       ],
       "examples": [
-        "sleep 1000 &; jobs -l; fg %1"
+        "tar -czf /backup/sistema.tar.gz /var/www; bg %1; jobs -l"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-5-crear-supervisar-y-matar.html#/3",
@@ -5080,32 +5104,32 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: fg",
-      "desc": "Lanzar tareas en segundo plano, suspenderlas temporalmente y alternar su ejecución",
-      "syntax": "sleep 1000 &; jobs -l; fg %1",
+      "desc": "Liberar la consola de comandos largos, pausar tareas y alternar su ejecución entre fondo y primer plano",
+      "syntax": "tar -czf bkp.tar.gz /var/www & | jobs -l | fg %1",
       "flags": [
         {
           "flag": "cmd &",
-          "desc": "🎯 Ejecuta la orden en background liberando el prompt de inmediato."
+          "desc": "🎯 Inicia el comando directamente en background, devolviendo el prompt de inmediato."
         },
         {
-          "flag": "jobs [-l]",
-          "desc": "🎯 Lista los trabajos de la shell actual. '-l' añade el PID."
+          "flag": "jobs -l",
+          "desc": "🎯 Lista los jobs de la shell actual. La opción '-l' añade el PID global de cada tarea."
         },
         {
           "flag": "Ctrl + Z",
-          "desc": "🎯 Detiene y congela temporalmente el proceso de primer plano."
+          "desc": "🎯 Detiene y congela temporalmente el proceso de primer plano sin matarlo."
         },
         {
           "flag": "bg [%n]",
-          "desc": "🎯 Reanuda un trabajo detenido en segundo plano."
+          "desc": "🎯 Clave de Examen: Reanuda un trabajo detenido para que continúe trabajando en segundo plano."
         },
         {
           "flag": "fg [%n]",
-          "desc": "🎯 Trae el trabajo a primer plano bloqueando de nuevo la terminal."
+          "desc": "🎯 Trae el trabajo al frente de la consola para interactuar con él (bloquea el prompt)."
         }
       ],
       "examples": [
-        "sleep 1000 &; jobs -l; fg %1"
+        "tar -czf /backup/sistema.tar.gz /var/www; bg %1; jobs -l"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-5-crear-supervisar-y-matar.html#/3",
@@ -5120,28 +5144,28 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: nohup",
-      "desc": "Hacer un proceso inmune a la desconexión SIGHUP y monitorizar salidas periódicas",
-      "syntax": "nohup ./backup_largo.sh &; head -n 2 nohup.out",
+      "desc": "Hacer un proceso inmune al cierre de terminal, rescatar jobs sin nohup y refrescar comandos en pantalla",
+      "syntax": "nohup ./backup.sh & | disown -h %1 | watch -n 2 'tail -n 5 nohup.out'",
       "flags": [
         {
-          "flag": "nohup <comando> &",
-          "desc": "🎯 Clave de Examen: No Hangup: ejecuta el comando interceptando la señal SIGHUP. Si cierras la terminal o cae la red, el proceso sigue vivo en el servidor."
+          "flag": "nohup <cmd> &",
+          "desc": "🎯 No Hangup: lanza el proceso ignorando SIGHUP (1). Si cierras la terminal o cae la red SSH, NO se detiene."
         },
         {
           "flag": "nohup.out",
-          "desc": "🎯 Clave de Examen: Archivo automático en el directorio actual (o en $HOME) donde nohup redirige la salida del proceso si no se especificó redirección manual."
+          "desc": "🎯 Fichero automático donde nohup guarda stdout/stderr. Se inspecciona sin interrumpir con 'head' o 'tail -f'."
         },
         {
-          "flag": "disown [-h] [%n]",
-          "desc": "Desvincula un trabajo en segundo plano de la tabla de la shell para que no reciba SIGHUP al cerrar sesión."
+          "flag": "disown -h [%n]",
+          "desc": "🎯 Clave de Examen: Si olvidaste poner nohup, 'disown' retira el job de la tabla de la shell para que no reciba SIGHUP."
         },
         {
           "flag": "watch -n <seg> <cmd>",
-          "desc": "🎯 Ejecuta el comando repetidamente cada N segundos (por defecto 2s) mostrando los cambios en pantalla a pantalla completa (ej: 'watch -n 1 free -m')."
+          "desc": "🎯 Ejecuta un comando en bucle cada N segundos (defecto: 2s) a pantalla limpia para supervisar cambios."
         }
       ],
       "examples": [
-        "nohup ./backup_largo.sh &; head -n 2 nohup.out"
+        "nohup ./backup.sh &; head -n 2 nohup.out; disown -h %1"
       ],
       "exam_tips": [
         {
@@ -5157,6 +5181,42 @@
       "weight": 2
     },
     {
+      "id": "cmd-disown",
+      "label": "disown",
+      "type": "command",
+      "exam": "101",
+      "tema": "103",
+      "subtopic_id": "103.5",
+      "title": "Comando: disown",
+      "desc": "Hacer un proceso inmune al cierre de terminal, rescatar jobs sin nohup y refrescar comandos en pantalla",
+      "syntax": "nohup ./backup.sh & | disown -h %1 | watch -n 2 'tail -n 5 nohup.out'",
+      "flags": [
+        {
+          "flag": "nohup <cmd> &",
+          "desc": "🎯 No Hangup: lanza el proceso ignorando SIGHUP (1). Si cierras la terminal o cae la red SSH, NO se detiene."
+        },
+        {
+          "flag": "nohup.out",
+          "desc": "🎯 Fichero automático donde nohup guarda stdout/stderr. Se inspecciona sin interrumpir con 'head' o 'tail -f'."
+        },
+        {
+          "flag": "disown -h [%n]",
+          "desc": "🎯 Clave de Examen: Si olvidaste poner nohup, 'disown' retira el job de la tabla de la shell para que no reciba SIGHUP."
+        },
+        {
+          "flag": "watch -n <seg> <cmd>",
+          "desc": "🎯 Ejecuta un comando en bucle cada N segundos (defecto: 2s) a pantalla limpia para supervisar cambios."
+        }
+      ],
+      "examples": [
+        "nohup ./backup.sh &; head -n 2 nohup.out; disown -h %1"
+      ],
+      "exam_tips": [],
+      "slide_url": "t103/103-5-crear-supervisar-y-matar.html#/4",
+      "practice_url": "practicas/p-103-5-procesos-senales.html",
+      "weight": 2
+    },
+    {
       "id": "cmd-watch",
       "label": "watch",
       "type": "command",
@@ -5164,28 +5224,28 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: watch",
-      "desc": "Hacer un proceso inmune a la desconexión SIGHUP y monitorizar salidas periódicas",
-      "syntax": "nohup ./backup_largo.sh &; head -n 2 nohup.out",
+      "desc": "Hacer un proceso inmune al cierre de terminal, rescatar jobs sin nohup y refrescar comandos en pantalla",
+      "syntax": "nohup ./backup.sh & | disown -h %1 | watch -n 2 'tail -n 5 nohup.out'",
       "flags": [
         {
-          "flag": "nohup <comando> &",
-          "desc": "🎯 Clave de Examen: No Hangup: ejecuta el comando interceptando la señal SIGHUP. Si cierras la terminal o cae la red, el proceso sigue vivo en el servidor."
+          "flag": "nohup <cmd> &",
+          "desc": "🎯 No Hangup: lanza el proceso ignorando SIGHUP (1). Si cierras la terminal o cae la red SSH, NO se detiene."
         },
         {
           "flag": "nohup.out",
-          "desc": "🎯 Clave de Examen: Archivo automático en el directorio actual (o en $HOME) donde nohup redirige la salida del proceso si no se especificó redirección manual."
+          "desc": "🎯 Fichero automático donde nohup guarda stdout/stderr. Se inspecciona sin interrumpir con 'head' o 'tail -f'."
         },
         {
-          "flag": "disown [-h] [%n]",
-          "desc": "Desvincula un trabajo en segundo plano de la tabla de la shell para que no reciba SIGHUP al cerrar sesión."
+          "flag": "disown -h [%n]",
+          "desc": "🎯 Clave de Examen: Si olvidaste poner nohup, 'disown' retira el job de la tabla de la shell para que no reciba SIGHUP."
         },
         {
           "flag": "watch -n <seg> <cmd>",
-          "desc": "🎯 Ejecuta el comando repetidamente cada N segundos (por defecto 2s) mostrando los cambios en pantalla a pantalla completa (ej: 'watch -n 1 free -m')."
+          "desc": "🎯 Ejecuta un comando en bucle cada N segundos (defecto: 2s) a pantalla limpia para supervisar cambios."
         }
       ],
       "examples": [
-        "nohup ./backup_largo.sh &; head -n 2 nohup.out"
+        "nohup ./backup.sh &; head -n 2 nohup.out; disown -h %1"
       ],
       "exam_tips": [
         {
@@ -5208,32 +5268,32 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: kill",
-      "desc": "Enviar una señal de software al proceso identificado por su PID o a un trabajo de shell",
-      "syntax": "kill -l | tr ' ' '\\n' | head -n 9; kill -15 28540; kill -9 28540",
+      "desc": "Transmitir señales de software por PID numérico o por Job ID de la shell",
+      "syntax": "kill 28540 | kill -9 28540 | kill -HUP $(pidof nginx) | kill %1",
       "flags": [
         {
-          "flag": "kill -l",
-          "desc": "🎯 Lista todas las señales disponibles en el sistema con sus nombres y números oficiales."
-        },
-        {
           "flag": "kill <PID>",
-          "desc": "🎯 Clave de Examen: Sin opciones, envía por defecto la señal 15 (SIGTERM)."
+          "desc": "🎯 Clave de Examen: Sin opciones, envía siempre la señal 15 para un cierre ordenado."
         },
         {
-          "flag": "kill -9 <PID> (o kill -SIGKILL <PID>)",
-          "desc": "🎯 Fuerza el cierre inmediato de un proceso colgado o bloqueado que no responde a SIGTERM."
+          "flag": "kill -9 <PID>",
+          "desc": "🎯 Cierre forzado inmediato por el kernel. Úsalo solo si el proceso no responde a SIGTERM."
         },
         {
-          "flag": "kill -1 <PID> (o kill -HUP <PID>)",
-          "desc": "Envía SIGHUP para recargar la configuración del servicio."
+          "flag": "kill -1 <PID>",
+          "desc": "🎯 Ordena al demonio recargar su archivo de configuración sin reiniciar (ej: Nginx o Apache)."
         },
         {
-          "flag": "kill %1",
-          "desc": "🎯 Clave de Examen: Si antepones el signo de porcentaje '%', envía la señal al JOB número 1 de la shell en lugar de al PID 1."
+          "flag": "kill %N",
+          "desc": "🎯 Clave de Examen: Anteponer '%' envía la señal al JOB N de la shell en vez de al PID N del sistema."
+        },
+        {
+          "flag": "kill -l",
+          "desc": "Muestra los nombres y números de las 64 señales disponibles en Linux."
         }
       ],
       "examples": [
-        "kill -l | tr ' ' '\\n' | head -n 9; kill -15 28540; kill -9 28540"
+        "kill 41205; kill -9 41205; kill %1"
       ],
       "exam_tips": [
         {
@@ -5256,36 +5316,28 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: killall",
-      "desc": "Localizar PIDs o enviar señales a grupos de procesos por su nombre de ejecutable",
-      "syntax": "pidof nginx; pgrep -l nginx; sudo killall -u alumno sleep",
+      "desc": "Averiguar PIDs o matar grupos de procesos según su nombre exacto, patrón regex o dueño",
+      "syntax": "pidof nginx | pgrep -l python | killall -9 firefox | pkill -u alumno",
       "flags": [
         {
-          "flag": "killall <nombre_exacto>",
-          "desc": "🎯 Mata todos los procesos que coincidan EXACTAMENTE con el nombre del binario (ej: 'killall nginx')."
-        },
-        {
-          "flag": "killall -i <nombre>",
-          "desc": "Modo interactivo: pide confirmación antes de matar cada proceso coincidente."
-        },
-        {
-          "flag": "killall -u <usuario> <cmd>",
-          "desc": "🎯 Limita la terminación a los procesos del comando que pertenezcan al usuario indicado."
-        },
-        {
-          "flag": "pkill [-9] <patrón>",
-          "desc": "🎯 Envía la señal a todos los procesos cuyo nombre coincida con una expresión regular o patrón."
-        },
-        {
-          "flag": "pkill -u <usuario>",
-          "desc": "🎯 Mata todos los procesos de cualquier tipo que pertenezcan a ese usuario."
+          "flag": "pidof <binario>",
+          "desc": "🎯 Devuelve los números PID del ejecutable exacto en una sola línea (ideal para scripts)."
         },
         {
           "flag": "pgrep [-l] <patrón>",
-          "desc": "🎯 Clave de Examen: Busca y muestra únicamente los PIDs de los procesos que coincidan (con '-l' muestra también su nombre)."
+          "desc": "🎯 Clave de Examen: Busca PIDs que coincidan con un patrón. Con '-l' muestra PID y nombre."
         },
         {
-          "flag": "pidof <nombre>",
-          "desc": "Devuelve la lista de PIDs del binario exacto en una sola línea (ideal para scripts)."
+          "flag": "killall <nombre_exacto>",
+          "desc": "🎯 Mata todos los procesos cuyo ejecutable coincida exactamente (ej: 'killall nginx')."
+        },
+        {
+          "flag": "pkill [-9] <patrón>",
+          "desc": "🎯 Envía señales a procesos por expresión regular o patrón sin exigir nombre exacto."
+        },
+        {
+          "flag": "pkill -u <usuario>",
+          "desc": "🎯 Clave de Examen: Mata todos los procesos pertenecientes al usuario especificado."
         }
       ],
       "examples": [
@@ -5304,36 +5356,28 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: pkill",
-      "desc": "Localizar PIDs o enviar señales a grupos de procesos por su nombre de ejecutable",
-      "syntax": "pidof nginx; pgrep -l nginx; sudo killall -u alumno sleep",
+      "desc": "Averiguar PIDs o matar grupos de procesos según su nombre exacto, patrón regex o dueño",
+      "syntax": "pidof nginx | pgrep -l python | killall -9 firefox | pkill -u alumno",
       "flags": [
         {
-          "flag": "killall <nombre_exacto>",
-          "desc": "🎯 Mata todos los procesos que coincidan EXACTAMENTE con el nombre del binario (ej: 'killall nginx')."
-        },
-        {
-          "flag": "killall -i <nombre>",
-          "desc": "Modo interactivo: pide confirmación antes de matar cada proceso coincidente."
-        },
-        {
-          "flag": "killall -u <usuario> <cmd>",
-          "desc": "🎯 Limita la terminación a los procesos del comando que pertenezcan al usuario indicado."
-        },
-        {
-          "flag": "pkill [-9] <patrón>",
-          "desc": "🎯 Envía la señal a todos los procesos cuyo nombre coincida con una expresión regular o patrón."
-        },
-        {
-          "flag": "pkill -u <usuario>",
-          "desc": "🎯 Mata todos los procesos de cualquier tipo que pertenezcan a ese usuario."
+          "flag": "pidof <binario>",
+          "desc": "🎯 Devuelve los números PID del ejecutable exacto en una sola línea (ideal para scripts)."
         },
         {
           "flag": "pgrep [-l] <patrón>",
-          "desc": "🎯 Clave de Examen: Busca y muestra únicamente los PIDs de los procesos que coincidan (con '-l' muestra también su nombre)."
+          "desc": "🎯 Clave de Examen: Busca PIDs que coincidan con un patrón. Con '-l' muestra PID y nombre."
         },
         {
-          "flag": "pidof <nombre>",
-          "desc": "Devuelve la lista de PIDs del binario exacto en una sola línea (ideal para scripts)."
+          "flag": "killall <nombre_exacto>",
+          "desc": "🎯 Mata todos los procesos cuyo ejecutable coincida exactamente (ej: 'killall nginx')."
+        },
+        {
+          "flag": "pkill [-9] <patrón>",
+          "desc": "🎯 Envía señales a procesos por expresión regular o patrón sin exigir nombre exacto."
+        },
+        {
+          "flag": "pkill -u <usuario>",
+          "desc": "🎯 Clave de Examen: Mata todos los procesos pertenecientes al usuario especificado."
         }
       ],
       "examples": [
@@ -5352,36 +5396,28 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: pgrep",
-      "desc": "Localizar PIDs o enviar señales a grupos de procesos por su nombre de ejecutable",
-      "syntax": "pidof nginx; pgrep -l nginx; sudo killall -u alumno sleep",
+      "desc": "Averiguar PIDs o matar grupos de procesos según su nombre exacto, patrón regex o dueño",
+      "syntax": "pidof nginx | pgrep -l python | killall -9 firefox | pkill -u alumno",
       "flags": [
         {
-          "flag": "killall <nombre_exacto>",
-          "desc": "🎯 Mata todos los procesos que coincidan EXACTAMENTE con el nombre del binario (ej: 'killall nginx')."
-        },
-        {
-          "flag": "killall -i <nombre>",
-          "desc": "Modo interactivo: pide confirmación antes de matar cada proceso coincidente."
-        },
-        {
-          "flag": "killall -u <usuario> <cmd>",
-          "desc": "🎯 Limita la terminación a los procesos del comando que pertenezcan al usuario indicado."
-        },
-        {
-          "flag": "pkill [-9] <patrón>",
-          "desc": "🎯 Envía la señal a todos los procesos cuyo nombre coincida con una expresión regular o patrón."
-        },
-        {
-          "flag": "pkill -u <usuario>",
-          "desc": "🎯 Mata todos los procesos de cualquier tipo que pertenezcan a ese usuario."
+          "flag": "pidof <binario>",
+          "desc": "🎯 Devuelve los números PID del ejecutable exacto en una sola línea (ideal para scripts)."
         },
         {
           "flag": "pgrep [-l] <patrón>",
-          "desc": "🎯 Clave de Examen: Busca y muestra únicamente los PIDs de los procesos que coincidan (con '-l' muestra también su nombre)."
+          "desc": "🎯 Clave de Examen: Busca PIDs que coincidan con un patrón. Con '-l' muestra PID y nombre."
         },
         {
-          "flag": "pidof <nombre>",
-          "desc": "Devuelve la lista de PIDs del binario exacto en una sola línea (ideal para scripts)."
+          "flag": "killall <nombre_exacto>",
+          "desc": "🎯 Mata todos los procesos cuyo ejecutable coincida exactamente (ej: 'killall nginx')."
+        },
+        {
+          "flag": "pkill [-9] <patrón>",
+          "desc": "🎯 Envía señales a procesos por expresión regular o patrón sin exigir nombre exacto."
+        },
+        {
+          "flag": "pkill -u <usuario>",
+          "desc": "🎯 Clave de Examen: Mata todos los procesos pertenecientes al usuario especificado."
         }
       ],
       "examples": [
@@ -5415,36 +5451,28 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: pidof",
-      "desc": "Localizar PIDs o enviar señales a grupos de procesos por su nombre de ejecutable",
-      "syntax": "pidof nginx; pgrep -l nginx; sudo killall -u alumno sleep",
+      "desc": "Averiguar PIDs o matar grupos de procesos según su nombre exacto, patrón regex o dueño",
+      "syntax": "pidof nginx | pgrep -l python | killall -9 firefox | pkill -u alumno",
       "flags": [
         {
-          "flag": "killall <nombre_exacto>",
-          "desc": "🎯 Mata todos los procesos que coincidan EXACTAMENTE con el nombre del binario (ej: 'killall nginx')."
-        },
-        {
-          "flag": "killall -i <nombre>",
-          "desc": "Modo interactivo: pide confirmación antes de matar cada proceso coincidente."
-        },
-        {
-          "flag": "killall -u <usuario> <cmd>",
-          "desc": "🎯 Limita la terminación a los procesos del comando que pertenezcan al usuario indicado."
-        },
-        {
-          "flag": "pkill [-9] <patrón>",
-          "desc": "🎯 Envía la señal a todos los procesos cuyo nombre coincida con una expresión regular o patrón."
-        },
-        {
-          "flag": "pkill -u <usuario>",
-          "desc": "🎯 Mata todos los procesos de cualquier tipo que pertenezcan a ese usuario."
+          "flag": "pidof <binario>",
+          "desc": "🎯 Devuelve los números PID del ejecutable exacto en una sola línea (ideal para scripts)."
         },
         {
           "flag": "pgrep [-l] <patrón>",
-          "desc": "🎯 Clave de Examen: Busca y muestra únicamente los PIDs de los procesos que coincidan (con '-l' muestra también su nombre)."
+          "desc": "🎯 Clave de Examen: Busca PIDs que coincidan con un patrón. Con '-l' muestra PID y nombre."
         },
         {
-          "flag": "pidof <nombre>",
-          "desc": "Devuelve la lista de PIDs del binario exacto en una sola línea (ideal para scripts)."
+          "flag": "killall <nombre_exacto>",
+          "desc": "🎯 Mata todos los procesos cuyo ejecutable coincida exactamente (ej: 'killall nginx')."
+        },
+        {
+          "flag": "pkill [-9] <patrón>",
+          "desc": "🎯 Envía señales a procesos por expresión regular o patrón sin exigir nombre exacto."
+        },
+        {
+          "flag": "pkill -u <usuario>",
+          "desc": "🎯 Clave de Examen: Mata todos los procesos pertenecientes al usuario especificado."
         }
       ],
       "examples": [
@@ -5463,45 +5491,45 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: ps",
-      "desc": "Obtener una instantánea de los procesos activos, usuarios, consumo de CPU/RAM y estados",
-      "syntax": "ps aux | head -n 3; ps -ef | head -n 3",
+      "desc": "Consultar la lista completa de procesos, consumo de CPU/RAM, usuarios y estados en un microsegundo",
+      "syntax": "ps aux | head -n 5 | ps -ef | grep nginx | ps --sort=-%mem",
       "flags": [
         {
           "flag": "ps aux",
-          "desc": "🎯 a = con terminal; u = formato usuario (%CPU, %MEM); x = demonios sin terminal."
+          "desc": "🎯 Clave de Examen: 'a' = todos con terminal; 'u' = formato usuario (%CPU, %MEM, RSS); 'x' = demonios sin terminal."
         },
         {
           "flag": "ps -ef",
-          "desc": "🎯 -e = todos los procesos; -f = formato completo mostrando columnas UID, PID, PPID."
+          "desc": "🎯 Clave de Examen: '-e' = todos los procesos; '-f' = formato completo mostrando la columna PPID (proceso padre)."
         },
         {
-          "flag": "ps -u <usuario>",
-          "desc": "Muestra solo los procesos que pertenecen al usuario indicado."
+          "flag": "VSZ frente a RSS",
+          "desc": "🎯 VSZ = memoria virtual total reservada; RSS = memoria RAM física real ocupada en chips."
         },
         {
           "flag": "ps --sort=-%cpu",
-          "desc": "Ordena de mayor a menor consumo de procesador."
+          "desc": "Ordena de mayor a menor uso de procesador (-%cpu) o de memoria (-%mem)."
         },
         {
           "flag": "ps -l (o ps -el)",
-          "desc": "🎯 Clave de Examen: Modo formato largo (long): incluye las columnas obligatorias 'PRI' (prioridad) y 'NI' (niceness)."
-        },
-        {
-          "flag": "ps -Al",
-          "desc": "Muestra todos los procesos del sistema en formato largo."
+          "desc": "🎯 Clave de Examen: Añade obligatoriamente las columnas 'PRI' (prioridad) y 'NI' (niceness)."
         },
         {
           "flag": "ps -o <columnas>",
-          "desc": "🎯 Formato personalizado: define exactamente qué campos mostrar (ej: 'ps -o pid,user,ni,cmd')."
+          "desc": "🎯 Permite seleccionar solo los campos que te interesan (ej: 'ps -o pid,ni,pri,cmd')."
         },
         {
-          "flag": "ps aux (columna STAT)",
-          "desc": "🎯 Recuerda: Si STAT contiene '<', el proceso tiene nice negativo (alta prioridad); si contiene 'N', tiene nice positivo (baja prioridad)."
+          "flag": "STAT: '<'",
+          "desc": "🎯 Clave de Examen: El proceso tiene niceness negativo (not nice, acapara CPU)."
+        },
+        {
+          "flag": "STAT: 'N'",
+          "desc": "🎯 Clave de Examen: El proceso tiene niceness positivo (nice, cortés con la CPU)."
         }
       ],
       "examples": [
-        "ps aux | head -n 3; ps -ef | head -n 3",
-        "ps -o pid,ni,pri,cmd -C bash,sleep"
+        "ps aux | head -n 2; ps -ef | head -n 2",
+        "ps -o pid,user,ni,pri,stat,cmd -C render,backup,bash"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-5-crear-supervisar-y-matar.html#/8",
@@ -5516,49 +5544,53 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: top",
-      "desc": "Visualizar en tiempo real el consumo de recursos y gestionar procesos mediante atajos de teclado",
-      "syntax": "top -b -n 1 | head -n 5",
+      "desc": "Monitorizar en tiempo real el consumo de recursos y ordenar o matar procesos interactivamente",
+      "syntax": "top | top -u nginx | top -b -n 1 | head -n 5",
       "flags": [
         {
-          "flag": "Teclas de Ordenación",
-          "desc": "🎯 Clave de Examen: 'P' (mayúscula) ordena por uso de CPU (por defecto); 'M' (mayúscula) ordena por uso de memoria RAM; 'T' ordena por tiempo total acumulado."
+          "flag": "Tecla M (Mayúscula)",
+          "desc": "🎯 Clave de Examen: Reordena la lista de mayor a menor consumo de RAM."
         },
         {
-          "flag": "k (Kill)",
-          "desc": "🎯 Clave de Examen: Solicita un PID y una señal para matar un proceso directamente desde la pantalla de top."
+          "flag": "Tecla P (Mayúscula)",
+          "desc": "🎯 Clave de Examen: Ordenación por defecto: procesos que más CPU gastan."
         },
         {
-          "flag": "r (Renice)",
-          "desc": "🎯 Solicita un PID y un nuevo valor nice para modificar la prioridad de un proceso en vivo."
+          "flag": "Tecla k (Kill)",
+          "desc": "🎯 Clave de Examen: Pide un PID y el número de señal para matar el proceso sin salir de top."
         },
         {
-          "flag": "1 (Uno)",
-          "desc": "Alterna entre mostrar el uso de CPU desglosado por cada núcleo individual (CPU0, CPU1) o unificado en uno."
+          "flag": "Tecla r (Renice)",
+          "desc": "🎯 Solicita un PID y un nuevo valor nice para ajustar su prioridad en caliente."
         },
         {
-          "flag": "q / h",
-          "desc": "'q' sale inmediatamente de top; 'h' abre la pantalla de ayuda de atajos."
+          "flag": "Tecla 1 (Uno)",
+          "desc": "Alterna entre ver el uso de CPU combinado o desglosado núcleo a núcleo (CPU0, CPU1...)."
         },
         {
           "flag": "top -b -n 1",
-          "desc": "Modo batch (por lotes): ejecuta 1 iteración y sale como texto plano (ideal para scripts de monitorización)."
+          "desc": "Ejecuta 1 iteración y sale como texto plano sin pantalla interactiva."
         },
         {
-          "flag": "Columna PR en top",
-          "desc": "Prioridad dinámica que el kernel está aplicando en este momento."
+          "flag": "Columna PR",
+          "desc": "🎯 Valor de 0 a 39 que el kernel usa para el reparto de CPU (PR = 20 + NI)."
         },
         {
-          "flag": "Columna NI en top",
-          "desc": "🎯 Valor de niceness estático asignado al proceso (-20 a 19)."
+          "flag": "Columna NI",
+          "desc": "🎯 Valor de -20 a +19 fijado por el usuario o administrador."
         },
         {
-          "flag": "Atajo de teclado 'r'",
-          "desc": "🎯 Clave de Examen: Activa la función 'Renice'. top solicita: 'PID to renice:' -> escribes el PID -> pulsa Enter -> solicita: 'Renice PID 1419 to value:' -> introduces el nuevo nice y pulsa Enter."
+          "flag": "Tecla 'r' (Renice)",
+          "desc": "🎯 Clave de Examen: Solicita el PID y el nuevo valor de nice para aplicarlo al vuelo."
+        },
+        {
+          "flag": "Tecla 'q'",
+          "desc": "Cierra el monitor interactivo y devuelve el control a la terminal."
         }
       ],
       "examples": [
         "top -b -n 1 | head -n 5",
-        "top -b -n 1 | grep -E '(PID|nginx)' | head -n 3"
+        "top (pulsar 'r' -> 4120 -> 15)"
       ],
       "exam_tips": [
         {
@@ -5581,20 +5613,24 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: uptime",
-      "desc": "Consultar el tiempo de encendido, el promedio de carga del procesador y la memoria disponible",
-      "syntax": "uptime; free -h",
+      "desc": "Evaluar la saturación de los procesadores y diagnosticar el espacio real disponible en RAM",
+      "syntax": "uptime | free -h | free -m",
       "flags": [
         {
-          "flag": "Load (1, 5, 15 min)",
-          "desc": "🎯 Muestra la media de procesos en ejecución o en espera en 1, 5 y 15 minutos."
+          "flag": "load average (1, 5, 15)",
+          "desc": "🎯 Promedio de procesos ejecutándose o en cola esperando CPU/disco en 1, 5 y 15 minutos."
         },
         {
           "flag": "free -h",
-          "desc": "Muestra RAM total, ocupada y libre en unidades comprensibles."
+          "desc": "Muestra cifras en GiB, MiB o KiB en lugar de bytes planos difíciles de leer."
         },
         {
           "flag": "Columna available",
-          "desc": "🎯 Clave de Examen: Memoria real aprovechable sin necesidad de recurrir a swap."
+          "desc": "🎯 Clave de Examen: Memoria real que pueden solicitar nuevas aplicaciones sin recurrir a swap."
+        },
+        {
+          "flag": "buff/cache",
+          "desc": "Memoria usada para acelerar lecturas de disco que se cede automáticamente si las apps la necesitan."
         }
       ],
       "examples": [
@@ -5621,20 +5657,24 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: free",
-      "desc": "Consultar el tiempo de encendido, el promedio de carga del procesador y la memoria disponible",
-      "syntax": "uptime; free -h",
+      "desc": "Evaluar la saturación de los procesadores y diagnosticar el espacio real disponible en RAM",
+      "syntax": "uptime | free -h | free -m",
       "flags": [
         {
-          "flag": "Load (1, 5, 15 min)",
-          "desc": "🎯 Muestra la media de procesos en ejecución o en espera en 1, 5 y 15 minutos."
+          "flag": "load average (1, 5, 15)",
+          "desc": "🎯 Promedio de procesos ejecutándose o en cola esperando CPU/disco en 1, 5 y 15 minutos."
         },
         {
           "flag": "free -h",
-          "desc": "Muestra RAM total, ocupada y libre en unidades comprensibles."
+          "desc": "Muestra cifras en GiB, MiB o KiB en lugar de bytes planos difíciles de leer."
         },
         {
           "flag": "Columna available",
-          "desc": "🎯 Clave de Examen: Memoria real aprovechable sin necesidad de recurrir a swap."
+          "desc": "🎯 Clave de Examen: Memoria real que pueden solicitar nuevas aplicaciones sin recurrir a swap."
+        },
+        {
+          "flag": "buff/cache",
+          "desc": "Memoria usada para acelerar lecturas de disco que se cede automáticamente si las apps la necesitan."
         }
       ],
       "examples": [
@@ -5661,36 +5701,32 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: screen",
-      "desc": "Crear sesiones de terminal persistentes que pueden desacoplarse y reanudarse desde cualquier lugar",
-      "syntax": "screen -ls; tmux ls",
+      "desc": "Crear consolas virtuales persistentes en el servidor que no mueren si cae el SSH y recuperar su pantalla",
+      "syntax": "screen -S migracion | screen -ls | screen -r migracion | tmux attach -t sesion",
       "flags": [
         {
-          "flag": "screen",
-          "desc": "Inicia una nueva sesión virtual de GNU Screen."
+          "flag": "screen -S <nombre>",
+          "desc": "🎯 Inicia una consola virtual persistente e independiente vinculada al nombre que elijas."
         },
         {
           "flag": "Ctrl + A y luego d",
-          "desc": "🎯 Clave de Examen: Desacopla (Detach) la sesión de Screen dejándola corriendo en segundo plano sin interrumpir los procesos."
-        },
-        {
-          "flag": "screen -r [id]",
-          "desc": "🎯 Clave de Examen: Reanuda (Resume / Reattach) una sesión de Screen que fue desacoplada previamente."
+          "desc": "🎯 Clave de Examen: Desengancha tu terminal de la sesión; el proceso sigue trabajando en el servidor."
         },
         {
           "flag": "screen -ls",
-          "desc": "Lista todas las sesiones de Screen activas en el sistema."
+          "desc": "🎯 Muestra las sesiones abiertas en el servidor y su estado: Detached (disponible) o Attached (en uso)."
         },
         {
-          "flag": "Ctrl + B y luego d (tmux)",
-          "desc": "🎯 Desacopla la sesión activa en tmux."
+          "flag": "screen -r <nombre>",
+          "desc": "🎯 Clave de Examen: Vuelve a conectar tu pantalla a una sesión desacoplada previamente."
         },
         {
-          "flag": "tmux attach [-t sesion]",
-          "desc": "Reconecta la sesión de tmux indicada."
+          "flag": "tmux attach -t <nombre>",
+          "desc": "🎯 Comando homólogo en tmux (con el atajo de desacople universal 'Ctrl+B' seguido de 'd')."
         }
       ],
       "examples": [
-        "screen -ls; tmux ls"
+        "screen -S migracion; ./migrar.sh; [Ctrl+A d]; screen -ls; screen -r migracion"
       ],
       "exam_tips": [
         {
@@ -5713,36 +5749,32 @@
       "tema": "103",
       "subtopic_id": "103.5",
       "title": "Comando: tmux",
-      "desc": "Crear sesiones de terminal persistentes que pueden desacoplarse y reanudarse desde cualquier lugar",
-      "syntax": "screen -ls; tmux ls",
+      "desc": "Crear consolas virtuales persistentes en el servidor que no mueren si cae el SSH y recuperar su pantalla",
+      "syntax": "screen -S migracion | screen -ls | screen -r migracion | tmux attach -t sesion",
       "flags": [
         {
-          "flag": "screen",
-          "desc": "Inicia una nueva sesión virtual de GNU Screen."
+          "flag": "screen -S <nombre>",
+          "desc": "🎯 Inicia una consola virtual persistente e independiente vinculada al nombre que elijas."
         },
         {
           "flag": "Ctrl + A y luego d",
-          "desc": "🎯 Clave de Examen: Desacopla (Detach) la sesión de Screen dejándola corriendo en segundo plano sin interrumpir los procesos."
-        },
-        {
-          "flag": "screen -r [id]",
-          "desc": "🎯 Clave de Examen: Reanuda (Resume / Reattach) una sesión de Screen que fue desacoplada previamente."
+          "desc": "🎯 Clave de Examen: Desengancha tu terminal de la sesión; el proceso sigue trabajando en el servidor."
         },
         {
           "flag": "screen -ls",
-          "desc": "Lista todas las sesiones de Screen activas en el sistema."
+          "desc": "🎯 Muestra las sesiones abiertas en el servidor y su estado: Detached (disponible) o Attached (en uso)."
         },
         {
-          "flag": "Ctrl + B y luego d (tmux)",
-          "desc": "🎯 Desacopla la sesión activa en tmux."
+          "flag": "screen -r <nombre>",
+          "desc": "🎯 Clave de Examen: Vuelve a conectar tu pantalla a una sesión desacoplada previamente."
         },
         {
-          "flag": "tmux attach [-t sesion]",
-          "desc": "Reconecta la sesión de tmux indicada."
+          "flag": "tmux attach -t <nombre>",
+          "desc": "🎯 Comando homólogo en tmux (con el atajo de desacople universal 'Ctrl+B' seguido de 'd')."
         }
       ],
       "examples": [
-        "screen -ls; tmux ls"
+        "screen -S migracion; ./migrar.sh; [Ctrl+A d]; screen -ls; screen -r migracion"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-5-crear-supervisar-y-matar.html#/12",
@@ -5757,28 +5789,28 @@
       "tema": "103",
       "subtopic_id": "103.6",
       "title": "Comando: nice",
-      "desc": "Ejecutar un nuevo proceso asignándole un valor de niceness diferente al estándar 0",
-      "syntax": "nice -n 15 tar -czf backup.tar.gz /var/log &; nice tar -czf test.tar.gz /tmp &",
+      "desc": "Arrancar un proceso NUEVO con un valor de niceness diferente al estándar 0",
+      "syntax": "nice -n 15 tar -czf bkp.tar.gz /var & | sudo nice -n -10 make -j4",
       "flags": [
         {
-          "flag": "nice (sin número)",
-          "desc": "🎯 Clave Absoluta de Examen: Si no indicas número, arranca con nice = 10."
+          "flag": "nice cmd (sin número)",
+          "desc": "🎯 Pregunta Fija de Certificación: Si ejecutas 'nice comando' a secas, arranca con nice = 10."
         },
         {
           "flag": "nice -n <valor> cmd",
-          "desc": "🎯 Recomendada por LPI: ej: 'nice -n 5 script.sh' o 'nice -n -10 script.sh'."
+          "desc": "🎯 Sintaxis oficial recomendada: 'nice -n 5 script.sh' (+5) o 'nice -n -10 script.sh' (-10)."
         },
         {
           "flag": "nice -5 cmd (Histórico)",
-          "desc": "⚠️ Trampa de Examen: El guión es el flag de opción, no el signo menos: asigna +5."
+          "desc": "⚠️ Trampa de Examen: El guión es el indicador de opción, no el signo menos: asigna +5."
         },
         {
           "flag": "nice --5 cmd (Histórico)",
-          "desc": "⚠️ Trampa de Examen: El primer guión es la opción y el segundo el signo negativo (-5, solo root)."
+          "desc": "⚠️ Trampa de Examen: 1er guión = opción; 2º guión = signo matemático negativo (exige root)."
         }
       ],
       "examples": [
-        "nice -n 15 tar -czf backup.tar.gz /var/log &; nice tar -czf test.tar.gz /tmp &"
+        "nice -n 15 tar -czf /backup/sistema.tar.gz /var/www &; sudo nice -n -10 make -j4"
       ],
       "exam_tips": [
         {
@@ -5815,28 +5847,28 @@
       "tema": "103",
       "subtopic_id": "103.6",
       "title": "Comando: renice",
-      "desc": "Ajustar el valor absoluto de niceness de uno o varios procesos activos",
-      "syntax": "sudo renice -n -5 -p 1419; renice +10 -u alumno",
+      "desc": "Reasignar el valor absoluto de niceness a procesos activos por PID, por usuario o por grupo",
+      "syntax": "renice -n 15 -p 4120 | sudo renice -n -5 -p 1420 | sudo renice -n 10 -u becario",
       "flags": [
         {
           "flag": "renice -n <val> -p <PID>",
-          "desc": "🎯 Clave de Examen: Fija el valor ABSOLUTO de niceness de ese proceso."
+          "desc": "🎯 Fija el valor ABSOLUTO de niceness del proceso indicado (la opción -p es el modo por defecto)."
         },
         {
-          "flag": "renice -u <usuario>",
-          "desc": "🎯 Clave de Examen: Modifica la prioridad de todos los procesos de ese usuario."
+          "flag": "renice -n <val> -u <user>",
+          "desc": "🎯 Clave de Examen: Aplica el nuevo valor a la totalidad de procesos del usuario indicado."
         },
         {
-          "flag": "renice -g <PGID>",
-          "desc": "Modifica la prioridad de un grupo de procesos completo."
+          "flag": "renice -n <val> -g <PGID>",
+          "desc": "Modifica la prioridad de un grupo de procesos completo a la vez."
         },
         {
-          "flag": "⚠️ Regla de Sentido Único",
-          "desc": "🎯 Un usuario puede aumentar su nice (+), pero una vez subido ¡no puede volver a bajarlo sin ser root!"
+          "flag": "Valor Absoluto",
+          "desc": "🎯 Clave de Examen: 'renice 5' asigna exactamente nice = 5 (no suma 5 a la prioridad anterior)."
         }
       ],
       "examples": [
-        "sudo renice -n -5 -p 1419; renice +10 -u alumno"
+        "renice -n 15 -p 4120; sudo renice -n -5 -p 1420; sudo renice -n 10 -u becario"
       ],
       "exam_tips": [
         {
@@ -5859,13 +5891,85 @@
       "tema": "103",
       "subtopic_id": "103.6",
       "title": "Archivo/Ruta: /etc/security/limits.conf",
-      "desc": "¿Dónde se configura qué usuarios pueden asignar prioridades negativas sin ser root?",
+      "desc": "¿Dónde y cómo se autoriza a usuarios específicos a fijar prioridades negativas sin ser root?",
       "syntax": "/etc/security/limits.conf",
       "flags": [],
       "examples": [],
       "exam_tips": [],
-      "slide_url": "t103/103-6-modificar-la-prioridad-d.html#/11",
+      "slide_url": "t103/103-6-modificar-la-prioridad-d.html#/10",
       "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-patronb",
+      "label": "patronb",
+      "type": "command",
+      "exam": "101",
+      "tema": "103",
+      "subtopic_id": "103.7",
+      "title": "Comando: patronb",
+      "desc": "Evaluar condiciones OR entre múltiples subpatrones y delimitar el alcance con paréntesis",
+      "syntax": "grep -E '(Failed|Accepted) password for' /var/log/auth.log 2>/dev/null | head -n 3",
+      "flags": [
+        {
+          "flag": "| (Alternancia OR)",
+          "desc": "🎯 Operador lógico 'O': coincide si se cumple el patrón a la izquierda O el patrón a la derecha ('A|B')."
+        },
+        {
+          "flag": "( ) (Agrupamiento)",
+          "desc": "🎯 Delimita el alcance de la alternancia o cuantificador: 'gr(a|e)y' busca 'gray' o 'grey' (evita que 'gray|ey' busque 'gray' o 'ey')."
+        },
+        {
+          "flag": "\\1, \\2 (Backreferences)",
+          "desc": "🎯 Referencias hacia atrás: reutiliza el texto exacto capturado por el grupo 1 o grupo 2. Ej: '([a-z]+) \\1' detecta palabras duplicadas."
+        },
+        {
+          "flag": "⚠️ Trampa en BRE",
+          "desc": "En 'grep' estándar sin '-E', el operador OR requiere barra: 'grep \"A\\|B\"' y los grupos 'grep \"\\(A\\|B\\)\"'."
+        }
+      ],
+      "examples": [
+        "grep -E '(Failed|Accepted) password for' /var/log/auth.log 2>/dev/null | head -n 3"
+      ],
+      "exam_tips": [],
+      "slide_url": "t103/103-7-realizar-busquedas-en-ar.html#/6",
+      "practice_url": "practicas/p-103-7-expresiones-regulares-grep.html",
+      "weight": 2
+    },
+    {
+      "id": "cmd-e)y",
+      "label": "e)y",
+      "type": "command",
+      "exam": "101",
+      "tema": "103",
+      "subtopic_id": "103.7",
+      "title": "Comando: e)y",
+      "desc": "Evaluar condiciones OR entre múltiples subpatrones y delimitar el alcance con paréntesis",
+      "syntax": "grep -E '(Failed|Accepted) password for' /var/log/auth.log 2>/dev/null | head -n 3",
+      "flags": [
+        {
+          "flag": "| (Alternancia OR)",
+          "desc": "🎯 Operador lógico 'O': coincide si se cumple el patrón a la izquierda O el patrón a la derecha ('A|B')."
+        },
+        {
+          "flag": "( ) (Agrupamiento)",
+          "desc": "🎯 Delimita el alcance de la alternancia o cuantificador: 'gr(a|e)y' busca 'gray' o 'grey' (evita que 'gray|ey' busque 'gray' o 'ey')."
+        },
+        {
+          "flag": "\\1, \\2 (Backreferences)",
+          "desc": "🎯 Referencias hacia atrás: reutiliza el texto exacto capturado por el grupo 1 o grupo 2. Ej: '([a-z]+) \\1' detecta palabras duplicadas."
+        },
+        {
+          "flag": "⚠️ Trampa en BRE",
+          "desc": "En 'grep' estándar sin '-E', el operador OR requiere barra: 'grep \"A\\|B\"' y los grupos 'grep \"\\(A\\|B\\)\"'."
+        }
+      ],
+      "examples": [
+        "grep -E '(Failed|Accepted) password for' /var/log/auth.log 2>/dev/null | head -n 3"
+      ],
+      "exam_tips": [],
+      "slide_url": "t103/103-7-realizar-busquedas-en-ar.html#/6",
+      "practice_url": "practicas/p-103-7-expresiones-regulares-grep.html",
       "weight": 2
     },
     {
@@ -5876,24 +5980,28 @@
       "tema": "103",
       "subtopic_id": "103.7",
       "title": "Comando: egrep",
-      "desc": "Seleccionar el motor de búsqueda adecuado según el tipo de patrón o rendimiento deseado",
-      "syntax": "echo 'a+b=c' | fgrep 'a+b'; echo 'a+b=c' | grep -F 'a+b'",
+      "desc": "Diferenciar los tres motores de búsqueda históricos y su equivalencia moderna con flags",
+      "syntax": "fgrep '192.168.1.1' /etc/hosts; grep -F '*.tar.gz' /var/log/dpkg.log 2>/dev/null | head -n 2",
       "flags": [
         {
-          "flag": "grep (BRE)",
-          "desc": "🎯 Motor básico: \\+ y \\? para cuantificadores avanzados."
+          "flag": "grep (Global Regexp Print)",
+          "desc": "🎯 Motor estándar BRE por defecto. Los operadores avanzados (+, ?, |, ()) requieren barra invertida."
         },
         {
-          "flag": "egrep / grep -E",
-          "desc": "🎯 Motor extendido: +, ?, |, (), {} directos sin barras invertidas."
+          "flag": "egrep (grep -E)",
+          "desc": "🎯 Extended grep: motor ERE. Soporta toda la sintaxis moderna (+, ?, |, ()) de forma directa y nativa."
         },
         {
-          "flag": "fgrep / grep -F",
-          "desc": "🎯 Clave Absoluta de Examen: CERO regex. Trata '.', '*', '+' como letras ordinarias. El más rápido."
+          "flag": "fgrep (grep -F)",
+          "desc": "🎯 Fixed grep: ¡CERO expresiones regulares! Busca cadenas de texto literal puro a máxima velocidad."
+        },
+        {
+          "flag": "⚡ Ventaja de fgrep",
+          "desc": "🎯 Inmunidad a metacaracteres: Si buscas '192.168.1.1' o '$100', los puntos y dólares son texto real. Ultra-rápido en ficheros gigantes."
         }
       ],
       "examples": [
-        "echo 'a+b=c' | fgrep 'a+b'; echo 'a+b=c' | grep -F 'a+b'"
+        "fgrep '192.168.1.1' /etc/hosts; grep -F '*.tar.gz' /var/log/dpkg.log 2>/dev/null | head -n 2"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-7-realizar-busquedas-en-ar.html#/7",
@@ -5908,24 +6016,28 @@
       "tema": "103",
       "subtopic_id": "103.7",
       "title": "Comando: fgrep",
-      "desc": "Seleccionar el motor de búsqueda adecuado según el tipo de patrón o rendimiento deseado",
-      "syntax": "echo 'a+b=c' | fgrep 'a+b'; echo 'a+b=c' | grep -F 'a+b'",
+      "desc": "Diferenciar los tres motores de búsqueda históricos y su equivalencia moderna con flags",
+      "syntax": "fgrep '192.168.1.1' /etc/hosts; grep -F '*.tar.gz' /var/log/dpkg.log 2>/dev/null | head -n 2",
       "flags": [
         {
-          "flag": "grep (BRE)",
-          "desc": "🎯 Motor básico: \\+ y \\? para cuantificadores avanzados."
+          "flag": "grep (Global Regexp Print)",
+          "desc": "🎯 Motor estándar BRE por defecto. Los operadores avanzados (+, ?, |, ()) requieren barra invertida."
         },
         {
-          "flag": "egrep / grep -E",
-          "desc": "🎯 Motor extendido: +, ?, |, (), {} directos sin barras invertidas."
+          "flag": "egrep (grep -E)",
+          "desc": "🎯 Extended grep: motor ERE. Soporta toda la sintaxis moderna (+, ?, |, ()) de forma directa y nativa."
         },
         {
-          "flag": "fgrep / grep -F",
-          "desc": "🎯 Clave Absoluta de Examen: CERO regex. Trata '.', '*', '+' como letras ordinarias. El más rápido."
+          "flag": "fgrep (grep -F)",
+          "desc": "🎯 Fixed grep: ¡CERO expresiones regulares! Busca cadenas de texto literal puro a máxima velocidad."
+        },
+        {
+          "flag": "⚡ Ventaja de fgrep",
+          "desc": "🎯 Inmunidad a metacaracteres: Si buscas '192.168.1.1' o '$100', los puntos y dólares son texto real. Ultra-rápido en ficheros gigantes."
         }
       ],
       "examples": [
-        "echo 'a+b=c' | fgrep 'a+b'; echo 'a+b=c' | grep -F 'a+b'"
+        "fgrep '192.168.1.1' /etc/hosts; grep -F '*.tar.gz' /var/log/dpkg.log 2>/dev/null | head -n 2"
       ],
       "exam_tips": [],
       "slide_url": "t103/103-7-realizar-busquedas-en-ar.html#/7",
@@ -5941,31 +6053,31 @@
       "subtopic_id": "103.7",
       "title": "Comando: less",
       "desc": "Ejecutar búsquedas interactivas con soporte nativo de expresiones regulares en el visor less",
-      "syntax": "# Al abrir un log con 'less /var/log/syslog':\n/kernel.*error\n# Salta a la primera coincidencia hacia adelante.",
+      "syntax": "# Al abrir un log masivo con 'less /var/log/syslog':\n/kernel.*error\n# Salta instantáneamente a la primera coincidencia hacia adelante.",
       "flags": [
         {
-          "flag": "/patrón",
-          "desc": "🎯 Clave de Examen: Busca hacia ADELANTE (hacia el final del archivo) el patrón de expresión regular."
+          "flag": "/<patrón>",
+          "desc": "🎯 Clave de Examen: Busca hacia ADELANTE (hacia el final del fichero) el patrón de expresión regular indicado."
         },
         {
-          "flag": "?patrón",
-          "desc": "🎯 Clave de Examen: Busca hacia ATRÁS (hacia el inicio del archivo) el patrón de expresión regular."
+          "flag": "?<patrón>",
+          "desc": "🎯 Clave de Examen: Busca hacia ATRÁS (hacia el inicio del fichero) el patrón de expresión regular indicado."
         },
         {
           "flag": "n",
-          "desc": "🎯 Salta a la SIGUIENTE coincidencia en la misma dirección de la búsqueda."
+          "desc": "🎯 Siguiente coincidencia: salta al siguiente resultado en la misma dirección de la búsqueda."
         },
         {
           "flag": "N",
-          "desc": "🎯 Salta a la coincidencia ANTERIOR en la dirección opuesta."
+          "desc": "🎯 Coincidencia anterior: salta al resultado anterior en dirección opuesta."
         },
         {
           "flag": "q",
-          "desc": "Sale inmediatamente del paginador less regresando a la terminal."
+          "desc": "🎯 Salir inmediatamente de less regresando al prompt de la shell."
         }
       ],
       "examples": [
-        "# Al abrir un log con 'less /var/log/syslog':\n/kernel.*error\n# Salta a la primera coincidencia hacia adelante."
+        "# Al abrir un log masivo con 'less /var/log/syslog':\n/kernel.*error\n# Salta instantáneamente a la primera coincidencia hacia adelante."
       ],
       "exam_tips": [
         {
@@ -8917,7 +9029,7 @@
     {
       "id": "e_121",
       "from": "sub-103-5",
-      "to": "cmd-watch",
+      "to": "cmd-disown",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8925,7 +9037,7 @@
     {
       "id": "e_122",
       "from": "sub-103-5",
-      "to": "cmd-kill",
+      "to": "cmd-watch",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8933,7 +9045,7 @@
     {
       "id": "e_123",
       "from": "sub-103-5",
-      "to": "cmd-history",
+      "to": "cmd-kill",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8941,7 +9053,7 @@
     {
       "id": "e_124",
       "from": "sub-103-5",
-      "to": "cmd-killall",
+      "to": "cmd-history",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8949,7 +9061,7 @@
     {
       "id": "e_125",
       "from": "sub-103-5",
-      "to": "cmd-pkill",
+      "to": "cmd-killall",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8957,7 +9069,7 @@
     {
       "id": "e_126",
       "from": "sub-103-5",
-      "to": "cmd-pgrep",
+      "to": "cmd-pkill",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8965,7 +9077,7 @@
     {
       "id": "e_127",
       "from": "sub-103-5",
-      "to": "cmd-pidof",
+      "to": "cmd-pgrep",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8973,7 +9085,7 @@
     {
       "id": "e_128",
       "from": "sub-103-5",
-      "to": "cmd-ps",
+      "to": "cmd-pidof",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8981,7 +9093,7 @@
     {
       "id": "e_129",
       "from": "sub-103-5",
-      "to": "cmd-top",
+      "to": "cmd-ps",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8989,7 +9101,7 @@
     {
       "id": "e_130",
       "from": "sub-103-5",
-      "to": "cmd-uptime",
+      "to": "cmd-top",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -8997,7 +9109,7 @@
     {
       "id": "e_131",
       "from": "sub-103-5",
-      "to": "cmd-free",
+      "to": "cmd-uptime",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9005,7 +9117,7 @@
     {
       "id": "e_132",
       "from": "sub-103-5",
-      "to": "cmd-screen",
+      "to": "cmd-free",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9013,7 +9125,7 @@
     {
       "id": "e_133",
       "from": "sub-103-5",
-      "to": "cmd-tmux",
+      "to": "cmd-screen",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9021,15 +9133,15 @@
     {
       "id": "e_134",
       "from": "sub-103-5",
-      "to": "cmd-ls",
+      "to": "cmd-tmux",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_135",
-      "from": "sub-103-6",
-      "to": "cmd-ps",
+      "from": "sub-103-5",
+      "to": "cmd-ls",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9037,7 +9149,7 @@
     {
       "id": "e_136",
       "from": "sub-103-6",
-      "to": "cmd-top",
+      "to": "cmd-ps",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9045,7 +9157,7 @@
     {
       "id": "e_137",
       "from": "sub-103-6",
-      "to": "cmd-nice",
+      "to": "cmd-top",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9053,7 +9165,7 @@
     {
       "id": "e_138",
       "from": "sub-103-6",
-      "to": "cmd-renice",
+      "to": "cmd-nice",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9061,23 +9173,23 @@
     {
       "id": "e_139",
       "from": "sub-103-6",
+      "to": "cmd-renice",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_140",
+      "from": "sub-103-6",
       "to": "file-etc-security-limits-conf",
       "label": "define",
       "rel_type": "definition",
       "dashes": false
     },
     {
-      "id": "e_140",
-      "from": "sub-103-7",
-      "to": "cmd-grep",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
       "id": "e_141",
       "from": "sub-103-7",
-      "to": "cmd-egrep",
+      "to": "cmd-grep",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9085,7 +9197,7 @@
     {
       "id": "e_142",
       "from": "sub-103-7",
-      "to": "cmd-fgrep",
+      "to": "cmd-patronb",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9093,7 +9205,7 @@
     {
       "id": "e_143",
       "from": "sub-103-7",
-      "to": "cmd-sed",
+      "to": "cmd-e)y",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9101,13 +9213,37 @@
     {
       "id": "e_144",
       "from": "sub-103-7",
-      "to": "cmd-less",
+      "to": "cmd-egrep",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_145",
+      "from": "sub-103-7",
+      "to": "cmd-fgrep",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_146",
+      "from": "sub-103-7",
+      "to": "cmd-sed",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_147",
+      "from": "sub-103-7",
+      "to": "cmd-less",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_148",
       "from": "sub-103-8",
       "to": "cmd-vi",
       "label": "evalúa",
@@ -9115,7 +9251,7 @@
       "dashes": false
     },
     {
-      "id": "e_146",
+      "id": "e_149",
       "from": "sub-103-8",
       "to": "cmd-export",
       "label": "evalúa",
@@ -9123,33 +9259,9 @@
       "dashes": false
     },
     {
-      "id": "e_147",
-      "from": "sub-104-1",
-      "to": "cmd-fdisk",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_148",
-      "from": "sub-104-1",
-      "to": "cmd-gdisk",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_149",
-      "from": "sub-104-1",
-      "to": "cmd-parted",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
       "id": "e_150",
       "from": "sub-104-1",
-      "to": "cmd-mkfs",
+      "to": "cmd-fdisk",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9157,7 +9269,7 @@
     {
       "id": "e_151",
       "from": "sub-104-1",
-      "to": "cmd-mke2fs",
+      "to": "cmd-gdisk",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9165,7 +9277,7 @@
     {
       "id": "e_152",
       "from": "sub-104-1",
-      "to": "cmd-mkfs.xfs",
+      "to": "cmd-parted",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9173,7 +9285,7 @@
     {
       "id": "e_153",
       "from": "sub-104-1",
-      "to": "cmd-mkfs.btrfs",
+      "to": "cmd-mkfs",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9181,7 +9293,7 @@
     {
       "id": "e_154",
       "from": "sub-104-1",
-      "to": "cmd-mkswap",
+      "to": "cmd-mke2fs",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9189,7 +9301,7 @@
     {
       "id": "e_155",
       "from": "sub-104-1",
-      "to": "cmd-swapon",
+      "to": "cmd-mkfs.xfs",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9197,31 +9309,31 @@
     {
       "id": "e_156",
       "from": "sub-104-1",
-      "to": "cmd-swapoff",
+      "to": "cmd-mkfs.btrfs",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_157",
-      "from": "sub-104-2",
-      "to": "cmd-df",
+      "from": "sub-104-1",
+      "to": "cmd-mkswap",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_158",
-      "from": "sub-104-2",
-      "to": "cmd-du",
+      "from": "sub-104-1",
+      "to": "cmd-swapon",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_159",
-      "from": "sub-104-2",
-      "to": "cmd-fsck",
+      "from": "sub-104-1",
+      "to": "cmd-swapoff",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9229,7 +9341,7 @@
     {
       "id": "e_160",
       "from": "sub-104-2",
-      "to": "cmd-dumpe2fs",
+      "to": "cmd-df",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9237,7 +9349,7 @@
     {
       "id": "e_161",
       "from": "sub-104-2",
-      "to": "cmd-tune2fs",
+      "to": "cmd-du",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9245,7 +9357,7 @@
     {
       "id": "e_162",
       "from": "sub-104-2",
-      "to": "cmd-xfs_repair",
+      "to": "cmd-fsck",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9253,7 +9365,7 @@
     {
       "id": "e_163",
       "from": "sub-104-2",
-      "to": "cmd-xfs_fsr",
+      "to": "cmd-dumpe2fs",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9261,7 +9373,7 @@
     {
       "id": "e_164",
       "from": "sub-104-2",
-      "to": "cmd-xfs_admin",
+      "to": "cmd-tune2fs",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9269,31 +9381,31 @@
     {
       "id": "e_165",
       "from": "sub-104-2",
-      "to": "cmd-xfs_info",
+      "to": "cmd-xfs_repair",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_166",
-      "from": "sub-104-3",
-      "to": "cmd-mount",
+      "from": "sub-104-2",
+      "to": "cmd-xfs_fsr",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_167",
-      "from": "sub-104-3",
-      "to": "cmd-umount",
+      "from": "sub-104-2",
+      "to": "cmd-xfs_admin",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_168",
-      "from": "sub-104-3",
-      "to": "cmd-fuser",
+      "from": "sub-104-2",
+      "to": "cmd-xfs_info",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9301,7 +9413,7 @@
     {
       "id": "e_169",
       "from": "sub-104-3",
-      "to": "cmd-lsof",
+      "to": "cmd-mount",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9309,15 +9421,15 @@
     {
       "id": "e_170",
       "from": "sub-104-3",
-      "to": "file-etc-fstab",
-      "label": "define",
-      "rel_type": "definition",
+      "to": "cmd-umount",
+      "label": "evalúa",
+      "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_171",
       "from": "sub-104-3",
-      "to": "cmd-blkid",
+      "to": "cmd-fuser",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9325,7 +9437,7 @@
     {
       "id": "e_172",
       "from": "sub-104-3",
-      "to": "cmd-lsblk",
+      "to": "cmd-lsof",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9333,31 +9445,31 @@
     {
       "id": "e_173",
       "from": "sub-104-3",
-      "to": "cmd-findfs",
-      "label": "evalúa",
-      "rel_type": "evaluation",
+      "to": "file-etc-fstab",
+      "label": "define",
+      "rel_type": "definition",
       "dashes": false
     },
     {
       "id": "e_174",
-      "from": "sub-104-5",
-      "to": "cmd-chmod",
+      "from": "sub-104-3",
+      "to": "cmd-blkid",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_175",
-      "from": "sub-104-5",
-      "to": "cmd-chown",
+      "from": "sub-104-3",
+      "to": "cmd-lsblk",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_176",
-      "from": "sub-104-5",
-      "to": "cmd-chgrp",
+      "from": "sub-104-3",
+      "to": "cmd-findfs",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9365,39 +9477,39 @@
     {
       "id": "e_177",
       "from": "sub-104-5",
-      "to": "file-etc-login-defs---etc-profile-y----bashrc",
-      "label": "define",
-      "rel_type": "definition",
+      "to": "cmd-chmod",
+      "label": "evalúa",
+      "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_178",
-      "from": "sub-104-6",
-      "to": "cmd-ln",
+      "from": "sub-104-5",
+      "to": "cmd-chown",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_179",
-      "from": "sub-104-6",
-      "to": "cmd-readlink",
+      "from": "sub-104-5",
+      "to": "cmd-chgrp",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_180",
-      "from": "sub-104-6",
-      "to": "cmd-unlink",
-      "label": "evalúa",
-      "rel_type": "evaluation",
+      "from": "sub-104-5",
+      "to": "file-etc-login-defs---etc-profile-y----bashrc",
+      "label": "define",
+      "rel_type": "definition",
       "dashes": false
     },
     {
       "id": "e_181",
       "from": "sub-104-6",
-      "to": "cmd-cp",
+      "to": "cmd-ln",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9405,31 +9517,31 @@
     {
       "id": "e_182",
       "from": "sub-104-6",
-      "to": "cmd-find",
+      "to": "cmd-readlink",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_183",
-      "from": "sub-104-7",
-      "to": "cmd-locate",
+      "from": "sub-104-6",
+      "to": "cmd-unlink",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_184",
-      "from": "sub-104-7",
-      "to": "file-etc-updatedb-conf-y-base-de-datos--var-lib-mlocate-mlocate-db",
-      "label": "define",
-      "rel_type": "definition",
+      "from": "sub-104-6",
+      "to": "cmd-cp",
+      "label": "evalúa",
+      "rel_type": "evaluation",
       "dashes": false
     },
     {
       "id": "e_185",
-      "from": "sub-104-7",
-      "to": "cmd-which",
+      "from": "sub-104-6",
+      "to": "cmd-find",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9437,7 +9549,7 @@
     {
       "id": "e_186",
       "from": "sub-104-7",
-      "to": "cmd-whereis",
+      "to": "cmd-locate",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
@@ -9445,13 +9557,37 @@
     {
       "id": "e_187",
       "from": "sub-104-7",
+      "to": "file-etc-updatedb-conf-y-base-de-datos--var-lib-mlocate-mlocate-db",
+      "label": "define",
+      "rel_type": "definition",
+      "dashes": false
+    },
+    {
+      "id": "e_188",
+      "from": "sub-104-7",
+      "to": "cmd-which",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_189",
+      "from": "sub-104-7",
+      "to": "cmd-whereis",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_190",
+      "from": "sub-104-7",
       "to": "cmd-type",
       "label": "evalúa",
       "rel_type": "evaluation",
       "dashes": false
     },
     {
-      "id": "e_188",
+      "id": "e_191",
       "from": "exam-trap-mkfs-default",
       "to": "cmd-mkfs",
       "label": "punto crítico de examen",
@@ -9459,7 +9595,7 @@
       "dashes": false
     },
     {
-      "id": "e_189",
+      "id": "e_192",
       "from": "exam-trap-mkfs-default",
       "to": "sub-104-1",
       "label": "punto crítico de examen",
@@ -9467,7 +9603,7 @@
       "dashes": false
     },
     {
-      "id": "e_190",
+      "id": "e_193",
       "from": "exam-trap-fstab-fields",
       "to": "file-etc-fstab",
       "label": "punto crítico de examen",
@@ -9475,32 +9611,8 @@
       "dashes": false
     },
     {
-      "id": "e_191",
-      "from": "exam-trap-fstab-fields",
-      "to": "cmd-mount",
-      "label": "punto crítico de examen",
-      "rel_type": "exam_relation",
-      "dashes": false
-    },
-    {
-      "id": "e_192",
-      "from": "exam-trap-fstab-fields",
-      "to": "cmd-fsck",
-      "label": "punto crítico de examen",
-      "rel_type": "exam_relation",
-      "dashes": false
-    },
-    {
-      "id": "e_193",
-      "from": "exam-trap-fstab-fields",
-      "to": "sub-104-3",
-      "label": "punto crítico de examen",
-      "rel_type": "exam_relation",
-      "dashes": false
-    },
-    {
       "id": "e_194",
-      "from": "exam-trap-mount-bind",
+      "from": "exam-trap-fstab-fields",
       "to": "cmd-mount",
       "label": "punto crítico de examen",
       "rel_type": "exam_relation",
@@ -9508,15 +9620,15 @@
     },
     {
       "id": "e_195",
-      "from": "exam-trap-mount-bind",
-      "to": "file-etc-fstab",
+      "from": "exam-trap-fstab-fields",
+      "to": "cmd-fsck",
       "label": "punto crítico de examen",
       "rel_type": "exam_relation",
       "dashes": false
     },
     {
       "id": "e_196",
-      "from": "exam-trap-mount-bind",
+      "from": "exam-trap-fstab-fields",
       "to": "sub-104-3",
       "label": "punto crítico de examen",
       "rel_type": "exam_relation",
@@ -9524,6 +9636,30 @@
     },
     {
       "id": "e_197",
+      "from": "exam-trap-mount-bind",
+      "to": "cmd-mount",
+      "label": "punto crítico de examen",
+      "rel_type": "exam_relation",
+      "dashes": false
+    },
+    {
+      "id": "e_198",
+      "from": "exam-trap-mount-bind",
+      "to": "file-etc-fstab",
+      "label": "punto crítico de examen",
+      "rel_type": "exam_relation",
+      "dashes": false
+    },
+    {
+      "id": "e_199",
+      "from": "exam-trap-mount-bind",
+      "to": "sub-104-3",
+      "label": "punto crítico de examen",
+      "rel_type": "exam_relation",
+      "dashes": false
+    },
+    {
+      "id": "e_200",
       "from": "exam-trap-tar-f",
       "to": "cmd-tar",
       "label": "punto crítico de examen",
@@ -9531,7 +9667,7 @@
       "dashes": false
     },
     {
-      "id": "e_198",
+      "id": "e_201",
       "from": "exam-trap-tar-f",
       "to": "sub-103-3",
       "label": "punto crítico de examen",
@@ -9539,7 +9675,7 @@
       "dashes": false
     },
     {
-      "id": "e_199",
+      "id": "e_202",
       "from": "exam-trap-find-print0",
       "to": "cmd-find",
       "label": "punto crítico de examen",
@@ -9547,7 +9683,7 @@
       "dashes": false
     },
     {
-      "id": "e_200",
+      "id": "e_203",
       "from": "exam-trap-find-print0",
       "to": "cmd-xargs",
       "label": "punto crítico de examen",
@@ -9555,7 +9691,7 @@
       "dashes": false
     },
     {
-      "id": "e_201",
+      "id": "e_204",
       "from": "exam-trap-find-print0",
       "to": "sub-103-3",
       "label": "punto crítico de examen",
@@ -9563,7 +9699,7 @@
       "dashes": false
     },
     {
-      "id": "e_202",
+      "id": "e_205",
       "from": "exam-trap-nice-default",
       "to": "cmd-nice",
       "label": "punto crítico de examen",
@@ -9571,7 +9707,7 @@
       "dashes": false
     },
     {
-      "id": "e_203",
+      "id": "e_206",
       "from": "exam-trap-nice-default",
       "to": "sub-103-6",
       "label": "punto crítico de examen",
@@ -9579,7 +9715,7 @@
       "dashes": false
     },
     {
-      "id": "e_204",
+      "id": "e_207",
       "from": "exam-trap-single-quotes",
       "to": "cmd-export",
       "label": "punto crítico de examen",
@@ -9587,7 +9723,7 @@
       "dashes": false
     },
     {
-      "id": "e_205",
+      "id": "e_208",
       "from": "exam-trap-single-quotes",
       "to": "sub-103-1",
       "label": "punto crítico de examen",
@@ -9595,7 +9731,7 @@
       "dashes": false
     },
     {
-      "id": "e_206",
+      "id": "e_209",
       "from": "exam-trap-sigstop-sigtstp",
       "to": "cmd-kill",
       "label": "punto crítico de examen",
@@ -9603,7 +9739,7 @@
       "dashes": false
     },
     {
-      "id": "e_207",
+      "id": "e_210",
       "from": "exam-trap-sigstop-sigtstp",
       "to": "sub-103-5",
       "label": "punto crítico de examen",
@@ -9611,7 +9747,7 @@
       "dashes": false
     },
     {
-      "id": "e_208",
+      "id": "e_211",
       "from": "exam-trap-hardlink-restrictions",
       "to": "cmd-ln",
       "label": "punto crítico de examen",
@@ -9619,7 +9755,7 @@
       "dashes": false
     },
     {
-      "id": "e_209",
+      "id": "e_212",
       "from": "exam-trap-hardlink-restrictions",
       "to": "sub-104-6",
       "label": "punto crítico de examen",
@@ -9627,39 +9763,39 @@
       "dashes": false
     },
     {
-      "id": "e_210",
-      "from": "exam-trap-systemctl-isolate",
-      "to": "cmd-systemctl",
-      "label": "punto crítico de examen",
-      "rel_type": "exam_relation",
-      "dashes": false
-    },
-    {
-      "id": "e_211",
-      "from": "exam-trap-systemctl-isolate",
-      "to": "sub-101-3",
-      "label": "punto crítico de examen",
-      "rel_type": "exam_relation",
-      "dashes": false
-    },
-    {
-      "id": "e_212",
-      "from": "exam-trap-systemctl-mask",
-      "to": "cmd-systemctl",
-      "label": "punto crítico de examen",
-      "rel_type": "exam_relation",
-      "dashes": false
-    },
-    {
       "id": "e_213",
-      "from": "exam-trap-systemctl-mask",
-      "to": "sub-101-3",
+      "from": "exam-trap-systemctl-isolate",
+      "to": "cmd-systemctl",
       "label": "punto crítico de examen",
       "rel_type": "exam_relation",
       "dashes": false
     },
     {
       "id": "e_214",
+      "from": "exam-trap-systemctl-isolate",
+      "to": "sub-101-3",
+      "label": "punto crítico de examen",
+      "rel_type": "exam_relation",
+      "dashes": false
+    },
+    {
+      "id": "e_215",
+      "from": "exam-trap-systemctl-mask",
+      "to": "cmd-systemctl",
+      "label": "punto crítico de examen",
+      "rel_type": "exam_relation",
+      "dashes": false
+    },
+    {
+      "id": "e_216",
+      "from": "exam-trap-systemctl-mask",
+      "to": "sub-101-3",
+      "label": "punto crítico de examen",
+      "rel_type": "exam_relation",
+      "dashes": false
+    },
+    {
+      "id": "e_217",
       "from": "exam-trap-man-sections",
       "to": "cmd-man",
       "label": "punto crítico de examen",
@@ -9667,7 +9803,7 @@
       "dashes": false
     },
     {
-      "id": "e_215",
+      "id": "e_218",
       "from": "exam-trap-man-sections",
       "to": "sub-103-1",
       "label": "punto crítico de examen",
@@ -9675,7 +9811,7 @@
       "dashes": false
     },
     {
-      "id": "e_216",
+      "id": "e_219",
       "from": "exam-trap-grub-partition-numbering",
       "to": "cmd-grub-install",
       "label": "punto crítico de examen",
@@ -9683,7 +9819,7 @@
       "dashes": false
     },
     {
-      "id": "e_217",
+      "id": "e_220",
       "from": "exam-trap-grub-partition-numbering",
       "to": "sub-102-2",
       "label": "punto crítico de examen",
@@ -9691,7 +9827,7 @@
       "dashes": false
     },
     {
-      "id": "e_218",
+      "id": "e_221",
       "from": "exam-trap-apt-remove-vs-purge",
       "to": "cmd-apt-get",
       "label": "punto crítico de examen",
@@ -9699,7 +9835,7 @@
       "dashes": false
     },
     {
-      "id": "e_219",
+      "id": "e_222",
       "from": "exam-trap-apt-remove-vs-purge",
       "to": "cmd-dpkg",
       "label": "punto crítico de examen",
@@ -9707,7 +9843,7 @@
       "dashes": false
     },
     {
-      "id": "e_220",
+      "id": "e_223",
       "from": "exam-trap-apt-remove-vs-purge",
       "to": "sub-102-4",
       "label": "punto crítico de examen",
@@ -9715,7 +9851,7 @@
       "dashes": false
     },
     {
-      "id": "e_221",
+      "id": "e_224",
       "from": "exam-trap-rpm-nodeps",
       "to": "cmd-rpm",
       "label": "punto crítico de examen",
@@ -9723,7 +9859,7 @@
       "dashes": false
     },
     {
-      "id": "e_222",
+      "id": "e_225",
       "from": "exam-trap-rpm-nodeps",
       "to": "sub-102-5",
       "label": "punto crítico de examen",
@@ -9731,39 +9867,39 @@
       "dashes": false
     },
     {
-      "id": "e_223",
-      "from": "exam-trap-umask-calculation",
-      "to": "cmd-chmod",
-      "label": "punto crítico de examen",
-      "rel_type": "exam_relation",
-      "dashes": false
-    },
-    {
-      "id": "e_224",
-      "from": "exam-trap-umask-calculation",
-      "to": "sub-104-5",
-      "label": "punto crítico de examen",
-      "rel_type": "exam_relation",
-      "dashes": false
-    },
-    {
-      "id": "e_225",
-      "from": "exam-trap-suid-sgid-bits",
-      "to": "cmd-chmod",
-      "label": "punto crítico de examen",
-      "rel_type": "exam_relation",
-      "dashes": false
-    },
-    {
       "id": "e_226",
-      "from": "exam-trap-suid-sgid-bits",
-      "to": "sub-104-5",
+      "from": "exam-trap-umask-calculation",
+      "to": "cmd-chmod",
       "label": "punto crítico de examen",
       "rel_type": "exam_relation",
       "dashes": false
     },
     {
       "id": "e_227",
+      "from": "exam-trap-umask-calculation",
+      "to": "sub-104-5",
+      "label": "punto crítico de examen",
+      "rel_type": "exam_relation",
+      "dashes": false
+    },
+    {
+      "id": "e_228",
+      "from": "exam-trap-suid-sgid-bits",
+      "to": "cmd-chmod",
+      "label": "punto crítico de examen",
+      "rel_type": "exam_relation",
+      "dashes": false
+    },
+    {
+      "id": "e_229",
+      "from": "exam-trap-suid-sgid-bits",
+      "to": "sub-104-5",
+      "label": "punto crítico de examen",
+      "rel_type": "exam_relation",
+      "dashes": false
+    },
+    {
+      "id": "e_230",
       "from": "exam-trap-swap-fstab",
       "to": "cmd-mkswap",
       "label": "punto crítico de examen",
@@ -9771,7 +9907,7 @@
       "dashes": false
     },
     {
-      "id": "e_228",
+      "id": "e_231",
       "from": "exam-trap-swap-fstab",
       "to": "file-etc-fstab",
       "label": "punto crítico de examen",
@@ -9779,7 +9915,7 @@
       "dashes": false
     },
     {
-      "id": "e_229",
+      "id": "e_232",
       "from": "exam-trap-swap-fstab",
       "to": "sub-102-1",
       "label": "punto crítico de examen",
@@ -9787,7 +9923,7 @@
       "dashes": false
     },
     {
-      "id": "e_230",
+      "id": "e_233",
       "from": "cmd-mount",
       "to": "file-etc-fstab",
       "label": "lee configuración de montajes permanentes de",
@@ -9795,7 +9931,7 @@
       "dashes": false
     },
     {
-      "id": "e_231",
+      "id": "e_234",
       "from": "cmd-mount",
       "to": "cmd-blkid",
       "label": "se apoya para resolver UUID y etiquetas en",
@@ -9803,7 +9939,7 @@
       "dashes": false
     },
     {
-      "id": "e_232",
+      "id": "e_235",
       "from": "cmd-mount",
       "to": "cmd-lsblk",
       "label": "inspecciona la topología de bloques con",
@@ -9811,7 +9947,7 @@
       "dashes": false
     },
     {
-      "id": "e_233",
+      "id": "e_236",
       "from": "cmd-umount",
       "to": "cmd-mount",
       "label": "desmonta sistemas de archivos previamente acoplados por",
@@ -9819,7 +9955,7 @@
       "dashes": false
     },
     {
-      "id": "e_234",
+      "id": "e_237",
       "from": "cmd-fsck",
       "to": "file-etc-fstab",
       "label": "determina el orden de verificación con el 6º campo de",
@@ -9827,7 +9963,7 @@
       "dashes": false
     },
     {
-      "id": "e_235",
+      "id": "e_238",
       "from": "cmd-tune2fs",
       "to": "cmd-mkfs",
       "label": "ajusta parámetros de sistemas ext2/3/4 creados por",
@@ -9835,7 +9971,7 @@
       "dashes": false
     },
     {
-      "id": "e_236",
+      "id": "e_239",
       "from": "cmd-dumpe2fs",
       "to": "cmd-mkfs",
       "label": "imprime información del superbloque generado por",
@@ -9843,7 +9979,7 @@
       "dashes": false
     },
     {
-      "id": "e_237",
+      "id": "e_240",
       "from": "cmd-systemctl",
       "to": "cmd-telinit",
       "label": "reemplazo moderno en Linux de",
@@ -9851,7 +9987,7 @@
       "dashes": false
     },
     {
-      "id": "e_238",
+      "id": "e_241",
       "from": "cmd-systemctl",
       "to": "cmd-journalctl",
       "label": "controla demonios cuyos registros audita",
@@ -9859,7 +9995,7 @@
       "dashes": false
     },
     {
-      "id": "e_239",
+      "id": "e_242",
       "from": "cmd-systemctl",
       "to": "file-etc-inittab",
       "label": "sustituye la configuración central de",
@@ -9867,7 +10003,7 @@
       "dashes": false
     },
     {
-      "id": "e_240",
+      "id": "e_243",
       "from": "cmd-systemctl",
       "to": "cmd-shutdown",
       "label": "gestiona apagado coordinado y ordenado mediante",
@@ -9875,7 +10011,7 @@
       "dashes": false
     },
     {
-      "id": "e_241",
+      "id": "e_244",
       "from": "cmd-dmesg",
       "to": "cmd-journalctl",
       "label": "muestra el buffer de arranque antes de que inicie",
@@ -9883,7 +10019,7 @@
       "dashes": false
     },
     {
-      "id": "e_242",
+      "id": "e_245",
       "from": "cmd-modprobe",
       "to": "cmd-lsmod",
       "label": "carga módulos cuyas dependencias y estado lista",
@@ -9891,7 +10027,7 @@
       "dashes": false
     },
     {
-      "id": "e_243",
+      "id": "e_246",
       "from": "cmd-modprobe",
       "to": "cmd-modinfo",
       "label": "resuelve parámetros inspeccionados previamente con",
@@ -9899,7 +10035,7 @@
       "dashes": false
     },
     {
-      "id": "e_244",
+      "id": "e_247",
       "from": "cmd-lspci",
       "to": "cmd-modprobe",
       "label": "identifica hardware PCI y drivers sugeridos para",
@@ -9907,7 +10043,7 @@
       "dashes": false
     },
     {
-      "id": "e_245",
+      "id": "e_248",
       "from": "cmd-lsusb",
       "to": "cmd-modprobe",
       "label": "inspecciona periféricos USB gestionados por",
@@ -9915,7 +10051,7 @@
       "dashes": false
     },
     {
-      "id": "e_246",
+      "id": "e_249",
       "from": "cmd-find",
       "to": "cmd-xargs",
       "label": "envía listas de archivos delimitados por '\\0' a",
@@ -9923,7 +10059,7 @@
       "dashes": false
     },
     {
-      "id": "e_247",
+      "id": "e_250",
       "from": "cmd-grep",
       "to": "cmd-sed",
       "label": "filtra líneas antes de la transformación de texto con",
@@ -9931,7 +10067,7 @@
       "dashes": false
     },
     {
-      "id": "e_248",
+      "id": "e_251",
       "from": "cmd-cat",
       "to": "cmd-grep",
       "label": "canaliza secuencias de texto hacia",
@@ -9939,7 +10075,7 @@
       "dashes": false
     },
     {
-      "id": "e_249",
+      "id": "e_252",
       "from": "cmd-cut",
       "to": "cmd-sort",
       "label": "extrae campos que luego se ordenan con",
@@ -9947,7 +10083,7 @@
       "dashes": false
     },
     {
-      "id": "e_250",
+      "id": "e_253",
       "from": "cmd-sort",
       "to": "cmd-uniq",
       "label": "requiere ordenar las líneas antes de eliminar duplicados con",
@@ -9955,7 +10091,7 @@
       "dashes": false
     },
     {
-      "id": "e_251",
+      "id": "e_254",
       "from": "cmd-tee",
       "to": "cmd-grep",
       "label": "duplica el flujo de la tubería hacia un fichero y hacia",
@@ -9963,7 +10099,7 @@
       "dashes": false
     },
     {
-      "id": "e_252",
+      "id": "e_255",
       "from": "cmd-nice",
       "to": "cmd-renice",
       "label": "asigna niceness inicial modificable posteriormente en vivo por",
@@ -9971,7 +10107,7 @@
       "dashes": false
     },
     {
-      "id": "e_253",
+      "id": "e_256",
       "from": "cmd-ps",
       "to": "cmd-kill",
       "label": "identifica el PID necesario para enviar señales con",
@@ -9979,7 +10115,7 @@
       "dashes": false
     },
     {
-      "id": "e_254",
+      "id": "e_257",
       "from": "cmd-pgrep",
       "to": "cmd-pkill",
       "label": "busca por nombre el proceso que luego termina",
@@ -9987,7 +10123,7 @@
       "dashes": false
     },
     {
-      "id": "e_255",
+      "id": "e_258",
       "from": "cmd-top",
       "to": "cmd-renice",
       "label": "monitoriza procesos interactivos permitiendo renice con 'r' en",
@@ -9995,7 +10131,7 @@
       "dashes": false
     },
     {
-      "id": "e_256",
+      "id": "e_259",
       "from": "cmd-pkill",
       "to": "cmd-pgrep",
       "label": "envía señales directamente por nombre sin requerir PID con",
@@ -10003,7 +10139,7 @@
       "dashes": false
     },
     {
-      "id": "e_257",
+      "id": "e_260",
       "from": "cmd-killall",
       "to": "cmd-kill",
       "label": "elimina todas las instancias concurrentes de un proceso frente al PID de",
@@ -10011,7 +10147,7 @@
       "dashes": false
     },
     {
-      "id": "e_258",
+      "id": "e_261",
       "from": "cmd-jobs",
       "to": "cmd-fg",
       "label": "enumera los trabajos en background recuperables en foreground con",
@@ -10019,7 +10155,7 @@
       "dashes": false
     },
     {
-      "id": "e_259",
+      "id": "e_262",
       "from": "cmd-jobs",
       "to": "cmd-bg",
       "label": "lista trabajos suspendidos reanudables en background con",
@@ -10027,7 +10163,7 @@
       "dashes": false
     },
     {
-      "id": "e_260",
+      "id": "e_263",
       "from": "cmd-nohup",
       "to": "cmd-kill",
       "label": "inmuniza procesos frente a la señal SIGHUP gestionada por",
@@ -10035,7 +10171,7 @@
       "dashes": false
     },
     {
-      "id": "e_261",
+      "id": "e_264",
       "from": "cmd-uptime",
       "to": "cmd-top",
       "label": "muestra carga media (load average a 1, 5 y 15 min) desglosada en",
@@ -10043,7 +10179,7 @@
       "dashes": false
     },
     {
-      "id": "e_262",
+      "id": "e_265",
       "from": "cmd-free",
       "to": "cmd-top",
       "label": "inspecciona memoria RAM y Swap consumida por los procesos mostrados en",
@@ -10051,7 +10187,7 @@
       "dashes": false
     },
     {
-      "id": "e_263",
+      "id": "e_266",
       "from": "cmd-yum",
       "to": "cmd-rpm",
       "label": "frontend de alto nivel en RHEL/CentOS que gestiona paquetes RPM con",
@@ -10059,7 +10195,7 @@
       "dashes": false
     },
     {
-      "id": "e_264",
+      "id": "e_267",
       "from": "cmd-zypper",
       "to": "cmd-rpm",
       "label": "gestor de paquetes de alto nivel en openSUSE que invoca internamente",
@@ -10067,7 +10203,7 @@
       "dashes": false
     },
     {
-      "id": "e_265",
+      "id": "e_268",
       "from": "cmd-rpm2cpio",
       "to": "cmd-cpio",
       "label": "convierte paquetes RPM a flujo comprimido para extraer ficheros con",
@@ -10075,7 +10211,7 @@
       "dashes": false
     },
     {
-      "id": "e_266",
+      "id": "e_269",
       "from": "cmd-gdisk",
       "to": "cmd-fdisk",
       "label": "equivalente GPT para tablas modernas frente al clásico MBR de",
@@ -10083,7 +10219,7 @@
       "dashes": false
     },
     {
-      "id": "e_267",
+      "id": "e_270",
       "from": "cmd-parted",
       "to": "cmd-fdisk",
       "label": "herramienta no interactiva y de scripting frente a",
@@ -10091,7 +10227,7 @@
       "dashes": false
     },
     {
-      "id": "e_268",
+      "id": "e_271",
       "from": "cmd-mke2fs",
       "to": "cmd-mkfs",
       "label": "herramienta especializada subyacente para ext2/ext3/ext4 de",
@@ -10099,7 +10235,7 @@
       "dashes": false
     },
     {
-      "id": "e_269",
+      "id": "e_272",
       "from": "cmd-mkfs.xfs",
       "to": "cmd-mkfs",
       "label": "crea sistemas de archivos de alto rendimiento XFS mediante",
@@ -10107,7 +10243,7 @@
       "dashes": false
     },
     {
-      "id": "e_270",
+      "id": "e_273",
       "from": "cmd-xfs_repair",
       "to": "cmd-mkfs.xfs",
       "label": "repara sistemas XFS no desmontados correctamente creados con",
@@ -10115,7 +10251,7 @@
       "dashes": false
     },
     {
-      "id": "e_271",
+      "id": "e_274",
       "from": "cmd-xfs_info",
       "to": "cmd-xfs_admin",
       "label": "muestra la geometría de bloques y agcount gestionados con",
@@ -10123,7 +10259,7 @@
       "dashes": false
     },
     {
-      "id": "e_272",
+      "id": "e_275",
       "from": "cmd-swapon",
       "to": "cmd-mkswap",
       "label": "activa para la memoria virtual particiones o archivos formateados con",
@@ -10131,7 +10267,7 @@
       "dashes": false
     },
     {
-      "id": "e_273",
+      "id": "e_276",
       "from": "cmd-swapoff",
       "to": "cmd-swapon",
       "label": "desactiva el uso de espacio de intercambio habilitado por",
@@ -10139,7 +10275,7 @@
       "dashes": false
     },
     {
-      "id": "e_274",
+      "id": "e_277",
       "from": "cmd-chown",
       "to": "cmd-chmod",
       "label": "modifica usuario/grupo propietario mientras los bits rwx los define",
@@ -10147,7 +10283,7 @@
       "dashes": false
     },
     {
-      "id": "e_275",
+      "id": "e_278",
       "from": "cmd-chgrp",
       "to": "cmd-chown",
       "label": "modifica específicamente el grupo propietario en sintonía con",
@@ -10155,7 +10291,7 @@
       "dashes": false
     },
     {
-      "id": "e_276",
+      "id": "e_279",
       "from": "cmd-unlink",
       "to": "cmd-ln",
       "label": "elimina enlaces duros o simbólicos creados previamente por",
@@ -10163,7 +10299,7 @@
       "dashes": false
     },
     {
-      "id": "e_277",
+      "id": "e_280",
       "from": "cmd-readlink",
       "to": "cmd-ln",
       "label": "resuelve y muestra el destino real de un symlink creado con",
@@ -10171,7 +10307,7 @@
       "dashes": false
     },
     {
-      "id": "e_278",
+      "id": "e_281",
       "from": "cmd-find",
       "to": "cmd-ln",
       "label": "rastrea archivos con el mismo inodo (-inum/-samefile) vinculados por",
@@ -10179,7 +10315,7 @@
       "dashes": false
     },
     {
-      "id": "e_279",
+      "id": "e_282",
       "from": "cmd-locate",
       "to": "cmd-find",
       "label": "búsqueda indexada por base de datos mlocate frente a la búsqueda en vivo en disco de",
@@ -10187,7 +10323,7 @@
       "dashes": false
     },
     {
-      "id": "e_280",
+      "id": "e_283",
       "from": "cmd-whereis",
       "to": "cmd-which",
       "label": "localiza binarios, manuales y fuentes mientras el path ejecutable lo da",
@@ -10195,7 +10331,7 @@
       "dashes": false
     },
     {
-      "id": "e_281",
+      "id": "e_284",
       "from": "cmd-type",
       "to": "cmd-which",
       "label": "distingue si una orden es builtin interna de shell, alias o binario de",
@@ -10203,7 +10339,7 @@
       "dashes": false
     },
     {
-      "id": "e_282",
+      "id": "e_285",
       "from": "cmd-tac",
       "to": "cmd-cat",
       "label": "concatena e imprime líneas en orden inverso frente a",
@@ -10211,7 +10347,7 @@
       "dashes": false
     },
     {
-      "id": "e_283",
+      "id": "e_286",
       "from": "cmd-head",
       "to": "cmd-tail",
       "label": "muestra las primeras líneas mientras las últimas las vigila en tiempo real",
@@ -10219,7 +10355,7 @@
       "dashes": false
     },
     {
-      "id": "e_284",
+      "id": "e_287",
       "from": "cmd-nl",
       "to": "cmd-cat",
       "label": "numera líneas de ficheros sustituyendo a cat -n",
@@ -10227,7 +10363,7 @@
       "dashes": false
     },
     {
-      "id": "e_285",
+      "id": "e_288",
       "from": "cmd-cut",
       "to": "cmd-paste",
       "label": "separa campos verticalmente que luego pueden combinarse en horizontal con",
@@ -10235,7 +10371,7 @@
       "dashes": false
     },
     {
-      "id": "e_286",
+      "id": "e_289",
       "from": "cmd-split",
       "to": "cmd-cat",
       "label": "divide archivos voluminosos en trozos reconstruibles posteriormente con",
@@ -10243,7 +10379,7 @@
       "dashes": false
     },
     {
-      "id": "e_287",
+      "id": "e_290",
       "from": "cmd-md5sum",
       "to": "cmd-sha256sum",
       "label": "algoritmo hash de 128 bits frente a la verificación robusta de 256 bits de",
@@ -10251,7 +10387,7 @@
       "dashes": false
     },
     {
-      "id": "e_288",
+      "id": "e_291",
       "from": "cmd-sha256sum",
       "to": "cmd-sha512sum",
       "label": "comprueba integridad criptográfica frente a la variante extendida de",
@@ -10259,7 +10395,7 @@
       "dashes": false
     },
     {
-      "id": "e_289",
+      "id": "e_292",
       "from": "cmd-tr",
       "to": "cmd-sed",
       "label": "sustituye y traduce caracteres de flujos antes de transformaciones complejas con",
@@ -10267,7 +10403,7 @@
       "dashes": false
     },
     {
-      "id": "e_290",
+      "id": "e_293",
       "from": "cmd-wc",
       "to": "cmd-sort",
       "label": "cuenta líneas y palabras tras ordenar o agrupar flujos con",
@@ -10275,7 +10411,7 @@
       "dashes": false
     },
     {
-      "id": "e_291",
+      "id": "e_294",
       "from": "cmd-egrep",
       "to": "cmd-grep",
       "label": "habilita expresiones regulares extendidas (ERE) sin requerir escapar con",
@@ -10283,7 +10419,7 @@
       "dashes": false
     },
     {
-      "id": "e_292",
+      "id": "e_295",
       "from": "cmd-fgrep",
       "to": "cmd-grep",
       "label": "modo ultra-rápido de cadenas fijas sin interpretar metacaracteres de",
@@ -10291,7 +10427,7 @@
       "dashes": false
     },
     {
-      "id": "e_293",
+      "id": "e_296",
       "from": "cmd-tar",
       "to": "cmd-cpio",
       "label": "empaquetador estándar de archivos frente al formato secuencial de",
@@ -10299,7 +10435,7 @@
       "dashes": false
     },
     {
-      "id": "e_294",
+      "id": "e_297",
       "from": "cmd-tar",
       "to": "cmd-dd",
       "label": "genera archivos de respaldo empaquetados frente a la copia binaria por bloques de",
@@ -10307,7 +10443,7 @@
       "dashes": false
     },
     {
-      "id": "e_295",
+      "id": "e_298",
       "from": "cmd-lsmod",
       "to": "cmd-modinfo",
       "label": "lista módulos cargados en el kernel cuyos parámetros inspecciona",
@@ -10315,7 +10451,7 @@
       "dashes": false
     },
     {
-      "id": "e_296",
+      "id": "e_299",
       "from": "cmd-lscpu",
       "to": "cmd-lspci",
       "label": "muestra arquitectura del procesador mientras los buses periféricos los lista",
@@ -10323,7 +10459,7 @@
       "dashes": false
     },
     {
-      "id": "e_297",
+      "id": "e_300",
       "from": "cmd-telinit",
       "to": "cmd-runlevel",
       "label": "cambia el nivel de ejecución comprobable mediante",
@@ -10331,7 +10467,7 @@
       "dashes": false
     },
     {
-      "id": "e_298",
+      "id": "e_301",
       "from": "cmd-shutdown",
       "to": "cmd-wall",
       "label": "programa el apagado emitiendo avisos a todos los usuarios con",
@@ -10339,7 +10475,7 @@
       "dashes": false
     },
     {
-      "id": "e_299",
+      "id": "e_302",
       "from": "cmd-ssh-copy-id",
       "to": "cmd-ssh-keygen",
       "label": "instala en el servidor la clave pública creada por",

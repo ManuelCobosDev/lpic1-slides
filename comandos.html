@@ -1561,32 +1561,32 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-5-crear-supervisar-y-matar.html#/3" class="slide-link">Diapositiva 3 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Lanzar tareas en segundo plano, suspenderlas temporalmente y alternar su ejecución</div>
+                        <div>Liberar la consola de comandos largos, pausar tareas y alternar su ejecución entre fondo y primer plano</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">sleep 1000 &; jobs -l; fg %1</code>
-                          <button class="copy-btn-mini" onclick="copyText('sleep 1000 &; jobs -l; fg %1')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">tar -czf bkp.tar.gz /var/www & | jobs -l | fg %1</code>
+                          <button class="copy-btn-mini" onclick="copyText('tar -czf bkp.tar.gz /var/www & | jobs -l | fg %1')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Ejecuta la orden en background liberando el prompt de inmediato."><code class="pill-code">cmd &</code><span class="pill-desc">Ejecuta la orden en background liberando el pro...</span></div><div class="opt-pill" title="🎯 Lista los trabajos de la shell actual. '-l' añade el PID."><code class="pill-code">jobs [-l]</code><span class="pill-desc">Lista los trabajos de la shell actual. '-l' aña...</span></div><div class="opt-pill" title="🎯 Detiene y congela temporalmente el proceso de primer plano."><code class="pill-code">Ctrl + Z</code><span class="pill-desc">Detiene y congela temporalmente el proceso de p...</span></div><div class="opt-pill" title="🎯 Reanuda un trabajo detenido en segundo plano."><code class="pill-code">bg [%n]</code><span class="pill-desc">Reanuda un trabajo detenido en segundo plano.</span></div><div class="opt-pill" title="🎯 Trae el trabajo a primer plano bloqueando de nuevo la terminal."><code class="pill-code">fg [%n]</code><span class="pill-desc">Trae el trabajo a primer plano bloqueando de nu...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Inicia el comando directamente en background, devolviendo el prompt de inmediato."><code class="pill-code">cmd &</code><span class="pill-desc">Inicia el comando directamente en background, d...</span></div><div class="opt-pill" title="🎯 Lista los jobs de la shell actual. La opción '-l' añade el PID global de cada tarea."><code class="pill-code">jobs -l</code><span class="pill-desc">Lista los jobs de la shell actual. La opción '-...</span></div><div class="opt-pill" title="🎯 Detiene y congela temporalmente el proceso de primer plano sin matarlo."><code class="pill-code">Ctrl + Z</code><span class="pill-desc">Detiene y congela temporalmente el proceso de p...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Reanuda un trabajo detenido para que continúe trabajando en segundo plano."><code class="pill-code">bg [%n]</code><span class="pill-desc">Reanuda un trabajo detenido para que continúe t...</span></div><div class="opt-pill" title="🎯 Trae el trabajo al frente de la consola para interactuar con él (bloquea el prompt)."><code class="pill-code">fg [%n]</code><span class="pill-desc">Trae el trabajo al frente de la consola para in...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-5-crear-supervisar-y-matar.html#/4" class="cmd-name">nohup <comando> & | watch [-n <seg>] <comando></a>
+                        <a href="t103/103-5-crear-supervisar-y-matar.html#/4" class="cmd-name">nohup <cmd> & | disown -h [%n] | watch [-n <seg>] <cmd></a>
                         <div style="margin-top:6px;"><a href="t103/103-5-crear-supervisar-y-matar.html#/4" class="slide-link">Diapositiva 4 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Hacer un proceso inmune a la desconexión SIGHUP y monitorizar salidas periódicas</div>
+                        <div>Hacer un proceso inmune al cierre de terminal, rescatar jobs sin nohup y refrescar comandos en pantalla</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">nohup ./backup_largo.sh &; head -n 2 nohup.out</code>
-                          <button class="copy-btn-mini" onclick="copyText('nohup ./backup_largo.sh &; head -n 2 nohup.out')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">nohup ./backup.sh & | disown -h %1 | watch -n 2 'tail -n 5 nohup.out'</code>
+                          <button class="copy-btn-mini" onclick="copyText('nohup ./backup.sh & | disown -h %1 | watch -n 2 \'tail -n 5 nohup.out\'')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: No Hangup: ejecuta el comando interceptando la señal SIGHUP. Si cierras la terminal o cae la red, el proceso sigue vivo en el servidor."><code class="pill-code">nohup <comando> &</code><span class="pill-desc">No Hangup: ejecuta el comando interceptando la ...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Archivo automático en el directorio actual (o en $HOME) donde nohup redirige la salida del proceso si no se especificó redirección manual."><code class="pill-code">nohup.out</code><span class="pill-desc">Archivo automático en el directorio actual (o e...</span></div><div class="opt-pill" title="Desvincula un trabajo en segundo plano de la tabla de la shell para que no reciba SIGHUP al cerrar sesión."><code class="pill-code">disown [-h] [%n]</code><span class="pill-desc">Desvincula un trabajo en segundo plano de la ta...</span></div><div class="opt-pill" title="🎯 Ejecuta el comando repetidamente cada N segundos (por defecto 2s) mostrando los cambios en pantalla a pantalla completa (ej: 'watch -n 1 free -m')."><code class="pill-code">watch -n <seg> <cmd></code><span class="pill-desc">Ejecuta el comando repetidamente cada N segundo...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 No Hangup: lanza el proceso ignorando SIGHUP (1). Si cierras la terminal o cae la red SSH, NO se detiene."><code class="pill-code">nohup <cmd> &</code><span class="pill-desc">No Hangup: lanza el proceso ignorando SIGHUP (1...</span></div><div class="opt-pill" title="🎯 Fichero automático donde nohup guarda stdout/stderr. Se inspecciona sin interrumpir con 'head' o 'tail -f'."><code class="pill-code">nohup.out</code><span class="pill-desc">Fichero automático donde nohup guarda stdout/st...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Si olvidaste poner nohup, 'disown' retira el job de la tabla de la shell para que no reciba SIGHUP."><code class="pill-code">disown -h [%n]</code><span class="pill-desc">Si olvidaste poner nohup, 'disown' retira el jo...</span></div><div class="opt-pill" title="🎯 Ejecuta un comando en bucle cada N segundos (defecto: 2s) a pantalla limpia para supervisar cambios."><code class="pill-code">watch -n <seg> <cmd></code><span class="pill-desc">Ejecuta un comando en bucle cada N segundos (de...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1595,15 +1595,15 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-5-crear-supervisar-y-matar.html#/6" class="slide-link">Diapositiva 6 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Enviar una señal de software al proceso identificado por su PID o a un trabajo de shell</div>
+                        <div>Transmitir señales de software por PID numérico o por Job ID de la shell</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">kill -l | tr ' ' '\n' | head -n 9; kill -15 28540; kill -9 28540</code>
-                          <button class="copy-btn-mini" onclick="copyText('kill -l | tr \' \' \'\n\' | head -n 9; kill -15 28540; kill -9 28540')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">kill 28540 | kill -9 28540 | kill -HUP $(pidof nginx) | kill %1</code>
+                          <button class="copy-btn-mini" onclick="copyText('kill 28540 | kill -9 28540 | kill -HUP $(pidof nginx) | kill %1')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Lista todas las señales disponibles en el sistema con sus nombres y números oficiales."><code class="pill-code">kill -l</code><span class="pill-desc">Lista todas las señales disponibles en el siste...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Sin opciones, envía por defecto la señal 15 (SIGTERM)."><code class="pill-code">kill <PID></code><span class="pill-desc">Sin opciones, envía por defecto la señal 15 (SI...</span></div><div class="opt-pill" title="🎯 Fuerza el cierre inmediato de un proceso colgado o bloqueado que no responde a SIGTERM."><code class="pill-code">kill -9 <PID> (o kill -SIGKILL <PID>)</code><span class="pill-desc">Fuerza el cierre inmediato de un proceso colgad...</span></div><div class="opt-pill" title="Envía SIGHUP para recargar la configuración del servicio."><code class="pill-code">kill -1 <PID> (o kill -HUP <PID>)</code><span class="pill-desc">Envía SIGHUP para recargar la configuración del...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Si antepones el signo de porcentaje '%', envía la señal al JOB número 1 de la shell en lugar de al PID 1."><code class="pill-code">kill %1</code><span class="pill-desc">Si antepones el signo de porcentaje '%', envía ...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Sin opciones, envía siempre la señal 15 para un cierre ordenado."><code class="pill-code">kill <PID></code><span class="pill-desc">Sin opciones, envía siempre la señal 15 para un...</span></div><div class="opt-pill" title="🎯 Cierre forzado inmediato por el kernel. Úsalo solo si el proceso no responde a SIGTERM."><code class="pill-code">kill -9 <PID></code><span class="pill-desc">Cierre forzado inmediato por el kernel. Úsalo s...</span></div><div class="opt-pill" title="🎯 Ordena al demonio recargar su archivo de configuración sin reiniciar (ej: Nginx o Apache)."><code class="pill-code">kill -1 <PID></code><span class="pill-desc">Ordena al demonio recargar su archivo de config...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Anteponer '%' envía la señal al JOB N de la shell en vez de al PID N del sistema."><code class="pill-code">kill %N</code><span class="pill-desc">Anteponer '%' envía la señal al JOB N de la she...</span></div><div class="opt-pill" title="Muestra los nombres y números de las 64 señales disponibles en Linux."><code class="pill-code">kill -l</code><span class="pill-desc">Muestra los nombres y números de las 64 señales...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1612,49 +1612,49 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-5-crear-supervisar-y-matar.html#/7" class="slide-link">Diapositiva 7 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Localizar PIDs o enviar señales a grupos de procesos por su nombre de ejecutable</div>
+                        <div>Averiguar PIDs o matar grupos de procesos según su nombre exacto, patrón regex o dueño</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">pidof nginx; pgrep -l nginx; sudo killall -u alumno sleep</code>
-                          <button class="copy-btn-mini" onclick="copyText('pidof nginx; pgrep -l nginx; sudo killall -u alumno sleep')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">pidof nginx | pgrep -l python | killall -9 firefox | pkill -u alumno</code>
+                          <button class="copy-btn-mini" onclick="copyText('pidof nginx | pgrep -l python | killall -9 firefox | pkill -u alumno')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Mata todos los procesos que coincidan EXACTAMENTE con el nombre del binario (ej: 'killall nginx')."><code class="pill-code">killall <nombre_exacto></code><span class="pill-desc">Mata todos los procesos que coincidan EXACTAMEN...</span></div><div class="opt-pill" title="Modo interactivo: pide confirmación antes de matar cada proceso coincidente."><code class="pill-code">killall -i <nombre></code><span class="pill-desc">Modo interactivo: pide confirmación antes de ma...</span></div><div class="opt-pill" title="🎯 Limita la terminación a los procesos del comando que pertenezcan al usuario indicado."><code class="pill-code">killall -u <usuario> <cmd></code><span class="pill-desc">Limita la terminación a los procesos del comand...</span></div><div class="opt-pill" title="🎯 Envía la señal a todos los procesos cuyo nombre coincida con una expresión regular o patrón."><code class="pill-code">pkill [-9] <patrón></code><span class="pill-desc">Envía la señal a todos los procesos cuyo nombre...</span></div><div class="opt-pill" title="🎯 Mata todos los procesos de cualquier tipo que pertenezcan a ese usuario."><code class="pill-code">pkill -u <usuario></code><span class="pill-desc">Mata todos los procesos de cualquier tipo que p...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Busca y muestra únicamente los PIDs de los procesos que coincidan (con '-l' muestra también su nombre)."><code class="pill-code">pgrep [-l] <patrón></code><span class="pill-desc">Busca y muestra únicamente los PIDs de los proc...</span></div><div class="opt-pill" title="Devuelve la lista de PIDs del binario exacto en una sola línea (ideal para scripts)."><code class="pill-code">pidof <nombre></code><span class="pill-desc">Devuelve la lista de PIDs del binario exacto en...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Devuelve los números PID del ejecutable exacto en una sola línea (ideal para scripts)."><code class="pill-code">pidof <binario></code><span class="pill-desc">Devuelve los números PID del ejecutable exacto ...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Busca PIDs que coincidan con un patrón. Con '-l' muestra PID y nombre."><code class="pill-code">pgrep [-l] <patrón></code><span class="pill-desc">Busca PIDs que coincidan con un patrón. Con '-l...</span></div><div class="opt-pill" title="🎯 Mata todos los procesos cuyo ejecutable coincida exactamente (ej: 'killall nginx')."><code class="pill-code">killall <nombre_exacto></code><span class="pill-desc">Mata todos los procesos cuyo ejecutable coincid...</span></div><div class="opt-pill" title="🎯 Envía señales a procesos por expresión regular o patrón sin exigir nombre exacto."><code class="pill-code">pkill [-9] <patrón></code><span class="pill-desc">Envía señales a procesos por expresión regular ...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Mata todos los procesos pertenecientes al usuario especificado."><code class="pill-code">pkill -u <usuario></code><span class="pill-desc">Mata todos los procesos pertenecientes al usuar...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-5-crear-supervisar-y-matar.html#/8" class="cmd-name">ps aux (Sintaxis BSD sin guión) | ps -ef (Sintaxis Unix/POSIX con guión)</a>
+                        <a href="t103/103-5-crear-supervisar-y-matar.html#/8" class="cmd-name">ps aux (BSD sin guión) | ps -ef (Unix con guión)</a>
                         <div style="margin-top:6px;"><a href="t103/103-5-crear-supervisar-y-matar.html#/8" class="slide-link">Diapositiva 8 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Obtener una instantánea de los procesos activos, usuarios, consumo de CPU/RAM y estados</div>
+                        <div>Consultar la lista completa de procesos, consumo de CPU/RAM, usuarios y estados en un microsegundo</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">ps aux | head -n 3; ps -ef | head -n 3</code>
-                          <button class="copy-btn-mini" onclick="copyText('ps aux | head -n 3; ps -ef | head -n 3')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">ps aux | head -n 5 | ps -ef | grep nginx | ps --sort=-%mem</code>
+                          <button class="copy-btn-mini" onclick="copyText('ps aux | head -n 5 | ps -ef | grep nginx | ps --sort=-%mem')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 a = con terminal; u = formato usuario (%CPU, %MEM); x = demonios sin terminal."><code class="pill-code">ps aux</code><span class="pill-desc">a = con terminal; u = formato usuario (%CPU, %M...</span></div><div class="opt-pill" title="🎯 -e = todos los procesos; -f = formato completo mostrando columnas UID, PID, PPID."><code class="pill-code">ps -ef</code><span class="pill-desc">-e = todos los procesos; -f = formato completo ...</span></div><div class="opt-pill" title="Muestra solo los procesos que pertenecen al usuario indicado."><code class="pill-code">ps -u <usuario></code><span class="pill-desc">Muestra solo los procesos que pertenecen al usu...</span></div><div class="opt-pill" title="Ordena de mayor a menor consumo de procesador."><code class="pill-code">ps --sort=-%cpu</code><span class="pill-desc">Ordena de mayor a menor consumo de procesador.</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: 'a' = todos con terminal; 'u' = formato usuario (%CPU, %MEM, RSS); 'x' = demonios sin terminal."><code class="pill-code">ps aux</code><span class="pill-desc">'a' = todos con terminal; 'u' = formato usuario...</span></div><div class="opt-pill" title="🎯 Clave de Examen: '-e' = todos los procesos; '-f' = formato completo mostrando la columna PPID (proceso padre)."><code class="pill-code">ps -ef</code><span class="pill-desc">'-e' = todos los procesos; '-f' = formato compl...</span></div><div class="opt-pill" title="🎯 VSZ = memoria virtual total reservada; RSS = memoria RAM física real ocupada en chips."><code class="pill-code">VSZ frente a RSS</code><span class="pill-desc">VSZ = memoria virtual total reservada; RSS = me...</span></div><div class="opt-pill" title="Ordena de mayor a menor uso de procesador (-%cpu) o de memoria (-%mem)."><code class="pill-code">ps --sort=-%cpu</code><span class="pill-desc">Ordena de mayor a menor uso de procesador (-%cp...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-5-crear-supervisar-y-matar.html#/10" class="cmd-name">top [-d <seg>] [-u <usuario>] [-p <PID>]</a>
+                        <a href="t103/103-5-crear-supervisar-y-matar.html#/10" class="cmd-name">top [-d <seg>] [-u <usuario>] [-p <PID>] [-b -n 1]</a>
                         <div style="margin-top:6px;"><a href="t103/103-5-crear-supervisar-y-matar.html#/10" class="slide-link">Diapositiva 10 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Visualizar en tiempo real el consumo de recursos y gestionar procesos mediante atajos de teclado</div>
+                        <div>Monitorizar en tiempo real el consumo de recursos y ordenar o matar procesos interactivamente</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">top -b -n 1 | head -n 5</code>
-                          <button class="copy-btn-mini" onclick="copyText('top -b -n 1 | head -n 5')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">top | top -u nginx | top -b -n 1 | head -n 5</code>
+                          <button class="copy-btn-mini" onclick="copyText('top | top -u nginx | top -b -n 1 | head -n 5')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: 'P' (mayúscula) ordena por uso de CPU (por defecto); 'M' (mayúscula) ordena por uso de memoria RAM; 'T' ordena por tiempo total acumulado."><code class="pill-code">Teclas de Ordenación</code><span class="pill-desc">'P' (mayúscula) ordena por uso de CPU (por defe...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Solicita un PID y una señal para matar un proceso directamente desde la pantalla de top."><code class="pill-code">k (Kill)</code><span class="pill-desc">Solicita un PID y una señal para matar un proce...</span></div><div class="opt-pill" title="🎯 Solicita un PID y un nuevo valor nice para modificar la prioridad de un proceso en vivo."><code class="pill-code">r (Renice)</code><span class="pill-desc">Solicita un PID y un nuevo valor nice para modi...</span></div><div class="opt-pill" title="Alterna entre mostrar el uso de CPU desglosado por cada núcleo individual (CPU0, CPU1) o unificado en uno."><code class="pill-code">1 (Uno)</code><span class="pill-desc">Alterna entre mostrar el uso de CPU desglosado ...</span></div><div class="opt-pill" title="'q' sale inmediatamente de top; 'h' abre la pantalla de ayuda de atajos."><code class="pill-code">q / h</code><span class="pill-desc">'q' sale inmediatamente de top; 'h' abre la pan...</span></div><div class="opt-pill" title="Modo batch (por lotes): ejecuta 1 iteración y sale como texto plano (ideal para scripts de monitorización)."><code class="pill-code">top -b -n 1</code><span class="pill-desc">Modo batch (por lotes): ejecuta 1 iteración y s...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Reordena la lista de mayor a menor consumo de RAM."><code class="pill-code">Tecla M (Mayúscula)</code><span class="pill-desc">Reordena la lista de mayor a menor consumo de RAM.</span></div><div class="opt-pill" title="🎯 Clave de Examen: Ordenación por defecto: procesos que más CPU gastan."><code class="pill-code">Tecla P (Mayúscula)</code><span class="pill-desc">Ordenación por defecto: procesos que más CPU ga...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Pide un PID y el número de señal para matar el proceso sin salir de top."><code class="pill-code">Tecla k (Kill)</code><span class="pill-desc">Pide un PID y el número de señal para matar el ...</span></div><div class="opt-pill" title="🎯 Solicita un PID y un nuevo valor nice para ajustar su prioridad en caliente."><code class="pill-code">Tecla r (Renice)</code><span class="pill-desc">Solicita un PID y un nuevo valor nice para ajus...</span></div><div class="opt-pill" title="Alterna entre ver el uso de CPU combinado o desglosado núcleo a núcleo (CPU0, CPU1...)."><code class="pill-code">Tecla 1 (Uno)</code><span class="pill-desc">Alterna entre ver el uso de CPU combinado o des...</span></div><div class="opt-pill" title="Ejecuta 1 iteración y sale como texto plano sin pantalla interactiva."><code class="pill-code">top -b -n 1</code><span class="pill-desc">Ejecuta 1 iteración y sale como texto plano sin...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1663,32 +1663,32 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-5-crear-supervisar-y-matar.html#/11" class="slide-link">Diapositiva 11 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Consultar el tiempo de encendido, el promedio de carga del procesador y la memoria disponible</div>
+                        <div>Evaluar la saturación de los procesadores y diagnosticar el espacio real disponible en RAM</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">uptime; free -h</code>
-                          <button class="copy-btn-mini" onclick="copyText('uptime; free -h')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">uptime | free -h | free -m</code>
+                          <button class="copy-btn-mini" onclick="copyText('uptime | free -h | free -m')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Muestra la media de procesos en ejecución o en espera en 1, 5 y 15 minutos."><code class="pill-code">Load (1, 5, 15 min)</code><span class="pill-desc">Muestra la media de procesos en ejecución o en ...</span></div><div class="opt-pill" title="Muestra RAM total, ocupada y libre en unidades comprensibles."><code class="pill-code">free -h</code><span class="pill-desc">Muestra RAM total, ocupada y libre en unidades ...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Memoria real aprovechable sin necesidad de recurrir a swap."><code class="pill-code">Columna available</code><span class="pill-desc">Memoria real aprovechable sin necesidad de recu...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Promedio de procesos ejecutándose o en cola esperando CPU/disco en 1, 5 y 15 minutos."><code class="pill-code">load average (1, 5, 15)</code><span class="pill-desc">Promedio de procesos ejecutándose o en cola esp...</span></div><div class="opt-pill" title="Muestra cifras en GiB, MiB o KiB en lugar de bytes planos difíciles de leer."><code class="pill-code">free -h</code><span class="pill-desc">Muestra cifras en GiB, MiB o KiB en lugar de by...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Memoria real que pueden solicitar nuevas aplicaciones sin recurrir a swap."><code class="pill-code">Columna available</code><span class="pill-desc">Memoria real que pueden solicitar nuevas aplica...</span></div><div class="opt-pill" title="Memoria usada para acelerar lecturas de disco que se cede automáticamente si las apps la necesitan."><code class="pill-code">buff/cache</code><span class="pill-desc">Memoria usada para acelerar lecturas de disco q...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-5-crear-supervisar-y-matar.html#/12" class="cmd-name">screen [-r|-ls] | tmux [new|attach|ls]</a>
+                        <a href="t103/103-5-crear-supervisar-y-matar.html#/12" class="cmd-name">screen [-S <nombre>] [-r] [-ls] | tmux [new|attach|ls]</a>
                         <div style="margin-top:6px;"><a href="t103/103-5-crear-supervisar-y-matar.html#/12" class="slide-link">Diapositiva 12 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Crear sesiones de terminal persistentes que pueden desacoplarse y reanudarse desde cualquier lugar</div>
+                        <div>Crear consolas virtuales persistentes en el servidor que no mueren si cae el SSH y recuperar su pantalla</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">screen -ls; tmux ls</code>
-                          <button class="copy-btn-mini" onclick="copyText('screen -ls; tmux ls')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">screen -S migracion | screen -ls | screen -r migracion | tmux attach -t sesion</code>
+                          <button class="copy-btn-mini" onclick="copyText('screen -S migracion | screen -ls | screen -r migracion | tmux attach -t sesion')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Inicia una nueva sesión virtual de GNU Screen."><code class="pill-code">screen</code><span class="pill-desc">Inicia una nueva sesión virtual de GNU Screen.</span></div><div class="opt-pill" title="🎯 Clave de Examen: Desacopla (Detach) la sesión de Screen dejándola corriendo en segundo plano sin interrumpir los procesos."><code class="pill-code">Ctrl + A y luego d</code><span class="pill-desc">Desacopla (Detach) la sesión de Screen dejándol...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Reanuda (Resume / Reattach) una sesión de Screen que fue desacoplada previamente."><code class="pill-code">screen -r [id]</code><span class="pill-desc">Reanuda (Resume / Reattach) una sesión de Scree...</span></div><div class="opt-pill" title="Lista todas las sesiones de Screen activas en el sistema."><code class="pill-code">screen -ls</code><span class="pill-desc">Lista todas las sesiones de Screen activas en e...</span></div><div class="opt-pill" title="🎯 Desacopla la sesión activa en tmux."><code class="pill-code">Ctrl + B y luego d (tmux)</code><span class="pill-desc">Desacopla la sesión activa en tmux.</span></div><div class="opt-pill" title="Reconecta la sesión de tmux indicada."><code class="pill-code">tmux attach [-t sesion]</code><span class="pill-desc">Reconecta la sesión de tmux indicada.</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Inicia una consola virtual persistente e independiente vinculada al nombre que elijas."><code class="pill-code">screen -S <nombre></code><span class="pill-desc">Inicia una consola virtual persistente e indepe...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Desengancha tu terminal de la sesión; el proceso sigue trabajando en el servidor."><code class="pill-code">Ctrl + A y luego d</code><span class="pill-desc">Desengancha tu terminal de la sesión; el proces...</span></div><div class="opt-pill" title="🎯 Muestra las sesiones abiertas en el servidor y su estado: Detached (disponible) o Attached (en uso)."><code class="pill-code">screen -ls</code><span class="pill-desc">Muestra las sesiones abiertas en el servidor y ...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Vuelve a conectar tu pantalla a una sesión desacoplada previamente."><code class="pill-code">screen -r <nombre></code><span class="pill-desc">Vuelve a conectar tu pantalla a una sesión desa...</span></div><div class="opt-pill" title="🎯 Comando homólogo en tmux (con el atajo de desacople universal 'Ctrl+B' seguido de 'd')."><code class="pill-code">tmux attach -t <nombre></code><span class="pill-desc">Comando homólogo en tmux (con el atajo de desac...</span></div></div></td>
                     </tr>
                 
                   </tbody>
@@ -1716,19 +1716,19 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
             
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-6-modificar-la-prioridad-d.html#/5" class="cmd-name">ps -el | ps -Al | ps -o pid,ni,pri,cmd</a>
+                        <a href="t103/103-6-modificar-la-prioridad-d.html#/5" class="cmd-name">ps -l | ps -el | ps -o pid,user,ni,pri,stat,cmd</a>
                         <div style="margin-top:6px;"><a href="t103/103-6-modificar-la-prioridad-d.html#/5" class="slide-link">Diapositiva 5 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Inspeccionar las columnas NI (Niceness) y PRI (Prioridad del kernel) en listas de procesos</div>
+                        <div>Comprobar las columnas NI (Niceness) y PRI (Prioridad del kernel) y los indicadores de STAT</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">ps -o pid,ni,pri,cmd -C bash,sleep</code>
-                          <button class="copy-btn-mini" onclick="copyText('ps -o pid,ni,pri,cmd -C bash,sleep')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">ps -l | ps -el | ps -o pid,ni,pri,cmd -C nginx</code>
+                          <button class="copy-btn-mini" onclick="copyText('ps -l | ps -el | ps -o pid,ni,pri,cmd -C nginx')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Modo formato largo (long): incluye las columnas obligatorias 'PRI' (prioridad) y 'NI' (niceness)."><code class="pill-code">ps -l (o ps -el)</code><span class="pill-desc">Modo formato largo (long): incluye las columnas...</span></div><div class="opt-pill" title="Muestra todos los procesos del sistema en formato largo."><code class="pill-code">ps -Al</code><span class="pill-desc">Muestra todos los procesos del sistema en forma...</span></div><div class="opt-pill" title="🎯 Formato personalizado: define exactamente qué campos mostrar (ej: 'ps -o pid,user,ni,cmd')."><code class="pill-code">ps -o <columnas></code><span class="pill-desc">Formato personalizado: define exactamente qué c...</span></div><div class="opt-pill" title="🎯 Recuerda: Si STAT contiene '<', el proceso tiene nice negativo (alta prioridad); si contiene 'N', tiene nice positivo (baja prioridad)."><code class="pill-code">ps aux (columna STAT)</code><span class="pill-desc">Recuerda: Si STAT contiene '<', el proceso tien...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Añade obligatoriamente las columnas 'PRI' (prioridad) y 'NI' (niceness)."><code class="pill-code">ps -l (o ps -el)</code><span class="pill-desc">Añade obligatoriamente las columnas 'PRI' (prio...</span></div><div class="opt-pill" title="🎯 Permite seleccionar solo los campos que te interesan (ej: 'ps -o pid,ni,pri,cmd')."><code class="pill-code">ps -o <columnas></code><span class="pill-desc">Permite seleccionar solo los campos que te inte...</span></div><div class="opt-pill" title="🎯 Clave de Examen: El proceso tiene niceness negativo (not nice, acapara CPU)."><code class="pill-code">STAT: '<'</code><span class="pill-desc">El proceso tiene niceness negativo (not nice, a...</span></div><div class="opt-pill" title="🎯 Clave de Examen: El proceso tiene niceness positivo (nice, cortés con la CPU)."><code class="pill-code">STAT: 'N'</code><span class="pill-desc">El proceso tiene niceness positivo (nice, corté...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1737,15 +1737,15 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-6-modificar-la-prioridad-d.html#/6" class="slide-link">Diapositiva 6 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Supervisar las columnas de prioridad y ejecutar renice interactivamente</div>
+                        <div>Supervisar las columnas PR y NI en vivo y modificar la prioridad de un proceso sin salir del monitor</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">top -b -n 1 | grep -E '(PID|nginx)' | head -n 3</code>
-                          <button class="copy-btn-mini" onclick="copyText('top -b -n 1 | grep -E \'(PID|nginx)\' | head -n 3')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">top | dentro de top pulsar 'r' -> teclear PID -> teclear nuevo nice</code>
+                          <button class="copy-btn-mini" onclick="copyText('top | dentro de top pulsar \'r\' -> teclear PID -> teclear nuevo nice')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Prioridad dinámica que el kernel está aplicando en este momento."><code class="pill-code">Columna PR en top</code><span class="pill-desc">Prioridad dinámica que el kernel está aplicando...</span></div><div class="opt-pill" title="🎯 Valor de niceness estático asignado al proceso (-20 a 19)."><code class="pill-code">Columna NI en top</code><span class="pill-desc">Valor de niceness estático asignado al proceso ...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Activa la función 'Renice'. top solicita: 'PID to renice:' -> escribes el PID -> pulsa Enter -> solicita: 'Renice PID 1419 to value:' -> introduces el nuevo nice y pulsa Enter."><code class="pill-code">Atajo de teclado 'r'</code><span class="pill-desc">Activa la función 'Renice'. top solicita: 'PID ...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Valor de 0 a 39 que el kernel usa para el reparto de CPU (PR = 20 + NI)."><code class="pill-code">Columna PR</code><span class="pill-desc">Valor de 0 a 39 que el kernel usa para el repar...</span></div><div class="opt-pill" title="🎯 Valor de -20 a +19 fijado por el usuario o administrador."><code class="pill-code">Columna NI</code><span class="pill-desc">Valor de -20 a +19 fijado por el usuario o admi...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Solicita el PID y el nuevo valor de nice para aplicarlo al vuelo."><code class="pill-code">Tecla 'r' (Renice)</code><span class="pill-desc">Solicita el PID y el nuevo valor de nice para a...</span></div><div class="opt-pill" title="Cierra el monitor interactivo y devuelve el control a la terminal."><code class="pill-code">Tecla 'q'</code><span class="pill-desc">Cierra el monitor interactivo y devuelve el con...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1754,15 +1754,15 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-6-modificar-la-prioridad-d.html#/7" class="slide-link">Diapositiva 7 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Ejecutar un nuevo proceso asignándole un valor de niceness diferente al estándar 0</div>
+                        <div>Arrancar un proceso NUEVO con un valor de niceness diferente al estándar 0</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">nice -n 15 tar -czf backup.tar.gz /var/log &; nice tar -czf test.tar.gz /tmp &</code>
-                          <button class="copy-btn-mini" onclick="copyText('nice -n 15 tar -czf backup.tar.gz /var/log &; nice tar -czf test.tar.gz /tmp &')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">nice -n 15 tar -czf bkp.tar.gz /var & | sudo nice -n -10 make -j4</code>
+                          <button class="copy-btn-mini" onclick="copyText('nice -n 15 tar -czf bkp.tar.gz /var & | sudo nice -n -10 make -j4')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave Absoluta de Examen: Si no indicas número, arranca con nice = 10."><code class="pill-code">nice (sin número)</code><span class="pill-desc">Clave Absoluta de Examen: Si no indicas número,...</span></div><div class="opt-pill" title="🎯 Recomendada por LPI: ej: 'nice -n 5 script.sh' o 'nice -n -10 script.sh'."><code class="pill-code">nice -n <valor> cmd</code><span class="pill-desc">Recomendada por LPI: ej: 'nice -n 5 script.sh' ...</span></div><div class="opt-pill" title="⚠️ Trampa de Examen: El guión es el flag de opción, no el signo menos: asigna +5."><code class="pill-code">nice -5 cmd (Histórico)</code><span class="pill-desc">⚠️ Trampa de Examen: El guión es el flag de opc...</span></div><div class="opt-pill" title="⚠️ Trampa de Examen: El primer guión es la opción y el segundo el signo negativo (-5, solo root)."><code class="pill-code">nice --5 cmd (Histórico)</code><span class="pill-desc">⚠️ Trampa de Examen: El primer guión es la opci...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Pregunta Fija de Certificación: Si ejecutas 'nice comando' a secas, arranca con nice = 10."><code class="pill-code">nice cmd (sin número)</code><span class="pill-desc">Pregunta Fija de Certificación: Si ejecutas 'ni...</span></div><div class="opt-pill" title="🎯 Sintaxis oficial recomendada: 'nice -n 5 script.sh' (+5) o 'nice -n -10 script.sh' (-10)."><code class="pill-code">nice -n <valor> cmd</code><span class="pill-desc">Sintaxis oficial recomendada: 'nice -n 5 script...</span></div><div class="opt-pill" title="⚠️ Trampa de Examen: El guión es el indicador de opción, no el signo menos: asigna +5."><code class="pill-code">nice -5 cmd (Histórico)</code><span class="pill-desc">⚠️ Trampa de Examen: El guión es el indicador d...</span></div><div class="opt-pill" title="⚠️ Trampa de Examen: 1er guión = opción; 2º guión = signo matemático negativo (exige root)."><code class="pill-code">nice --5 cmd (Histórico)</code><span class="pill-desc">⚠️ Trampa de Examen: 1er guión = opción; 2º gui...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
@@ -1771,15 +1771,15 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-6-modificar-la-prioridad-d.html#/9" class="slide-link">Diapositiva 9 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Ajustar el valor absoluto de niceness de uno o varios procesos activos</div>
+                        <div>Reasignar el valor absoluto de niceness a procesos activos por PID, por usuario o por grupo</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">sudo renice -n -5 -p 1419; renice +10 -u alumno</code>
-                          <button class="copy-btn-mini" onclick="copyText('sudo renice -n -5 -p 1419; renice +10 -u alumno')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">renice -n 15 -p 4120 | sudo renice -n -5 -p 1420 | sudo renice -n 10 -u becario</code>
+                          <button class="copy-btn-mini" onclick="copyText('renice -n 15 -p 4120 | sudo renice -n -5 -p 1420 | sudo renice -n 10 -u becario')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Fija el valor ABSOLUTO de niceness de ese proceso."><code class="pill-code">renice -n <val> -p <PID></code><span class="pill-desc">Fija el valor ABSOLUTO de niceness de ese proceso.</span></div><div class="opt-pill" title="🎯 Clave de Examen: Modifica la prioridad de todos los procesos de ese usuario."><code class="pill-code">renice -u <usuario></code><span class="pill-desc">Modifica la prioridad de todos los procesos de ...</span></div><div class="opt-pill" title="Modifica la prioridad de un grupo de procesos completo."><code class="pill-code">renice -g <PGID></code><span class="pill-desc">Modifica la prioridad de un grupo de procesos c...</span></div><div class="opt-pill" title="🎯 Un usuario puede aumentar su nice (+), pero una vez subido ¡no puede volver a bajarlo sin ser root!"><code class="pill-code">⚠️ Regla de Sentido Único</code><span class="pill-desc">Un usuario puede aumentar su nice (+), pero una...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Fija el valor ABSOLUTO de niceness del proceso indicado (la opción -p es el modo por defecto)."><code class="pill-code">renice -n <val> -p <PID></code><span class="pill-desc">Fija el valor ABSOLUTO de niceness del proceso ...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Aplica el nuevo valor a la totalidad de procesos del usuario indicado."><code class="pill-code">renice -n <val> -u <user></code><span class="pill-desc">Aplica el nuevo valor a la totalidad de proceso...</span></div><div class="opt-pill" title="Modifica la prioridad de un grupo de procesos completo a la vez."><code class="pill-code">renice -n <val> -g <PGID></code><span class="pill-desc">Modifica la prioridad de un grupo de procesos c...</span></div><div class="opt-pill" title="🎯 Clave de Examen: 'renice 5' asigna exactamente nice = 5 (no suma 5 a la prioridad anterior)."><code class="pill-code">Valor Absoluto</code><span class="pill-desc">'renice 5' asigna exactamente nice = 5 (no suma...</span></div></div></td>
                     </tr>
                 
                   </tbody>
@@ -1811,139 +1811,139 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                         <div style="margin-top:6px;"><a href="t103/103-7-realizar-busquedas-en-ar.html#/4" class="slide-link">Diapositiva 4 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Emparejar caracteres por pertenencia a conjuntos o clases internacionales POSIX</div>
+                        <div>Definir conjuntos de caracteres y clases POSIX portables entre diferentes configuraciones regionales</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">echo 'Port 22' | grep -E '[[:alpha:]]+ [[:digit:]]+'</code>
-                          <button class="copy-btn-mini" onclick="copyText('echo \'Port 22\' | grep -E \'[[:alpha:]]+ [[:digit:]]+\'')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">ss -tuln | grep -E ':[[:digit:]]+' | head -n 2; grep -E '^[[:alpha:]]+:[^:]+:[[:digit:]]+:' /etc/passwd | head -n 2</code>
+                          <button class="copy-btn-mini" onclick="copyText('ss -tuln | grep -E \':[[:digit:]]+\' | head -n 2; grep -E \'^[[:alpha:]]+:[^:]+:[[:digit:]]+:\' /etc/passwd | head -n 2')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Coincide con cualquiera de los caracteres contenidos entre los corchetes o en el rango alfabético."><code class="pill-code">[abc] / [a-z]</code><span class="pill-desc">Coincide con cualquiera de los caracteres conte...</span></div><div class="opt-pill" title="🎯 Negación: coincide con cualquier carácter que NO esté listado dentro del corchete."><code class="pill-code">[^abc] / [!abc]</code><span class="pill-desc">Negación: coincide con cualquier carácter que N...</span></div><div class="opt-pill" title="🎯 Caracteres alfanuméricos: equivale a [a-zA-Z0-9]."><code class="pill-code">[[:alnum:]]</code><span class="pill-desc">Caracteres alfanuméricos: equivale a [a-zA-Z0-9].</span></div><div class="opt-pill" title="🎯 Solo letras alfabéticas: equivale a [a-zA-Z]."><code class="pill-code">[[:alpha:]]</code><span class="pill-desc">Solo letras alfabéticas: equivale a [a-zA-Z].</span></div><div class="opt-pill" title="🎯 Solo dígitos numéricos: equivale a [0-9]."><code class="pill-code">[[:digit:]]</code><span class="pill-desc">Solo dígitos numéricos: equivale a [0-9].</span></div><div class="opt-pill" title="Solo letras minúsculas o solo letras mayúsculas."><code class="pill-code">[[:lower:]] / [[:upper:]]</code><span class="pill-desc">Solo letras minúsculas o solo letras mayúsculas.</span></div><div class="opt-pill" title="Espacios en blanco, tabulaciones y saltos de línea."><code class="pill-code">[[:space:]]</code><span class="pill-desc">Espacios en blanco, tabulaciones y saltos de lí...</span></div><div class="opt-pill" title="🎯 Clave de Examen: La clase POSIX debe ir SIEMPRE dentro de los corchetes de conjunto: '[[:digit:]]'."><code class="pill-code">⚠️ Doble Corchete</code><span class="pill-desc">La clase POSIX debe ir SIEMPRE dentro de los co...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Coincide con exactamente UN carácter de los listados o dentro del rango alfabético especificado."><code class="pill-code">[abc] / [a-z]</code><span class="pill-desc">Coincide con exactamente UN carácter de los lis...</span></div><div class="opt-pill" title="🎯 Negación de conjunto: coincide con cualquier carácter que NO sea uno de los indicados dentro del corchete."><code class="pill-code">[^0-9] / [^abc]</code><span class="pill-desc">Negación de conjunto: coincide con cualquier ca...</span></div><div class="opt-pill" title="🎯 Solo dígitos numéricos [0-9]. Totalmente portable ante cualquier configuración de idioma del servidor."><code class="pill-code">[[:digit:]]</code><span class="pill-desc">Solo dígitos numéricos [0-9]. Totalmente portab...</span></div><div class="opt-pill" title="🎯 Solo letras alfabéticas [a-zA-Z], respetando caracteres del idioma."><code class="pill-code">[[:alpha:]]</code><span class="pill-desc">Solo letras alfabéticas [a-zA-Z], respetando ca...</span></div><div class="opt-pill" title="🎯 Caracteres alfanuméricos: unión de letras y dígitos ([a-zA-Z0-9])."><code class="pill-code">[[:alnum:]]</code><span class="pill-desc">Caracteres alfanuméricos: unión de letras y díg...</span></div><div class="opt-pill" title="Espacios en blanco, tabulaciones (\t) y saltos de línea (\n)."><code class="pill-code">[[:space:]]</code><span class="pill-desc">Espacios en blanco, tabulaciones (\t) y saltos ...</span></div><div class="opt-pill" title="🎯 ¡Regla de Examen!: '[:digit:]' es el NOMBRE de la clase; para usarlo como conjunto DEBE ir dentro de '[ ]': '[[:digit:]]'."><code class="pill-code">⚠️ Doble Corchete</code><span class="pill-desc">¡Regla de Examen!: '[:digit:]' es el NOMBRE de ...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/5" class="cmd-name">egrep 'a*|a+|a?|a{2,4}'</a>
+                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/5" class="cmd-name">grep -E 'colou?r' | grep -E '[0-9]{1,3}\.' | grep 'ab*c'</a>
                         <div style="margin-top:6px;"><a href="t103/103-7-realizar-busquedas-en-ar.html#/5" class="slide-link">Diapositiva 5 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Controlar la frecuencia de repetición del carácter o grupo inmediatamente anterior</div>
+                        <div>Definir multiplicidades: opcionalidad, repeticiones mínimas y rangos numéricos acotados</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">printf 'color\ncolour\n' | grep -E 'colou?r'</code>
-                          <button class="copy-btn-mini" onclick="copyText('printf \'color\ncolour\n\' | grep -E \'colou?r\'')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">echo -e 'color\ncolour\ncolouur' | grep -E 'colou?r'; grep -E 'HTTP/1\.[01]" [2-5][0-9]{2}' /var/log/nginx/access.log 2>/dev/null | head -n 2</code>
+                          <button class="copy-btn-mini" onclick="copyText('echo -e \'color\ncolour\ncolouur\' | grep -E \'colou?r\'; grep -E \'HTTP/1\.[01]&quot; [2-5][0-9]{2}\' /var/log/nginx/access.log 2>/dev/null | head -n 2')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Coincide con cualquier número de repeticiones (incluso ninguna)."><code class="pill-code">* (Cero o más)</code><span class="pill-desc">Coincide con cualquier número de repeticiones (...</span></div><div class="opt-pill" title="🎯 Clave de Examen: El elemento debe aparecer como mínimo 1 vez (no coincide con 0)."><code class="pill-code">+ (Uno o más - ERE)</code><span class="pill-desc">El elemento debe aparecer como mínimo 1 vez (no...</span></div><div class="opt-pill" title="🎯 Clave de Examen: El elemento es opcional (ej: 'https?' coincide con http y https)."><code class="pill-code">? (Cero o uno - ERE)</code><span class="pill-desc">El elemento es opcional (ej: 'https?' coincide ...</span></div><div class="opt-pill" title="Entre n y m repeticiones (ej: '[0-9]{1,3}')."><code class="pill-code">{n,m}</code><span class="pill-desc">Entre n y m repeticiones (ej: '[0-9]{1,3}').</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="El elemento previo puede no aparecer o repetirse infinitas veces. Disponible de serie tanto en BRE como en ERE."><code class="pill-code">* (Cero o más)</code><span class="pill-desc">El elemento previo puede no aparecer o repetirs...</span></div><div class="opt-pill" title="🎯 El elemento previo DEBE aparecer al menos una vez (obligatorio). En BRE requiere escape: '\+'."><code class="pill-code">+ (Uno o más - ERE)</code><span class="pill-desc">El elemento previo DEBE aparecer al menos una v...</span></div><div class="opt-pill" title="🎯 Elemento opcional: aparece una sola vez o ninguna. Ideal para variantes gramaticales. En BRE requiere: '\?'."><code class="pill-code">? (Cero o uno - ERE)</code><span class="pill-desc">Elemento opcional: aparece una sola vez o ningu...</span></div><div class="opt-pill" title="Coincide exactamente n repeticiones (ej: '[0-9]{4}' para años de 4 dígitos). En BRE: '\{n\}'."><code class="pill-code">{n} (Exactamente n - ERE)</code><span class="pill-desc">Coincide exactamente n repeticiones (ej: '[0-9]...</span></div><div class="opt-pill" title="Rango cerrado: mínimo n repeticiones y máximo m repeticiones (ej: '[0-9]{1,3}' para octetos de IP)."><code class="pill-code">{n,m} (Entre n y m - ERE)</code><span class="pill-desc">Rango cerrado: mínimo n repeticiones y máximo m...</span></div><div class="opt-pill" title="Rango abierto superior: mínimo n repeticiones sin límite máximo."><code class="pill-code">{n,} (Al menos n - ERE)</code><span class="pill-desc">Rango abierto superior: mínimo n repeticiones s...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/6" class="cmd-name">egrep '(patrónA|patrónB)' <archivo></a>
+                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/6" class="cmd-name">grep -E '(patronA|patronB)' | grep -E 'gr(a|e)y'</a>
                         <div style="margin-top:6px;"><a href="t103/103-7-realizar-busquedas-en-ar.html#/6" class="slide-link">Diapositiva 6 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Buscar múltiples términos alternativos y agrupar subexpresiones</div>
+                        <div>Evaluar condiciones OR entre múltiples subpatrones y delimitar el alcance con paréntesis</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">echo -e 'error fatal\naviso leve\npanico kernel' | grep -E '(error|panico)'</code>
-                          <button class="copy-btn-mini" onclick="copyText('echo -e \'error fatal\naviso leve\npanico kernel\' | grep -E \'(error|panico)\'')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">grep -E '(Failed|Accepted) password for' /var/log/auth.log 2>/dev/null | head -n 3</code>
+                          <button class="copy-btn-mini" onclick="copyText('grep -E \'(Failed|Accepted) password for\' /var/log/auth.log 2>/dev/null | head -n 3')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Actúa como el operador lógico booleano OR. Coincide si se cumple el patrón de la izquierda O el de la derecha."><code class="pill-code">| (Pipe / Alternancia)</code><span class="pill-desc">Actúa como el operador lógico booleano OR. Coin...</span></div><div class="opt-pill" title="🎯 Delimita el alcance de la alternancia o de un cuantificador (ej: 'auto(movil|bus)' coincide con automovil y autobus)."><code class="pill-code">( ) (Paréntesis / Agrupamiento)</code><span class="pill-desc">Delimita el alcance de la alternancia o de un c...</span></div><div class="opt-pill" title="Aplica el cuantificador a todo el bloque: '(ab)+' coincide con ab, abab, ababab."><code class="pill-code">Agrupamiento con cuantificador</code><span class="pill-desc">Aplica el cuantificador a todo el bloque: '(ab)...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Recuerda el texto capturado por los paréntesis para buscar repeticiones idénticas (ej: '([a-z]+) \1' detecta palabras duplicadas seguidas como 'el el')."><code class="pill-code">Backreferences (\1, \2)</code><span class="pill-desc">Recuerda el texto capturado por los paréntesis ...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Operador lógico 'O': coincide si se cumple el patrón a la izquierda O el patrón a la derecha ('A|B')."><code class="pill-code">| (Alternancia OR)</code><span class="pill-desc">Operador lógico 'O': coincide si se cumple el p...</span></div><div class="opt-pill" title="🎯 Delimita el alcance de la alternancia o cuantificador: 'gr(a|e)y' busca 'gray' o 'grey' (evita que 'gray|ey' busque 'gray' o 'ey')."><code class="pill-code">( ) (Agrupamiento)</code><span class="pill-desc">Delimita el alcance de la alternancia o cuantif...</span></div><div class="opt-pill" title="🎯 Referencias hacia atrás: reutiliza el texto exacto capturado por el grupo 1 o grupo 2. Ej: '([a-z]+) \1' detecta palabras duplicadas."><code class="pill-code">\1, \2 (Backreferences)</code><span class="pill-desc">Referencias hacia atrás: reutiliza el texto exa...</span></div><div class="opt-pill" title="En 'grep' estándar sin '-E', el operador OR requiere barra: 'grep &quot;A\|B&quot;' y los grupos 'grep &quot;\(A\|B\)&quot;'."><code class="pill-code">⚠️ Trampa en BRE</code><span class="pill-desc">En 'grep' estándar sin '-E', el operador OR req...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/7" class="cmd-name">grep (BRE) | egrep / grep -E (ERE) | fgrep / grep -F (Fixed Strings)</a>
+                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/7" class="cmd-name">grep (BRE) | egrep / grep -E (ERE) | fgrep / grep -F (Fixed)</a>
                         <div style="margin-top:6px;"><a href="t103/103-7-realizar-busquedas-en-ar.html#/7" class="slide-link">Diapositiva 7 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Seleccionar el motor de búsqueda adecuado según el tipo de patrón o rendimiento deseado</div>
+                        <div>Diferenciar los tres motores de búsqueda históricos y su equivalencia moderna con flags</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">echo 'a+b=c' | fgrep 'a+b'; echo 'a+b=c' | grep -F 'a+b'</code>
-                          <button class="copy-btn-mini" onclick="copyText('echo \'a+b=c\' | fgrep \'a+b\'; echo \'a+b=c\' | grep -F \'a+b\'')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">fgrep '192.168.1.1' /etc/hosts; grep -F '*.tar.gz' /var/log/dpkg.log 2>/dev/null | head -n 2</code>
+                          <button class="copy-btn-mini" onclick="copyText('fgrep \'192.168.1.1\' /etc/hosts; grep -F \'*.tar.gz\' /var/log/dpkg.log 2>/dev/null | head -n 2')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Motor básico: \+ y \? para cuantificadores avanzados."><code class="pill-code">grep (BRE)</code><span class="pill-desc">Motor básico: \+ y \? para cuantificadores avan...</span></div><div class="opt-pill" title="🎯 Motor extendido: +, ?, |, (), {} directos sin barras invertidas."><code class="pill-code">egrep / grep -E</code><span class="pill-desc">Motor extendido: +, ?, |, (), {} directos sin b...</span></div><div class="opt-pill" title="🎯 Clave Absoluta de Examen: CERO regex. Trata '.', '*', '+' como letras ordinarias. El más rápido."><code class="pill-code">fgrep / grep -F</code><span class="pill-desc">Clave Absoluta de Examen: CERO regex. Trata '.'...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Motor estándar BRE por defecto. Los operadores avanzados (+, ?, |, ()) requieren barra invertida."><code class="pill-code">grep (Global Regexp Print)</code><span class="pill-desc">Motor estándar BRE por defecto. Los operadores ...</span></div><div class="opt-pill" title="🎯 Extended grep: motor ERE. Soporta toda la sintaxis moderna (+, ?, |, ()) de forma directa y nativa."><code class="pill-code">egrep (grep -E)</code><span class="pill-desc">Extended grep: motor ERE. Soporta toda la sinta...</span></div><div class="opt-pill" title="🎯 Fixed grep: ¡CERO expresiones regulares! Busca cadenas de texto literal puro a máxima velocidad."><code class="pill-code">fgrep (grep -F)</code><span class="pill-desc">Fixed grep: ¡CERO expresiones regulares! Busca ...</span></div><div class="opt-pill" title="🎯 Inmunidad a metacaracteres: Si buscas '192.168.1.1' o '$100', los puntos y dólares son texto real. Ultra-rápido en ficheros gigantes."><code class="pill-code">⚡ Ventaja de fgrep</code><span class="pill-desc">Inmunidad a metacaracteres: Si buscas '192.168....</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/8" class="cmd-name">grep [-i] [-v] [-c] [-n] <patrón> <archivo></a>
+                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/8" class="cmd-name">grep -i 'error' | grep -v 'nologin' | grep -c 'failed' | grep -n 'root'</a>
                         <div style="margin-top:6px;"><a href="t103/103-7-realizar-busquedas-en-ar.html#/8" class="slide-link">Diapositiva 8 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Modificar el comportamiento de coincidencia y el formato de salida de las búsquedas</div>
+                        <div>Filtrar por insensibilidad a mayúsculas, inversión de coincidencia, conteo y numeración de líneas</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">grep -iv 'nologin' /etc/passwd | grep -n 'bash'</code>
-                          <button class="copy-btn-mini" onclick="copyText('grep -iv \'nologin\' /etc/passwd | grep -n \'bash\'')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">grep -vn 'nologin' /etc/passwd | head -n 3; grep -ci 'failed password' /var/log/auth.log 2>/dev/null || echo '42'</code>
+                          <button class="copy-btn-mini" onclick="copyText('grep -vn \'nologin\' /etc/passwd | head -n 3; grep -ci \'failed password\' /var/log/auth.log 2>/dev/null || echo \'42\'')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Coincide con texto sin distinguir mayúsculas ni minúsculas."><code class="pill-code">-i, --ignore-case</code><span class="pill-desc">Coincide con texto sin distinguir mayúsculas ni...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Muestra las líneas que NO coinciden con el patrón."><code class="pill-code">-v, --invert-match</code><span class="pill-desc">Muestra las líneas que NO coinciden con el patrón.</span></div><div class="opt-pill" title="🎯 Imprime únicamente el total de líneas coincidentes (reemplaza a wc -l)."><code class="pill-code">-c, --count</code><span class="pill-desc">Imprime únicamente el total de líneas coinciden...</span></div><div class="opt-pill" title="🎯 Prefija cada línea con su número de línea real en el fichero."><code class="pill-code">-n, --line-number</code><span class="pill-desc">Prefija cada línea con su número de línea real ...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Ignora diferencias entre mayúsculas y minúsculas: 'error', 'Error' y 'ERROR' coinciden por igual."><code class="pill-code">-i, --ignore-case</code><span class="pill-desc">Ignora diferencias entre mayúsculas y minúscula...</span></div><div class="opt-pill" title="🎯 Invierte el filtro: muestra ÚNICAMENTE las líneas que NO contienen el patrón indicado (vital para filtrar ruido)."><code class="pill-code">-v, --invert-match</code><span class="pill-desc">Invierte el filtro: muestra ÚNICAMENTE las líne...</span></div><div class="opt-pill" title="🎯 Conteo de coincidencias: en lugar de imprimir las líneas de texto, imprime solo el número total de coincidencias."><code class="pill-code">-c, --count</code><span class="pill-desc">Conteo de coincidencias: en lugar de imprimir l...</span></div><div class="opt-pill" title="🎯 Número de línea: antepone el número de línea original del fichero a cada coincidencia (ideal para abrir con vim +N)."><code class="pill-code">-n, --line-number</code><span class="pill-desc">Número de línea: antepone el número de línea or...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/9" class="cmd-name">grep [-l|-L|-w|-x|-o] <patrón> <archivos...></a>
+                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/9" class="cmd-name">grep -lw 'Port' /etc/ssh/* | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' | grep -x 'admin'</a>
                         <div style="margin-top:6px;"><a href="t103/103-7-realizar-busquedas-en-ar.html#/9" class="slide-link">Diapositiva 9 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Aislar coincidencias exactas por palabra, línea completa o listar ficheros contenedores</div>
+                        <div>Listar ficheros coincidentes (-l), acotar por límite de palabra (-w), línea exacta (-x) y extraer datos (-o)</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">grep -lw 'root' /etc/* 2>/dev/null | head -n 3; echo 'IP: 192.168.1.1' | grep -oE '[0-9.]+'</code>
-                          <button class="copy-btn-mini" onclick="copyText('grep -lw \'root\' /etc/* 2>/dev/null | head -n 3; echo \'IP: 192.168.1.1\' | grep -oE \'[0-9.]+\'')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">grep -lw 'PermitRootLogin' /etc/ssh/*; grep -oE '[0-9]{1,3}(\.[0-9]{1,3}){3}' /etc/hosts | head -n 2</code>
+                          <button class="copy-btn-mini" onclick="copyText('grep -lw \'PermitRootLogin\' /etc/ssh/*; grep -oE \'[0-9]{1,3}(\.[0-9]{1,3}){3}\' /etc/hosts | head -n 2')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Muestra ÚNICAMENTE el nombre de los archivos que contienen coincidencias, sin imprimir las líneas de texto."><code class="pill-code">-l, --files-with-matches</code><span class="pill-desc">Muestra ÚNICAMENTE el nombre de los archivos qu...</span></div><div class="opt-pill" title="Muestra únicamente el nombre de los archivos que NO contienen ninguna coincidencia."><code class="pill-code">-L, --files-without-match</code><span class="pill-desc">Muestra únicamente el nombre de los archivos qu...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Coincidencia por palabra completa: solo coincide si el patrón está rodeado por límites de palabra (evita que 'red' coincida con 'redes')."><code class="pill-code">-w, --word-regexp</code><span class="pill-desc">Coincidencia por palabra completa: solo coincid...</span></div><div class="opt-pill" title="Coincidencia de línea completa: la línea entera debe coincidir de principio a fin."><code class="pill-code">-x, --line-regexp</code><span class="pill-desc">Coincidencia de línea completa: la línea entera...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Imprime ÚNICAMENTE la parte exacta del texto que coincidió con la regex, en lugar de toda la línea."><code class="pill-code">-o, --only-matching</code><span class="pill-desc">Imprime ÚNICAMENTE la parte exacta del texto qu...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Imprime SOLO los nombres de los ficheros que contienen coincidencias, sin imprimir su contenido."><code class="pill-code">-l, --files-with-matches</code><span class="pill-desc">Imprime SOLO los nombres de los ficheros que co...</span></div><div class="opt-pill" title="🎯 Palabra completa: solo coincide si el patrón está rodeado por límites de palabra (evita que 'red' coincida con 'redes')."><code class="pill-code">-w, --word-regexp</code><span class="pill-desc">Palabra completa: solo coincide si el patrón es...</span></div><div class="opt-pill" title="Coincidencia de línea completa estricta: toda la línea debe ser exactamente idéntica al patrón (equivale a '^patron$')."><code class="pill-code">-x, --line-regexp</code><span class="pill-desc">Coincidencia de línea completa estricta: toda l...</span></div><div class="opt-pill" title="🎯 La Navaja Suiza: Imprime ÚNICAMENTE el trozo de texto coincidente con la regex en lugar de la línea entera (ideal para extraer IPs/tokens)."><code class="pill-code">-o, --only-matching</code><span class="pill-desc">La Navaja Suiza: Imprime ÚNICAMENTE el trozo de...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/10" class="cmd-name">grep -r[n] <patrón> <directorio> | grep -C <N> <patrón> <archivo></a>
+                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/10" class="cmd-name">grep -rn 'ServerRoot' /etc/apache2/ | grep -B 1 -A 2 'FATAL' /var/log/app.log</a>
                         <div style="margin-top:6px;"><a href="t103/103-7-realizar-busquedas-en-ar.html#/10" class="slide-link">Diapositiva 10 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Inspeccionar árboles completos de carpetas y mostrar el contexto de las incidencias</div>
+                        <div>Rastrear directorios (-r) y extraer líneas de contexto previo (Before), posterior (After) o combinado (Context)</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">grep -rn 'PermitRootLogin' /etc/ssh/ 2>/dev/null; grep -B 1 -A 1 '127.0.0.1' /etc/hosts</code>
-                          <button class="copy-btn-mini" onclick="copyText('grep -rn \'PermitRootLogin\' /etc/ssh/ 2>/dev/null; grep -B 1 -A 1 \'127.0.0.1\' /etc/hosts')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">grep -rn -C 1 'ServerRoot' /etc/apache2/ 2>/dev/null || grep -B 1 -A 1 '127.0.0.1' /etc/hosts</code>
+                          <button class="copy-btn-mini" onclick="copyText('grep -rn -C 1 \'ServerRoot\' /etc/apache2/ 2>/dev/null || grep -B 1 -A 1 \'127.0.0.1\' /etc/hosts')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Busca de forma recursiva en todos los subdirectorios y ficheros del directorio indicado."><code class="pill-code">-r, --recursive</code><span class="pill-desc">Busca de forma recursiva en todos los subdirect...</span></div><div class="opt-pill" title="Búsqueda recursiva siguiendo además todos los enlaces simbólicos."><code class="pill-code">-R, --dereference-recursive</code><span class="pill-desc">Búsqueda recursiva siguiendo además todos los e...</span></div><div class="opt-pill" title="🎯 Imprime N líneas de contexto POSTERIORES (After) a la línea coincidente."><code class="pill-code">-A <N>, --after-context</code><span class="pill-desc">Imprime N líneas de contexto POSTERIORES (After...</span></div><div class="opt-pill" title="🎯 Imprime N líneas de contexto ANTERIORES (Before) a la línea coincidente."><code class="pill-code">-B <N>, --before-context</code><span class="pill-desc">Imprime N líneas de contexto ANTERIORES (Before...</span></div><div class="opt-pill" title="🎯 Imprime N líneas de contexto tanto anteriores como posteriores (Before y After simultáneamente)."><code class="pill-code">-C <N>, --context</code><span class="pill-desc">Imprime N líneas de contexto tanto anteriores c...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Busca de forma recursiva en todos los subdirectorios y ficheros del directorio indicado."><code class="pill-code">-r, --recursive</code><span class="pill-desc">Busca de forma recursiva en todos los subdirect...</span></div><div class="opt-pill" title="Búsqueda recursiva que además sigue y desreferencia todos los enlaces simbólicos (symlinks)."><code class="pill-code">-R, --dereference-recursive</code><span class="pill-desc">Búsqueda recursiva que además sigue y desrefere...</span></div><div class="opt-pill" title="🎯 Imprime N líneas de contexto POSTERIORES (After) a la línea coincidente (para ver el mensaje de error)."><code class="pill-code">-A <N>, --after-context</code><span class="pill-desc">Imprime N líneas de contexto POSTERIORES (After...</span></div><div class="opt-pill" title="🎯 Imprime N líneas de contexto ANTERIORES (Before) a la línea coincidente (para ver el comando causante)."><code class="pill-code">-B <N>, --before-context</code><span class="pill-desc">Imprime N líneas de contexto ANTERIORES (Before...</span></div><div class="opt-pill" title="🎯 Imprime N líneas de contexto tanto anteriores como posteriores simultáneamente (Before + After)."><code class="pill-code">-C <N>, --context</code><span class="pill-desc">Imprime N líneas de contexto tanto anteriores c...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/11" class="cmd-name">sed -E 's/(patrón1) (patrón2)/\2 \1/' <archivo></a>
+                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/11" class="cmd-name">sed -E 's/(patrón1) (patrón2)/\2, \1/' <archivo></a>
                         <div style="margin-top:6px;"><a href="t103/103-7-realizar-busquedas-en-ar.html#/11" class="slide-link">Diapositiva 11 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Utilizar expresiones regulares extendidas y referencias hacia atrás para transformar texto</div>
+                        <div>Utilizar el motor ERE en sed (-E) y sustituir reutilizando subpatrones entre paréntesis (\1, \2)</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">echo 'Juan Perez' | sed -E 's/([A-Za-z]+) ([A-Za-z]+)/\2, \1/'</code>
-                          <button class="copy-btn-mini" onclick="copyText('echo \'Juan Perez\' | sed -E \'s/([A-Za-z]+) ([A-Za-z]+)/\2, \1/\'')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">echo '2026-10-28' | sed -E 's/([0-9]{4})-([0-9]{2})-([0-9]{2})/\3\/\2\/\1/'; head -n 2 /etc/passwd | sed -E 's/^([^:]+):.*:([0-9]+):[0-9]+:.*$/User: \1 (UID: \2)/'</code>
+                          <button class="copy-btn-mini" onclick="copyText('echo \'2026-10-28\' | sed -E \'s/([0-9]{4})-([0-9]{2})-([0-9]{2})/\3\/\2\/\1/\'; head -n 2 /etc/passwd | sed -E \'s/^([^:]+):.*:([0-9]+):[0-9]+:.*$/User: \1 (UID: \2)/\'')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Activa el motor de expresiones regulares extendidas (ERE) en sed, permitiendo paréntesis '(' y '+' sin barras invertidas."><code class="pill-code">sed -E (o sed -r)</code><span class="pill-desc">Activa el motor de expresiones regulares extend...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Reutiliza en la parte de reemplazo el contenido exacto capturado por el primer grupo '\1' o segundo grupo '\2'."><code class="pill-code">Backreferences (\1, \2)</code><span class="pill-desc">Reutiliza en la parte de reemplazo el contenido...</span></div><div class="opt-pill" title="Modo silencioso (-n): imprime ÚNICAMENTE las líneas que coincidan con la expresión regular /patrón/."><code class="pill-code">sed -n '/^root/p'</code><span class="pill-desc">Modo silencioso (-n): imprime ÚNICAMENTE las lí...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Activa expresiones regulares extendidas (ERE), permitiendo '(' ')' y '+' sin barras invertidas."><code class="pill-code">sed -E (o sed -r)</code><span class="pill-desc">Activa expresiones regulares extendidas (ERE), ...</span></div><div class="opt-pill" title="🎯 Memorias de captura: reutiliza en la sustitución el texto exacto capturado por el primer grupo '\1' o segundo '\2'."><code class="pill-code">Backreferences (\1, \2)</code><span class="pill-desc">Memorias de captura: reutiliza en la sustitució...</span></div><div class="opt-pill" title="🎯 Modo silencioso (-n): imprime ÚNICAMENTE las líneas coincidentes ('p' de print), emulando el filtrado de grep."><code class="pill-code">sed -n '/^root/p'</code><span class="pill-desc">Modo silencioso (-n): imprime ÚNICAMENTE las lí...</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/12" class="cmd-name">less <archivo> (dentro de less usar '/' o '?')</a>
+                        <a href="t103/103-7-realizar-busquedas-en-ar.html#/12" class="cmd-name">less /var/log/syslog (dentro de less usar '/' o '?')</a>
                         <div style="margin-top:6px;"><a href="t103/103-7-realizar-busquedas-en-ar.html#/12" class="slide-link">Diapositiva 12 →</a></div>
                       </td>
                       <td class="cmd-purpose">
@@ -1951,15 +1951,15 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax"># Al abrir un log con 'less /var/log/syslog':
+                          <code class="cmd-syntax"># Al abrir un log masivo con 'less /var/log/syslog':
 /kernel.*error
-# Salta a la primera coincidencia hacia adelante.</code>
-                          <button class="copy-btn-mini" onclick="copyText('# Al abrir un log con \'less /var/log/syslog\':
+# Salta instantáneamente a la primera coincidencia hacia adelante.</code>
+                          <button class="copy-btn-mini" onclick="copyText('# Al abrir un log masivo con \'less /var/log/syslog\':
 /kernel.*error
-# Salta a la primera coincidencia hacia adelante.')" title="Copiar comando">Copiar</button>
+# Salta instantáneamente a la primera coincidencia hacia adelante.')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Busca hacia ADELANTE (hacia el final del archivo) el patrón de expresión regular."><code class="pill-code">/patrón</code><span class="pill-desc">Busca hacia ADELANTE (hacia el final del archiv...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Busca hacia ATRÁS (hacia el inicio del archivo) el patrón de expresión regular."><code class="pill-code">?patrón</code><span class="pill-desc">Busca hacia ATRÁS (hacia el inicio del archivo)...</span></div><div class="opt-pill" title="🎯 Salta a la SIGUIENTE coincidencia en la misma dirección de la búsqueda."><code class="pill-code">n</code><span class="pill-desc">Salta a la SIGUIENTE coincidencia en la misma d...</span></div><div class="opt-pill" title="🎯 Salta a la coincidencia ANTERIOR en la dirección opuesta."><code class="pill-code">N</code><span class="pill-desc">Salta a la coincidencia ANTERIOR en la direcció...</span></div><div class="opt-pill" title="Sale inmediatamente del paginador less regresando a la terminal."><code class="pill-code">q</code><span class="pill-desc">Sale inmediatamente del paginador less regresan...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Busca hacia ADELANTE (hacia el final del fichero) el patrón de expresión regular indicado."><code class="pill-code">/<patrón></code><span class="pill-desc">Busca hacia ADELANTE (hacia el final del ficher...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Busca hacia ATRÁS (hacia el inicio del fichero) el patrón de expresión regular indicado."><code class="pill-code">?<patrón></code><span class="pill-desc">Busca hacia ATRÁS (hacia el inicio del fichero)...</span></div><div class="opt-pill" title="🎯 Siguiente coincidencia: salta al siguiente resultado en la misma dirección de la búsqueda."><code class="pill-code">n</code><span class="pill-desc">Siguiente coincidencia: salta al siguiente resu...</span></div><div class="opt-pill" title="🎯 Coincidencia anterior: salta al resultado anterior en dirección opuesta."><code class="pill-code">N</code><span class="pill-desc">Coincidencia anterior: salta al resultado anter...</span></div><div class="opt-pill" title="🎯 Salir inmediatamente de less regresando al prompt de la shell."><code class="pill-code">q</code><span class="pill-desc">Salir inmediatamente de less regresando al prom...</span></div></div></td>
                     </tr>
                 
                   </tbody>
@@ -2118,19 +2118,19 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t103/103-8-edicion-basica-de-archiv.html#/12" class="cmd-name">export EDITOR=vi | export VISUAL=vim</a>
+                        <a href="t103/103-8-edicion-basica-de-archiv.html#/12" class="cmd-name">export VISUAL=vim | export EDITOR=nano | sudo update-alternatives --config editor</a>
                         <div style="margin-top:6px;"><a href="t103/103-8-edicion-basica-de-archiv.html#/12" class="slide-link">Diapositiva 12 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Definir el editor predeterminado para todas las utilidades del sistema operativo</div>
+                        <div>Definir el editor predeterminado a nivel de sesión ($VISUAL, $EDITOR) o para todo el sistema (update-alternatives)</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">export EDITOR=vi; crontab -e</code>
-                          <button class="copy-btn-mini" onclick="copyText('export EDITOR=vi; crontab -e')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">export EDITOR=nano; export VISUAL=vim; crontab -e</code>
+                          <button class="copy-btn-mini" onclick="copyText('export EDITOR=nano; export VISUAL=vim; crontab -e')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Variable de entorno estándar POSIX que especifica el editor de texto para terminales de línea de comandos."><code class="pill-code">EDITOR</code><span class="pill-desc">Variable de entorno estándar POSIX que especifi...</span></div><div class="opt-pill" title="Variable de entorno histórica que especifica el editor para terminales de pantalla completa (tiene preferencia sobre EDITOR)."><code class="pill-code">VISUAL</code><span class="pill-desc">Variable de entorno histórica que especifica el...</span></div><div class="opt-pill" title="🎯 Comando alternativo en Debian/Ubuntu para fijar el editor del sistema entre nano, vim.basic o vim.tiny: 'sudo update-alternatives --config editor'."><code class="pill-code">update-alternatives (Debian)</code><span class="pill-desc">Comando alternativo en Debian/Ubuntu para fijar...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Máxima Prioridad: Variable pensada para terminales de pantalla completa. Si está definida, los programas interactivos (crontab, visudo, git) la usan ANTES que $EDITOR."><code class="pill-code">$VISUAL</code><span class="pill-desc">Máxima Prioridad: Variable pensada para termina...</span></div><div class="opt-pill" title="🎯 Estándar POSIX: Variable histórica para editores de texto. Se utiliza si $VISUAL no está definida o en utilidades en línea de comandos."><code class="pill-code">$EDITOR</code><span class="pill-desc">Estándar POSIX: Variable histórica para editore...</span></div><div class="opt-pill" title="🎯 Configuración Global del Sistema: Comando de Debian/Ubuntu para cambiar el enlace simbólico maestro /usr/bin/editor entre nano, vim.basic o vim.tiny."><code class="pill-code">update-alternatives</code><span class="pill-desc">Configuración Global del Sistema: Comando de De...</span></div><div class="opt-pill" title="Comando interactivo para usuarios sin privilegios de root que guarda la preferencia personal en ~/.selected_editor."><code class="pill-code">select-editor</code><span class="pill-desc">Comando interactivo para usuarios sin privilegi...</span></div></div></td>
                     </tr>
                 
                   </tbody>
