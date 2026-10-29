@@ -2163,11 +2163,11 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
             
                     <tr class="cmd-row">
                       <td>
-                        <a href="t104/104-1-creacion-de-particiones.html#/4" class="cmd-name">sudo fdisk <dispositivo_disco></a>
+                        <a href="t104/104-1-creacion-de-particiones.html#/4" class="cmd-name">sudo fdisk /dev/sdb | sudo fdisk -l /dev/sdb</a>
                         <div style="margin-top:6px;"><a href="t104/104-1-creacion-de-particiones.html#/4" class="slide-link">Diapositiva 4 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Crear, modificar, listar o eliminar particiones MBR de forma interactiva</div>
+                        <div>Gestionar particiones en discos MBR de forma interactiva con confirmación obligatoria al guardar</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
@@ -2175,16 +2175,16 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                           <button class="copy-btn-mini" onclick="copyText('sudo fdisk -l /dev/sdb')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Lista todas las particiones existentes y la tabla del disco sin entrar en modo interactivo."><code class="pill-code">fdisk -l</code><span class="pill-desc">Lista todas las particiones existentes y la tab...</span></div><div class="opt-pill" title="Muestra el menú de ayuda con todos los comandos interactivos disponibles."><code class="pill-code">m</code><span class="pill-desc">Muestra el menú de ayuda con todos los comandos...</span></div><div class="opt-pill" title="🎯 Print: imprime en pantalla la tabla de particiones actual del disco abierto."><code class="pill-code">p</code><span class="pill-desc">Print: imprime en pantalla la tabla de particio...</span></div><div class="opt-pill" title="🎯 New: crea una nueva partición (solicita si es primaria o extendida, sector inicial y tamaño)."><code class="pill-code">n</code><span class="pill-desc">New: crea una nueva partición (solicita si es p...</span></div><div class="opt-pill" title="🎯 Delete: elimina una partición existente según su número."><code class="pill-code">d</code><span class="pill-desc">Delete: elimina una partición existente según s...</span></div><div class="opt-pill" title="🎯 Type: cambia el código hexadecimal de tipo de partición (ej: 83 para Linux, 82 para Swap)."><code class="pill-code">t</code><span class="pill-desc">Type: cambia el código hexadecimal de tipo de p...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Write: escribe y guarda los cambios en el disco físico y sale. ⚠️ Hasta pulsar 'w', nada se ha tocado en disco."><code class="pill-code">w</code><span class="pill-desc">Write: escribe y guarda los cambios en el disco...</span></div><div class="opt-pill" title="Quit: sale inmediatamente de fdisk descartando todos los cambios sin escribir nada."><code class="pill-code">q</code><span class="pill-desc">Quit: sale inmediatamente de fdisk descartando ...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Ayuda"><code class="pill-code">m</code><span class="pill-desc">Ayuda</span></div><div class="opt-pill" title="Imprimir"><code class="pill-code">p</code><span class="pill-desc">Imprimir</span></div><div class="opt-pill" title="Nueva"><code class="pill-code">n</code><span class="pill-desc">Nueva</span></div><div class="opt-pill" title="Tipo"><code class="pill-code">t</code><span class="pill-desc">Tipo</span></div><div class="opt-pill" title="Borrar"><code class="pill-code">d</code><span class="pill-desc">Borrar</span></div><div class="opt-pill" title="Guardar"><code class="pill-code">w</code><span class="pill-desc">Guardar</span></div><div class="opt-pill" title="Salir"><code class="pill-code">q</code><span class="pill-desc">Salir</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t104/104-1-creacion-de-particiones.html#/5" class="cmd-name">sudo gdisk <dispositivo_disco></a>
+                        <a href="t104/104-1-creacion-de-particiones.html#/5" class="cmd-name">sudo gdisk /dev/sdc | sudo gdisk -l /dev/sdc</a>
                         <div style="margin-top:6px;"><a href="t104/104-1-creacion-de-particiones.html#/5" class="slide-link">Diapositiva 5 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Crear y gestionar particiones GPT nativas y convertir tablas MBR a GPT</div>
+                        <div>Particionar discos modernos GPT con identificadores simplificados de 4 dígitos</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
@@ -2192,33 +2192,33 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                           <button class="copy-btn-mini" onclick="copyText('sudo gdisk -l /dev/sdc')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Abre el disco en modo GPT. Mantiene exactamente las mismas letras de subcomando que fdisk (p, n, d, t, w, q)."><code class="pill-code">gdisk <disco></code><span class="pill-desc">Abre el disco en modo GPT. Mantiene exactamente...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Sistema de archivos Linux estándar (Linux filesystem)."><code class="pill-code">Código 8300</code><span class="pill-desc">Sistema de archivos Linux estándar (Linux files...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Partición de memoria de intercambio (Linux swap)."><code class="pill-code">Código 8200</code><span class="pill-desc">Partición de memoria de intercambio (Linux swap).</span></div><div class="opt-pill" title="🎯 Clave de Examen: Partición del sistema EFI (ESP) obligatoria para arranques UEFI en FAT32."><code class="pill-code">Código EF00</code><span class="pill-desc">Partición del sistema EFI (ESP) obligatoria par...</span></div><div class="opt-pill" title="🎯 Partición de Logical Volume Manager (Linux LVM)."><code class="pill-code">Código 8E00</code><span class="pill-desc">Partición de Logical Volume Manager (Linux LVM).</span></div><div class="opt-pill" title="Crea un MBR falso en LBA 0 para que herramientas heredadas no crean que el disco está vacío."><code class="pill-code">Protective MBR</code><span class="pill-desc">Crea un MBR falso en LBA 0 para que herramienta...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Ayuda"><code class="pill-code">?</code><span class="pill-desc">Ayuda</span></div><div class="opt-pill" title="Imprimir"><code class="pill-code">p</code><span class="pill-desc">Imprimir</span></div><div class="opt-pill" title="Nueva"><code class="pill-code">n</code><span class="pill-desc">Nueva</span></div><div class="opt-pill" title="Tipo (4 dígitos)"><code class="pill-code">t</code><span class="pill-desc">Tipo (4 dígitos)</span></div><div class="opt-pill" title="Escribir"><code class="pill-code">w</code><span class="pill-desc">Escribir</span></div><div class="opt-pill" title="Salir"><code class="pill-code">q</code><span class="pill-desc">Salir</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t104/104-1-creacion-de-particiones.html#/6" class="cmd-name">sudo parted [-s] <dispositivo> <subcomando> [argumentos...]</a>
+                        <a href="t104/104-1-creacion-de-particiones.html#/6" class="cmd-name">sudo parted /dev/sdb | sudo parted -s /dev/sdb <subcomandos></a>
                         <div style="margin-top:6px;"><a href="t104/104-1-creacion-de-particiones.html#/6" class="slide-link">Diapositiva 6 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Automatizar particionado en scripts y redimensionar particiones en caliente</div>
+                        <div>Particionar mediante scripts no interactivos y definir tamaños amigables en Megas o Gigas</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">sudo parted -s /dev/sdb mklabel gpt; sudo parted -s /dev/sdb mkpart primary ext4 1MiB 10GiB; sudo parted /dev/sdb print</code>
-                          <button class="copy-btn-mini" onclick="copyText('sudo parted -s /dev/sdb mklabel gpt; sudo parted -s /dev/sdb mkpart primary ext4 1MiB 10GiB; sudo parted /dev/sdb print')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">sudo parted -s /dev/sdb mklabel gpt mkpart primary ext4 1MiB 10GiB</code>
+                          <button class="copy-btn-mini" onclick="copyText('sudo parted -s /dev/sdb mklabel gpt mkpart primary ext4 1MiB 10GiB')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Modo script no interactivo: nunca solicita confirmación al usuario (ideal para scripts de despliegue)."><code class="pill-code">parted -s, --script</code><span class="pill-desc">Modo script no interactivo: nunca solicita conf...</span></div><div class="opt-pill" title="🎯 Crea la tabla de particiones desde cero ('gpt' o 'msdos'). ⚠️ ¡Borra la tabla previa al instante!"><code class="pill-code">mklabel <tipo></code><span class="pill-desc">Crea la tabla de particiones desde cero ('gpt' ...</span></div><div class="opt-pill" title="🎯 Imprime la tabla de particiones detallada, modelo de disco y tamaño de sectores."><code class="pill-code">print</code><span class="pill-desc">Imprime la tabla de particiones detallada, mode...</span></div><div class="opt-pill" title="🎯 Crea una partición indicando inicio y fin con unidades (ej: 'mkpart primary ext4 1MiB 5GiB')."><code class="pill-code">mkpart <tipo> [fs] <ini> <fin></code><span class="pill-desc">Crea una partición indicando inicio y fin con u...</span></div><div class="opt-pill" title="Elimina de forma inmediata la partición indicada por su número."><code class="pill-code">rm <número></code><span class="pill-desc">Elimina de forma inmediata la partición indicad...</span></div><div class="opt-pill" title="Redimensiona el tamaño final de una partición existente."><code class="pill-code">resizepart <num> <fin></code><span class="pill-desc">Redimensiona el tamaño final de una partición e...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Script (Modo silencioso)"><code class="pill-code">-s</code><span class="pill-desc">Script (Modo silencioso)</span></div><div class="opt-pill" title="Listar"><code class="pill-code">-l</code><span class="pill-desc">Listar</span></div><div class="opt-pill" title="Crear tabla"><code class="pill-code">mklabel <tipo></code><span class="pill-desc">Crear tabla</span></div><div class="opt-pill" title="Crear partición"><code class="pill-code">mkpart <part></code><span class="pill-desc">Crear partición</span></div><div class="opt-pill" title="Mostrar"><code class="pill-code">print</code><span class="pill-desc">Mostrar</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t104/104-1-creacion-de-particiones.html#/7" class="cmd-name">sudo mkfs -t <tipo> <partición> | sudo mke2fs [opciones] <partición></a>
+                        <a href="t104/104-1-creacion-de-particiones.html#/7" class="cmd-name">sudo mkfs -t ext4 /dev/sdb1 | sudo mke2fs -t ext4 -m 1 /dev/sdb1</a>
                         <div style="margin-top:6px;"><a href="t104/104-1-creacion-de-particiones.html#/7" class="slide-link">Diapositiva 7 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Crear sistemas de archivos ext2, ext3 o ext4 configurando bloques, inodos y journal</div>
+                        <div>Amueblar la partición con la estructura de archivos necesaria para guardar datos</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
@@ -2226,41 +2226,41 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                           <button class="copy-btn-mini" onclick="copyText('sudo mke2fs -t ext4 -L \'DATOS\' -m 1 /dev/sdb1')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Front-end genérico que llama internamente a mkfs.ext4, mkfs.xfs, mkfs.vfat, etc."><code class="pill-code">mkfs -t <tipo></code><span class="pill-desc">Front-end genérico que llama internamente a mkf...</span></div><div class="opt-pill" title="🎯 Comando maestro oficial para la familia ext. Crea sistemas ext2 (-t ext2), ext3 (-t ext3) o ext4 (-t ext4)."><code class="pill-code">mke2fs -t ext4</code><span class="pill-desc">Comando maestro oficial para la familia ext. Cr...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Crea un diario de transacciones (Journal) convirtiendo ext2 en ext3."><code class="pill-code">mke2fs -j</code><span class="pill-desc">Crea un diario de transacciones (Journal) convi...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Especifica el tamaño de bloque en bytes (por defecto 4096 bytes / 4 KB)."><code class="pill-code">-b <1024|2048|4096></code><span class="pill-desc">Especifica el tamaño de bloque en bytes (por de...</span></div><div class="opt-pill" title="Asigna una etiqueta de volumen (Volume Label) de hasta 16 caracteres para montaje amigable."><code class="pill-code">-L <etiqueta></code><span class="pill-desc">Asigna una etiqueta de volumen (Volume Label) d...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Porcentaje de bloques reservados para el superusuario root (por defecto 5%, se puede bajar a 1% con -m 1)."><code class="pill-code">-m <porcentaje></code><span class="pill-desc">Porcentaje de bloques reservados para el superu...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Comando Atajo"><code class="pill-code">mkfs -t <tipo></code><span class="pill-desc">Comando Atajo</span></div><div class="opt-pill" title="Herramienta Nativa"><code class="pill-code">mke2fs</code><span class="pill-desc">Herramienta Nativa</span></div><div class="opt-pill" title="Etiqueta (Label)"><code class="pill-code">-L <nombre></code><span class="pill-desc">Etiqueta (Label)</span></div><div class="opt-pill" title="Reserva Root"><code class="pill-code">-m <porcentaje></code><span class="pill-desc">Reserva Root</span></div><div class="opt-pill" title="Añadir Journal"><code class="pill-code">-j</code><span class="pill-desc">Añadir Journal</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t104/104-1-creacion-de-particiones.html#/8" class="cmd-name">sudo mkfs.xfs [-f] <partición> | sudo mkfs.btrfs [-m|-d] <particiones...></a>
+                        <a href="t104/104-1-creacion-de-particiones.html#/8" class="cmd-name">sudo mkfs.xfs [-f] /dev/sdb2 | sudo mkfs.btrfs /dev/sdb3</a>
                         <div style="margin-top:6px;"><a href="t104/104-1-creacion-de-particiones.html#/8" class="slide-link">Diapositiva 8 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Formatear particiones con el motor XFS de alto rendimiento o el sistema CoW multidisco Btrfs</div>
+                        <div>Elegir entre rendimiento masivo en bases de datos (XFS) o instantáneas avanzadas (Btrfs)</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">sudo mkfs.xfs -f -L 'XFS_VOL' /dev/sdb2</code>
-                          <button class="copy-btn-mini" onclick="copyText('sudo mkfs.xfs -f -L \'XFS_VOL\' /dev/sdb2')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">sudo mkfs.xfs -f -L 'BD_PROD' /dev/sdb2</code>
+                          <button class="copy-btn-mini" onclick="copyText('sudo mkfs.xfs -f -L \'BD_PROD\' /dev/sdb2')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Sistema por defecto en RHEL/CentOS. Diseñado para escalabilidad masiva de E/S paralela con grupos de asignación."><code class="pill-code">mkfs.xfs <partición></code><span class="pill-desc">Sistema por defecto en RHEL/CentOS. Diseñado pa...</span></div><div class="opt-pill" title="Force: fuerza el formateo incluso si la partición ya contenía un sistema de archivos previo."><code class="pill-code">mkfs.xfs -f</code><span class="pill-desc">Force: fuerza el formateo incluso si la partici...</span></div><div class="opt-pill" title="Asigna una etiqueta de volumen a la partición XFS (hasta 12 caracteres)."><code class="pill-code">mkfs.xfs -L <etiqueta></code><span class="pill-desc">Asigna una etiqueta de volumen a la partición X...</span></div><div class="opt-pill" title="🎯 B-tree FS: sistema de archivos Copy-On-Write (CoW) con soporte nativo de RAID y subvolúmenes."><code class="pill-code">mkfs.btrfs <discos...></code><span class="pill-desc">B-tree FS: sistema de archivos Copy-On-Write (C...</span></div><div class="opt-pill" title="Configura el perfil de datos: single, raid0, raid1, raid10 para distribuir bloques entre múltiples discos."><code class="pill-code">mkfs.btrfs -d <perfil></code><span class="pill-desc">Configura el perfil de datos: single, raid0, ra...</span></div><div class="opt-pill" title="🎯 Formatea en FAT32 para la partición ESP UEFI y pendrives USB universales."><code class="pill-code">mkfs.vfat -F 32</code><span class="pill-desc">Formatea en FAT32 para la partición ESP UEFI y ...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Formatear XFS"><code class="pill-code">mkfs.xfs [-f]</code><span class="pill-desc">Formatear XFS</span></div><div class="opt-pill" title="Agrandar XFS"><code class="pill-code">xfs_growfs <punto></code><span class="pill-desc">Agrandar XFS</span></div><div class="opt-pill" title="Formatear Btrfs"><code class="pill-code">mkfs.btrfs</code><span class="pill-desc">Formatear Btrfs</span></div><div class="opt-pill" title="Redimensionar Btrfs"><code class="pill-code">btrfs fi resize</code><span class="pill-desc">Redimensionar Btrfs</span></div></div></td>
                     </tr>
                 
                     <tr class="cmd-row">
                       <td>
-                        <a href="t104/104-1-creacion-de-particiones.html#/9" class="cmd-name">sudo mkswap <disp> | sudo swapon [-a|--show] <disp> | sudo swapoff <disp></a>
+                        <a href="t104/104-1-creacion-de-particiones.html#/9" class="cmd-name">sudo mkswap /dev/sdb2 | sudo swapon --show | sudo swapoff /dev/sdb2</a>
                         <div style="margin-top:6px;"><a href="t104/104-1-creacion-de-particiones.html#/9" class="slide-link">Diapositiva 9 →</a></div>
                       </td>
                       <td class="cmd-purpose">
-                        <div>Formatear, activar y desactivar áreas de memoria de intercambio en el sistema</div>
+                        <div>Gestionar espacio de disco para auxiliar a la memoria RAM física ante saturaciones</div>
                       </td>
                       <td>
                         <div class="syntax-wrapper">
-                          <code class="cmd-syntax">sudo mkswap -L 'SWAP_DISK' /dev/sdb2; sudo swapon /dev/sdb2; swapon --show</code>
-                          <button class="copy-btn-mini" onclick="copyText('sudo mkswap -L \'SWAP_DISK\' /dev/sdb2; sudo swapon /dev/sdb2; swapon --show')" title="Copiar comando">Copiar</button>
+                          <code class="cmd-syntax">sudo mkswap /dev/sdb2 && sudo swapon /dev/sdb2 && swapon --show</code>
+                          <button class="copy-btn-mini" onclick="copyText('sudo mkswap /dev/sdb2 && sudo swapon /dev/sdb2 && swapon --show')" title="Copiar comando">Copiar</button>
                         </div>
                       </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="🎯 Clave de Examen: Inicializa y formatea el espacio de swap escribiendo la firma 'SWAPSPACE2' y generando su UUID."><code class="pill-code">mkswap <disp></code><span class="pill-desc">Inicializa y formatea el espacio de swap escrib...</span></div><div class="opt-pill" title="Asigna una etiqueta a la partición de swap para montaje amigable."><code class="pill-code">mkswap -L <label></code><span class="pill-desc">Asigna una etiqueta a la partición de swap para...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Activa el área de memoria de intercambio para que el kernel comience a utilizarla."><code class="pill-code">swapon <disp></code><span class="pill-desc">Activa el área de memoria de intercambio para q...</span></div><div class="opt-pill" title="🎯 Clave de Examen: Activa TODAS las áreas de swap configuradas en /etc/fstab."><code class="pill-code">swapon -a</code><span class="pill-desc">Activa TODAS las áreas de swap configuradas en ...</span></div><div class="opt-pill" title="Muestra una tabla con los dispositivos swap activos, tipo, tamaño, uso y prioridad."><code class="pill-code">swapon --show (o -s)</code><span class="pill-desc">Muestra una tabla con los dispositivos swap act...</span></div><div class="opt-pill" title="Desactiva el área de swap volcando previamente todas las páginas de memoria de nuevo a la RAM."><code class="pill-code">swapoff <disp></code><span class="pill-desc">Desactiva el área de swap volcando previamente ...</span></div></div></td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Formatear Swap"><code class="pill-code">mkswap <disp></code><span class="pill-desc">Formatear Swap</span></div><div class="opt-pill" title="Activar Swap"><code class="pill-code">swapon <disp></code><span class="pill-desc">Activar Swap</span></div><div class="opt-pill" title="Ver Estado (-s)"><code class="pill-code">swapon --show</code><span class="pill-desc">Ver Estado (-s)</span></div><div class="opt-pill" title="Activar Todo"><code class="pill-code">swapon -a</code><span class="pill-desc">Activar Todo</span></div><div class="opt-pill" title="Desactivar Swap"><code class="pill-code">swapoff <disp></code><span class="pill-desc">Desactivar Swap</span></div></div></td>
                     </tr>
                 
                   </tbody>

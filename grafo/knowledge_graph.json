@@ -1297,31 +1297,27 @@
       "flags": [
         {
           "flag": "mkswap <disp>",
-          "desc": "🎯 Clave de Examen: Inicializa y formatea el espacio de swap escribiendo la firma 'SWAPSPACE2' y generando su UUID."
-        },
-        {
-          "flag": "mkswap -L <label>",
-          "desc": "Asigna una etiqueta a la partición de swap para montaje amigable."
+          "desc": "Formatear Swap"
         },
         {
           "flag": "swapon <disp>",
-          "desc": "🎯 Clave de Examen: Activa el área de memoria de intercambio para que el kernel comience a utilizarla."
+          "desc": "Activar Swap"
+        },
+        {
+          "flag": "swapon --show",
+          "desc": "Ver Estado (-s)"
         },
         {
           "flag": "swapon -a",
-          "desc": "🎯 Clave de Examen: Activa TODAS las áreas de swap configuradas en /etc/fstab."
-        },
-        {
-          "flag": "swapon --show (o -s)",
-          "desc": "Muestra una tabla con los dispositivos swap activos, tipo, tamaño, uso y prioridad."
+          "desc": "Activar Todo"
         },
         {
           "flag": "swapoff <disp>",
-          "desc": "Desactiva el área de swap volcando previamente todas las páginas de memoria de nuevo a la RAM."
+          "desc": "Desactivar Swap"
         }
       ],
       "examples": [
-        "sudo mkswap -L 'SWAP_DISK' /dev/sdb2; sudo swapon /dev/sdb2; swapon --show"
+        "sudo mkswap /dev/sdb2 && sudo swapon /dev/sdb2 && swapon --show"
       ],
       "exam_tips": [],
       "slide_url": "t102/102-1-diseno-del-esquema-de-pa.html#/5",
@@ -1341,31 +1337,27 @@
       "flags": [
         {
           "flag": "mkswap <disp>",
-          "desc": "🎯 Clave de Examen: Inicializa y formatea el espacio de swap escribiendo la firma 'SWAPSPACE2' y generando su UUID."
-        },
-        {
-          "flag": "mkswap -L <label>",
-          "desc": "Asigna una etiqueta a la partición de swap para montaje amigable."
+          "desc": "Formatear Swap"
         },
         {
           "flag": "swapon <disp>",
-          "desc": "🎯 Clave de Examen: Activa el área de memoria de intercambio para que el kernel comience a utilizarla."
+          "desc": "Activar Swap"
+        },
+        {
+          "flag": "swapon --show",
+          "desc": "Ver Estado (-s)"
         },
         {
           "flag": "swapon -a",
-          "desc": "🎯 Clave de Examen: Activa TODAS las áreas de swap configuradas en /etc/fstab."
-        },
-        {
-          "flag": "swapon --show (o -s)",
-          "desc": "Muestra una tabla con los dispositivos swap activos, tipo, tamaño, uso y prioridad."
+          "desc": "Activar Todo"
         },
         {
           "flag": "swapoff <disp>",
-          "desc": "Desactiva el área de swap volcando previamente todas las páginas de memoria de nuevo a la RAM."
+          "desc": "Desactivar Swap"
         }
       ],
       "examples": [
-        "sudo mkswap -L 'SWAP_DISK' /dev/sdb2; sudo swapon /dev/sdb2; swapon --show"
+        "sudo mkswap /dev/sdb2 && sudo swapon /dev/sdb2 && swapon --show"
       ],
       "exam_tips": [],
       "slide_url": "t102/102-1-diseno-del-esquema-de-pa.html#/5",
@@ -1385,31 +1377,27 @@
       "flags": [
         {
           "flag": "mkswap <disp>",
-          "desc": "🎯 Clave de Examen: Inicializa y formatea el espacio de swap escribiendo la firma 'SWAPSPACE2' y generando su UUID."
-        },
-        {
-          "flag": "mkswap -L <label>",
-          "desc": "Asigna una etiqueta a la partición de swap para montaje amigable."
+          "desc": "Formatear Swap"
         },
         {
           "flag": "swapon <disp>",
-          "desc": "🎯 Clave de Examen: Activa el área de memoria de intercambio para que el kernel comience a utilizarla."
+          "desc": "Activar Swap"
+        },
+        {
+          "flag": "swapon --show",
+          "desc": "Ver Estado (-s)"
         },
         {
           "flag": "swapon -a",
-          "desc": "🎯 Clave de Examen: Activa TODAS las áreas de swap configuradas en /etc/fstab."
-        },
-        {
-          "flag": "swapon --show (o -s)",
-          "desc": "Muestra una tabla con los dispositivos swap activos, tipo, tamaño, uso y prioridad."
+          "desc": "Activar Todo"
         },
         {
           "flag": "swapoff <disp>",
-          "desc": "Desactiva el área de swap volcando previamente todas las páginas de memoria de nuevo a la RAM."
+          "desc": "Desactivar Swap"
         }
       ],
       "examples": [
-        "sudo mkswap -L 'SWAP_DISK' /dev/sdb2; sudo swapon /dev/sdb2; swapon --show"
+        "sudo mkswap /dev/sdb2 && sudo swapon /dev/sdb2 && swapon --show"
       ],
       "exam_tips": [],
       "slide_url": "t102/102-1-diseno-del-esquema-de-pa.html#/5",
@@ -6270,40 +6258,36 @@
       "tema": "104",
       "subtopic_id": "104.1",
       "title": "Comando: fdisk",
-      "desc": "Crear, modificar, listar o eliminar particiones MBR de forma interactiva",
+      "desc": "Gestionar particiones en discos MBR de forma interactiva con confirmación obligatoria al guardar",
       "syntax": "sudo fdisk -l /dev/sdb",
       "flags": [
         {
-          "flag": "fdisk -l",
-          "desc": "🎯 Clave de Examen: Lista todas las particiones existentes y la tabla del disco sin entrar en modo interactivo."
-        },
-        {
           "flag": "m",
-          "desc": "Muestra el menú de ayuda con todos los comandos interactivos disponibles."
+          "desc": "Ayuda"
         },
         {
           "flag": "p",
-          "desc": "🎯 Print: imprime en pantalla la tabla de particiones actual del disco abierto."
+          "desc": "Imprimir"
         },
         {
           "flag": "n",
-          "desc": "🎯 New: crea una nueva partición (solicita si es primaria o extendida, sector inicial y tamaño)."
-        },
-        {
-          "flag": "d",
-          "desc": "🎯 Delete: elimina una partición existente según su número."
+          "desc": "Nueva"
         },
         {
           "flag": "t",
-          "desc": "🎯 Type: cambia el código hexadecimal de tipo de partición (ej: 83 para Linux, 82 para Swap)."
+          "desc": "Tipo"
+        },
+        {
+          "flag": "d",
+          "desc": "Borrar"
         },
         {
           "flag": "w",
-          "desc": "🎯 Clave de Examen: Write: escribe y guarda los cambios en el disco físico y sale. ⚠️ Hasta pulsar 'w', nada se ha tocado en disco."
+          "desc": "Guardar"
         },
         {
           "flag": "q",
-          "desc": "Quit: sale inmediatamente de fdisk descartando todos los cambios sin escribir nada."
+          "desc": "Salir"
         }
       ],
       "examples": [
@@ -6330,32 +6314,32 @@
       "tema": "104",
       "subtopic_id": "104.1",
       "title": "Comando: gdisk",
-      "desc": "Crear y gestionar particiones GPT nativas y convertir tablas MBR a GPT",
+      "desc": "Particionar discos modernos GPT con identificadores simplificados de 4 dígitos",
       "syntax": "sudo gdisk -l /dev/sdc",
       "flags": [
         {
-          "flag": "gdisk <disco>",
-          "desc": "Abre el disco en modo GPT. Mantiene exactamente las mismas letras de subcomando que fdisk (p, n, d, t, w, q)."
+          "flag": "?",
+          "desc": "Ayuda"
         },
         {
-          "flag": "Código 8300",
-          "desc": "🎯 Clave de Examen: Sistema de archivos Linux estándar (Linux filesystem)."
+          "flag": "p",
+          "desc": "Imprimir"
         },
         {
-          "flag": "Código 8200",
-          "desc": "🎯 Clave de Examen: Partición de memoria de intercambio (Linux swap)."
+          "flag": "n",
+          "desc": "Nueva"
         },
         {
-          "flag": "Código EF00",
-          "desc": "🎯 Clave de Examen: Partición del sistema EFI (ESP) obligatoria para arranques UEFI en FAT32."
+          "flag": "t",
+          "desc": "Tipo (4 dígitos)"
         },
         {
-          "flag": "Código 8E00",
-          "desc": "🎯 Partición de Logical Volume Manager (Linux LVM)."
+          "flag": "w",
+          "desc": "Escribir"
         },
         {
-          "flag": "Protective MBR",
-          "desc": "Crea un MBR falso en LBA 0 para que herramientas heredadas no crean que el disco está vacío."
+          "flag": "q",
+          "desc": "Salir"
         }
       ],
       "examples": [
@@ -6374,36 +6358,32 @@
       "tema": "104",
       "subtopic_id": "104.1",
       "title": "Comando: parted",
-      "desc": "Automatizar particionado en scripts y redimensionar particiones en caliente",
-      "syntax": "sudo parted -s /dev/sdb mklabel gpt; sudo parted -s /dev/sdb mkpart primary ext4 1MiB 10GiB; sudo parted /dev/sdb print",
+      "desc": "Particionar mediante scripts no interactivos y definir tamaños amigables en Megas o Gigas",
+      "syntax": "sudo parted -s /dev/sdb mklabel gpt mkpart primary ext4 1MiB 10GiB",
       "flags": [
         {
-          "flag": "parted -s, --script",
-          "desc": "🎯 Clave de Examen: Modo script no interactivo: nunca solicita confirmación al usuario (ideal para scripts de despliegue)."
+          "flag": "-s",
+          "desc": "Script (Modo silencioso)"
+        },
+        {
+          "flag": "-l",
+          "desc": "Listar"
         },
         {
           "flag": "mklabel <tipo>",
-          "desc": "🎯 Crea la tabla de particiones desde cero ('gpt' o 'msdos'). ⚠️ ¡Borra la tabla previa al instante!"
+          "desc": "Crear tabla"
+        },
+        {
+          "flag": "mkpart <part>",
+          "desc": "Crear partición"
         },
         {
           "flag": "print",
-          "desc": "🎯 Imprime la tabla de particiones detallada, modelo de disco y tamaño de sectores."
-        },
-        {
-          "flag": "mkpart <tipo> [fs] <ini> <fin>",
-          "desc": "🎯 Crea una partición indicando inicio y fin con unidades (ej: 'mkpart primary ext4 1MiB 5GiB')."
-        },
-        {
-          "flag": "rm <número>",
-          "desc": "Elimina de forma inmediata la partición indicada por su número."
-        },
-        {
-          "flag": "resizepart <num> <fin>",
-          "desc": "Redimensiona el tamaño final de una partición existente."
+          "desc": "Mostrar"
         }
       ],
       "examples": [
-        "sudo parted -s /dev/sdb mklabel gpt; sudo parted -s /dev/sdb mkpart primary ext4 1MiB 10GiB; sudo parted /dev/sdb print"
+        "sudo parted -s /dev/sdb mklabel gpt mkpart primary ext4 1MiB 10GiB"
       ],
       "exam_tips": [],
       "slide_url": "t104/104-1-creacion-de-particiones.html#/6",
@@ -6418,32 +6398,28 @@
       "tema": "104",
       "subtopic_id": "104.1",
       "title": "Comando: mkfs",
-      "desc": "Crear sistemas de archivos ext2, ext3 o ext4 configurando bloques, inodos y journal",
+      "desc": "Amueblar la partición con la estructura de archivos necesaria para guardar datos",
       "syntax": "sudo mke2fs -t ext4 -L 'DATOS' -m 1 /dev/sdb1",
       "flags": [
         {
           "flag": "mkfs -t <tipo>",
-          "desc": "Front-end genérico que llama internamente a mkfs.ext4, mkfs.xfs, mkfs.vfat, etc."
+          "desc": "Comando Atajo"
         },
         {
-          "flag": "mke2fs -t ext4",
-          "desc": "🎯 Comando maestro oficial para la familia ext. Crea sistemas ext2 (-t ext2), ext3 (-t ext3) o ext4 (-t ext4)."
+          "flag": "mke2fs",
+          "desc": "Herramienta Nativa"
         },
         {
-          "flag": "mke2fs -j",
-          "desc": "🎯 Clave de Examen: Crea un diario de transacciones (Journal) convirtiendo ext2 en ext3."
-        },
-        {
-          "flag": "-b <1024|2048|4096>",
-          "desc": "🎯 Clave de Examen: Especifica el tamaño de bloque en bytes (por defecto 4096 bytes / 4 KB)."
-        },
-        {
-          "flag": "-L <etiqueta>",
-          "desc": "Asigna una etiqueta de volumen (Volume Label) de hasta 16 caracteres para montaje amigable."
+          "flag": "-L <nombre>",
+          "desc": "Etiqueta (Label)"
         },
         {
           "flag": "-m <porcentaje>",
-          "desc": "🎯 Clave de Examen: Porcentaje de bloques reservados para el superusuario root (por defecto 5%, se puede bajar a 1% con -m 1)."
+          "desc": "Reserva Root"
+        },
+        {
+          "flag": "-j",
+          "desc": "Añadir Journal"
         }
       ],
       "examples": [
@@ -6477,32 +6453,28 @@
       "tema": "104",
       "subtopic_id": "104.1",
       "title": "Comando: mke2fs",
-      "desc": "Crear sistemas de archivos ext2, ext3 o ext4 configurando bloques, inodos y journal",
+      "desc": "Amueblar la partición con la estructura de archivos necesaria para guardar datos",
       "syntax": "sudo mke2fs -t ext4 -L 'DATOS' -m 1 /dev/sdb1",
       "flags": [
         {
           "flag": "mkfs -t <tipo>",
-          "desc": "Front-end genérico que llama internamente a mkfs.ext4, mkfs.xfs, mkfs.vfat, etc."
+          "desc": "Comando Atajo"
         },
         {
-          "flag": "mke2fs -t ext4",
-          "desc": "🎯 Comando maestro oficial para la familia ext. Crea sistemas ext2 (-t ext2), ext3 (-t ext3) o ext4 (-t ext4)."
+          "flag": "mke2fs",
+          "desc": "Herramienta Nativa"
         },
         {
-          "flag": "mke2fs -j",
-          "desc": "🎯 Clave de Examen: Crea un diario de transacciones (Journal) convirtiendo ext2 en ext3."
-        },
-        {
-          "flag": "-b <1024|2048|4096>",
-          "desc": "🎯 Clave de Examen: Especifica el tamaño de bloque en bytes (por defecto 4096 bytes / 4 KB)."
-        },
-        {
-          "flag": "-L <etiqueta>",
-          "desc": "Asigna una etiqueta de volumen (Volume Label) de hasta 16 caracteres para montaje amigable."
+          "flag": "-L <nombre>",
+          "desc": "Etiqueta (Label)"
         },
         {
           "flag": "-m <porcentaje>",
-          "desc": "🎯 Clave de Examen: Porcentaje de bloques reservados para el superusuario root (por defecto 5%, se puede bajar a 1% con -m 1)."
+          "desc": "Reserva Root"
+        },
+        {
+          "flag": "-j",
+          "desc": "Añadir Journal"
         }
       ],
       "examples": [
@@ -6529,36 +6501,28 @@
       "tema": "104",
       "subtopic_id": "104.1",
       "title": "Comando: mkfs.xfs",
-      "desc": "Formatear particiones con el motor XFS de alto rendimiento o el sistema CoW multidisco Btrfs",
-      "syntax": "sudo mkfs.xfs -f -L 'XFS_VOL' /dev/sdb2",
+      "desc": "Elegir entre rendimiento masivo en bases de datos (XFS) o instantáneas avanzadas (Btrfs)",
+      "syntax": "sudo mkfs.xfs -f -L 'BD_PROD' /dev/sdb2",
       "flags": [
         {
-          "flag": "mkfs.xfs <partición>",
-          "desc": "🎯 Sistema por defecto en RHEL/CentOS. Diseñado para escalabilidad masiva de E/S paralela con grupos de asignación."
+          "flag": "mkfs.xfs [-f]",
+          "desc": "Formatear XFS"
         },
         {
-          "flag": "mkfs.xfs -f",
-          "desc": "Force: fuerza el formateo incluso si la partición ya contenía un sistema de archivos previo."
+          "flag": "xfs_growfs <punto>",
+          "desc": "Agrandar XFS"
         },
         {
-          "flag": "mkfs.xfs -L <etiqueta>",
-          "desc": "Asigna una etiqueta de volumen a la partición XFS (hasta 12 caracteres)."
+          "flag": "mkfs.btrfs",
+          "desc": "Formatear Btrfs"
         },
         {
-          "flag": "mkfs.btrfs <discos...>",
-          "desc": "🎯 B-tree FS: sistema de archivos Copy-On-Write (CoW) con soporte nativo de RAID y subvolúmenes."
-        },
-        {
-          "flag": "mkfs.btrfs -d <perfil>",
-          "desc": "Configura el perfil de datos: single, raid0, raid1, raid10 para distribuir bloques entre múltiples discos."
-        },
-        {
-          "flag": "mkfs.vfat -F 32",
-          "desc": "🎯 Formatea en FAT32 para la partición ESP UEFI y pendrives USB universales."
+          "flag": "btrfs fi resize",
+          "desc": "Redimensionar Btrfs"
         }
       ],
       "examples": [
-        "sudo mkfs.xfs -f -L 'XFS_VOL' /dev/sdb2"
+        "sudo mkfs.xfs -f -L 'BD_PROD' /dev/sdb2"
       ],
       "exam_tips": [],
       "slide_url": "t104/104-1-creacion-de-particiones.html#/8",
@@ -6573,36 +6537,28 @@
       "tema": "104",
       "subtopic_id": "104.1",
       "title": "Comando: mkfs.btrfs",
-      "desc": "Formatear particiones con el motor XFS de alto rendimiento o el sistema CoW multidisco Btrfs",
-      "syntax": "sudo mkfs.xfs -f -L 'XFS_VOL' /dev/sdb2",
+      "desc": "Elegir entre rendimiento masivo en bases de datos (XFS) o instantáneas avanzadas (Btrfs)",
+      "syntax": "sudo mkfs.xfs -f -L 'BD_PROD' /dev/sdb2",
       "flags": [
         {
-          "flag": "mkfs.xfs <partición>",
-          "desc": "🎯 Sistema por defecto en RHEL/CentOS. Diseñado para escalabilidad masiva de E/S paralela con grupos de asignación."
+          "flag": "mkfs.xfs [-f]",
+          "desc": "Formatear XFS"
         },
         {
-          "flag": "mkfs.xfs -f",
-          "desc": "Force: fuerza el formateo incluso si la partición ya contenía un sistema de archivos previo."
+          "flag": "xfs_growfs <punto>",
+          "desc": "Agrandar XFS"
         },
         {
-          "flag": "mkfs.xfs -L <etiqueta>",
-          "desc": "Asigna una etiqueta de volumen a la partición XFS (hasta 12 caracteres)."
+          "flag": "mkfs.btrfs",
+          "desc": "Formatear Btrfs"
         },
         {
-          "flag": "mkfs.btrfs <discos...>",
-          "desc": "🎯 B-tree FS: sistema de archivos Copy-On-Write (CoW) con soporte nativo de RAID y subvolúmenes."
-        },
-        {
-          "flag": "mkfs.btrfs -d <perfil>",
-          "desc": "Configura el perfil de datos: single, raid0, raid1, raid10 para distribuir bloques entre múltiples discos."
-        },
-        {
-          "flag": "mkfs.vfat -F 32",
-          "desc": "🎯 Formatea en FAT32 para la partición ESP UEFI y pendrives USB universales."
+          "flag": "btrfs fi resize",
+          "desc": "Redimensionar Btrfs"
         }
       ],
       "examples": [
-        "sudo mkfs.xfs -f -L 'XFS_VOL' /dev/sdb2"
+        "sudo mkfs.xfs -f -L 'BD_PROD' /dev/sdb2"
       ],
       "exam_tips": [],
       "slide_url": "t104/104-1-creacion-de-particiones.html#/8",
@@ -7546,15 +7502,15 @@
       "weight": 2
     },
     {
-      "id": "file-etc-login-defs---etc-profile-y----bashrc",
-      "label": "/etc/login.defs, /etc/profile y ~/.bashrc",
+      "id": "file-etc-login-defs",
+      "label": "/etc/login.defs",
       "type": "file",
       "exam": "101",
       "tema": "104",
       "subtopic_id": "104.5",
-      "title": "Archivo/Ruta: /etc/login.defs, /etc/profile y ~/.bashrc",
-      "desc": "¿Dónde se configura la máscara umask para que se aplique a todos los usuarios del sistema?",
-      "syntax": "/etc/login.defs, /etc/profile y ~/.bashrc",
+      "title": "Archivo/Ruta: /etc/login.defs",
+      "desc": "¿Dónde se configura la máscara umask para que sea permanente en el sistema o para un usuario?",
+      "syntax": "/etc/login.defs",
       "flags": [],
       "examples": [],
       "exam_tips": [],
@@ -9501,7 +9457,7 @@
     {
       "id": "e_180",
       "from": "sub-104-5",
-      "to": "file-etc-login-defs---etc-profile-y----bashrc",
+      "to": "file-etc-login-defs",
       "label": "define",
       "rel_type": "definition",
       "dashes": false
