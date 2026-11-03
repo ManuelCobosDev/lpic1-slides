@@ -2404,7 +2404,9 @@
         
         // Badge del manual oficial
         let pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
-        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
+        const exObj = (typeof s.exercise === 'object' && s.exercise !== null) ? s.exercise : null;
+        const scenarioText = s.scenario || s.problem || (exObj ? exObj.scenario : null) || s.lead || s.desc || s.goal || '';
+        const questionText = s.question || (exObj ? exObj.question : null) || '';
         if (!pdfRef && scenarioText) {
           const m = scenarioText.match(/P[áa]gina\s+oficial\s+(\d+(?:[–-]\d+)?)/i);
           if (m) pdfRef = m[1];
@@ -2419,9 +2421,10 @@
 
         // Planteamiento del problema (Escenario claro)
         html += `
-          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
+          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
             <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
-            <div>${renderRichText(scenarioText)}</div>
+            <div style="white-space:pre-line;">${renderRichText(scenarioText)}</div>
+            ${questionText ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(questionText)}</div>` : ''}
           </div>
         `;
 
@@ -2486,12 +2489,13 @@
         }
 
         // Explicación de la solución ("Por qué")
-        const solText = s.solution?.explain || s.solution?.text || s.explanation || (typeof s.solution === 'string' ? s.solution : '');
+        const rawSol = s.solution || (exObj ? exObj.solution : null) || s.explanation || '';
+        const solText = rawSol?.explain || rawSol?.text || (typeof rawSol === 'string' ? rawSol : '');
         if (solText) {
           html += `
-            <div style="margin-top:6px; line-height:1.45;">
-              <strong style="color:var(--success-ink);">Por qué se resuelve así (Explicación docente):</strong><br>
-              <div style="margin-top:4px;">${renderRichText(solText)}</div>
+            <div style="margin-top:6px; line-height:1.5; font-size:19px;">
+              <strong style="color:var(--success-ink); font-size:20px;">Por qué se resuelve así (Explicación docente):</strong><br>
+              <div style="margin-top:6px; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</div>
             </div>
           `;
         }
@@ -2506,6 +2510,11 @@
         
         // Badge del manual oficial
         const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        const chObj = (typeof s.challenge === 'object' && s.challenge !== null) ? s.challenge : null;
+        const scenario = s.scenario || (chObj ? chObj.scenario : null) || s.prompt || s.lead || '';
+        const question = s.question || (chObj ? chObj.question : null) || s.task || '';
+        const goalText = s.goal || (chObj ? chObj.goal : null) || '';
+        const hintText = s.hint || (chObj && chObj.hints ? (Array.isArray(chObj.hints) ? chObj.hints.join(' | ') : chObj.hints) : '');
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span class="ref-badge" style="font-weight:700; color:var(--warning-ink); background:var(--warning-soft); border-color:#FCD34D; font-size:19px;">
@@ -2515,15 +2524,50 @@
         `;
 
         // Enunciado y Escenario del reto
-        const scenario = s.scenario || s.prompt || s.lead || '';
-        const question = s.question || s.task || '';
         html += `
-          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
+          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
             <div style="font-size:16px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
-            <div>${renderRichText(scenario)}</div>
-            ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border);">${renderRichText(question)}</div>` : ''}
+            <div style="white-space:pre-line;">${renderRichText(scenario)}</div>
+            ${goalText ? `<div style="margin-top:10px; font-size:18px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
+            ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(question)}</div>` : ''}
           </div>
         `;
+
+        // Pasos o tareas guiadas del reto (si existen)
+        const steps = s.steps || (chObj ? chObj.steps : []) || [];
+        const tasks = s.tasks || (chObj ? chObj.tasks : []) || [];
+        if (steps.length > 0 || tasks.length > 0) {
+          html += `
+            <div style="margin-bottom:16px;">
+              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+          `;
+          if (steps.length > 0) {
+            steps.forEach((st, idx) => {
+              const doText = st.action || st.do || st.task || st.step || '';
+              const titleText = (st.step && st.action && st.step !== st.action) ? st.step : `Paso ${idx + 1}`;
+              html += `
+                <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; justify-content:space-between; gap:16px;">
+                  <div style="display:flex; align-items:center; gap:12px;">
+                    <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                    <span>${renderRichText(titleText)}</span>
+                  </div>
+                  ${(st.action && st.step !== st.action) ? `<code style="font-size:18px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
+                </div>
+              `;
+            });
+          } else {
+            tasks.forEach((t, idx) => {
+              html += `
+                <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
+                  <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span>${renderRichText(t)}</span>
+                </div>
+              `;
+            });
+          }
+          html += `</div></div>`;
+        }
 
         // Si el reto contiene opciones interactivas
         if (s.options && Array.isArray(s.options) && s.options.length > 0) {
@@ -2542,17 +2586,19 @@
           html += `</div>`;
         }
 
-        if (s.hint) {
+        if (hintText) {
           html += `
             <div class="callout-box callout-info" style="margin-bottom:16px;">
               <svg class="ic ic-md"><use href="#i-help-circle"/></svg>
-              <span><strong>Pista para los alumnos:</strong> ${renderRichText(s.hint)}</span>
+              <span><strong>Pistas para resolver:</strong> ${renderRichText(hintText)}</span>
             </div>
           `;
         }
 
         // Botón docente interactivo
-        const solText = s.solution?.explain || s.solution?.text || s.explanation || (typeof s.solution === 'string' ? s.solution : '');
+        const rawSol = s.solution || s.outcome || (chObj ? (chObj.solution || chObj.outcome) : null) || s.explanation || '';
+        const solText = rawSol?.explain || rawSol?.text || rawSol?.solution || (typeof rawSol === 'string' ? rawSol : '');
+        const solTerminal = s.solution?.terminal || s.outcome?.terminal || (chObj ? (chObj.solution?.terminal || chObj.outcome?.terminal) : null) || null;
         html += `
           <div>
             <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
@@ -2560,10 +2606,10 @@
             </button>
             <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
               <div style="display:flex; align-items:flex-start; gap:12px;">
-                <svg class="ic ic-md" style="margin-top:2px; flex:none;"><use href="#i-circle-check"/></svg>
-                <div style="line-height:1.45;"><strong>Solución y Razonamiento:</strong><br><span style="margin-top:4px; display:inline-block;">${renderRichText(solText)}</span></div>
+                <svg class="ic ic-md" style="margin-top:2px; flex:none; color:var(--success);"><use href="#i-circle-check"/></svg>
+                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:20px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
               </div>
-              ${s.solution?.terminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(s.solution.terminal, 'solución')}</div>` : ''}
+              ${solTerminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(solTerminal, 'solución')}</div>` : ''}
             </div>
           </div>
         `;
@@ -2589,22 +2635,30 @@
           });
           html += `</div>`;
         } else {
-        const qText = s.q || s.question || s.prompt || 'Pregunta de repaso:';
-        html += `<div style="font-size:32px; font-weight:700; margin-bottom:24px;">${renderRichText(qText)}</div>`;
+        const qObj = (typeof s.question === 'object' && s.question !== null) ? s.question : null;
+        const qText = s.q || (qObj ? qObj.text : s.question) || s.prompt || 'Pregunta de repaso:';
+        html += `<div style="font-size:30px; font-weight:700; margin-bottom:24px; color:var(--text);">${renderRichText(qText)}</div>`;
         html += `<div class="quiz-options">`;
-        const options = s.options || [];
-        options.forEach((opt, oidx) => {
+        const rawOptions = s.options || (qObj ? qObj.options : []);
+        let ansIdx = (s.answer !== undefined) ? s.answer : 0;
+        if (qObj && qObj.options && Array.isArray(qObj.options)) {
+          const foundCorrect = qObj.options.findIndex(o => (typeof o === 'object' && o.correct));
+          if (foundCorrect !== -1) ansIdx = foundCorrect;
+        }
+        const expl = s.why || s.explanation || (qObj ? qObj.explanation : '');
+        rawOptions.forEach((opt, oidx) => {
+          const optText = (typeof opt === 'object' && opt !== null) ? opt.text : opt;
           html += `
-            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
+            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${ansIdx}, '${escapeQuotes(expl)}')">
               <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
-              <span>${renderRichText(opt)}</span>
+              <span>${renderRichText(optText)}</span>
             </button>
           `;
         });
         html += `</div>`;
         html += `
           <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
-            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
               <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
             </button>
           </div>
@@ -2614,7 +2668,7 @@
       } else if (s.type === 'flashcards') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
-        const deck = s.deck || s.cards || [];
+        const deck = s.deck || s.cards || s.flashcards || [];
         const firstFront = deck[0]?.front || deck[0]?.q || '';
         const firstBack = deck[0]?.back || deck[0]?.a || '';
         html += `
@@ -2641,7 +2695,8 @@
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
         html += `<div class="concept-grid">`;
-        const items = s.takeaways || s.items || s.points || s.cards || [];
+        const sumObj = (typeof s.summary === 'object' && s.summary !== null) ? s.summary : null;
+        const items = s.takeaways || s.items || s.points || s.cards || (sumObj ? (sumObj.takeaways || sumObj.items || sumObj.points || sumObj.cards) : []) || [];
         items.forEach((item, idx) => {
           let cardTitle = '';
           let cardDesc = '';
@@ -3084,7 +3139,7 @@
     }
     function updateCardView() {
       const s = SLIDES[currentSlideIdx];
-      const deck = s.deck || s.cards || [];
+      const deck = s.deck || s.cards || s.flashcards || [];
       const c = deck[currentCardIdx];
       document.getElementById('fc-inner').classList.remove('flipped');
       document.getElementById('fc-front-text').textContent = c?.front || '';
@@ -3092,7 +3147,7 @@
       document.getElementById('fc-counter').textContent = `${currentCardIdx + 1} / ${deck.length}`;
     }
     function nextCard() {
-      const deck = SLIDES[currentSlideIdx].deck || SLIDES[currentSlideIdx].cards || [];
+      const deck = SLIDES[currentSlideIdx].deck || SLIDES[currentSlideIdx].cards || (SLIDES[currentSlideIdx] && SLIDES[currentSlideIdx].flashcards) || [];
       if (currentCardIdx < deck.length - 1) {
         currentCardIdx++;
         updateCardView();

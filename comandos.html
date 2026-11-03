@@ -167,7 +167,7 @@
 
     <div class="search-bar-wrap">
       <input type="text" id="cmd-filter" class="search-input" placeholder="🔍 Buscar por comando, opción (-k, -v...), propósito o tema..." onkeyup="filterCommands()">
-      <div class="counter-badge" id="cmd-counter">209 comandos registrados</div>
+      <div class="counter-badge" id="cmd-counter">206 comandos registrados</div>
     </div>
 
     <div id="cmd-container">
@@ -2825,80 +2825,6 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
                 </table>
               </div>
             </div>
-            
-            <div class="subtopic-block">
-              <div class="subtopic-header">
-                <span class="subtopic-badge">105.2</span>
-                <h3>Personalizar y escribir scripts sencillos</h3>
-                <span class="cmd-count-badge">3 comandos evaluados</span>
-              </div>
-              <div class="table-card">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th style="width:16%;">Comando & Mazo</th>
-                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
-                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
-                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-            
-                    <tr class="cmd-row">
-                      <td>
-                        <a href="t105/105-2-personalizar-y-escribir.html#/3" class="cmd-name">./backup.sh</a>
-                        <div style="margin-top:6px;"><a href="t105/105-2-personalizar-y-escribir.html#/3" class="slide-link">Diapositiva 3 →</a></div>
-                      </td>
-                      <td class="cmd-purpose">
-                        <div>¿Por qué necesitamos escribir './' para ejecutar scripts locales y dónde deben instalarse?</div>
-                      </td>
-                      <td>
-                        <div class="syntax-wrapper">
-                          <code class="cmd-syntax">./script.sh   O BIEN   mv script.sh ~/bin/</code>
-                          <button class="copy-btn-mini" onclick="copyText('./script.sh   O BIEN   mv script.sh ~/bin/')" title="Copiar comando">Copiar</button>
-                        </div>
-                      </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Ejecuta el script indicando explícitamente la ruta relativa."><code class="pill-code">./script.sh</code><span class="pill-desc">Ejecuta el script indicando explícitamente la r...</span></div><div class="opt-pill" title="Carpeta personal de ejecutables añadida automáticamente al PATH por ~/.profile."><code class="pill-code">~/bin/</code><span class="pill-desc">Carpeta personal de ejecutables añadida automát...</span></div><div class="opt-pill" title="Directorio estándar FHS para scripts personalizados accesibles a todo el sistema."><code class="pill-code">/usr/local/bin/</code><span class="pill-desc">Directorio estándar FHS para scripts personaliz...</span></div></div></td>
-                    </tr>
-                
-                    <tr class="cmd-row">
-                      <td>
-                        <a href="t105/105-2-personalizar-y-escribir.html#/9" class="cmd-name">case "$1" in start) ... ;; stop) ... ;; *) ... ;; esac</a>
-                        <div style="margin-top:6px;"><a href="t105/105-2-personalizar-y-escribir.html#/9" class="slide-link">Diapositiva 9 →</a></div>
-                      </td>
-                      <td class="cmd-purpose">
-                        <div>¿Cómo estructurar menús y ramas múltiples de forma limpia sin anidar decenas de 'if'?</div>
-                      </td>
-                      <td>
-                        <div class="syntax-wrapper">
-                          <code class="cmd-syntax">case VARIABLE in PATRON1) acciones ;; PATRON2) acciones ;; *) fallback ;; esac</code>
-                          <button class="copy-btn-mini" onclick="copyText('case VARIABLE in PATRON1) acciones ;; PATRON2) acciones ;; *) fallback ;; esac')" title="Copiar comando">Copiar</button>
-                        </div>
-                      </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Termina la cláusula actual y sale del bloque case."><code class="pill-code">;;</code><span class="pill-desc">Termina la cláusula actual y sale del bloque case.</span></div><div class="opt-pill" title="Captura cualquier valor no contemplado previamente (equivalente al 'else')."><code class="pill-code">*)</code><span class="pill-desc">Captura cualquier valor no contemplado previame...</span></div><div class="opt-pill" title="Coincide si el valor es p1 o p2."><code class="pill-code">p1|p2)</code><span class="pill-desc">Coincide si el valor es p1 o p2.</span></div></div></td>
-                    </tr>
-                
-                    <tr class="cmd-row">
-                      <td>
-                        <a href="t105/105-2-personalizar-y-escribir.html#/11" class="cmd-name">read -s -p "Password: " PASS</a>
-                        <div style="margin-top:6px;"><a href="t105/105-2-personalizar-y-escribir.html#/11" class="slide-link">Diapositiva 11 →</a></div>
-                      </td>
-                      <td class="cmd-purpose">
-                        <div>¿Cómo solicitar datos al usuario, capturar salidas de comandos y alertar al administrador?</div>
-                      </td>
-                      <td>
-                        <div class="syntax-wrapper">
-                          <code class="cmd-syntax">read [-s] [-p "prompt"] VAR   |   VAR=$(comando)   |   mail -s "Asunto" dest</code>
-                          <button class="copy-btn-mini" onclick="copyText('read [-s] [-p &quot;prompt&quot;] VAR   |   VAR=$(comando)   |   mail -s &quot;Asunto&quot; dest')" title="Copiar comando">Copiar</button>
-                        </div>
-                      </td>
-                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Modo silencioso (preguntado explícitamente en el manual LPI)."><code class="pill-code">read -s</code><span class="pill-desc">Modo silencioso (preguntado explícitamente en e...</span></div><div class="opt-pill" title="Sustitución de comandos estándar POSIX moderna (permite anidamiento)."><code class="pill-code">VAR=$(whoami)</code><span class="pill-desc">Sustitución de comandos estándar POSIX moderna ...</span></div><div class="opt-pill" title="Envía correo de alerta al superusuario ante errores inesperados."><code class="pill-code">mail -s "..." root</code><span class="pill-desc">Envía correo de alerta al superusuario ante err...</span></div></div></td>
-                    </tr>
-                
-                  </tbody>
-                </table>
-              </div>
-            </div>
             </section>
         <section class="topic-section" id="t106">
           <div class="topic-header">
@@ -4758,7 +4684,7 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
         const hasVisible = Array.from(sec.querySelectorAll('.subtopic-block')).some(b => b.style.display !== 'none');
         sec.style.display = hasVisible ? '' : 'none';
       });
-      document.getElementById('cmd-counter').textContent = q ? `${visibleCount} comandos encontrados` : '209 comandos registrados';
+      document.getElementById('cmd-counter').textContent = q ? `${visibleCount} comandos encontrados` : '206 comandos registrados';
     }
 
     function toggleTheme() {
