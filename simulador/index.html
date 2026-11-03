@@ -56,6 +56,12 @@
       --t102: #059669;
       --t103: #D97706;
       --t104: #7C3AED;
+      --t105: #2563EB;
+      --t106: #059669;
+      --t107: #D97706;
+      --t108: #7C3AED;
+      --t109: #0891B2;
+      --t110: #DC2626;
 
       --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
       --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.05);
@@ -105,6 +111,12 @@
       --t102: #34D399;
       --t103: #FBBF24;
       --t104: #A78BFA;
+      --t105: #60A5FA;
+      --t106: #34D399;
+      --t107: #FBBF24;
+      --t108: #A78BFA;
+      --t109: #22D3EE;
+      --t110: #F87171;
 
       --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
       --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4);
@@ -577,6 +589,12 @@
     .topic-102 { background-color: var(--t102); }
     .topic-103 { background-color: var(--t103); }
     .topic-104 { background-color: var(--t104); }
+    .topic-105 { background-color: var(--t105); }
+    .topic-106 { background-color: var(--t106); }
+    .topic-107 { background-color: var(--t107); }
+    .topic-108 { background-color: var(--t108); }
+    .topic-109 { background-color: var(--t109); }
+    .topic-110 { background-color: var(--t110); }
 
     .q-rule-badge {
       display: inline-flex;
@@ -1602,8 +1620,7 @@
 <symbol id="i-pin" viewBox="0 0 24 24"><use href="#i-bookmark" /></symbol>
 <symbol id="i-share-2" viewBox="0 0 24 24"><use href="#i-network" /></symbol>
 </svg>
-
-  </div>
+</div>
 
   <!-- TOP HEADER (Pearson VUE Style) -->
   <header class="vue-topbar" id="topbar">
@@ -1614,7 +1631,11 @@
       </div>
       <div>
         <span class="exam-title-text">Exam 101-500: Examen de Certificación</span>
-        <span class="exam-subtitle">Linux Professional Institute</span>
+        <span class="exam-subtitle">Linux Professional Institute · Parte 1</span>
+      </div>
+      <div class="exam-switcher-tabs" aria-label="Cambiar examen simulado">
+        <a href="index.html" class="exam-switcher-tab active" title="Simulador de Examen LPIC-1 101-500">Examen 101-500</a>
+        <a href="simulador-102.html" class="exam-switcher-tab " title="Simulador de Examen LPIC-1 102-500">Examen 102-500</a>
       </div>
     </div>
 
@@ -1702,11 +1723,11 @@
     <div class="topic-filter-box" id="topic-filter-box">
       <span style="font-size:13px; font-weight:700; color:var(--text);">Filtrar por Tema (Opcional):</span>
       <div class="filter-pills">
-        <button class="filter-pill-btn active" onclick="setTopicFilter('all', this)">Todos los Temas (120 Preguntas)</button>
-        <button class="filter-pill-btn" onclick="setTopicFilter(101, this)">Tema 101: Arquitectura (19 Qs)</button>
-        <button class="filter-pill-btn" onclick="setTopicFilter(102, this)">Tema 102: Instalación y Paquetes (27 Qs)</button>
-        <button class="filter-pill-btn" onclick="setTopicFilter(103, this)">Tema 103: Comandos GNU/Unix (43 Qs)</button>
-        <button class="filter-pill-btn" onclick="setTopicFilter(104, this)">Tema 104: Dispositivos y FHS (31 Qs)</button>
+        <button class="filter-pill-btn active" data-topic="all" onclick="setTopicFilter('all', this)">Todos los Temas (120 Preguntas)</button>
+        <button class="filter-pill-btn" data-topic="101" onclick="setTopicFilter(101, this)">Tema 101: Arquitectura del Sistema (19 Qs)</button>
+        <button class="filter-pill-btn" data-topic="102" onclick="setTopicFilter(102, this)">Tema 102: Instalación de Linux y Paquetes (27 Qs)</button>
+        <button class="filter-pill-btn" data-topic="103" onclick="setTopicFilter(103, this)">Tema 103: Comandos GNU y Unix (43 Qs)</button>
+        <button class="filter-pill-btn" data-topic="104" onclick="setTopicFilter(104, this)">Tema 104: Dispositivos, Sistemas de Archivos y FHS (31 Qs)</button>
       </div>
     </div>
 
@@ -1725,7 +1746,7 @@
     <div class="q-meta-strip">
       <div class="q-counter-box">
         <span class="q-num-label" id="q-number-display">Pregunta 1 de 60</span>
-        <span class="q-topic-tag topic-103" id="q-topic-tag">Tema 103: Comandos GNU y Unix</span>
+        <span class="q-topic-tag topic-101" id="q-topic-tag">Tema 101: Arquitectura del Sistema</span>
       </div>
       <div class="q-rule-badge" id="q-rule-badge">
         <svg class="ic ic-xs"><use href="#i-info"/></svg>
@@ -1837,40 +1858,40 @@
     <div class="topic-breakdown-card">
       <h3>Desglose de Aciertos por Tema</h3>
       <div class="topic-rows">
-        <div class="topic-row">
+        <div class="topic-row" data-topic="101">
           <div class="topic-row-info">
             <span>Tema 101: Arquitectura del Sistema (Peso: 8)</span>
-            <span id="meter-val-101">85%</span>
+            <span id="meter-val-101">0%</span>
           </div>
           <div class="topic-meter-bg">
-            <div class="topic-meter-fill topic-101" id="meter-fill-101" style="width: 85%;"></div>
+            <div class="topic-meter-fill topic-101" id="meter-fill-101" style="width: 0%;"></div>
           </div>
         </div>
-        <div class="topic-row">
+        <div class="topic-row" data-topic="102">
           <div class="topic-row-info">
             <span>Tema 102: Instalación de Linux y Paquetes (Peso: 11)</span>
-            <span id="meter-val-102">75%</span>
+            <span id="meter-val-102">0%</span>
           </div>
           <div class="topic-meter-bg">
-            <div class="topic-meter-fill topic-102" id="meter-fill-102" style="width: 75%;"></div>
+            <div class="topic-meter-fill topic-102" id="meter-fill-102" style="width: 0%;"></div>
           </div>
         </div>
-        <div class="topic-row">
+        <div class="topic-row" data-topic="103">
           <div class="topic-row-info">
             <span>Tema 103: Comandos GNU y Unix (Peso: 25)</span>
-            <span id="meter-val-103">90%</span>
+            <span id="meter-val-103">0%</span>
           </div>
           <div class="topic-meter-bg">
-            <div class="topic-meter-fill topic-103" id="meter-fill-103" style="width: 90%;"></div>
+            <div class="topic-meter-fill topic-103" id="meter-fill-103" style="width: 0%;"></div>
           </div>
         </div>
-        <div class="topic-row">
+        <div class="topic-row" data-topic="104">
           <div class="topic-row-info">
             <span>Tema 104: Dispositivos, Sistemas de Archivos y FHS (Peso: 16)</span>
-            <span id="meter-val-104">80%</span>
+            <span id="meter-val-104">0%</span>
           </div>
           <div class="topic-meter-bg">
-            <div class="topic-meter-fill topic-104" id="meter-fill-104" style="width: 80%;"></div>
+            <div class="topic-meter-fill topic-104" id="meter-fill-104" style="width: 0%;"></div>
           </div>
         </div>
       </div>
@@ -5152,8 +5173,11 @@
 ];
   </script>
 
+  <script src="../config-temas.js"></script>
   <!-- Simulator App Logic -->
   <script>
+    const EXAM_TOPICS = [{"id": 101, "name": "Tema 101: Arquitectura del Sistema", "short": "Arquitectura", "weight": 8, "count": 19}, {"id": 102, "name": "Tema 102: Instalación de Linux y Paquetes", "short": "Instalación y Paquetes", "weight": 11, "count": 27}, {"id": 103, "name": "Tema 103: Comandos GNU y Unix", "short": "Comandos GNU/Unix", "weight": 25, "count": 43}, {"id": 104, "name": "Tema 104: Dispositivos, Sistemas de Archivos y FHS", "short": "Dispositivos y FHS", "weight": 16, "count": 31}];
+
     /* State */
     let appState = {
       mode: 'exam',
@@ -5182,7 +5206,7 @@
       }
 
       if (temaParam) {
-        setTopicFilter(parseInt(temaParam), document.querySelector(`[onclick="setTopicFilter(${temaParam}, this)"]`));
+        if (!window.isTopicVisible || window.isTopicVisible(temaParam)) setTopicFilter(parseInt(temaParam), document.querySelector(`[data-topic="${temaParam}"]`) || document.querySelector(`[onclick="setTopicFilter(${temaParam}, this)"]`));
       }
 
       window.addEventListener('keydown', (e) => {
@@ -5222,18 +5246,20 @@
       const fullBank = window.ALL_QUESTIONS_BANK;
 
       if (appState.mode === 'exam') {
-        const byTopic = { 101: [], 102: [], 103: [], 104: [] };
+        const byTopic = {};
+        EXAM_TOPICS.forEach(t => { byTopic[t.id] = []; });
         fullBank.forEach(q => {
           if (byTopic[q.tema]) byTopic[q.tema].push(q);
         });
 
         const shuffle = arr => [...arr].sort(() => 0.5 - Math.random());
-        const q101 = shuffle(byTopic[101]).slice(0, 8);
-        const q102 = shuffle(byTopic[102]).slice(0, 11);
-        const q103 = shuffle(byTopic[103]).slice(0, 25);
-        const q104 = shuffle(byTopic[104]).slice(0, 16);
+        const sampled = [];
+        EXAM_TOPICS.forEach(t => {
+          const pool = shuffle(byTopic[t.id] || []);
+          sampled.push(...pool.slice(0, t.weight));
+        });
 
-        appState.activeQuestions = shuffle([...q101, ...q102, ...q103, ...q104]);
+        appState.activeQuestions = shuffle(sampled);
         appState.timeRemaining = 90 * 60;
         appState.timeElapsed = 0;
       } else {
@@ -5400,7 +5426,7 @@
               <span class="terminal-dot dot-yellow"></span>
               <span class="terminal-dot dot-green"></span>
             </div>
-            <span>bash terminal / examen 101</span>
+            <span>bash terminal / examen 101-500</span>
           </div>
           <div class="terminal-input-row">
             <span class="terminal-prompt">lpic1@debian:~$</span>
@@ -5625,12 +5651,10 @@
 
       const total = appState.activeQuestions.length;
       let correctCount = 0;
-      const topicStats = {
-        101: { total: 0, correct: 0 },
-        102: { total: 0, correct: 0 },
-        103: { total: 0, correct: 0 },
-        104: { total: 0, correct: 0 }
-      };
+      const topicStats = {};
+      EXAM_TOPICS.forEach(t => {
+        topicStats[t.id] = { total: 0, correct: 0 };
+      });
 
       appState.activeQuestions.forEach(q => {
         const isCor = evaluateQuestion(q);
@@ -5671,11 +5695,14 @@
       let es = elapsedSecs % 60;
       document.getElementById('kpi-time').textContent = `${em}m ${es}s`;
 
-      [101, 102, 103, 104].forEach(tid => {
+      EXAM_TOPICS.forEach(t => {
+        const tid = t.id;
         const st = topicStats[tid];
-        const tPct = st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0;
-        document.getElementById(`meter-val-${tid}`).textContent = `${tPct}% (${st.correct}/${st.total})`;
-        document.getElementById(`meter-fill-${tid}`).style.width = `${tPct}%`;
+        const tPct = (st && st.total > 0) ? Math.round((st.correct / st.total) * 100) : 0;
+        const elVal = document.getElementById(`meter-val-${tid}`);
+        const elFill = document.getElementById(`meter-fill-${tid}`);
+        if (elVal) elVal.textContent = `${tPct}% (${st ? st.correct : 0}/${st ? st.total : 0})`;
+        if (elFill) elFill.style.width = `${tPct}%`;
       });
 
       document.getElementById('rev-count-all').textContent = total;

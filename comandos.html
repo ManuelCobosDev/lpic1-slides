@@ -16,6 +16,7 @@
       }
     })();
   </script>
+  <script src="config-temas.js"></script>
   <style>
     :root {
       --bg: #F8FAFC; --surface: #FFFFFF; --text: #0F172A; --text-muted: #475569;
@@ -142,7 +143,7 @@
     <a href="index.html" class="back-link">← Volver al Índice Principal de Temas</a>
     <header>
       <h1>Índice Global y Cheatsheet de Comandos LPIC-1</h1>
-      <div class="subtitle">Guía de Referencia y Memorización Oficial (Temas 101, 102, 103 y 104)</div>
+      <div class="subtitle">Guía de Referencia y Memorización Oficial (Temas 101 a 110 · Exámenes 101-500 y 102-500)</div>
       <div class="nav-bar">
         <a href="grafo.html" class="nav-btn" style="border-color:var(--primary); background:var(--primary-soft); color:var(--primary); font-weight:700;">🗺️ Mapa Mental & Grafo</a>
         <a href="practicas/index.html" class="nav-btn" style="border-color:var(--primary); color:var(--primary); font-weight:700;">Prácticas de Laboratorio</a>
@@ -152,6 +153,12 @@
         <a href="#t102" class="nav-btn">Tema 102</a>
         <a href="#t103" class="nav-btn">Tema 103</a>
         <a href="#t104" class="nav-btn">Tema 104</a>
+        <a href="#t105" class="nav-btn">Tema 105</a>
+        <a href="#t106" class="nav-btn">Tema 106</a>
+        <a href="#t107" class="nav-btn">Tema 107</a>
+        <a href="#t108" class="nav-btn">Tema 108</a>
+        <a href="#t109" class="nav-btn">Tema 109</a>
+        <a href="#t110" class="nav-btn">Tema 110</a>
         <button class="nav-btn theme-toggle-btn" id="btn-theme-toggle" onclick="toggleTheme()" title="Cambiar tema claro / oscuro" aria-label="Cambiar tema" style="cursor:pointer;">
           <span id="theme-toggle-label">🌙 Modo Oscuro</span>
         </button>
@@ -160,7 +167,7 @@
 
     <div class="search-bar-wrap">
       <input type="text" id="cmd-filter" class="search-input" placeholder="🔍 Buscar por comando, opción (-k, -v...), propósito o tema..." onkeyup="filterCommands()">
-      <div class="counter-badge" id="cmd-counter">119 comandos registrados</div>
+      <div class="counter-badge" id="cmd-counter">209 comandos registrados</div>
     </div>
 
     <div id="cmd-container">
@@ -2740,6 +2747,1980 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
               </div>
             </div>
             </section>
+        <section class="topic-section" id="t105">
+          <div class="topic-header">
+            <h2>Tema 105: Interfaces y scripts</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">105.1</span>
+                <h3>Personalizar y usar el entorno de shell</h3>
+                <span class="cmd-count-badge">3 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t105/105-1-personalizar-y-usar-el-e.html#/6" class="cmd-name">VAR=valor | export VAR | env | set | unset VAR</a>
+                        <div style="margin-top:6px;"><a href="t105/105-1-personalizar-y-usar-el-e.html#/6" class="slide-link">Diapositiva 6 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Controlar el ciclo de vida y la herencia de variables entre la shell actual y sus procesos hijos</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">CURSO='LPIC-1' && export SERVIDOR='SRV01' && bash -c 'echo Local: $CURSO | Entorno: $SERVIDOR'</code>
+                          <button class="copy-btn-mini" onclick="copyText('CURSO=\'LPIC-1\' && export SERVIDOR=\'SRV01\' && bash -c \'echo Local: $CURSO | Entorno: $SERVIDOR\'')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Variable Local"><code class="pill-code">VAR=valor</code><span class="pill-desc">Variable Local</span></div><div class="opt-pill" title="Exportar al Entorno"><code class="pill-code">export VAR</code><span class="pill-desc">Exportar al Entorno</span></div><div class="opt-pill" title="Listar Entorno"><code class="pill-code">env</code><span class="pill-desc">Listar Entorno</span></div><div class="opt-pill" title="Listar Todo"><code class="pill-code">set</code><span class="pill-desc">Listar Todo</span></div><div class="opt-pill" title="Eliminar Variable"><code class="pill-code">unset VAR</code><span class="pill-desc">Eliminar Variable</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t105/105-1-personalizar-y-usar-el-e.html#/9" class="cmd-name">alias nombre='comando' | unalias nombre | function mi_func() { ...; }</a>
+                        <div style="margin-top:6px;"><a href="t105/105-1-personalizar-y-usar-el-e.html#/9" class="slide-link">Diapositiva 9 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Ahorrar pulsaciones creando atajos y definir funciones reutilizables con parámetros dentro del shell</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">alias ll='ls -la' && unalias ll && buscar() { grep -rn "$1" /etc/ 2>/dev/null; }</code>
+                          <button class="copy-btn-mini" onclick="copyText('alias ll=\'ls -la\' && unalias ll && buscar() { grep -rn &quot;$1&quot; /etc/ 2>/dev/null; }')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Listar Alias"><code class="pill-code">alias</code><span class="pill-desc">Listar Alias</span></div><div class="opt-pill" title="Definir Alias"><code class="pill-code">alias n='cmd'</code><span class="pill-desc">Definir Alias</span></div><div class="opt-pill" title="Eliminar Alias"><code class="pill-code">unalias <nombre></code><span class="pill-desc">Eliminar Alias</span></div><div class="opt-pill" title="Eliminar Todos"><code class="pill-code">unalias -a</code><span class="pill-desc">Eliminar Todos</span></div><div class="opt-pill" title="Función de Shell"><code class="pill-code">function f() {}</code><span class="pill-desc">Función de Shell</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t105/105-1-personalizar-y-usar-el-e.html#/10" class="cmd-name">source archivo.sh | . archivo.sh</a>
+                        <div style="margin-top:6px;"><a href="t105/105-1-personalizar-y-usar-el-e.html#/10" class="slide-link">Diapositiva 10 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Leer y ejecutar un archivo de comandos dentro del proceso actual de shell sin lanzar un subshell</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">echo 'MI_VAR=100' > test.sh && ./test.sh && echo $MI_VAR && source test.sh && echo $MI_VAR</code>
+                          <button class="copy-btn-mini" onclick="copyText('echo \'MI_VAR=100\' > test.sh && ./test.sh && echo $MI_VAR && source test.sh && echo $MI_VAR')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Comando source"><code class="pill-code">source <archivo></code><span class="pill-desc">Comando source</span></div><div class="opt-pill" title="Atajo Punto (.)"><code class="pill-code">. <archivo></code><span class="pill-desc">Atajo Punto (.)</span></div><div class="opt-pill" title="Ejecución Normal"><code class="pill-code">./archivo.sh</code><span class="pill-desc">Ejecución Normal</span></div></div></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">105.2</span>
+                <h3>Personalizar y escribir scripts sencillos</h3>
+                <span class="cmd-count-badge">3 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t105/105-2-personalizar-y-escribir.html#/3" class="cmd-name">./backup.sh</a>
+                        <div style="margin-top:6px;"><a href="t105/105-2-personalizar-y-escribir.html#/3" class="slide-link">Diapositiva 3 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Por qué necesitamos escribir './' para ejecutar scripts locales y dónde deben instalarse?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">./script.sh   O BIEN   mv script.sh ~/bin/</code>
+                          <button class="copy-btn-mini" onclick="copyText('./script.sh   O BIEN   mv script.sh ~/bin/')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Ejecuta el script indicando explícitamente la ruta relativa."><code class="pill-code">./script.sh</code><span class="pill-desc">Ejecuta el script indicando explícitamente la r...</span></div><div class="opt-pill" title="Carpeta personal de ejecutables añadida automáticamente al PATH por ~/.profile."><code class="pill-code">~/bin/</code><span class="pill-desc">Carpeta personal de ejecutables añadida automát...</span></div><div class="opt-pill" title="Directorio estándar FHS para scripts personalizados accesibles a todo el sistema."><code class="pill-code">/usr/local/bin/</code><span class="pill-desc">Directorio estándar FHS para scripts personaliz...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t105/105-2-personalizar-y-escribir.html#/9" class="cmd-name">case "$1" in start) ... ;; stop) ... ;; *) ... ;; esac</a>
+                        <div style="margin-top:6px;"><a href="t105/105-2-personalizar-y-escribir.html#/9" class="slide-link">Diapositiva 9 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo estructurar menús y ramas múltiples de forma limpia sin anidar decenas de 'if'?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">case VARIABLE in PATRON1) acciones ;; PATRON2) acciones ;; *) fallback ;; esac</code>
+                          <button class="copy-btn-mini" onclick="copyText('case VARIABLE in PATRON1) acciones ;; PATRON2) acciones ;; *) fallback ;; esac')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Termina la cláusula actual y sale del bloque case."><code class="pill-code">;;</code><span class="pill-desc">Termina la cláusula actual y sale del bloque case.</span></div><div class="opt-pill" title="Captura cualquier valor no contemplado previamente (equivalente al 'else')."><code class="pill-code">*)</code><span class="pill-desc">Captura cualquier valor no contemplado previame...</span></div><div class="opt-pill" title="Coincide si el valor es p1 o p2."><code class="pill-code">p1|p2)</code><span class="pill-desc">Coincide si el valor es p1 o p2.</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t105/105-2-personalizar-y-escribir.html#/11" class="cmd-name">read -s -p "Password: " PASS</a>
+                        <div style="margin-top:6px;"><a href="t105/105-2-personalizar-y-escribir.html#/11" class="slide-link">Diapositiva 11 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo solicitar datos al usuario, capturar salidas de comandos y alertar al administrador?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">read [-s] [-p "prompt"] VAR   |   VAR=$(comando)   |   mail -s "Asunto" dest</code>
+                          <button class="copy-btn-mini" onclick="copyText('read [-s] [-p &quot;prompt&quot;] VAR   |   VAR=$(comando)   |   mail -s &quot;Asunto&quot; dest')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Modo silencioso (preguntado explícitamente en el manual LPI)."><code class="pill-code">read -s</code><span class="pill-desc">Modo silencioso (preguntado explícitamente en e...</span></div><div class="opt-pill" title="Sustitución de comandos estándar POSIX moderna (permite anidamiento)."><code class="pill-code">VAR=$(whoami)</code><span class="pill-desc">Sustitución de comandos estándar POSIX moderna ...</span></div><div class="opt-pill" title="Envía correo de alerta al superusuario ante errores inesperados."><code class="pill-code">mail -s "..." root</code><span class="pill-desc">Envía correo de alerta al superusuario ante err...</span></div></div></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t106">
+          <div class="topic-header">
+            <h2>Tema 106: Interfaces de usuario y escritorios</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">106.1</span>
+                <h3>Instalar y configurar X11</h3>
+                <span class="cmd-count-badge">5 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t106/106-1-instalar-y-configurar-x1.html#/4" class="cmd-name">xdpyinfo</a>
+                        <div style="margin-top:6px;"><a href="t106/106-1-instalar-y-configurar-x1.html#/4" class="slide-link">Diapositiva 4 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo auditar las extensiones activas, resolución, monitores y profundidad de color de Xorg?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">xdpyinfo [-display :0]</code>
+                          <button class="copy-btn-mini" onclick="copyText('xdpyinfo [-display :0]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Vuelca la lista completa de extensiones (GLX, RANDR, XINERAMA) y dimensiones."><code class="pill-code">xdpyinfo</code><span class="pill-desc">Vuelca la lista completa de extensiones (GLX, R...</span></div><div class="opt-pill" title="Filtra la resolución en píxeles y milímetros."><code class="pill-code">xdpyinfo | grep -B 2 'dimensions'</code><span class="pill-desc">Filtra la resolución en píxeles y milímetros.</span></div><div class="opt-pill" title="Lista las extensiones modulares soportadas."><code class="pill-code">xdpyinfo | grep -A 10 'number of extensions'</code><span class="pill-desc">Lista las extensiones modulares soportadas.</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t106/106-1-instalar-y-configurar-x1.html#/7" class="cmd-name">Xorg -configure</a>
+                        <div style="margin-top:6px;"><a href="t106/106-1-instalar-y-configurar-x1.html#/7" class="slide-link">Diapositiva 7 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo generar un archivo xorg.conf de plantilla y dónde consultar los errores de inicio?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Xorg -configure   (o X -configure)</code>
+                          <button class="copy-btn-mini" onclick="copyText('Xorg -configure   (o X -configure)')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Detecta monitores y GPU creando /root/xorg.conf.new."><code class="pill-code">Xorg -configure</code><span class="pill-desc">Detecta monitores y GPU creando /root/xorg.conf...</span></div><div class="opt-pill" title="Log del servidor X (las líneas con (EE) indican errores y (WW) avisos)."><code class="pill-code">/var/log/Xorg.0.log</code><span class="pill-desc">Log del servidor X (las líneas con (EE) indican...</span></div><div class="opt-pill" title="Bitácora en el home del usuario con errores de aplicaciones del escritorio."><code class="pill-code">~/.xsession-errors</code><span class="pill-desc">Bitácora en el home del usuario con errores de ...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t106/106-1-instalar-y-configurar-x1.html#/8" class="cmd-name">localectl set-x11-keymap es</a>
+                        <div style="margin-top:6px;"><a href="t106/106-1-instalar-y-configurar-x1.html#/8" class="slide-link">Diapositiva 8 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo modificar la distribución de teclas en caliente en X11 y hacerla permanente?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">setxkbmap <idioma>   |   localectl set-x11-keymap <layout> [model] [variant]</code>
+                          <button class="copy-btn-mini" onclick="copyText('setxkbmap <idioma>   |   localectl set-x11-keymap <layout> [model] [variant]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Aplica inmediatamente el mapa de teclado español en la sesión X viva."><code class="pill-code">setxkbmap es</code><span class="pill-desc">Aplica inmediatamente el mapa de teclado españo...</span></div><div class="opt-pill" title="Muestra el Locale del sistema, VC Keymap (consola) y X11 Layout."><code class="pill-code">localectl status</code><span class="pill-desc">Muestra el Locale del sistema, VC Keymap (conso...</span></div><div class="opt-pill" title="Lista todas las distribuciones nacionales disponibles."><code class="pill-code">localectl list-x11-keymap-layouts</code><span class="pill-desc">Lista todas las distribuciones nacionales dispo...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t106/106-1-instalar-y-configurar-x1.html#/9" class="cmd-name">xhost +192.168.1.50</a>
+                        <div style="margin-top:6px;"><a href="t106/106-1-instalar-y-configurar-x1.html#/9" class="slide-link">Diapositiva 9 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo permitir o restringir qué clientes o máquinas remotas pueden enviar ventanas a tu pantalla?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">xhost [[+|-] hostname_o_ip]</code>
+                          <button class="copy-btn-mini" onclick="copyText('xhost [[+|-] hostname_o_ip]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Muestra el estado actual del control de acceso y los hosts autorizados."><code class="pill-code">xhost</code><span class="pill-desc">Muestra el estado actual del control de acceso ...</span></div><div class="opt-pill" title="⚠️ Desactiva la protección (acceso libre universal, peligroso)."><code class="pill-code">xhost +</code><span class="pill-desc">⚠️ Desactiva la protección (acceso libre univer...</span></div><div class="opt-pill" title="Reactiva el control de acceso estricto a los clientes registrados."><code class="pill-code">xhost -</code><span class="pill-desc">Reactiva el control de acceso estricto a los cl...</span></div><div class="opt-pill" title="Autoriza al usuario root local mediante Server Interpreted."><code class="pill-code">xhost +si:localuser:root</code><span class="pill-desc">Autoriza al usuario root local mediante Server ...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t106/106-1-instalar-y-configurar-x1.html#/10" class="cmd-name">xauth list</a>
+                        <div style="margin-top:6px;"><a href="t106/106-1-instalar-y-configurar-x1.html#/10" class="slide-link">Diapositiva 10 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo protege el sistema X Window las pantallas utilizando cookies mágicas por usuario?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">xauth [opciones] [subcomando]</code>
+                          <button class="copy-btn-mini" onclick="copyText('xauth [opciones] [subcomando]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Lista las entradas activas, displays y números hexadecimales de cookie."><code class="pill-code">xauth list</code><span class="pill-desc">Lista las entradas activas, displays y números ...</span></div><div class="opt-pill" title="Añade manualmente una cookie para un display remoto."><code class="pill-code">xauth add</code><span class="pill-desc">Añade manualmente una cookie para un display re...</span></div><div class="opt-pill" title="Exporta la cookie de una pantalla a un archivo para transferirla."><code class="pill-code">xauth extract</code><span class="pill-desc">Exporta la cookie de una pantalla a un archivo ...</span></div><div class="opt-pill" title="Archivo binario protegido en el home (permisos 600 obligatorios)."><code class="pill-code">~/.Xauthority</code><span class="pill-desc">Archivo binario protegido en el home (permisos ...</span></div></div></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">106.2</span>
+                <h3>Escritorios gráficos</h3>
+                <span class="cmd-count-badge">2 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t106/106-2-escritorios-graficos.html#/5" class="cmd-name">konsole</a>
+                        <div style="margin-top:6px;"><a href="t106/106-2-escritorios-graficos.html#/5" class="slide-link">Diapositiva 5 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Qué binario proporciona la consola en cada entorno y cómo lanzarlo rápidamente?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">konsole (KDE)   |   gnome-terminal (GNOME)   |   xfce4-terminal (Xfce)   |   xterm (X11)</code>
+                          <button class="copy-btn-mini" onclick="copyText('konsole (KDE)   |   gnome-terminal (GNOME)   |   xfce4-terminal (Xfce)   |   xterm (X11)')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Atajo universal de escritorio para abrir el menú 'Ejecutar programa'."><code class="pill-code">Alt + F2</code><span class="pill-desc">Atajo universal de escritorio para abrir el men...</span></div><div class="opt-pill" title="Ejecuta una orden interactiva directamente dentro de una nueva ventana de terminal."><code class="pill-code">konsole -e htop</code><span class="pill-desc">Ejecuta una orden interactiva directamente dent...</span></div><div class="opt-pill" title="Lanza el comando tras '--' en una terminal independiente."><code class="pill-code">gnome-terminal --</code><span class="pill-desc">Lanza el comando tras '--' en una terminal inde...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t106/106-2-escritorios-graficos.html#/8" class="cmd-name">remmina</a>
+                        <div style="margin-top:6px;"><a href="t106/106-2-escritorios-graficos.html#/8" class="slide-link">Diapositiva 8 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Qué herramienta cliente utiliza Linux para unificar conexiones RDP, VNC, SPICE y SSH?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">remmina [-c archivo_conexion] [-k]</code>
+                          <button class="copy-btn-mini" onclick="copyText('remmina [-c archivo_conexion] [-k]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Plugin basado en FreeRDP para conectar a servidores Windows Terminal Server."><code class="pill-code">remmina-plugin-rdp</code><span class="pill-desc">Plugin basado en FreeRDP para conectar a servid...</span></div><div class="opt-pill" title="Plugin basado en libvncclient para sesiones VNC estándar."><code class="pill-code">remmina-plugin-vnc</code><span class="pill-desc">Plugin basado en libvncclient para sesiones VNC...</span></div><div class="opt-pill" title="Plugin para consolas de máquinas virtuales KVM/Proxmox."><code class="pill-code">remmina-plugin-spice</code><span class="pill-desc">Plugin para consolas de máquinas virtuales KVM/...</span></div></div></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">106.3</span>
+                <h3>Accesibilidad</h3>
+                <span class="cmd-count-badge">2 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t106/106-3-accesibilidad.html#/5" class="cmd-name">kmousetool</a>
+                        <div style="margin-top:6px;"><a href="t106/106-3-accesibilidad.html#/5" class="slide-link">Diapositiva 5 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo mover el cursor sin ratón físico y evitar el esfuerzo repetitivo de hacer clic?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">kmousetool   |   Ajustes de accesibilidad &rarr; Mouse Keys</code>
+                          <button class="copy-btn-mini" onclick="copyText('kmousetool   |   Ajustes de accesibilidad &rarr; Mouse Keys')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Genera clic automático al pausar el ratón (configurable en milisegundos)."><code class="pill-code">KMouseTool</code><span class="pill-desc">Genera clic automático al pausar el ratón (conf...</span></div><div class="opt-pill" title="Mapea las flechas del teclado numérico para desplazar el puntero."><code class="pill-code">Mouse Keys</code><span class="pill-desc">Mapea las flechas del teclado numérico para des...</span></div><div class="opt-pill" title="Equivalente en GNOME para clics automáticos sin pulsar botones."><code class="pill-code">Dwell Click</code><span class="pill-desc">Equivalente en GNOME para clics automáticos sin...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t106/106-3-accesibilidad.html#/7" class="cmd-name">orca</a>
+                        <div style="margin-top:6px;"><a href="t106/106-3-accesibilidad.html#/7" class="slide-link">Diapositiva 7 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo permite Orca a usuarios invidentes navegar por escritorios gráficos y recibir salida táctil?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">orca [-s | --setup]   |   orca -r (replace)</code>
+                          <button class="copy-btn-mini" onclick="copyText('orca [-s | --setup]   |   orca -r (replace)')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Configura velocidad de habla, tono y parámetros de salida Braille."><code class="pill-code">orca -s</code><span class="pill-desc">Configura velocidad de habla, tono y parámetros...</span></div><div class="opt-pill" title="Reinicia el lector de pantalla si la síntesis de audio se ha bloqueado."><code class="pill-code">orca --replace</code><span class="pill-desc">Reinicia el lector de pantalla si la síntesis d...</span></div><div class="opt-pill" title="Entorno auditivo alternativo integrado en Emacs para consola de texto."><code class="pill-code">Emacspeak</code><span class="pill-desc">Entorno auditivo alternativo integrado en Emacs...</span></div></div></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t107">
+          <div class="topic-header">
+            <h2>Tema 107: Tareas administrativas</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">107.1</span>
+                <h3>Administrar cuentas de usuario y de grupo y los archivos de sistema relacionados con ellas</h3>
+                <span class="cmd-count-badge">7 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-1-administrar-cuentas-de-u.html#/7" class="cmd-name">Comando useradd: Creación de Cuentas de Usuario</a>
+                        <div style="margin-top:6px;"><a href="t107/107-1-administrar-cuentas-de-u.html#/7" class="slide-link">Diapositiva 7 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Sintaxis oficial, opciones evaluadas en LPIC-1 y buenas prácticas de administración.</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">useradd [opciones] nombre_usuario</code>
+                          <button class="copy-btn-mini" onclick="copyText('useradd [opciones] nombre_usuario')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Crea el directorio personal (/home/usuario) y copia el contenido de /etc/skel/."><code class="pill-code">-m, --create-home</code><span class="pill-desc">Crea el directorio personal (/home/usuario) y c...</span></div><div class="opt-pill" title="Define el intérprete de comandos de inicio (ej. /bin/bash, /usr/sbin/nologin)."><code class="pill-code">-s, --shell SHELL</code><span class="pill-desc">Define el intérprete de comandos de inicio (ej....</span></div><div class="opt-pill" title="Asigna un identificador numérico de usuario específico en lugar del siguiente libre."><code class="pill-code">-u, --uid UID</code><span class="pill-desc">Asigna un identificador numérico de usuario esp...</span></div><div class="opt-pill" title="Define el nombre o número del grupo PRIMARIO inicial del usuario."><code class="pill-code">-g, --gid GID_O_GRUPO</code><span class="pill-desc">Define el nombre o número del grupo PRIMARIO in...</span></div><div class="opt-pill" title="Lista de grupos SECUNDARIOS o suplementarios separados por comas."><code class="pill-code">-G, --groups G1,G2</code><span class="pill-desc">Lista de grupos SECUNDARIOS o suplementarios se...</span></div><div class="opt-pill" title="Texto para el campo GECOS (nombre completo, teléfono, oficina)."><code class="pill-code">-c, --comment COMENTARIO</code><span class="pill-desc">Texto para el campo GECOS (nombre completo, tel...</span></div><div class="opt-pill" title="Especifica una ruta personalizada para el directorio personal."><code class="pill-code">-d, --home-dir RUTA</code><span class="pill-desc">Especifica una ruta personalizada para el direc...</span></div><div class="opt-pill" title="Fecha en que se desactivará la cuenta en formato YYYY-MM-DD."><code class="pill-code">-e, --expiredate FECHA</code><span class="pill-desc">Fecha en que se desactivará la cuenta en format...</span></div><div class="opt-pill" title="Muestra la configuración predeterminada de /etc/default/useradd o la modifica si se combina con opciones."><code class="pill-code">-D</code><span class="pill-desc">Muestra la configuración predeterminada de /etc...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-1-administrar-cuentas-de-u.html#/8" class="cmd-name">Comando usermod: Modificación de Cuentas Existentes</a>
+                        <div style="margin-top:6px;"><a href="t107/107-1-administrar-cuentas-de-u.html#/8" class="slide-link">Diapositiva 8 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Alteración de grupos, cambios de nombre, traslados de home y bloqueo de accesos.</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">usermod [opciones] nombre_usuario</code>
+                          <button class="copy-btn-mini" onclick="copyText('usermod [opciones] nombre_usuario')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Añade el usuario a grupos suplementarios. SOLO se usa combinado con -G."><code class="pill-code">-a, --append</code><span class="pill-desc">Añade el usuario a grupos suplementarios. SOLO ...</span></div><div class="opt-pill" title="Especifica la lista de grupos suplementarios (¡Ojo! Sin -a sobrescribe la lista anterior)."><code class="pill-code">-G, --groups G1,G2</code><span class="pill-desc">Especifica la lista de grupos suplementarios (¡...</span></div><div class="opt-pill" title="Cambia el nombre de usuario de la cuenta (login name)."><code class="pill-code">-l, --login NUEVO_LOGIN</code><span class="pill-desc">Cambia el nombre de usuario de la cuenta (login...</span></div><div class="opt-pill" title="Asigna un nuevo directorio home en /etc/passwd."><code class="pill-code">-d, --home RUTA</code><span class="pill-desc">Asigna un nuevo directorio home en /etc/passwd.</span></div><div class="opt-pill" title="Mueve físicamente los archivos del home antiguo a la nueva ruta indicada con -d."><code class="pill-code">-m, --move-home</code><span class="pill-desc">Mueve físicamente los archivos del home antiguo...</span></div><div class="opt-pill" title="Cambia el shell de inicio asignado al usuario."><code class="pill-code">-s, --shell SHELL</code><span class="pill-desc">Cambia el shell de inicio asignado al usuario.</span></div><div class="opt-pill" title="Bloquea la contraseña del usuario (añade '!' al inicio del hash en /etc/shadow)."><code class="pill-code">-L, --lock</code><span class="pill-desc">Bloquea la contraseña del usuario (añade '!' al...</span></div><div class="opt-pill" title="Desbloquea la cuenta (retira el signo '!' del hash en /etc/shadow)."><code class="pill-code">-U, --unlock</code><span class="pill-desc">Desbloquea la cuenta (retira el signo '!' del h...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-1-administrar-cuentas-de-u.html#/9" class="cmd-name">Comando userdel: Eliminación Segura de Cuentas</a>
+                        <div style="margin-top:6px;"><a href="t107/107-1-administrar-cuentas-de-u.html#/9" class="slide-link">Diapositiva 9 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Qué ocurre con los archivos del usuario cuando se elimina su cuenta?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">userdel [opciones] nombre_usuario</code>
+                          <button class="copy-btn-mini" onclick="copyText('userdel [opciones] nombre_usuario')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Elimina el directorio personal (home) del usuario y su cola de correo (/var/mail/usuario)."><code class="pill-code">-r, --remove</code><span class="pill-desc">Elimina el directorio personal (home) del usuar...</span></div><div class="opt-pill" title="Fuerza la eliminación de la cuenta incluso si el usuario ha iniciado sesión actualmente."><code class="pill-code">-f, --force</code><span class="pill-desc">Fuerza la eliminación de la cuenta incluso si e...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-1-administrar-cuentas-de-u.html#/10" class="cmd-name">Administración de Grupos: groupadd, groupmod y groupdel</a>
+                        <div style="margin-top:6px;"><a href="t107/107-1-administrar-cuentas-de-u.html#/10" class="slide-link">Diapositiva 10 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Creación, renombramiento y supresión de grupos en /etc/group.</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">groupadd [opc] grupo | groupmod [opc] grupo | groupdel grupo</code>
+                          <button class="copy-btn-mini" onclick="copyText('groupadd [opc] grupo | groupmod [opc] grupo | groupdel grupo')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Asigna un número GID explícito al nuevo grupo."><code class="pill-code">groupadd -g GID</code><span class="pill-desc">Asigna un número GID explícito al nuevo grupo.</span></div><div class="opt-pill" title="Crea un grupo de sistema (GID en rango SYS_GID_MIN a SYS_GID_MAX)."><code class="pill-code">groupadd -r</code><span class="pill-desc">Crea un grupo de sistema (GID en rango SYS_GID_...</span></div><div class="opt-pill" title="Cambia el nombre del grupo (new name)."><code class="pill-code">groupmod -n NUEVO</code><span class="pill-desc">Cambia el nombre del grupo (new name).</span></div><div class="opt-pill" title="Cambia el identificador GID del grupo existente."><code class="pill-code">groupmod -g GID</code><span class="pill-desc">Cambia el identificador GID del grupo existente.</span></div><div class="opt-pill" title="Elimina el grupo (falla si es el grupo primario de algún usuario en /etc/passwd)."><code class="pill-code">groupdel GRUPO</code><span class="pill-desc">Elimina el grupo (falla si es el grupo primario...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-1-administrar-cuentas-de-u.html#/11" class="cmd-name">Comando passwd: Claves, Bloqueos y Envejecimiento</a>
+                        <div style="margin-top:6px;"><a href="t107/107-1-administrar-cuentas-de-u.html#/11" class="slide-link">Diapositiva 11 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo cambian contraseñas los usuarios y cómo gestiona root el bloqueo de cuentas?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">passwd [opciones] [nombre_usuario]</code>
+                          <button class="copy-btn-mini" onclick="copyText('passwd [opciones] [nombre_usuario]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Bloquea la contraseña anteponiendo '!' al hash en /etc/shadow."><code class="pill-code">-l, --lock</code><span class="pill-desc">Bloquea la contraseña anteponiendo '!' al hash ...</span></div><div class="opt-pill" title="Desbloquea la contraseña eliminando el signo '!' de /etc/shadow."><code class="pill-code">-u, --unlock</code><span class="pill-desc">Desbloquea la contraseña eliminando el signo '!...</span></div><div class="opt-pill" title="Elimina la contraseña (deja la cuenta sin clave; login sin password si se permite)."><code class="pill-code">-d, --delete</code><span class="pill-desc">Elimina la contraseña (deja la cuenta sin clave...</span></div><div class="opt-pill" title="Muestra el estado de la contraseña: P (válida), L (bloqueada), NP (sin clave)."><code class="pill-code">-S, --status</code><span class="pill-desc">Muestra el estado de la contraseña: P (válida),...</span></div><div class="opt-pill" title="Fuerza la expiración inmediata de la clave; el usuario debe cambiarla en el próximo inicio."><code class="pill-code">-e, --expire</code><span class="pill-desc">Fuerza la expiración inmediata de la clave; el ...</span></div><div class="opt-pill" title="Establece los días mínimos (-n) y máximos (-x) de validez de la contraseña."><code class="pill-code">-n MIN, -x MAX</code><span class="pill-desc">Establece los días mínimos (-n) y máximos (-x) ...</span></div><div class="opt-pill" title="Define días de aviso previo (-w) y días de gracia tras caducar (-i)."><code class="pill-code">-w AVISO, -i INACTIVO</code><span class="pill-desc">Define días de aviso previo (-w) y días de grac...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-1-administrar-cuentas-de-u.html#/12" class="cmd-name">Comando chage: Gestión Experta de Envejecimiento (Aging)</a>
+                        <div style="margin-top:6px;"><a href="t107/107-1-administrar-cuentas-de-u.html#/12" class="slide-link">Diapositiva 12 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Inspección y ajuste de caducidad de cuentas y contraseñas en /etc/shadow.</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">chage [opciones] nombre_usuario</code>
+                          <button class="copy-btn-mini" onclick="copyText('chage [opciones] nombre_usuario')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Lista detallada del estado de envejecimiento de la cuenta y la clave."><code class="pill-code">-l, --list</code><span class="pill-desc">Lista detallada del estado de envejecimiento de...</span></div><div class="opt-pill" title="Días MÍNIMOS entre cambios de contraseña (campo 4 shadow; equiv. passwd -n)."><code class="pill-code">-m DÍAS</code><span class="pill-desc">Días MÍNIMOS entre cambios de contraseña (campo...</span></div><div class="opt-pill" title="Días MÁXIMOS de validez de la contraseña (campo 5 shadow; equiv. passwd -x)."><code class="pill-code">-M DÍAS</code><span class="pill-desc">Días MÁXIMOS de validez de la contraseña (campo...</span></div><div class="opt-pill" title="Días de AVISO antes de que expire la clave (campo 6 shadow; equiv. passwd -w)."><code class="pill-code">-W DÍAS</code><span class="pill-desc">Días de AVISO antes de que expire la clave (cam...</span></div><div class="opt-pill" title="Días de INACTIVIDAD antes de bloquearse tras expirar (campo 7 shadow; equiv. passwd -i)."><code class="pill-code">-I DÍAS</code><span class="pill-desc">Días de INACTIVIDAD antes de bloquearse tras ex...</span></div><div class="opt-pill" title="Fecha de CADUCIDAD de la cuenta (formato YYYY-MM-DD o días epoch)."><code class="pill-code">-E FECHA</code><span class="pill-desc">Fecha de CADUCIDAD de la cuenta (formato YYYY-M...</span></div><div class="opt-pill" title="Establece la fecha del último cambio de contraseña. '-d 0' fuerza cambio inmediato."><code class="pill-code">-d DÍAS</code><span class="pill-desc">Establece la fecha del último cambio de contras...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-1-administrar-cuentas-de-u.html#/14" class="cmd-name">Comando getent: Consulta Unificada a Bases de Datos NSS</a>
+                        <div style="margin-top:6px;"><a href="t107/107-1-administrar-cuentas-de-u.html#/14" class="slide-link">Diapositiva 14 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Por qué no basta con hacer grep en /etc/passwd en entornos corporativos?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">getent database [key]</code>
+                          <button class="copy-btn-mini" onclick="copyText('getent database [key]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Consulta la base de datos de usuarios (local o de red)."><code class="pill-code">getent passwd [user]</code><span class="pill-desc">Consulta la base de datos de usuarios (local o ...</span></div><div class="opt-pill" title="Consulta la base de datos de grupos y sus miembros."><code class="pill-code">getent group [group]</code><span class="pill-desc">Consulta la base de datos de grupos y sus miemb...</span></div><div class="opt-pill" title="Consulta la base de datos shadow (requiere permisos de root)."><code class="pill-code">getent shadow [user]</code><span class="pill-desc">Consulta la base de datos shadow (requiere perm...</span></div><div class="opt-pill" title="Resuelve nombres mediante DNS y /etc/hosts unificadamente."><code class="pill-code">getent hosts [hostname]</code><span class="pill-desc">Resuelve nombres mediante DNS y /etc/hosts unif...</span></div></div></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">107.2</span>
+                <h3>Automatizar tareas administrativas del sistema mediante la programación de trabajos</h3>
+                <span class="cmd-count-badge">4 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-2-automatizar-tareas-admin.html#/5" class="cmd-name">Comando crontab: Tablas de Tareas Personales de Usuario</a>
+                        <div style="margin-top:6px;"><a href="t107/107-2-automatizar-tareas-admin.html#/5" class="slide-link">Diapositiva 5 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo gestiona cada usuario sus tareas periódicas sin acceso a /etc/crontab?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">crontab [-u usuario] {-l | -r | -e}</code>
+                          <button class="copy-btn-mini" onclick="copyText('crontab [-u usuario] {-l | -r | -e}')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Edita el archivo crontab del usuario actual con el editor configurado en $VISUAL o $EDITOR."><code class="pill-code">-e</code><span class="pill-desc">Edita el archivo crontab del usuario actual con...</span></div><div class="opt-pill" title="Muestra por la salida estándar el contenido actual del archivo crontab."><code class="pill-code">-l</code><span class="pill-desc">Muestra por la salida estándar el contenido act...</span></div><div class="opt-pill" title="ELIMINA (remove) por completo el archivo crontab del usuario."><code class="pill-code">-r</code><span class="pill-desc">ELIMINA (remove) por completo el archivo cronta...</span></div><div class="opt-pill" title="Pide confirmación interactiva antes de eliminar el crontab con la opción -r."><code class="pill-code">-i</code><span class="pill-desc">Pide confirmación interactiva antes de eliminar...</span></div><div class="opt-pill" title="Especifica el nombre del usuario cuyo crontab se quiere ver, editar o borrar (solo root)."><code class="pill-code">-u USUARIO</code><span class="pill-desc">Especifica el nombre del usuario cuyo crontab s...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-2-automatizar-tareas-admin.html#/9" class="cmd-name">Comando at: Programación de Trabajos Únicos Diferidos</a>
+                        <div style="margin-top:6px;"><a href="t107/107-2-automatizar-tareas-admin.html#/9" class="slide-link">Diapositiva 9 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Ejecución puntual en el futuro con un lenguaje natural extraordinariamente flexible.</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">at [opciones] especificación_de_tiempo</code>
+                          <button class="copy-btn-mini" onclick="copyText('at [opciones] especificación_de_tiempo')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Lee los comandos desde un archivo de script en lugar de la entrada interactiva de consola."><code class="pill-code">-f ARCHIVO</code><span class="pill-desc">Lee los comandos desde un archivo de script en ...</span></div><div class="opt-pill" title="Envía un correo al usuario cuando la tarea finalice, incluso si no produjo ninguna salida."><code class="pill-code">-m</code><span class="pill-desc">Envía un correo al usuario cuando la tarea fina...</span></div><div class="opt-pill" title="Asigna el trabajo a una cola específica (de 'a' a 'z'; las colas más altas tienen menor prioridad)."><code class="pill-code">-q COLA</code><span class="pill-desc">Asigna el trabajo a una cola específica (de 'a'...</span></div><div class="opt-pill" title="Alias de atq: lista los trabajos en cola programados por el usuario."><code class="pill-code">-l</code><span class="pill-desc">Alias de atq: lista los trabajos en cola progra...</span></div><div class="opt-pill" title="Alias de atrm: borra uno o más trabajos especificados por su identificador."><code class="pill-code">-d</code><span class="pill-desc">Alias de atrm: borra uno o más trabajos especif...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-2-automatizar-tareas-admin.html#/11" class="cmd-name">Supervisión y Control de at: atq, atrm y el comando batch</a>
+                        <div style="margin-top:6px;"><a href="t107/107-2-automatizar-tareas-admin.html#/11" class="slide-link">Diapositiva 11 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Gestión de la cola de espera, cancelación de trabajos y ejecución sujeta a carga de CPU.</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">atq [-q cola] | atrm id_trabajo... | batch</code>
+                          <button class="copy-btn-mini" onclick="copyText('atq [-q cola] | atrm id_trabajo... | batch')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Lista las tareas pendientes mostrando: ID, fecha/hora programada, letra de cola y propietario."><code class="pill-code">atq (o at -l)</code><span class="pill-desc">Lista las tareas pendientes mostrando: ID, fech...</span></div><div class="opt-pill" title="Elimina una o más tareas de la cola mediante su ID (ej. 'atrm 12 14')."><code class="pill-code">atrm (o at -d)</code><span class="pill-desc">Elimina una o más tareas de la cola mediante su...</span></div><div class="opt-pill" title="Variante de at sin argumento de hora: ejecuta los comandos cuando la carga del sistema es inferior a 0.8."><code class="pill-code">batch</code><span class="pill-desc">Variante de at sin argumento de hora: ejecuta l...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-2-automatizar-tareas-admin.html#/12" class="cmd-name">Alternativa Moderna: systemd-run y Unidades .timer</a>
+                        <div style="margin-top:6px;"><a href="t107/107-2-automatizar-tareas-admin.html#/12" class="slide-link">Diapositiva 12 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo sustituye systemd a cron y at en las distribuciones contemporáneas?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">systemd-run [--on-calendar=ESPEC | --on-active=TIEMPO] comando</code>
+                          <button class="copy-btn-mini" onclick="copyText('systemd-run [--on-calendar=ESPEC | --on-active=TIEMPO] comando')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Crea un temporizador transitorio basado en fecha/hora absoluta o expresiones repetitivas."><code class="pill-code">--on-calendar='YYYY-MM-DD HH:MM'</code><span class="pill-desc">Crea un temporizador transitorio basado en fech...</span></div><div class="opt-pill" title="Ejecuta la orden transcurrido un intervalo de tiempo relativo (ej. 2 minutos, 1 hora)."><code class="pill-code">--on-active="2m"</code><span class="pill-desc">Ejecuta la orden transcurrido un intervalo de t...</span></div><div class="opt-pill" title="Asigna un nombre de unidad específico al servicio/temporizador transitorio generado."><code class="pill-code">--unit=NOMBRE</code><span class="pill-desc">Asigna un nombre de unidad específico al servic...</span></div><div class="opt-pill" title="Muestra todos los temporizadores activos, su próxima ejecución (NEXT), cuándo se ejecutaron (LAST) y el servicio que activan."><code class="pill-code">systemctl list-timers</code><span class="pill-desc">Muestra todos los temporizadores activos, su pr...</span></div></div></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">107.3</span>
+                <h3>Localización e internacionalización</h3>
+                <span class="cmd-count-badge">5 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-3-localizacion-e-internaci.html#/4" class="cmd-name">Comando tzselect: El Asistente de Menús Interactivo</a>
+                        <div style="margin-top:6px;"><a href="t107/107-3-localizacion-e-internaci.html#/4" class="slide-link">Diapositiva 4 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Para qué sirve y por qué es una de las trampas más recurrentes de la certificación?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">tzselect</code>
+                          <button class="copy-btn-mini" onclick="copyText('tzselect')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Lanza un menú interactivo en consola con preguntas geográficas: 1) Continente, 2) País, 3) Región/Ciudad."><code class="pill-code">(Sin opciones)</code><span class="pill-desc">Lanza un menú interactivo en consola con pregun...</span></div><div class="opt-pill" title="Imprime: 'Therefore TZ=&quot;Region/City&quot; will be used. You can make this change permanent for yourself by appending the line TZ=&quot;...&quot;; export TZ to the file .profile...'."><code class="pill-code">Salida final</code><span class="pill-desc">Imprime: 'Therefore TZ="Region/City" will be us...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-3-localizacion-e-internaci.html#/5" class="cmd-name">Comando timedatectl: Gestión Integral con systemd</a>
+                        <div style="margin-top:6px;"><a href="t107/107-3-localizacion-e-internaci.html#/5" class="slide-link">Diapositiva 5 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>El comando estándar contemporáneo para consultar y fijar hora, zona horaria y NTP.</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">timedatectl [opciones] [subcomando]</code>
+                          <button class="copy-btn-mini" onclick="copyText('timedatectl [opciones] [subcomando]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Muestra estado actual: Local time, Universal time, RTC time, Time zone y NTP service."><code class="pill-code">status</code><span class="pill-desc">Muestra estado actual: Local time, Universal ti...</span></div><div class="opt-pill" title="Lista en formato de paginador todas las zonas horarias admitidas por el sistema."><code class="pill-code">list-timezones</code><span class="pill-desc">Lista en formato de paginador todas las zonas h...</span></div><div class="opt-pill" title="Establece la zona horaria del sistema de forma permanente (actualiza /etc/localtime)."><code class="pill-code">set-timezone ZONA</code><span class="pill-desc">Establece la zona horaria del sistema de forma ...</span></div><div class="opt-pill" title="Ajusta manualmente la fecha y la hora del sistema (requiere NTP desactivado)."><code class="pill-code">set-time 'YYYY-MM-DD HH:MM:SS'</code><span class="pill-desc">Ajusta manualmente la fecha y la hora del siste...</span></div><div class="opt-pill" title="Habilita o deshabilita la sincronización horaria automática por protocolo NTP."><code class="pill-code">set-ntp true|false</code><span class="pill-desc">Habilita o deshabilita la sincronización horari...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-3-localizacion-e-internaci.html#/6" class="cmd-name">Comando date y Sobreescritura en Caliente con TZ</a>
+                        <div style="margin-top:6px;"><a href="t107/107-3-localizacion-e-internaci.html#/6" class="slide-link">Diapositiva 6 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo consultar o ejecutar un programa en otra zona horaria sin alterar el servidor?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">date [opciones] [+formato] | TZ=ZONA comando</code>
+                          <button class="copy-btn-mini" onclick="copyText('date [opciones] [+formato] | TZ=ZONA comando')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Muestra o establece la fecha en Tiempo Universal Coordinado (UTC)."><code class="pill-code">-u, --utc</code><span class="pill-desc">Muestra o establece la fecha en Tiempo Universa...</span></div><div class="opt-pill" title="Muestra la hora descrita por una cadena relativa (ej. 'next Friday', '2 days ago')."><code class="pill-code">-d, --date 'CADENA'</code><span class="pill-desc">Muestra la hora descrita por una cadena relativ...</span></div><div class="opt-pill" title="Fija la fecha y hora del sistema (requiere privilegios de root)."><code class="pill-code">-s, --set 'FECHA'</code><span class="pill-desc">Fija la fecha y hora del sistema (requiere priv...</span></div><div class="opt-pill" title="Formateo: %Y (año 4 dígitos), %m (mes), %d (día), %H (hora 24h), %M (minuto), %Z (zona)."><code class="pill-code">+%FORMATO</code><span class="pill-desc">Formateo: %Y (año 4 dígitos), %m (mes), %d (día...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-3-localizacion-e-internaci.html#/10" class="cmd-name">Comandos locale y localectl: Consulta y Configuración</a>
+                        <div style="margin-top:6px;"><a href="t107/107-3-localizacion-e-internaci.html#/10" class="slide-link">Diapositiva 10 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Auditoría en vivo de variables regionales y fijación de locales persistentes.</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">locale [opciones] | localectl [subcomando]</code>
+                          <button class="copy-btn-mini" onclick="copyText('locale [opciones] | localectl [subcomando]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Muestra todas las variables de entorno de localización activas en la sesión actual."><code class="pill-code">locale</code><span class="pill-desc">Muestra todas las variables de entorno de local...</span></div><div class="opt-pill" title="Lista todos los locales disponibles (all) instalados y compilados en el sistema."><code class="pill-code">locale -a</code><span class="pill-desc">Lista todos los locales disponibles (all) insta...</span></div><div class="opt-pill" title="Muestra todos los mapas de caracteres (charmaps) admitidos (ej. UTF-8, ISO-8859-1)."><code class="pill-code">locale -m</code><span class="pill-desc">Muestra todos los mapas de caracteres (charmaps...</span></div><div class="opt-pill" title="Muestra la configuración permanente de systemd para Locale, VC Keymap y X11 Layout."><code class="pill-code">localectl status</code><span class="pill-desc">Muestra la configuración permanente de systemd ...</span></div><div class="opt-pill" title="Fija el locale permanente del sistema en /etc/locale.conf o /etc/default/locale."><code class="pill-code">localectl set-locale LANG=...</code><span class="pill-desc">Fija el locale permanente del sistema en /etc/l...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t107/107-3-localizacion-e-internaci.html#/13" class="cmd-name">Comando iconv: Conversión de Archivos entre Codificaciones</a>
+                        <div style="margin-top:6px;"><a href="t107/107-3-localizacion-e-internaci.html#/13" class="slide-link">Diapositiva 13 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo migrar documentos creados en ISO-8859-1 a UTF-8 sin perder tildes ni caracteres especiales?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">iconv [opciones] -f cod_origen -t cod_destino [archivo_entrada]</code>
+                          <button class="copy-btn-mini" onclick="copyText('iconv [opciones] -f cod_origen -t cod_destino [archivo_entrada]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Especifica la codificación de caracteres original de entrada (ej. ISO-8859-1, WINDOWS-1252)."><code class="pill-code">-f, --from-code=COD</code><span class="pill-desc">Especifica la codificación de caracteres origin...</span></div><div class="opt-pill" title="Especifica la codificación deseada para la salida (ej. UTF-8)."><code class="pill-code">-t, --to-code=COD</code><span class="pill-desc">Especifica la codificación deseada para la sali...</span></div><div class="opt-pill" title="Escribe el resultado directamente en el archivo destino especificado en lugar de stdout."><code class="pill-code">-o, --output=ARCHIVO</code><span class="pill-desc">Escribe el resultado directamente en el archivo...</span></div><div class="opt-pill" title="Lista exhaustiva de todas las codificaciones de caracteres admitidas por el conversor."><code class="pill-code">-l, --list</code><span class="pill-desc">Lista exhaustiva de todas las codificaciones de...</span></div><div class="opt-pill" title="Omite silenciosamente los caracteres de entrada que no puedan convertirse al juego destino."><code class="pill-code">-c</code><span class="pill-desc">Omite silenciosamente los caracteres de entrada...</span></div></div></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t108">
+          <div class="topic-header">
+            <h2>Tema 108: Servicios esenciales del sistema</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">108.1</span>
+                <h3>Mantener la hora del sistema</h3>
+                <span class="cmd-count-badge">4 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-1-mantener-la-hora-del-sis.html#/3" class="cmd-name">Comando hwclock: Sincronización del Reloj Hardware</a>
+                        <div style="margin-top:6px;"><a href="t108/108-1-mantener-la-hora-del-sis.html#/3" class="slide-link">Diapositiva 3 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo transferir la hora precisa entre el chip físico RTC y el kernel?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">hwclock [función] [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('hwclock [función] [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Lee y muestra por pantalla la hora actual del reloj de hardware (RTC)."><code class="pill-code">-r, --show</code><span class="pill-desc">Lee y muestra por pantalla la hora actual del r...</span></div><div class="opt-pill" title="Copia la hora del sistema hacia el reloj de hardware (System TO Hardware Clock)."><code class="pill-code">-w, --systohc</code><span class="pill-desc">Copia la hora del sistema hacia el reloj de har...</span></div><div class="opt-pill" title="Copia la hora del reloj de hardware hacia el sistema operativo (Hardware Clock TO System)."><code class="pill-code">-s, --hctosys</code><span class="pill-desc">Copia la hora del reloj de hardware hacia el si...</span></div><div class="opt-pill" title="Fija manualmente la hora del reloj de hardware a la fecha especificada."><code class="pill-code">--set --date='FECHA'</code><span class="pill-desc">Fija manualmente la hora del reloj de hardware ...</span></div><div class="opt-pill" title="Indica que el reloj de hardware almacena la hora en formato UTC (estándar Linux)."><code class="pill-code">-u, --utc</code><span class="pill-desc">Indica que el reloj de hardware almacena la hor...</span></div><div class="opt-pill" title="Indica que el reloj de hardware está configurado en hora local (típico en arranque dual Windows)."><code class="pill-code">--localtime</code><span class="pill-desc">Indica que el reloj de hardware está configurad...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-1-mantener-la-hora-del-sis.html#/4" class="cmd-name">Comando timedatectl: Control Unificado en systemd</a>
+                        <div style="margin-top:6px;"><a href="t108/108-1-mantener-la-hora-del-sis.html#/4" class="slide-link">Diapositiva 4 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Gestión moderna del reloj de software, RTC, zona horaria y sincronización NTP.</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">timedatectl [subcomando]</code>
+                          <button class="copy-btn-mini" onclick="copyText('timedatectl [subcomando]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Muestra Local time, Universal time, RTC time, Time zone y estado de sincronización NTP."><code class="pill-code">status</code><span class="pill-desc">Muestra Local time, Universal time, RTC time, T...</span></div><div class="opt-pill" title="Ajusta la hora del sistema y actualiza el RTC al mismo tiempo (requiere NTP desactivado)."><code class="pill-code">set-time 'YYYY-MM-DD HH:MM:SS'</code><span class="pill-desc">Ajusta la hora del sistema y actualiza el RTC a...</span></div><div class="opt-pill" title="Cambia permanentemente la zona horaria del sistema (actualiza /etc/localtime)."><code class="pill-code">set-timezone ZONA</code><span class="pill-desc">Cambia permanentemente la zona horaria del sist...</span></div><div class="opt-pill" title="Activa o desactiva la sincronización horaria automática por protocolo NTP."><code class="pill-code">set-ntp true|false</code><span class="pill-desc">Activa o desactiva la sincronización horaria au...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-1-mantener-la-hora-del-sis.html#/8" class="cmd-name">Supervisión de ntpd: ntpq y la Utilidad ntpdate</a>
+                        <div style="margin-top:6px;"><a href="t108/108-1-mantener-la-hora-del-sis.html#/8" class="slide-link">Diapositiva 8 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo interpretar los símbolos y métricas de estado de los pares NTP?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">ntpq -p [host] | ntpdate [-u] servidor</code>
+                          <button class="copy-btn-mini" onclick="copyText('ntpq -p [host] | ntpdate [-u] servidor')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Imprime en formato de tabla el estado de todos los pares NTP (peers), retraso, offset y jitter."><code class="pill-code">ntpq -p</code><span class="pill-desc">Imprime en formato de tabla el estado de todos ...</span></div><div class="opt-pill" title="Par actualmente sincronizado y utilizado como fuente principal de tiempo."><code class="pill-code">Símbolo * (asterisco)</code><span class="pill-desc">Par actualmente sincronizado y utilizado como f...</span></div><div class="opt-pill" title="Candidato válido de respaldo listo para reemplazar al principal si falla."><code class="pill-code">Símbolo + (más)</code><span class="pill-desc">Candidato válido de respaldo listo para reempla...</span></div><div class="opt-pill" title="Par descartado por el algoritmo de agrupamiento (cluster)."><code class="pill-code">Símbolo - (menos)</code><span class="pill-desc">Par descartado por el algoritmo de agrupamiento...</span></div><div class="opt-pill" title="(Obsoleto) Realiza un salto instantáneo hacia la hora del servidor (falla si ntpd está corriendo)."><code class="pill-code">ntpdate servidor</code><span class="pill-desc">(Obsoleto) Realiza un salto instantáneo hacia l...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-1-mantener-la-hora-del-sis.html#/10" class="cmd-name">Comando chronyc: Control y Diagnóstico de chronyd</a>
+                        <div style="margin-top:6px;"><a href="t108/108-1-mantener-la-hora-del-sis.html#/10" class="slide-link">Diapositiva 10 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Comandos de diagnóstico en tiempo real de fuentes, seguimiento y actividad.</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">chronyc [comando]</code>
+                          <button class="copy-btn-mini" onclick="copyText('chronyc [comando]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Muestra las fuentes NTP configuradas y su estado (* actual, + candidato, ? inalcanzable)."><code class="pill-code">sources [-v]</code><span class="pill-desc">Muestra las fuentes NTP configuradas y su estad...</span></div><div class="opt-pill" title="Muestra estadísticas de deriva y fluctuación de frecuencia de cada fuente."><code class="pill-code">sourcestats [-v]</code><span class="pill-desc">Muestra estadísticas de deriva y fluctuación de...</span></div><div class="opt-pill" title="Vuelca los parámetros actuales del reloj local: Stratum, Reference ID, System time offset y Drift."><code class="pill-code">tracking</code><span class="pill-desc">Vuelca los parámetros actuales del reloj local:...</span></div><div class="opt-pill" title="Informa de cuántas fuentes están online, offline o pendientes de resolución."><code class="pill-code">activity</code><span class="pill-desc">Informa de cuántas fuentes están online, offlin...</span></div><div class="opt-pill" title="Ordena a chronyd realizar un salto manual instantáneo para eliminar cualquier desfase."><code class="pill-code">makestep</code><span class="pill-desc">Ordena a chronyd realizar un salto manual insta...</span></div></div></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">108.2</span>
+                <h3>Registros del sistema</h3>
+                <span class="cmd-count-badge">5 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-2-registros-del-sistema.html#/9" class="cmd-name">Comando journalctl: Navegación Básica y Filtro por Arranques</a>
+                        <div style="margin-top:6px;"><a href="t108/108-2-registros-del-sistema.html#/9" class="slide-link">Diapositiva 9 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo consultar bitácoras de sesiones anteriores tras un reinicio inesperado?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">journalctl [opciones] [filtros]</code>
+                          <button class="copy-btn-mini" onclick="copyText('journalctl [opciones] [filtros]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Muestra los mensajes del arranque especificado (0=actual, -1=anterior, o por hash de boot)."><code class="pill-code">-b, --boot [ID]</code><span class="pill-desc">Muestra los mensajes del arranque especificado ...</span></div><div class="opt-pill" title="Muestra la lista de todos los inicios registrados con su fecha y hash de máquina."><code class="pill-code">--list-boots</code><span class="pill-desc">Muestra la lista de todos los inicios registrad...</span></div><div class="opt-pill" title="Sigue los registros en tiempo real (equivalente a tail -f en archivos planos)."><code class="pill-code">-f, --follow</code><span class="pill-desc">Sigue los registros en tiempo real (equivalente...</span></div><div class="opt-pill" title="Muestra las últimas N líneas registradas (por defecto 10)."><code class="pill-code">-n [LÍNEAS]</code><span class="pill-desc">Muestra las últimas N líneas registradas (por d...</span></div><div class="opt-pill" title="Imprime las entradas en orden cronológico inverso (los eventos más recientes primero)."><code class="pill-code">-r, --reverse</code><span class="pill-desc">Imprime las entradas en orden cronológico inver...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-2-registros-del-sistema.html#/10" class="cmd-name">Comando journalctl: Filtros por Unidad, Prioridad y Fecha</a>
+                        <div style="margin-top:6px;"><a href="t108/108-2-registros-del-sistema.html#/10" class="slide-link">Diapositiva 10 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Aislar con precisión quirúrgica el problema entre millones de líneas de log.</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">journalctl -u UNIDAD -p PRIORIDAD --since TIEMPO --until TIEMPO</code>
+                          <button class="copy-btn-mini" onclick="copyText('journalctl -u UNIDAD -p PRIORIDAD --since TIEMPO --until TIEMPO')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Filtra los mensajes generados por la unidad de systemd especificada (ej. ssh.service)."><code class="pill-code">-u, --unit=SERVICIO</code><span class="pill-desc">Filtra los mensajes generados por la unidad de ...</span></div><div class="opt-pill" title="Filtra por prioridad mínima (ej. 'err', 'warning', o rangos numéricos como '0..3')."><code class="pill-code">-p, --priority=NIVEL</code><span class="pill-desc">Filtra por prioridad mínima (ej. 'err', 'warnin...</span></div><div class="opt-pill" title="Muestra exclusivamente los mensajes del buffer del kernel (equivalente a dmesg)."><code class="pill-code">-k, --dmesg</code><span class="pill-desc">Muestra exclusivamente los mensajes del buffer ...</span></div><div class="opt-pill" title="Filtra por ventana de tiempo (ej. --since '2026-10-30 08:00', --since '1 hour ago')."><code class="pill-code">--since / --until</code><span class="pill-desc">Filtra por ventana de tiempo (ej. --since '2026...</span></div><div class="opt-pill" title="Filtra por variables internas de metadatos de proceso o usuario de systemd."><code class="pill-code">_PID=1234 / _UID=1000</code><span class="pill-desc">Filtra por variables internas de metadatos de p...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-2-registros-del-sistema.html#/11" class="cmd-name">journalctl Avanzado: Formatos de Salida y Análisis Offline (-D)</a>
+                        <div style="margin-top:6px;"><a href="t108/108-2-registros-del-sistema.html#/11" class="slide-link">Diapositiva 11 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo inspeccionar logs de un disco montado desde un Live CD o exportar a JSON?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">journalctl -o FORMATO | journalctl -D DIRECTORIO</code>
+                          <button class="copy-btn-mini" onclick="copyText('journalctl -o FORMATO | journalctl -D DIRECTORIO')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Formato predeterminado idéntico al syslog tradicional clásico."><code class="pill-code">-o short</code><span class="pill-desc">Formato predeterminado idéntico al syslog tradi...</span></div><div class="opt-pill" title="Desglose exhaustivo de todos los campos estructurados internos de systemd."><code class="pill-code">-o verbose</code><span class="pill-desc">Desglose exhaustivo de todos los campos estruct...</span></div><div class="opt-pill" title="Exporta las entradas en objetos JSON válidos para análisis e indexación."><code class="pill-code">-o json / json-pretty</code><span class="pill-desc">Exporta las entradas en objetos JSON válidos pa...</span></div><div class="opt-pill" title="Abre y consulta los archivos de journal ubicados en un directorio externo (modo rescate/forense)."><code class="pill-code">-D DIRECTORY</code><span class="pill-desc">Abre y consulta los archivos de journal ubicado...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-2-registros-del-sistema.html#/12" class="cmd-name">Mantenimiento del Diario: Control de Cuota y Limpieza (vacuum)</a>
+                        <div style="margin-top:6px;"><a href="t108/108-2-registros-del-sistema.html#/12" class="slide-link">Diapositiva 12 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo evitar que journald llene la partición /var?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">journalctl --disk-usage | journalctl --vacuum-size=TAMAÑO | journalctl --vacuum-time=TIEMPO</code>
+                          <button class="copy-btn-mini" onclick="copyText('journalctl --disk-usage | journalctl --vacuum-size=TAMAÑO | journalctl --vacuum-time=TIEMPO')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Calcula y muestra el espacio total consumido en disco por los diarios activos y archivados."><code class="pill-code">--disk-usage</code><span class="pill-desc">Calcula y muestra el espacio total consumido en...</span></div><div class="opt-pill" title="Borra los archivos de diario más antiguos hasta que el tamaño total sea inferior al fijado (ej. 500M, 1G)."><code class="pill-code">--vacuum-size=TAMAÑO</code><span class="pill-desc">Borra los archivos de diario más antiguos hasta...</span></div><div class="opt-pill" title="Elimina todos los archivos de diario que no contengan eventos posteriores al tiempo fijado (ej. 10d, 2weeks)."><code class="pill-code">--vacuum-time=TIEMPO</code><span class="pill-desc">Elimina todos los archivos de diario que no con...</span></div><div class="opt-pill" title="Conserva únicamente un número máximo de N archivos de diario rotados."><code class="pill-code">--vacuum-files=N</code><span class="pill-desc">Conserva únicamente un número máximo de N archi...</span></div></div></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-2-registros-del-sistema.html#/13" class="cmd-name">Inyección Manual de Eventos: logger y systemd-cat</a>
+                        <div style="margin-top:6px;"><a href="t108/108-2-registros-del-sistema.html#/13" class="slide-link">Diapositiva 13 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>¿Cómo registrar eventos personalizados desde nuestros propios scripts de administración?</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">logger [opciones] [mensaje] | systemd-cat [opciones] comando</code>
+                          <button class="copy-btn-mini" onclick="copyText('logger [opciones] [mensaje] | systemd-cat [opciones] comando')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><div class="opts-flex"><div class="opt-pill" title="Especifica el subsistema y severidad (ej. local0.err, auth.notice). Por defecto es user.notice."><code class="pill-code">-p, --priority FAC.PRI</code><span class="pill-desc">Especifica el subsistema y severidad (ej. local...</span></div><div class="opt-pill" title="Marca cada línea de log con una etiqueta identificativa de la aplicación o script."><code class="pill-code">-t, --tag ETIQUETA</code><span class="pill-desc">Marca cada línea de log con una etiqueta identi...</span></div><div class="opt-pill" title="Imprime el mensaje por la salida estándar de error además de registrarlo en el log."><code class="pill-code">-s, --stderr</code><span class="pill-desc">Imprime el mensaje por la salida estándar de er...</span></div><div class="opt-pill" title="Lanza un ejecutable enviando toda su salida directamente a systemd-journald."><code class="pill-code">systemd-cat -t TAG cmd</code><span class="pill-desc">Lanza un ejecutable enviando toda su salida dir...</span></div></div></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">108.3</span>
+                <h3>Conceptos básicos del Agente de Transferencia de Correo</h3>
+                <span class="cmd-count-badge">4 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-3-conceptos-basicos-del-ag.html#/108-3-06" class="cmd-name">El cliente de consola: comando mail (paquete mailx)</a>
+                        <div style="margin-top:6px;"><a href="t108/108-3-conceptos-basicos-del-ag.html#/108-3-06" class="slide-link">Diapositiva 108-3-06 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>El cliente de consola: comando mail (paquete mailx)</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">El cliente de consola: comando mail (paquete mailx) [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('El cliente de consola: comando mail (paquete mailx) [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-3-conceptos-basicos-del-ag.html#/108-3-07" class="cmd-name">Automatización avanzada con mail: Asunto (-s) y Adjuntos (-a)</a>
+                        <div style="margin-top:6px;"><a href="t108/108-3-conceptos-basicos-del-ag.html#/108-3-07" class="slide-link">Diapositiva 108-3-07 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Automatización avanzada con mail: Asunto (-s) y Adjuntos (-a)</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Automatización avanzada con mail: Asunto (-s) y Adjuntos (-a) [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Automatización avanzada con mail: Asunto (-s) y Adjuntos (-a) [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-3-conceptos-basicos-del-ag.html#/108-3-09" class="cmd-name">Activación de alias: comando newaliases</a>
+                        <div style="margin-top:6px;"><a href="t108/108-3-conceptos-basicos-del-ag.html#/108-3-09" class="slide-link">Diapositiva 108-3-09 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Activación de alias: comando newaliases</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Activación de alias: comando newaliases [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Activación de alias: comando newaliases [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-3-conceptos-basicos-del-ag.html#/108-3-11" class="cmd-name">Inspección de la cola de correo: comando mailq</a>
+                        <div style="margin-top:6px;"><a href="t108/108-3-conceptos-basicos-del-ag.html#/108-3-11" class="slide-link">Diapositiva 108-3-11 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Inspección de la cola de correo: comando mailq</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Inspección de la cola de correo: comando mailq [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Inspección de la cola de correo: comando mailq [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">108.4</span>
+                <h3>Gestión de la impresión y de las impresoras</h3>
+                <span class="cmd-count-badge">8 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-4-gestion-de-la-impresion.html#/108-4-05" class="cmd-name">Añadir y Modificar Impresoras: comando lpadmin</a>
+                        <div style="margin-top:6px;"><a href="t108/108-4-gestion-de-la-impresion.html#/108-4-05" class="slide-link">Diapositiva 108-4-05 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Añadir y Modificar Impresoras: comando lpadmin</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Añadir y Modificar Impresoras: comando lpadmin [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Añadir y Modificar Impresoras: comando lpadmin [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-4-gestion-de-la-impresion.html#/108-4-06" class="cmd-name">Control de Acceso y Políticas de Error en lpadmin</a>
+                        <div style="margin-top:6px;"><a href="t108/108-4-gestion-de-la-impresion.html#/108-4-06" class="slide-link">Diapositiva 108-4-06 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Control de Acceso y Políticas de Error en lpadmin</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Control de Acceso y Políticas de Error en lpadmin [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Control de Acceso y Políticas de Error en lpadmin [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-4-gestion-de-la-impresion.html#/108-4-07" class="cmd-name">Impresora por Defecto: comando lpoptions</a>
+                        <div style="margin-top:6px;"><a href="t108/108-4-gestion-de-la-impresion.html#/108-4-07" class="slide-link">Diapositiva 108-4-07 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Impresora por Defecto: comando lpoptions</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Impresora por Defecto: comando lpoptions [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Impresora por Defecto: comando lpoptions [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-4-gestion-de-la-impresion.html#/108-4-08" class="cmd-name">Diagnóstico y Estado de Impresión: comando lpstat</a>
+                        <div style="margin-top:6px;"><a href="t108/108-4-gestion-de-la-impresion.html#/108-4-08" class="slide-link">Diapositiva 108-4-08 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Diagnóstico y Estado de Impresión: comando lpstat</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Diagnóstico y Estado de Impresión: comando lpstat [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Diagnóstico y Estado de Impresión: comando lpstat [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-4-gestion-de-la-impresion.html#/108-4-10" class="cmd-name">Envío de Trabajos: System V (lp) vs BSD Legacy (lpr)</a>
+                        <div style="margin-top:6px;"><a href="t108/108-4-gestion-de-la-impresion.html#/108-4-10" class="slide-link">Diapositiva 108-4-10 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Envío de Trabajos: System V (lp) vs BSD Legacy (lpr)</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Envío de Trabajos: System V (lp) vs BSD Legacy (lpr) [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Envío de Trabajos: System V (lp) vs BSD Legacy (lpr) [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-4-gestion-de-la-impresion.html#/108-4-11" class="cmd-name">Opciones de Formato y Acabado: modificador -o</a>
+                        <div style="margin-top:6px;"><a href="t108/108-4-gestion-de-la-impresion.html#/108-4-11" class="slide-link">Diapositiva 108-4-11 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Opciones de Formato y Acabado: modificador -o</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Opciones de Formato y Acabado: modificador -o [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Opciones de Formato y Acabado: modificador -o [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-4-gestion-de-la-impresion.html#/108-4-12" class="cmd-name">Inspección de Colas (lpq) y Reubicación de Trabajos (lpmove)</a>
+                        <div style="margin-top:6px;"><a href="t108/108-4-gestion-de-la-impresion.html#/108-4-12" class="slide-link">Diapositiva 108-4-12 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Inspección de Colas (lpq) y Reubicación de Trabajos (lpmove)</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Inspección de Colas (lpq) y Reubicación de Trabajos (lpmove) [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Inspección de Colas (lpq) y Reubicación de Trabajos (lpmove) [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t108/108-4-gestion-de-la-impresion.html#/108-4-13" class="cmd-name">Cancelación de Trabajos: cancel (System V) vs lprm (BSD)</a>
+                        <div style="margin-top:6px;"><a href="t108/108-4-gestion-de-la-impresion.html#/108-4-13" class="slide-link">Diapositiva 108-4-13 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Cancelación de Trabajos: cancel (System V) vs lprm (BSD)</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Cancelación de Trabajos: cancel (System V) vs lprm (BSD) [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Cancelación de Trabajos: cancel (System V) vs lprm (BSD) [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t109">
+          <div class="topic-header">
+            <h2>Tema 109: Fundamentos de red</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">109.2</span>
+                <h3>Configuración de red persistente</h3>
+                <span class="cmd-count-badge">5 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-2-configuracion-de-red-per.html#/109-2-04" class="cmd-name">Activación y Desactivación: ifup e ifdown</a>
+                        <div style="margin-top:6px;"><a href="t109/109-2-configuracion-de-red-per.html#/109-2-04" class="slide-link">Diapositiva 109-2-04 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Activación y Desactivación: ifup e ifdown</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Activación y Desactivación: ifup e ifdown [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Activación y Desactivación: ifup e ifdown [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-2-configuracion-de-red-per.html#/109-2-06" class="cmd-name">Nombre de Host: /etc/hostname y hostnamectl</a>
+                        <div style="margin-top:6px;"><a href="t109/109-2-configuracion-de-red-per.html#/109-2-06" class="slide-link">Diapositiva 109-2-06 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Nombre de Host: /etc/hostname y hostnamectl</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Nombre de Host: /etc/hostname y hostnamectl [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Nombre de Host: /etc/hostname y hostnamectl [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-2-configuracion-de-red-per.html#/109-2-11" class="cmd-name">Diagnóstico de Red con nmcli: Estados y Conectividad</a>
+                        <div style="margin-top:6px;"><a href="t109/109-2-configuracion-de-red-per.html#/109-2-11" class="slide-link">Diapositiva 109-2-11 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Diagnóstico de Red con nmcli: Estados y Conectividad</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Diagnóstico de Red con nmcli: Estados y Conectividad [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Diagnóstico de Red con nmcli: Estados y Conectividad [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-2-configuracion-de-red-per.html#/109-2-12" class="cmd-name">Gestión Inalámbrica con nmcli: Redes Wi-Fi</a>
+                        <div style="margin-top:6px;"><a href="t109/109-2-configuracion-de-red-per.html#/109-2-12" class="slide-link">Diapositiva 109-2-12 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Gestión Inalámbrica con nmcli: Redes Wi-Fi</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Gestión Inalámbrica con nmcli: Redes Wi-Fi [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Gestión Inalámbrica con nmcli: Redes Wi-Fi [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-2-configuracion-de-red-per.html#/109-2-13" class="cmd-name">Crear y Modificar Perfiles con nmcli</a>
+                        <div style="margin-top:6px;"><a href="t109/109-2-configuracion-de-red-per.html#/109-2-13" class="slide-link">Diapositiva 109-2-13 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Crear y Modificar Perfiles con nmcli</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Crear y Modificar Perfiles con nmcli [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Crear y Modificar Perfiles con nmcli [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">109.3</span>
+                <h3>Resolución de problemas básicos de red</h3>
+                <span class="cmd-count-badge">11 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-3-resolucion-de-problemas.html#/109-3-04" class="cmd-name">Gestión de Direcciones: comando ip address (ip a)</a>
+                        <div style="margin-top:6px;"><a href="t109/109-3-resolucion-de-problemas.html#/109-3-04" class="slide-link">Diapositiva 109-3-04 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Gestión de Direcciones: comando ip address (ip a)</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Gestión de Direcciones: comando ip address (ip a) [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Gestión de Direcciones: comando ip address (ip a) [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-3-resolucion-de-problemas.html#/109-3-05" class="cmd-name">Control de Enlace Físico y MTU: comando ip link</a>
+                        <div style="margin-top:6px;"><a href="t109/109-3-resolucion-de-problemas.html#/109-3-05" class="slide-link">Diapositiva 109-3-05 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Control de Enlace Físico y MTU: comando ip link</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Control de Enlace Físico y MTU: comando ip link [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Control de Enlace Físico y MTU: comando ip link [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-3-resolucion-de-problemas.html#/109-3-06" class="cmd-name">Tablas de Enrutamiento: comando ip route (ip r)</a>
+                        <div style="margin-top:6px;"><a href="t109/109-3-resolucion-de-problemas.html#/109-3-06" class="slide-link">Diapositiva 109-3-06 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Tablas de Enrutamiento: comando ip route (ip r)</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Tablas de Enrutamiento: comando ip route (ip r) [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Tablas de Enrutamiento: comando ip route (ip r) [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-3-resolucion-de-problemas.html#/109-3-07" class="cmd-name">Comandos Heredados: ifconfig y route -n</a>
+                        <div style="margin-top:6px;"><a href="t109/109-3-resolucion-de-problemas.html#/109-3-07" class="slide-link">Diapositiva 109-3-07 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Comandos Heredados: ifconfig y route -n</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Comandos Heredados: ifconfig y route -n [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Comandos Heredados: ifconfig y route -n [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-3-resolucion-de-problemas.html#/109-3-08" class="cmd-name">Auditoría de Puertos y Sockets: comando ss</a>
+                        <div style="margin-top:6px;"><a href="t109/109-3-resolucion-de-problemas.html#/109-3-08" class="slide-link">Diapositiva 109-3-08 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Auditoría de Puertos y Sockets: comando ss</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Auditoría de Puertos y Sockets: comando ss [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Auditoría de Puertos y Sockets: comando ss [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-3-resolucion-de-problemas.html#/109-3-09" class="cmd-name">Inspección Heredada: comando netstat</a>
+                        <div style="margin-top:6px;"><a href="t109/109-3-resolucion-de-problemas.html#/109-3-09" class="slide-link">Diapositiva 109-3-09 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Inspección Heredada: comando netstat</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Inspección Heredada: comando netstat [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Inspección Heredada: comando netstat [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-3-resolucion-de-problemas.html#/109-3-10" class="cmd-name">Verificación de Conectividad: ping y ping6</a>
+                        <div style="margin-top:6px;"><a href="t109/109-3-resolucion-de-problemas.html#/109-3-10" class="slide-link">Diapositiva 109-3-10 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Verificación de Conectividad: ping y ping6</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Verificación de Conectividad: ping y ping6 [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Verificación de Conectividad: ping y ping6 [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-3-resolucion-de-problemas.html#/109-3-11" class="cmd-name">Descubrimiento de Saltos: traceroute y traceroute6</a>
+                        <div style="margin-top:6px;"><a href="t109/109-3-resolucion-de-problemas.html#/109-3-11" class="slide-link">Diapositiva 109-3-11 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Descubrimiento de Saltos: traceroute y traceroute6</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Descubrimiento de Saltos: traceroute y traceroute6 [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Descubrimiento de Saltos: traceroute y traceroute6 [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-3-resolucion-de-problemas.html#/109-3-12" class="cmd-name">Detección de MTU en Ruta: comando tracepath</a>
+                        <div style="margin-top:6px;"><a href="t109/109-3-resolucion-de-problemas.html#/109-3-12" class="slide-link">Diapositiva 109-3-12 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Detección de MTU en Ruta: comando tracepath</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Detección de MTU en Ruta: comando tracepath [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Detección de MTU en Ruta: comando tracepath [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-3-resolucion-de-problemas.html#/109-3-13" class="cmd-name">La Navaja Suiza de Red: netcat (nc)</a>
+                        <div style="margin-top:6px;"><a href="t109/109-3-resolucion-de-problemas.html#/109-3-13" class="slide-link">Diapositiva 109-3-13 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>La Navaja Suiza de Red: netcat (nc)</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">La Navaja Suiza de Red: netcat (nc) [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('La Navaja Suiza de Red: netcat (nc) [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-3-resolucion-de-problemas.html#/109-3-14" class="cmd-name">Resolución de Capa 2: ip neighbour y arp</a>
+                        <div style="margin-top:6px;"><a href="t109/109-3-resolucion-de-problemas.html#/109-3-14" class="slide-link">Diapositiva 109-3-14 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Resolución de Capa 2: ip neighbour y arp</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Resolución de Capa 2: ip neighbour y arp [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Resolución de Capa 2: ip neighbour y arp [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">109.4</span>
+                <h3>Configuración DNS en el lado del cliente</h3>
+                <span class="cmd-count-badge">5 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-4-configuracion-dns-en-el.html#/109-4-06" class="cmd-name">Resolución Respetando NSS: comando getent hosts</a>
+                        <div style="margin-top:6px;"><a href="t109/109-4-configuracion-dns-en-el.html#/109-4-06" class="slide-link">Diapositiva 109-4-06 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Resolución Respetando NSS: comando getent hosts</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Resolución Respetando NSS: comando getent hosts [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Resolución Respetando NSS: comando getent hosts [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-4-configuracion-dns-en-el.html#/109-4-07" class="cmd-name">Consultas Rápidas con host: Tipos de Registros (-t)</a>
+                        <div style="margin-top:6px;"><a href="t109/109-4-configuracion-dns-en-el.html#/109-4-07" class="slide-link">Diapositiva 109-4-07 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Consultas Rápidas con host: Tipos de Registros (-t)</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Consultas Rápidas con host: Tipos de Registros (-t) [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Consultas Rápidas con host: Tipos de Registros (-t) [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-4-configuracion-dns-en-el.html#/109-4-08" class="cmd-name">Búsqueda Inversa y Servidores Específicos con host</a>
+                        <div style="margin-top:6px;"><a href="t109/109-4-configuracion-dns-en-el.html#/109-4-08" class="slide-link">Diapositiva 109-4-08 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Búsqueda Inversa y Servidores Específicos con host</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Búsqueda Inversa y Servidores Específicos con host [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Búsqueda Inversa y Servidores Específicos con host [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-4-configuracion-dns-en-el.html#/109-4-09" class="cmd-name">Diagnóstico Exhaustivo: anatomía del comando dig</a>
+                        <div style="margin-top:6px;"><a href="t109/109-4-configuracion-dns-en-el.html#/109-4-09" class="slide-link">Diapositiva 109-4-09 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Diagnóstico Exhaustivo: anatomía del comando dig</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Diagnóstico Exhaustivo: anatomía del comando dig [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Diagnóstico Exhaustivo: anatomía del comando dig [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t109/109-4-configuracion-dns-en-el.html#/109-4-11" class="cmd-name">Opciones Avanzadas de dig (+short, -x, @servidor)</a>
+                        <div style="margin-top:6px;"><a href="t109/109-4-configuracion-dns-en-el.html#/109-4-11" class="slide-link">Diapositiva 109-4-11 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Opciones Avanzadas de dig (+short, -x, @servidor)</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Opciones Avanzadas de dig (+short, -x, @servidor) [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Opciones Avanzadas de dig (+short, -x, @servidor) [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t110">
+          <div class="topic-header">
+            <h2>Tema 110: Seguridad</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">110.1</span>
+                <h3>Tareas de administración de seguridad</h3>
+                <span class="cmd-count-badge">9 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-1-tareas-de-administracion.html#/110-1-03" class="cmd-name">Rastreo de Binarios SUID y SGID con find</a>
+                        <div style="margin-top:6px;"><a href="t110/110-1-tareas-de-administracion.html#/110-1-03" class="slide-link">Diapositiva 110-1-03 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Rastreo de Binarios SUID y SGID con find</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Rastreo de Binarios SUID y SGID con find [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Rastreo de Binarios SUID y SGID con find [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-1-tareas-de-administracion.html#/110-1-05" class="cmd-name">Control de Caducidad de Contraseñas con chage</a>
+                        <div style="margin-top:6px;"><a href="t110/110-1-tareas-de-administracion.html#/110-1-05" class="slide-link">Diapositiva 110-1-05 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Control de Caducidad de Contraseñas con chage</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Control de Caducidad de Contraseñas con chage [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Control de Caducidad de Contraseñas con chage [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-1-tareas-de-administracion.html#/110-1-06" class="cmd-name">Bloqueo y Estado de Cuentas con passwd</a>
+                        <div style="margin-top:6px;"><a href="t110/110-1-tareas-de-administracion.html#/110-1-06" class="slide-link">Diapositiva 110-1-06 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Bloqueo y Estado de Cuentas con passwd</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Bloqueo y Estado de Cuentas con passwd [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Bloqueo y Estado de Cuentas con passwd [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-1-tareas-de-administracion.html#/110-1-08" class="cmd-name">Inspección de Puertos de Red con lsof</a>
+                        <div style="margin-top:6px;"><a href="t110/110-1-tareas-de-administracion.html#/110-1-08" class="slide-link">Diapositiva 110-1-08 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Inspección de Puertos de Red con lsof</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Inspección de Puertos de Red con lsof [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Inspección de Puertos de Red con lsof [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-1-tareas-de-administracion.html#/110-1-09" class="cmd-name">Identificación y Terminación de Procesos con fuser</a>
+                        <div style="margin-top:6px;"><a href="t110/110-1-tareas-de-administracion.html#/110-1-09" class="slide-link">Diapositiva 110-1-09 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Identificación y Terminación de Procesos con fuser</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Identificación y Terminación de Procesos con fuser [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Identificación y Terminación de Procesos con fuser [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-1-tareas-de-administracion.html#/110-1-10" class="cmd-name">Escaneo de Puertos y Servicios con nmap</a>
+                        <div style="margin-top:6px;"><a href="t110/110-1-tareas-de-administracion.html#/110-1-10" class="slide-link">Diapositiva 110-1-10 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Escaneo de Puertos y Servicios con nmap</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Escaneo de Puertos y Servicios con nmap [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Escaneo de Puertos y Servicios con nmap [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-1-tareas-de-administracion.html#/110-1-12" class="cmd-name">Gestión de Límites por Sesión con ulimit</a>
+                        <div style="margin-top:6px;"><a href="t110/110-1-tareas-de-administracion.html#/110-1-12" class="slide-link">Diapositiva 110-1-12 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Gestión de Límites por Sesión con ulimit</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Gestión de Límites por Sesión con ulimit [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Gestión de Límites por Sesión con ulimit [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-1-tareas-de-administracion.html#/110-1-13" class="cmd-name">Supervisión de Sesiones de Usuarios: who, w y last</a>
+                        <div style="margin-top:6px;"><a href="t110/110-1-tareas-de-administracion.html#/110-1-13" class="slide-link">Diapositiva 110-1-13 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Supervisión de Sesiones de Usuarios: who, w y last</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Supervisión de Sesiones de Usuarios: who, w y last [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Supervisión de Sesiones de Usuarios: who, w y last [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-1-tareas-de-administracion.html#/110-1-15" class="cmd-name">Configuración Segura de /etc/sudoers con visudo</a>
+                        <div style="margin-top:6px;"><a href="t110/110-1-tareas-de-administracion.html#/110-1-15" class="slide-link">Diapositiva 110-1-15 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Configuración Segura de /etc/sudoers con visudo</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Configuración Segura de /etc/sudoers con visudo [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Configuración Segura de /etc/sudoers con visudo [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">110.2</span>
+                <h3>Configuración de la seguridad del sistema</h3>
+                <span class="cmd-count-badge">2 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-2-configuracion-de-la-segu.html#/110-2-08" class="cmd-name">Auditoría de Servicios en Escucha: netstat vs ss</a>
+                        <div style="margin-top:6px;"><a href="t110/110-2-configuracion-de-la-segu.html#/110-2-08" class="slide-link">Diapositiva 110-2-08 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Auditoría de Servicios en Escucha: netstat vs ss</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Auditoría de Servicios en Escucha: netstat vs ss [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Auditoría de Servicios en Escucha: netstat vs ss [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-2-configuracion-de-la-segu.html#/110-2-11" class="cmd-name">Patrones de Configuración Segura con TCP Wrappers</a>
+                        <div style="margin-top:6px;"><a href="t110/110-2-configuracion-de-la-segu.html#/110-2-11" class="slide-link">Diapositiva 110-2-11 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Patrones de Configuración Segura con TCP Wrappers</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Patrones de Configuración Segura con TCP Wrappers [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Patrones de Configuración Segura con TCP Wrappers [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">110.3</span>
+                <h3>Protección de datos mediante cifrado</h3>
+                <span class="cmd-count-badge">6 comandos evaluados</span>
+              </div>
+              <div class="table-card">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="width:16%;">Comando & Mazo</th>
+                      <th style="width:26%;">Propósito Oficial LPIC-1</th>
+                      <th style="width:26%;">Sintaxis / Ejemplo en Terminal</th>
+                      <th style="width:32%;">Opciones Críticas de Examen (Cheatsheet)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-04" class="cmd-name">Generación de Claves de Usuario con ssh-keygen</a>
+                        <div style="margin-top:6px;"><a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-04" class="slide-link">Diapositiva 110-3-04 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Generación de Claves de Usuario con ssh-keygen</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Generación de Claves de Usuario con ssh-keygen [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Generación de Claves de Usuario con ssh-keygen [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-07" class="cmd-name">Gestión de Claves en Memoria: ssh-agent y ssh-add</a>
+                        <div style="margin-top:6px;"><a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-07" class="slide-link">Diapositiva 110-3-07 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Gestión de Claves en Memoria: ssh-agent y ssh-add</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Gestión de Claves en Memoria: ssh-agent y ssh-add [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Gestión de Claves en Memoria: ssh-agent y ssh-add [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-11" class="cmd-name">Generación y Revocación de Claves con gpg</a>
+                        <div style="margin-top:6px;"><a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-11" class="slide-link">Diapositiva 110-3-11 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Generación y Revocación de Claves con gpg</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Generación y Revocación de Claves con gpg [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Generación y Revocación de Claves con gpg [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-12" class="cmd-name">Gestión de Llaveros, Exportación e Importación GPG</a>
+                        <div style="margin-top:6px;"><a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-12" class="slide-link">Diapositiva 110-3-12 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Gestión de Llaveros, Exportación e Importación GPG</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Gestión de Llaveros, Exportación e Importación GPG [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Gestión de Llaveros, Exportación e Importación GPG [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-13" class="cmd-name">Cifrado y Descifrado de Archivos con GPG</a>
+                        <div style="margin-top:6px;"><a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-13" class="slide-link">Diapositiva 110-3-13 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Cifrado y Descifrado de Archivos con GPG</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Cifrado y Descifrado de Archivos con GPG [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Cifrado y Descifrado de Archivos con GPG [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                    <tr class="cmd-row">
+                      <td>
+                        <a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-14" class="cmd-name">Firma Digital y Verificación con GPG</a>
+                        <div style="margin-top:6px;"><a href="t110/110-3-proteccion-de-datos-medi.html#/110-3-14" class="slide-link">Diapositiva 110-3-14 →</a></div>
+                      </td>
+                      <td class="cmd-purpose">
+                        <div>Firma Digital y Verificación con GPG</div>
+                      </td>
+                      <td>
+                        <div class="syntax-wrapper">
+                          <code class="cmd-syntax">Firma Digital y Verificación con GPG [opciones]</code>
+                          <button class="copy-btn-mini" onclick="copyText('Firma Digital y Verificación con GPG [opciones]')" title="Copiar comando">Copiar</button>
+                        </div>
+                      </td>
+                      <td class="cmd-opts"><span style="color:var(--text-muted); font-size:14px;">-</span></td>
+                    </tr>
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </section>
     </div>
     
     <footer class="site-footer">
@@ -2777,7 +4758,7 @@ sync && reboot -f')" title="Copiar comando">Copiar</button>
         const hasVisible = Array.from(sec.querySelectorAll('.subtopic-block')).some(b => b.style.display !== 'none');
         sec.style.display = hasVisible ? '' : 'none';
       });
-      document.getElementById('cmd-counter').textContent = q ? `${visibleCount} comandos encontrados` : '119 comandos registrados';
+      document.getElementById('cmd-counter').textContent = q ? `${visibleCount} comandos encontrados` : '209 comandos registrados';
     }
 
     function toggleTheme() {

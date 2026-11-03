@@ -16,6 +16,7 @@
       }
     })();
   </script>
+  <script src="config-temas.js"></script>
   <style>
     :root {
       --bg: #F8FAFC; --surface: #FFFFFF; --text: #0F172A; --text-muted: #475569;
@@ -108,7 +109,7 @@
     <a href="index.html" class="back-link">← Volver al Índice Principal de Temas</a>
     <header>
       <h1>Glosario Global Oficial LPIC-1</h1>
-      <div class="subtitle">Términos, conceptos técnicos y acrónimos clave (Temas 101, 102, 103 y 104)</div>
+      <div class="subtitle">Términos, conceptos técnicos y acrónimos clave (Temas 101 a 110 · Exámenes 101-500 y 102-500)</div>
       <div class="nav-bar">
         <a href="grafo.html" class="nav-btn" style="border-color:var(--primary); background:var(--primary-soft); color:var(--primary); font-weight:700;">🗺️ Mapa Mental & Grafo</a>
         <a href="practicas/index.html" class="nav-btn" style="border-color:var(--primary); color:var(--primary); font-weight:700;">Prácticas de Laboratorio</a>
@@ -118,6 +119,12 @@
         <a href="#t102" class="nav-btn">Tema 102</a>
         <a href="#t103" class="nav-btn">Tema 103</a>
         <a href="#t104" class="nav-btn">Tema 104</a>
+        <a href="#t105" class="nav-btn">Tema 105</a>
+        <a href="#t106" class="nav-btn">Tema 106</a>
+        <a href="#t107" class="nav-btn">Tema 107</a>
+        <a href="#t108" class="nav-btn">Tema 108</a>
+        <a href="#t109" class="nav-btn">Tema 109</a>
+        <a href="#t110" class="nav-btn">Tema 110</a>
         <button class="nav-btn theme-toggle-btn" id="btn-theme-toggle" onclick="toggleTheme()" title="Cambiar tema claro / oscuro" aria-label="Cambiar tema" style="cursor:pointer;">
           <span id="theme-toggle-label">🌙 Modo Oscuro</span>
         </button>
@@ -126,7 +133,7 @@
 
     <div class="search-bar-wrap">
       <input type="text" id="glo-filter" class="search-input" placeholder="🔍 Buscar término, definición o concepto..." onkeyup="filterGlossary()">
-      <div class="counter-badge" id="glo-counter">116 términos registrados</div>
+      <div class="counter-badge" id="glo-counter">258 términos registrados</div>
     </div>
 
     <div id="glo-container">
@@ -1332,6 +1339,1381 @@
               </div>
             </div>
             </section>
+        <section class="topic-section" id="t105">
+          <div class="topic-header">
+            <h2>Tema 105: Interfaces y scripts</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">105.1</span>
+                <h3>Personalizar y usar el entorno de shell</h3>
+                <span class="cmd-count-badge">4 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Shell de login</span>
+                    <a href="t105/105-1-personalizar-y-usar-el-e.html" class="term-sub-badge">105.1 </a>
+                  </div>
+                  <div class="term-def">Sesión de intérprete que se inicia tras autenticar usuario y contraseña en consola física, SSH o con 'su -'. Lee primero /etc/profile y luego el primer archivo personal disponible (~/.bash_profile, ~/.bash_login o ~/.profile).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Variable de entorno</span>
+                    <a href="t105/105-1-personalizar-y-usar-el-e.html" class="term-sub-badge">105.1 </a>
+                  </div>
+                  <div class="term-def">Variable exportada al entorno global mediante 'export', lo que permite que sea heredada por cualquier proceso hijo o subshell que se ejecute a partir de esa sesión.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/skel</span>
+                    <a href="t105/105-1-personalizar-y-usar-el-e.html" class="term-sub-badge">105.1 </a>
+                  </div>
+                  <div class="term-def">Directorio plantilla del sistema que contiene los archivos de configuración ocultos (.bashrc, .profile) que el comando useradd copia automáticamente a la carpeta de cada nuevo usuario creado.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">source (o punto '.')</span>
+                    <a href="t105/105-1-personalizar-y-usar-el-e.html" class="term-sub-badge">105.1 </a>
+                  </div>
+                  <div class="term-def">Orden interna de Bash que lee y ejecuta un archivo de comandos dentro del shell ACTUAL, aplicando variables y alias inmediatamente sin crear un subshell secundario.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">105.2</span>
+                <h3>Personalizar y escribir scripts sencillos</h3>
+                <span class="cmd-count-badge">4 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Shebang (#!)</span>
+                    <a href="t105/105-2-personalizar-y-escribir.html" class="term-sub-badge">105.2 </a>
+                  </div>
+                  <div class="term-def">Secuencia de dos bytes mágicos (0x23 0x21) en la primera línea de un script que indica al kernel del sistema operativo qué binario intérprete debe cargarse para procesar el archivo (ej. #!/bin/bash o #!/bin/sh).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Parámetro posicional</span>
+                    <a href="t105/105-2-personalizar-y-escribir.html" class="term-sub-badge">105.2 </a>
+                  </div>
+                  <div class="term-def">Variables asignadas automáticamente por Bash con los argumentos pasados al invocar el script. $0 es el nombre de llamada, $1 al $9 son los primeros 9 argumentos, y a partir del décimo debe escribirse entre llaves: ${10}.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Código de retorno ($?)</span>
+                    <a href="t105/105-2-personalizar-y-escribir.html" class="term-sub-badge">105.2 </a>
+                  </div>
+                  <div class="term-def">Entero entre 0 y 255 devuelto por el último comando ejecutado. El valor 0 indica éxito absoluto, mientras que cualquier valor entre 1 y 255 indica un error o condición de parada.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">test (o corchete '[')</span>
+                    <a href="t105/105-2-personalizar-y-escribir.html" class="term-sub-badge">105.2 </a>
+                  </div>
+                  <div class="term-def">Comando integrado en Bash y disponible en /usr/bin/test que evalúa expresiones lógicas sobre ficheros, números y cadenas de texto, devolviendo 0 (verdadero) o 1 (falso).</div>
+                </div>
+                
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t106">
+          <div class="topic-header">
+            <h2>Tema 106: Interfaces de usuario y escritorios</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">106.1</span>
+                <h3>Instalar y configurar X11</h3>
+                <span class="cmd-count-badge">4 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Servidor X (X Server)</span>
+                    <a href="t106/106-1-instalar-y-configurar-x1.html" class="term-sub-badge">106.1 </a>
+                  </div>
+                  <div class="term-def">Programa que gestiona directamente las pantallas físicas, tarjetas de vídeo, teclados y ratones locales, escuchando solicitudes de clientes para dibujar ventanas e informar de eventos de entrada.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Variable $DISPLAY</span>
+                    <a href="t106/106-1-instalar-y-configurar-x1.html" class="term-sub-badge">106.1 </a>
+                  </div>
+                  <div class="term-def">Variable de entorno con formato '[host]:display[.screen]' (ej. :0, lab01:0.2 o localhost:10.0) que indica a cualquier aplicación cliente X en qué servidor y monitor debe renderizar su interfaz.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">xorg.conf.d</span>
+                    <a href="t106/106-1-instalar-y-configurar-x1.html" class="term-sub-badge">106.1 </a>
+                  </div>
+                  <div class="term-def">Directorio modular moderno (/etc/X11/xorg.conf.d/) donde se depositan fragmentos de configuración numerados (ej. 00-keyboard.conf) basados en secciones InputClass o Device sin editar un archivo monolítico.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Wayland</span>
+                    <a href="t106/106-1-instalar-y-configurar-x1.html" class="term-sub-badge">106.1 </a>
+                  </div>
+                  <div class="term-def">Protocolo moderno de servidor gráfico que reemplaza la arquitectura cliente-servidor de X11 integrando el servidor y el gestor de ventanas en un único 'Compositor' (identificado por la variable WAYLAND_DISPLAY).</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">106.2</span>
+                <h3>Escritorios gráficos</h3>
+                <span class="cmd-count-badge">5 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Entorno de Escritorio (DE)</span>
+                    <a href="t106/106-2-escritorios-graficos.html" class="term-sub-badge">106.2 </a>
+                  </div>
+                  <div class="term-def">Conjunto integral de software que proporciona una experiencia de usuario completa y homogénea: gestor de ventanas, paneles, barra de tareas, iconos, gestor de archivos y aplicaciones del sistema (ej. KDE Plasma, GNOME, Xfce, LXDE).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Gestor de Ventanas (WM)</span>
+                    <a href="t106/106-2-escritorios-graficos.html" class="term-sub-badge">106.2 </a>
+                  </div>
+                  <div class="term-def">Componente encargado de controlar el posicionamiento, bordes, redimensionado, minimizado y cerrado de las ventanas (ej. KWin en KDE, Mutter en GNOME, Openbox o Xfwm4 en Xfce).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">RDP (Remote Desktop Protocol)</span>
+                    <a href="t106/106-2-escritorios-graficos.html" class="term-sub-badge">106.2 </a>
+                  </div>
+                  <div class="term-def">Protocolo propietario desarrollado por Microsoft (puerto TCP 3389) para control de escritorio remoto. En Linux se accede mediante clientes como FreeRDP o el cliente multiprotocolo Remmina.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">VNC (Virtual Network Computing)</span>
+                    <a href="t106/106-2-escritorios-graficos.html" class="term-sub-badge">106.2 </a>
+                  </div>
+                  <div class="term-def">Protocolo de escritorio remoto gráfico multiplataforma basado en RFB (Remote FrameBuffer) que transmite mapas de píxeles a través del puerto TCP 5900 (+ número de display).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">SPICE</span>
+                    <a href="t106/106-2-escritorios-graficos.html" class="term-sub-badge">106.2 </a>
+                  </div>
+                  <div class="term-def">Simple Protocol for Independent Computing Environments; protocolo de alto rendimiento diseñado específicamente para virtualización en QEMU/KVM con redirección de audio, vídeo y dispositivos USB.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">106.3</span>
+                <h3>Accesibilidad</h3>
+                <span class="cmd-count-badge">5 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Sticky Keys (Teclas Adhesivas)</span>
+                    <a href="t106/106-3-accesibilidad.html" class="term-sub-badge">106.3 </a>
+                  </div>
+                  <div class="term-def">Característica de accesibilidad que permite ejecutar atajos de teclado pulsando las teclas modificadoras (Ctrl, Alt, Shift, Super) de forma secuencial una tras otra en lugar de simultáneamente.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Bounce Keys (Teclas de Rebote)</span>
+                    <a href="t106/106-3-accesibilidad.html" class="term-sub-badge">106.3 </a>
+                  </div>
+                  <div class="term-def">Ajuste de accesibilidad que descarta pulsaciones repetidas consecutivas de una misma tecla si se producen dentro de un breve umbral de tiempo, asistiendo a usuarios con temblores involuntarios.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Slow Keys (Teclas Lentas)</span>
+                    <a href="t106/106-3-accesibilidad.html" class="term-sub-badge">106.3 </a>
+                  </div>
+                  <div class="term-def">Ajuste que requiere mantener presionada una tecla durante un tiempo determinado antes de que el carácter sea aceptado por el sistema, evitando pulsaciones accidentales.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Orca</span>
+                    <a href="t106/106-3-accesibilidad.html" class="term-sub-badge">106.3 </a>
+                  </div>
+                  <div class="term-def">Lector de pantalla y magnificador gráfico de código abierto que utiliza síntesis de voz y es compatible con dispositivos táctiles Braille (refreshable braille displays).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">KMouseTool</span>
+                    <a href="t106/106-3-accesibilidad.html" class="term-sub-badge">106.3 </a>
+                  </div>
+                  <div class="term-def">Utilidad de accesibilidad de KDE que genera clics de ratón automáticamente cada vez que el cursor se detiene brevemente, reduciendo el esfuerzo en lesiones por esfuerzo repetitivo (RSI).</div>
+                </div>
+                
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t107">
+          <div class="topic-header">
+            <h2>Tema 107: Tareas administrativas</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">107.1</span>
+                <h3>Administrar cuentas de usuario y de grupo y los archivos de sistema relacionados con ellas</h3>
+                <span class="cmd-count-badge">9 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/passwd</span>
+                    <a href="t107/107-1-administrar-cuentas-de-u.html" class="term-sub-badge">107.1 </a>
+                  </div>
+                  <div class="term-def">Base de datos fundamental de usuarios del sistema con permisos de lectura pública (644), compuesta por 7 campos delimitados por dos puntos: login:password_placeholder:UID:GID:GECOS:home:shell.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/shadow</span>
+                    <a href="t107/107-1-administrar-cuentas-de-u.html" class="term-sub-badge">107.1 </a>
+                  </div>
+                  <div class="term-def">Archivo protegido accesible solo por root (640 o 600) que almacena los hashes criptográficos de las contraseñas y las políticas de envejecimiento (aging) en 9 campos.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/group</span>
+                    <a href="t107/107-1-administrar-cuentas-de-u.html" class="term-sub-badge">107.1 </a>
+                  </div>
+                  <div class="term-def">Base de datos que define los grupos del sistema y sus membresías suplementarias en 4 campos: nombre_grupo:password_placeholder:GID:lista_usuarios.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/gshadow</span>
+                    <a href="t107/107-1-administrar-cuentas-de-u.html" class="term-sub-badge">107.1 </a>
+                  </div>
+                  <div class="term-def">Versión protegida de /etc/group que almacena contraseñas de grupo y lista a los administradores del grupo autorizados a añadir o eliminar miembros con gpasswd.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/skel/</span>
+                    <a href="t107/107-1-administrar-cuentas-de-u.html" class="term-sub-badge">107.1 </a>
+                  </div>
+                  <div class="term-def">Directorio esqueleto (skeleton) cuya estructura de archivos y dotfiles (.bashrc, .profile) se clona automáticamente al nuevo home cuando se invoca 'useradd -m'.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/login.defs</span>
+                    <a href="t107/107-1-administrar-cuentas-de-u.html" class="term-sub-badge">107.1 </a>
+                  </div>
+                  <div class="term-def">Archivo central de configuración que define directivas globales para la creación de cuentas: rangos de UID/GID (UID_MIN, UID_MAX), longitud mínima de claves y políticas de expiración predeterminadas.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/default/useradd</span>
+                    <a href="t107/107-1-administrar-cuentas-de-u.html" class="term-sub-badge">107.1 </a>
+                  </div>
+                  <div class="term-def">Archivo leído por useradd cuando se ejecuta sin opciones específicas; define la shell por defecto (SHELL=/bin/bash), el home base (HOME=/home) y el grupo inicial.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">getent</span>
+                    <a href="t107/107-1-administrar-cuentas-de-u.html" class="term-sub-badge">107.1 </a>
+                  </div>
+                  <div class="term-def">Herramienta que consulta las bases de datos de NSS (Name Service Switch) como passwd, group, shadow, hosts o services, recuperando tanto entradas locales (/etc) como remotas (LDAP/NIS).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">chage</span>
+                    <a href="t107/107-1-administrar-cuentas-de-u.html" class="term-sub-badge">107.1 </a>
+                  </div>
+                  <div class="term-def">Comando especializado para consultar y modificar las políticas de envejecimiento (aging), caducidad e inactividad de las contraseñas en los campos 3 al 8 de /etc/shadow.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">107.2</span>
+                <h3>Automatizar tareas administrativas del sistema mediante la programación de trabajos</h3>
+                <span class="cmd-count-badge">8 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/crontab</span>
+                    <a href="t107/107-2-automatizar-tareas-admin.html" class="term-sub-badge">107.2 </a>
+                  </div>
+                  <div class="term-def">Archivo principal del demonio cron para tareas del sistema. Contiene 7 campos: minuto (0-59), hora (0-23), día del mes (1-31), mes (1-12), día de la semana (0-7), usuario bajo el que se ejecuta la orden y el comando.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/var/spool/cron/</span>
+                    <a href="t107/107-2-automatizar-tareas-admin.html" class="term-sub-badge">107.2 </a>
+                  </div>
+                  <div class="term-def">Directorio del sistema donde se almacenan los archivos de crontab individuales de cada usuario (típicamente /var/spool/cron/crontabs/ en Debian), creados exclusivamente con 'crontab -e'.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">anacron</span>
+                    <a href="t107/107-2-automatizar-tareas-admin.html" class="term-sub-badge">107.2 </a>
+                  </div>
+                  <div class="term-def">Subsistema complementario a cron diseñado para equipos que no están encendidos las 24 horas del día (como portátiles). Lee /etc/anacrontab y ejecuta trabajos con granularidad diaria, semanal o mensual al encender el equipo si el período ya venció.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">at</span>
+                    <a href="t107/107-2-automatizar-tareas-admin.html" class="term-sub-badge">107.2 </a>
+                  </div>
+                  <div class="term-def">Comando y demonio (atd) para programar la ejecución de una tarea diferida para una ÚNICA ocasión en el futuro (ej. 'at 15:30 tomorrow' o 'at now + 2 hours').</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">atq / atrm</span>
+                    <a href="t107/107-2-automatizar-tareas-admin.html" class="term-sub-badge">107.2 </a>
+                  </div>
+                  <div class="term-def">Herramientas de inspección y control de la cola de tareas at. 'atq' (equivalente a 'at -l') lista las tareas en espera; 'atrm' (equivalente a 'at -d') cancela una o varias tareas mediante su identificador numérico de trabajo.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">batch</span>
+                    <a href="t107/107-2-automatizar-tareas-admin.html" class="term-sub-badge">107.2 </a>
+                  </div>
+                  <div class="term-def">Variante de at que encola comandos para ejecutarse una sola vez en el futuro, pero únicamente cuando el nivel de carga media del sistema (load average) cae por debajo del umbral estándar de 0.8.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">cron.allow / cron.deny</span>
+                    <a href="t107/107-2-automatizar-tareas-admin.html" class="term-sub-badge">107.2 </a>
+                  </div>
+                  <div class="term-def">Archivos en /etc/ que determinan qué usuarios pueden usar crontab. Si existe cron.allow, solo los listados pueden; si no existe, se consulta cron.deny para vetar a los listados.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">systemd-run</span>
+                    <a href="t107/107-2-automatizar-tareas-admin.html" class="term-sub-badge">107.2 </a>
+                  </div>
+                  <div class="term-def">Comando moderno de systemd que crea temporizadores y servicios transitorios desde la línea de órdenes (ej. 'systemd-run --on-calendar=... date') sin requerir crear ficheros .service o .timer fijos en disco.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">107.3</span>
+                <h3>Localización e internacionalización</h3>
+                <span class="cmd-count-badge">9 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/localtime</span>
+                    <a href="t107/107-3-localizacion-e-internaci.html" class="term-sub-badge">107.3 </a>
+                  </div>
+                  <div class="term-def">Archivo binario (generalmente un enlace simbólico que apunta a un fichero dentro de /usr/share/zoneinfo/) que determina la zona horaria predeterminada a nivel de todo el sistema.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/usr/share/zoneinfo/</span>
+                    <a href="t107/107-3-localizacion-e-internaci.html" class="term-sub-badge">107.3 </a>
+                  </div>
+                  <div class="term-def">Directorio estándar donde la base de datos de zonas horarias de IANA (tzdata) almacena las definiciones de tiempo y cambios de horario de verano organizadas por continentes y ciudades (ej. Europe/Madrid).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">timedatectl</span>
+                    <a href="t107/107-3-localizacion-e-internaci.html" class="term-sub-badge">107.3 </a>
+                  </div>
+                  <div class="term-def">Herramienta de systemd que permite consultar y ajustar en caliente la hora del sistema, la hora del reloj RTC hardware, la zona horaria y la sincronización NTP.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">LANG</span>
+                    <a href="t107/107-3-localizacion-e-internaci.html" class="term-sub-badge">107.3 </a>
+                  </div>
+                  <div class="term-def">Variable de entorno principal que establece el locale por defecto del sistema para todas aquellas categorías LC_* que no hayan sido configuradas de forma explícita.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">LC_ALL</span>
+                    <a href="t107/107-3-localizacion-e-internaci.html" class="term-sub-badge">107.3 </a>
+                  </div>
+                  <div class="term-def">Variable de entorno de máxima prioridad que, de estar configurada, sobreescribe de manera obligatoria e incondicional el valor de LANG y de todas las variables LC_*.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">LC_MESSAGES</span>
+                    <a href="t107/107-3-localizacion-e-internaci.html" class="term-sub-badge">107.3 </a>
+                  </div>
+                  <div class="term-def">Variable que define el idioma en el que los comandos y herramientas del sistema operativo muestran sus mensajes de información, advertencias y solicitudes de confirmación (yes/no).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">LC_COLLATE</span>
+                    <a href="t107/107-3-localizacion-e-internaci.html" class="term-sub-badge">107.3 </a>
+                  </div>
+                  <div class="term-def">Variable que determina el orden alfabético y las reglas de ordenación y comparación de cadenas utilizadas por comandos como sort o en rangos de caracteres de shell ([a-z]).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">UTF-8</span>
+                    <a href="t107/107-3-localizacion-e-internaci.html" class="term-sub-badge">107.3 </a>
+                  </div>
+                  <div class="term-def">Codificación de longitud variable de Unicode (1 a 4 bytes por carácter) que es 100% compatible con ASCII (los primeros 128 caracteres ocupan un solo byte idéntico a ASCII).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">iconv</span>
+                    <a href="t107/107-3-localizacion-e-internaci.html" class="term-sub-badge">107.3 </a>
+                  </div>
+                  <div class="term-def">Utilidad estándar POSIX para convertir el contenido textual de archivos de una codificación de caracteres a otra (por ejemplo de ISO-8859-1 a UTF-8).</div>
+                </div>
+                
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t108">
+          <div class="topic-header">
+            <h2>Tema 108: Servicios esenciales del sistema</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">108.1</span>
+                <h3>Mantener la hora del sistema</h3>
+                <span class="cmd-count-badge">8 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">RTC (Real-Time Clock)</span>
+                    <a href="t108/108-1-mantener-la-hora-del-sis.html" class="term-sub-badge">108.1 </a>
+                  </div>
+                  <div class="term-def">Reloj de hardware alimentado por una pila o batería en la placa base que mantiene la cuenta del tiempo cuando el ordenador está apagado o desconectado de la corriente eléctrica.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">hwclock</span>
+                    <a href="t108/108-1-mantener-la-hora-del-sis.html" class="term-sub-badge">108.1 </a>
+                  </div>
+                  <div class="term-def">Herramienta que permite consultar, fijar y sincronizar el reloj de hardware (RTC) con el reloj de software del kernel Linux mediante opciones como -r, --systohc y --hctosys.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">NTP (Network Time Protocol)</span>
+                    <a href="t108/108-1-mantener-la-hora-del-sis.html" class="term-sub-badge">108.1 </a>
+                  </div>
+                  <div class="term-def">Protocolo de red (puerto UDP 123) diseñado para sincronizar con precisión de milisegundos los relojes de los ordenadores a través de redes locales o Internet mediante una jerarquía de estratos.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">pool.ntp.org</span>
+                    <a href="t108/108-1-mantener-la-hora-del-sis.html" class="term-sub-badge">108.1 </a>
+                  </div>
+                  <div class="term-def">Proyecto internacional colaborativo que proporciona un gran clúster de servidores de tiempo públicos accesibles mediante nombres DNS rotatorios (ej. 0.pool.ntp.org, 2.debian.pool.ntp.org).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">chrony</span>
+                    <a href="t108/108-1-mantener-la-hora-del-sis.html" class="term-sub-badge">108.1 </a>
+                  </div>
+                  <div class="term-def">Suite moderna de sincronización NTP compuesta por el demonio 'chronyd' y la herramienta de control 'chronyc', optimizada para máquinas virtuales, ordenadores portátiles y conexiones de red intermitentes.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ntpd</span>
+                    <a href="t108/108-1-mantener-la-hora-del-sis.html" class="term-sub-badge">108.1 </a>
+                  </div>
+                  <div class="term-def">Demonio tradicional de sincronización de tiempo que mantiene una disciplina continua del reloj y corrige la deriva (drift) mediante el archivo ntp.drift.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ntpq</span>
+                    <a href="t108/108-1-mantener-la-hora-del-sis.html" class="term-sub-badge">108.1 </a>
+                  </div>
+                  <div class="term-def">Programa de consulta estándar para monitorizar el estado y los pares (peers) del demonio clásico ntpd (habitualmente invocado como 'ntpq -p').</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">timedatectl</span>
+                    <a href="t108/108-1-mantener-la-hora-del-sis.html" class="term-sub-badge">108.1 </a>
+                  </div>
+                  <div class="term-def">Comando de systemd para controlar en un solo punto el tiempo del sistema, el reloj RTC, la zona horaria y el cliente de sincronización NTP.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">108.2</span>
+                <h3>Registros del sistema</h3>
+                <span class="cmd-count-badge">8 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">rsyslog</span>
+                    <a href="t108/108-2-registros-del-sistema.html" class="term-sub-badge">108.2 </a>
+                  </div>
+                  <div class="term-def">Demonio avanzado de registro del sistema que sustituye al clásico syslogd; procesa eventos clasificados por subsistema (facility) y severidad (priority), admitiendo filtrado y reenvío por red.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">systemd-journald</span>
+                    <a href="t108/108-2-registros-del-sistema.html" class="term-sub-badge">108.2 </a>
+                  </div>
+                  <div class="term-def">Servicio de bitácora nativo de systemd que captura y almacena de forma indexada y binaria los mensajes del kernel, servicios, stdout/stderr y eventos tempranos de arranque.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">journalctl</span>
+                    <a href="t108/108-2-registros-del-sistema.html" class="term-sub-badge">108.2 </a>
+                  </div>
+                  <div class="term-def">Herramienta de línea de comandos para consultar, filtrar y analizar los registros binarios indexados gestionados por systemd-journald.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">logger</span>
+                    <a href="t108/108-2-registros-del-sistema.html" class="term-sub-badge">108.2 </a>
+                  </div>
+                  <div class="term-def">Comando que permite inyectar manualmente mensajes de registro en el subsistema syslog desde la terminal o scripts de shell, especificando facility y prioridad (ej. logger -p local0.warn).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">logrotate</span>
+                    <a href="t108/108-2-registros-del-sistema.html" class="term-sub-badge">108.2 </a>
+                  </div>
+                  <div class="term-def">Utilidad de administración que automatiza la rotación, compresión, eliminación y envío por correo de archivos de registro antiguos basándose en tiempo (diario, semanal) o tamaño.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Facility (Subsistema)</span>
+                    <a href="t108/108-2-registros-del-sistema.html" class="term-sub-badge">108.2 </a>
+                  </div>
+                  <div class="term-def">Categoría o subsistema del sistema operativo que originó el mensaje de log (ej. auth, cron, daemon, kern, mail, local0-local7).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Priority (Severidad)</span>
+                    <a href="t108/108-2-registros-del-sistema.html" class="term-sub-badge">108.2 </a>
+                  </div>
+                  <div class="term-def">Nivel de gravedad del evento emitido por una aplicación, clasificado de 0 (emerg) a 7 (debug).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">systemd-cat</span>
+                    <a href="t108/108-2-registros-del-sistema.html" class="term-sub-badge">108.2 </a>
+                  </div>
+                  <div class="term-def">Utilidad que redirige la salida estándar (stdout) y de errores (stderr) de cualquier comando o proceso directamente al diario de systemd-journald.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">108.3</span>
+                <h3>Conceptos básicos del Agente de Transferencia de Correo</h3>
+                <span class="cmd-count-badge">10 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">MTA (Mail Transfer Agent)</span>
+                    <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
+                  </div>
+                  <div class="term-def">Demonio del sistema responsable de enrutar, transferir y recibir mensajes de correo electrónico entre hosts a través de la red usando el protocolo SMTP (puerto TCP 25) y depositarlos en los buzones locales.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">MUA (Mail User Agent)</span>
+                    <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
+                  </div>
+                  <div class="term-def">Cliente de correo utilizado por el usuario para redactar, leer y organizar mensajes (ej. mail, mailx, Thunderbird, Mutt, Evolution, interfaces webmail).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">MDA (Mail Delivery Agent)</span>
+                    <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
+                  </div>
+                  <div class="term-def">Programa auxiliar responsable de tomar el mensaje del MTA y depositarlo físicamente en el buzón de destino del usuario (ej. procmail, maildrop, dovecot-lda).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">SMTP (Simple Mail Transfer Protocol)</span>
+                    <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
+                  </div>
+                  <div class="term-def">Protocolo de red estándar en la capa de aplicación (puerto TCP 25) utilizado para la transferencia y retransmisión confiable de mensajes de correo entre servidores.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Registro MX (Mail Exchanger)</span>
+                    <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
+                  </div>
+                  <div class="term-def">Registro DNS que asocia un nombre de dominio con los servidores MTA autorizados para recibir su correo, ordenados por valores de prioridad.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Open Relay (Retransmisión abierta)</span>
+                    <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
+                  </div>
+                  <div class="term-def">Servidor MTA mal configurado que retransmite indiscriminadamente correos de cualquier remitente hacia cualquier destinatario, siendo vector principal de abuso y spam.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/aliases</span>
+                    <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
+                  </div>
+                  <div class="term-def">Fichero de configuración global de alias de correo administrado por root. Asocia destinatarios virtuales a usuarios locales, ficheros, comandos o inclusiones.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">newaliases</span>
+                    <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
+                  </div>
+                  <div class="term-def">Comando obligatorio para compilar el fichero de texto plano /etc/aliases en la base de datos binaria indexada leída por el MTA (equivalente a 'sendmail -bi').</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">~/.forward</span>
+                    <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
+                  </div>
+                  <div class="term-def">Fichero en el directorio personal ($HOME) de cada usuario que permite redirigir su correo entrante a otras cuentas locales o remotas sin privilegios de root ni ejecutar newaliases.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">mailq</span>
+                    <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
+                  </div>
+                  <div class="term-def">Comando para listar la cola de mensajes salientes pendientes de entrega del MTA (equivalente a 'sendmail -bp').</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">108.4</span>
+                <h3>Gestión de la impresión y de las impresoras</h3>
+                <span class="cmd-count-badge">10 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">CUPS (Common Unix Printing System)</span>
+                    <a href="t108/108-4-gestion-de-la-impresion.html" class="term-sub-badge">108.4 </a>
+                  </div>
+                  <div class="term-def">Subsistema de impresión estándar en Linux y Unix que gestiona colas de trabajo, conversión de formatos de documento mediante filtros y comunicación con dispositivos mediante IPP.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">cupsd</span>
+                    <a href="t108/108-4-gestion-de-la-impresion.html" class="term-sub-badge">108.4 </a>
+                  </div>
+                  <div class="term-def">Demonio planificador (scheduler) de CUPS que escucha solicitudes en el puerto TCP 631, encola los trabajos y coordina los filtros y backends.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">IPP (Internet Printing Protocol)</span>
+                    <a href="t108/108-4-gestion-de-la-impresion.html" class="term-sub-badge">108.4 </a>
+                  </div>
+                  <div class="term-def">Protocolo de red estándar que opera sobre HTTP en el puerto TCP 631, utilizado por CUPS tanto para transferir trabajos de impresión como para su interfaz web administrativa.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/cups/printers.conf</span>
+                    <a href="t108/108-4-gestion-de-la-impresion.html" class="term-sub-badge">108.4 </a>
+                  </div>
+                  <div class="term-def">Fichero de configuración que almacena la definición de cada impresora del sistema en bloques <Printer nombre>...</Printer>. Nunca debe editarse con cupsd activo.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">PPD (PostScript Printer Description)</span>
+                    <a href="t108/108-4-gestion-de-la-impresion.html" class="term-sub-badge">108.4 </a>
+                  </div>
+                  <div class="term-def">Fichero de definición de capacidades, resoluciones y bandejas de una impresora PostScript, almacenado en el directorio /etc/cups/ppd/.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">lpadmin</span>
+                    <a href="t108/108-4-gestion-de-la-impresion.html" class="term-sub-badge">108.4 </a>
+                  </div>
+                  <div class="term-def">Comando administrativo de estilo System V para añadir (-p), modificar (-o, -u), configurar dispositivo (-v) y eliminar (-x) impresoras y colas en CUPS.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">lpoptions</span>
+                    <a href="t108/108-4-gestion-de-la-impresion.html" class="term-sub-badge">108.4 </a>
+                  </div>
+                  <div class="term-def">Comando para consultar o fijar opciones predeterminadas de impresión para una impresora o definir el destino por defecto del sistema (-d).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">lpstat</span>
+                    <a href="t108/108-4-gestion-de-la-impresion.html" class="term-sub-badge">108.4 </a>
+                  </div>
+                  <div class="term-def">Comando para consultar el estado del subsistema de impresión: impresoras activas (-p), destino por defecto (-d), dispositivos (-v) y estado global (-t).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">cupsenable / cupsdisable</span>
+                    <a href="t108/108-4-gestion-de-la-impresion.html" class="term-sub-badge">108.4 </a>
+                  </div>
+                  <div class="term-def">Comandos para iniciar o detener la impresión física de trabajos en una cola de impresora (la cola sigue aceptando trabajos si no se usa cupsreject).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">cupsaccept / cupsreject</span>
+                    <a href="t108/108-4-gestion-de-la-impresion.html" class="term-sub-badge">108.4 </a>
+                  </div>
+                  <div class="term-def">Comandos para permitir o rechazar que los usuarios añadan nuevos trabajos a la cola de impresión especificada.</div>
+                </div>
+                
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t109">
+          <div class="topic-header">
+            <h2>Tema 109: Fundamentos de red</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">109.1</span>
+                <h3>Fundamentos de los protocolos de Internet</h3>
+                <span class="cmd-count-badge">10 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">IPv4</span>
+                    <a href="t109/109-1-fundamentos-de-los-proto.html" class="term-sub-badge">109.1 </a>
+                  </div>
+                  <div class="term-def">Protocolo de capa de red que utiliza direcciones de 32 bits representadas en 4 octetos en formato decimal con puntos (ej. 192.168.1.1), permitiendo hasta 4.294.967.296 direcciones teóricas.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">RFC 1918</span>
+                    <a href="t109/109-1-fundamentos-de-los-proto.html" class="term-sub-badge">109.1 </a>
+                  </div>
+                  <div class="term-def">Estándar de Internet que reserva tres bloques de direcciones IPv4 para uso privado no enrutable en la Internet pública: 10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">CIDR (Classless Inter-Domain Routing)</span>
+                    <a href="t109/109-1-fundamentos-de-los-proto.html" class="term-sub-badge">109.1 </a>
+                  </div>
+                  <div class="term-def">Notación que sustituye las clases rígidas de red indicando el número de bits contiguos en 1 que componen la máscara de red tras una barra inclinada (ej. /24 equivale a 255.255.255.0).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/services</span>
+                    <a href="t109/109-1-fundamentos-de-los-proto.html" class="term-sub-badge">109.1 </a>
+                  </div>
+                  <div class="term-def">Archivo del sistema que mapea nombres de servicios legibles por humanos a sus números de puerto IANA y protocolo de transporte estándar (ej. ssh 22/tcp).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">TCP (Transmission Control Protocol)</span>
+                    <a href="t109/109-1-fundamentos-de-los-proto.html" class="term-sub-badge">109.1 </a>
+                  </div>
+                  <div class="term-def">Protocolo de transporte orientado a conexión, confiable y con control de flujo que establece sesiones mediante un protocolo de enlace de 3 vías (3-way handshake: SYN, SYN-ACK, ACK).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">UDP (User Datagram Protocol)</span>
+                    <a href="t109/109-1-fundamentos-de-los-proto.html" class="term-sub-badge">109.1 </a>
+                  </div>
+                  <div class="term-def">Protocolo de transporte ligero no orientado a conexión que transmite datagramas sin garantía de entrega, orden o confirmación, ideal para DNS, NTP o audio/vídeo.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ICMP (Internet Control Message Protocol)</span>
+                    <a href="t109/109-1-fundamentos-de-los-proto.html" class="term-sub-badge">109.1 </a>
+                  </div>
+                  <div class="term-def">Protocolo de red utilizado para diagnósticos y mensajes de control operativo, como el eco de 'ping' o las notificaciones de TTL excedido en 'traceroute'.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">IPv6</span>
+                    <a href="t109/109-1-fundamentos-de-los-proto.html" class="term-sub-badge">109.1 </a>
+                  </div>
+                  <div class="term-def">Protocolo de red sucesor de IPv4 que utiliza direcciones de 128 bits expresadas en 8 grupos de 4 dígitos hexadecimales separados por dos puntos (ej. 2001:0db8::1).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">SLAAC (Stateless Address Autoconfiguration)</span>
+                    <a href="t109/109-1-fundamentos-de-los-proto.html" class="term-sub-badge">109.1 </a>
+                  </div>
+                  <div class="term-def">Mecanismo nativo de IPv6 que permite a un host generar automáticamente su propia dirección IP enrutable combinando el prefijo del router con su identificador de interfaz (EUI-64).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Link-Local (fe80::/10)</span>
+                    <a href="t109/109-1-fundamentos-de-los-proto.html" class="term-sub-badge">109.1 </a>
+                  </div>
+                  <div class="term-def">Dirección IPv6 de enlace local autogenerada obligatoria en cada interfaz de red activa, no enrutable fuera del segmento local directo.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">109.2</span>
+                <h3>Configuración de red persistente</h3>
+                <span class="cmd-count-badge">10 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Nombres Predecibles de Interfaces</span>
+                    <a href="t109/109-2-configuracion-de-red-per.html" class="term-sub-badge">109.2 </a>
+                  </div>
+                  <div class="term-def">Esquema introducido por systemd/udev que asigna nombres deterministas inmutables basados en hardware o topología (eno = on-board, ens = PCIe slot, enp = bus PCI, wlp = wifi) sustituyendo a los volátiles eth0/wlan0.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/network/interfaces</span>
+                    <a href="t109/109-2-configuracion-de-red-per.html" class="term-sub-badge">109.2 </a>
+                  </div>
+                  <div class="term-def">Fichero de configuración de red tradicional en distribuciones Debian y derivadas, gestionado por las utilidades ifup e ifdown.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ifup / ifdown</span>
+                    <a href="t109/109-2-configuracion-de-red-per.html" class="term-sub-badge">109.2 </a>
+                  </div>
+                  <div class="term-def">Comandos de alto nivel para activar o desactivar interfaces de red leyendo la configuración definida en /etc/network/interfaces.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/hostname</span>
+                    <a href="t109/109-2-configuracion-de-red-per.html" class="term-sub-badge">109.2 </a>
+                  </div>
+                  <div class="term-def">Fichero de configuración estático que almacena el nombre del equipo asignado permanentemente en el arranque.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">hostnamectl</span>
+                    <a href="t109/109-2-configuracion-de-red-per.html" class="term-sub-badge">109.2 </a>
+                  </div>
+                  <div class="term-def">Comando de systemd para consultar y configurar los tres tipos de nombre de host: estático (static), transitorio (transient) y descriptivo (pretty).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/hosts</span>
+                    <a href="t109/109-2-configuracion-de-red-per.html" class="term-sub-badge">109.2 </a>
+                  </div>
+                  <div class="term-def">Fichero de asignación local estática que mapea direcciones IP a nombres FQDN y alias antes o de forma complementaria al DNS.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/resolv.conf</span>
+                    <a href="t109/109-2-configuracion-de-red-per.html" class="term-sub-badge">109.2 </a>
+                  </div>
+                  <div class="term-def">Fichero de configuración del resolver DNS del sistema donde se especifican los servidores de nombres (nameserver) y dominios de búsqueda (search).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">NetworkManager</span>
+                    <a href="t109/109-2-configuracion-de-red-per.html" class="term-sub-badge">109.2 </a>
+                  </div>
+                  <div class="term-def">Demonio de gestión de redes diseñado para simplificar la conectividad alámbrica, inalámbrica, VPN y móvil, controlado mediante la CLI nmcli.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">nmcli</span>
+                    <a href="t109/109-2-configuracion-de-red-per.html" class="term-sub-badge">109.2 </a>
+                  </div>
+                  <div class="term-def">Herramienta de línea de comandos para consultar dispositivos, crear perfiles, modificar conexiones y gestionar el estado global de NetworkManager.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">systemd-networkd</span>
+                    <a href="t109/109-2-configuracion-de-red-per.html" class="term-sub-badge">109.2 </a>
+                  </div>
+                  <div class="term-def">Demonio nativo de systemd especializado en la configuración de interfaces de red mediante ficheros declarativos en /etc/systemd/network/*.network.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">109.3</span>
+                <h3>Resolución de problemas básicos de red</h3>
+                <span class="cmd-count-badge">10 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">iproute2</span>
+                    <a href="t109/109-3-resolucion-de-problemas.html" class="term-sub-badge">109.3 </a>
+                  </div>
+                  <div class="term-def">Conjunto moderno de utilidades de red en Linux encabezado por el comando 'ip' que reemplaza a la suite clásica net-tools (ifconfig, route, arp).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ip address / ip a</span>
+                    <a href="t109/109-3-resolucion-de-problemas.html" class="term-sub-badge">109.3 </a>
+                  </div>
+                  <div class="term-def">Subcomando de iproute2 para mostrar, añadir (add) o eliminar (del) direcciones IPv4 e IPv6 en interfaces de red.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ip link</span>
+                    <a href="t109/109-3-resolucion-de-problemas.html" class="term-sub-badge">109.3 </a>
+                  </div>
+                  <div class="term-def">Subcomando de iproute2 para gestionar el estado de la capa de enlace físico (up/down), MTU y direcciones MAC.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ip route / ip r</span>
+                    <a href="t109/109-3-resolucion-de-problemas.html" class="term-sub-badge">109.3 </a>
+                  </div>
+                  <div class="term-def">Subcomando de iproute2 para inspeccionar y manipular la tabla de enrutamiento del kernel y configurar la puerta de enlace predeterminada (default via).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ss (Socket Statistics)</span>
+                    <a href="t109/109-3-resolucion-de-problemas.html" class="term-sub-badge">109.3 </a>
+                  </div>
+                  <div class="term-def">Utilidad de alto rendimiento que reemplaza a netstat para volcar estadísticas de sockets de red y puertos a la escucha leyendo directamente del kernel mediante netlink.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ping / ping6</span>
+                    <a href="t109/109-3-resolucion-de-problemas.html" class="term-sub-badge">109.3 </a>
+                  </div>
+                  <div class="term-def">Comando que envía mensajes ICMP Echo Request para comprobar la disponibilidad y latencia bidireccional de un host remoto.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">traceroute / traceroute6</span>
+                    <a href="t109/109-3-resolucion-de-problemas.html" class="term-sub-badge">109.3 </a>
+                  </div>
+                  <div class="term-def">Herramienta que identifica la ruta de routers intermedios hacia un destino enviando paquetes con valores crecientes de TTL (Time to Live) o Hop Limit.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">tracepath / tracepath6</span>
+                    <a href="t109/109-3-resolucion-de-problemas.html" class="term-sub-badge">109.3 </a>
+                  </div>
+                  <div class="term-def">Herramienta de diagnóstico de rutas similar a traceroute que no requiere privilegios de superusuario y rastrea la MTU máxima soportada a lo largo del camino.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">netcat (nc)</span>
+                    <a href="t109/109-3-resolucion-de-problemas.html" class="term-sub-badge">109.3 </a>
+                  </div>
+                  <div class="term-def">La 'navaja suiza' de TCP/IP; permite abrir conexiones arbitrarias, probar puertos abiertos, transferir archivos o levantar servidores de escucha temporales.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ip neighbour / ip neigh</span>
+                    <a href="t109/109-3-resolucion-de-problemas.html" class="term-sub-badge">109.3 </a>
+                  </div>
+                  <div class="term-def">Subcomando de iproute2 para ver y manipular la tabla de vecinos ARP (resolución IP a MAC en la red local).</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">109.4</span>
+                <h3>Configuración DNS en el lado del cliente</h3>
+                <span class="cmd-count-badge">10 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">DNS (Domain Name System)</span>
+                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
+                  </div>
+                  <div class="term-def">Sistema jerárquico y distribuido de bases de datos que traduce nombres de host legibles por personas (ej. www.lpi.org) a direcciones IP numéricas (ej. 2001:db8::1 o 198.51.100.1).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Stub Resolver</span>
+                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
+                  </div>
+                  <div class="term-def">Conjunto de funciones de biblioteca (proporcionadas por glibc) en el sistema cliente que reciben peticiones de aplicaciones y las envían a servidores DNS recursivos.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/resolv.conf</span>
+                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
+                  </div>
+                  <div class="term-def">Fichero donde se configuran los servidores de nombres DNS externos (directiva nameserver) y los sufijos de dominio de búsqueda automática (directiva search).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/nsswitch.conf</span>
+                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
+                  </div>
+                  <div class="term-def">Fichero de configuración del Name Service Switch que establece el orden en que se consultan las fuentes de información (ej. 'hosts: files dns').</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">getent hosts</span>
+                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
+                  </div>
+                  <div class="term-def">Comando que consulta la base de datos de nombres respetando rigurosamente el orden y las fuentes definidas en /etc/nsswitch.conf (incluyendo /etc/hosts y DNS).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">host</span>
+                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
+                  </div>
+                  <div class="term-def">Utilidad de línea de comandos sencilla y directa para realizar consultas DNS directas, inversas o por tipo de registro (A, AAAA, MX, NS, CNAME).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">dig (Domain Information Groper)</span>
+                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
+                  </div>
+                  <div class="term-def">Herramienta completa y detallada de administración para depurar DNS que muestra las secciones estructuradas de la respuesta, cabeceras, códigos y flags.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">NXDOMAIN (Non-Existent Domain)</span>
+                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
+                  </div>
+                  <div class="term-def">Código de estado devuelto por un servidor DNS autoritativo que indica que el nombre de dominio consultado no existe.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Registro PTR (Pointer Record)</span>
+                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
+                  </div>
+                  <div class="term-def">Tipo de registro DNS utilizado en las zonas de resolución inversa (.in-addr.arpa y .ip6.arpa) para mapear una dirección IP a un nombre de host.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">systemd-resolved</span>
+                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
+                  </div>
+                  <div class="term-def">Servicio de systemd que proporciona resolución de nombres local a aplicaciones, escuchando en la IP de bucle local 127.0.0.53:53.</div>
+                </div>
+                
+              </div>
+            </div>
+            </section>
+        <section class="topic-section" id="t110">
+          <div class="topic-header">
+            <h2>Tema 110: Seguridad</h2>
+          </div>
+        
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">110.1</span>
+                <h3>Tareas de administración de seguridad</h3>
+                <span class="cmd-count-badge">6 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">SUID (Set User ID)</span>
+                    <a href="t110/110-1-tareas-de-administracion.html" class="term-sub-badge">110.1 </a>
+                  </div>
+                  <div class="term-def">Permiso especial (octal 4000, bit 's' en usuario) que hace que un ejecutable se ejecute con los privilegios del usuario propietario (habitualmente root) en lugar de los del usuario invocador.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">SGID (Set Group ID)</span>
+                    <a href="t110/110-1-tareas-de-administracion.html" class="term-sub-badge">110.1 </a>
+                  </div>
+                  <div class="term-def">Permiso especial (octal 2000, bit 's' en grupo). En ejecutables adopta los privilegios del grupo propietario; en directorios propaga la herencia del grupo a todos los nuevos archivos creados en su interior.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Sticky Bit</span>
+                    <a href="t110/110-1-tareas-de-administracion.html" class="term-sub-badge">110.1 </a>
+                  </div>
+                  <div class="term-def">Permiso especial (octal 1000, bit 't' en otros). En directorios compartidos como /tmp, restringe el borrado y renombrado de ficheros únicamente a su propietario legítimo o al superusuario root.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Password Aging</span>
+                    <a href="t110/110-1-tareas-de-administracion.html" class="term-sub-badge">110.1 </a>
+                  </div>
+                  <div class="term-def">Mecanismo del kernel y PAM configurado en /etc/shadow para forzar la expiración periódica, días de aviso y bloqueo por inactividad de las credenciales de los usuarios.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ulimit</span>
+                    <a href="t110/110-1-tareas-de-administracion.html" class="term-sub-badge">110.1 </a>
+                  </div>
+                  <div class="term-def">Orden interna integrada (builtin) del shell Bash para consultar y fijar límites de consumo de recursos por proceso (tiempo CPU, memoria RAM, descriptores de fichero abiertos, etc.).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/sudoers</span>
+                    <a href="t110/110-1-tareas-de-administracion.html" class="term-sub-badge">110.1 </a>
+                  </div>
+                  <div class="term-def">Archivo de control granular de privilegios donde se definen qué comandos puede ejecutar cada usuario con identidad de root u otros usuarios, editado siempre de forma segura con visudo.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">110.2</span>
+                <h3>Configuración de la seguridad del sistema</h3>
+                <span class="cmd-count-badge">5 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Shadow Passwords</span>
+                    <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
+                  </div>
+                  <div class="term-def">Técnica de seguridad que extrae los hashes de contraseña del archivo público legible /etc/passwd (donde se reemplazan por una 'x') y los almacena en /etc/shadow, accesible exclusivamente por root.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">/etc/nologin</span>
+                    <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
+                  </div>
+                  <div class="term-def">Archivo de bloqueo temporal del sistema. Si existe, impide que cualquier usuario no-root inicie sesión por terminal o SSH, mostrando el mensaje contenido en su interior (ej. mantenimiento programado).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">xinetd</span>
+                    <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
+                  </div>
+                  <div class="term-def">Superdemonio extendido de red (eXtended Internet Daemon) que escucha en puertos de red por demanda e inicia el servicio correspondiente solo cuando llega una conexión entrante, ahorrando memoria RAM.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">systemd.socket</span>
+                    <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
+                  </div>
+                  <div class="term-def">Unidad de systemd para la activación de servicios basada en sockets (equivalente moderno a xinetd). Systemd escucha en el puerto y arranca la unidad .service asociada al recibir tráfico.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">TCP Wrappers</span>
+                    <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
+                  </div>
+                  <div class="term-def">Subsistema de control de acceso a servicios de red vinculado a la biblioteca libwrap.so que valida la IP o dominio del cliente consultando /etc/hosts.allow y /etc/hosts.deny antes de aceptar la conexión.</div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="subtopic-block">
+              <div class="subtopic-header">
+                <span class="subtopic-badge">110.3</span>
+                <h3>Protección de datos mediante cifrado</h3>
+                <span class="cmd-count-badge">7 términos</span>
+              </div>
+              <div class="term-grid">
+            
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Criptografía Asimétrica</span>
+                    <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
+                  </div>
+                  <div class="term-def">Sistema criptográfico basado en pares de claves matemáticamente vinculadas: una clave pública (compartible libremente para cifrar o verificar) y una clave privada (secreta y protegida por passphrase para descifrar o firmar).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">OpenSSH</span>
+                    <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
+                  </div>
+                  <div class="term-def">Suite libre que implementa el protocolo SSH 2.0 para comunicaciones cifradas remotas, sustituyendo a herramientas inseguras en texto claro como telnet, rlogin o rsh.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Host Key</span>
+                    <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
+                  </div>
+                  <div class="term-def">Clave pública y privada del servidor SSH (/etc/ssh/ssh_host_*_key) que garantiza la autenticidad e identidad del servidor remoto ante los clientes, previniendo ataques Man-in-the-Middle.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ssh-agent</span>
+                    <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
+                  </div>
+                  <div class="term-def">Demonio de autenticación de SSH en memoria RAM que almacena las claves privadas descifradas, permitiendo inicios de sesión automáticos sin tener que teclear la frase de contraseña en cada conexión.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">Port Forwarding (Túnel SSH)</span>
+                    <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
+                  </div>
+                  <div class="term-def">Mecanismo que redirige tráfico de red de un puerto TCP a través de un canal cifrado seguro SSH hacia un host de destino (local con -L o remoto inverso con -R).</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">GnuPG (GPG)</span>
+                    <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
+                  </div>
+                  <div class="term-def">GNU Privacy Guard: implementación libre y de código abierto del estándar OpenPGP (RFC 4880) utilizada para cifrar archivos, correos y generar firmas digitales.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">ASCII Armor</span>
+                    <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
+                  </div>
+                  <div class="term-def">Formato de codificación en texto imprimible Base64 delimitado por cabeceras '-----BEGIN PGP MESSAGE-----' que permite transportar datos binarios cifrados en correos o terminales sin corrupción.</div>
+                </div>
+                
+              </div>
+            </div>
+            </section>
     </div>
     
     <footer class="site-footer">
@@ -1360,7 +2742,7 @@
         const hasVisible = Array.from(sec.querySelectorAll('.subtopic-block')).some(b => b.style.display !== 'none');
         sec.style.display = hasVisible ? '' : 'none';
       });
-      document.getElementById('glo-counter').textContent = q ? `${visibleCount} términos encontrados` : '116 términos registrados';
+      document.getElementById('glo-counter').textContent = q ? `${visibleCount} términos encontrados` : '258 términos registrados';
     }
 
     function toggleTheme() {

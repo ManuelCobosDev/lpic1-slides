@@ -15,7 +15,9 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "hostname (también válido en entornos modernos: hostnamectl )"
+      "hostname",
+      "hostnamectl",
+      "$hostname"
     ],
     "correct_text": "hostname (también válido en entornos modernos: hostnamectl )",
     "explanation": "El comando clásico estándar en Linux para consultar o definir el nombre del sistema en tiempo de ejecución es hostname . En los exámenes de LPI donde se pide \"solo el comando sin parámetros\" para fijar el nombre de host, la respuesta primaria esperada es hostname (junto con hostnamectl en systemd )."
@@ -41,15 +43,11 @@ window.PREGUNTAS_102 = [
       "E) 2001.db8.819f..1"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "2001:db8:3241::1",
+    "explanation": "Las direcciones IPv6 se representan en grupos hexadecimales separados por dos puntos ( : ). La opción A es inválida porque contiene la letra g (fuera del rango hexadecimal 0-9, a-f ). La opción B es inválida porque usa la compresión de ceros ( :: ) dos veces en la misma dirección, lo cual genera ambigüedad. Las opciones D y E usan separadores inválidos ( % y . )."
   },
   {
     "id": 3,
@@ -67,7 +65,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "netstat"
+      "netstat",
+      "$netstat"
     ],
     "correct_text": "netstat",
     "explanation": "netstat (de la suite net-tools ) es la herramienta multifunción clásica que muestra conexiones abiertas (por defecto o -t ), la tabla de enrutamiento ( -r ) y estadísticas de las interfaces de red ( -i o -s )."
@@ -88,7 +87,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "nmtui"
+      "nmtui",
+      "$nmtui"
     ],
     "correct_text": "nmtui",
     "explanation": "nmtui ( NetworkManager Text User Interface ) proporciona una interfaz interactiva basada en curses en la terminal para gestionar conexiones de NetworkManager."
@@ -96,12 +96,12 @@ window.PREGUNTAS_102 = [
   {
     "id": 5,
     "num": 5,
-    "tema": 105,
+    "tema": 109,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
     },
     "stem": "Which if the following tools, used for DNS debugging, reports not only the response from the name sever but also details about the query?",
     "type": "single",
@@ -114,15 +114,11 @@ window.PREGUNTAS_102 = [
       "E) zoneinfo"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "dig",
+    "explanation": "dig ( Domain Information Groper ) realiza consultas DNS y devuelve tanto la sección de respuesta como los encabezados completos de la consulta ( QUESTION SECTION , AUTHORITY , tiempos de respuesta, flags y estado del servidor)."
   },
   {
     "id": 6,
@@ -145,15 +141,11 @@ window.PREGUNTAS_102 = [
       "E) hosts: files dns"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "hosts: files dns",
+    "explanation": "/etc/nsswitch.conf define el orden de las bases de datos de nombres del sistema con la sintaxis base_de_datos: origen1 origen2 . hosts: files dns indica al sistema que resuelva nombres de host consultando primero /etc/hosts ( files ) y luego el servidor DNS ( dns ). ( multi on pertenece a /etc/host.conf )."
   },
   {
     "id": 7,
@@ -176,15 +168,13 @@ window.PREGUNTAS_102 = [
       "E) bridge"
     ],
     "correct_indices": [
-      0,
       1,
       2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "ethernet , wifi , bridge",
+    "explanation": "En NetworkManager, los tipos de conexión corresponden a tecnologías de enlace de datos o interfaces virtuales ( 802-3-ethernet / ethernet , 802-11-wireless / wifi , bridge , bond , vlan , etc.). tcp e ipv6 son protocolos de capas superiores, no tipos de conexión de interfaz."
   },
   {
     "id": 8,
@@ -207,25 +197,21 @@ window.PREGUNTAS_102 = [
       "E) DNS resolution may not be worki ng as route by default tries to resolve names of routers and destinations and may run into a timeout."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "DNS resolution may not be working as route by default tries to resolve names of routers and destinations and may run into a timeout.",
+    "explanation": "Por defecto, el comando route intenta realizar resolución DNS inversa (PTR) de las direcciones IP de la tabla de rutas para mostrar nombres legibles. Si el servidor DNS no responde, espera hasta agotar el tiempo de espera ( timeout ). Esto se evita usando route -n ."
   },
   {
     "id": 9,
     "num": 9,
-    "tema": 107,
+    "tema": 109,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
     },
     "stem": "What is true about the Hop Limit field in the IPv6 header?",
     "type": "single",
@@ -238,15 +224,11 @@ window.PREGUNTAS_102 = [
       "E) For multicast packages, the field's value is alwa ys 1."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Each router forwarding the packet decreases the field's value.",
+    "explanation": "El campo Hop Limit en IPv6 reemplaza al campo TTL (Time to Live) de IPv4. Cada router que reenvía el paquete decrementa este valor en 1; si llega a 0, el paquete se descarta y se envía un mensaje ICMPv6 Time Exceeded ."
   },
   {
     "id": 10,
@@ -269,25 +251,22 @@ window.PREGUNTAS_102 = [
       "E) nmcli connection"
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "nmcli device , nmcli connection",
+    "explanation": "Según la página de manual de nmcli(1) , los objetos principales (subcomandos de primer nivel) de nmcli son general , networking , radio , connection , device , agent y monitor . ( wifi es un subcomando dentro de radio o device , no de primer nivel)."
   },
   {
     "id": 11,
     "num": 11,
-    "tema": 105,
+    "tema": 109,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
     },
     "stem": "Which of the following changes may occur as a consequence of using the command ip? (Choose three.).",
     "type": "multiple",
@@ -301,14 +280,12 @@ window.PREGUNTAS_102 = [
     ],
     "correct_indices": [
       0,
-      1,
-      2,
       3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Network interfaces may become active or inactive. , IP addresses may change. , The routing table may change.",
+    "explanation": "El comando ip (de iproute2 ) gestiona interfaces de red ( ip link set up/down ), direcciones IP ( ip addr add/del ) y tablas de enrutamiento ( ip route add/del ). No modifica el archivo /etc/resolv.conf ni el nombre de host del sistema."
   },
   {
     "id": 12,
@@ -331,15 +308,11 @@ window.PREGUNTAS_102 = [
       "E) 126"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "62",
+    "explanation": "Un prefijo /26 deja 32 − 26 = 6 32 - 26 = 6 32 − 26 = 6 bits para hosts. La fórmula de hosts utilizables es 2 6 − 2 = 64 − 2 = 62 2^6 - 2 = 64 - 2 = 62 2 6 − 2 = 64 − 2 = 62 (se restan la dirección de red 192.168.2.128 y la dirección de broadcast 192.168.2.191 )."
   },
   {
     "id": 13,
@@ -363,14 +336,12 @@ window.PREGUNTAS_102 = [
     ],
     "correct_indices": [
       0,
-      1,
-      2,
       3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "10.0.0.0/8 , 172.16.0.0/12 , 192.168.0.0/16",
+    "explanation": "Según el estándar RFC 1918 , los tres rangos reservados para redes privadas son 10.0.0.0/8 (Clase A), 172.16.0.0/12 (172.16.0.0 a 172.31.255.255, Clase B) y 192.168.0.0/16 (Clase C). ( 127.0.0.0/8 es loopback)."
   },
   {
     "id": 14,
@@ -393,25 +364,22 @@ window.PREGUNTAS_102 = [
       "E) ifup"
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "ifdown , ifup",
+    "explanation": "Los comandos ifup e ifdown leen los archivos de configuración propios de la distribución (como /etc/network/interfaces en Debian o /etc/sysconfig/network-scripts/ifcfg-* en Red Hat) para levantar o bajar interfaces de red."
   },
   {
     "id": 15,
     "num": 15,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "Which of the following statements is true if the UID of a regular user is identical to the GID of a group?",
     "type": "single",
@@ -424,25 +392,21 @@ window.PREGUNTAS_102 = [
       "E) GIDs have precedence over UIDs, therefore the group is available while the user is n't."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "UIDs and GIDs are independent of each other, therefore the user as well as the group are still available.",
+    "explanation": "En el kernel de Linux, los espacios de nombres numéricos para usuarios (UID) y grupos (GID) son completamente independientes. De hecho, en el esquema UPG ( User Private Groups ), a cada usuario nuevo se le asigna por defecto un grupo primario con un GID idéntico a su UID."
   },
   {
     "id": 16,
     "num": 16,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "Which of the following information is stored in /etc/shadow for each user?",
     "type": "single",
@@ -455,25 +419,21 @@ window.PREGUNTAS_102 = [
       "E) The path to the user's home directory."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "The hashed password of the user.",
+    "explanation": "/etc/shadow almacena las contraseñas cifradas (hashes) de los usuarios y la información de envejecimiento/caducidad de las mismas. El UID y el directorio personal están en /etc/passwd ."
   },
   {
     "id": 17,
     "num": 17,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "Which of the following commands shows all active systemd timers?",
     "type": "single",
@@ -486,25 +446,21 @@ window.PREGUNTAS_102 = [
       "E) timeq"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "systemctl list-timers",
+    "explanation": "El subcomando list-timers de systemctl muestra una lista de todos los temporizadores ( timers ) activos en memoria junto con el tiempo restante hasta su próxima ejecución."
   },
   {
     "id": 18,
     "num": 18,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "Which of the following tasks can the date command accomplish? (Choose two.).",
     "type": "multiple",
@@ -518,14 +474,11 @@ window.PREGUNTAS_102 = [
     ],
     "correct_indices": [
       0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Set the system's date and time. , Display time in a specific format.",
+    "explanation": "El comando date permite tanto consultar y formatear la salida de la fecha/hora ( date +FORMAT ) como modificar la fecha y hora del reloj de software del sistema ( date -s o pasando la cadena temporal como root). Imprimir calendarios es tarea del comando cal ."
   },
   {
     "id": 19,
@@ -543,7 +496,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "/etc/cron.allow"
+      "/etc/cron.allow",
+      "/etc/cron.allow/"
     ],
     "correct_text": "/etc/cron.allow",
     "explanation": "Si el archivo /etc/cron.allow existe en el sistema, solo los usuarios listados explícitamente dentro de él tienen permiso para usar crontab (ignorando /etc/cron.deny )."
@@ -569,15 +523,12 @@ window.PREGUNTAS_102 = [
       "E) The numeric user ID (UID) of the user."
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "The absolute path to the user's home directory. , The numeric user ID (UID) of the user.",
+    "explanation": "Con useradd puedes definir la ruta del directorio personal mediante la opción -d ( --home-dir ) y el UID numérico mediante la opción -u ( --uid )."
   },
   {
     "id": 21,
@@ -600,25 +551,21 @@ window.PREGUNTAS_102 = [
       "E) It is either a symlink to or a copy of a tim ezone information f ile such as /usr/share/zoneinfo/Europe/Berlin."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "It is either a symlink to or a copy of a timezone information file such as /usr/share/zoneinfo/Europe/Berlin.",
+    "explanation": "/etc/localtime configura la zona horaria del sistema local y es un archivo binario (o un enlace simbólico a dicho binario) ubicado dentro de /usr/share/zoneinfo/ . (El archivo de texto plano en algunas distribuciones es /etc/timezone )."
   },
   {
     "id": 22,
     "num": 22,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "Which of the following statements is true regarding systemd timer units?",
     "type": "single",
@@ -631,15 +578,11 @@ window.PREGUNTAS_102 = [
       "E) Each systemd timer unit controls a specific systemd service unit."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Each systemd timer unit controls a specific systemd service unit.",
+    "explanation": "En systemd , los archivos .timer no contienen directamente el comando a ejecutar, sino que activan y controlan una unidad .service asociada (por defecto del mismo nombre, p. ej., backup.timer activa backup.service , o la especificada en la directiva Unit= )."
   },
   {
     "id": 23,
@@ -662,25 +605,22 @@ window.PREGUNTAS_102 = [
       "E) Command"
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Minute , Command",
+    "explanation": "Tanto /etc/crontab como los crontabs de usuario incluyen los 5 campos de tiempo ( Minute , Hour, Day of Month, Month, Day of Week) y el campo Command . El campo Username solo existe en el archivo global /etc/crontab y en /etc/cron.d/* , pero no en los crontabs de usuario."
   },
   {
     "id": 24,
     "num": 24,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "Which of the following commands should be executed when starting a login shell in order to change the language of messages for an internationalized program to Portuguese (pt)?",
     "type": "single",
@@ -693,15 +633,11 @@ window.PREGUNTAS_102 = [
       "E) export ALL_MESSAGES=\"pt\""
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "export LC_MESSAGES=\"pt\"",
+    "explanation": "Dentro de las variables estándar POSIX de localización ( locale ), LC_MESSAGES controla específicamente el idioma utilizado para mostrar mensajes informativos, diagnósticos y respuestas interactivas de los programas."
   },
   {
     "id": 25,
@@ -724,25 +660,21 @@ window.PREGUNTAS_102 = [
       "E) /etc/gshadow"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "/etc/passwd",
+    "explanation": "El cuarto campo de cada línea en /etc/passwd ( usuario:x:UID:GID:... ) define el GID numérico del grupo primario del usuario. ( /etc/group se utiliza para definir los nombres de los grupos y las membresías a grupos secundarios o suplementarios)."
   },
   {
     "id": 26,
     "num": 26,
-    "tema": 105,
+    "tema": 108,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
     },
     "stem": "Which of the following steps prevents a user from obtaining an interactive login session?",
     "type": "single",
@@ -755,15 +687,11 @@ window.PREGUNTAS_102 = [
       "E) Creating a .nologin file in the user's home directory."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Running the command chsh -s /bin/false with the user name.",
+    "explanation": "Cambiar la shell de login del usuario a /bin/false (o /sbin/nologin ) mediante chsh -s provoca que, en cuanto el usuario se autentica, el proceso de shell termine inmediatamente devolviendo un estado de salida fallido, impidiendo una sesión interactiva."
   },
   {
     "id": 27,
@@ -781,7 +709,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "journalctl"
+      "journalctl",
+      "$journalctl"
     ],
     "correct_text": "journalctl",
     "explanation": "journalctl es la utilidad cliente de systemd para consultar el registro binario de systemd-journald , permitiendo filtrar por unidades ( -u ), rangos de tiempo ( --since , --until ), prioridades ( -p ), etc."
@@ -807,15 +736,13 @@ window.PREGUNTAS_102 = [
       "E) It supports syslog facilities such as kern, user, and auth."
     ],
     "correct_indices": [
-      0,
-      1,
       2,
       3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "It can pass log messages to syslog for further processing. , It maintains metadata such as _UID or _PID for each message. , It supports syslog facilities such as kern, user, and auth.",
+    "explanation": "systemd-journald es compatible con demonios syslog tradicionales como rsyslog (puede reenviarles eventos mediante ForwardToSyslog=yes ), almacena metadatos indexados implícitos de cada proceso ( _UID , _PID , _COMM ) y soporta las categorías/facilidades clásicas de syslog ( SYSLOG_FACILITY )."
   },
   {
     "id": 29,
@@ -833,7 +760,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "newaliases"
+      "newaliases",
+      "$newaliases"
     ],
     "correct_text": "newaliases",
     "explanation": "Tras editar el archivo de texto /etc/aliases , es obligatorio ejecutar newaliases (que no requiere parámetros) para reconstruir la base de datos indexada binaria ( /etc/aliases.db ) que utiliza el MTA."
@@ -859,15 +787,11 @@ window.PREGUNTAS_102 = [
       "E) flood"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "iburst",
+    "explanation": "Tanto en chrony como en ntpd , la opción iburst añadida a una directiva server o pool hace que el cliente envíe una ráfaga rápida de paquetes (normalmente 4 a 8 consultas en intervalos de 2 segundos) al iniciar para lograr la primera sincronización mucho más rápido. Bloque 2: Preguntas 31 a 60"
   },
   {
     "id": 31,
@@ -890,25 +814,21 @@ window.PREGUNTAS_102 = [
       "E) logger"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "logrotate",
+    "explanation": "logrotate está diseñado para facilitar la administración de sistemas que generan gran cantidad de archivos de registro, permitiendo su rotación automática, compresión, eliminación y envío por correo electrónico."
   },
   {
     "id": 32,
     "num": 32,
-    "tema": 105,
+    "tema": 108,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
     },
     "stem": "Why is the correct configuration of a system's time zone important?",
     "type": "single",
@@ -921,15 +841,11 @@ window.PREGUNTAS_102 = [
       "E) Because the conversion of Unix timestamps to local time relies on the time zone configuration."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Because the conversion of Unix timestamps to local time relies on the time zone configuration.",
+    "explanation": "El kernel de Linux maneja internamente el tiempo en formato Unix Epoch (segundos transcurridos desde el 1 de enero de 1970 en UTC). Para mostrar la hora local correcta a los usuarios y en los registros (logs), las librerías del espacio de usuario aplican el desplazamiento definido por la zona horaria configurada."
   },
   {
     "id": 33,
@@ -947,7 +863,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "mailq"
+      "mailq",
+      "$mailq"
     ],
     "correct_text": "mailq",
     "explanation": "mailq (equivalente a sendmail -bp ) es el comando estándar proporcionado por todos los MTA compatibles con Sendmail (incluyendo Postfix y Exim) para listar los correos encolados pendientes de entrega."
@@ -968,7 +885,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "/etc/cups (o /etc/cups/ )"
+      "/etc/cups",
+      "/etc/cups/"
     ],
     "correct_text": "/etc/cups (o /etc/cups/ )",
     "explanation": "El sistema de impresión común de Unix (CUPS) almacena todos sus archivos de configuración principales ( cupsd.conf , printers.conf , classes.conf , etc.) bajo el directorio /etc/cups ."
@@ -994,15 +912,11 @@ window.PREGUNTAS_102 = [
       "E) lpq"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "lpq",
+    "explanation": "lpq ( Line Printer Queue ) consulta el estado de la cola de impresión y muestra los trabajos pendientes. ( lpr y lp envían trabajos a imprimir; lpd es el demonio)."
   },
   {
     "id": 36,
@@ -1025,25 +939,21 @@ window.PREGUNTAS_102 = [
       "E) mail * /var/log/maillog \\n mail crit @logger.example.org"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "mail.* /var/log/maillog \\n mail.crit @logger.example.org",
+    "explanation": "En syslog.conf , el selector tiene el formato facilidad.prioridad (separados por un punto). Para todos los niveles de correo se usa mail.* y para los críticos mail.crit . Los servidores remotos se indican anteponiendo una arroba ( @nombre_host )."
   },
   {
     "id": 37,
     "num": 37,
-    "tema": 105,
+    "tema": 108,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
     },
     "stem": "Which option in the /etc/ntp.conf file specifies an external NTP source to be queried for time information? (Specify only the option without any values or parameters.).",
     "type": "fill",
@@ -1051,7 +961,9 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "server (también aceptado pool en versiones recientes)"
+      "server",
+      "$server",
+      "pool"
     ],
     "correct_text": "server (también aceptado pool en versiones recientes)",
     "explanation": "En /etc/ntp.conf , la directiva clásica fundamental para especificar un nodo NTP externo al cual consultar la hora es server (seguida de la IP o FQDN del servidor)."
@@ -1059,12 +971,12 @@ window.PREGUNTAS_102 = [
   {
     "id": 38,
     "num": 38,
-    "tema": 105,
+    "tema": 108,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
     },
     "stem": "Which of the following protocols is related to the term open relay?",
     "type": "single",
@@ -1077,25 +989,21 @@ window.PREGUNTAS_102 = [
       "E) LDAP"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "SMTP",
+    "explanation": "Un Open Relay (retransmisor abierto) es un servidor de correo SMTP mal configurado que permite a cualquier usuario de Internet enviar correos electrónicos a través de él hacia cualquier destinatario externo, siendo frecuentemente explotado para enviar spam."
   },
   {
     "id": 39,
     "num": 39,
-    "tema": 105,
+    "tema": 108,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
     },
     "stem": "Which of the following commands displays all environment and shell variables?",
     "type": "single",
@@ -1108,15 +1016,11 @@ window.PREGUNTAS_102 = [
       "E) lsshell"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "env",
+    "explanation": "De las opciones listadas, env es el único comando válido para mostrar variables del entorno en la shell (las demás opciones como lsenv , getargs o lsshell no existen en Linux estándar, y ls lista archivos). (Nota: aunque estrictamente set muestra tanto variables locales de shell como de entorno y env muestra las exportadas, dentro de las opciones cerradas de esta pregunta de examen env es la única respuesta real)."
   },
   {
     "id": 40,
@@ -1139,25 +1043,22 @@ window.PREGUNTAS_102 = [
       "E) -lt"
     ],
     "correct_indices": [
-      0,
-      1,
       2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "-d , -f",
+    "explanation": "En el comando test (o [ ] ), -d comprueba si un elemento existe y es un directorio, mientras que -f comprueba si existe y es un archivo regular. ( -z evalúa cadenas vacías; -eq y -lt son comparadores aritméticos de enteros)."
   },
   {
     "id": 41,
     "num": 41,
-    "tema": 107,
+    "tema": 105,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
     },
     "stem": "What information is provided by the echo $$ command?",
     "type": "single",
@@ -1170,15 +1071,11 @@ window.PREGUNTAS_102 = [
       "E) The process ID of the echo command."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "The process ID of the current shell.",
+    "explanation": "El parámetro especial $$ en Bash se expande al PID ( Process ID ) de la instancia actual de la shell. (El PID del último proceso en segundo plano es $! )."
   },
   {
     "id": 42,
@@ -1201,15 +1098,11 @@ window.PREGUNTAS_102 = [
       "E) export VARIABLE"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "export VARIABLE",
+    "explanation": "Para promocionar una variable local de shell a variable de entorno heredable por procesos hijos (subshells), se utiliza el comando interno export seguido del nombre de la variable sin el símbolo $ ( export VARIABLE )."
   },
   {
     "id": 43,
@@ -1232,15 +1125,11 @@ window.PREGUNTAS_102 = [
       "E) result: 3 2 1"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "result: 3 4 5 6 2 1",
+    "explanation": "El comando read a b c asigna la primera palabra ( 1 ) a la variable a , la segunda palabra ( 2 ) a la variable b , y todo el resto de la línea ( 3 4 5 6 ) a la última variable especificada ( c ). Por lo tanto, al imprimir $c $b$a , la salida es 3 4 5 6 seguido de 2 y 1 ."
   },
   {
     "id": 44,
@@ -1263,15 +1152,11 @@ window.PREGUNTAS_102 = [
       "E) /etc/shellenv"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "/etc/profile",
+    "explanation": "/etc/profile es el archivo de configuración global estándar leído al iniciar una shell de login para todos los usuarios del sistema, ideal para definir variables de entorno globales."
   },
   {
     "id": 45,
@@ -1294,15 +1179,11 @@ window.PREGUNTAS_102 = [
       "E) The numbers 1 through 10 with one number per line."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "The numbers 1 through 10 with one number per line.",
+    "explanation": "Cuando a seq se le pasa un único argumento ( seq ÚLTIMO ), asume por defecto que el número inicial es 1 y el incremento es 1 , imprimiendo los números del 1 al 10, uno por línea."
   },
   {
     "id": 46,
@@ -1320,7 +1201,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "alias"
+      "alias",
+      "$alias"
     ],
     "correct_text": "alias",
     "explanation": "Ejecutar el comando interno alias sin argumentos imprime en la salida estándar la lista de todos los alias definidos actualmente en la sesión de shell."
@@ -1328,12 +1210,12 @@ window.PREGUNTAS_102 = [
   {
     "id": 47,
     "num": 47,
-    "tema": 105,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "Which of the following commands can be used to limit the amount of memory a user may use?",
     "type": "single",
@@ -1346,25 +1228,21 @@ window.PREGUNTAS_102 = [
       "E) chage"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "ulimit",
+    "explanation": "El comando interno de Bash ulimit permite consultar y establecer límites de recursos del sistema para los procesos iniciados desde la shell, incluyendo memoria virtual ( -v ), tamaño de pila ( -s ), archivos abiertos ( -n ), etc."
   },
   {
     "id": 48,
     "num": 48,
-    "tema": 107,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "What is a purpose of an SSH host key?",
     "type": "single",
@@ -1377,25 +1255,21 @@ window.PREGUNTAS_102 = [
       "E) It is used by system services li ke cron, syslog or a backup job to automatically connect to remote hosts."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "It provides the server's identity information to connecting SSH clients.",
+    "explanation": "Las claves de host SSH ( /etc/ssh/ssh_host_*_key ) identifican de forma única al servidor SSH frente a los clientes que se conectan, evitando ataques de intermediario ( Man-in-the-Middle ). Los clientes almacenan estas claves públicas en ~/.ssh/known_hosts ."
   },
   {
     "id": 49,
     "num": 49,
-    "tema": 107,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "What is the purpose of TCP wrapper?",
     "type": "single",
@@ -1408,25 +1282,21 @@ window.PREGUNTAS_102 = [
       "E) Limit access to a network service."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Limit access to a network service.",
+    "explanation": "TCP Wrappers ( tcpd y la librería libwrap ) es un sistema de control de acceso basado en host que filtra y restringe qué clientes pueden conectarse a servicios de red utilizando las reglas de /etc/hosts.allow y /etc/hosts.deny ."
   },
   {
     "id": 50,
     "num": 50,
-    "tema": 107,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "Given the following excerpt of the sudo configuration: Jane ANY=NOPASSWD: /bin/kill, /bin/id, PASSWD: /sbin/fdisk Which of the following statements are true? (Choose three.).",
     "type": "multiple",
@@ -1439,25 +1309,23 @@ window.PREGUNTAS_102 = [
       "E) Jane can run /bin/id without specifying her password."
     ],
     "correct_indices": [
-      0,
       1,
-      2,
       3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Jane can run /sbin/fdisk after specifying her password. , Jane can run /bin/kill without specifying a password. , Jane can run /bin/id without specifying her password.",
+    "explanation": "La etiqueta NOPASSWD: se aplica a todos los comandos que le siguen hasta que aparezca otra etiqueta. Por tanto, /bin/kill y /bin/id no requieren contraseña. La etiqueta PASSWD: exige que el usuario introduzca su propia contraseña (comportamiento normal de sudo ) para ejecutar /sbin/fdisk ."
   },
   {
     "id": 51,
     "num": 51,
-    "tema": 105,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "Which configuration file contains the default options for SSH clients?",
     "type": "single",
@@ -1470,25 +1338,21 @@ window.PREGUNTAS_102 = [
       "E) /etc/ssh/ssh_client"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "/etc/ssh/ssh_config",
+    "explanation": "/etc/ssh/ssh_config es el archivo de configuración global para el cliente OpenSSH ( ssh ), mientras que /etc/ssh/sshd_config (con d de daemon) es para el servidor."
   },
   {
     "id": 52,
     "num": 52,
-    "tema": 109,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 109: Fundamentos de Redes",
-      "short": "Redes",
-      "color": "#0891B2",
-      "weight": 14
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "Depending on a system's configuration, which of the following files can be used to enable and disable network services running on this host?",
     "type": "single",
@@ -1501,25 +1365,21 @@ window.PREGUNTAS_102 = [
       "E) /etc/host.conf"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "/etc/xinetd.conf",
+    "explanation": "El superdemonio xinetd escucha en múltiples puertos y levanta servicios bajo demanda; su archivo /etc/xinetd.conf (y los archivos en /etc/xinetd.d/ ) permite habilitar o deshabilitar servicios mediante la directiva disable = yes|no . ( /etc/services solo mapea nombres de servicios a números de puerto, no los habilita ni deshabilita)."
   },
   {
     "id": 53,
     "num": 53,
-    "tema": 109,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 109: Fundamentos de Redes",
-      "short": "Redes",
-      "color": "#0891B2",
-      "weight": 14
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "Which of the following commands can identify the PID od a process which opened a TCP port?",
     "type": "single",
@@ -1532,25 +1392,21 @@ window.PREGUNTAS_102 = [
       "E) nessus"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "lsof",
+    "explanation": "lsof ( List Open Files ), dado que en Unix los sockets de red también son descriptores de archivo, permite identificar qué proceso y PID tiene abierto un puerto TCP/UDP (por ejemplo, usando lsof -i :80 )."
   },
   {
     "id": 54,
     "num": 54,
-    "tema": 105,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "When using X1 1 forwarding in SSH, what environment variable is automatically set in the remote shell in order to help applications to connect to the correct X11 server? (Specify only the environment variable without any additional commands or values.).",
     "type": "fill",
@@ -1558,7 +1414,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "DISPLAY"
+      "DISPLAY",
+      "$DISPLAY"
     ],
     "correct_text": "DISPLAY",
     "explanation": "Cuando se conecta con ssh -X o ssh -Y , el servidor SSH configura automáticamente la variable de entorno DISPLAY (normalmente a algo como localhost:10.0 ) para redirigir las aplicaciones gráficas a través del túnel SSH."
@@ -1566,12 +1423,12 @@ window.PREGUNTAS_102 = [
   {
     "id": 55,
     "num": 55,
-    "tema": 107,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "The presence of what file will temporarily prevent all users except root from logging into a system? (Specify the full name of the file, including path.).",
     "type": "fill",
@@ -1579,7 +1436,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "/etc/nologin"
+      "/etc/nologin",
+      "/etc/nologin/"
     ],
     "correct_text": "/etc/nologin",
     "explanation": "Si el archivo /etc/nologin existe (o /run/nologin ), pam_nologin y login muestran su contenido a los usuarios regulares y rechazan su inicio de sesión, permitiendo el acceso únicamente a root ."
@@ -1587,12 +1445,12 @@ window.PREGUNTAS_102 = [
   {
     "id": 56,
     "num": 56,
-    "tema": 105,
+    "tema": 106,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
     },
     "stem": "Which of the following commands preloads and manages existing SSH keys that are used for automatic authentication while logging in to other machines using SSH?",
     "type": "single",
@@ -1605,15 +1463,11 @@ window.PREGUNTAS_102 = [
       "E) ssh-agent"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "ssh-agent",
+    "explanation": "ssh-agent es el programa en segundo plano que mantiene las claves privadas descifradas en memoria para que el usuario no tenga que escribir la frase de paso ( passphrase ) en cada conexión SSH."
   },
   {
     "id": 57,
@@ -1636,25 +1490,21 @@ window.PREGUNTAS_102 = [
       "E) By a unique IPv6 address from the fe80::/64subne t."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "By a display name like :1 .",
+    "explanation": "Cada instancia de servidor X11 en una máquina se identifica por su número de display precedido por dos puntos ( :0 para el primero, :1 para el segundo, etc., con el formato completo hostname:displaynumber.screennumber )."
   },
   {
     "id": 58,
     "num": 58,
-    "tema": 105,
+    "tema": 106,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
     },
     "stem": "What is the purpose of a screen reader?",
     "type": "single",
@@ -1667,15 +1517,11 @@ window.PREGUNTAS_102 = [
       "E) It reads displayed text to accommodate the needs of blind or visually impaired people."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "It reads displayed text to accommodate the needs of blind or visually impaired people.",
+    "explanation": "Un lector de pantalla ( screen reader , como Orca o BrlTTY en Linux) es una tecnología de accesibilidad que interpreta el texto mostrado en pantalla y lo envía a un sintetizador de voz o a una línea Braille para personas ciegas o con discapacidad visual."
   },
   {
     "id": 59,
@@ -1698,25 +1544,21 @@ window.PREGUNTAS_102 = [
       "E) It is placed after an initial unindented Section \"SectionName\" and must be indented by exactly one tab character."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "It is placed between a line containing Section \"SectionName\" and a line containing EndSection.",
+    "explanation": "Según man xorg.conf , la sintaxis de cada bloque en xorg.conf comienza con Section \"SectionName\" y se cierra con la palabra clave EndSection ."
   },
   {
     "id": 60,
     "num": 60,
-    "tema": 105,
+    "tema": 106,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
     },
     "stem": "Which of the following features are provided by SPICE? (Choose two.).",
     "type": "multiple",
@@ -1730,24 +1572,21 @@ window.PREGUNTAS_102 = [
     ],
     "correct_indices": [
       0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Connecting local USB devices to remote applications. , Accessing graphical applications on a remote host.",
+    "explanation": "El protocolo SPICE ( Simple Protocol for Independent Computing Environments ), muy usado en virtualización KVM/QEMU, permite visualizar e interactuar con entornos gráficos remotos y redirigir dispositivos USB locales hacia la máquina remota/virtual. Bloque 3: Preguntas 61 a 90"
   },
   {
     "id": 61,
     "num": 61,
-    "tema": 107,
+    "tema": 106,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
     },
     "stem": "What is the systemd journal stored? (Where is the systemd journal stored?)",
     "type": "single",
@@ -1760,25 +1599,21 @@ window.PREGUNTAS_102 = [
       "E) /etc/systemd/journal/or /usr/lib/systemd/journal/"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "/run/log/journal/ or /var/log/journal/",
+    "explanation": "systemd-journald guarda los registros de forma volátil (en memoria RAM) dentro de /run/log/journal/ o de forma persistente en disco si existe el directorio /var/log/journal/ ."
   },
   {
     "id": 62,
     "num": 62,
-    "tema": 108,
+    "tema": 106,
     "tema_info": {
-      "title": "Tema 108: Servicios Esenciales del Sistema",
-      "short": "Servicios Esenciales",
-      "color": "#7C3AED",
-      "weight": 12
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
     },
     "stem": "Which of the following is true regarding the command sendmail?",
     "type": "single",
@@ -1791,25 +1626,21 @@ window.PREGUNTAS_102 = [
       "E) All common MTAs, including Postfix and Exim, provide a sendmail comma nd."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "All common MTAs, including Postfix and Exim, provide a sendmail command.",
+    "explanation": "Por razones de compatibilidad histórica con scripts y aplicaciones de Unix que envían correo invocando /usr/sbin/sendmail , todos los MTA principales (Postfix, Exim, qmail, etc.) incluyen un binario o wrapper llamado sendmail ."
   },
   {
     "id": 63,
     "num": 63,
-    "tema": 108,
+    "tema": 106,
     "tema_info": {
-      "title": "Tema 108: Servicios Esenciales del Sistema",
-      "short": "Servicios Esenciales",
-      "color": "#7C3AED",
-      "weight": 12
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
     },
     "stem": "Which file inside the CUPS configuration directory contains the settings of the printers?",
     "type": "single",
@@ -1822,15 +1653,11 @@ window.PREGUNTAS_102 = [
       "E) cupsd.conf"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "printers.conf",
+    "explanation": "Dentro de /etc/cups/ , el archivo printers.conf define las colas e impresoras configuradas localmente, mientras que cupsd.conf configura el comportamiento general del demonio CUPS."
   },
   {
     "id": 64,
@@ -1848,7 +1675,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "/etc/aliases"
+      "/etc/aliases",
+      "/etc/aliases/"
     ],
     "correct_text": "/etc/aliases",
     "explanation": "El comando newaliases lee el archivo de configuración de alias del sistema /etc/aliases y compila su base de datos correspondiente."
@@ -1875,24 +1703,21 @@ window.PREGUNTAS_102 = [
     ],
     "correct_indices": [
       0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "local5 , mail",
+    "explanation": "Las facilidades estándar de syslog incluyen auth , authpriv , cron , daemon , kern , lpr , mail , news , syslog , user , uucp y de local0 a local7 (incluyendo local5 ). Las demás opciones son inventadas."
   },
   {
     "id": 66,
     "num": 66,
-    "tema": 105,
+    "tema": 108,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
     },
     "stem": "Which of the following parameters are used for journalctl to limit the time frame of the output? (Choose two.).",
     "type": "multiple",
@@ -1906,23 +1731,20 @@ window.PREGUNTAS_102 = [
     ],
     "correct_indices": [
       0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "--since= , --until=",
+    "explanation": "En journalctl , las banderas oficiales para acotar registros entre una fecha/hora de inicio y una de fin son --since ( -S ) y --until ( -U )."
   },
   {
     "id": 67,
     "num": 67,
-    "tema": 107,
+    "tema": 108,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
       "weight": 12
     },
     "stem": "What is true regarding the file ~/.forward?",
@@ -1936,25 +1758,21 @@ window.PREGUNTAS_102 = [
       "E) By default, o nly ~/.forward files of users in the group mailq are processed while all other user's ~/.forward files are ignored."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "When configured correctly ~/.forward can be used to forward each incoming mail to one or more other recipients.",
+    "explanation": "Cualquier usuario puede crear y editar directamente el archivo .forward en su directorio personal ( ~ ) para redirigir sus correos entrantes a una o más direcciones externas sin necesidad de privilegios de root ni de ejecutar newaliases ."
   },
   {
     "id": 68,
     "num": 68,
-    "tema": 106,
+    "tema": 108,
     "tema_info": {
-      "title": "Tema 106: Interfaces de Usuario y Escritorios",
-      "short": "X11 y Escritorios",
-      "color": "#059669",
-      "weight": 4
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
     },
     "stem": "Which of the following commands display a list of jobs in the print queue? (Choose two.).",
     "type": "multiple",
@@ -1967,15 +1785,12 @@ window.PREGUNTAS_102 = [
       "E) lpq"
     ],
     "correct_indices": [
-      0,
-      1,
       2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "lpstat , lpq",
+    "explanation": "lpq (estilo BSD) y lpstat (estilo System V) son los dos comandos estándar en CUPS para consultar los trabajos pendientes en la cola de impresión."
   },
   {
     "id": 69,
@@ -1998,25 +1813,22 @@ window.PREGUNTAS_102 = [
       "E) journalctl add Howdy"
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "logger Howdy , systemd-cat echo Howdy",
+    "explanation": "logger envía mensajes al socket de syslog (que systemd-journald recoge), y systemd-cat conecta la salida estándar de cualquier programa (en este caso echo Howdy ) directamente con el diario de systemd."
   },
   {
     "id": 70,
     "num": 70,
-    "tema": 105,
+    "tema": 108,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
+      "weight": 12
     },
     "stem": "Which of the following options in the chrony configuration file define remote time sources? (Choose two.).",
     "type": "multiple",
@@ -2029,24 +1841,21 @@ window.PREGUNTAS_102 = [
       "E) server"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
       3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "pool , server",
+    "explanation": "En /etc/chrony.conf (o /etc/chrony/chrony.conf ), las directivas para especificar servidores NTP individuales o grupos de servidores son server y pool (además de peer )."
   },
   {
     "id": 71,
     "num": 71,
-    "tema": 107,
+    "tema": 108,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
+      "title": "Tema 108: Servicios Esenciales del Sistema",
+      "short": "Servicios Esenciales",
+      "color": "#7C3AED",
       "weight": 12
     },
     "stem": "Which command is used to sync the hardware clock to the system clock? (Specify only the command without any path or parameters.).",
@@ -2055,7 +1864,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "hwclock"
+      "hwclock",
+      "$hwclock"
     ],
     "correct_text": "hwclock",
     "explanation": "El comando hwclock permite leer el reloj de hardware (RTC/BIOS) y sincronizarlo desde el reloj del sistema ( hwclock --systohc / -w ) o viceversa ( hwclock --hctosys / -s )."
@@ -2063,12 +1873,12 @@ window.PREGUNTAS_102 = [
   {
     "id": 72,
     "num": 72,
-    "tema": 108,
+    "tema": 105,
     "tema_info": {
-      "title": "Tema 108: Servicios Esenciales del Sistema",
-      "short": "Servicios Esenciales",
-      "color": "#7C3AED",
-      "weight": 12
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
     },
     "stem": "Which of the following situations is observed and corrected by an NTP client?",
     "type": "single",
@@ -2081,15 +1891,11 @@ window.PREGUNTAS_102 = [
       "E) The skew in time between the system clock and the reference clock."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "The skew in time between the system clock and the reference clock.",
+    "explanation": "El protocolo NTP sincroniza exclusivamente la desviación ( skew / drift ) entre el reloj de software del sistema local y los relojes de referencia en red (trabajando siempre en UTC, sin gestionar zonas horarias ni horarios de verano)."
   },
   {
     "id": 73,
@@ -2112,15 +1918,11 @@ window.PREGUNTAS_102 = [
       "E) realias ls='ls -l'"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "alias ls='ls -l'",
+    "explanation": "En Bash, volver a ejecutar alias nombre='nuevo_valor' sobrescribe directamente cualquier definición previa de ese alias sin requerir banderas adicionales."
   },
   {
     "id": 74,
@@ -2143,25 +1945,21 @@ window.PREGUNTAS_102 = [
       "E) mydate=\"${date}\""
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "mydate=\"$(date)\"",
+    "explanation": "En Bash, la sustitución de comandos se realiza mediante la sintaxis $(comando) (o con comillas invertidas `comando` ). $((...)) es para expansión aritmética y ${...} es para expansión de variables."
   },
   {
     "id": 75,
     "num": 75,
-    "tema": 107,
+    "tema": 105,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
     },
     "stem": "What information is shown by the echo $? command?",
     "type": "single",
@@ -2174,15 +1972,11 @@ window.PREGUNTAS_102 = [
       "E) The process ID of the current shell."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "The exit value of the command executed immediately before echo.",
+    "explanation": "La variable especial $? contiene el código de estado de salida ( exit status , de 0 a 255) del último comando ejecutado en primer plano justo antes de la llamada actual."
   },
   {
     "id": 76,
@@ -2205,15 +1999,11 @@ window.PREGUNTAS_102 = [
       "E) /etc/profile"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "~/.bashrc",
+    "explanation": "Al iniciar una login shell , Bash lee /etc/profile y luego busca en orden el primero que exista entre ~/.bash_profile , ~/.bash_login y ~/.profile . No lee ~/.bashrc directamente (aunque es habitual que ~/.bash_profile incluya código para invocar a ~/.bashrc )."
   },
   {
     "id": 77,
@@ -2236,15 +2026,11 @@ window.PREGUNTAS_102 = [
       "E) It must be readable for its owner only."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "It must use a valid shell script syntax.",
+    "explanation": "Dado que .profile es leído e interpretado ( sourced ) directamente por la shell actual durante el inicio de sesión, no necesita permisos de ejecución ( +x ) ni línea shebang ( #! ), pero sí debe contener sintaxis de comandos de shell válida."
   },
   {
     "id": 78,
@@ -2267,25 +2053,22 @@ window.PREGUNTAS_102 = [
       "E) It is a comment that is ignored by the script interprete r."
     ],
     "correct_indices": [
-      0,
-      1,
       2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "It specifies the path and the arguments of the interpreter used to run the script. , It is a comment that is ignored by the script interpreter.",
+    "explanation": "El shebang ( #! ) es leído por el cargador del kernel ( execve ) para saber qué binario intérprete debe ejecutar el archivo. Una vez que el intérprete (como /bin/bash o /usr/bin/python ) abre el archivo, como la línea empieza por # , la trata como un comentario normal y la ignora."
   },
   {
     "id": 79,
     "num": 79,
-    "tema": 105,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "What output does the command seq 1 5 20 produce?",
     "type": "single",
@@ -2298,25 +2081,21 @@ window.PREGUNTAS_102 = [
       "E) 5 10 15 20"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "1 6 11 16",
+    "explanation": "Con tres argumentos, la sintaxis de seq es seq INICIO INCREMENTO FIN . Empieza en 1 y va sumando 5 sin superar 20 : 1 1 1 , 1 + 5 = 6 1+5=6 1 + 5 = 6 , 6 + 5 = 11 6+5=11 6 + 5 = 11 , 11 + 5 = 16 11+5=16 11 + 5 = 16 (el siguiente sería 21 21 21 , que supera 20 20 20 )."
   },
   {
     "id": 80,
     "num": 80,
-    "tema": 105,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "Which of the following commands lists all defines variables and functions within Bash?",
     "type": "single",
@@ -2329,25 +2108,21 @@ window.PREGUNTAS_102 = [
       "E) echo $ENV"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "set",
+    "explanation": "Sin opciones, el comando interno set de Bash muestra el nombre y valor de todas las variables de shell (locales y de entorno) y el código de todas las funciones definidas en la sesión actual."
   },
   {
     "id": 81,
     "num": 81,
-    "tema": 107,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "What information related to a user account is modified using the chage command?",
     "type": "single",
@@ -2360,25 +2135,21 @@ window.PREGUNTAS_102 = [
       "E) Default permissions for new files."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Password expiry information.",
+    "explanation": "chage ( change age ) modifica las políticas de envejecimiento y caducidad de contraseñas del usuario almacenadas en /etc/shadow ."
   },
   {
     "id": 82,
     "num": 82,
-    "tema": 105,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "Which command is used to set restrictions on the size of a core file that is created for a user when a program crashes?",
     "type": "single",
@@ -2391,15 +2162,11 @@ window.PREGUNTAS_102 = [
       "E) ktrace"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "ulimit",
+    "explanation": "El comando ulimit -c controla específicamente el tamaño máximo de los archivos de volcado de memoria ( core dumps ) generados cuando un proceso falla."
   },
   {
     "id": 83,
@@ -2422,25 +2189,21 @@ window.PREGUNTAS_102 = [
       "E) Shadow passwords are stored in plain text and can be checked for weak passwords."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Regular users do not have access to the password hashes of shadow passwords.",
+    "explanation": "Históricamente, los hashes de contraseñas estaban en /etc/passwd , el cual debe tener permisos de lectura para todos los usuarios ( 644 ), permitiendo ataques de fuerza bruta offline. Al mover los hashes a /etc/shadow (legible solo por root / grupo shadow ), los usuarios regulares ya no pueden leer los hashes."
   },
   {
     "id": 84,
     "num": 84,
-    "tema": 109,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 109: Fundamentos de Redes",
-      "short": "Redes",
-      "color": "#0891B2",
-      "weight": 14
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "After editing the TCP wrapper configuration to grant specific hosts access to a service, when do these changes become effective?",
     "type": "single",
@@ -2453,25 +2216,21 @@ window.PREGUNTAS_102 = [
       "E) The new configuration becomes effective immediately for all new connectio ns."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "The new configuration becomes effective immediately for all new connections.",
+    "explanation": "La librería libwrap lee /etc/hosts.allow y /etc/hosts.deny dinámicamente cada vez que entra una nueva solicitud de conexión, por lo que los cambios surten efecto de forma inmediata sin reiniciar ningún servicio."
   },
   {
     "id": 85,
     "num": 85,
-    "tema": 107,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "What is true regarding public and private SSH keys? (Choose two.).",
     "type": "multiple",
@@ -2484,25 +2243,22 @@ window.PREGUNTAS_102 = [
       "E) To allow remote logins, the user's private key mus t be copied to the remote serv er."
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "The private key must never be revealed to anyone. , To maintain the private key's confidentiality, the SSH key pair must be created by its owner.",
+    "explanation": "En criptografía asimétrica, la clave privada es secreta y nunca debe compartirse ni enviarse al servidor (al servidor solo se copia la clave pública en ~/.ssh/authorized_keys ). Para garantizar que nadie más conozca la clave privada, debe generarla el propio usuario."
   },
   {
     "id": 86,
     "num": 86,
-    "tema": 107,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "Which of the following commands finds all files owned by root that have the SetUID bit set?",
     "type": "single",
@@ -2515,25 +2271,21 @@ window.PREGUNTAS_102 = [
       "E) find / --filter uid=1 --filter pers=u+s"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "find / -user root -perm -4000",
+    "explanation": "En find , -user root filtra por propietario root y -perm -4000 busca archivos que tengan al menos el bit SUID ( 4000 en octal) activo, independientemente del resto de permisos de lectura/escritura/ejecución."
   },
   {
     "id": 87,
     "num": 87,
-    "tema": 107,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "What command is used to add OpenSSH private keys to a running ssh-agent instance? (Specify the command name only without any path.).",
     "type": "fill",
@@ -2549,12 +2301,12 @@ window.PREGUNTAS_102 = [
   {
     "id": 88,
     "num": 88,
-    "tema": 105,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "Which directory holds configuration files for xinetd services? (Specify the full path to the directory.).",
     "type": "fill",
@@ -2562,7 +2314,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "/etc/xinetd.d (o /etc/xinetd.d/ )"
+      "/etc/xinetd.d",
+      "/etc/xinetd.d/"
     ],
     "correct_text": "/etc/xinetd.d (o /etc/xinetd.d/ )",
     "explanation": "Mientras que /etc/xinetd.conf contiene la configuración global, los archivos individuales de cada servicio gestionado por xinetd se alojan en el directorio /etc/xinetd.d ."
@@ -2588,25 +2341,21 @@ window.PREGUNTAS_102 = [
       "E) Evaluating environment variables such as SSH_AUTH_SOCK."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Evaluating environment variables such as SSH_AUTH_SOCK.",
+    "explanation": "Al iniciarse, ssh-agent crea un socket de dominio Unix y exporta su ruta en la variable de entorno SSH_AUTH_SOCK (y su PID en SSH_AGENT_PID ). El cliente ssh lee SSH_AUTH_SOCK para comunicarse con el agente."
   },
   {
     "id": 90,
     "num": 90,
-    "tema": 105,
+    "tema": 110,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 110: Seguridad",
+      "short": "Seguridad",
+      "color": "#DC2626",
+      "weight": 10
     },
     "stem": "Which parameter of the ssh command specifies the location of the private key used for login attempts? (Specify only the option name without any values or parameters.).",
     "type": "fill",
@@ -2617,7 +2366,7 @@ window.PREGUNTAS_102 = [
       "-i"
     ],
     "correct_text": "-i",
-    "explanation": "La opción -i ( identity_file ) en ssh permite indicar explícitamente la ruta al archivo de clave privada que se usará para la autenticación."
+    "explanation": "La opción -i ( identity_file ) en ssh permite indicar explícitamente la ruta al archivo de clave privada que se usará para la autenticación. Bloque 4: Preguntas 91 a 120"
   },
   {
     "id": 91,
@@ -2640,25 +2389,21 @@ window.PREGUNTAS_102 = [
       "E) For I Pv6, UDP and TCP have been replaced by the Rapid Transmission Protocol RTP."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "IPv6 no longer supports broadcast addresses.",
+    "explanation": "El protocolo IPv6 eliminó por completo el direccionamiento broadcast para evitar tormentas de difusión en la red, sustituyéndolo por direccionamiento multicast ( ff00::/8 ), además de unicast y anycast ."
   },
   {
     "id": 92,
     "num": 92,
-    "tema": 107,
+    "tema": 109,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
     },
     "stem": "What is true about the following command? nmcli device wifi connect WIFIoI",
     "type": "single",
@@ -2671,25 +2416,21 @@ window.PREGUNTAS_102 = [
       "E) NetworkManager returns an error because WIFIoI is an invalid wifi device."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "NetworkManager creates a new wifi connection WIFIoI and activates it.",
+    "explanation": "Según la documentación de nmcli , nmcli device wifi connect <SSID> busca la red inalámbrica con ese SSID; si no existe un perfil de conexión previo para ella, crea automáticamente un nuevo perfil de conexión Wi-Fi y lo activa."
   },
   {
     "id": 93,
     "num": 93,
-    "tema": 105,
+    "tema": 109,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
     },
     "stem": "Which of the commands below might have produced the following output?",
     "type": "single",
@@ -2702,15 +2443,11 @@ window.PREGUNTAS_102 = [
       "E) dig -t soa www.example.org"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "dig -t ns www.example.org",
+    "explanation": "En la sección QUESTION SECTION de la salida mostrada se observa que el tipo de registro consultado para www.example.org. es NS ( Name Server ). Eso se solicita especificando -t ns en el comando dig ."
   },
   {
     "id": 94,
@@ -2728,7 +2465,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "up"
+      "up",
+      "$up"
     ],
     "correct_text": "up",
     "explanation": "La sintaxis de iproute2 para habilitar/activar una interfaz de red es ip link set up dev eth0 (o ip link set eth0 up )."
@@ -2754,15 +2492,12 @@ window.PREGUNTAS_102 = [
       "E) firewalled"
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "portal , full",
+    "explanation": "Según man nmcli , el comando nmcli networking connectivity devuelve uno de los siguientes cinco estados posibles de conectividad: none , portal (detrás de un portal cautivo), limited , full (conectado a Internet sin restricciones) o unknown ."
   },
   {
     "id": 96,
@@ -2785,15 +2520,12 @@ window.PREGUNTAS_102 = [
       "E) 203.0.113.81"
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "203.0.113.78 , 203.0.113.65",
+    "explanation": "Una máscara /28 tiene bloques de 2 32 − 28 = 16 2^{32-28} = 16 2 32 − 28 = 16 direcciones. Empezando en .64 : Dirección de red: 203.0.113.64 (no asignable a host) Rango de hosts válidos: 203.0.113.65 a 203.0.113.78 Dirección de broadcast: 203.0.113.79 (no asignable a host) .80 y .81 pertenecen ya a la siguiente subred ( 203.0.113.80/28 )."
   },
   {
     "id": 97,
@@ -2816,15 +2548,12 @@ window.PREGUNTAS_102 = [
       "E) method"
     ],
     "correct_indices": [
-      0,
-      1,
       2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "search , nameserver",
+    "explanation": "Según man 5 resolv.conf , las palabras clave soportadas son nameserver (IP del servidor DNS), search (lista de dominios de búsqueda para nombres cortos), domain y options ."
   },
   {
     "id": 98,
@@ -2847,25 +2576,21 @@ window.PREGUNTAS_102 = [
       "E) It sends a UDP packet to port 0 of the remote host and waits to receive a UDP error response in ret urn."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      0
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "It sends an ICMP Echo Request to a remote host and waits to receive an ICMP Echo Response in return.",
+    "explanation": "La herramienta ping opera en la capa de red enviando paquetes ICMP Echo Request (tipo 8) al destino y esperando paquetes ICMP Echo Reply/Response (tipo 0)."
   },
   {
     "id": 99,
     "num": 99,
-    "tema": 106,
+    "tema": 109,
     "tema_info": {
-      "title": "Tema 106: Interfaces de Usuario y Escritorios",
-      "short": "X11 y Escritorios",
-      "color": "#059669",
-      "weight": 4
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
     },
     "stem": "Which of the following commands display the number of bytes transmitted and received via the eth0 network interface? (Choose two.).",
     "type": "multiple",
@@ -2878,15 +2603,12 @@ window.PREGUNTAS_102 = [
       "E) ip -s link show eth0"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
       3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "ifconfig eth0 , ip -s link show eth0",
+    "explanation": "ifconfig eth0 muestra por defecto los contadores RX bytes y TX bytes de la interfaz. Con la herramienta ip , para ver las estadísticas de tráfico en la interfaz se añade el modificador -s ( -stats ): ip -s link show eth0 ."
   },
   {
     "id": 100,
@@ -2909,15 +2631,11 @@ window.PREGUNTAS_102 = [
       "E) It would be directly transmitted on the device wlan0."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "It would be passed to the router 192.168.1.1 on eth0.",
+    "explanation": "La dirección 192.168.2.150 coincide con la regla más específica 192.168.2.0/24 (Genmask 255.255.255.0 ), cuya tercera línea indica que tiene como Gateway el router 192.168.1.1 saliendo por la interfaz eth0 ."
   },
   {
     "id": 101,
@@ -2940,25 +2658,22 @@ window.PREGUNTAS_102 = [
       "E) sysctl ipv4.default_gw=0"
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "route del default , ip route del default",
+    "explanation": "Para eliminar la ruta por defecto ( 0.0.0.0/0 ), se utiliza route del default con las herramientas net-tools o ip route del default con iproute2 ."
   },
   {
     "id": 102,
     "num": 102,
-    "tema": 105,
+    "tema": 109,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 109: Fundamentos de Redes",
+      "short": "Redes",
+      "color": "#0891B2",
+      "weight": 14
     },
     "stem": "What command enables a network interface according to distribution-specific configuration, such as /etc/network/interfaces or /etc/sysconfig/network-scripts/ifcfg-eth0 ? (Specify only the command without any path or paramet ers.).",
     "type": "fill",
@@ -2966,7 +2681,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "ifup"
+      "ifup",
+      "$ifup"
     ],
     "correct_text": "ifup",
     "explanation": "El comando ifup lee los archivos de configuración estática propios de la distribución y activa la interfaz indicada conforme a esos parámetros."
@@ -2992,15 +2708,12 @@ window.PREGUNTAS_102 = [
       "E) NetworkManager can be configured to use the distribution's network interface configuration."
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "NetworkManager by default does not change interfaces which are already configured. , NetworkManager can be configured to use the distribution's network interface configuration.",
+    "explanation": "NetworkManager cuenta con plugins nativos ( ifupdown para Debian/Ubuntu, ifcfg-rh para RHEL/CentOS) que le permiten leer la configuración de red de la distribución, y por defecto respeta (no desconecta ni altera) las interfaces que ya han sido configuradas externamente ( managed=false )."
   },
   {
     "id": 104,
@@ -3023,25 +2736,21 @@ window.PREGUNTAS_102 = [
       "E) 636"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "443",
+    "explanation": "Según IANA y /etc/services , el puerto estándar asignado a HTTP sobre TLS/SSL (HTTPS) es el 443/tcp (25 es SMTP, 80 es HTTP, 636 es LDAPS)."
   },
   {
     "id": 105,
     "num": 105,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "Which of the following environment variables can be defined in locale.conf? (Choose two.).",
     "type": "multiple",
@@ -3055,14 +2764,11 @@ window.PREGUNTAS_102 = [
     ],
     "correct_indices": [
       0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "LC_ALL , LC_TIME",
+    "explanation": "(Nota: Aunque man 5 locale.conf de systemd desaconseja usar LC_ALL en este archivo, dentro de esta pregunta del banco de LPIC-1 las únicas dos variables de localización reales que existen en Linux son LC_ALL y LC_TIME , ya que LC_USERNAME , LC_UTF8 y LC_GEOGRAPHY son completamente falsas)."
   },
   {
     "id": 106,
@@ -3085,25 +2791,21 @@ window.PREGUNTAS_102 = [
       "E) ln -sf /usr/share/zoneinfo/Canada/Eastern /etc/localtime"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "ln -sf /usr/share/zoneinfo/Canada/Eastern /etc/localtime",
+    "explanation": "Crear o actualizar el enlace simbólico /etc/localtime apuntando al archivo de zona horaria correspondiente dentro de /usr/share/zoneinfo/ es el método manual directo estándar en Linux para cambiar la zona horaria del sistema."
   },
   {
     "id": 107,
     "num": 107,
-    "tema": 107,
+    "tema": 105,
     "tema_info": {
-      "title": "Tema 107: Tareas Administrativas",
-      "short": "Tareas Administrativas",
-      "color": "#D97706",
-      "weight": 12
+      "title": "Tema 105: Interfaces y Scripts",
+      "short": "Shells y Scripts",
+      "color": "#2563EB",
+      "weight": 8
     },
     "stem": "What option to useradd creates a new user's home directory and provisions it with a set of standard files? (Specify only the option name without any values or parameters.).",
     "type": "fill",
@@ -3111,7 +2813,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "-m (o --create-home )"
+      "-m",
+      "--create-home"
     ],
     "correct_text": "-m (o --create-home )",
     "explanation": "La opción -m (o --create-home ) de useradd fuerza la creación del directorio personal del usuario y copia dentro de él los archivos base contenidos en /etc/skel ."
@@ -3119,12 +2822,12 @@ window.PREGUNTAS_102 = [
   {
     "id": 108,
     "num": 108,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "How can a specific user be prevented from scheduling tasks with at?",
     "type": "single",
@@ -3137,25 +2840,21 @@ window.PREGUNTAS_102 = [
       "E) By executing the atd --deny [user] command."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "By adding the specific user to the /etc/at.deny file.",
+    "explanation": "El control de acceso para el comando at funciona mediante los archivos /etc/at.allow y /etc/at.deny . Si /etc/at.allow no existe, cualquier usuario listado en /etc/at.deny tiene prohibido programar tareas con at ."
   },
   {
     "id": 109,
     "num": 109,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "Which file contains the data of the last change of a user's password?",
     "type": "single",
@@ -3168,25 +2867,21 @@ window.PREGUNTAS_102 = [
       "E) /etc/shadow"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "/etc/shadow",
+    "explanation": "El tercer campo de /etc/shadow almacena la fecha del último cambio de contraseña (expresada como el número de días transcurridos desde el 1 de enero de 1970)."
   },
   {
     "id": 110,
     "num": 110,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "Which of the following fields can be found in the /etc/group file? (Choose two.).",
     "type": "multiple",
@@ -3199,25 +2894,22 @@ window.PREGUNTAS_102 = [
       "E) The description of the group."
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "The list of users that belong to the group. , The name of the group.",
+    "explanation": "El archivo /etc/group consta de 4 campos separados por dos puntos ( nombre_grupo:contraseña:GID:lista_usuarios ). No tiene ni directorio personal, ni descripción, ni ACL."
   },
   {
     "id": 111,
     "num": 111,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "Which of the following sections exists in a systemd timer unit?",
     "type": "single",
@@ -3230,25 +2922,21 @@ window.PREGUNTAS_102 = [
       "E) [Trigger]"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "[Timer]",
+    "explanation": "Según man systemd.timer , los archivos de unidad .timer deben incluir una sección llamada [Timer] donde se definen directivas como OnCalendar= , OnActiveSec= , OnBootSec= , etc."
   },
   {
     "id": 112,
     "num": 112,
-    "tema": 105,
+    "tema": 107,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 107: Tareas Administrativas",
+      "short": "Tareas Administrativas",
+      "color": "#D97706",
+      "weight": 12
     },
     "stem": "Which of the following getent invocations lists all existing users?",
     "type": "single",
@@ -3261,15 +2949,11 @@ window.PREGUNTAS_102 = [
       "E) getent logins"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "getent passwd",
+    "explanation": "getent consulta las bases de datos configuradas en /etc/nsswitch.conf . La base de datos que contiene las cuentas de usuario se llama passwd , por lo que getent passwd lista todos los usuarios locales y de red (LDAP/NIS/AD)."
   },
   {
     "id": 113,
@@ -3292,15 +2976,11 @@ window.PREGUNTAS_102 = [
       "E) At 14:15 local time, Monday to Frida y."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "At 14:15 local time, Monday to Friday.",
+    "explanation": "Los 5 campos de tiempo de crontab son: Minuto (15) Hora (14) Día_del_mes (*) Mes (*) Día_de_la_semana (1-5) . Por tanto, se ejecuta a las 14:15 de lunes (1) a viernes (5) ."
   },
   {
     "id": 114,
@@ -3323,15 +3003,11 @@ window.PREGUNTAS_102 = [
       "E) The default settings of /etc/crond.conf define whether or not user specific crontabs are generally allowed or not."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Without additional configuration, only root may create user specific crontabs.",
+    "explanation": "(Nota importante de examen LPI: según el estándar POSIX y la documentación clásica de Vixie Cron / objetivos oficiales de LPI, si ni /etc/cron.allow ni /etc/cron.deny existen, solo el superusuario root puede usar crontab —aunque algunas distribuciones modernas como Debian compilan cron permitiendo a todos los usuarios o crean un cron.deny vacío por defecto, en el examen oficial LPIC-1 la respuesta marcada como correcta es que solo root puede crearlos)."
   },
   {
     "id": 115,
@@ -3354,15 +3030,11 @@ window.PREGUNTAS_102 = [
       "E) It displays additional meta information from icon files ending in . ico."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      2
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "It converts files from one character set to an other.",
+    "explanation": "iconv convierte el texto de un archivo desde una codificación de caracteres ( charset , como ISO-8859-1 ) a otra (como UTF-8 )."
   },
   {
     "id": 116,
@@ -3385,15 +3057,11 @@ window.PREGUNTAS_102 = [
       "E) x"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "x",
+    "explanation": "Una x minúscula en el segundo campo de /etc/passwd ( usuario:x:1000:1000:... ) indica al sistema que la contraseña cifrada se encuentra alojada en /etc/shadow ."
   },
   {
     "id": 117,
@@ -3416,25 +3084,21 @@ window.PREGUNTAS_102 = [
       "E) A standard file format for data exchange, similar to XM L."
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "A physical representation of characters using small dots.",
+    "explanation": "Una línea o pantalla Braille ( Braille Display ) es un dispositivo hardware electromecánico de accesibilidad que levanta pequeños puntos físicos redondeados a través de una superficie plana para que los usuarios ciegos puedan leer el texto de la pantalla mediante el tacto."
   },
   {
     "id": 118,
     "num": 118,
-    "tema": 105,
+    "tema": 106,
     "tema_info": {
-      "title": "Tema 105: Interfaces y Scripts",
-      "short": "Shells y Scripts",
-      "color": "#2563EB",
-      "weight": 8
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
     },
     "stem": "Which environment variable is used by an X11 client to determine the X Server to connect to? (Specify only the variable name without any preceding commands or values.).",
     "type": "fill",
@@ -3442,7 +3106,8 @@ window.PREGUNTAS_102 = [
     "options": [],
     "correct_indices": [],
     "fill_answers": [
-      "DISPLAY"
+      "DISPLAY",
+      "$DISPLAY"
     ],
     "correct_text": "DISPLAY",
     "explanation": "Cualquier cliente gráfico X11 consulta la variable de entorno DISPLAY para saber a qué servidor X, pantalla y monitor debe conectarse."
@@ -3468,25 +3133,22 @@ window.PREGUNTAS_102 = [
       "E) Handle the login of a user."
     ],
     "correct_indices": [
-      0,
       1,
-      2,
-      3,
       4
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "Start and prepare the desktop environment for the user. , Handle the login of a user.",
+    "explanation": "Un gestor de pantalla ( Display Manager como XDM, GDM, KDM, SDDM o LightDM) presenta la pantalla gráfica de inicio de sesión, autentica las credenciales del usuario ( Handle the login of a user ) y posteriormente inicia su sesión de escritorio ( Start and prepare the desktop environment for the user )."
   },
   {
     "id": 120,
     "num": 120,
-    "tema": 109,
+    "tema": 106,
     "tema_info": {
-      "title": "Tema 109: Fundamentos de Redes",
-      "short": "Redes",
-      "color": "#0891B2",
-      "weight": 14
+      "title": "Tema 106: Interfaces de Usuario y Escritorios",
+      "short": "X11 y Escritorios",
+      "color": "#059669",
+      "weight": 4
     },
     "stem": "Which of the following protocols is designed to access the video card output of a virtual machine?",
     "type": "single",
@@ -3499,14 +3161,10 @@ window.PREGUNTAS_102 = [
       "E) XDMCP"
     ],
     "correct_indices": [
-      0,
-      1,
-      2,
-      3,
-      4
+      3
     ],
     "fill_answers": [],
-    "correct_text": "",
-    "explanation": ""
+    "correct_text": "SPICE",
+    "explanation": "SPICE es un protocolo de visualización remota diseñado específicamente para entornos virtualizados (como KVM/QEMU), permitiendo acceder directamente a la salida gráfica de la tarjeta de vídeo virtualizada, audio y puertos USB de la máquina virtual. (KDE y Xfce son entornos de escritorio; X11 y XDMCP son para servidores/clientes de ventanas X tradicionales). ¿Quieres una tabla resumen rápida con solo las preguntas y respuestas para estudiar? Sí"
   }
 ];

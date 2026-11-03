@@ -7,6 +7,7 @@
   <meta name="description" content="Diapositivas interactivas de aula para la certificación Linux Professional Institute LPIC-1 — Subtema 103.6: Modificar la prioridad de ejecución de los procesos.">
   <title>103.6 Modificar la prioridad de ejecución de los procesos — LPIC-1</title>
   <!-- Icons: Lucide v0.468.0 (ISC) https://lucide.dev -->
+  <script src="../config-temas.js"></script>
   <script>
     (function() {
       var saved = localStorage.getItem('lpic1_theme');
@@ -86,6 +87,55 @@
       --cat-neutral-accent: #2563EB;
       --cat-neutral-soft: #DBEAFE;
       --cat-neutral-ink: #1D4ED8;
+
+      /* Compatibilidad de tokens y estilos de contenido */
+      --color-bg-subtle: #F1F5F9;
+      --color-card-bg: #FFFFFF;
+      --color-accent: #2563EB;
+      --color-text: #0F172A;
+      --color-text-muted: #475569;
+      --color-border: #CBD5E1;
+
+      --border-soft: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --surface-sunken: #F8FAFC;
+      --text-light: #64748B;
+      --purple: #7C3AED;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+
+      --primary-border: #93C5FD;
+      --success-border: #86EFAC;
+      --success-text: #166534;
+      --warning-border: #FCD34D;
+
+      --cat-cmd-accent: #2563EB;
+      --cat-cmd-soft: #DBEAFE;
+      --cat-cmd-ink: #1D4ED8;
+
+      --cat-debian-accent: #BE185D;
+      --cat-debian-soft: #FCE7F3;
+      --cat-debian-ink: #9D174D;
+
+      --cat-rpm-accent: #C2410C;
+      --cat-rpm-soft: #FFEDD5;
+      --cat-rpm-ink: #9A3412;
+
+      --cat-libs-accent: #047857;
+      --cat-libs-soft: #D1FAE5;
+      --cat-libs-ink: #065F46;
+
+      --cat-proc-accent: #B45309;
+      --cat-proc-soft: #FEF3C7;
+      --cat-proc-ink: #92400E;
+
+      --cat-install-accent: #4338CA;
+      --cat-install-soft: #E0E7FF;
+      --cat-install-ink: #3730A3;
+
+      --cat-virtual-accent: #0F766E;
+      --cat-virtual-soft: #CCFBF1;
+      --cat-virtual-ink: #115E59;
     }
 
     /* Modo Oscuro WCAG AAA */
@@ -150,6 +200,17 @@
       --cat-neutral-accent: #38BDF8;
       --cat-neutral-soft: #0C4A6E;
       --cat-neutral-ink: #BAE6FD;
+
+      /* Compatibilidad de tokens en modo oscuro */
+      --color-bg-subtle: #1E293B;
+      --color-card-bg: #111827;
+      --color-accent: #38BDF8;
+      --color-text: #F8FAFC;
+      --color-text-muted: #CBD5E1;
+      --color-border: #334155;
+      --border-soft: #334155;
+      --surface-sunken: #0B0F19;
+      --text-light: #94A3B8;
     }
 
     [data-theme="dark"] #stage { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45); }
@@ -1837,34 +1898,56 @@
     function renderTerminalBox(term, title) {
       if (!term) return '';
       const termTitle = title || term.title || term.name || 'bash';
-      let lines = [];
+      let rawLines = [];
       let cmdToCopy = '';
 
-      if (term.lines && Array.isArray(term.lines)) {
-        lines = term.lines;
-        cmdToCopy = lines.find(l => l.t === 'cmd')?.v || termTitle;
+      if (Array.isArray(term)) {
+        rawLines = term;
+      } else if (term.lines && Array.isArray(term.lines)) {
+        rawLines = term.lines;
+        const c = term.lines.find(l => (l.t || l.type) === 'cmd');
+        if (c) cmdToCopy = c.v !== undefined ? c.v : (c.text !== undefined ? c.text : '');
       } else if (term.command) {
         cmdToCopy = term.command;
         const prompt = term.prompt || '$ ';
-        lines.push({ t: 'cmd', v: term.command, prompt: prompt });
+        rawLines.push({ t: 'cmd', v: term.command, prompt: prompt });
         if (term.output) {
           const outList = Array.isArray(term.output) ? term.output : String(term.output).split('\n');
           outList.forEach(outLine => {
             const trimmed = String(outLine).trim();
             if (trimmed.startsWith('#')) {
-              lines.push({ t: 'cmt', v: outLine });
+              rawLines.push({ t: 'cmt', v: outLine });
             } else {
-              lines.push({ t: 'out', v: outLine });
+              rawLines.push({ t: 'out', v: outLine });
             }
           });
         }
         if (term.comment) {
-          lines.push({ t: 'cmt', v: '# ' + term.comment });
+          rawLines.push({ t: 'cmt', v: '# ' + term.comment });
         }
       } else if (typeof term === 'string') {
         cmdToCopy = term;
-        lines.push({ t: 'cmd', v: term, prompt: '$ ' });
+        rawLines.push({ t: 'cmd', v: term, prompt: '$ ' });
       }
+
+      const lines = [];
+      rawLines.forEach(l => {
+        if (typeof l === 'string') {
+          lines.push({ t: 'out', v: l });
+          return;
+        }
+        const lType = l.t || l.type || 'out';
+        const lVal = l.v !== undefined ? l.v : (l.text !== undefined ? l.text : (l.val !== undefined ? l.val : ''));
+        const lPrompt = l.prompt || (lType === 'cmd' ? (term.prompt || '$ ') : '');
+        if (!cmdToCopy && lType === 'cmd') cmdToCopy = lVal;
+        lines.push({ t: lType, v: lVal, prompt: lPrompt });
+      });
+
+      if (!cmdToCopy && lines.length > 0) {
+        const firstCmd = lines.find(l => l.t === 'cmd');
+        if (firstCmd) cmdToCopy = firstCmd.v;
+      }
+      if (!cmdToCopy) cmdToCopy = termTitle;
 
       let h = `
         <div class="term-wrapper">
@@ -1879,24 +1962,83 @@
           </div>
           <div class="term-code">`;
       lines.forEach(l => {
-        if (l.t === 'cmd') {
-          const p = l.prompt || term.prompt || '$ ';
-          h += `<div><span class="t-prompt">${escapeHTML(p)} </span><span class="t-cmd">${escapeHTML(l.v)}</span></div>`;
-        } else if (l.t === 'hl') {
-          h += `<div><span class="t-hl">${escapeHTML(l.v)}</span></div>`;
-        } else if (l.t === 'err') {
-          h += `<div><span class="t-err">${escapeHTML(l.v)}</span></div>`;
-        } else if (l.t === 'cmt') {
-          h += `<div><span class="t-cmt">${escapeHTML(l.v)}</span></div>`;
-        } else {
-          h += `<div>${escapeHTML(l.v)}</div>`;
-        }
+        const valStr = String(l.v !== undefined ? l.v : '');
+        const subLines = valStr.split('\n');
+        subLines.forEach(subLine => {
+          if (l.t === 'cmd') {
+            const p = l.prompt || '$ ';
+            h += `<div><span class="t-prompt">${escapeHTML(p)} </span><span class="t-cmd">${escapeHTML(subLine)}</span></div>`;
+          } else if (l.t === 'hl') {
+            h += `<div><span class="t-hl">${escapeHTML(subLine)}</span></div>`;
+          } else if (l.t === 'err') {
+            h += `<div><span class="t-err">${escapeHTML(subLine)}</span></div>`;
+          } else if (l.t === 'cmt') {
+            h += `<div><span class="t-cmt">${escapeHTML(subLine)}</span></div>`;
+          } else {
+            h += `<div>${escapeHTML(subLine)}</div>`;
+          }
+        });
       });
       h += `</div></div>`;
       return h;
     }
 
     function buildSlideHTML(s, colors) {
+      // 1. Normalizar si el contenido es un string HTML crudo (ej. temas 108.3, 108.4, 109.1-4)
+      if (typeof s.content === 'string' && /^\s*<[a-zA-Z!]/.test(s.content)) {
+        if (s.type === 'cover') {
+          return s.content;
+        }
+        let h = `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const sub = s.subtitle || s.lead || s.desc || '';
+        if (sub) h += `<div class="slide-lead">${renderRichText(sub)}</div>`;
+        h += s.content;
+        if (s.remember) {
+          h += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        return h;
+      }
+
+      // 2. Normalizar si el contenido viene empaquetado en un objeto (ej. tema 110)
+      if (s.content && typeof s.content === 'object' && !Array.isArray(s.content)) {
+        for (const [k, v] of Object.entries(s.content)) {
+          if (s[k] === undefined) s[k] = v;
+        }
+      }
+
+      // 3. Normalizar alias de propiedades
+      if (!s.lead && s.desc) s.lead = s.desc;
+      if (!s.remember && s.footer) s.remember = s.footer;
+      if (!s.points && s.blocks) {
+        s.points = s.blocks.map(b => ({
+          title: b.title || b.text || '',
+          text: b.title || b.text || '',
+          desc: b.desc || b.detail || '',
+          detail: b.desc || b.detail || '',
+          badge: b.badge || '',
+          icon: b.badge ? 'shield' : 'check'
+        }));
+      }
+      if (!s.options && s.args) {
+        s.options = s.args.map(a => ({
+          flag: a.flag || a.opt || '',
+          short: a.desc || '',
+          desc: a.desc || '',
+          detail: a.desc || ''
+        }));
+      }
+      if (!s.syntax && s.command && typeof s.command === 'string' && s.command.length < 80) {
+        s.syntax = s.command;
+      }
+      if (!s.deck && s.cards) {
+        s.deck = s.cards;
+      }
+
       let html = '';
       if (s.type === 'cover') {
         html += `
@@ -1911,6 +2053,16 @@
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Páginas: ${escapeHTML(s.meta?.paginas || '')}</span>
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '30 min')}</span>
             </div>
+            ${s.stats && Array.isArray(s.stats) && s.stats.length > 0 ? `
+              <div style="display:grid; grid-template-columns: repeat(${Math.min(s.stats.length, 4)}, 1fr); gap:16px; margin-top:36px; max-width:1100px; margin-left:auto; margin-right:auto;">
+                ${s.stats.map(st => `
+                  <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:14px; padding:16px 20px; text-align:center;">
+                    <div style="font-size:16px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
+                    <div style="font-size:20px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
           </div>
         `;
       } else if (s.type === 'concept') {
@@ -1924,7 +2076,10 @@
               <div class="concept-card">
                 <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'check'}"/></svg></div>
                 <div style="flex:1;">
-                  <div class="card-text">${renderRichText(p.text || p.title || '')}</div>
+                  <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+                    <span>${renderRichText(p.text || p.title || '')}</span>
+                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                  </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
               </div>
@@ -1987,7 +2142,10 @@
               <div class="concept-card">
                 <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'check'}"/></svg></div>
                 <div style="flex:1;">
-                  <div class="card-text">${renderRichText(p.text || p.title || '')}</div>
+                  <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+                    <span>${renderRichText(p.text || p.title || '')}</span>
+                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                  </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
               </div>
@@ -2063,8 +2221,11 @@
           }
         }
 
-        // Directivas o Viñetas explicativas (points)
-        const pointsList = s.points || s.directives || [];
+        // Directivas o Viñetas explicativas (points o sections)
+        const pointsList = s.points || s.directives || (s.sections ? s.sections.map(sec => ({
+          text: sec.name || sec.title || '',
+          detail: sec.desc || sec.detail || ''
+        })) : []);
         if (pointsList.length > 0) {
           html += `<div class="concept-grid">`;
           pointsList.forEach(p => {
@@ -2311,7 +2472,7 @@
           steps.forEach((st, idx) => {
             const doText = st.action || st.do || st.task || st.step || '';
             const lookText = st.command || st.look || st.cmd || st.code || '';
-            const reasonText = st.reason || st.explain || '';
+            const reasonText = st.reason || st.explain || (st.expected ? `<strong>Resultado esperado:</strong> ${st.expected}` : '');
             html += `
               <div class="exercise-step-row" style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
                 <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
@@ -2325,7 +2486,7 @@
         }
 
         // Explicación de la solución ("Por qué")
-        const solText = s.solution?.explain || s.solution?.text || (typeof s.solution === 'string' ? s.solution : '');
+        const solText = s.solution?.explain || s.solution?.text || s.explanation || (typeof s.solution === 'string' ? s.solution : '');
         if (solText) {
           html += `
             <div style="margin-top:6px; line-height:1.45;">
@@ -2364,6 +2525,23 @@
           </div>
         `;
 
+        // Si el reto contiene opciones interactivas
+        if (s.options && Array.isArray(s.options) && s.options.length > 0) {
+          html += `<div class="quiz-options" style="margin-bottom:16px;">`;
+          s.options.forEach((opt, oidx) => {
+            const optLetter = opt.opt || String.fromCharCode(65 + oidx);
+            const optText = opt.text || opt;
+            const isCorrect = !!opt.correct;
+            html += `
+              <button class="quiz-btn challenge-opt-btn" onclick="this.classList.toggle('${isCorrect ? 'correct' : 'incorrect'}');">
+                <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
+                <span>${renderRichText(optText)}</span>
+              </button>
+            `;
+          });
+          html += `</div>`;
+        }
+
         if (s.hint) {
           html += `
             <div class="callout-box callout-info" style="margin-bottom:16px;">
@@ -2374,7 +2552,7 @@
         }
 
         // Botón docente interactivo
-        const solText = s.solution?.explain || s.solution?.text || (typeof s.solution === 'string' ? s.solution : '');
+        const solText = s.solution?.explain || s.solution?.text || s.explanation || (typeof s.solution === 'string' ? s.solution : '');
         html += `
           <div>
             <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
@@ -2391,6 +2569,26 @@
         `;
       } else if (s.type === 'review') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const lead = s.lead || s.desc || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+
+        if (s.traps && Array.isArray(s.traps) && s.traps.length > 0) {
+          html += `<div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:18px; margin-top:18px;">`;
+          s.traps.forEach(trap => {
+            html += `
+              <div style="background:var(--surface); border:2px solid #FCD34D; border-left:8px solid #F59E0B; border-radius:14px; padding:18px 22px; display:flex; flex-direction:column; gap:8px;">
+                <div style="font-size:21px; font-weight:800; color:#92400E; display:flex; align-items:center; gap:10px;">
+                  <svg class="ic ic-md" style="color:#D97706;"><use href="#i-triangle-alert"/></svg>
+                  <span>${renderRichText(trap.title || '')}</span>
+                </div>
+                <div style="font-size:18px; color:var(--text); line-height:1.45;">
+                  ${renderRichText(trap.desc || trap.detail || '')}
+                </div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        } else {
         const qText = s.q || s.question || s.prompt || 'Pregunta de repaso:';
         html += `<div style="font-size:32px; font-weight:700; margin-bottom:24px;">${renderRichText(qText)}</div>`;
         html += `<div class="quiz-options">`;
@@ -2412,6 +2610,7 @@
           </div>
           <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
         `;
+        }
       } else if (s.type === 'flashcards') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
@@ -2885,7 +3084,7 @@
     }
     function updateCardView() {
       const s = SLIDES[currentSlideIdx];
-      const deck = s.deck || [];
+      const deck = s.deck || s.cards || [];
       const c = deck[currentCardIdx];
       document.getElementById('fc-inner').classList.remove('flipped');
       document.getElementById('fc-front-text').textContent = c?.front || '';
@@ -2893,7 +3092,7 @@
       document.getElementById('fc-counter').textContent = `${currentCardIdx + 1} / ${deck.length}`;
     }
     function nextCard() {
-      const deck = SLIDES[currentSlideIdx].deck || [];
+      const deck = SLIDES[currentSlideIdx].deck || SLIDES[currentSlideIdx].cards || [];
       if (currentCardIdx < deck.length - 1) {
         currentCardIdx++;
         updateCardView();
