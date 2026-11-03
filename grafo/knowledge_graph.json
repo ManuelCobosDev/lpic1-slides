@@ -2,8 +2,8 @@
   "metadata": {
     "title": "Grafo de Conocimiento y Mapa Mental LPIC-1 (Exámenes 101 y 102 v5.0)",
     "version": "1.0",
-    "total_nodes": 442,
-    "total_edges": 634,
+    "total_nodes": 436,
+    "total_edges": 627,
     "total_temas": 10,
     "temas": {
       "101": {
@@ -9144,376 +9144,6 @@
       "weight": 2
     },
     {
-      "id": "concept-la-variable-de-entorno--disp",
-      "label": "La Variable de Entorno $",
-      "type": "concept",
-      "exam": "102",
-      "tema": "106",
-      "subtopic_id": "106.1",
-      "title": "Concepto: La Variable de Entorno $DISPLAY",
-      "desc": "¿Cómo sabe un programa gráfico en qué pantalla, máquina o sesión debe abrirse?",
-      "syntax": "",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t106/106-1-instalar-y-configurar-x1.html#/3",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-xdpyinfo",
-      "label": "xdpyinfo",
-      "type": "command",
-      "exam": "102",
-      "tema": "106",
-      "subtopic_id": "106.1",
-      "title": "Comando: xdpyinfo",
-      "desc": "¿Cómo auditar las extensiones activas, resolución, monitores y profundidad de color de Xorg?",
-      "syntax": "xdpyinfo [-display :0]",
-      "flags": [
-        {
-          "flag": "xdpyinfo",
-          "desc": "Vuelca la lista completa de extensiones (GLX, RANDR, XINERAMA) y dimensiones."
-        },
-        {
-          "flag": "xdpyinfo | grep -B 2 'dimensions'",
-          "desc": "Filtra la resolución en píxeles y milímetros."
-        },
-        {
-          "flag": "xdpyinfo | grep -A 10 'number of extensions'",
-          "desc": "Lista las extensiones modulares soportadas."
-        }
-      ],
-      "examples": [
-        "xdpyinfo | head -n 14"
-      ],
-      "exam_tips": [],
-      "slide_url": "t106/106-1-instalar-y-configurar-x1.html#/4",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-etc-x11-xorg-conf-d-00-keyboard-conf",
-      "label": "/etc/X11/xorg.conf.d/00-keyboard.conf",
-      "type": "file",
-      "exam": "102",
-      "tema": "106",
-      "subtopic_id": "106.1",
-      "title": "Archivo/Ruta: /etc/X11/xorg.conf.d/00-keyboard.conf",
-      "desc": "¿Dónde se personaliza el teclado o el ratón en distribuciones modernas sin tocar xorg.conf?",
-      "syntax": "/etc/X11/xorg.conf.d/00-keyboard.conf",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t106/106-1-instalar-y-configurar-x1.html#/6",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-xorg",
-      "label": "xorg",
-      "type": "command",
-      "exam": "102",
-      "tema": "106",
-      "subtopic_id": "106.1",
-      "title": "Comando: xorg",
-      "desc": "¿Cómo generar un archivo xorg.conf de plantilla y dónde consultar los errores de inicio?",
-      "syntax": "Xorg -configure   (o X -configure)",
-      "flags": [
-        {
-          "flag": "Xorg -configure",
-          "desc": "Detecta monitores y GPU creando /root/xorg.conf.new."
-        },
-        {
-          "flag": "/var/log/Xorg.0.log",
-          "desc": "Log del servidor X (las líneas con (EE) indican errores y (WW) avisos)."
-        },
-        {
-          "flag": "~/.xsession-errors",
-          "desc": "Bitácora en el home del usuario con errores de aplicaciones del escritorio."
-        }
-      ],
-      "examples": [
-        "grep -E \"\\(EE\\)|\\(WW\\)\" /var/log/Xorg.0.log | head -n 4"
-      ],
-      "exam_tips": [],
-      "slide_url": "t106/106-1-instalar-y-configurar-x1.html#/7",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-localectl",
-      "label": "localectl",
-      "type": "command",
-      "exam": "102",
-      "tema": "106",
-      "subtopic_id": "106.1",
-      "title": "Comando: localectl",
-      "desc": "¿Cómo modificar la distribución de teclas en caliente en X11 y hacerla permanente?",
-      "syntax": "setxkbmap <idioma>   |   localectl set-x11-keymap <layout> [model] [variant]",
-      "flags": [
-        {
-          "flag": "setxkbmap es",
-          "desc": "Aplica inmediatamente el mapa de teclado español en la sesión X viva."
-        },
-        {
-          "flag": "localectl status",
-          "desc": "Muestra el Locale del sistema, VC Keymap (consola) y X11 Layout."
-        },
-        {
-          "flag": "localectl list-x11-keymap-layouts",
-          "desc": "Lista todas las distribuciones nacionales disponibles."
-        },
-        {
-          "flag": "locale",
-          "desc": "Muestra todas las variables de entorno de localización activas en la sesión actual."
-        },
-        {
-          "flag": "locale -a",
-          "desc": "Lista todos los locales disponibles (all) instalados y compilados en el sistema."
-        },
-        {
-          "flag": "locale -m",
-          "desc": "Muestra todos los mapas de caracteres (charmaps) admitidos (ej. UTF-8, ISO-8859-1)."
-        },
-        {
-          "flag": "localectl set-locale LANG=...",
-          "desc": "Fija el locale permanente del sistema en /etc/locale.conf o /etc/default/locale."
-        }
-      ],
-      "examples": [
-        "localectl status"
-      ],
-      "exam_tips": [],
-      "slide_url": "t106/106-1-instalar-y-configurar-x1.html#/8",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-xhost",
-      "label": "xhost",
-      "type": "command",
-      "exam": "102",
-      "tema": "106",
-      "subtopic_id": "106.1",
-      "title": "Comando: xhost",
-      "desc": "¿Cómo permitir o restringir qué clientes o máquinas remotas pueden enviar ventanas a tu pantalla?",
-      "syntax": "xhost [[+|-] hostname_o_ip]",
-      "flags": [
-        {
-          "flag": "xhost",
-          "desc": "Muestra el estado actual del control de acceso y los hosts autorizados."
-        },
-        {
-          "flag": "xhost +",
-          "desc": "⚠️ Desactiva la protección (acceso libre universal, peligroso)."
-        },
-        {
-          "flag": "xhost -",
-          "desc": "Reactiva el control de acceso estricto a los clientes registrados."
-        },
-        {
-          "flag": "xhost +si:localuser:root",
-          "desc": "Autoriza al usuario root local mediante Server Interpreted."
-        },
-        {
-          "flag": "+",
-          "desc": "Permite el acceso a cualquier cliente (inseguro)."
-        },
-        {
-          "flag": "-",
-          "desc": "Restaura el control de acceso estricto."
-        }
-      ],
-      "examples": [
-        "xhost +192.168.1.50; xhost"
-      ],
-      "exam_tips": [],
-      "slide_url": "t106/106-1-instalar-y-configurar-x1.html#/9",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-xauth",
-      "label": "xauth",
-      "type": "command",
-      "exam": "102",
-      "tema": "106",
-      "subtopic_id": "106.1",
-      "title": "Comando: xauth",
-      "desc": "¿Cómo protege el sistema X Window las pantallas utilizando cookies mágicas por usuario?",
-      "syntax": "xauth [opciones] [subcomando]",
-      "flags": [
-        {
-          "flag": "xauth list",
-          "desc": "Lista las entradas activas, displays y números hexadecimales de cookie."
-        },
-        {
-          "flag": "xauth add",
-          "desc": "Añade manualmente una cookie para un display remoto."
-        },
-        {
-          "flag": "xauth extract",
-          "desc": "Exporta la cookie de una pantalla a un archivo para transferirla."
-        },
-        {
-          "flag": "~/.Xauthority",
-          "desc": "Archivo binario protegido en el home (permisos 600 obligatorios)."
-        },
-        {
-          "flag": "list",
-          "desc": "Lista las cookies de autenticación activas."
-        },
-        {
-          "flag": "add",
-          "desc": "Añade una cookie para un display."
-        }
-      ],
-      "examples": [
-        "xauth list"
-      ],
-      "exam_tips": [],
-      "slide_url": "t106/106-1-instalar-y-configurar-x1.html#/10",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-konsole",
-      "label": "konsole",
-      "type": "command",
-      "exam": "102",
-      "tema": "106",
-      "subtopic_id": "106.2",
-      "title": "Comando: konsole",
-      "desc": "¿Qué binario proporciona la consola en cada entorno y cómo lanzarlo rápidamente?",
-      "syntax": "konsole (KDE)   |   gnome-terminal (GNOME)   |   xfce4-terminal (Xfce)   |   xterm (X11)",
-      "flags": [
-        {
-          "flag": "Alt + F2",
-          "desc": "Atajo universal de escritorio para abrir el menú 'Ejecutar programa'."
-        },
-        {
-          "flag": "konsole -e htop",
-          "desc": "Ejecuta una orden interactiva directamente dentro de una nueva ventana de terminal."
-        },
-        {
-          "flag": "gnome-terminal --",
-          "desc": "Lanza el comando tras '--' en una terminal independiente."
-        }
-      ],
-      "examples": [
-        "which konsole gnome-terminal xterm"
-      ],
-      "exam_tips": [],
-      "slide_url": "t106/106-2-escritorios-graficos.html#/5",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-remmina",
-      "label": "remmina",
-      "type": "command",
-      "exam": "102",
-      "tema": "106",
-      "subtopic_id": "106.2",
-      "title": "Comando: remmina",
-      "desc": "¿Qué herramienta cliente utiliza Linux para unificar conexiones RDP, VNC, SPICE y SSH?",
-      "syntax": "remmina [-c archivo_conexion] [-k]",
-      "flags": [
-        {
-          "flag": "remmina-plugin-rdp",
-          "desc": "Plugin basado en FreeRDP para conectar a servidores Windows Terminal Server."
-        },
-        {
-          "flag": "remmina-plugin-vnc",
-          "desc": "Plugin basado en libvncclient para sesiones VNC estándar."
-        },
-        {
-          "flag": "remmina-plugin-spice",
-          "desc": "Plugin para consolas de máquinas virtuales KVM/Proxmox."
-        }
-      ],
-      "examples": [
-        "dpkg -l | grep remmina"
-      ],
-      "exam_tips": [],
-      "slide_url": "t106/106-2-escritorios-graficos.html#/8",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-kmousetool",
-      "label": "kmousetool",
-      "type": "command",
-      "exam": "102",
-      "tema": "106",
-      "subtopic_id": "106.3",
-      "title": "Comando: kmousetool",
-      "desc": "¿Cómo mover el cursor sin ratón físico y evitar el esfuerzo repetitivo de hacer clic?",
-      "syntax": "kmousetool   |   Ajustes de accesibilidad &rarr; Mouse Keys",
-      "flags": [
-        {
-          "flag": "KMouseTool",
-          "desc": "Genera clic automático al pausar el ratón (configurable en milisegundos)."
-        },
-        {
-          "flag": "Mouse Keys",
-          "desc": "Mapea las flechas del teclado numérico para desplazar el puntero."
-        },
-        {
-          "flag": "Dwell Click",
-          "desc": "Equivalente en GNOME para clics automáticos sin pulsar botones."
-        }
-      ],
-      "examples": [
-        "which kmousetool onboard orca"
-      ],
-      "exam_tips": [],
-      "slide_url": "t106/106-3-accesibilidad.html#/5",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-orca",
-      "label": "orca",
-      "type": "command",
-      "exam": "102",
-      "tema": "106",
-      "subtopic_id": "106.3",
-      "title": "Comando: orca",
-      "desc": "¿Cómo permite Orca a usuarios invidentes navegar por escritorios gráficos y recibir salida táctil?",
-      "syntax": "orca [-s | --setup]   |   orca -r (replace)",
-      "flags": [
-        {
-          "flag": "orca -s",
-          "desc": "Configura velocidad de habla, tono y parámetros de salida Braille."
-        },
-        {
-          "flag": "orca --replace",
-          "desc": "Reinicia el lector de pantalla si la síntesis de audio se ha bloqueado."
-        },
-        {
-          "flag": "Emacspeak",
-          "desc": "Entorno auditivo alternativo integrado en Emacs para consola de texto."
-        }
-      ],
-      "examples": [
-        "orca --version"
-      ],
-      "exam_tips": [
-        {
-          "q_num": 58,
-          "exam": "102",
-          "stem": "What is the purpose of a screen reader?",
-          "answer": "It reads displayed text to accommodate the needs of blind or visually impaired people.",
-          "explanation": "Un lector de pantalla ( screen reader , como Orca o BrlTTY en Linux) es una tecnología de accesibilidad que interpreta el texto mostrado en pantalla y lo envía a un sintetizador de voz o a una línea Braille para personas ciegas o con discapacidad visual."
-        }
-      ],
-      "slide_url": "t106/106-3-accesibilidad.html#/7",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
       "id": "cmd-useradd",
       "label": "useradd",
       "type": "command",
@@ -10473,6 +10103,52 @@
           "explanation": "Dentro de las variables estándar POSIX de localización ( locale ), LC_MESSAGES controla específicamente el idioma utilizado para mostrar mensajes informativos, diagnósticos y respuestas interactivas de los programas."
         }
       ],
+      "slide_url": "t107/107-3-localizacion-e-internaci.html#/10",
+      "practice_url": "practicas/p-107-3-localizacion-zonas-horarias.html",
+      "weight": 2
+    },
+    {
+      "id": "cmd-localectl",
+      "label": "localectl",
+      "type": "command",
+      "exam": "102",
+      "tema": "107",
+      "subtopic_id": "107.3",
+      "title": "Comando: localectl",
+      "desc": "Auditoría en vivo de variables regionales y fijación de locales persistentes.",
+      "syntax": "locale [opciones] | localectl [subcomando]",
+      "flags": [
+        {
+          "flag": "locale",
+          "desc": "Muestra todas las variables de entorno de localización activas en la sesión actual."
+        },
+        {
+          "flag": "locale -a",
+          "desc": "Lista todos los locales disponibles (all) instalados y compilados en el sistema."
+        },
+        {
+          "flag": "locale -m",
+          "desc": "Muestra todos los mapas de caracteres (charmaps) admitidos (ej. UTF-8, ISO-8859-1)."
+        },
+        {
+          "flag": "localectl status",
+          "desc": "Muestra la configuración permanente de systemd para Locale, VC Keymap y X11 Layout."
+        },
+        {
+          "flag": "localectl set-locale LANG=...",
+          "desc": "Fija el locale permanente del sistema en /etc/locale.conf o /etc/default/locale."
+        },
+        {
+          "flag": "-a",
+          "desc": "Muestra todas las locales instaladas y compiladas en el sistema."
+        },
+        {
+          "flag": "-m",
+          "desc": "Muestra los mapas de caracteres disponibles (charmaps)."
+        }
+      ],
+      "examples": [],
+      "exam_tips": [],
       "slide_url": "t107/107-3-localizacion-e-internaci.html#/10",
       "practice_url": "practicas/p-107-3-localizacion-zonas-horarias.html",
       "weight": 2
@@ -11895,6 +11571,75 @@
       "weight": 2
     },
     {
+      "id": "cmd-xdpyinfo",
+      "label": "xdpyinfo",
+      "type": "command",
+      "exam": "102",
+      "tema": "106",
+      "subtopic_id": "106.1",
+      "title": "Comando: xdpyinfo",
+      "desc": "Muestra información técnica detallada sobre las capacidades y estado del servidor de visualización X actual.",
+      "syntax": "xdpyinfo [-display :0]",
+      "flags": [],
+      "examples": [],
+      "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-xhost",
+      "label": "xhost",
+      "type": "command",
+      "exam": "102",
+      "tema": "106",
+      "subtopic_id": "106.1",
+      "title": "Comando: xhost",
+      "desc": "Control de acceso simple basado en nombres de host o IPs para conexiones al servidor X11.",
+      "syntax": "xhost [+|-] [cliente]",
+      "flags": [
+        {
+          "flag": "+",
+          "desc": "Permite el acceso a cualquier cliente (inseguro)."
+        },
+        {
+          "flag": "-",
+          "desc": "Restaura el control de acceso estricto."
+        }
+      ],
+      "examples": [],
+      "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-xauth",
+      "label": "xauth",
+      "type": "command",
+      "exam": "102",
+      "tema": "106",
+      "subtopic_id": "106.1",
+      "title": "Comando: xauth",
+      "desc": "Administra cookies de autorización seguras MIT-MAGIC-COOKIE-1 para X11.",
+      "syntax": "xauth [opciones] [subcomando]",
+      "flags": [
+        {
+          "flag": "list",
+          "desc": "Lista las cookies de autenticación activas."
+        },
+        {
+          "flag": "add",
+          "desc": "Añade una cookie para un display."
+        }
+      ],
+      "examples": [],
+      "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
       "id": "file-etc-x11-xorg-conf",
       "label": "/etc/X11/xorg.conf",
       "type": "file",
@@ -12043,6 +11788,31 @@
       "flags": [],
       "examples": [],
       "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-orca",
+      "label": "orca",
+      "type": "command",
+      "exam": "102",
+      "tema": "106",
+      "subtopic_id": "106.3",
+      "title": "Comando: orca",
+      "desc": "Lector de pantalla y magnificador gráfico oficial de código abierto para personas con discapacidad visual en escritorios Linux.",
+      "syntax": "orca [-s | --setup]",
+      "flags": [],
+      "examples": [],
+      "exam_tips": [
+        {
+          "q_num": 58,
+          "exam": "102",
+          "stem": "What is the purpose of a screen reader?",
+          "answer": "It reads displayed text to accommodate the needs of blind or visually impaired people.",
+          "explanation": "Un lector de pantalla ( screen reader , como Orca o BrlTTY en Linux) es una tecnología de accesibilidad que interpreta el texto mostrado en pantalla y lo envía a un sintetizador de voz o a una línea Braille para personas ciegas o con discapacidad visual."
+        }
+      ],
       "slide_url": "",
       "practice_url": "",
       "weight": 2
@@ -16618,94 +16388,6 @@
     },
     {
       "id": "e_227",
-      "from": "sub-106-1",
-      "to": "concept-la-variable-de-entorno--disp",
-      "label": "explica",
-      "rel_type": "concept",
-      "dashes": false
-    },
-    {
-      "id": "e_228",
-      "from": "sub-106-1",
-      "to": "cmd-xdpyinfo",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_229",
-      "from": "sub-106-1",
-      "to": "file-etc-x11-xorg-conf-d-00-keyboard-conf",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_230",
-      "from": "sub-106-1",
-      "to": "cmd-xorg",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_231",
-      "from": "sub-106-1",
-      "to": "cmd-localectl",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_232",
-      "from": "sub-106-1",
-      "to": "cmd-xhost",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_233",
-      "from": "sub-106-1",
-      "to": "cmd-xauth",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_234",
-      "from": "sub-106-2",
-      "to": "cmd-konsole",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_235",
-      "from": "sub-106-2",
-      "to": "cmd-remmina",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_236",
-      "from": "sub-106-3",
-      "to": "cmd-kmousetool",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_237",
-      "from": "sub-106-3",
-      "to": "cmd-orca",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_238",
       "from": "sub-107-1",
       "to": "cmd-useradd",
       "label": "evalúa",
@@ -16713,7 +16395,7 @@
       "dashes": false
     },
     {
-      "id": "e_239",
+      "id": "e_228",
       "from": "sub-107-1",
       "to": "cmd-usermod",
       "label": "evalúa",
@@ -16721,7 +16403,7 @@
       "dashes": false
     },
     {
-      "id": "e_240",
+      "id": "e_229",
       "from": "sub-107-1",
       "to": "cmd-userdel",
       "label": "evalúa",
@@ -16729,7 +16411,7 @@
       "dashes": false
     },
     {
-      "id": "e_241",
+      "id": "e_230",
       "from": "sub-107-1",
       "to": "cmd-groupadd",
       "label": "evalúa",
@@ -16737,7 +16419,7 @@
       "dashes": false
     },
     {
-      "id": "e_242",
+      "id": "e_231",
       "from": "sub-107-1",
       "to": "cmd-groupmod",
       "label": "evalúa",
@@ -16745,7 +16427,7 @@
       "dashes": false
     },
     {
-      "id": "e_243",
+      "id": "e_232",
       "from": "sub-107-1",
       "to": "cmd-groupdel",
       "label": "evalúa",
@@ -16753,7 +16435,7 @@
       "dashes": false
     },
     {
-      "id": "e_244",
+      "id": "e_233",
       "from": "sub-107-1",
       "to": "cmd-passwd",
       "label": "evalúa",
@@ -16761,7 +16443,7 @@
       "dashes": false
     },
     {
-      "id": "e_245",
+      "id": "e_234",
       "from": "sub-107-1",
       "to": "cmd-chage",
       "label": "evalúa",
@@ -16769,7 +16451,7 @@
       "dashes": false
     },
     {
-      "id": "e_246",
+      "id": "e_235",
       "from": "sub-107-1",
       "to": "cmd-getent",
       "label": "evalúa",
@@ -16777,7 +16459,7 @@
       "dashes": false
     },
     {
-      "id": "e_247",
+      "id": "e_236",
       "from": "sub-107-2",
       "to": "cmd-crontab",
       "label": "evalúa",
@@ -16785,7 +16467,7 @@
       "dashes": false
     },
     {
-      "id": "e_248",
+      "id": "e_237",
       "from": "sub-107-2",
       "to": "cmd-at",
       "label": "evalúa",
@@ -16793,7 +16475,7 @@
       "dashes": false
     },
     {
-      "id": "e_249",
+      "id": "e_238",
       "from": "sub-107-2",
       "to": "cmd-batch",
       "label": "evalúa",
@@ -16801,7 +16483,7 @@
       "dashes": false
     },
     {
-      "id": "e_250",
+      "id": "e_239",
       "from": "sub-107-2",
       "to": "cmd-atq",
       "label": "evalúa",
@@ -16809,7 +16491,7 @@
       "dashes": false
     },
     {
-      "id": "e_251",
+      "id": "e_240",
       "from": "sub-107-2",
       "to": "cmd-atrm",
       "label": "evalúa",
@@ -16817,7 +16499,7 @@
       "dashes": false
     },
     {
-      "id": "e_252",
+      "id": "e_241",
       "from": "sub-107-2",
       "to": "cmd-systemd-run",
       "label": "evalúa",
@@ -16825,7 +16507,7 @@
       "dashes": false
     },
     {
-      "id": "e_253",
+      "id": "e_242",
       "from": "sub-107-3",
       "to": "cmd-tzselect",
       "label": "evalúa",
@@ -16833,7 +16515,7 @@
       "dashes": false
     },
     {
-      "id": "e_254",
+      "id": "e_243",
       "from": "sub-107-3",
       "to": "cmd-timedatectl",
       "label": "evalúa",
@@ -16841,7 +16523,7 @@
       "dashes": false
     },
     {
-      "id": "e_255",
+      "id": "e_244",
       "from": "sub-107-3",
       "to": "cmd-date",
       "label": "evalúa",
@@ -16849,7 +16531,7 @@
       "dashes": false
     },
     {
-      "id": "e_256",
+      "id": "e_245",
       "from": "sub-107-3",
       "to": "cmd-tz=zona",
       "label": "evalúa",
@@ -16857,7 +16539,7 @@
       "dashes": false
     },
     {
-      "id": "e_257",
+      "id": "e_246",
       "from": "sub-107-3",
       "to": "cmd-locale",
       "label": "evalúa",
@@ -16865,7 +16547,7 @@
       "dashes": false
     },
     {
-      "id": "e_258",
+      "id": "e_247",
       "from": "sub-107-3",
       "to": "cmd-localectl",
       "label": "evalúa",
@@ -16873,7 +16555,7 @@
       "dashes": false
     },
     {
-      "id": "e_259",
+      "id": "e_248",
       "from": "sub-107-3",
       "to": "cmd-iconv",
       "label": "evalúa",
@@ -16881,7 +16563,7 @@
       "dashes": false
     },
     {
-      "id": "e_260",
+      "id": "e_249",
       "from": "sub-108-1",
       "to": "cmd-hwclock",
       "label": "evalúa",
@@ -16889,7 +16571,7 @@
       "dashes": false
     },
     {
-      "id": "e_261",
+      "id": "e_250",
       "from": "sub-108-1",
       "to": "cmd-timedatectl",
       "label": "evalúa",
@@ -16897,7 +16579,7 @@
       "dashes": false
     },
     {
-      "id": "e_262",
+      "id": "e_251",
       "from": "sub-108-1",
       "to": "cmd-ntpdate",
       "label": "evalúa",
@@ -16905,7 +16587,7 @@
       "dashes": false
     },
     {
-      "id": "e_263",
+      "id": "e_252",
       "from": "sub-108-1",
       "to": "cmd-ntpq",
       "label": "evalúa",
@@ -16913,7 +16595,7 @@
       "dashes": false
     },
     {
-      "id": "e_264",
+      "id": "e_253",
       "from": "sub-108-1",
       "to": "cmd-chronyc",
       "label": "evalúa",
@@ -16921,7 +16603,7 @@
       "dashes": false
     },
     {
-      "id": "e_265",
+      "id": "e_254",
       "from": "sub-108-2",
       "to": "cmd-journalctl",
       "label": "evalúa",
@@ -16929,7 +16611,7 @@
       "dashes": false
     },
     {
-      "id": "e_266",
+      "id": "e_255",
       "from": "sub-108-2",
       "to": "cmd-logger",
       "label": "evalúa",
@@ -16937,7 +16619,7 @@
       "dashes": false
     },
     {
-      "id": "e_267",
+      "id": "e_256",
       "from": "sub-108-2",
       "to": "cmd-systemd-cat",
       "label": "evalúa",
@@ -16945,7 +16627,7 @@
       "dashes": false
     },
     {
-      "id": "e_268",
+      "id": "e_257",
       "from": "sub-108-3",
       "to": "cmd-mail",
       "label": "evalúa",
@@ -16953,7 +16635,7 @@
       "dashes": false
     },
     {
-      "id": "e_269",
+      "id": "e_258",
       "from": "sub-108-3",
       "to": "file-fichero-global-de-alias---etc-aliases",
       "label": "define",
@@ -16961,7 +16643,7 @@
       "dashes": false
     },
     {
-      "id": "e_270",
+      "id": "e_259",
       "from": "sub-108-3",
       "to": "cmd-newaliases",
       "label": "evalúa",
@@ -16969,7 +16651,7 @@
       "dashes": false
     },
     {
-      "id": "e_271",
+      "id": "e_260",
       "from": "sub-108-3",
       "to": "file-redirecci-n-individual-por-usuario-----forward",
       "label": "define",
@@ -16977,7 +16659,7 @@
       "dashes": false
     },
     {
-      "id": "e_272",
+      "id": "e_261",
       "from": "sub-108-3",
       "to": "cmd-mailq",
       "label": "evalúa",
@@ -16985,7 +16667,7 @@
       "dashes": false
     },
     {
-      "id": "e_273",
+      "id": "e_262",
       "from": "sub-108-4",
       "to": "file-ficheros-de-configuraci-n-de-cups",
       "label": "define",
@@ -16993,7 +16675,7 @@
       "dashes": false
     },
     {
-      "id": "e_274",
+      "id": "e_263",
       "from": "sub-108-4",
       "to": "cmd-lpadmin",
       "label": "evalúa",
@@ -17001,7 +16683,7 @@
       "dashes": false
     },
     {
-      "id": "e_275",
+      "id": "e_264",
       "from": "sub-108-4",
       "to": "cmd-lpoptions",
       "label": "evalúa",
@@ -17009,7 +16691,7 @@
       "dashes": false
     },
     {
-      "id": "e_276",
+      "id": "e_265",
       "from": "sub-108-4",
       "to": "cmd-lpstat",
       "label": "evalúa",
@@ -17017,7 +16699,7 @@
       "dashes": false
     },
     {
-      "id": "e_277",
+      "id": "e_266",
       "from": "sub-109-1",
       "to": "concept-m-scaras-de-red-y-notaci-n-c",
       "label": "explica",
@@ -17025,7 +16707,7 @@
       "dashes": false
     },
     {
-      "id": "e_278",
+      "id": "e_267",
       "from": "sub-109-1",
       "to": "file-puertos-y-servicios-de-red--archivo--etc-services",
       "label": "define",
@@ -17033,7 +16715,7 @@
       "dashes": false
     },
     {
-      "id": "e_279",
+      "id": "e_268",
       "from": "sub-109-2",
       "to": "file-configuraci-n-tradicional-en-debian---etc-network-interfaces",
       "label": "define",
@@ -17041,7 +16723,7 @@
       "dashes": false
     },
     {
-      "id": "e_280",
+      "id": "e_269",
       "from": "sub-109-2",
       "to": "file-configuraci-n-tradicional-en-rhel-centos--ifcfg",
       "label": "define",
@@ -17049,7 +16731,7 @@
       "dashes": false
     },
     {
-      "id": "e_281",
+      "id": "e_270",
       "from": "sub-109-2",
       "to": "file-resoluci-n-est-tica-local--archivo--etc-hosts",
       "label": "define",
@@ -17057,7 +16739,7 @@
       "dashes": false
     },
     {
-      "id": "e_282",
+      "id": "e_271",
       "from": "sub-109-2",
       "to": "file-configuraci-n-del-cliente-dns---etc-resolv-conf",
       "label": "define",
@@ -17065,7 +16747,7 @@
       "dashes": false
     },
     {
-      "id": "e_283",
+      "id": "e_272",
       "from": "sub-109-2",
       "to": "file-ficheros--network-en-systemd-networkd",
       "label": "define",
@@ -17073,7 +16755,7 @@
       "dashes": false
     },
     {
-      "id": "e_284",
+      "id": "e_273",
       "from": "sub-109-3",
       "to": "cmd-ip",
       "label": "evalúa",
@@ -17081,7 +16763,7 @@
       "dashes": false
     },
     {
-      "id": "e_285",
+      "id": "e_274",
       "from": "sub-109-3",
       "to": "cmd-heredados",
       "label": "evalúa",
@@ -17089,7 +16771,7 @@
       "dashes": false
     },
     {
-      "id": "e_286",
+      "id": "e_275",
       "from": "sub-109-3",
       "to": "cmd-ss",
       "label": "evalúa",
@@ -17097,7 +16779,7 @@
       "dashes": false
     },
     {
-      "id": "e_287",
+      "id": "e_276",
       "from": "sub-109-3",
       "to": "cmd-netstat",
       "label": "evalúa",
@@ -17105,7 +16787,7 @@
       "dashes": false
     },
     {
-      "id": "e_288",
+      "id": "e_277",
       "from": "sub-109-3",
       "to": "cmd-tracepath",
       "label": "evalúa",
@@ -17113,7 +16795,7 @@
       "dashes": false
     },
     {
-      "id": "e_289",
+      "id": "e_278",
       "from": "sub-109-4",
       "to": "file-fichero-maestro-de-dns---etc-resolv-conf",
       "label": "define",
@@ -17121,7 +16803,7 @@
       "dashes": false
     },
     {
-      "id": "e_290",
+      "id": "e_279",
       "from": "sub-109-4",
       "to": "file-etc-resolv-conf-moderno-y-systemd-resolved",
       "label": "define",
@@ -17129,7 +16811,7 @@
       "dashes": false
     },
     {
-      "id": "e_291",
+      "id": "e_280",
       "from": "sub-109-4",
       "to": "cmd-getent",
       "label": "evalúa",
@@ -17137,7 +16819,7 @@
       "dashes": false
     },
     {
-      "id": "e_292",
+      "id": "e_281",
       "from": "sub-109-4",
       "to": "cmd-dig",
       "label": "evalúa",
@@ -17145,7 +16827,7 @@
       "dashes": false
     },
     {
-      "id": "e_293",
+      "id": "e_282",
       "from": "sub-110-1",
       "to": "cmd-find",
       "label": "evalúa",
@@ -17153,7 +16835,7 @@
       "dashes": false
     },
     {
-      "id": "e_294",
+      "id": "e_283",
       "from": "sub-110-2",
       "to": "file-configuraci-n-de-xinetd---etc-xinetd-conf-y--etc-xinetd-d",
       "label": "define",
@@ -17161,7 +16843,7 @@
       "dashes": false
     },
     {
-      "id": "e_295",
+      "id": "e_284",
       "from": "sub-110-2",
       "to": "file-reglas-de-acceso-en--etc-hosts-allow-y--etc-hosts-deny",
       "label": "define",
@@ -17169,7 +16851,7 @@
       "dashes": false
     },
     {
-      "id": "e_296",
+      "id": "e_285",
       "from": "sub-110-3",
       "to": "file-el-directorio----ssh--y-archivos-de-autenticaci-n",
       "label": "define",
@@ -17177,7 +16859,7 @@
       "dashes": false
     },
     {
-      "id": "e_297",
+      "id": "e_286",
       "from": "sub-105-1",
       "to": "cmd-bash",
       "label": "evalúa",
@@ -17185,7 +16867,7 @@
       "dashes": false
     },
     {
-      "id": "e_298",
+      "id": "e_287",
       "from": "sub-105-1",
       "to": "file-etc-profile",
       "label": "define",
@@ -17193,7 +16875,7 @@
       "dashes": false
     },
     {
-      "id": "e_299",
+      "id": "e_288",
       "from": "sub-105-1",
       "to": "file-etc-profile-d---sh",
       "label": "define",
@@ -17201,7 +16883,7 @@
       "dashes": false
     },
     {
-      "id": "e_300",
+      "id": "e_289",
       "from": "sub-105-1",
       "to": "file-bash-profile",
       "label": "define",
@@ -17209,7 +16891,7 @@
       "dashes": false
     },
     {
-      "id": "e_301",
+      "id": "e_290",
       "from": "sub-105-1",
       "to": "file-bashrc",
       "label": "define",
@@ -17217,7 +16899,7 @@
       "dashes": false
     },
     {
-      "id": "e_302",
+      "id": "e_291",
       "from": "sub-105-1",
       "to": "file-etc-bash-bashrc",
       "label": "define",
@@ -17225,7 +16907,7 @@
       "dashes": false
     },
     {
-      "id": "e_303",
+      "id": "e_292",
       "from": "sub-105-1",
       "to": "file-bash-logout",
       "label": "define",
@@ -17233,7 +16915,7 @@
       "dashes": false
     },
     {
-      "id": "e_304",
+      "id": "e_293",
       "from": "sub-105-1",
       "to": "concept-login-vs-non-login-shell",
       "label": "explica",
@@ -17241,7 +16923,7 @@
       "dashes": false
     },
     {
-      "id": "e_305",
+      "id": "e_294",
       "from": "sub-105-1",
       "to": "concept-herencia-de-variables",
       "label": "explica",
@@ -17249,7 +16931,7 @@
       "dashes": false
     },
     {
-      "id": "e_306",
+      "id": "e_295",
       "from": "sub-105-2",
       "to": "cmd-test",
       "label": "evalúa",
@@ -17257,7 +16939,7 @@
       "dashes": false
     },
     {
-      "id": "e_307",
+      "id": "e_296",
       "from": "sub-105-2",
       "to": "cmd-read",
       "label": "evalúa",
@@ -17265,7 +16947,7 @@
       "dashes": false
     },
     {
-      "id": "e_308",
+      "id": "e_297",
       "from": "sub-105-2",
       "to": "cmd-seq",
       "label": "evalúa",
@@ -17273,7 +16955,7 @@
       "dashes": false
     },
     {
-      "id": "e_309",
+      "id": "e_298",
       "from": "sub-105-2",
       "to": "cmd-exec",
       "label": "evalúa",
@@ -17281,7 +16963,7 @@
       "dashes": false
     },
     {
-      "id": "e_310",
+      "id": "e_299",
       "from": "sub-105-2",
       "to": "cmd-shift",
       "label": "evalúa",
@@ -17289,7 +16971,7 @@
       "dashes": false
     },
     {
-      "id": "e_311",
+      "id": "e_300",
       "from": "sub-105-2",
       "to": "concept-shebang-----bin-bash",
       "label": "explica",
@@ -17297,7 +16979,7 @@
       "dashes": false
     },
     {
-      "id": "e_312",
+      "id": "e_301",
       "from": "sub-105-2",
       "to": "concept-par-metros-posicionales",
       "label": "explica",
@@ -17305,7 +16987,7 @@
       "dashes": false
     },
     {
-      "id": "e_313",
+      "id": "e_302",
       "from": "sub-106-1",
       "to": "cmd-xrandr",
       "label": "evalúa",
@@ -17313,7 +16995,31 @@
       "dashes": false
     },
     {
-      "id": "e_314",
+      "id": "e_303",
+      "from": "sub-106-1",
+      "to": "cmd-xdpyinfo",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_304",
+      "from": "sub-106-1",
+      "to": "cmd-xhost",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_305",
+      "from": "sub-106-1",
+      "to": "cmd-xauth",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_306",
       "from": "sub-106-1",
       "to": "file-etc-x11-xorg-conf",
       "label": "define",
@@ -17321,7 +17027,7 @@
       "dashes": false
     },
     {
-      "id": "e_315",
+      "id": "e_307",
       "from": "sub-106-1",
       "to": "file-etc-x11-xorg-conf-d",
       "label": "define",
@@ -17329,7 +17035,7 @@
       "dashes": false
     },
     {
-      "id": "e_316",
+      "id": "e_308",
       "from": "sub-106-1",
       "to": "file-xinitrc",
       "label": "define",
@@ -17337,7 +17043,7 @@
       "dashes": false
     },
     {
-      "id": "e_317",
+      "id": "e_309",
       "from": "sub-106-1",
       "to": "file-xauthority",
       "label": "define",
@@ -17345,7 +17051,7 @@
       "dashes": false
     },
     {
-      "id": "e_318",
+      "id": "e_310",
       "from": "sub-106-1",
       "to": "concept-variable-display",
       "label": "explica",
@@ -17353,7 +17059,7 @@
       "dashes": false
     },
     {
-      "id": "e_319",
+      "id": "e_311",
       "from": "sub-106-1",
       "to": "concept-x11-vs-wayland",
       "label": "explica",
@@ -17361,7 +17067,7 @@
       "dashes": false
     },
     {
-      "id": "e_320",
+      "id": "e_312",
       "from": "sub-106-2",
       "to": "cmd-startx",
       "label": "evalúa",
@@ -17369,7 +17075,7 @@
       "dashes": false
     },
     {
-      "id": "e_321",
+      "id": "e_313",
       "from": "sub-106-2",
       "to": "file-etc-x11-default-display-manager",
       "label": "define",
@@ -17377,7 +17083,7 @@
       "dashes": false
     },
     {
-      "id": "e_322",
+      "id": "e_314",
       "from": "sub-106-2",
       "to": "concept-display-managers--dm",
       "label": "explica",
@@ -17385,7 +17091,15 @@
       "dashes": false
     },
     {
-      "id": "e_323",
+      "id": "e_315",
+      "from": "sub-106-3",
+      "to": "cmd-orca",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_316",
       "from": "sub-106-3",
       "to": "concept-tecnolog-as-de-accesibil",
       "label": "explica",
@@ -17393,7 +17107,7 @@
       "dashes": false
     },
     {
-      "id": "e_324",
+      "id": "e_317",
       "from": "sub-106-3",
       "to": "concept-emacspeak",
       "label": "explica",
@@ -17401,7 +17115,7 @@
       "dashes": false
     },
     {
-      "id": "e_325",
+      "id": "e_318",
       "from": "sub-107-1",
       "to": "file-etc-passwd",
       "label": "define",
@@ -17409,7 +17123,7 @@
       "dashes": false
     },
     {
-      "id": "e_326",
+      "id": "e_319",
       "from": "sub-107-1",
       "to": "file-etc-shadow",
       "label": "define",
@@ -17417,7 +17131,7 @@
       "dashes": false
     },
     {
-      "id": "e_327",
+      "id": "e_320",
       "from": "sub-107-1",
       "to": "file-etc-group",
       "label": "define",
@@ -17425,7 +17139,7 @@
       "dashes": false
     },
     {
-      "id": "e_328",
+      "id": "e_321",
       "from": "sub-107-1",
       "to": "file-etc-gshadow",
       "label": "define",
@@ -17433,7 +17147,7 @@
       "dashes": false
     },
     {
-      "id": "e_329",
+      "id": "e_322",
       "from": "sub-107-1",
       "to": "file-etc-skel",
       "label": "define",
@@ -17441,7 +17155,7 @@
       "dashes": false
     },
     {
-      "id": "e_330",
+      "id": "e_323",
       "from": "sub-107-1",
       "to": "file-etc-default-useradd",
       "label": "define",
@@ -17449,7 +17163,7 @@
       "dashes": false
     },
     {
-      "id": "e_331",
+      "id": "e_324",
       "from": "sub-107-1",
       "to": "file-etc-login-defs",
       "label": "define",
@@ -17457,7 +17171,7 @@
       "dashes": false
     },
     {
-      "id": "e_332",
+      "id": "e_325",
       "from": "sub-107-1",
       "to": "concept-uids-est-ndar-en-linux",
       "label": "explica",
@@ -17465,7 +17179,7 @@
       "dashes": false
     },
     {
-      "id": "e_333",
+      "id": "e_326",
       "from": "sub-107-2",
       "to": "cmd-anacron",
       "label": "evalúa",
@@ -17473,7 +17187,7 @@
       "dashes": false
     },
     {
-      "id": "e_334",
+      "id": "e_327",
       "from": "sub-107-2",
       "to": "file-etc-crontab",
       "label": "define",
@@ -17481,7 +17195,7 @@
       "dashes": false
     },
     {
-      "id": "e_335",
+      "id": "e_328",
       "from": "sub-107-2",
       "to": "file-etc-cron",
       "label": "define",
@@ -17489,7 +17203,7 @@
       "dashes": false
     },
     {
-      "id": "e_336",
+      "id": "e_329",
       "from": "sub-107-2",
       "to": "file-var-spool-cron-crontabs",
       "label": "define",
@@ -17497,7 +17211,7 @@
       "dashes": false
     },
     {
-      "id": "e_337",
+      "id": "e_330",
       "from": "sub-107-2",
       "to": "file-etc-anacrontab",
       "label": "define",
@@ -17505,7 +17219,7 @@
       "dashes": false
     },
     {
-      "id": "e_338",
+      "id": "e_331",
       "from": "sub-107-2",
       "to": "file-etc-cron-allow-y--etc-cron-deny",
       "label": "define",
@@ -17513,7 +17227,7 @@
       "dashes": false
     },
     {
-      "id": "e_339",
+      "id": "e_332",
       "from": "sub-107-2",
       "to": "file-etc-at-allow-y--etc-at-deny",
       "label": "define",
@@ -17521,7 +17235,7 @@
       "dashes": false
     },
     {
-      "id": "e_340",
+      "id": "e_333",
       "from": "sub-107-2",
       "to": "concept-sintaxis-de-5-campos-de",
       "label": "explica",
@@ -17529,7 +17243,7 @@
       "dashes": false
     },
     {
-      "id": "e_341",
+      "id": "e_334",
       "from": "sub-107-3",
       "to": "file-etc-timezone",
       "label": "define",
@@ -17537,7 +17251,7 @@
       "dashes": false
     },
     {
-      "id": "e_342",
+      "id": "e_335",
       "from": "sub-107-3",
       "to": "file-etc-localtime",
       "label": "define",
@@ -17545,7 +17259,7 @@
       "dashes": false
     },
     {
-      "id": "e_343",
+      "id": "e_336",
       "from": "sub-107-3",
       "to": "file-usr-share-zoneinfo",
       "label": "define",
@@ -17553,7 +17267,7 @@
       "dashes": false
     },
     {
-      "id": "e_344",
+      "id": "e_337",
       "from": "sub-107-3",
       "to": "file-etc-locale-gen",
       "label": "define",
@@ -17561,7 +17275,7 @@
       "dashes": false
     },
     {
-      "id": "e_345",
+      "id": "e_338",
       "from": "sub-107-3",
       "to": "concept-jerarqu-a-de-variables-l",
       "label": "explica",
@@ -17569,7 +17283,7 @@
       "dashes": false
     },
     {
-      "id": "e_346",
+      "id": "e_339",
       "from": "sub-108-1",
       "to": "cmd-date",
       "label": "evalúa",
@@ -17577,7 +17291,7 @@
       "dashes": false
     },
     {
-      "id": "e_347",
+      "id": "e_340",
       "from": "sub-108-1",
       "to": "file-etc-chrony-chrony-conf",
       "label": "define",
@@ -17585,7 +17299,7 @@
       "dashes": false
     },
     {
-      "id": "e_348",
+      "id": "e_341",
       "from": "sub-108-1",
       "to": "concept-ntp-y-estratos--stratum",
       "label": "explica",
@@ -17593,7 +17307,7 @@
       "dashes": false
     },
     {
-      "id": "e_349",
+      "id": "e_342",
       "from": "sub-108-2",
       "to": "cmd-logrotate",
       "label": "evalúa",
@@ -17601,7 +17315,7 @@
       "dashes": false
     },
     {
-      "id": "e_350",
+      "id": "e_343",
       "from": "sub-108-2",
       "to": "file-etc-rsyslog-conf",
       "label": "define",
@@ -17609,7 +17323,7 @@
       "dashes": false
     },
     {
-      "id": "e_351",
+      "id": "e_344",
       "from": "sub-108-2",
       "to": "file-etc-rsyslog-d",
       "label": "define",
@@ -17617,7 +17331,7 @@
       "dashes": false
     },
     {
-      "id": "e_352",
+      "id": "e_345",
       "from": "sub-108-2",
       "to": "file-etc-systemd-journald-conf",
       "label": "define",
@@ -17625,7 +17339,7 @@
       "dashes": false
     },
     {
-      "id": "e_353",
+      "id": "e_346",
       "from": "sub-108-2",
       "to": "file-var-log-journal",
       "label": "define",
@@ -17633,7 +17347,7 @@
       "dashes": false
     },
     {
-      "id": "e_354",
+      "id": "e_347",
       "from": "sub-108-2",
       "to": "file-var-log-auth-log",
       "label": "define",
@@ -17641,7 +17355,7 @@
       "dashes": false
     },
     {
-      "id": "e_355",
+      "id": "e_348",
       "from": "sub-108-2",
       "to": "file-etc-logrotate-conf",
       "label": "define",
@@ -17649,7 +17363,7 @@
       "dashes": false
     },
     {
-      "id": "e_356",
+      "id": "e_349",
       "from": "sub-108-2",
       "to": "concept-facilidades-y-severidade",
       "label": "explica",
@@ -17657,7 +17371,7 @@
       "dashes": false
     },
     {
-      "id": "e_357",
+      "id": "e_350",
       "from": "sub-108-3",
       "to": "file-etc-aliases",
       "label": "define",
@@ -17665,7 +17379,7 @@
       "dashes": false
     },
     {
-      "id": "e_358",
+      "id": "e_351",
       "from": "sub-108-3",
       "to": "file-forward",
       "label": "define",
@@ -17673,7 +17387,7 @@
       "dashes": false
     },
     {
-      "id": "e_359",
+      "id": "e_352",
       "from": "sub-108-3",
       "to": "file-etc-postfix-main-cf",
       "label": "define",
@@ -17681,7 +17395,7 @@
       "dashes": false
     },
     {
-      "id": "e_360",
+      "id": "e_353",
       "from": "sub-108-3",
       "to": "concept-mta-vs-mua-vs-mda",
       "label": "explica",
@@ -17689,7 +17403,7 @@
       "dashes": false
     },
     {
-      "id": "e_361",
+      "id": "e_354",
       "from": "sub-108-4",
       "to": "cmd-lpr",
       "label": "evalúa",
@@ -17697,7 +17411,7 @@
       "dashes": false
     },
     {
-      "id": "e_362",
+      "id": "e_355",
       "from": "sub-108-4",
       "to": "cmd-lpq",
       "label": "evalúa",
@@ -17705,7 +17419,7 @@
       "dashes": false
     },
     {
-      "id": "e_363",
+      "id": "e_356",
       "from": "sub-108-4",
       "to": "cmd-lprm",
       "label": "evalúa",
@@ -17713,7 +17427,7 @@
       "dashes": false
     },
     {
-      "id": "e_364",
+      "id": "e_357",
       "from": "sub-108-4",
       "to": "cmd-cupsenable",
       "label": "evalúa",
@@ -17721,7 +17435,7 @@
       "dashes": false
     },
     {
-      "id": "e_365",
+      "id": "e_358",
       "from": "sub-108-4",
       "to": "cmd-cupsaccept",
       "label": "evalúa",
@@ -17729,7 +17443,7 @@
       "dashes": false
     },
     {
-      "id": "e_366",
+      "id": "e_359",
       "from": "sub-108-4",
       "to": "file-etc-cups-cupsd-conf",
       "label": "define",
@@ -17737,7 +17451,7 @@
       "dashes": false
     },
     {
-      "id": "e_367",
+      "id": "e_360",
       "from": "sub-108-4",
       "to": "file-etc-cups-printers-conf",
       "label": "define",
@@ -17745,7 +17459,7 @@
       "dashes": false
     },
     {
-      "id": "e_368",
+      "id": "e_361",
       "from": "sub-108-4",
       "to": "concept-arquitectura-cups--puert",
       "label": "explica",
@@ -17753,7 +17467,7 @@
       "dashes": false
     },
     {
-      "id": "e_369",
+      "id": "e_362",
       "from": "sub-109-1",
       "to": "file-etc-services",
       "label": "define",
@@ -17761,7 +17475,7 @@
       "dashes": false
     },
     {
-      "id": "e_370",
+      "id": "e_363",
       "from": "sub-109-1",
       "to": "file-etc-protocols",
       "label": "define",
@@ -17769,7 +17483,7 @@
       "dashes": false
     },
     {
-      "id": "e_371",
+      "id": "e_364",
       "from": "sub-109-1",
       "to": "concept-direccionamiento-ipv4-y",
       "label": "explica",
@@ -17777,7 +17491,7 @@
       "dashes": false
     },
     {
-      "id": "e_372",
+      "id": "e_365",
       "from": "sub-109-1",
       "to": "concept-direccionamiento-ipv6",
       "label": "explica",
@@ -17785,7 +17499,7 @@
       "dashes": false
     },
     {
-      "id": "e_373",
+      "id": "e_366",
       "from": "sub-109-2",
       "to": "cmd-ip",
       "label": "evalúa",
@@ -17793,7 +17507,7 @@
       "dashes": false
     },
     {
-      "id": "e_374",
+      "id": "e_367",
       "from": "sub-109-2",
       "to": "cmd-ifconfig",
       "label": "evalúa",
@@ -17801,7 +17515,7 @@
       "dashes": false
     },
     {
-      "id": "e_375",
+      "id": "e_368",
       "from": "sub-109-2",
       "to": "cmd-route",
       "label": "evalúa",
@@ -17809,7 +17523,7 @@
       "dashes": false
     },
     {
-      "id": "e_376",
+      "id": "e_369",
       "from": "sub-109-2",
       "to": "cmd-nmcli",
       "label": "evalúa",
@@ -17817,7 +17531,7 @@
       "dashes": false
     },
     {
-      "id": "e_377",
+      "id": "e_370",
       "from": "sub-109-2",
       "to": "cmd-nmtui",
       "label": "evalúa",
@@ -17825,7 +17539,7 @@
       "dashes": false
     },
     {
-      "id": "e_378",
+      "id": "e_371",
       "from": "sub-109-2",
       "to": "cmd-hostname",
       "label": "evalúa",
@@ -17833,7 +17547,7 @@
       "dashes": false
     },
     {
-      "id": "e_379",
+      "id": "e_372",
       "from": "sub-109-2",
       "to": "cmd-hostnamectl",
       "label": "evalúa",
@@ -17841,7 +17555,7 @@
       "dashes": false
     },
     {
-      "id": "e_380",
+      "id": "e_373",
       "from": "sub-109-2",
       "to": "file-etc-network-interfaces",
       "label": "define",
@@ -17849,7 +17563,7 @@
       "dashes": false
     },
     {
-      "id": "e_381",
+      "id": "e_374",
       "from": "sub-109-2",
       "to": "file-etc-netplan---yaml",
       "label": "define",
@@ -17857,7 +17571,7 @@
       "dashes": false
     },
     {
-      "id": "e_382",
+      "id": "e_375",
       "from": "sub-109-2",
       "to": "file-etc-hostname",
       "label": "define",
@@ -17865,7 +17579,7 @@
       "dashes": false
     },
     {
-      "id": "e_383",
+      "id": "e_376",
       "from": "sub-109-2",
       "to": "concept-configuraci-n-est-tica-v",
       "label": "explica",
@@ -17873,7 +17587,7 @@
       "dashes": false
     },
     {
-      "id": "e_384",
+      "id": "e_377",
       "from": "sub-109-3",
       "to": "cmd-ping",
       "label": "evalúa",
@@ -17881,7 +17595,7 @@
       "dashes": false
     },
     {
-      "id": "e_385",
+      "id": "e_378",
       "from": "sub-109-3",
       "to": "cmd-traceroute",
       "label": "evalúa",
@@ -17889,7 +17603,7 @@
       "dashes": false
     },
     {
-      "id": "e_386",
+      "id": "e_379",
       "from": "sub-109-3",
       "to": "cmd-nc",
       "label": "evalúa",
@@ -17897,7 +17611,7 @@
       "dashes": false
     },
     {
-      "id": "e_387",
+      "id": "e_380",
       "from": "sub-109-3",
       "to": "concept-diagn-stico-de-red-por-c",
       "label": "explica",
@@ -17905,7 +17619,7 @@
       "dashes": false
     },
     {
-      "id": "e_388",
+      "id": "e_381",
       "from": "sub-109-4",
       "to": "cmd-host",
       "label": "evalúa",
@@ -17913,7 +17627,7 @@
       "dashes": false
     },
     {
-      "id": "e_389",
+      "id": "e_382",
       "from": "sub-109-4",
       "to": "cmd-nslookup",
       "label": "evalúa",
@@ -17921,7 +17635,7 @@
       "dashes": false
     },
     {
-      "id": "e_390",
+      "id": "e_383",
       "from": "sub-109-4",
       "to": "file-etc-resolv-conf",
       "label": "define",
@@ -17929,7 +17643,7 @@
       "dashes": false
     },
     {
-      "id": "e_391",
+      "id": "e_384",
       "from": "sub-109-4",
       "to": "file-etc-hosts",
       "label": "define",
@@ -17937,7 +17651,7 @@
       "dashes": false
     },
     {
-      "id": "e_392",
+      "id": "e_385",
       "from": "sub-109-4",
       "to": "file-etc-nsswitch-conf",
       "label": "define",
@@ -17945,7 +17659,7 @@
       "dashes": false
     },
     {
-      "id": "e_393",
+      "id": "e_386",
       "from": "sub-109-4",
       "to": "concept-tipos-de-registros-dns",
       "label": "explica",
@@ -17953,7 +17667,7 @@
       "dashes": false
     },
     {
-      "id": "e_394",
+      "id": "e_387",
       "from": "sub-110-1",
       "to": "cmd-ulimit",
       "label": "evalúa",
@@ -17961,7 +17675,7 @@
       "dashes": false
     },
     {
-      "id": "e_395",
+      "id": "e_388",
       "from": "sub-110-1",
       "to": "cmd-sudo",
       "label": "evalúa",
@@ -17969,7 +17683,7 @@
       "dashes": false
     },
     {
-      "id": "e_396",
+      "id": "e_389",
       "from": "sub-110-1",
       "to": "cmd-visudo",
       "label": "evalúa",
@@ -17977,7 +17691,7 @@
       "dashes": false
     },
     {
-      "id": "e_397",
+      "id": "e_390",
       "from": "sub-110-1",
       "to": "cmd-su",
       "label": "evalúa",
@@ -17985,7 +17699,7 @@
       "dashes": false
     },
     {
-      "id": "e_398",
+      "id": "e_391",
       "from": "sub-110-1",
       "to": "file-etc-sudoers",
       "label": "define",
@@ -17993,7 +17707,7 @@
       "dashes": false
     },
     {
-      "id": "e_399",
+      "id": "e_392",
       "from": "sub-110-1",
       "to": "file-etc-sudoers-d",
       "label": "define",
@@ -18001,7 +17715,7 @@
       "dashes": false
     },
     {
-      "id": "e_400",
+      "id": "e_393",
       "from": "sub-110-1",
       "to": "file-etc-security-limits-conf",
       "label": "define",
@@ -18009,7 +17723,7 @@
       "dashes": false
     },
     {
-      "id": "e_401",
+      "id": "e_394",
       "from": "sub-110-1",
       "to": "concept-auditor-a-de-puertos-y-p",
       "label": "explica",
@@ -18017,7 +17731,7 @@
       "dashes": false
     },
     {
-      "id": "e_402",
+      "id": "e_395",
       "from": "sub-110-2",
       "to": "cmd-iptables",
       "label": "evalúa",
@@ -18025,7 +17739,7 @@
       "dashes": false
     },
     {
-      "id": "e_403",
+      "id": "e_396",
       "from": "sub-110-2",
       "to": "cmd-ufw",
       "label": "evalúa",
@@ -18033,7 +17747,7 @@
       "dashes": false
     },
     {
-      "id": "e_404",
+      "id": "e_397",
       "from": "sub-110-2",
       "to": "file-etc-nologin",
       "label": "define",
@@ -18041,7 +17755,7 @@
       "dashes": false
     },
     {
-      "id": "e_405",
+      "id": "e_398",
       "from": "sub-110-2",
       "to": "file-etc-hosts-allow",
       "label": "define",
@@ -18049,7 +17763,7 @@
       "dashes": false
     },
     {
-      "id": "e_406",
+      "id": "e_399",
       "from": "sub-110-2",
       "to": "file-etc-hosts-deny",
       "label": "define",
@@ -18057,7 +17771,7 @@
       "dashes": false
     },
     {
-      "id": "e_407",
+      "id": "e_400",
       "from": "sub-110-2",
       "to": "concept-tcp-wrappers--hosts-allo",
       "label": "explica",
@@ -18065,7 +17779,7 @@
       "dashes": false
     },
     {
-      "id": "e_408",
+      "id": "e_401",
       "from": "sub-110-3",
       "to": "cmd-ssh",
       "label": "evalúa",
@@ -18073,7 +17787,7 @@
       "dashes": false
     },
     {
-      "id": "e_409",
+      "id": "e_402",
       "from": "sub-110-3",
       "to": "cmd-sshd",
       "label": "evalúa",
@@ -18081,7 +17795,7 @@
       "dashes": false
     },
     {
-      "id": "e_410",
+      "id": "e_403",
       "from": "sub-110-3",
       "to": "cmd-ssh-keygen",
       "label": "evalúa",
@@ -18089,7 +17803,7 @@
       "dashes": false
     },
     {
-      "id": "e_411",
+      "id": "e_404",
       "from": "sub-110-3",
       "to": "cmd-ssh-copy-id",
       "label": "evalúa",
@@ -18097,7 +17811,7 @@
       "dashes": false
     },
     {
-      "id": "e_412",
+      "id": "e_405",
       "from": "sub-110-3",
       "to": "cmd-gpg",
       "label": "evalúa",
@@ -18105,7 +17819,7 @@
       "dashes": false
     },
     {
-      "id": "e_413",
+      "id": "e_406",
       "from": "sub-110-3",
       "to": "file-etc-ssh-sshd-config",
       "label": "define",
@@ -18113,7 +17827,7 @@
       "dashes": false
     },
     {
-      "id": "e_414",
+      "id": "e_407",
       "from": "sub-110-3",
       "to": "file-etc-ssh-ssh-config",
       "label": "define",
@@ -18121,7 +17835,7 @@
       "dashes": false
     },
     {
-      "id": "e_415",
+      "id": "e_408",
       "from": "sub-110-3",
       "to": "file-ssh-authorized-keys",
       "label": "define",
@@ -18129,7 +17843,7 @@
       "dashes": false
     },
     {
-      "id": "e_416",
+      "id": "e_409",
       "from": "sub-110-3",
       "to": "file-ssh-known-hosts",
       "label": "define",
@@ -18137,7 +17851,7 @@
       "dashes": false
     },
     {
-      "id": "e_417",
+      "id": "e_410",
       "from": "sub-110-3",
       "to": "file-ssh-id-rsa-y----ssh-id-rsa-pub",
       "label": "define",
@@ -18145,7 +17859,7 @@
       "dashes": false
     },
     {
-      "id": "e_418",
+      "id": "e_411",
       "from": "sub-110-3",
       "to": "concept-cifrado-sim-trico-vs-asi",
       "label": "explica",
@@ -18153,7 +17867,7 @@
       "dashes": false
     },
     {
-      "id": "e_419",
+      "id": "e_412",
       "from": "sub-110-3",
       "to": "concept-permisos-estrictos-de-ss",
       "label": "explica",
@@ -18161,7 +17875,7 @@
       "dashes": false
     },
     {
-      "id": "e_420",
+      "id": "e_413",
       "from": "exam-trap-mkfs-default",
       "to": "cmd-mkfs",
       "label": "punto crítico de examen",
@@ -18169,7 +17883,7 @@
       "dashes": false
     },
     {
-      "id": "e_421",
+      "id": "e_414",
       "from": "exam-trap-mkfs-default",
       "to": "sub-104-1",
       "label": "punto crítico de examen",
@@ -18177,7 +17891,7 @@
       "dashes": false
     },
     {
-      "id": "e_422",
+      "id": "e_415",
       "from": "exam-trap-fstab-fields",
       "to": "file-etc-fstab",
       "label": "punto crítico de examen",
@@ -18185,7 +17899,7 @@
       "dashes": false
     },
     {
-      "id": "e_423",
+      "id": "e_416",
       "from": "exam-trap-fstab-fields",
       "to": "cmd-mount",
       "label": "punto crítico de examen",
@@ -18193,7 +17907,7 @@
       "dashes": false
     },
     {
-      "id": "e_424",
+      "id": "e_417",
       "from": "exam-trap-fstab-fields",
       "to": "cmd-fsck",
       "label": "punto crítico de examen",
@@ -18201,7 +17915,7 @@
       "dashes": false
     },
     {
-      "id": "e_425",
+      "id": "e_418",
       "from": "exam-trap-fstab-fields",
       "to": "sub-104-3",
       "label": "punto crítico de examen",
@@ -18209,7 +17923,7 @@
       "dashes": false
     },
     {
-      "id": "e_426",
+      "id": "e_419",
       "from": "exam-trap-mount-bind",
       "to": "cmd-mount",
       "label": "punto crítico de examen",
@@ -18217,7 +17931,7 @@
       "dashes": false
     },
     {
-      "id": "e_427",
+      "id": "e_420",
       "from": "exam-trap-mount-bind",
       "to": "file-etc-fstab",
       "label": "punto crítico de examen",
@@ -18225,7 +17939,7 @@
       "dashes": false
     },
     {
-      "id": "e_428",
+      "id": "e_421",
       "from": "exam-trap-mount-bind",
       "to": "sub-104-3",
       "label": "punto crítico de examen",
@@ -18233,7 +17947,7 @@
       "dashes": false
     },
     {
-      "id": "e_429",
+      "id": "e_422",
       "from": "exam-trap-tar-f",
       "to": "cmd-tar",
       "label": "punto crítico de examen",
@@ -18241,7 +17955,7 @@
       "dashes": false
     },
     {
-      "id": "e_430",
+      "id": "e_423",
       "from": "exam-trap-tar-f",
       "to": "sub-103-3",
       "label": "punto crítico de examen",
@@ -18249,7 +17963,7 @@
       "dashes": false
     },
     {
-      "id": "e_431",
+      "id": "e_424",
       "from": "exam-trap-find-print0",
       "to": "cmd-find",
       "label": "punto crítico de examen",
@@ -18257,7 +17971,7 @@
       "dashes": false
     },
     {
-      "id": "e_432",
+      "id": "e_425",
       "from": "exam-trap-find-print0",
       "to": "cmd-xargs",
       "label": "punto crítico de examen",
@@ -18265,7 +17979,7 @@
       "dashes": false
     },
     {
-      "id": "e_433",
+      "id": "e_426",
       "from": "exam-trap-find-print0",
       "to": "sub-103-3",
       "label": "punto crítico de examen",
@@ -18273,7 +17987,7 @@
       "dashes": false
     },
     {
-      "id": "e_434",
+      "id": "e_427",
       "from": "exam-trap-nice-default",
       "to": "cmd-nice",
       "label": "punto crítico de examen",
@@ -18281,7 +17995,7 @@
       "dashes": false
     },
     {
-      "id": "e_435",
+      "id": "e_428",
       "from": "exam-trap-nice-default",
       "to": "sub-103-6",
       "label": "punto crítico de examen",
@@ -18289,7 +18003,7 @@
       "dashes": false
     },
     {
-      "id": "e_436",
+      "id": "e_429",
       "from": "exam-trap-single-quotes",
       "to": "cmd-export",
       "label": "punto crítico de examen",
@@ -18297,7 +18011,7 @@
       "dashes": false
     },
     {
-      "id": "e_437",
+      "id": "e_430",
       "from": "exam-trap-single-quotes",
       "to": "sub-103-1",
       "label": "punto crítico de examen",
@@ -18305,7 +18019,7 @@
       "dashes": false
     },
     {
-      "id": "e_438",
+      "id": "e_431",
       "from": "exam-trap-sigstop-sigtstp",
       "to": "cmd-kill",
       "label": "punto crítico de examen",
@@ -18313,7 +18027,7 @@
       "dashes": false
     },
     {
-      "id": "e_439",
+      "id": "e_432",
       "from": "exam-trap-sigstop-sigtstp",
       "to": "sub-103-5",
       "label": "punto crítico de examen",
@@ -18321,7 +18035,7 @@
       "dashes": false
     },
     {
-      "id": "e_440",
+      "id": "e_433",
       "from": "exam-trap-hardlink-restrictions",
       "to": "cmd-ln",
       "label": "punto crítico de examen",
@@ -18329,7 +18043,7 @@
       "dashes": false
     },
     {
-      "id": "e_441",
+      "id": "e_434",
       "from": "exam-trap-hardlink-restrictions",
       "to": "sub-104-6",
       "label": "punto crítico de examen",
@@ -18337,7 +18051,7 @@
       "dashes": false
     },
     {
-      "id": "e_442",
+      "id": "e_435",
       "from": "exam-trap-systemctl-isolate",
       "to": "cmd-systemctl",
       "label": "punto crítico de examen",
@@ -18345,7 +18059,7 @@
       "dashes": false
     },
     {
-      "id": "e_443",
+      "id": "e_436",
       "from": "exam-trap-systemctl-isolate",
       "to": "sub-101-3",
       "label": "punto crítico de examen",
@@ -18353,7 +18067,7 @@
       "dashes": false
     },
     {
-      "id": "e_444",
+      "id": "e_437",
       "from": "exam-trap-systemctl-mask",
       "to": "cmd-systemctl",
       "label": "punto crítico de examen",
@@ -18361,7 +18075,7 @@
       "dashes": false
     },
     {
-      "id": "e_445",
+      "id": "e_438",
       "from": "exam-trap-systemctl-mask",
       "to": "sub-101-3",
       "label": "punto crítico de examen",
@@ -18369,7 +18083,7 @@
       "dashes": false
     },
     {
-      "id": "e_446",
+      "id": "e_439",
       "from": "exam-trap-man-sections",
       "to": "sub-103-1",
       "label": "punto crítico de examen",
@@ -18377,7 +18091,7 @@
       "dashes": false
     },
     {
-      "id": "e_447",
+      "id": "e_440",
       "from": "exam-trap-grub-partition-numbering",
       "to": "cmd-grub-install",
       "label": "punto crítico de examen",
@@ -18385,7 +18099,7 @@
       "dashes": false
     },
     {
-      "id": "e_448",
+      "id": "e_441",
       "from": "exam-trap-grub-partition-numbering",
       "to": "sub-102-2",
       "label": "punto crítico de examen",
@@ -18393,7 +18107,7 @@
       "dashes": false
     },
     {
-      "id": "e_449",
+      "id": "e_442",
       "from": "exam-trap-apt-remove-vs-purge",
       "to": "cmd-apt-get",
       "label": "punto crítico de examen",
@@ -18401,7 +18115,7 @@
       "dashes": false
     },
     {
-      "id": "e_450",
+      "id": "e_443",
       "from": "exam-trap-apt-remove-vs-purge",
       "to": "cmd-dpkg",
       "label": "punto crítico de examen",
@@ -18409,7 +18123,7 @@
       "dashes": false
     },
     {
-      "id": "e_451",
+      "id": "e_444",
       "from": "exam-trap-apt-remove-vs-purge",
       "to": "sub-102-4",
       "label": "punto crítico de examen",
@@ -18417,7 +18131,7 @@
       "dashes": false
     },
     {
-      "id": "e_452",
+      "id": "e_445",
       "from": "exam-trap-rpm-nodeps",
       "to": "cmd-rpm",
       "label": "punto crítico de examen",
@@ -18425,7 +18139,7 @@
       "dashes": false
     },
     {
-      "id": "e_453",
+      "id": "e_446",
       "from": "exam-trap-rpm-nodeps",
       "to": "sub-102-5",
       "label": "punto crítico de examen",
@@ -18433,7 +18147,7 @@
       "dashes": false
     },
     {
-      "id": "e_454",
+      "id": "e_447",
       "from": "exam-trap-umask-calculation",
       "to": "cmd-chmod",
       "label": "punto crítico de examen",
@@ -18441,7 +18155,7 @@
       "dashes": false
     },
     {
-      "id": "e_455",
+      "id": "e_448",
       "from": "exam-trap-umask-calculation",
       "to": "sub-104-5",
       "label": "punto crítico de examen",
@@ -18449,7 +18163,7 @@
       "dashes": false
     },
     {
-      "id": "e_456",
+      "id": "e_449",
       "from": "exam-trap-suid-sgid-bits",
       "to": "cmd-chmod",
       "label": "punto crítico de examen",
@@ -18457,7 +18171,7 @@
       "dashes": false
     },
     {
-      "id": "e_457",
+      "id": "e_450",
       "from": "exam-trap-suid-sgid-bits",
       "to": "sub-104-5",
       "label": "punto crítico de examen",
@@ -18465,7 +18179,7 @@
       "dashes": false
     },
     {
-      "id": "e_458",
+      "id": "e_451",
       "from": "exam-trap-swap-fstab",
       "to": "cmd-mkswap",
       "label": "punto crítico de examen",
@@ -18473,7 +18187,7 @@
       "dashes": false
     },
     {
-      "id": "e_459",
+      "id": "e_452",
       "from": "exam-trap-swap-fstab",
       "to": "file-etc-fstab",
       "label": "punto crítico de examen",
@@ -18481,7 +18195,7 @@
       "dashes": false
     },
     {
-      "id": "e_460",
+      "id": "e_453",
       "from": "exam-trap-swap-fstab",
       "to": "sub-102-1",
       "label": "punto crítico de examen",
@@ -18489,7 +18203,7 @@
       "dashes": false
     },
     {
-      "id": "e_461",
+      "id": "e_454",
       "from": "exam-trap-105-login-order",
       "to": "file-etc-profile",
       "label": "punto crítico de examen",
@@ -18497,7 +18211,7 @@
       "dashes": false
     },
     {
-      "id": "e_462",
+      "id": "e_455",
       "from": "exam-trap-105-login-order",
       "to": "sub-105-1",
       "label": "punto crítico de examen",
@@ -18505,7 +18219,7 @@
       "dashes": false
     },
     {
-      "id": "e_463",
+      "id": "e_456",
       "from": "exam-trap-105-test-gt",
       "to": "cmd-test",
       "label": "punto crítico de examen",
@@ -18513,7 +18227,7 @@
       "dashes": false
     },
     {
-      "id": "e_464",
+      "id": "e_457",
       "from": "exam-trap-105-test-gt",
       "to": "sub-105-2",
       "label": "punto crítico de examen",
@@ -18521,7 +18235,7 @@
       "dashes": false
     },
     {
-      "id": "e_465",
+      "id": "e_458",
       "from": "exam-trap-105-positional-braces",
       "to": "sub-105-2",
       "label": "punto crítico de examen",
@@ -18529,7 +18243,7 @@
       "dashes": false
     },
     {
-      "id": "e_466",
+      "id": "e_459",
       "from": "exam-trap-106-display-syntax",
       "to": "cmd-xdpyinfo",
       "label": "punto crítico de examen",
@@ -18537,7 +18251,7 @@
       "dashes": false
     },
     {
-      "id": "e_467",
+      "id": "e_460",
       "from": "exam-trap-106-display-syntax",
       "to": "sub-106-1",
       "label": "punto crítico de examen",
@@ -18545,7 +18259,7 @@
       "dashes": false
     },
     {
-      "id": "e_468",
+      "id": "e_461",
       "from": "exam-trap-106-xhost-vs-xauth",
       "to": "cmd-xhost",
       "label": "punto crítico de examen",
@@ -18553,7 +18267,7 @@
       "dashes": false
     },
     {
-      "id": "e_469",
+      "id": "e_462",
       "from": "exam-trap-106-xhost-vs-xauth",
       "to": "cmd-xauth",
       "label": "punto crítico de examen",
@@ -18561,7 +18275,7 @@
       "dashes": false
     },
     {
-      "id": "e_470",
+      "id": "e_463",
       "from": "exam-trap-106-xhost-vs-xauth",
       "to": "sub-106-1",
       "label": "punto crítico de examen",
@@ -18569,7 +18283,7 @@
       "dashes": false
     },
     {
-      "id": "e_471",
+      "id": "e_464",
       "from": "exam-trap-106-clipboard-sigint",
       "to": "sub-106-2",
       "label": "punto crítico de examen",
@@ -18577,7 +18291,7 @@
       "dashes": false
     },
     {
-      "id": "e_472",
+      "id": "e_465",
       "from": "exam-trap-106-sticky-shift5",
       "to": "sub-106-3",
       "label": "punto crítico de examen",
@@ -18585,7 +18299,7 @@
       "dashes": false
     },
     {
-      "id": "e_473",
+      "id": "e_466",
       "from": "exam-trap-107-usermod-append-g",
       "to": "cmd-usermod",
       "label": "punto crítico de examen",
@@ -18593,7 +18307,7 @@
       "dashes": false
     },
     {
-      "id": "e_474",
+      "id": "e_467",
       "from": "exam-trap-107-usermod-append-g",
       "to": "sub-107-1",
       "label": "punto crítico de examen",
@@ -18601,7 +18315,7 @@
       "dashes": false
     },
     {
-      "id": "e_475",
+      "id": "e_468",
       "from": "exam-trap-107-crontab-fields",
       "to": "cmd-crontab",
       "label": "punto crítico de examen",
@@ -18609,7 +18323,7 @@
       "dashes": false
     },
     {
-      "id": "e_476",
+      "id": "e_469",
       "from": "exam-trap-107-crontab-fields",
       "to": "file-etc-crontab",
       "label": "punto crítico de examen",
@@ -18617,7 +18331,7 @@
       "dashes": false
     },
     {
-      "id": "e_477",
+      "id": "e_470",
       "from": "exam-trap-107-crontab-fields",
       "to": "sub-107-2",
       "label": "punto crítico de examen",
@@ -18625,7 +18339,7 @@
       "dashes": false
     },
     {
-      "id": "e_478",
+      "id": "e_471",
       "from": "exam-trap-107-tzselect-noperms",
       "to": "cmd-tzselect",
       "label": "punto crítico de examen",
@@ -18633,7 +18347,7 @@
       "dashes": false
     },
     {
-      "id": "e_479",
+      "id": "e_472",
       "from": "exam-trap-107-tzselect-noperms",
       "to": "cmd-timedatectl",
       "label": "punto crítico de examen",
@@ -18641,7 +18355,7 @@
       "dashes": false
     },
     {
-      "id": "e_480",
+      "id": "e_473",
       "from": "exam-trap-107-tzselect-noperms",
       "to": "sub-107-3",
       "label": "punto crítico de examen",
@@ -18649,7 +18363,7 @@
       "dashes": false
     },
     {
-      "id": "e_481",
+      "id": "e_474",
       "from": "exam-trap-107-lcall-priority",
       "to": "sub-107-3",
       "label": "punto crítico de examen",
@@ -18657,7 +18371,7 @@
       "dashes": false
     },
     {
-      "id": "e_482",
+      "id": "e_475",
       "from": "exam-trap-107-iso8859-euro",
       "to": "cmd-iconv",
       "label": "punto crítico de examen",
@@ -18665,7 +18379,7 @@
       "dashes": false
     },
     {
-      "id": "e_483",
+      "id": "e_476",
       "from": "exam-trap-107-iso8859-euro",
       "to": "sub-107-3",
       "label": "punto crítico de examen",
@@ -18673,7 +18387,7 @@
       "dashes": false
     },
     {
-      "id": "e_484",
+      "id": "e_477",
       "from": "exam-trap-108-hwclock-direction",
       "to": "cmd-hwclock",
       "label": "punto crítico de examen",
@@ -18681,7 +18395,7 @@
       "dashes": false
     },
     {
-      "id": "e_485",
+      "id": "e_478",
       "from": "exam-trap-108-hwclock-direction",
       "to": "sub-108-1",
       "label": "punto crítico de examen",
@@ -18689,7 +18403,7 @@
       "dashes": false
     },
     {
-      "id": "e_486",
+      "id": "e_479",
       "from": "exam-trap-108-syslog-priority-scale",
       "to": "file-etc-rsyslog-conf",
       "label": "punto crítico de examen",
@@ -18697,7 +18411,7 @@
       "dashes": false
     },
     {
-      "id": "e_487",
+      "id": "e_480",
       "from": "exam-trap-108-syslog-priority-scale",
       "to": "sub-108-2",
       "label": "punto crítico de examen",
@@ -18705,7 +18419,7 @@
       "dashes": false
     },
     {
-      "id": "e_488",
+      "id": "e_481",
       "from": "exam-trap-108-rsyslog-async-dash",
       "to": "file-etc-rsyslog-conf",
       "label": "punto crítico de examen",
@@ -18713,7 +18427,7 @@
       "dashes": false
     },
     {
-      "id": "e_489",
+      "id": "e_482",
       "from": "exam-trap-108-rsyslog-async-dash",
       "to": "sub-108-2",
       "label": "punto crítico de examen",
@@ -18721,7 +18435,7 @@
       "dashes": false
     },
     {
-      "id": "e_490",
+      "id": "e_483",
       "from": "exam-trap-108-newaliases-db",
       "to": "cmd-newaliases",
       "label": "punto crítico de examen",
@@ -18729,7 +18443,7 @@
       "dashes": false
     },
     {
-      "id": "e_491",
+      "id": "e_484",
       "from": "exam-trap-108-newaliases-db",
       "to": "file-etc-aliases",
       "label": "punto crítico de examen",
@@ -18737,7 +18451,7 @@
       "dashes": false
     },
     {
-      "id": "e_492",
+      "id": "e_485",
       "from": "exam-trap-108-newaliases-db",
       "to": "sub-108-3",
       "label": "punto crítico de examen",
@@ -18745,7 +18459,7 @@
       "dashes": false
     },
     {
-      "id": "e_493",
+      "id": "e_486",
       "from": "exam-trap-108-cups-printers-conf-lock",
       "to": "file-etc-cups-printers-conf",
       "label": "punto crítico de examen",
@@ -18753,7 +18467,7 @@
       "dashes": false
     },
     {
-      "id": "e_494",
+      "id": "e_487",
       "from": "exam-trap-108-cups-printers-conf-lock",
       "to": "cmd-lpadmin",
       "label": "punto crítico de examen",
@@ -18761,7 +18475,7 @@
       "dashes": false
     },
     {
-      "id": "e_495",
+      "id": "e_488",
       "from": "exam-trap-108-cups-printers-conf-lock",
       "to": "sub-108-4",
       "label": "punto crítico de examen",
@@ -18769,7 +18483,7 @@
       "dashes": false
     },
     {
-      "id": "e_496",
+      "id": "e_489",
       "from": "exam-trap-108-cups-lp-vs-lpr-flags",
       "to": "cmd-lpr",
       "label": "punto crítico de examen",
@@ -18777,7 +18491,7 @@
       "dashes": false
     },
     {
-      "id": "e_497",
+      "id": "e_490",
       "from": "exam-trap-108-cups-lp-vs-lpr-flags",
       "to": "sub-108-4",
       "label": "punto crítico de examen",
@@ -18785,7 +18499,7 @@
       "dashes": false
     },
     {
-      "id": "e_498",
+      "id": "e_491",
       "from": "exam-trap-109-rfc1918-ranges",
       "to": "file-etc-services",
       "label": "punto crítico de examen",
@@ -18793,7 +18507,7 @@
       "dashes": false
     },
     {
-      "id": "e_499",
+      "id": "e_492",
       "from": "exam-trap-109-rfc1918-ranges",
       "to": "sub-109-1",
       "label": "punto crítico de examen",
@@ -18801,7 +18515,7 @@
       "dashes": false
     },
     {
-      "id": "e_500",
+      "id": "e_493",
       "from": "exam-trap-109-ipv6-compression-rules",
       "to": "sub-109-1",
       "label": "punto crítico de examen",
@@ -18809,7 +18523,7 @@
       "dashes": false
     },
     {
-      "id": "e_501",
+      "id": "e_494",
       "from": "exam-trap-109-nmcli-method-manual",
       "to": "cmd-nmcli",
       "label": "punto crítico de examen",
@@ -18817,7 +18531,7 @@
       "dashes": false
     },
     {
-      "id": "e_502",
+      "id": "e_495",
       "from": "exam-trap-109-nmcli-method-manual",
       "to": "sub-109-2",
       "label": "punto crítico de examen",
@@ -18825,7 +18539,7 @@
       "dashes": false
     },
     {
-      "id": "e_503",
+      "id": "e_496",
       "from": "exam-trap-109-ip-route-default-via",
       "to": "cmd-ip",
       "label": "punto crítico de examen",
@@ -18833,7 +18547,7 @@
       "dashes": false
     },
     {
-      "id": "e_504",
+      "id": "e_497",
       "from": "exam-trap-109-ip-route-default-via",
       "to": "cmd-route",
       "label": "punto crítico de examen",
@@ -18841,7 +18555,7 @@
       "dashes": false
     },
     {
-      "id": "e_505",
+      "id": "e_498",
       "from": "exam-trap-109-ip-route-default-via",
       "to": "sub-109-2",
       "label": "punto crítico de examen",
@@ -18849,7 +18563,7 @@
       "dashes": false
     },
     {
-      "id": "e_506",
+      "id": "e_499",
       "from": "exam-trap-109-tracepath-no-root-mtu",
       "to": "cmd-tracepath",
       "label": "punto crítico de examen",
@@ -18857,7 +18571,7 @@
       "dashes": false
     },
     {
-      "id": "e_507",
+      "id": "e_500",
       "from": "exam-trap-109-tracepath-no-root-mtu",
       "to": "cmd-traceroute",
       "label": "punto crítico de examen",
@@ -18865,7 +18579,7 @@
       "dashes": false
     },
     {
-      "id": "e_508",
+      "id": "e_501",
       "from": "exam-trap-109-tracepath-no-root-mtu",
       "to": "sub-109-3",
       "label": "punto crítico de examen",
@@ -18873,7 +18587,7 @@
       "dashes": false
     },
     {
-      "id": "e_509",
+      "id": "e_502",
       "from": "exam-trap-109-getent-vs-dig-hosts",
       "to": "cmd-dig",
       "label": "punto crítico de examen",
@@ -18881,7 +18595,7 @@
       "dashes": false
     },
     {
-      "id": "e_510",
+      "id": "e_503",
       "from": "exam-trap-109-getent-vs-dig-hosts",
       "to": "cmd-host",
       "label": "punto crítico de examen",
@@ -18889,7 +18603,7 @@
       "dashes": false
     },
     {
-      "id": "e_511",
+      "id": "e_504",
       "from": "exam-trap-109-getent-vs-dig-hosts",
       "to": "file-etc-hosts",
       "label": "punto crítico de examen",
@@ -18897,7 +18611,7 @@
       "dashes": false
     },
     {
-      "id": "e_512",
+      "id": "e_505",
       "from": "exam-trap-109-getent-vs-dig-hosts",
       "to": "file-etc-nsswitch-conf",
       "label": "punto crítico de examen",
@@ -18905,7 +18619,7 @@
       "dashes": false
     },
     {
-      "id": "e_513",
+      "id": "e_506",
       "from": "exam-trap-109-getent-vs-dig-hosts",
       "to": "sub-109-4",
       "label": "punto crítico de examen",
@@ -18913,7 +18627,7 @@
       "dashes": false
     },
     {
-      "id": "e_514",
+      "id": "e_507",
       "from": "exam-trap-110-suid-uppercase-s",
       "to": "sub-110-1",
       "label": "punto crítico de examen",
@@ -18921,7 +18635,7 @@
       "dashes": false
     },
     {
-      "id": "e_515",
+      "id": "e_508",
       "from": "exam-trap-110-etc-nologin-root-allowed",
       "to": "file-etc-nologin",
       "label": "punto crítico de examen",
@@ -18929,7 +18643,7 @@
       "dashes": false
     },
     {
-      "id": "e_516",
+      "id": "e_509",
       "from": "exam-trap-110-etc-nologin-root-allowed",
       "to": "sub-110-2",
       "label": "punto crítico de examen",
@@ -18937,7 +18651,7 @@
       "dashes": false
     },
     {
-      "id": "e_517",
+      "id": "e_510",
       "from": "exam-trap-110-tcp-wrappers-precedence",
       "to": "file-etc-hosts-allow",
       "label": "punto crítico de examen",
@@ -18945,7 +18659,7 @@
       "dashes": false
     },
     {
-      "id": "e_518",
+      "id": "e_511",
       "from": "exam-trap-110-tcp-wrappers-precedence",
       "to": "file-etc-hosts-deny",
       "label": "punto crítico de examen",
@@ -18953,7 +18667,7 @@
       "dashes": false
     },
     {
-      "id": "e_519",
+      "id": "e_512",
       "from": "exam-trap-110-tcp-wrappers-precedence",
       "to": "sub-110-2",
       "label": "punto crítico de examen",
@@ -18961,7 +18675,7 @@
       "dashes": false
     },
     {
-      "id": "e_520",
+      "id": "e_513",
       "from": "exam-trap-110-ssh-private-key-permissions",
       "to": "cmd-ssh",
       "label": "punto crítico de examen",
@@ -18969,7 +18683,7 @@
       "dashes": false
     },
     {
-      "id": "e_521",
+      "id": "e_514",
       "from": "exam-trap-110-ssh-private-key-permissions",
       "to": "sub-110-3",
       "label": "punto crítico de examen",
@@ -18977,7 +18691,7 @@
       "dashes": false
     },
     {
-      "id": "e_522",
+      "id": "e_515",
       "from": "exam-trap-110-ssh-tunnel-local-vs-remote",
       "to": "cmd-ssh",
       "label": "punto crítico de examen",
@@ -18985,7 +18699,7 @@
       "dashes": false
     },
     {
-      "id": "e_523",
+      "id": "e_516",
       "from": "exam-trap-110-ssh-tunnel-local-vs-remote",
       "to": "sub-110-3",
       "label": "punto crítico de examen",
@@ -18993,7 +18707,7 @@
       "dashes": false
     },
     {
-      "id": "e_524",
+      "id": "e_517",
       "from": "exam-trap-110-gpg-encrypt-public-sign-private",
       "to": "cmd-gpg",
       "label": "punto crítico de examen",
@@ -19001,7 +18715,7 @@
       "dashes": false
     },
     {
-      "id": "e_525",
+      "id": "e_518",
       "from": "exam-trap-110-gpg-encrypt-public-sign-private",
       "to": "sub-110-3",
       "label": "punto crítico de examen",
@@ -19009,7 +18723,7 @@
       "dashes": false
     },
     {
-      "id": "e_526",
+      "id": "e_519",
       "from": "cmd-mount",
       "to": "file-etc-fstab",
       "label": "lee configuración de montajes permanentes de",
@@ -19017,7 +18731,7 @@
       "dashes": false
     },
     {
-      "id": "e_527",
+      "id": "e_520",
       "from": "cmd-mount",
       "to": "cmd-blkid",
       "label": "se apoya para resolver UUID y etiquetas en",
@@ -19025,7 +18739,7 @@
       "dashes": false
     },
     {
-      "id": "e_528",
+      "id": "e_521",
       "from": "cmd-mount",
       "to": "cmd-lsblk",
       "label": "inspecciona la topología de bloques con",
@@ -19033,7 +18747,7 @@
       "dashes": false
     },
     {
-      "id": "e_529",
+      "id": "e_522",
       "from": "cmd-umount",
       "to": "cmd-mount",
       "label": "desmonta sistemas de archivos previamente acoplados por",
@@ -19041,7 +18755,7 @@
       "dashes": false
     },
     {
-      "id": "e_530",
+      "id": "e_523",
       "from": "cmd-fsck",
       "to": "file-etc-fstab",
       "label": "determina el orden de verificación con el 6º campo de",
@@ -19049,7 +18763,7 @@
       "dashes": false
     },
     {
-      "id": "e_531",
+      "id": "e_524",
       "from": "cmd-tune2fs",
       "to": "cmd-mkfs",
       "label": "ajusta parámetros de sistemas ext2/3/4 creados por",
@@ -19057,7 +18771,7 @@
       "dashes": false
     },
     {
-      "id": "e_532",
+      "id": "e_525",
       "from": "cmd-dumpe2fs",
       "to": "cmd-mkfs",
       "label": "imprime información del superbloque generado por",
@@ -19065,7 +18779,7 @@
       "dashes": false
     },
     {
-      "id": "e_533",
+      "id": "e_526",
       "from": "cmd-systemctl",
       "to": "cmd-telinit",
       "label": "reemplazo moderno en Linux de",
@@ -19073,7 +18787,7 @@
       "dashes": false
     },
     {
-      "id": "e_534",
+      "id": "e_527",
       "from": "cmd-systemctl",
       "to": "cmd-journalctl",
       "label": "controla demonios cuyos registros audita",
@@ -19081,7 +18795,7 @@
       "dashes": false
     },
     {
-      "id": "e_535",
+      "id": "e_528",
       "from": "cmd-systemctl",
       "to": "file-etc-inittab",
       "label": "sustituye la configuración central de",
@@ -19089,7 +18803,7 @@
       "dashes": false
     },
     {
-      "id": "e_536",
+      "id": "e_529",
       "from": "cmd-systemctl",
       "to": "cmd-shutdown",
       "label": "gestiona apagado coordinado y ordenado mediante",
@@ -19097,7 +18811,7 @@
       "dashes": false
     },
     {
-      "id": "e_537",
+      "id": "e_530",
       "from": "cmd-dmesg",
       "to": "cmd-journalctl",
       "label": "muestra el buffer de arranque antes de que inicie",
@@ -19105,7 +18819,7 @@
       "dashes": false
     },
     {
-      "id": "e_538",
+      "id": "e_531",
       "from": "cmd-modprobe",
       "to": "cmd-lsmod",
       "label": "carga módulos cuyas dependencias y estado lista",
@@ -19113,7 +18827,7 @@
       "dashes": false
     },
     {
-      "id": "e_539",
+      "id": "e_532",
       "from": "cmd-modprobe",
       "to": "cmd-modinfo",
       "label": "resuelve parámetros inspeccionados previamente con",
@@ -19121,7 +18835,7 @@
       "dashes": false
     },
     {
-      "id": "e_540",
+      "id": "e_533",
       "from": "cmd-lspci",
       "to": "cmd-modprobe",
       "label": "identifica hardware PCI y drivers sugeridos para",
@@ -19129,7 +18843,7 @@
       "dashes": false
     },
     {
-      "id": "e_541",
+      "id": "e_534",
       "from": "cmd-lsusb",
       "to": "cmd-modprobe",
       "label": "inspecciona periféricos USB gestionados por",
@@ -19137,7 +18851,7 @@
       "dashes": false
     },
     {
-      "id": "e_542",
+      "id": "e_535",
       "from": "cmd-find",
       "to": "cmd-xargs",
       "label": "envía listas de archivos delimitados por '\\0' a",
@@ -19145,7 +18859,7 @@
       "dashes": false
     },
     {
-      "id": "e_543",
+      "id": "e_536",
       "from": "cmd-grep",
       "to": "cmd-sed",
       "label": "filtra líneas antes de la transformación de texto con",
@@ -19153,7 +18867,7 @@
       "dashes": false
     },
     {
-      "id": "e_544",
+      "id": "e_537",
       "from": "cmd-cat",
       "to": "cmd-grep",
       "label": "canaliza secuencias de texto hacia",
@@ -19161,7 +18875,7 @@
       "dashes": false
     },
     {
-      "id": "e_545",
+      "id": "e_538",
       "from": "cmd-cut",
       "to": "cmd-sort",
       "label": "extrae campos que luego se ordenan con",
@@ -19169,7 +18883,7 @@
       "dashes": false
     },
     {
-      "id": "e_546",
+      "id": "e_539",
       "from": "cmd-sort",
       "to": "cmd-uniq",
       "label": "requiere ordenar las líneas antes de eliminar duplicados con",
@@ -19177,7 +18891,7 @@
       "dashes": false
     },
     {
-      "id": "e_547",
+      "id": "e_540",
       "from": "cmd-tee",
       "to": "cmd-grep",
       "label": "duplica el flujo de la tubería hacia un fichero y hacia",
@@ -19185,7 +18899,7 @@
       "dashes": false
     },
     {
-      "id": "e_548",
+      "id": "e_541",
       "from": "cmd-nice",
       "to": "cmd-renice",
       "label": "asigna niceness inicial modificable posteriormente en vivo por",
@@ -19193,7 +18907,7 @@
       "dashes": false
     },
     {
-      "id": "e_549",
+      "id": "e_542",
       "from": "cmd-ps",
       "to": "cmd-kill",
       "label": "identifica el PID necesario para enviar señales con",
@@ -19201,7 +18915,7 @@
       "dashes": false
     },
     {
-      "id": "e_550",
+      "id": "e_543",
       "from": "cmd-pgrep",
       "to": "cmd-pkill",
       "label": "busca por nombre el proceso que luego termina",
@@ -19209,7 +18923,7 @@
       "dashes": false
     },
     {
-      "id": "e_551",
+      "id": "e_544",
       "from": "cmd-top",
       "to": "cmd-renice",
       "label": "monitoriza procesos interactivos permitiendo renice con 'r' en",
@@ -19217,7 +18931,7 @@
       "dashes": false
     },
     {
-      "id": "e_552",
+      "id": "e_545",
       "from": "cmd-pkill",
       "to": "cmd-pgrep",
       "label": "envía señales directamente por nombre sin requerir PID con",
@@ -19225,7 +18939,7 @@
       "dashes": false
     },
     {
-      "id": "e_553",
+      "id": "e_546",
       "from": "cmd-killall",
       "to": "cmd-kill",
       "label": "elimina todas las instancias concurrentes de un proceso frente al PID de",
@@ -19233,7 +18947,7 @@
       "dashes": false
     },
     {
-      "id": "e_554",
+      "id": "e_547",
       "from": "cmd-jobs",
       "to": "cmd-fg",
       "label": "enumera los trabajos en background recuperables en foreground con",
@@ -19241,7 +18955,7 @@
       "dashes": false
     },
     {
-      "id": "e_555",
+      "id": "e_548",
       "from": "cmd-jobs",
       "to": "cmd-bg",
       "label": "lista trabajos suspendidos reanudables en background con",
@@ -19249,7 +18963,7 @@
       "dashes": false
     },
     {
-      "id": "e_556",
+      "id": "e_549",
       "from": "cmd-nohup",
       "to": "cmd-kill",
       "label": "inmuniza procesos frente a la señal SIGHUP gestionada por",
@@ -19257,7 +18971,7 @@
       "dashes": false
     },
     {
-      "id": "e_557",
+      "id": "e_550",
       "from": "cmd-uptime",
       "to": "cmd-top",
       "label": "muestra carga media (load average a 1, 5 y 15 min) desglosada en",
@@ -19265,7 +18979,7 @@
       "dashes": false
     },
     {
-      "id": "e_558",
+      "id": "e_551",
       "from": "cmd-free",
       "to": "cmd-top",
       "label": "inspecciona memoria RAM y Swap consumida por los procesos mostrados en",
@@ -19273,7 +18987,7 @@
       "dashes": false
     },
     {
-      "id": "e_559",
+      "id": "e_552",
       "from": "cmd-apt-get",
       "to": "cmd-dpkg",
       "label": "frontend de alto nivel que gestiona e instala paquetes deb con",
@@ -19281,7 +18995,7 @@
       "dashes": false
     },
     {
-      "id": "e_560",
+      "id": "e_553",
       "from": "cmd-apt-cache",
       "to": "cmd-apt-get",
       "label": "consulta el repositorio y dependencias antes de instalar con",
@@ -19289,7 +19003,7 @@
       "dashes": false
     },
     {
-      "id": "e_561",
+      "id": "e_554",
       "from": "cmd-apt-file",
       "to": "cmd-dpkg",
       "label": "busca a qué paquete pertenece un fichero sin instalarlo frente a dpkg -S de",
@@ -19297,7 +19011,7 @@
       "dashes": false
     },
     {
-      "id": "e_562",
+      "id": "e_555",
       "from": "cmd-yum",
       "to": "cmd-rpm",
       "label": "frontend de alto nivel en RHEL/CentOS que gestiona paquetes RPM con",
@@ -19305,7 +19019,7 @@
       "dashes": false
     },
     {
-      "id": "e_563",
+      "id": "e_556",
       "from": "cmd-zypper",
       "to": "cmd-rpm",
       "label": "gestor de paquetes de alto nivel en openSUSE que invoca internamente",
@@ -19313,7 +19027,7 @@
       "dashes": false
     },
     {
-      "id": "e_564",
+      "id": "e_557",
       "from": "cmd-rpm2cpio",
       "to": "cmd-cpio",
       "label": "convierte paquetes RPM a flujo comprimido para extraer ficheros con",
@@ -19321,7 +19035,7 @@
       "dashes": false
     },
     {
-      "id": "e_565",
+      "id": "e_558",
       "from": "cmd-gdisk",
       "to": "cmd-fdisk",
       "label": "equivalente GPT para tablas modernas frente al clásico MBR de",
@@ -19329,7 +19043,7 @@
       "dashes": false
     },
     {
-      "id": "e_566",
+      "id": "e_559",
       "from": "cmd-parted",
       "to": "cmd-fdisk",
       "label": "herramienta no interactiva y de scripting frente a",
@@ -19337,7 +19051,7 @@
       "dashes": false
     },
     {
-      "id": "e_567",
+      "id": "e_560",
       "from": "cmd-mke2fs",
       "to": "cmd-mkfs",
       "label": "herramienta especializada subyacente para ext2/ext3/ext4 de",
@@ -19345,7 +19059,7 @@
       "dashes": false
     },
     {
-      "id": "e_568",
+      "id": "e_561",
       "from": "cmd-mkfs.xfs",
       "to": "cmd-mkfs",
       "label": "crea sistemas de archivos de alto rendimiento XFS mediante",
@@ -19353,7 +19067,7 @@
       "dashes": false
     },
     {
-      "id": "e_569",
+      "id": "e_562",
       "from": "cmd-xfs_repair",
       "to": "cmd-mkfs.xfs",
       "label": "repara sistemas XFS no desmontados correctamente creados con",
@@ -19361,7 +19075,7 @@
       "dashes": false
     },
     {
-      "id": "e_570",
+      "id": "e_563",
       "from": "cmd-xfs_info",
       "to": "cmd-xfs_admin",
       "label": "muestra la geometría de bloques y agcount gestionados con",
@@ -19369,7 +19083,7 @@
       "dashes": false
     },
     {
-      "id": "e_571",
+      "id": "e_564",
       "from": "cmd-swapon",
       "to": "cmd-mkswap",
       "label": "activa para la memoria virtual particiones o archivos formateados con",
@@ -19377,7 +19091,7 @@
       "dashes": false
     },
     {
-      "id": "e_572",
+      "id": "e_565",
       "from": "cmd-swapoff",
       "to": "cmd-swapon",
       "label": "desactiva el uso de espacio de intercambio habilitado por",
@@ -19385,7 +19099,7 @@
       "dashes": false
     },
     {
-      "id": "e_573",
+      "id": "e_566",
       "from": "cmd-chown",
       "to": "cmd-chmod",
       "label": "modifica usuario/grupo propietario mientras los bits rwx los define",
@@ -19393,7 +19107,7 @@
       "dashes": false
     },
     {
-      "id": "e_574",
+      "id": "e_567",
       "from": "cmd-chgrp",
       "to": "cmd-chown",
       "label": "modifica específicamente el grupo propietario en sintonía con",
@@ -19401,7 +19115,7 @@
       "dashes": false
     },
     {
-      "id": "e_575",
+      "id": "e_568",
       "from": "cmd-unlink",
       "to": "cmd-ln",
       "label": "elimina enlaces duros o simbólicos creados previamente por",
@@ -19409,7 +19123,7 @@
       "dashes": false
     },
     {
-      "id": "e_576",
+      "id": "e_569",
       "from": "cmd-readlink",
       "to": "cmd-ln",
       "label": "resuelve y muestra el destino real de un symlink creado con",
@@ -19417,7 +19131,7 @@
       "dashes": false
     },
     {
-      "id": "e_577",
+      "id": "e_570",
       "from": "cmd-find",
       "to": "cmd-ln",
       "label": "rastrea archivos con el mismo inodo (-inum/-samefile) vinculados por",
@@ -19425,7 +19139,7 @@
       "dashes": false
     },
     {
-      "id": "e_578",
+      "id": "e_571",
       "from": "cmd-locate",
       "to": "cmd-find",
       "label": "búsqueda indexada por base de datos mlocate frente a la búsqueda en vivo en disco de",
@@ -19433,7 +19147,7 @@
       "dashes": false
     },
     {
-      "id": "e_579",
+      "id": "e_572",
       "from": "cmd-whereis",
       "to": "cmd-which",
       "label": "localiza binarios, manuales y fuentes mientras el path ejecutable lo da",
@@ -19441,7 +19155,7 @@
       "dashes": false
     },
     {
-      "id": "e_580",
+      "id": "e_573",
       "from": "cmd-type",
       "to": "cmd-which",
       "label": "distingue si una orden es builtin interna de shell, alias o binario de",
@@ -19449,7 +19163,7 @@
       "dashes": false
     },
     {
-      "id": "e_581",
+      "id": "e_574",
       "from": "cmd-tac",
       "to": "cmd-cat",
       "label": "concatena e imprime líneas en orden inverso frente a",
@@ -19457,7 +19171,7 @@
       "dashes": false
     },
     {
-      "id": "e_582",
+      "id": "e_575",
       "from": "cmd-head",
       "to": "cmd-tail",
       "label": "muestra las primeras líneas mientras las últimas las vigila en tiempo real",
@@ -19465,7 +19179,7 @@
       "dashes": false
     },
     {
-      "id": "e_583",
+      "id": "e_576",
       "from": "cmd-nl",
       "to": "cmd-cat",
       "label": "numera líneas de ficheros sustituyendo a cat -n",
@@ -19473,7 +19187,7 @@
       "dashes": false
     },
     {
-      "id": "e_584",
+      "id": "e_577",
       "from": "cmd-cut",
       "to": "cmd-paste",
       "label": "separa campos verticalmente que luego pueden combinarse en horizontal con",
@@ -19481,7 +19195,7 @@
       "dashes": false
     },
     {
-      "id": "e_585",
+      "id": "e_578",
       "from": "cmd-split",
       "to": "cmd-cat",
       "label": "divide archivos voluminosos en trozos reconstruibles posteriormente con",
@@ -19489,7 +19203,7 @@
       "dashes": false
     },
     {
-      "id": "e_586",
+      "id": "e_579",
       "from": "cmd-md5sum",
       "to": "cmd-sha256sum",
       "label": "algoritmo hash de 128 bits frente a la verificación robusta de 256 bits de",
@@ -19497,7 +19211,7 @@
       "dashes": false
     },
     {
-      "id": "e_587",
+      "id": "e_580",
       "from": "cmd-sha256sum",
       "to": "cmd-sha512sum",
       "label": "comprueba integridad criptográfica frente a la variante extendida de",
@@ -19505,7 +19219,7 @@
       "dashes": false
     },
     {
-      "id": "e_588",
+      "id": "e_581",
       "from": "cmd-tr",
       "to": "cmd-sed",
       "label": "sustituye y traduce caracteres de flujos antes de transformaciones complejas con",
@@ -19513,7 +19227,7 @@
       "dashes": false
     },
     {
-      "id": "e_589",
+      "id": "e_582",
       "from": "cmd-wc",
       "to": "cmd-sort",
       "label": "cuenta líneas y palabras tras ordenar o agrupar flujos con",
@@ -19521,7 +19235,7 @@
       "dashes": false
     },
     {
-      "id": "e_590",
+      "id": "e_583",
       "from": "cmd-egrep",
       "to": "cmd-grep",
       "label": "habilita expresiones regulares extendidas (ERE) sin requerir escapar con",
@@ -19529,7 +19243,7 @@
       "dashes": false
     },
     {
-      "id": "e_591",
+      "id": "e_584",
       "from": "cmd-fgrep",
       "to": "cmd-grep",
       "label": "modo ultra-rápido de cadenas fijas sin interpretar metacaracteres de",
@@ -19537,7 +19251,7 @@
       "dashes": false
     },
     {
-      "id": "e_592",
+      "id": "e_585",
       "from": "cmd-tar",
       "to": "cmd-cpio",
       "label": "empaquetador estándar de archivos frente al formato secuencial de",
@@ -19545,7 +19259,7 @@
       "dashes": false
     },
     {
-      "id": "e_593",
+      "id": "e_586",
       "from": "cmd-tar",
       "to": "cmd-dd",
       "label": "genera archivos de respaldo empaquetados frente a la copia binaria por bloques de",
@@ -19553,7 +19267,7 @@
       "dashes": false
     },
     {
-      "id": "e_594",
+      "id": "e_587",
       "from": "cmd-lsmod",
       "to": "cmd-modinfo",
       "label": "lista módulos cargados en el kernel cuyos parámetros inspecciona",
@@ -19561,7 +19275,7 @@
       "dashes": false
     },
     {
-      "id": "e_595",
+      "id": "e_588",
       "from": "cmd-lscpu",
       "to": "cmd-lspci",
       "label": "muestra arquitectura del procesador mientras los buses periféricos los lista",
@@ -19569,7 +19283,7 @@
       "dashes": false
     },
     {
-      "id": "e_596",
+      "id": "e_589",
       "from": "cmd-telinit",
       "to": "cmd-runlevel",
       "label": "cambia el nivel de ejecución comprobable mediante",
@@ -19577,7 +19291,7 @@
       "dashes": false
     },
     {
-      "id": "e_597",
+      "id": "e_590",
       "from": "cmd-shutdown",
       "to": "cmd-wall",
       "label": "programa el apagado emitiendo avisos a todos los usuarios con",
@@ -19585,7 +19299,7 @@
       "dashes": false
     },
     {
-      "id": "e_598",
+      "id": "e_591",
       "from": "cmd-ip",
       "to": "cmd-ifconfig",
       "label": "es la alternativa moderna oficial a",
@@ -19593,7 +19307,7 @@
       "dashes": false
     },
     {
-      "id": "e_599",
+      "id": "e_592",
       "from": "cmd-ip",
       "to": "cmd-route",
       "label": "reemplaza la inspección de tablas de rutas de",
@@ -19601,7 +19315,7 @@
       "dashes": false
     },
     {
-      "id": "e_600",
+      "id": "e_593",
       "from": "cmd-ss",
       "to": "cmd-netstat",
       "label": "es la alternativa moderna veloz a",
@@ -19609,7 +19323,7 @@
       "dashes": false
     },
     {
-      "id": "e_601",
+      "id": "e_594",
       "from": "cmd-ping",
       "to": "cmd-traceroute",
       "label": "diagnostica enlace básico mientras rastrea saltos",
@@ -19617,7 +19331,7 @@
       "dashes": false
     },
     {
-      "id": "e_602",
+      "id": "e_595",
       "from": "cmd-nmcli",
       "to": "cmd-nmtui",
       "label": "versión CLI de la interfaz en curses",
@@ -19625,7 +19339,7 @@
       "dashes": false
     },
     {
-      "id": "e_603",
+      "id": "e_596",
       "from": "cmd-dig",
       "to": "cmd-nslookup",
       "label": "es la herramienta moderna recomendada frente a",
@@ -19633,7 +19347,7 @@
       "dashes": false
     },
     {
-      "id": "e_604",
+      "id": "e_597",
       "from": "cmd-dig",
       "to": "file-etc-resolv-conf",
       "label": "utiliza los servidores nameserver definidos en",
@@ -19641,7 +19355,7 @@
       "dashes": false
     },
     {
-      "id": "e_605",
+      "id": "e_598",
       "from": "file-etc-nsswitch-conf",
       "to": "file-etc-hosts",
       "label": "establece prioridad de consulta de",
@@ -19649,7 +19363,7 @@
       "dashes": false
     },
     {
-      "id": "e_606",
+      "id": "e_599",
       "from": "file-etc-nsswitch-conf",
       "to": "file-etc-resolv-conf",
       "label": "establece orden antes de consultar el DNS de",
@@ -19657,7 +19371,7 @@
       "dashes": false
     },
     {
-      "id": "e_607",
+      "id": "e_600",
       "from": "cmd-useradd",
       "to": "file-etc-passwd",
       "label": "escribe la entrada principal de la cuenta en",
@@ -19665,7 +19379,7 @@
       "dashes": false
     },
     {
-      "id": "e_608",
+      "id": "e_601",
       "from": "cmd-useradd",
       "to": "file-etc-shadow",
       "label": "escribe el hash seguro de contraseña en",
@@ -19673,7 +19387,7 @@
       "dashes": false
     },
     {
-      "id": "e_609",
+      "id": "e_602",
       "from": "cmd-useradd",
       "to": "file-etc-skel",
       "label": "copia archivos plantilla al nuevo home desde",
@@ -19681,7 +19395,7 @@
       "dashes": false
     },
     {
-      "id": "e_610",
+      "id": "e_603",
       "from": "cmd-usermod",
       "to": "cmd-chage",
       "label": "modifica atributos de usuario complementando las políticas de",
@@ -19689,7 +19403,7 @@
       "dashes": false
     },
     {
-      "id": "e_611",
+      "id": "e_604",
       "from": "cmd-passwd",
       "to": "cmd-chage",
       "label": "cambia la contraseña mientras que las políticas de caducidad las fija",
@@ -19697,7 +19411,7 @@
       "dashes": false
     },
     {
-      "id": "e_612",
+      "id": "e_605",
       "from": "cmd-sudo",
       "to": "cmd-visudo",
       "label": "aplica las directivas autorizadas y validadas por",
@@ -19705,7 +19419,7 @@
       "dashes": false
     },
     {
-      "id": "e_613",
+      "id": "e_606",
       "from": "cmd-sudo",
       "to": "file-etc-sudoers",
       "label": "consulta permisos y privilegios asignados en",
@@ -19713,7 +19427,7 @@
       "dashes": false
     },
     {
-      "id": "e_614",
+      "id": "e_607",
       "from": "cmd-ssh",
       "to": "cmd-sshd",
       "label": "cliente que conecta al demonio seguro",
@@ -19721,7 +19435,7 @@
       "dashes": false
     },
     {
-      "id": "e_615",
+      "id": "e_608",
       "from": "cmd-ssh-copy-id",
       "to": "cmd-ssh-keygen",
       "label": "instala en el servidor la clave pública creada por",
@@ -19729,7 +19443,7 @@
       "dashes": false
     },
     {
-      "id": "e_616",
+      "id": "e_609",
       "from": "cmd-ssh",
       "to": "file-etc-ssh-sshd-config",
       "label": "conecta respetando las directivas del servidor en",
@@ -19737,7 +19451,7 @@
       "dashes": false
     },
     {
-      "id": "e_617",
+      "id": "e_610",
       "from": "cmd-crontab",
       "to": "file-etc-crontab",
       "label": "gestiona tareas de usuario independientes del cron global de",
@@ -19745,7 +19459,7 @@
       "dashes": false
     },
     {
-      "id": "e_618",
+      "id": "e_611",
       "from": "cmd-at",
       "to": "cmd-atq",
       "label": "programa tareas únicas cuya cola se revisa con",
@@ -19753,7 +19467,7 @@
       "dashes": false
     },
     {
-      "id": "e_619",
+      "id": "e_612",
       "from": "cmd-at",
       "to": "cmd-atrm",
       "label": "programa tareas únicas cancelables con",
@@ -19761,7 +19475,7 @@
       "dashes": false
     },
     {
-      "id": "e_620",
+      "id": "e_613",
       "from": "cmd-chronyc",
       "to": "cmd-hwclock",
       "label": "sincroniza el reloj del sistema que luego se vuelca al RTC con",
@@ -19769,7 +19483,7 @@
       "dashes": false
     },
     {
-      "id": "e_621",
+      "id": "e_614",
       "from": "cmd-logger",
       "to": "file-etc-rsyslog-conf",
       "label": "inyecta eventos manuales clasificados por",
@@ -19777,7 +19491,7 @@
       "dashes": false
     },
     {
-      "id": "e_622",
+      "id": "e_615",
       "from": "cmd-logrotate",
       "to": "file-etc-rsyslog-conf",
       "label": "previene que crezcan indefinidamente los logs producidos por",
@@ -19785,7 +19499,7 @@
       "dashes": false
     },
     {
-      "id": "e_623",
+      "id": "e_616",
       "from": "cmd-xhost",
       "to": "cmd-xauth",
       "label": "control de acceso por host frente a la autenticación criptográfica con cookies de",
@@ -19793,7 +19507,7 @@
       "dashes": false
     },
     {
-      "id": "e_624",
+      "id": "e_617",
       "from": "cmd-xdpyinfo",
       "to": "cmd-xhost",
       "label": "inspecciona la pantalla y extensiones del servidor X autorizado mediante",
@@ -19801,7 +19515,7 @@
       "dashes": false
     },
     {
-      "id": "e_625",
+      "id": "e_618",
       "from": "cmd-useradd",
       "to": "file-etc-passwd",
       "label": "crea la cuenta y escribe los 7 campos en",
@@ -19809,7 +19523,7 @@
       "dashes": false
     },
     {
-      "id": "e_626",
+      "id": "e_619",
       "from": "cmd-useradd",
       "to": "file-etc-shadow",
       "label": "genera la entrada de contraseña y envejecimiento en",
@@ -19817,7 +19531,7 @@
       "dashes": false
     },
     {
-      "id": "e_627",
+      "id": "e_620",
       "from": "cmd-chage",
       "to": "file-etc-shadow",
       "label": "inspecciona y modifica políticas de caducidad en",
@@ -19825,7 +19539,7 @@
       "dashes": false
     },
     {
-      "id": "e_628",
+      "id": "e_621",
       "from": "cmd-passwd",
       "to": "cmd-chage",
       "label": "gestiona contraseñas equivaliendo a opciones de envejecimiento de",
@@ -19833,7 +19547,7 @@
       "dashes": false
     },
     {
-      "id": "e_629",
+      "id": "e_622",
       "from": "cmd-usermod",
       "to": "cmd-useradd",
       "label": "modifica atributos y pertenencias a grupos creados por",
@@ -19841,7 +19555,7 @@
       "dashes": false
     },
     {
-      "id": "e_630",
+      "id": "e_623",
       "from": "cmd-crontab",
       "to": "file-etc-crontab",
       "label": "gestiona tablas personales de usuario frente al crontab de sistema",
@@ -19849,7 +19563,7 @@
       "dashes": false
     },
     {
-      "id": "e_631",
+      "id": "e_624",
       "from": "cmd-at",
       "to": "cmd-atq",
       "label": "programa tareas únicas encoladas y supervisadas con",
@@ -19857,7 +19571,7 @@
       "dashes": false
     },
     {
-      "id": "e_632",
+      "id": "e_625",
       "from": "cmd-at",
       "to": "cmd-atrm",
       "label": "programa tareas únicas canceladas con",
@@ -19865,7 +19579,7 @@
       "dashes": false
     },
     {
-      "id": "e_633",
+      "id": "e_626",
       "from": "cmd-timedatectl",
       "to": "file-etc-localtime",
       "label": "actualiza el enlace simbólico permanente de zona horaria en",
@@ -19873,7 +19587,7 @@
       "dashes": false
     },
     {
-      "id": "e_634",
+      "id": "e_627",
       "from": "cmd-iconv",
       "to": "cmd-locale",
       "label": "transforma archivos entre conjuntos de caracteres auditados con",
