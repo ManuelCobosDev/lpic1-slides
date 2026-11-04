@@ -287,14 +287,15 @@
     [data-theme="dark"] .summary-global-box .sg-icon { background: #78350F !important; color: #FDE047 !important; }
 
     .exercise-sol-code {
-      font-size: 19px;
+      font-size: 23px;
       background: #FFFFFF;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 8px;
       border: 1px solid #86EFAC;
       color: #166534;
       font-family: monospace;
       font-weight: 700;
+      line-height: 1.48;
     }
     .summary-cmd-card {
       background: #FFFFFF;
@@ -313,8 +314,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-practice-box .sp-title { font-size: 20px; font-weight: 800; color: #166534; }
-    .summary-practice-box .sp-desc { font-size: 16px; color: #374151; }
+    .summary-practice-box .sp-title { font-size: 25px; font-weight: 800; color: #166534; }
+    .summary-practice-box .sp-desc { font-size: 21px; color: #374151; line-height: 1.45; }
     .summary-practice-box .sp-icon { width: 48px; height: 48px; border-radius: 12px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; flex: none; }
     .summary-global-box {
       margin-top: 12px;
@@ -327,8 +328,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-global-box .sg-title { font-size: 20px; font-weight: 800; color: #92400E; }
-    .summary-global-box .sg-desc { font-size: 16px; color: #78350F; }
+    .summary-global-box .sg-title { font-size: 25px; font-weight: 800; color: #92400E; }
+    .summary-global-box .sg-desc { font-size: 21px; color: #78350F; line-height: 1.45; }
     .summary-global-box .sg-icon { width: 48px; height: 48px; border-radius: 12px; background: #FEF3C7; color: #92400E; display: flex; align-items: center; justify-content: center; flex: none; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -540,32 +541,33 @@
     /* Área de contenido del slide (1680 x 870 aprox) */
     .slide-body {
       flex: 1;
-      padding: 30px 64px;
+      padding: 28px 52px 48px 52px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       position: relative;
       overflow-y: auto;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    .slide-body::-webkit-scrollbar { width: 8px; }
+    .slide-body::-webkit-scrollbar { width: 12px; }
     .slide-body::-webkit-scrollbar-track { background: transparent; }
-    .slide-body::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-    .slide-body::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+    .slide-body::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 6px; }
+    .slide-body::-webkit-scrollbar-thumb:hover { background: #64748B; }
 
     .slide-title {
-      font-size: 46px;
+      font-size: 48px;
       font-weight: 800;
       line-height: 1.15;
       color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
     }
     .slide-lead {
-      font-size: 26px;
-      line-height: 1.35;
+      font-size: 29px;
+      line-height: 1.38;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 500;
     }
 
@@ -598,21 +600,22 @@
       justify-content: center;
       flex: none;
     }
-    .concept-card .card-text { font-size: 24px; line-height: 1.35; font-weight: 600; color: var(--text); }
-    .concept-card .card-detail { font-size: 19px; color: var(--text-muted); margin-top: 4px; font-weight: 400; line-height: 1.35; }
+    .concept-card .card-text { font-size: 27px; line-height: 1.35; font-weight: 700; color: var(--text); }
+    .concept-card .card-detail { font-size: 23px; color: var(--text-muted); margin-top: 6px; font-weight: 400; line-height: 1.42; }
 
     /* Cajas Recuerda / Trampa / Callouts */
     .callout-box {
       margin-top: 10px;
-      padding: 10px 18px;
+      padding: 14px 22px;
       border-radius: 12px;
-      display: inline-flex;
+      display: flex;
+      width: 100%;
       align-items: center;
       gap: 14px;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
       border: 2px solid transparent;
-      line-height: 1.35;
+      line-height: 1.4;
     }
     .callout-warning {
       background: var(--warning-soft);
@@ -633,18 +636,18 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 24px !important;
-      height: 24px !important;
-      min-width: 24px !important;
-      max-width: 24px !important;
-      min-height: 24px !important;
-      max-height: 24px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      max-width: 30px !important;
+      min-height: 30px !important;
+      max-height: 30px !important;
       border-radius: 50% !important;
       background: #2563EB;
       color: #FFFFFF !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
       font-weight: 800 !important;
-      font-size: 13px !important;
+      font-size: 17px !important;
       line-height: 1 !important;
       vertical-align: middle !important;
       text-align: center !important;
@@ -678,7 +681,7 @@
       border-bottom: 1px solid #E2E8F0;
     }
     .slide-glossary-box .gl-tag {
-      font-size: 12px;
+      font-size: 19px;
       font-weight: 800;
       color: #2563EB;
       text-transform: uppercase;
@@ -689,7 +692,7 @@
     }
     .slide-glossary-box .gl-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 10px;
       align-items: stretch;
     }
@@ -712,11 +715,11 @@
     }
     .slide-glossary-box .gl-badge {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 12.5px;
+      font-size: 21px;
       font-weight: 700;
       color: #1D4ED8;
       background: #EFF6FF;
-      padding: 2px 8px;
+      padding: 4px 10px;
       border-radius: 5px;
       border: 1px solid #BFDBFE;
       display: inline-block;
@@ -725,13 +728,13 @@
     }
     .slide-glossary-box .gl-def {
       color: #334155;
-      font-size: 13.5px;
+      font-size: 21px;
       line-height: 1.45;
       flex: 1;
     }
     .slide-glossary-box .gl-def code {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
+      font-size: 20px;
       background: #F1F5F9;
       padding: 1px 4px;
       border-radius: 4px;
@@ -749,14 +752,14 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px 12px;
-      font-size: 13.5px;
+      font-size: 21px;
       color: var(--text-muted);
       line-height: 1.35;
     }
     .slide-glossary-strip .gl-title {
       font-weight: 800;
       color: var(--primary);
-      font-size: 12px;
+      font-size: 19px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       display: inline-flex;
@@ -775,7 +778,7 @@
     .slide-glossary-strip .gl-term {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-weight: 700;
-      font-size: 12.5px;
+      font-size: 21px;
       color: #1D4ED8;
     }
 
@@ -885,7 +888,7 @@
       align-items: center;
       justify-content: space-between;
       color: #475569;
-      font-size: 18px;
+      font-size: 21px;
       font-weight: 700;
     }
     .term-copy-btn, .terminal-copy-btn {
@@ -897,7 +900,7 @@
       border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -912,14 +915,14 @@
       transform: scale(0.96);
     }
     .term-code {
-      padding: 14px 20px;
+      padding: 18px 24px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: clamp(16px, 1.2vw, 22px);
-      line-height: 1.38;
+      font-size: 23px;
+      line-height: 1.48;
       color: #0F172A;
       white-space: pre-wrap;
       user-select: text;
-      max-height: 340px;
+      max-height: none;
       overflow-y: auto;
     }
     .term-code::-webkit-scrollbar { width: 6px; }
@@ -957,7 +960,7 @@
       flex-shrink: 0;
     }
     .terminal-title {
-      font-size: 14px;
+      font-size: 19px;
       font-weight: 700;
       color: #94A3B8;
       font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
@@ -978,13 +981,13 @@
       color: #38BDF8;
     }
     .terminal-body {
-      padding: 16px 20px;
+      padding: 18px 24px;
       margin: 0;
       background: #0F172A;
       color: #E2E8F0;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
-      font-size: 15.5px;
-      line-height: 1.55;
+      font-size: 22px;
+      line-height: 1.5;
       overflow-x: auto;
       white-space: pre-wrap;
     }
@@ -1016,14 +1019,14 @@
       margin-right: 22px;
     }
     .mini-term-title {
-      font-size: 12px;
+      font-size: 18px;
       color: #94A3B8;
       font-weight: 700;
     }
     .mini-term-body {
-      padding: 10px 14px;
-      font-size: 14.5px;
-      line-height: 1.55;
+      padding: 14px 18px;
+      font-size: 21px;
+      line-height: 1.5;
       color: #E2E8F0;
       background: #0F172A;
     }
@@ -1072,7 +1075,7 @@
       border-radius: 8px;
       border: 1.5px solid var(--border);
       background: var(--surface-alt);
-      font-size: 18px;
+      font-size: 22px;
       color: var(--text);
       cursor: pointer;
       transition: all 0.15s ease;
@@ -1100,30 +1103,31 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
+      padding: 8px 18px;
       background: #FFFFFF;
       border: 2px solid var(--control-border);
       border-radius: 10px;
-      font-size: 19px;
+      font-size: 23px;
       font-weight: 600;
       color: var(--text);
       cursor: pointer;
       transition: transform 0.1s, border-color 0.15s;
     }
-    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 21px; font-weight: 700; }
+    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 25px; font-weight: 700; }
 
     /* Sintaxis y Directivas */
     .syntax-bar {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 16px;
+      padding: 12px 20px;
       background: var(--surface-alt);
       border: 2px solid var(--border-strong);
       border-radius: 10px;
       margin-bottom: 10px;
-      font-size: 21px;
+      font-size: 24px;
     }
+    .syntax-bar code.t-cmd { font-size: 26px; }
     .directives-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1139,15 +1143,16 @@
     }
     .directive-key {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 700;
       color: #1D4ED8;
       margin-bottom: 4px;
+      line-height: 1.42;
     }
     .directive-desc {
-      font-size: 19px;
+      font-size: 23px;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.42;
     }
 
     /* Tablas (≤5x4) */
@@ -1163,22 +1168,24 @@
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(15px, 1.05vw, 18.5px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(15.5px, 1.1vw, 19.5px);
+      font-size: 24px;
+      line-height: 1.42;
     }
     table.slide-table td {
-      padding: 9px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
+      font-size: 23px;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: var(--warning-soft); }
@@ -1199,24 +1206,26 @@
     table.slide-matrix {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(16px, 1.15vw, 20px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-matrix th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 12px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(17px, 1.2vw, 21px);
+      font-size: 24px;
+      line-height: 1.42;
       letter-spacing: -0.01em;
     }
     table.slide-matrix td {
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
       vertical-align: middle;
+      font-size: 23px;
     }
     table.slide-matrix tr:last-child td { border-bottom: none; }
     table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
@@ -1231,7 +1240,7 @@
       border: 2px solid var(--border-strong);
       border-radius: 14px;
       background: #FFFFFF;
-      font-size: 26px;
+      font-size: 27px;
       font-weight: 600;
       color: var(--text);
       text-align: left;
@@ -1248,7 +1257,7 @@
       margin-top: 20px;
       padding: 18px 24px;
       border-radius: 14px;
-      font-size: 24px;
+      font-size: 25px;
       line-height: 1.4;
       display: none;
     }
@@ -1346,7 +1355,7 @@
       font-weight: 700;
     }
     .panel-body { padding: 24px; font-size: 20px; line-height: 1.5; color: var(--text); }
-    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 18px; }
+    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 20px; }
 
     /* Modales y Popovers */
     .modal-overlay {
@@ -1737,7 +1746,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "103.8", "cat": "editor", "type": "cover", "title": "Edición básica de archivos (vi/vim)", "subtitle": "Modos de vi, navegación h/j/k/l, inserción, borrado, yank/put, modo Ex (:), sustitución y recuperación (Modo Examen)", "ref": "387-388", "pdf": {"manual": "A", "pages": [387, 388], "figure": null}, "coverage": ["103.8-OBJ-001", "103.8-OBJ-002"], "meta": {"peso": 3, "paginas": "387–410", "duracion": "30 min"}, "icon": "edit-3", "notes": "Finalizamos el Tema 103 con el subtema 103.8 (peso 3). El editor vi (y su versión mejorada vim) es el editor estándar indiscutible de los sistemas Unix/Linux. Está presente en todas las instalaciones mínimas, contenedores y entornos de rescate. Dominaremos sus 4 modos de trabajo, navegación eficiente, atajos de edición y comandos de guardado."}, {"id": 2, "section": "103.8", "cat": "editor", "type": "concept", "title": "El Editor Estándar de Unix: Por qué vi es Obligatorio", "lead": "¿Por qué la certificación LPIC-1 exige dominar vi en lugar de editores más sencillos como nano?", "ref": "388-390", "pdf": {"manual": "A", "pages": [388, 389, 390], "figure": null}, "coverage": ["103.8-CON-001"], "points": [{"icon": "shield-alert", "text": "1. Rescate en Modo de Emergencia (Single-User / Initramfs)", "detail": "🎯 Cuando un servidor no arranca por un fallo crítico (ej. error en /etc/fstab) y caes en una consola de emergencia, nano NO existe ni está instalado. El único editor presente y compilado en /bin es vi. Si no sabes vi, no puedes reparar el servidor."}, {"icon": "award", "text": "2. El Único Editor Obligatorio por el Estándar POSIX", "detail": "🎯 El estándar universal POSIX (IEEE 1003.1) estipula que todo sistema Unix/Linux DEBE incluir vi. Está presente en el 100% de las distribuciones del mundo (Debian, Red Hat, SUSE, Arch, Alpine, Docker containers mínimos, BSD y Solaris)."}, {"icon": "zap", "text": "3. Conexiones Mínimas sin Ratón ni Teclas de Función", "detail": "Diseñado para operar sobre conexiones SSH inestables, consolas serie y terminales remotas. No depende del ratón ni de teclas especiales (F1..F12); todo se controla desde las teclas alfanuméricas centrales (h, j, k, l)."}, {"icon": "settings", "text": "4. Invocación Nativa por Herramientas Críticas", "detail": "Herramientas esenciales del sistema como 'visudo' (editar sudoers de forma segura), 'crontab -e', 'edquota' o 'git commit' invocan automáticamente vi por defecto si no se configura otra variable."}], "remember": "🎯 Regla de Oro: nano es cómodo para usuarios noveles, pero vi es la herramienta universal de supervivencia del administrador de sistemas. Si el servidor se rompe, vi es el único editor que siempre estará disponible.", "notes": "Insiste a los alumnos: en un examen de certificación y en un servidor de producción caído, nano no te salvará la vida; vi sí.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:14px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚖️ nano frente a vi: ¿Por qué la Certificación LPIC-1 Exige vi?</span>\n    <span style=\"font-size:11px; background:#FEF3C7; color:#92400E; padding:2px 8px; border-radius:12px; font-weight:700;\">Diferencia Clave de Aula</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px; font-size:12px;\">\n    <!-- nano -->\n    <div style=\"background:#FEF2F2; border:1.5px solid #FCA5A5; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#991B1B; font-size:13px;\">Editor nano (No exigido en LPIC-1)</strong>\n        <span style=\"background:#DC2626; color:#FFF; font-size:9.5px; font-weight:700; padding:1px 5px; border-radius:3px;\">Opcional</span>\n      </div>\n      <div style=\"color:#7F1D1D; line-height:1.4;\">\n        • Intuitivo para principiantes (muestra atajos abajo).<br>\n        • <strong>DESVENTAJA CRÍTICA:</strong> Paquete adicional. <strong>NO viene instalado</strong> en entornos mínimos de producción, imágenes Docker base ni consolas de rescate <em>initramfs</em>.<br>\n        • Si el servidor falla, nano no estará disponible.\n      </div>\n    </div>\n\n    <!-- vi -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #86EFAC; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#15803D; font-size:13px;\">Editor vi / vim (Obligatorio en LPIC-1)</strong>\n        <span style=\"background:#16A34A; color:#FFF; font-size:9.5px; font-weight:700; padding:1px 5px; border-radius:3px;\">100% Universal</span>\n      </div>\n      <div style=\"color:#14532D; line-height:1.4;\">\n        • <strong>ESTÁNDAR POSIX:</strong> Garantizado en el 100% de los Unix/Linux.<br>\n        • <strong>DISPONIBLE SIEMPRE:</strong> Presente en modo de rescate, consolas de recuperación de emergencia y servidores minimalistas.<br>\n        • <strong>NATIVO:</strong> Invocado por <code>visudo</code> y <code>crontab -e</code> de serie.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 3, "section": "103.8", "cat": "editor", "type": "diagram", "title": "La Máquina de Estados de vi: Modos y Transiciones", "lead": "En vi las teclas no siempre escriben texto; el editor opera como una máquina de estados finitos:", "ref": "390-392", "pdf": {"manual": "A", "pages": [390, 391, 392], "figure": null}, "coverage": ["103.8-CON-002"], "headers": ["Modo de Ejecución", "¿Cómo Entrar?", "Función y Comportamiento", "¿Cómo Volver a Normal?"], "rows": [["Modo Normal / Comando", "🎯 Modo por defecto al arrancar vi.", "Navegación con el teclado, copiar (yy), pegar (p), borrar líneas (dd). Las teclas NO escriben texto.", "Estado base del editor."], ["Modo Inserción", "Pulsando 'i', 'I', 'a', 'A', 'o', 'O'", "🎯 Escritura directa de texto en el documento (abajo se lee '-- INSERT --').", "🎯 Pulsando la tecla 'Esc'."], ["Modo Ex / Línea de Comandos", "🎯 Tecleando dos puntos ':' en Modo Normal", "Comandos de guardado (:w), salida (:q), búsqueda global y sustitución (abajo se ve ':').", "Pulsando 'Esc' o Enter."], ["Modo Visual", "Pulsando 'v' (carácter), 'V' (línea) o 'Ctrl+V' (bloque)", "Selección de bloques de texto para copiar o indentar (abajo se lee '-- VISUAL --').", "Pulsando la tecla 'Esc'."]], "remember": "🎯 Regla de Supervivencia en vi: Si te pierdes o no sabes en qué modo estás, ¡pulsa la tecla 'Esc' dos veces para volver al Modo Normal!", "notes": "Haz que los alumnos interioricen: 'Esc' te devuelve siempre a casa (Modo Normal).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:14px; padding:18px 24px; margin:14px 0;\">\n  <div style=\"font-size:15.5px; font-weight:800; color:var(--text); margin-bottom:12px;\">\n    🔄 Ciclo de Transición entre Modos de vi:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:12.5px;\">\n    <!-- Modo Inserción -->\n    <div style=\"background:#F0FDF4; border:2px solid #22C55E; border-radius:10px; padding:12px; width:28%; text-align:center;\">\n      <div style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:11px; padding:2px 6px; border-radius:4px; margin-bottom:6px;\">\n        MODO INSERCIÓN\n      </div>\n      <strong style=\"color:#15803D; font-size:13.5px;\">Escritura de Texto</strong><br>\n      <code style=\"font-size:11px; color:#14532D;\">-- INSERT --</code><br>\n      <span style=\"color:#475569; font-size:11px;\">Teclear texto directo</span>\n    </div>\n\n    <!-- Flechas izq -->\n    <div style=\"display:flex; flex-direction:column; gap:8px; align-items:center; font-size:11.5px;\">\n      <span style=\"color:#16A34A; font-weight:800;\">i, I, a, A, o, O ▶</span>\n      <span style=\"color:#2563EB; font-weight:800;\">◀ Esc (Salir)</span>\n    </div>\n\n    <!-- Modo Normal (Centro) -->\n    <div style=\"background:#EFF6FF; border:3px solid #2563EB; border-radius:12px; padding:14px; width:30%; text-align:center; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);\">\n      <div style=\"background:#2563EB; color:#FFF; font-weight:900; font-size:12px; padding:3px 8px; border-radius:4px; margin-bottom:6px;\">\n        MODO NORMAL / COMANDO\n      </div>\n      <strong style=\"color:#1E40AF; font-size:14px;\">(Estado por Defecto)</strong><br>\n      <span style=\"color:#475569; font-size:11.5px;\">Navegación (h,j,k,l)<br>Copiar (yy) / Borrar (dd)</span>\n    </div>\n\n    <!-- Flechas der -->\n    <div style=\"display:flex; flex-direction:column; gap:8px; align-items:center; font-size:11.5px;\">\n      <span style=\"color:#D97706; font-weight:800;\">: (Dos Puntos) ▶</span>\n      <span style=\"color:#2563EB; font-weight:800;\">◀ Esc o Enter</span>\n    </div>\n\n    <!-- Modo Ex / Comando -->\n    <div style=\"background:#FEF3C7; border:2px solid #F59E0B; border-radius:10px; padding:12px; width:28%; text-align:center;\">\n      <div style=\"background:#D97706; color:#FFF; font-weight:800; font-size:11px; padding:2px 6px; border-radius:4px; margin-bottom:6px;\">\n        MODO EX / LÍNEA ( : )\n      </div>\n      <strong style=\"color:#B45309; font-size:13.5px;\">Guardado y Salida</strong><br>\n      <code style=\"font-size:11px; color:#78350F;\">:w , :q! , :wq , :%s</code><br>\n      <span style=\"color:#475569; font-size:11px;\">Comandos avanzados</span>\n    </div>\n  </div>\n\n  <div style=\"margin-top:14px; padding:8px 14px; background:#F8FAFC; border-left:4px solid #3B82F6; border-radius:4px; font-size:13px; color:#1E3A8A;\">\n    🎯 <strong>REGLA DE SUPERVIVENCIA EN EXAMEN:</strong> Si no sabes en qué modo estás o el teclado no responde como esperas, ¡pulsa <code>&lt;Esc&gt;</code> dos veces! Siempre te devolverá al Modo Normal de forma segura.\n  </div>\n</div>\n"}, {"id": 4, "section": "103.8", "cat": "editor", "type": "command", "title": "Invocación y Navegación Fundamental: h, j, k, l y Saltos", "lead": "Moverse por el archivo sin despegar las manos de la fila central del teclado:", "ref": "392-395", "pdf": {"manual": "A", "pages": [392, 393, 394, 395], "figure": null}, "coverage": ["103.8-CMD-001", "103.8-OPT-001"], "command": "vi [+<línea>] <archivo> (Navegación en Modo Normal)", "purpose": "Abrir archivos en líneas específicas y desplazarse rápidamente por el documento", "terminal": {"command": "vi +50 /etc/ssh/sshd_config", "output": "# Abre el archivo posicionando el cursor directamente en la línea 50."}, "options": [{"flag": "vi +<N> <archivo>", "short": "Abrir en línea N", "desc": "🎯 Abre el archivo posicionando el cursor directamente en la línea N."}, {"flag": "h, j, k, l", "short": "Navegación fila central", "desc": "🎯 'h' izquierda, 'j' abajo, 'k' arriba, 'l' derecha."}, {"flag": "w / b", "short": "Palabra adelante/atrás", "desc": "🎯 'w' salta a la palabra siguiente (word); 'b' salta a la anterior (back)."}, {"flag": "0 / $", "short": "Inicio / Fin de línea", "desc": "🎯 '0' salta al inicio de línea; '$' salta al final exacto."}, {"flag": "1G (o gg) / G", "short": "Inicio / Fin de archivo", "desc": "🎯 '1G' o 'gg' salta a la primera línea; 'G' mayúscula a la última línea."}], "remember": "🎯 Clave de Examen: '1G' (o 'gg') primera línea; 'G' última línea; '0' inicio de línea; '$' fin de línea.", "notes": "Muestra la mnemotecnia de h/j/k/l: j apunta hacia abajo (tiene cola hacia abajo), k apunta hacia arriba.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    ⌨️ Teclado de Navegación Fundamental en Modo Normal:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; font-size:12px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:6px; padding:8px;\">\n      <strong style=\"color:#1E40AF; font-size:15px;\">h</strong><br>\n      <span style=\"color:#2563EB; font-weight:700;\">◀ Izquierda</span>\n    </div>\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:6px; padding:8px;\">\n      <strong style=\"color:#1E40AF; font-size:15px;\">j</strong><br>\n      <span style=\"color:#2563EB; font-weight:700;\">▼ Abajo</span>\n    </div>\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:6px; padding:8px;\">\n      <strong style=\"color:#1E40AF; font-size:15px;\">k</strong><br>\n      <span style=\"color:#2563EB; font-weight:700;\">▲ Arriba</span>\n    </div>\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:6px; padding:8px;\">\n      <strong style=\"color:#1E40AF; font-size:15px;\">l</strong><br>\n      <span style=\"color:#2563EB; font-weight:700;\">▶ Derecha</span>\n    </div>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top:8px; font-size:11.5px; text-align:center;\">\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:6px;\">\n      <code>w</code> : Palabra siguiente | <code>b</code> : Palabra atrás\n    </div>\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:6px;\">\n      <code>0</code> : Inicio línea | <code>$</code> : Fin de línea\n    </div>\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:6px;\">\n      <code>gg</code> : Inicio archivo | <code>G</code> : Fin archivo\n    </div>\n  </div>\n</div>\n"}, {"id": 5, "section": "103.8", "cat": "editor", "type": "command", "title": "Transición al Modo Inserción: i, I, a, A, o, O", "lead": "Las 6 teclas para comenzar a redactar texto según la posición deseada:", "ref": "395-397", "pdf": {"manual": "A", "pages": [395, 396, 397], "figure": null}, "coverage": ["103.8-CMD-002"], "command": "i | I | a | A | o | O (desde Modo Normal)", "purpose": "Entrar en Modo Inserción para escribir texto en diferentes posiciones relativas al cursor", "terminal": {"command": "# En modo normal pulsas 'o' y vi abre una línea en blanco debajo:\n-- INSERT --", "output": "# Todo lo que teclees a continuación se escribe en el archivo."}, "options": [{"flag": "i / I", "short": "Insertar antes / al inicio", "desc": "🎯 'i' inserta antes del cursor; 'I' salta al principio de la línea e inserta."}, {"flag": "a / A", "short": "Añadir después / al final", "desc": "🎯 'a' añade después del cursor; 'A' salta al final de la línea y añade."}, {"flag": "o (Open below)", "short": "Nueva línea DEBAJO", "desc": "🎯 Clave de Examen: Abre una nueva línea en blanco DEBAJO de la actual y entra en inserción."}, {"flag": "O (Open above)", "short": "Nueva línea ENCIMA", "desc": "🎯 Clave de Examen: Abre una nueva línea en blanco ENCIMA de la actual y entra en inserción."}], "remember": "🎯 Diferencia Clásica de Examen: 'o' (minúscula) abre línea debajo; 'O' (mayúscula) abre línea encima; 'i' inserta antes, 'a' inserta después.", "notes": "Haz que los alumnos practiquen la combinación 'A' para ir al final de la línea y añadir código de inmediato.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🎯 Posiciones Relativas de Inserción Respecto al Cursor:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; font-size:12.5px;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#1E40AF; font-size:13.5px;\">i frente a a:</strong><br>\n      • <code>i</code> : Inserta <strong>antes</strong> del cursor.<br>\n      • <code>a</code> : Añade <strong>después</strong> del cursor.\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">I frente a A:</strong><br>\n      • <code>I</code> : Salta al <strong>inicio</strong> de la línea.<br>\n      • <code>A</code> : Salta al <strong>final</strong> de la línea.\n    </div>\n\n    <div style=\"background:#FEF3C7; border:1px solid #FCD34D; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#B45309; font-size:13.5px;\">o frente a O:</strong><br>\n      • <code>o</code> : Abre línea <strong>DEBAJO</strong>.<br>\n      • <code>O</code> : Abre línea <strong>ENCIMA</strong>.\n    </div>\n  </div>\n</div>\n"}, {"id": 6, "section": "103.8", "cat": "editor", "type": "command", "title": "Búsqueda Interactiva en vi: / y ?", "lead": "¿Cómo encontrar palabras en un archivo de configuración de miles de líneas?", "ref": "397-399", "pdf": {"manual": "A", "pages": [397, 398, 399], "figure": null}, "coverage": ["103.8-CMD-003"], "command": "/<patrón> (hacia adelante) | ?<patrón> (hacia atrás)", "purpose": "Localizar cadenas o expresiones regulares dentro del documento abierto", "terminal": {"command": "/Port\n# vi resalta la primera aparición de 'Port' y coloca el cursor sobre ella.", "output": "Port 22\n# Pulsar 'n' salta a la siguiente aparición."}, "options": [{"flag": "/<patrón> y Enter", "desc": "🎯 Clave de Examen: Busca hacia ADELANTE (hacia el final del archivo) a partir del cursor."}, {"flag": "?<patrón> y Enter", "desc": "🎯 Clave de Examen: Busca hacia ATRÁS (hacia el inicio del archivo) a partir del cursor."}, {"flag": "n (Next)", "desc": "🎯 Salta a la SIGUIENTE coincidencia en la misma dirección de la búsqueda actual."}, {"flag": "N (Previous)", "desc": "🎯 Salta a la coincidencia ANTERIOR en la dirección opuesta."}, {"flag": "* (Asterisco sobre palabra)", "desc": "Busca automáticamente la siguiente aparición de la palabra bajo el cursor."}], "remember": "🎯 Clave de Examen: '/' busca hacia adelante; '?' busca hacia atrás; 'n' repite la búsqueda. Funciona idénticamente en 'vi', 'less' y 'man'.", "notes": "Muestra a la clase la coherencia de Unix: la sintaxis de búsqueda es exactamente la misma en vi y en less."}, {"id": 7, "section": "103.8", "cat": "editor", "type": "command", "title": "Comandos de Borrado y Sustitución: x, dw, dd y r", "lead": "Eliminar texto rápidamente en Modo Normal sin necesidad de pulsar Backspace 50 veces:", "ref": "399-401", "pdf": {"manual": "A", "pages": [399, 400, 401], "figure": null}, "coverage": ["103.8-CMD-004", "103.8-OPT-002"], "command": "x | dw | dd | <N>dd | D | r<char>", "purpose": "Borrar caracteres, palabras o líneas completas en Modo Normal", "terminal": {"command": "# En modo normal tecleas '3dd' sobre una función obsoleta:\n# Borra inmediatamente 3 líneas completas y las guarda en el búfer de corte.", "output": "# El cursor se posiciona en la línea siguiente."}, "options": [{"flag": "x", "desc": "🎯 Borra el carácter individual que se encuentra bajo el cursor (equivale a la tecla Supr)."}, {"flag": "dw (Delete word)", "desc": "🎯 Borra desde la posición del cursor hasta el final de la palabra actual."}, {"flag": "dd (Delete line)", "desc": "🎯 Clave de Examen: Borra la LÍNEA COMPLETA donde está el cursor (y la copia al búfer de corte)."}, {"flag": "<N>dd", "desc": "🎯 Borra N líneas consecutivas hacia abajo (ej: '5dd' borra 5 líneas de golpe)."}, {"flag": "D (o d$)", "desc": "Borra desde el cursor hasta el final de la línea actual."}, {"flag": "r<carácter>", "desc": "🎯 Reemplaza el carácter bajo el cursor por el nuevo carácter pulsado sin entrar en modo inserción."}, {"flag": "dt<char>", "desc": "🎯 Borra desde el cursor hasta encontrar el carácter indicado (delete to char)."}], "remember": "🎯 Clave de Examen: 'dd' borra la línea completa actual; 'x' borra un carácter; 'r' sustituye un solo carácter al vuelo.", "notes": "Explica que en vi borrar (d) equivale a 'cortar': el texto borrado se guarda en el portapapeles interno para poder pegarlo."}, {"id": 8, "section": "103.8", "cat": "editor", "type": "command", "title": "Copiar (Yank), Pegar (Put) y Deshacer: yy, p, u y Ctrl+R", "lead": "Duplicar bloques de configuración y deshacer errores tipográficos al instante:", "ref": "401-404", "pdf": {"manual": "A", "pages": [401, 402, 403, 404], "figure": null}, "coverage": ["103.8-CMD-005"], "command": "yy | <N>yy | p | P | u | Ctrl+R", "purpose": "Copiar líneas al portapapeles interno, pegarlas y revertir modificaciones", "terminal": {"command": "# Tecleas 'yy' en la línea de 'PermitRootLogin' y luego 'p':\n# Se duplica la línea exactamente debajo.", "output": "PermitRootLogin no\nPermitRootLogin no"}, "options": [{"flag": "yy (Yank)", "short": "Copiar línea actual", "desc": "🎯 Copia la línea actual al portapapeles de vi sin borrarla."}, {"flag": "<N>yy", "short": "Copiar N líneas", "desc": "Copia N líneas consecutivas hacia abajo (ej: '3yy')."}, {"flag": "p / P (Put)", "short": "Pegar debajo / encima", "desc": "🎯 'p' pega debajo de la línea actual; 'P' pega encima."}, {"flag": "u (Undo)", "short": "Deshacer cambio", "desc": "🎯 Deshace la última modificación realizada en el archivo."}, {"flag": "Ctrl + R (Redo)", "short": "Rehacer cambio", "desc": "🎯 Rehace el cambio que se acaba de deshacer con 'u'."}], "remember": "🎯 Mnemotecnia de Edición: 'yy' copia; 'p' pega debajo; 'u' deshace (undo); 'Ctrl+R' rehace (redo).", "notes": "Muestra que si borras con 'dd' y luego pulsas 'p', has hecho una operación de 'cortar y pegar' perfecta.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    📋 Flujo de Cortapapeles y Deshacer en Modo Normal:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:12.5px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:8px 12px; flex:1;\">\n      <strong style=\"color:#1E40AF;\">yy (Copiar)</strong> o <strong>dd (Cortar)</strong><br>\n      <span style=\"color:#475569; font-size:11px;\">Almacena la línea en el búfer</span>\n    </div>\n\n    <span style=\"font-size:18px; color:#2563EB; margin:0 10px;\">→</span>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:8px 12px; flex:1;\">\n      <strong style=\"color:#15803D;\">p (Pegar Debajo)</strong> o <strong>P (Encima)</strong><br>\n      <span style=\"color:#475569; font-size:11px;\">Inserta el texto copiado</span>\n    </div>\n\n    <span style=\"font-size:18px; color:#2563EB; margin:0 10px;\">⇄</span>\n\n    <div style=\"background:#FEF3C7; border:1px solid #FCD34D; border-radius:8px; padding:8px 12px; flex:1;\">\n      <strong style=\"color:#B45309;\">u (Deshacer)</strong> / <strong>Ctrl+R (Rehacer)</strong><br>\n      <span style=\"color:#475569; font-size:11px;\">Control de historial de cambios</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "103.8", "cat": "editor", "type": "command", "title": "Modo Colon (:): Guardado, Salida y Emergencias", "lead": "Los comandos de la línea de estado inferior para guardar o salir sin romper nada:", "ref": "404-406", "pdf": {"manual": "A", "pages": [404, 405, 406], "figure": null}, "coverage": ["103.8-CMD-006", "103.8-OPT-003"], "command": ":w | :q | :q! | :wq | :x | ZZ | ZQ", "purpose": "Escribir cambios en disco, salir del editor o forzar el cierre descartando modificaciones", "terminal": {"command": ":wq /tmp/nuevo.txt\n# Guarda los cambios y cierra el editor saliendo a la shell de Linux.", "output": "\"/tmp/nuevo.txt\" 45L, 1205B written"}, "options": [{"flag": ":w [archivo]", "short": "Guardar cambios", "desc": "Escribe los cambios en el disco sin salir de vi."}, {"flag": ":q", "short": "Salir (si no hay cambios)", "desc": "Sale de vi; falla si hay modificaciones pendientes de guardar."}, {"flag": ":q!", "short": "Salir forzado SIN guardar", "desc": "🎯 Clave Absoluta de Examen: Descarta cambios y huye inmediatamente."}, {"flag": ":wq (o :x)", "short": "Guardar y salir", "desc": "🎯 Guarda el documento y cierra vi."}, {"flag": "ZZ / ZQ", "short": "Atajos sin dos puntos", "desc": "🎯 En Modo Normal: 'ZZ' = guardar y salir; 'ZQ' = salir sin guardar."}], "remember": "🎯 Los Dos Comandos Maestros de Salida: ':wq' (o 'ZZ') para guardar y salir; ':q!' (o 'ZQ') para huir sin guardar nada si te has equivocado.", "notes": "Pregunta típica de principiante: '¿Cómo salgo de vi?'. Enseña ':q!' como la salida de emergencia universal.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:14.5px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🚪 Comandos de Salida y Guardado en vi:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:12.5px;\">\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#15803D; font-size:13.5px;\">✅ Guardar y Salir Exitoso:</strong><br>\n      • <code>:wq</code> (Write and Quit) en Modo Ex.<br>\n      • <code>:x</code> (Guarda solo si hubo cambios reales).<br>\n      • <code>ZZ</code> (Mayúsculas en Modo Normal, sin teclear ':').\n    </div>\n\n    <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#991B1B; font-size:13.5px;\">🚨 Salida Forzada de Emergencia:</strong><br>\n      • <code>:q!</code> (Descarta el 100% de cambios y sale al instante).<br>\n      • <code>ZQ</code> (Atajo directo en Modo Normal).<br>\n      <em>¡Esencial si modificaste un archivo por error y quieres evitar daños!</em>\n    </div>\n  </div>\n</div>\n"}, {"id": 10, "section": "103.8", "cat": "editor", "type": "command", "title": "Búsqueda y Sustitución Global con :s", "lead": "¿Cómo reemplazar todas las apariciones de una palabra en todo el archivo dentro de vi?", "ref": "406-407", "pdf": {"manual": "A", "pages": [406, 407], "figure": null}, "coverage": ["103.8-CMD-007"], "command": ":[rango]s/<buscar>/<reemplazar>/[flags]", "purpose": "Ejecutar sustituciones con expresiones regulares en líneas individuales o en todo el documento", "terminal": {"command": ":%s/http/https/g\n# Sustituye todas las apariciones de http por https en todo el archivo.", "output": "25 substitutions on 18 lines"}, "options": [{"flag": ":s/viejo/nuevo/", "desc": "Sustituye la primera aparición de 'viejo' por 'nuevo' únicamente en la línea actual."}, {"flag": ":s/viejo/nuevo/g", "desc": "Sustituye todas las apariciones en la línea actual (modificador global 'g')."}, {"flag": ":%s/viejo/nuevo/g", "desc": "🎯 Clave de Examen: El signo '%' indica TODO EL ARCHIVO (de la línea 1 a la última). Sustituye todas las apariciones globalmente."}, {"flag": ":%s/viejo/nuevo/gc", "desc": "🎯 Añade confirmación interactiva ('c'): vi pregunta en cada coincidencia 'replace with nuevo? (y/n/a/q)'."}, {"flag": ":1,50s/viejo/nuevo/g", "desc": "Aplica la sustitución únicamente dentro del rango de líneas 1 a 50."}], "remember": "🎯 Clave de Examen: ':%s/foo/bar/g' sustituye en todo el archivo sin preguntar; ':%s/foo/bar/gc' pide confirmación en cada caso.", "notes": "Muestra que la sintaxis de sustitución en vi es idéntica a la del comando 'sed'."}, {"id": 11, "section": "103.8", "cat": "editor", "type": "concept", "title": "Archivos Swap (.swp) y Recuperación tras Caídas", "lead": "¿Qué ocurre si se apaga el ordenador o se corta la conexión SSH mientras editabas en vi?", "ref": "407-408", "pdf": {"manual": "A", "pages": [407, 408], "figure": null}, "coverage": ["103.8-FILE-001"], "points": [{"icon": "shield-alert", "text": "El archivo oculto de intercambio (.archivo.swp)", "detail": "Mientras editas un fichero 'hosts', vi crea un archivo oculto '.hosts.swp' en la misma carpeta donde registra en tiempo real cada tecla pulsada."}, {"icon": "alert-triangle", "text": "El mensaje 'ATTENTION: Found a swap file'", "detail": "Si vi se cierra bruscamente por caída de luz o corte SSH, al volver a abrir el archivo vi detecta el .swp y muestra un menú advirtiendo que otra sesión quedó a medias."}, {"icon": "refresh-cw", "text": "Recuperación con vi -r", "detail": "🎯 Clave de Examen: Para recuperar los cambios no guardados se ejecuta: 'vi -r <archivo>'. Una vez recuperado y guardado, se debe borrar manualmente el archivo oculto .swp ('rm .archivo.swp')."}], "remember": "🎯 Clave de Examen: El comando 'vi -r <archivo>' recupera el trabajo pendiente desde el archivo de intercambio .swp tras una caída del sistema.", "notes": "Recuerda que si no borras el archivo .swp tras recuperar, vi seguirá mostrando el cartel de advertencia cada vez que lo abras."}, {"id": 12, "section": "103.8", "cat": "editor", "type": "command", "title": "Variables de Entorno del Editor: EDITOR, VISUAL y update-alternatives", "lead": "¿Cómo decide Linux qué editor abrir al ejecutar crontab o visudo y qué diferencias existen?", "ref": "408-409", "pdf": {"manual": "A", "pages": [408, 409], "figure": null}, "coverage": ["103.8-ENV-001"], "command": "export VISUAL=vim | export EDITOR=nano | sudo update-alternatives --config editor", "purpose": "Definir el editor predeterminado a nivel de sesión ($VISUAL, $EDITOR) o para todo el sistema (update-alternatives)", "terminal": {"command": "export EDITOR=nano; export VISUAL=vim; crontab -e", "output": ["# 1. Sesión de usuario: crontab abre 'vim' porque $VISUAL tiene preferencia sobre $EDITOR.", "# 2. Global del servidor: 'sudo update-alternatives --config editor' fija /usr/bin/editor para todos los usuarios."]}, "options": [{"flag": "$VISUAL", "desc": "🎯 Máxima Prioridad: Variable pensada para terminales de pantalla completa. Si está definida, los programas interactivos (crontab, visudo, git) la usan ANTES que $EDITOR."}, {"flag": "$EDITOR", "desc": "🎯 Estándar POSIX: Variable histórica para editores de texto. Se utiliza si $VISUAL no está definida o en utilidades en línea de comandos."}, {"flag": "update-alternatives", "desc": "🎯 Configuración Global del Sistema: Comando de Debian/Ubuntu para cambiar el enlace simbólico maestro /usr/bin/editor entre nano, vim.basic o vim.tiny."}, {"flag": "select-editor", "desc": "Comando interactivo para usuarios sin privilegios de root que guarda la preferencia personal en ~/.selected_editor."}], "remember": "🎯 Jerarquía de Decisión de Examen: 1. $VISUAL (primera prioridad) -> 2. $EDITOR (segunda prioridad) -> 3. Configuración global /usr/bin/editor (update-alternatives) -> 4. /bin/vi por defecto.", "notes": "Muestra a la clase qué ocurre cuando configuran ambas variables: VISUAL siempre gana a EDITOR.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:14px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚡ Flujo de Jerarquía: ¿Cómo eligen crontab -e o visudo qué editor abrir?</span>\n    <span style=\"font-size:11px; background:#EFF6FF; color:#1D4ED8; padding:2px 8px; border-radius:12px; font-weight:700;\">Orden de Precedencia</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; font-size:11.5px;\">\n    <!-- 1. VISUAL -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:9px 10px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;\">\n        <strong style=\"color:#1E40AF; font-size:12px;\">1. $VISUAL</strong>\n        <span style=\"background:#2563EB; color:#FFF; font-size:9px; font-weight:700; padding:1px 4px; border-radius:3px;\">Prioridad 1</span>\n      </div>\n      <div style=\"color:#1E3A8A; line-height:1.35;\">\n        Si existe, se ejecuta <strong>SIEMPRE</strong> primero. Diseñada para terminales visuales.\n      </div>\n    </div>\n\n    <!-- 2. EDITOR -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:9px 10px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;\">\n        <strong style=\"color:#15803D; font-size:12px;\">2. $EDITOR</strong>\n        <span style=\"background:#16A34A; color:#FFF; font-size:9px; font-weight:700; padding:1px 4px; border-radius:3px;\">Prioridad 2</span>\n      </div>\n      <div style=\"color:#14532D; line-height:1.35;\">\n        Se evalúa si <code>$VISUAL</code> está vacía o no existe. Estándar POSIX de sesión.\n      </div>\n    </div>\n\n    <!-- 3. update-alternatives -->\n    <div style=\"background:#FEF3C7; border:1.5px solid #F59E0B; border-radius:8px; padding:9px 10px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;\">\n        <strong style=\"color:#92400E; font-size:12px;\">3. /usr/bin/editor</strong>\n        <span style=\"background:#D97706; color:#FFF; font-size:9px; font-weight:700; padding:1px 4px; border-radius:3px;\">Global SO</span>\n      </div>\n      <div style=\"color:#78350F; line-height:1.35;\">\n        Si no hay variables, usa el enlace gestionado por <code>update-alternatives</code>.\n      </div>\n    </div>\n\n    <!-- 4. Default /bin/vi -->\n    <div style=\"background:#F1F5F9; border:1.5px solid #94A3B8; border-radius:8px; padding:9px 10px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;\">\n        <strong style=\"color:#334155; font-size:12px;\">4. /bin/vi</strong>\n        <span style=\"background:#475569; color:#FFF; font-size:9px; font-weight:700; padding:1px 4px; border-radius:3px;\">Fallback</span>\n      </div>\n      <div style=\"color:#475569; line-height:1.35;\">\n        Último recurso infalible del kernel y sistema si todo lo anterior falla.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 13, "section": "103.8", "cat": "editor", "type": "concept", "title": "Trampas Clásicas de Examen en el Editor vi", "lead": "Las 4 confusiones más destructivas en las preguntas de certificación LPIC-1:", "ref": "409-410", "pdf": {"manual": "A", "pages": [409, 410], "figure": null}, "coverage": ["103.8-WARN-001"], "points": [{"icon": "alert-triangle", "text": "1. Salir sin guardar con :q en lugar de forzar con :q!", "detail": "❌ Trampa: Si has modificado texto sin querer, escribir ':q' dará el error 'E37: No write since last change'. Para salir descartando cambios OBLIGATORIAMENTE debes añadir la exclamación: ':q!'."}, {"icon": "alert-triangle", "text": "2. Anteponer dos puntos ':' a comandos de Modo Normal (como :ZZ o :u)", "detail": "❌ Trampa: Escribir ':ZZ' o ':u' creyendo que todo lleva dos puntos. 'ZZ' (guardar y salir) y 'u' (deshacer) se pulsan DIRECTAMENTE en Modo Normal sin dos puntos. Teclear ':ZZ' dará error de comando Ex no válido."}, {"icon": "alert-triangle", "text": "3. Confundir mayúsculas y minúsculas en comandos de edición", "detail": "❌ Trampa: Creer que 'o' y 'O', o 'p' y 'P' hacen lo mismo. En vi cambian drásticamente de dirección: 'o' abre línea DEBAJO; 'O' abre línea ENCIMA. 'p' pega DESPUÉS del cursor; 'P' pega ANTES."}, {"icon": "alert-triangle", "text": "4. Intentar salir con Ctrl+C o suspender con Ctrl+Z", "detail": "❌ Trampa: 'Ctrl+C' no sale de vi (muestra 'Type :quit<Enter> to exit'). Pulsar 'Ctrl+Z' suspende el proceso en segundo plano dejando un fichero de bloqueo '.swp' que dará errores de lectura. La salida limpia es 'Esc' + ':wq' o ':q!'."}], "remember": "🎯 Mnemotecnia Rápida: :q! para salir sin guardar; ZZ (en Modo Normal) para guardar y salir; o minúscula abre debajo, O mayúscula encima; Ctrl+C no cierra vi.", "notes": "Pide a los alumnos que anoten estas 4 trampas porque constituyen al menos 2 preguntas clásicas del examen 101."}, {"id": 14, "section": "103.8", "cat": "editor", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Invocación y Movimiento)", "ref": "Manual A - Pág 410", "pdf": {"manual": "A", "pages": [410], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 410): ¿Cuál es el comando exacto de terminal para abrir el archivo '/etc/passwd' con el editor vi posicionando automáticamente el cursor en la línea número 15?", "command": "vi +15 /etc/passwd", "reason": "La opción '+N' salta de forma instantánea a la línea especificada durante el arranque del editor."}, {"action": "Caso 2 (Oficial Pág 410): Estando en Modo Normal, ¿qué teclas individuales permiten saltar directamente al inicio exacto de la línea actual y al final de la línea actual?", "command": "Pulsar '0' (cero) para ir al inicio; pulsar '$' para ir al final", "reason": "Son los atajos directos de navegación horizontal dentro de la misma línea."}, {"action": "Caso 3 (Oficial Pág 410): ¿Qué atajos de teclado en Modo Normal permiten saltar a la primera línea del archivo y a la última línea del archivo?", "command": "Pulsar '1G' (o 'gg') para la primera línea; pulsar 'G' (mayúscula) para la última", "reason": "'1G' viaja a la línea 1; 'G' sin número salta a la última línea del documento."}], "solution": {"explain": "vi +N para arranque posicionado; 0 y $ para extremos de línea; 1G y G para extremos de archivo."}, "notes": "Haz que los alumnos comprueben cómo 'G' salta al final de un archivo de 2000 líneas al instante."}, {"id": 15, "section": "103.8", "cat": "editor", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: Edición y Salida)", "ref": "Manual A - Pág 410", "pdf": {"manual": "A", "pages": [410], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 410): Necesitas borrar 4 líneas completas a partir de la posición actual del cursor y pegarlas 10 líneas más abajo. ¿Qué secuencia de comandos en Modo Normal debes pulsar?", "command": "Pulsar '4dd' (borra/corta 4 líneas), desplazarse al destino y pulsar 'p' (pega debajo)", "reason": "'4dd' corta las 4 líneas al búfer interno y 'p' las inserta debajo de la nueva posición."}, {"action": "Caso 5 (Oficial Pág 410): Has abierto un archivo de configuración crítico, has borrado texto por error y necesitas salir inmediatamente a la shell garantizando que el archivo NO se modifique.", "command": "Pulsar 'Esc' y teclear ':q!' seguido de Enter (o teclear 'ZQ')", "reason": "':q!' descarta todos los cambios del búfer y cierra el archivo sin escribir nada en el disco."}], "solution": {"explain": "4dd y p para cortar y mover bloques; :q! para salir descartando cambios con seguridad."}, "notes": "Recuerda que ':q!' es la acción más segura cuando no estás seguro de qué tocaste en un archivo de producción."}, {"id": 16, "section": "103.8", "cat": "editor", "type": "challenge", "title": "Retos de Exploración Oficiales (Sustitución Global y .swp)", "ref": "Manual A - Pág 410", "pdf": {"manual": "A", "pages": [410], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. ¿Cuál es el comando exacto en Modo Ex (:) para sustituir en TODO el archivo la palabra 'servidor01' por 'servidor02' pidiendo confirmación interactiva en cada reemplazo?\n2. Se ha cortado la luz mientras un administrador editaba '/etc/hosts'. Al reiniciar y abrir el archivo con vi, ¿qué comando debe ejecutar para recuperar los cambios pendientes?\n3. ¿Qué variable de entorno debes exportar en tu archivo ~/.bashrc para que 'crontab -e' abra siempre el editor vi?", "hint": "Recuerda: :%s/antiguo/nuevo/gc; vi -r; y la variable de entorno EDITOR.", "solution": {"explain": "1. Se ejecuta: :%s/servidor01/servidor02/gc\n2. Se ejecuta: vi -r /etc/hosts (y una vez guardado se borra el archivo oculto .hosts.swp).\n3. Se exporta: export EDITOR=vi (o export VISUAL=vi)."}, "notes": "El comando de sustitución con confirmación (:s///gc) es una de las preguntas de mayor dificultad en el objetivo 103.8."}, {"id": 17, "section": "103.8", "cat": "editor", "type": "review", "title": "Pregunta de Examen LPIC-1: Salida Forzada sin Guardar en vi", "q": "¿Qué comando del Modo Ex (dos puntos) debe introducirse en el editor vi para salir inmediatamente a la shell descartando todas las modificaciones realizadas desde el último guardado?", "options": [":exit!", ":q!", ":w!", ":abort"], "answer": 1, "why": "El comando ':q!' (Quit con signo de exclamación) fuerza la salida inmediata del editor vi ignorando y descartando cualquier cambio no guardado en el archivo. El comando alternativo en Modo Normal es 'ZQ'.", "notes": "Pregunta directa y fundamental de certificación."}, {"id": 18, "section": "103.8", "cat": "editor", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Editor vi/vim 103.8", "deck": [{"front": "¿Cómo volver siempre al Modo Normal desde cualquier otro modo en vi?", "back": "Pulsando la tecla 'Esc'."}, {"front": "¿Qué teclas saltan a la primera y a la última línea del archivo en vi?", "back": "1G (o gg) para la primera; G (mayúscula) para la última."}, {"front": "¿Qué tecla abre una nueva línea en blanco DEBAJO de la actual?", "back": "La letra 'o' minúscula (la 'O' mayúscula la abre encima)."}, {"front": "¿Qué comando borra la línea completa actual en Modo Normal?", "back": "dd."}, {"front": "¿Qué comando copia una línea completa al portapapeles y cuál la pega?", "back": "yy copia (yank); p pega debajo (put)."}, {"front": "¿Qué tecla deshace el último cambio en vi?", "back": "La tecla 'u' (undo); Ctrl+R rehace (redo)."}, {"front": "¿Cómo salir de vi forzando el cierre sin guardar cambios?", "back": ":q! (o tecleando ZQ en Modo Normal)."}, {"front": "¿Cómo sustituir 'foo' por 'bar' en TODO el archivo pidiendo confirmación?", "back": ":%s/foo/bar/gc."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.8."}, {"id": 19, "section": "103.8", "cat": "editor", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.8", "takeaways": ["Los 4 Modos: Modo Normal (base), Inserción (i, a, o, O), Ex/Línea de Comandos (:) y Visual (v, V, Ctrl+V). 'Esc' para volver a Normal.", "Navegación: h/j/k/l, w/b palabras, 0/$ extremos de línea, 1G/G extremos de documento, vi +N para abrir en línea N.", "Edición y Portapapeles: dd borra línea, yy copia línea, p pega debajo, u deshace, r sustituye un carácter, /patrón busca adelante.", "Comandos Ex y Entorno: :wq o ZZ para guardar y salir; :q! o ZQ para salir forzado sin guardar; :%s/viejo/nuevo/g para reemplazar; vi -r para recuperar .swp; export EDITOR=vi para definir editor por defecto."], "top3": [{"cmd": ":wq || :q!", "desc": "Guardar y salir con éxito, o salir de emergencia descartando cambios accidentales."}, {"cmd": ":%s/antiguo/nuevo/g", "desc": "Sustituye cadenas globalmente en todo el archivo dentro del editor."}, {"cmd": "export EDITOR=vi", "desc": "Establece vi como el editor por defecto para crontab y herramientas del sistema."}], "practice": {"name": "Practica 103.8: Edición Básica de Archivos con vi / vim", "url": "../practicas/p-103-8-editor-vi.html", "desc": "Navega entre los modos Normal, Inserción y Ex en vi; domina la edición rápida (dd, yy, p, u), búsquedas (/), sustituciones globales (:%s/old/new/g) y guardado (:wq, :q!, ZZ)."}, "notes": "Concluimos el subtema 103.8 y finalizamos completamente la refactorización integral del Tema 103.", "global_practice": {"name": "Laboratorio Global Integrador — Todo el Tema 103: Comandos GNU y Unix", "url": "../practicas/p-tema-103-global.html", "desc": "Entorno shell y aliases, tuberías de filtrado (cut, sort, uniq, wc, tr), compresión (tar, xz), redirecciones, procesos y señales (ps, kill, nice), regex y vi."}}];
+    const SLIDES = [{"id": 1, "section": "103.8", "cat": "editor", "type": "cover", "title": "Edición básica de archivos (vi/vim)", "subtitle": "Modos de vi, navegación h/j/k/l, inserción, borrado, yank/put, modo Ex (:), sustitución y recuperación (Modo Examen)", "ref": "387-388", "pdf": {"manual": "A", "pages": [387, 388], "figure": null}, "coverage": ["103.8-OBJ-001", "103.8-OBJ-002"], "meta": {"peso": 3, "paginas": "387–410", "duracion": "30 min"}, "icon": "edit-3", "notes": "Finalizamos el Tema 103 con el subtema 103.8 (peso 3). El editor vi (y su versión mejorada vim) es el editor estándar indiscutible de los sistemas Unix/Linux. Está presente en todas las instalaciones mínimas, contenedores y entornos de rescate. Dominaremos sus 4 modos de trabajo, navegación eficiente, atajos de edición y comandos de guardado."}, {"id": 2, "section": "103.8", "cat": "editor", "type": "concept", "title": "El Editor Estándar de Unix: Por qué vi es Obligatorio", "lead": "¿Por qué la certificación LPIC-1 exige dominar vi en lugar de editores más sencillos como nano?", "ref": "388-390", "pdf": {"manual": "A", "pages": [388, 389, 390], "figure": null}, "coverage": ["103.8-CON-001"], "points": [{"icon": "shield-alert", "text": "1. Rescate en Modo de Emergencia (Single-User / Initramfs)", "detail": "🎯 Cuando un servidor no arranca por un fallo crítico (ej. error en /etc/fstab) y caes en una consola de emergencia, nano NO existe ni está instalado. El único editor presente y compilado en /bin es vi. Si no sabes vi, no puedes reparar el servidor."}, {"icon": "award", "text": "2. El Único Editor Obligatorio por el Estándar POSIX", "detail": "🎯 El estándar universal POSIX (IEEE 1003.1) estipula que todo sistema Unix/Linux DEBE incluir vi. Está presente en el 100% de las distribuciones del mundo (Debian, Red Hat, SUSE, Arch, Alpine, Docker containers mínimos, BSD y Solaris)."}, {"icon": "zap", "text": "3. Conexiones Mínimas sin Ratón ni Teclas de Función", "detail": "Diseñado para operar sobre conexiones SSH inestables, consolas serie y terminales remotas. No depende del ratón ni de teclas especiales (F1..F12); todo se controla desde las teclas alfanuméricas centrales (h, j, k, l)."}, {"icon": "settings", "text": "4. Invocación Nativa por Herramientas Críticas", "detail": "Herramientas esenciales del sistema como 'visudo' (editar sudoers de forma segura), 'crontab -e', 'edquota' o 'git commit' invocan automáticamente vi por defecto si no se configura otra variable."}], "remember": "🎯 Regla de Oro: nano es cómodo para usuarios noveles, pero vi es la herramienta universal de supervivencia del administrador de sistemas. Si el servidor se rompe, vi es el único editor que siempre estará disponible.", "notes": "Insiste a los alumnos: en un examen de certificación y en un servidor de producción caído, nano no te salvará la vida; vi sí.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:25px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚖️ nano frente a vi: ¿Por qué la Certificación LPIC-1 Exige vi?</span>\n    <span style=\"font-size:22px; background:#FEF3C7; color:#92400E; padding:4px 10px; border-radius:12px; font-weight:700;\">Diferencia Clave de Aula</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:16px; font-size:23px;\">\n    <!-- nano -->\n    <div style=\"background:#FEF2F2; border:1.5px solid #FCA5A5; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#991B1B; font-size:24px;\">Editor nano (No exigido en LPIC-1)</strong>\n        <span style=\"background:#DC2626; color:#FFF; font-size:20px; font-weight:700; padding:4px 10px; border-radius:3px;\">Opcional</span>\n      </div>\n      <div style=\"color:#7F1D1D; line-height:1.4;\">\n        • Intuitivo para principiantes (muestra atajos abajo).<br>\n        • <strong>DESVENTAJA CRÍTICA:</strong> Paquete adicional. <strong>NO viene instalado</strong> en entornos mínimos de producción, imágenes Docker base ni consolas de rescate <em>initramfs</em>.<br>\n        • Si el servidor falla, nano no estará disponible.\n      </div>\n    </div>\n\n    <!-- vi -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #86EFAC; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#15803D; font-size:24px;\">Editor vi / vim (Obligatorio en LPIC-1)</strong>\n        <span style=\"background:#16A34A; color:#FFF; font-size:20px; font-weight:700; padding:4px 10px; border-radius:3px;\">100% Universal</span>\n      </div>\n      <div style=\"color:#14532D; line-height:1.4;\">\n        • <strong>ESTÁNDAR POSIX:</strong> Garantizado en el 100% de los Unix/Linux.<br>\n        • <strong>DISPONIBLE SIEMPRE:</strong> Presente en modo de rescate, consolas de recuperación de emergencia y servidores minimalistas.<br>\n        • <strong>NATIVO:</strong> Invocado por <code>visudo</code> y <code>crontab -e</code> de serie.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 3, "section": "103.8", "cat": "editor", "type": "diagram", "title": "La Máquina de Estados de vi: Modos y Transiciones", "lead": "En vi las teclas no siempre escriben texto; el editor opera como una máquina de estados finitos:", "ref": "390-392", "pdf": {"manual": "A", "pages": [390, 391, 392], "figure": null}, "coverage": ["103.8-CON-002"], "headers": ["Modo de Ejecución", "¿Cómo Entrar?", "Función y Comportamiento", "¿Cómo Volver a Normal?"], "rows": [["Modo Normal / Comando", "🎯 Modo por defecto al arrancar vi.", "Navegación con el teclado, copiar (yy), pegar (p), borrar líneas (dd). Las teclas NO escriben texto.", "Estado base del editor."], ["Modo Inserción", "Pulsando 'i', 'I', 'a', 'A', 'o', 'O'", "🎯 Escritura directa de texto en el documento (abajo se lee '-- INSERT --').", "🎯 Pulsando la tecla 'Esc'."], ["Modo Ex / Línea de Comandos", "🎯 Tecleando dos puntos ':' en Modo Normal", "Comandos de guardado (:w), salida (:q), búsqueda global y sustitución (abajo se ve ':').", "Pulsando 'Esc' o Enter."], ["Modo Visual", "Pulsando 'v' (carácter), 'V' (línea) o 'Ctrl+V' (bloque)", "Selección de bloques de texto para copiar o indentar (abajo se lee '-- VISUAL --').", "Pulsando la tecla 'Esc'."]], "remember": "🎯 Regla de Supervivencia en vi: Si te pierdes o no sabes en qué modo estás, ¡pulsa la tecla 'Esc' dos veces para volver al Modo Normal!", "notes": "Haz que los alumnos interioricen: 'Esc' te devuelve siempre a casa (Modo Normal).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:14px; padding:18px 24px; margin:14px 0;\">\n  <div style=\"font-size:26px; font-weight:800; color:var(--text); margin-bottom:12px;\">\n    🔄 Ciclo de Transición entre Modos de vi:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:23px;\">\n    <!-- Modo Inserción -->\n    <div style=\"background:#F0FDF4; border:2px solid #22C55E; border-radius:10px; padding:12px; width:28%; text-align:center;\">\n      <div style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:22px; padding:4px 10px; border-radius:4px; margin-bottom:6px;\">\n        MODO INSERCIÓN\n      </div>\n      <strong style=\"color:#15803D; font-size:24px;\">Escritura de Texto</strong><br>\n      <code style=\"font-size:22px; color:#14532D;\">-- INSERT --</code><br>\n      <span style=\"color:#475569; font-size:22px;\">Teclear texto directo</span>\n    </div>\n\n    <!-- Flechas izq -->\n    <div style=\"display:flex; flex-direction:column; gap:14px; align-items:center; font-size:22px;\">\n      <span style=\"color:#16A34A; font-weight:800;\">i, I, a, A, o, O ▶</span>\n      <span style=\"color:#2563EB; font-weight:800;\">◀ Esc (Salir)</span>\n    </div>\n\n    <!-- Modo Normal (Centro) -->\n    <div style=\"background:#EFF6FF; border:3px solid #2563EB; border-radius:12px; padding:14px; width:30%; text-align:center; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);\">\n      <div style=\"background:#2563EB; color:#FFF; font-weight:900; font-size:23px; padding:5px 12px; border-radius:4px; margin-bottom:6px;\">\n        MODO NORMAL / COMANDO\n      </div>\n      <strong style=\"color:#1E40AF; font-size:25px;\">(Estado por Defecto)</strong><br>\n      <span style=\"color:#475569; font-size:22px;\">Navegación (h,j,k,l)<br>Copiar (yy) / Borrar (dd)</span>\n    </div>\n\n    <!-- Flechas der -->\n    <div style=\"display:flex; flex-direction:column; gap:14px; align-items:center; font-size:22px;\">\n      <span style=\"color:#D97706; font-weight:800;\">: (Dos Puntos) ▶</span>\n      <span style=\"color:#2563EB; font-weight:800;\">◀ Esc o Enter</span>\n    </div>\n\n    <!-- Modo Ex / Comando -->\n    <div style=\"background:#FEF3C7; border:2px solid #F59E0B; border-radius:10px; padding:12px; width:28%; text-align:center;\">\n      <div style=\"background:#D97706; color:#FFF; font-weight:800; font-size:22px; padding:4px 10px; border-radius:4px; margin-bottom:6px;\">\n        MODO EX / LÍNEA ( : )\n      </div>\n      <strong style=\"color:#B45309; font-size:24px;\">Guardado y Salida</strong><br>\n      <code style=\"font-size:22px; color:#78350F;\">:w , :q! , :wq , :%s</code><br>\n      <span style=\"color:#475569; font-size:22px;\">Comandos avanzados</span>\n    </div>\n  </div>\n\n  <div style=\"margin-top:14px; padding:12px 16px; background:#F8FAFC; border-left:4px solid #3B82F6; border-radius:4px; font-size:24px; color:#1E3A8A;\">\n    🎯 <strong>REGLA DE SUPERVIVENCIA EN EXAMEN:</strong> Si no sabes en qué modo estás o el teclado no responde como esperas, ¡pulsa <code>&lt;Esc&gt;</code> dos veces! Siempre te devolverá al Modo Normal de forma segura.\n  </div>\n</div>\n"}, {"id": 4, "section": "103.8", "cat": "editor", "type": "command", "title": "Invocación y Navegación Fundamental: h, j, k, l y Saltos", "lead": "Moverse por el archivo sin despegar las manos de la fila central del teclado:", "ref": "392-395", "pdf": {"manual": "A", "pages": [392, 393, 394, 395], "figure": null}, "coverage": ["103.8-CMD-001", "103.8-OPT-001"], "command": "vi [+<línea>] <archivo> (Navegación en Modo Normal)", "purpose": "Abrir archivos en líneas específicas y desplazarse rápidamente por el documento", "terminal": {"command": "vi +50 /etc/ssh/sshd_config", "output": "# Abre el archivo posicionando el cursor directamente en la línea 50."}, "options": [{"flag": "vi +<N> <archivo>", "short": "Abrir en línea N", "desc": "🎯 Abre el archivo posicionando el cursor directamente en la línea N."}, {"flag": "h, j, k, l", "short": "Navegación fila central", "desc": "🎯 'h' izquierda, 'j' abajo, 'k' arriba, 'l' derecha."}, {"flag": "w / b", "short": "Palabra adelante/atrás", "desc": "🎯 'w' salta a la palabra siguiente (word); 'b' salta a la anterior (back)."}, {"flag": "0 / $", "short": "Inicio / Fin de línea", "desc": "🎯 '0' salta al inicio de línea; '$' salta al final exacto."}, {"flag": "1G (o gg) / G", "short": "Inicio / Fin de archivo", "desc": "🎯 '1G' o 'gg' salta a la primera línea; 'G' mayúscula a la última línea."}], "remember": "🎯 Clave de Examen: '1G' (o 'gg') primera línea; 'G' última línea; '0' inicio de línea; '$' fin de línea.", "notes": "Muestra la mnemotecnia de h/j/k/l: j apunta hacia abajo (tiene cola hacia abajo), k apunta hacia arriba.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:25px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    ⌨️ Teclado de Navegación Fundamental en Modo Normal:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; font-size:23px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:6px; padding:12px 14px;\">\n      <strong style=\"color:#1E40AF; font-size:26px;\">h</strong><br>\n      <span style=\"color:#2563EB; font-weight:700;\">◀ Izquierda</span>\n    </div>\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:6px; padding:12px 14px;\">\n      <strong style=\"color:#1E40AF; font-size:26px;\">j</strong><br>\n      <span style=\"color:#2563EB; font-weight:700;\">▼ Abajo</span>\n    </div>\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:6px; padding:12px 14px;\">\n      <strong style=\"color:#1E40AF; font-size:26px;\">k</strong><br>\n      <span style=\"color:#2563EB; font-weight:700;\">▲ Arriba</span>\n    </div>\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:6px; padding:12px 14px;\">\n      <strong style=\"color:#1E40AF; font-size:26px;\">l</strong><br>\n      <span style=\"color:#2563EB; font-weight:700;\">▶ Derecha</span>\n    </div>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:8px; font-size:22px; text-align:center;\">\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:6px;\">\n      <code>w</code> : Palabra siguiente | <code>b</code> : Palabra atrás\n    </div>\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:6px;\">\n      <code>0</code> : Inicio línea | <code>$</code> : Fin de línea\n    </div>\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:6px;\">\n      <code>gg</code> : Inicio archivo | <code>G</code> : Fin archivo\n    </div>\n  </div>\n</div>\n"}, {"id": 5, "section": "103.8", "cat": "editor", "type": "command", "title": "Transición al Modo Inserción: i, I, a, A, o, O", "lead": "Las 6 teclas para comenzar a redactar texto según la posición deseada:", "ref": "395-397", "pdf": {"manual": "A", "pages": [395, 396, 397], "figure": null}, "coverage": ["103.8-CMD-002"], "command": "i | I | a | A | o | O (desde Modo Normal)", "purpose": "Entrar en Modo Inserción para escribir texto en diferentes posiciones relativas al cursor", "terminal": {"command": "# En modo normal pulsas 'o' y vi abre una línea en blanco debajo:\n-- INSERT --", "output": "# Todo lo que teclees a continuación se escribe en el archivo."}, "options": [{"flag": "i / I", "short": "Insertar antes / al inicio", "desc": "🎯 'i' inserta antes del cursor; 'I' salta al principio de la línea e inserta."}, {"flag": "a / A", "short": "Añadir después / al final", "desc": "🎯 'a' añade después del cursor; 'A' salta al final de la línea y añade."}, {"flag": "o (Open below)", "short": "Nueva línea DEBAJO", "desc": "🎯 Clave de Examen: Abre una nueva línea en blanco DEBAJO de la actual y entra en inserción."}, {"flag": "O (Open above)", "short": "Nueva línea ENCIMA", "desc": "🎯 Clave de Examen: Abre una nueva línea en blanco ENCIMA de la actual y entra en inserción."}], "remember": "🎯 Diferencia Clásica de Examen: 'o' (minúscula) abre línea debajo; 'O' (mayúscula) abre línea encima; 'i' inserta antes, 'a' inserta después.", "notes": "Haz que los alumnos practiquen la combinación 'A' para ir al final de la línea y añadir código de inmediato.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:25px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🎯 Posiciones Relativas de Inserción Respecto al Cursor:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; font-size:23px;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#1E40AF; font-size:24px;\">i frente a a:</strong><br>\n      • <code>i</code> : Inserta <strong>antes</strong> del cursor.<br>\n      • <code>a</code> : Añade <strong>después</strong> del cursor.\n    </div>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#15803D; font-size:24px;\">I frente a A:</strong><br>\n      • <code>I</code> : Salta al <strong>inicio</strong> de la línea.<br>\n      • <code>A</code> : Salta al <strong>final</strong> de la línea.\n    </div>\n\n    <div style=\"background:#FEF3C7; border:1px solid #FCD34D; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#B45309; font-size:24px;\">o frente a O:</strong><br>\n      • <code>o</code> : Abre línea <strong>DEBAJO</strong>.<br>\n      • <code>O</code> : Abre línea <strong>ENCIMA</strong>.\n    </div>\n  </div>\n</div>\n"}, {"id": 6, "section": "103.8", "cat": "editor", "type": "command", "title": "Búsqueda Interactiva en vi: / y ?", "lead": "¿Cómo encontrar palabras en un archivo de configuración de miles de líneas?", "ref": "397-399", "pdf": {"manual": "A", "pages": [397, 398, 399], "figure": null}, "coverage": ["103.8-CMD-003"], "command": "/<patrón> (hacia adelante) | ?<patrón> (hacia atrás)", "purpose": "Localizar cadenas o expresiones regulares dentro del documento abierto", "terminal": {"command": "/Port\n# vi resalta la primera aparición de 'Port' y coloca el cursor sobre ella.", "output": "Port 22\n# Pulsar 'n' salta a la siguiente aparición."}, "options": [{"flag": "/<patrón> y Enter", "desc": "🎯 Clave de Examen: Busca hacia ADELANTE (hacia el final del archivo) a partir del cursor."}, {"flag": "?<patrón> y Enter", "desc": "🎯 Clave de Examen: Busca hacia ATRÁS (hacia el inicio del archivo) a partir del cursor."}, {"flag": "n (Next)", "desc": "🎯 Salta a la SIGUIENTE coincidencia en la misma dirección de la búsqueda actual."}, {"flag": "N (Previous)", "desc": "🎯 Salta a la coincidencia ANTERIOR en la dirección opuesta."}, {"flag": "* (Asterisco sobre palabra)", "desc": "Busca automáticamente la siguiente aparición de la palabra bajo el cursor."}], "remember": "🎯 Clave de Examen: '/' busca hacia adelante; '?' busca hacia atrás; 'n' repite la búsqueda. Funciona idénticamente en 'vi', 'less' y 'man'.", "notes": "Muestra a la clase la coherencia de Unix: la sintaxis de búsqueda es exactamente la misma en vi y en less."}, {"id": 7, "section": "103.8", "cat": "editor", "type": "command", "title": "Comandos de Borrado y Sustitución: x, dw, dd y r", "lead": "Eliminar texto rápidamente en Modo Normal sin necesidad de pulsar Backspace 50 veces:", "ref": "399-401", "pdf": {"manual": "A", "pages": [399, 400, 401], "figure": null}, "coverage": ["103.8-CMD-004", "103.8-OPT-002"], "command": "x | dw | dd | <N>dd | D | r<char>", "purpose": "Borrar caracteres, palabras o líneas completas en Modo Normal", "terminal": {"command": "# En modo normal tecleas '3dd' sobre una función obsoleta:\n# Borra inmediatamente 3 líneas completas y las guarda en el búfer de corte.", "output": "# El cursor se posiciona en la línea siguiente."}, "options": [{"flag": "x", "desc": "🎯 Borra el carácter individual que se encuentra bajo el cursor (equivale a la tecla Supr)."}, {"flag": "dw (Delete word)", "desc": "🎯 Borra desde la posición del cursor hasta el final de la palabra actual."}, {"flag": "dd (Delete line)", "desc": "🎯 Clave de Examen: Borra la LÍNEA COMPLETA donde está el cursor (y la copia al búfer de corte)."}, {"flag": "<N>dd", "desc": "🎯 Borra N líneas consecutivas hacia abajo (ej: '5dd' borra 5 líneas de golpe)."}, {"flag": "D (o d$)", "desc": "Borra desde el cursor hasta el final de la línea actual."}, {"flag": "r<carácter>", "desc": "🎯 Reemplaza el carácter bajo el cursor por el nuevo carácter pulsado sin entrar en modo inserción."}, {"flag": "dt<char>", "desc": "🎯 Borra desde el cursor hasta encontrar el carácter indicado (delete to char)."}], "remember": "🎯 Clave de Examen: 'dd' borra la línea completa actual; 'x' borra un carácter; 'r' sustituye un solo carácter al vuelo.", "notes": "Explica que en vi borrar (d) equivale a 'cortar': el texto borrado se guarda en el portapapeles interno para poder pegarlo."}, {"id": 8, "section": "103.8", "cat": "editor", "type": "command", "title": "Copiar (Yank), Pegar (Put) y Deshacer: yy, p, u y Ctrl+R", "lead": "Duplicar bloques de configuración y deshacer errores tipográficos al instante:", "ref": "401-404", "pdf": {"manual": "A", "pages": [401, 402, 403, 404], "figure": null}, "coverage": ["103.8-CMD-005"], "command": "yy | <N>yy | p | P | u | Ctrl+R", "purpose": "Copiar líneas al portapapeles interno, pegarlas y revertir modificaciones", "terminal": {"command": "# Tecleas 'yy' en la línea de 'PermitRootLogin' y luego 'p':\n# Se duplica la línea exactamente debajo.", "output": "PermitRootLogin no\nPermitRootLogin no"}, "options": [{"flag": "yy (Yank)", "short": "Copiar línea actual", "desc": "🎯 Copia la línea actual al portapapeles de vi sin borrarla."}, {"flag": "<N>yy", "short": "Copiar N líneas", "desc": "Copia N líneas consecutivas hacia abajo (ej: '3yy')."}, {"flag": "p / P (Put)", "short": "Pegar debajo / encima", "desc": "🎯 'p' pega debajo de la línea actual; 'P' pega encima."}, {"flag": "u (Undo)", "short": "Deshacer cambio", "desc": "🎯 Deshace la última modificación realizada en el archivo."}, {"flag": "Ctrl + R (Redo)", "short": "Rehacer cambio", "desc": "🎯 Rehace el cambio que se acaba de deshacer con 'u'."}], "remember": "🎯 Mnemotecnia de Edición: 'yy' copia; 'p' pega debajo; 'u' deshace (undo); 'Ctrl+R' rehace (redo).", "notes": "Muestra que si borras con 'dd' y luego pulsas 'p', has hecho una operación de 'cortar y pegar' perfecta.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:25px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    📋 Flujo de Cortapapeles y Deshacer en Modo Normal:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:23px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:12px 16px; flex:1;\">\n      <strong style=\"color:#1E40AF;\">yy (Copiar)</strong> o <strong>dd (Cortar)</strong><br>\n      <span style=\"color:#475569; font-size:22px;\">Almacena la línea en el búfer</span>\n    </div>\n\n    <span style=\"font-size:29px; color:#2563EB; margin:0 10px;\">→</span>\n\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:12px 16px; flex:1;\">\n      <strong style=\"color:#15803D;\">p (Pegar Debajo)</strong> o <strong>P (Encima)</strong><br>\n      <span style=\"color:#475569; font-size:22px;\">Inserta el texto copiado</span>\n    </div>\n\n    <span style=\"font-size:29px; color:#2563EB; margin:0 10px;\">⇄</span>\n\n    <div style=\"background:#FEF3C7; border:1px solid #FCD34D; border-radius:8px; padding:12px 16px; flex:1;\">\n      <strong style=\"color:#B45309;\">u (Deshacer)</strong> / <strong>Ctrl+R (Rehacer)</strong><br>\n      <span style=\"color:#475569; font-size:22px;\">Control de historial de cambios</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "103.8", "cat": "editor", "type": "command", "title": "Modo Colon (:): Guardado, Salida y Emergencias", "lead": "Los comandos de la línea de estado inferior para guardar o salir sin romper nada:", "ref": "404-406", "pdf": {"manual": "A", "pages": [404, 405, 406], "figure": null}, "coverage": ["103.8-CMD-006", "103.8-OPT-003"], "command": ":w | :q | :q! | :wq | :x | ZZ | ZQ", "purpose": "Escribir cambios en disco, salir del editor o forzar el cierre descartando modificaciones", "terminal": {"command": ":wq /tmp/nuevo.txt\n# Guarda los cambios y cierra el editor saliendo a la shell de Linux.", "output": "\"/tmp/nuevo.txt\" 45L, 1205B written"}, "options": [{"flag": ":w [archivo]", "short": "Guardar cambios", "desc": "Escribe los cambios en el disco sin salir de vi."}, {"flag": ":q", "short": "Salir (si no hay cambios)", "desc": "Sale de vi; falla si hay modificaciones pendientes de guardar."}, {"flag": ":q!", "short": "Salir forzado SIN guardar", "desc": "🎯 Clave Absoluta de Examen: Descarta cambios y huye inmediatamente."}, {"flag": ":wq (o :x)", "short": "Guardar y salir", "desc": "🎯 Guarda el documento y cierra vi."}, {"flag": "ZZ / ZQ", "short": "Atajos sin dos puntos", "desc": "🎯 En Modo Normal: 'ZZ' = guardar y salir; 'ZQ' = salir sin guardar."}], "remember": "🎯 Los Dos Comandos Maestros de Salida: ':wq' (o 'ZZ') para guardar y salir; ':q!' (o 'ZQ') para huir sin guardar nada si te has equivocado.", "notes": "Pregunta típica de principiante: '¿Cómo salgo de vi?'. Enseña ':q!' como la salida de emergencia universal.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:12px;\">\n  <div style=\"font-size:25px; font-weight:800; color:var(--text); margin-bottom:8px;\">\n    🚪 Comandos de Salida y Guardado en vi:\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:23px;\">\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#15803D; font-size:24px;\">✅ Guardar y Salir Exitoso:</strong><br>\n      • <code>:wq</code> (Write and Quit) en Modo Ex.<br>\n      • <code>:x</code> (Guarda solo si hubo cambios reales).<br>\n      • <code>ZZ</code> (Mayúsculas en Modo Normal, sin teclear ':').\n    </div>\n\n    <div style=\"background:#FEF2F2; border:1px solid #FCA5A5; border-radius:8px; padding:10px 14px;\">\n      <strong style=\"color:#991B1B; font-size:24px;\">🚨 Salida Forzada de Emergencia:</strong><br>\n      • <code>:q!</code> (Descarta el 100% de cambios y sale al instante).<br>\n      • <code>ZQ</code> (Atajo directo en Modo Normal).<br>\n      <em>¡Esencial si modificaste un archivo por error y quieres evitar daños!</em>\n    </div>\n  </div>\n</div>\n"}, {"id": 10, "section": "103.8", "cat": "editor", "type": "command", "title": "Búsqueda y Sustitución Global con :s", "lead": "¿Cómo reemplazar todas las apariciones de una palabra en todo el archivo dentro de vi?", "ref": "406-407", "pdf": {"manual": "A", "pages": [406, 407], "figure": null}, "coverage": ["103.8-CMD-007"], "command": ":[rango]s/<buscar>/<reemplazar>/[flags]", "purpose": "Ejecutar sustituciones con expresiones regulares en líneas individuales o en todo el documento", "terminal": {"command": ":%s/http/https/g\n# Sustituye todas las apariciones de http por https en todo el archivo.", "output": "25 substitutions on 18 lines"}, "options": [{"flag": ":s/viejo/nuevo/", "desc": "Sustituye la primera aparición de 'viejo' por 'nuevo' únicamente en la línea actual."}, {"flag": ":s/viejo/nuevo/g", "desc": "Sustituye todas las apariciones en la línea actual (modificador global 'g')."}, {"flag": ":%s/viejo/nuevo/g", "desc": "🎯 Clave de Examen: El signo '%' indica TODO EL ARCHIVO (de la línea 1 a la última). Sustituye todas las apariciones globalmente."}, {"flag": ":%s/viejo/nuevo/gc", "desc": "🎯 Añade confirmación interactiva ('c'): vi pregunta en cada coincidencia 'replace with nuevo? (y/n/a/q)'."}, {"flag": ":1,50s/viejo/nuevo/g", "desc": "Aplica la sustitución únicamente dentro del rango de líneas 1 a 50."}], "remember": "🎯 Clave de Examen: ':%s/foo/bar/g' sustituye en todo el archivo sin preguntar; ':%s/foo/bar/gc' pide confirmación en cada caso.", "notes": "Muestra que la sintaxis de sustitución en vi es idéntica a la del comando 'sed'."}, {"id": 11, "section": "103.8", "cat": "editor", "type": "concept", "title": "Archivos Swap (.swp) y Recuperación tras Caídas", "lead": "¿Qué ocurre si se apaga el ordenador o se corta la conexión SSH mientras editabas en vi?", "ref": "407-408", "pdf": {"manual": "A", "pages": [407, 408], "figure": null}, "coverage": ["103.8-FILE-001"], "points": [{"icon": "shield-alert", "text": "El archivo oculto de intercambio (.archivo.swp)", "detail": "Mientras editas un fichero 'hosts', vi crea un archivo oculto '.hosts.swp' en la misma carpeta donde registra en tiempo real cada tecla pulsada."}, {"icon": "alert-triangle", "text": "El mensaje 'ATTENTION: Found a swap file'", "detail": "Si vi se cierra bruscamente por caída de luz o corte SSH, al volver a abrir el archivo vi detecta el .swp y muestra un menú advirtiendo que otra sesión quedó a medias."}, {"icon": "refresh-cw", "text": "Recuperación con vi -r", "detail": "🎯 Clave de Examen: Para recuperar los cambios no guardados se ejecuta: 'vi -r <archivo>'. Una vez recuperado y guardado, se debe borrar manualmente el archivo oculto .swp ('rm .archivo.swp')."}], "remember": "🎯 Clave de Examen: El comando 'vi -r <archivo>' recupera el trabajo pendiente desde el archivo de intercambio .swp tras una caída del sistema.", "notes": "Recuerda que si no borras el archivo .swp tras recuperar, vi seguirá mostrando el cartel de advertencia cada vez que lo abras."}, {"id": 12, "section": "103.8", "cat": "editor", "type": "command", "title": "Variables de Entorno del Editor: EDITOR, VISUAL y update-alternatives", "lead": "¿Cómo decide Linux qué editor abrir al ejecutar crontab o visudo y qué diferencias existen?", "ref": "408-409", "pdf": {"manual": "A", "pages": [408, 409], "figure": null}, "coverage": ["103.8-ENV-001"], "command": "export VISUAL=vim | export EDITOR=nano | sudo update-alternatives --config editor", "purpose": "Definir el editor predeterminado a nivel de sesión ($VISUAL, $EDITOR) o para todo el sistema (update-alternatives)", "terminal": {"command": "export EDITOR=nano; export VISUAL=vim; crontab -e", "output": ["# 1. Sesión de usuario: crontab abre 'vim' porque $VISUAL tiene preferencia sobre $EDITOR.", "# 2. Global del servidor: 'sudo update-alternatives --config editor' fija /usr/bin/editor para todos los usuarios."]}, "options": [{"flag": "$VISUAL", "desc": "🎯 Máxima Prioridad: Variable pensada para terminales de pantalla completa. Si está definida, los programas interactivos (crontab, visudo, git) la usan ANTES que $EDITOR."}, {"flag": "$EDITOR", "desc": "🎯 Estándar POSIX: Variable histórica para editores de texto. Se utiliza si $VISUAL no está definida o en utilidades en línea de comandos."}, {"flag": "update-alternatives", "desc": "🎯 Configuración Global del Sistema: Comando de Debian/Ubuntu para cambiar el enlace simbólico maestro /usr/bin/editor entre nano, vim.basic o vim.tiny."}, {"flag": "select-editor", "desc": "Comando interactivo para usuarios sin privilegios de root que guarda la preferencia personal en ~/.selected_editor."}], "remember": "🎯 Jerarquía de Decisión de Examen: 1. $VISUAL (primera prioridad) -> 2. $EDITOR (segunda prioridad) -> 3. Configuración global /usr/bin/editor (update-alternatives) -> 4. /bin/vi por defecto.", "notes": "Muestra a la clase qué ocurre cuando configuran ambas variables: VISUAL siempre gana a EDITOR.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:25px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚡ Flujo de Jerarquía: ¿Cómo eligen crontab -e o visudo qué editor abrir?</span>\n    <span style=\"font-size:22px; background:#EFF6FF; color:#1D4ED8; padding:4px 10px; border-radius:12px; font-weight:700;\">Orden de Precedencia</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; font-size:22px;\">\n    <!-- 1. VISUAL -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:14px 18px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;\">\n        <strong style=\"color:#1E40AF; font-size:23px;\">1. $VISUAL</strong>\n        <span style=\"background:#2563EB; color:#FFF; font-size:20px; font-weight:700; padding:4px 10px; border-radius:3px;\">Prioridad 1</span>\n      </div>\n      <div style=\"color:#1E3A8A; line-height:1.35;\">\n        Si existe, se ejecuta <strong>SIEMPRE</strong> primero. Diseñada para terminales visuales.\n      </div>\n    </div>\n\n    <!-- 2. EDITOR -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:14px 18px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;\">\n        <strong style=\"color:#15803D; font-size:23px;\">2. $EDITOR</strong>\n        <span style=\"background:#16A34A; color:#FFF; font-size:20px; font-weight:700; padding:4px 10px; border-radius:3px;\">Prioridad 2</span>\n      </div>\n      <div style=\"color:#14532D; line-height:1.35;\">\n        Se evalúa si <code>$VISUAL</code> está vacía o no existe. Estándar POSIX de sesión.\n      </div>\n    </div>\n\n    <!-- 3. update-alternatives -->\n    <div style=\"background:#FEF3C7; border:1.5px solid #F59E0B; border-radius:8px; padding:14px 18px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;\">\n        <strong style=\"color:#92400E; font-size:23px;\">3. /usr/bin/editor</strong>\n        <span style=\"background:#D97706; color:#FFF; font-size:20px; font-weight:700; padding:4px 10px; border-radius:3px;\">Global SO</span>\n      </div>\n      <div style=\"color:#78350F; line-height:1.35;\">\n        Si no hay variables, usa el enlace gestionado por <code>update-alternatives</code>.\n      </div>\n    </div>\n\n    <!-- 4. Default /bin/vi -->\n    <div style=\"background:#F1F5F9; border:1.5px solid #94A3B8; border-radius:8px; padding:14px 18px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;\">\n        <strong style=\"color:#334155; font-size:23px;\">4. /bin/vi</strong>\n        <span style=\"background:#475569; color:#FFF; font-size:20px; font-weight:700; padding:4px 10px; border-radius:3px;\">Fallback</span>\n      </div>\n      <div style=\"color:#475569; line-height:1.35;\">\n        Último recurso infalible del kernel y sistema si todo lo anterior falla.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 13, "section": "103.8", "cat": "editor", "type": "concept", "title": "Trampas Clásicas de Examen en el Editor vi", "lead": "Las 4 confusiones más destructivas en las preguntas de certificación LPIC-1:", "ref": "409-410", "pdf": {"manual": "A", "pages": [409, 410], "figure": null}, "coverage": ["103.8-WARN-001"], "points": [{"icon": "alert-triangle", "text": "1. Salir sin guardar con :q en lugar de forzar con :q!", "detail": "❌ Trampa: Si has modificado texto sin querer, escribir ':q' dará el error 'E37: No write since last change'. Para salir descartando cambios OBLIGATORIAMENTE debes añadir la exclamación: ':q!'."}, {"icon": "alert-triangle", "text": "2. Anteponer dos puntos ':' a comandos de Modo Normal (como :ZZ o :u)", "detail": "❌ Trampa: Escribir ':ZZ' o ':u' creyendo que todo lleva dos puntos. 'ZZ' (guardar y salir) y 'u' (deshacer) se pulsan DIRECTAMENTE en Modo Normal sin dos puntos. Teclear ':ZZ' dará error de comando Ex no válido."}, {"icon": "alert-triangle", "text": "3. Confundir mayúsculas y minúsculas en comandos de edición", "detail": "❌ Trampa: Creer que 'o' y 'O', o 'p' y 'P' hacen lo mismo. En vi cambian drásticamente de dirección: 'o' abre línea DEBAJO; 'O' abre línea ENCIMA. 'p' pega DESPUÉS del cursor; 'P' pega ANTES."}, {"icon": "alert-triangle", "text": "4. Intentar salir con Ctrl+C o suspender con Ctrl+Z", "detail": "❌ Trampa: 'Ctrl+C' no sale de vi (muestra 'Type :quit<Enter> to exit'). Pulsar 'Ctrl+Z' suspende el proceso en segundo plano dejando un fichero de bloqueo '.swp' que dará errores de lectura. La salida limpia es 'Esc' + ':wq' o ':q!'."}], "remember": "🎯 Mnemotecnia Rápida: :q! para salir sin guardar; ZZ (en Modo Normal) para guardar y salir; o minúscula abre debajo, O mayúscula encima; Ctrl+C no cierra vi.", "notes": "Pide a los alumnos que anoten estas 4 trampas porque constituyen al menos 2 preguntas clásicas del examen 101."}, {"id": 14, "section": "103.8", "cat": "editor", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Invocación y Movimiento)", "ref": "Manual A - Pág 410", "pdf": {"manual": "A", "pages": [410], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 410): ¿Cuál es el comando exacto de terminal para abrir el archivo '/etc/passwd' con el editor vi posicionando automáticamente el cursor en la línea número 15?", "command": "vi +15 /etc/passwd", "reason": "La opción '+N' salta de forma instantánea a la línea especificada durante el arranque del editor."}, {"action": "Caso 2 (Oficial Pág 410): Estando en Modo Normal, ¿qué teclas individuales permiten saltar directamente al inicio exacto de la línea actual y al final de la línea actual?", "command": "Pulsar '0' (cero) para ir al inicio; pulsar '$' para ir al final", "reason": "Son los atajos directos de navegación horizontal dentro de la misma línea."}, {"action": "Caso 3 (Oficial Pág 410): ¿Qué atajos de teclado en Modo Normal permiten saltar a la primera línea del archivo y a la última línea del archivo?", "command": "Pulsar '1G' (o 'gg') para la primera línea; pulsar 'G' (mayúscula) para la última", "reason": "'1G' viaja a la línea 1; 'G' sin número salta a la última línea del documento."}], "solution": {"explain": "vi +N para arranque posicionado; 0 y $ para extremos de línea; 1G y G para extremos de archivo."}, "notes": "Haz que los alumnos comprueben cómo 'G' salta al final de un archivo de 2000 líneas al instante."}, {"id": 15, "section": "103.8", "cat": "editor", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: Edición y Salida)", "ref": "Manual A - Pág 410", "pdf": {"manual": "A", "pages": [410], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 410): Necesitas borrar 4 líneas completas a partir de la posición actual del cursor y pegarlas 10 líneas más abajo. ¿Qué secuencia de comandos en Modo Normal debes pulsar?", "command": "Pulsar '4dd' (borra/corta 4 líneas), desplazarse al destino y pulsar 'p' (pega debajo)", "reason": "'4dd' corta las 4 líneas al búfer interno y 'p' las inserta debajo de la nueva posición."}, {"action": "Caso 5 (Oficial Pág 410): Has abierto un archivo de configuración crítico, has borrado texto por error y necesitas salir inmediatamente a la shell garantizando que el archivo NO se modifique.", "command": "Pulsar 'Esc' y teclear ':q!' seguido de Enter (o teclear 'ZQ')", "reason": "':q!' descarta todos los cambios del búfer y cierra el archivo sin escribir nada en el disco."}], "solution": {"explain": "4dd y p para cortar y mover bloques; :q! para salir descartando cambios con seguridad."}, "notes": "Recuerda que ':q!' es la acción más segura cuando no estás seguro de qué tocaste en un archivo de producción."}, {"id": 16, "section": "103.8", "cat": "editor", "type": "challenge", "title": "Retos de Exploración Oficiales (Sustitución Global y .swp)", "ref": "Manual A - Pág 410", "pdf": {"manual": "A", "pages": [410], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. ¿Cuál es el comando exacto en Modo Ex (:) para sustituir en TODO el archivo la palabra 'servidor01' por 'servidor02' pidiendo confirmación interactiva en cada reemplazo?\n2. Se ha cortado la luz mientras un administrador editaba '/etc/hosts'. Al reiniciar y abrir el archivo con vi, ¿qué comando debe ejecutar para recuperar los cambios pendientes?\n3. ¿Qué variable de entorno debes exportar en tu archivo ~/.bashrc para que 'crontab -e' abra siempre el editor vi?", "hint": "Recuerda: :%s/antiguo/nuevo/gc; vi -r; y la variable de entorno EDITOR.", "solution": {"explain": "1. Se ejecuta: :%s/servidor01/servidor02/gc\n2. Se ejecuta: vi -r /etc/hosts (y una vez guardado se borra el archivo oculto .hosts.swp).\n3. Se exporta: export EDITOR=vi (o export VISUAL=vi)."}, "notes": "El comando de sustitución con confirmación (:s///gc) es una de las preguntas de mayor dificultad en el objetivo 103.8."}, {"id": 17, "section": "103.8", "cat": "editor", "type": "review", "title": "Pregunta de Examen LPIC-1: Salida Forzada sin Guardar en vi", "q": "¿Qué comando del Modo Ex (dos puntos) debe introducirse en el editor vi para salir inmediatamente a la shell descartando todas las modificaciones realizadas desde el último guardado?", "options": [":exit!", ":q!", ":w!", ":abort"], "answer": 1, "why": "El comando ':q!' (Quit con signo de exclamación) fuerza la salida inmediata del editor vi ignorando y descartando cualquier cambio no guardado en el archivo. El comando alternativo en Modo Normal es 'ZQ'.", "notes": "Pregunta directa y fundamental de certificación."}, {"id": 18, "section": "103.8", "cat": "editor", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Editor vi/vim 103.8", "deck": [{"front": "¿Cómo volver siempre al Modo Normal desde cualquier otro modo en vi?", "back": "Pulsando la tecla 'Esc'."}, {"front": "¿Qué teclas saltan a la primera y a la última línea del archivo en vi?", "back": "1G (o gg) para la primera; G (mayúscula) para la última."}, {"front": "¿Qué tecla abre una nueva línea en blanco DEBAJO de la actual?", "back": "La letra 'o' minúscula (la 'O' mayúscula la abre encima)."}, {"front": "¿Qué comando borra la línea completa actual en Modo Normal?", "back": "dd."}, {"front": "¿Qué comando copia una línea completa al portapapeles y cuál la pega?", "back": "yy copia (yank); p pega debajo (put)."}, {"front": "¿Qué tecla deshace el último cambio en vi?", "back": "La tecla 'u' (undo); Ctrl+R rehace (redo)."}, {"front": "¿Cómo salir de vi forzando el cierre sin guardar cambios?", "back": ":q! (o tecleando ZQ en Modo Normal)."}, {"front": "¿Cómo sustituir 'foo' por 'bar' en TODO el archivo pidiendo confirmación?", "back": ":%s/foo/bar/gc."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.8."}, {"id": 19, "section": "103.8", "cat": "editor", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.8", "takeaways": ["Los 4 Modos: Modo Normal (base), Inserción (i, a, o, O), Ex/Línea de Comandos (:) y Visual (v, V, Ctrl+V). 'Esc' para volver a Normal.", "Navegación: h/j/k/l, w/b palabras, 0/$ extremos de línea, 1G/G extremos de documento, vi +N para abrir en línea N.", "Edición y Portapapeles: dd borra línea, yy copia línea, p pega debajo, u deshace, r sustituye un carácter, /patrón busca adelante.", "Comandos Ex y Entorno: :wq o ZZ para guardar y salir; :q! o ZQ para salir forzado sin guardar; :%s/viejo/nuevo/g para reemplazar; vi -r para recuperar .swp; export EDITOR=vi para definir editor por defecto."], "top3": [{"cmd": ":wq || :q!", "desc": "Guardar y salir con éxito, o salir de emergencia descartando cambios accidentales."}, {"cmd": ":%s/antiguo/nuevo/g", "desc": "Sustituye cadenas globalmente en todo el archivo dentro del editor."}, {"cmd": "export EDITOR=vi", "desc": "Establece vi como el editor por defecto para crontab y herramientas del sistema."}], "practice": {"name": "Practica 103.8: Edición Básica de Archivos con vi / vim", "url": "../practicas/p-103-8-editor-vi.html", "desc": "Navega entre los modos Normal, Inserción y Ex en vi; domina la edición rápida (dd, yy, p, u), búsquedas (/), sustituciones globales (:%s/old/new/g) y guardado (:wq, :q!, ZZ)."}, "notes": "Concluimos el subtema 103.8 y finalizamos completamente la refactorización integral del Tema 103.", "global_practice": {"name": "Laboratorio Global Integrador — Todo el Tema 103: Comandos GNU y Unix", "url": "../practicas/p-tema-103-global.html", "desc": "Entorno shell y aliases, tuberías de filtrado (cut, sort, uniq, wc, tr), compresión (tar, xz), redirecciones, procesos y señales (ps, kill, nice), regex y vi."}}];
     const ERRATAS = [{"id": "ERR-103.8-01", "section": "103.8", "ref": "p. 14", "manual_says": "Para salir de vi sin guardar se usa :q.", "reality": "Si el archivo ha sido modificado, :q devolverá error ('No write since last change'). Es obligatorio usar :q! para forzar la salida sin guardar.", "exam_tip": "Para el examen LPIC-1 recuerda la exclamación ! como modificador de forzado en vi."}];
     const GLOSARIO = [{"id": "vi-modes", "term": "Modos de vi/vim", "def": "Modo comando (navegación y borrado), modo inserción (escribir texto) y modo ex / línea de comandos (:).", "ref": "p. 1-10"}, {"id": "vi-commands", "term": "Comandos de vi", "def": "i=insertar, a=añadir, dd=borrar línea, yy=copiar línea, p=pegar, :wq=guardar y salir, :q!=salir sin guardar.", "ref": "p. 11-20"}, {"id": "vim", "term": "vim (Vi IMproved)", "def": "Versión ampliada y moderna del editor vi tradicional con resaltado de sintaxis y autocompletado.", "ref": "p. 1-5"}];
     const META = {"topic": "103.8", "title": "Edición básica de archivos", "weight": 3, "description": "Modos de vi, navegación h/j/k/l, inserción, borrado, yank/put, modo Ex (:), sustitución y recuperación (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1758,7 +1767,7 @@
       const notesWidth = teacherNotesOpen ? 420 : 0;
       const availW = window.innerWidth - notesWidth;
       const availH = window.innerHeight - topBarHeight;
-      const scale = Math.min((availW - 40) / 1920, (availH - 40) / 1080);
+      const scale = Math.min((availW - 16) / 1920, (availH - 16) / 1080);
       stage.style.transform = `scale(${Math.max(scale, 0.25)})`;
     }
     window.addEventListener('resize', resizeStage);
@@ -1843,6 +1852,7 @@
       // Renderizado del cuerpo según el tipo
       const container = document.getElementById('slide-content');
       container.innerHTML = buildSlideHTML(s, colors);
+      container.scrollTop = 0;
 
       // Actualizar fragmentos
       const frags = container.querySelectorAll('.frag');
@@ -2057,8 +2067,8 @@
               <div style="display:grid; grid-template-columns: repeat(${Math.min(s.stats.length, 4)}, 1fr); gap:16px; margin-top:36px; max-width:1100px; margin-left:auto; margin-right:auto;">
                 ${s.stats.map(st => `
                   <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:14px; padding:16px 20px; text-align:center;">
-                    <div style="font-size:16px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
-                    <div style="font-size:20px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
+                    <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
+                    <div style="font-size:24px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
                   </div>
                 `).join('')}
               </div>
@@ -2078,7 +2088,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2110,8 +2120,8 @@
         if (s.syntax) {
           html += `
             <div class="syntax-bar">
-              <span style="font-weight:700; color:var(--text-muted); font-size:19px;">Sintaxis:</span>
-              <code class="t-cmd" style="font-size:21px;">${escapeHTML(s.syntax)}</code>
+              <span style="font-weight:700; color:var(--text-muted); font-size:24px;">Sintaxis:</span>
+              <code class="t-cmd" style="font-size:26px;">${escapeHTML(s.syntax)}</code>
             </div>
           `;
         }
@@ -2144,7 +2154,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2379,12 +2389,12 @@
             html += `
               <div class="concept-card" style="position:relative; display:flex; flex-direction:column; justify-content:space-between; border-left:6px solid var(--primary);">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-                  <span style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;">${st.num || idx + 1}</span>
+                  <span style="width:38px; height:38px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:22px;">${st.num || idx + 1}</span>
                   <div class="icon-box" style="margin:0;"><svg class="ic ic-md"><use href="#i-${st.icon || 'arrow-right'}"/></svg></div>
                 </div>
                 <div>
-                  <div style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
-                  <div style="font-size:18px; color:var(--text-muted); line-height:1.4;">${renderRichText(sdesc)}</div>
+                  <div style="font-size:24px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
+                  <div style="font-size:22px; color:var(--text-muted); line-height:1.42;">${renderRichText(sdesc)}</div>
                 </div>
               </div>
             `;
@@ -2413,7 +2423,7 @@
         }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:22px;">
               <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
             </span>
           </div>
@@ -2422,7 +2432,7 @@
         // Planteamiento del problema (Escenario claro)
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
             <div style="white-space:pre-line;">${renderRichText(scenarioText)}</div>
             ${questionText ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(questionText)}</div>` : ''}
           </div>
@@ -2434,7 +2444,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2442,7 +2452,7 @@
               const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(doText)}</span>
                 </div>
               `;
@@ -2451,7 +2461,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2463,15 +2473,15 @@
         // Botón docente interactivo para revelar resolución lineal y explicación
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-exercise" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-exercise" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar / Ocultar Resolución Guiada y Explicación
             </button>
-            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
         `;
 
         // Dentro del cuadro de resolución: pasos resueltos y comandos
         if (steps.length > 0) {
-          html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
+          html += `<div style="font-size:22px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
             const doText = st.action || st.do || st.task || st.step || '';
             const lookText = st.command || st.look || st.cmd || st.code || '';
@@ -2482,7 +2492,7 @@
                   <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
                   ${lookText ? `<code class="exercise-sol-code">${escapeHTML(lookText)}</code>` : ''}
                 </div>
-                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
+                ${reasonText ? `<div style="font-size:22px; color:var(--text-muted); line-height:1.4; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -2526,9 +2536,9 @@
         // Enunciado y Escenario del reto
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
             <div style="white-space:pre-line;">${renderRichText(scenario)}</div>
-            ${goalText ? `<div style="margin-top:10px; font-size:18px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
+            ${goalText ? `<div style="margin-top:10px; font-size:22px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
             ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(question)}</div>` : ''}
           </div>
         `;
@@ -2539,7 +2549,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2549,10 +2559,10 @@
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; justify-content:space-between; gap:16px;">
                   <div style="display:flex; align-items:center; gap:12px;">
-                    <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                    <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                     <span>${renderRichText(titleText)}</span>
                   </div>
-                  ${(st.action && st.step !== st.action) ? `<code style="font-size:18px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
+                  ${(st.action && st.step !== st.action) ? `<code style="font-size:22px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
                 </div>
               `;
             });
@@ -2560,7 +2570,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2578,7 +2588,7 @@
             const isCorrect = !!opt.correct;
             html += `
               <button class="quiz-btn challenge-opt-btn" onclick="this.classList.toggle('${isCorrect ? 'correct' : 'incorrect'}');">
-                <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
+                <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
                 <span>${renderRichText(optText)}</span>
               </button>
             `;
@@ -2601,13 +2611,13 @@
         const solTerminal = s.solution?.terminal || s.outcome?.terminal || (chObj ? (chObj.solution?.terminal || chObj.outcome?.terminal) : null) || null;
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-challenge" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar Solución y Razonamiento Docente
             </button>
-            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
               <div style="display:flex; align-items:flex-start; gap:12px;">
                 <svg class="ic ic-md" style="margin-top:2px; flex:none; color:var(--success);"><use href="#i-circle-check"/></svg>
-                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:20px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
+                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:22px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
               </div>
               ${solTerminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(solTerminal, 'solución')}</div>` : ''}
             </div>
@@ -2650,7 +2660,7 @@
           const optText = (typeof opt === 'object' && opt !== null) ? opt.text : opt;
           html += `
             <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${ansIdx}, '${escapeQuotes(expl)}')">
-              <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
+              <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(optText)}</span>
             </button>
           `;
@@ -2658,11 +2668,11 @@
         html += `</div>`;
         html += `
           <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
-            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:22px; padding:12px 24px; cursor:pointer;">
               <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
             </button>
           </div>
-          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:23px; line-height:1.5;"></div>
         `;
         }
       } else if (s.type === 'flashcards') {
@@ -2730,7 +2740,7 @@
         if (top3.length > 0) {
           html += `
             <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
-              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <div style="font-weight:800; font-size:23px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
                 <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
               </div>
               <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
@@ -2739,8 +2749,8 @@
             if (typeof t === 'string') {
               html += `
                 <div class="summary-cmd-card" style="display:flex; align-items:center; justify-content:space-between;">
-                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
-                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  <code class="t-cmd" style="font-size:22px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                 </div>
               `;
             } else {
@@ -2749,10 +2759,10 @@
               html += `
                 <div class="summary-cmd-card">
                   <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
-                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                    <code class="t-cmd" style="font-size:22px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                   </div>
-                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                  ${desc ? `<div style="font-size:21px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
                 </div>
               `;
             }
@@ -2776,7 +2786,7 @@
                   <div class="sp-desc">${renderRichText(pDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Web →
               </a>
             </div>
@@ -2796,7 +2806,7 @@
                 <div class="sp-desc" style="color:var(--text);">Explora visualmente los comandos, rutas y preguntas trampa de examen conectadas a este subtema en la red interactiva.</div>
               </div>
             </div>
-            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
               Ver en Grafo Interactivo →
             </a>
           </div>
@@ -2818,7 +2828,7 @@
                   <div class="sg-desc">${renderRichText(gpDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Global →
               </a>
             </div>
@@ -2878,7 +2888,13 @@
     // Navegación por teclado
     window.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      if (e.key === 'ArrowDown') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: 140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowUp') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: -140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         e.preventDefault();
         nextStep();
       } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
@@ -3034,7 +3050,7 @@
         content += `<div style="margin-bottom:8px; font-size:20px; line-height:1.4;">${escapeHTML(descText)}</div>`;
       }
       if (example) {
-        content += `<div style="font-family:monospace; font-size:18px; background:var(--surface-alt); padding:6px 10px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
+        content += `<div style="font-family:monospace; font-size:20px; background:var(--surface-alt); padding:8px 12px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
       }
       popover.innerHTML = content || '<div>Sin detalles adicionales</div>';
       const rect = e.currentTarget.getBoundingClientRect();
@@ -3188,8 +3204,8 @@
         item.style.color = 'var(--text)';
         item.style.cursor = 'pointer';
         item.innerHTML = `
-          <div style="font-weight:700; font-size:16px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
-          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
+          <div style="font-weight:700; font-size:19px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
+          <div style="font-size:21px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
         `;
         item.onclick = () => {
           closeModals();

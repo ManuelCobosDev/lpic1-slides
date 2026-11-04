@@ -287,14 +287,15 @@
     [data-theme="dark"] .summary-global-box .sg-icon { background: #78350F !important; color: #FDE047 !important; }
 
     .exercise-sol-code {
-      font-size: 19px;
+      font-size: 23px;
       background: #FFFFFF;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 8px;
       border: 1px solid #86EFAC;
       color: #166534;
       font-family: monospace;
       font-weight: 700;
+      line-height: 1.48;
     }
     .summary-cmd-card {
       background: #FFFFFF;
@@ -313,8 +314,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-practice-box .sp-title { font-size: 20px; font-weight: 800; color: #166534; }
-    .summary-practice-box .sp-desc { font-size: 16px; color: #374151; }
+    .summary-practice-box .sp-title { font-size: 25px; font-weight: 800; color: #166534; }
+    .summary-practice-box .sp-desc { font-size: 21px; color: #374151; line-height: 1.45; }
     .summary-practice-box .sp-icon { width: 48px; height: 48px; border-radius: 12px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; flex: none; }
     .summary-global-box {
       margin-top: 12px;
@@ -327,8 +328,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-global-box .sg-title { font-size: 20px; font-weight: 800; color: #92400E; }
-    .summary-global-box .sg-desc { font-size: 16px; color: #78350F; }
+    .summary-global-box .sg-title { font-size: 25px; font-weight: 800; color: #92400E; }
+    .summary-global-box .sg-desc { font-size: 21px; color: #78350F; line-height: 1.45; }
     .summary-global-box .sg-icon { width: 48px; height: 48px; border-radius: 12px; background: #FEF3C7; color: #92400E; display: flex; align-items: center; justify-content: center; flex: none; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -540,32 +541,33 @@
     /* Área de contenido del slide (1680 x 870 aprox) */
     .slide-body {
       flex: 1;
-      padding: 30px 64px;
+      padding: 28px 52px 48px 52px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       position: relative;
       overflow-y: auto;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    .slide-body::-webkit-scrollbar { width: 8px; }
+    .slide-body::-webkit-scrollbar { width: 12px; }
     .slide-body::-webkit-scrollbar-track { background: transparent; }
-    .slide-body::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-    .slide-body::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+    .slide-body::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 6px; }
+    .slide-body::-webkit-scrollbar-thumb:hover { background: #64748B; }
 
     .slide-title {
-      font-size: 46px;
+      font-size: 48px;
       font-weight: 800;
       line-height: 1.15;
       color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
     }
     .slide-lead {
-      font-size: 26px;
-      line-height: 1.35;
+      font-size: 29px;
+      line-height: 1.38;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 500;
     }
 
@@ -598,21 +600,22 @@
       justify-content: center;
       flex: none;
     }
-    .concept-card .card-text { font-size: 24px; line-height: 1.35; font-weight: 600; color: var(--text); }
-    .concept-card .card-detail { font-size: 19px; color: var(--text-muted); margin-top: 4px; font-weight: 400; line-height: 1.35; }
+    .concept-card .card-text { font-size: 27px; line-height: 1.35; font-weight: 700; color: var(--text); }
+    .concept-card .card-detail { font-size: 23px; color: var(--text-muted); margin-top: 6px; font-weight: 400; line-height: 1.42; }
 
     /* Cajas Recuerda / Trampa / Callouts */
     .callout-box {
       margin-top: 10px;
-      padding: 10px 18px;
+      padding: 14px 22px;
       border-radius: 12px;
-      display: inline-flex;
+      display: flex;
+      width: 100%;
       align-items: center;
       gap: 14px;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
       border: 2px solid transparent;
-      line-height: 1.35;
+      line-height: 1.4;
     }
     .callout-warning {
       background: var(--warning-soft);
@@ -633,18 +636,18 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 24px !important;
-      height: 24px !important;
-      min-width: 24px !important;
-      max-width: 24px !important;
-      min-height: 24px !important;
-      max-height: 24px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      max-width: 30px !important;
+      min-height: 30px !important;
+      max-height: 30px !important;
       border-radius: 50% !important;
       background: #2563EB;
       color: #FFFFFF !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
       font-weight: 800 !important;
-      font-size: 13px !important;
+      font-size: 17px !important;
       line-height: 1 !important;
       vertical-align: middle !important;
       text-align: center !important;
@@ -678,7 +681,7 @@
       border-bottom: 1px solid #E2E8F0;
     }
     .slide-glossary-box .gl-tag {
-      font-size: 12px;
+      font-size: 19px;
       font-weight: 800;
       color: #2563EB;
       text-transform: uppercase;
@@ -689,7 +692,7 @@
     }
     .slide-glossary-box .gl-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 10px;
       align-items: stretch;
     }
@@ -712,11 +715,11 @@
     }
     .slide-glossary-box .gl-badge {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 12.5px;
+      font-size: 21px;
       font-weight: 700;
       color: #1D4ED8;
       background: #EFF6FF;
-      padding: 2px 8px;
+      padding: 4px 10px;
       border-radius: 5px;
       border: 1px solid #BFDBFE;
       display: inline-block;
@@ -725,13 +728,13 @@
     }
     .slide-glossary-box .gl-def {
       color: #334155;
-      font-size: 13.5px;
+      font-size: 21px;
       line-height: 1.45;
       flex: 1;
     }
     .slide-glossary-box .gl-def code {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
+      font-size: 20px;
       background: #F1F5F9;
       padding: 1px 4px;
       border-radius: 4px;
@@ -749,14 +752,14 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px 12px;
-      font-size: 13.5px;
+      font-size: 21px;
       color: var(--text-muted);
       line-height: 1.35;
     }
     .slide-glossary-strip .gl-title {
       font-weight: 800;
       color: var(--primary);
-      font-size: 12px;
+      font-size: 19px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       display: inline-flex;
@@ -775,7 +778,7 @@
     .slide-glossary-strip .gl-term {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-weight: 700;
-      font-size: 12.5px;
+      font-size: 21px;
       color: #1D4ED8;
     }
 
@@ -885,7 +888,7 @@
       align-items: center;
       justify-content: space-between;
       color: #475569;
-      font-size: 18px;
+      font-size: 21px;
       font-weight: 700;
     }
     .term-copy-btn, .terminal-copy-btn {
@@ -897,7 +900,7 @@
       border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -912,14 +915,14 @@
       transform: scale(0.96);
     }
     .term-code {
-      padding: 14px 20px;
+      padding: 18px 24px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: clamp(16px, 1.2vw, 22px);
-      line-height: 1.38;
+      font-size: 23px;
+      line-height: 1.48;
       color: #0F172A;
       white-space: pre-wrap;
       user-select: text;
-      max-height: 340px;
+      max-height: none;
       overflow-y: auto;
     }
     .term-code::-webkit-scrollbar { width: 6px; }
@@ -957,7 +960,7 @@
       flex-shrink: 0;
     }
     .terminal-title {
-      font-size: 14px;
+      font-size: 19px;
       font-weight: 700;
       color: #94A3B8;
       font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
@@ -978,13 +981,13 @@
       color: #38BDF8;
     }
     .terminal-body {
-      padding: 16px 20px;
+      padding: 18px 24px;
       margin: 0;
       background: #0F172A;
       color: #E2E8F0;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
-      font-size: 15.5px;
-      line-height: 1.55;
+      font-size: 22px;
+      line-height: 1.5;
       overflow-x: auto;
       white-space: pre-wrap;
     }
@@ -1016,14 +1019,14 @@
       margin-right: 22px;
     }
     .mini-term-title {
-      font-size: 12px;
+      font-size: 18px;
       color: #94A3B8;
       font-weight: 700;
     }
     .mini-term-body {
-      padding: 10px 14px;
-      font-size: 14.5px;
-      line-height: 1.55;
+      padding: 14px 18px;
+      font-size: 21px;
+      line-height: 1.5;
       color: #E2E8F0;
       background: #0F172A;
     }
@@ -1072,7 +1075,7 @@
       border-radius: 8px;
       border: 1.5px solid var(--border);
       background: var(--surface-alt);
-      font-size: 18px;
+      font-size: 22px;
       color: var(--text);
       cursor: pointer;
       transition: all 0.15s ease;
@@ -1100,30 +1103,31 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
+      padding: 8px 18px;
       background: #FFFFFF;
       border: 2px solid var(--control-border);
       border-radius: 10px;
-      font-size: 19px;
+      font-size: 23px;
       font-weight: 600;
       color: var(--text);
       cursor: pointer;
       transition: transform 0.1s, border-color 0.15s;
     }
-    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 21px; font-weight: 700; }
+    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 25px; font-weight: 700; }
 
     /* Sintaxis y Directivas */
     .syntax-bar {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 16px;
+      padding: 12px 20px;
       background: var(--surface-alt);
       border: 2px solid var(--border-strong);
       border-radius: 10px;
       margin-bottom: 10px;
-      font-size: 21px;
+      font-size: 24px;
     }
+    .syntax-bar code.t-cmd { font-size: 26px; }
     .directives-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1139,15 +1143,16 @@
     }
     .directive-key {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 700;
       color: #1D4ED8;
       margin-bottom: 4px;
+      line-height: 1.42;
     }
     .directive-desc {
-      font-size: 19px;
+      font-size: 23px;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.42;
     }
 
     /* Tablas (≤5x4) */
@@ -1163,22 +1168,24 @@
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(15px, 1.05vw, 18.5px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(15.5px, 1.1vw, 19.5px);
+      font-size: 24px;
+      line-height: 1.42;
     }
     table.slide-table td {
-      padding: 9px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
+      font-size: 23px;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: var(--warning-soft); }
@@ -1199,24 +1206,26 @@
     table.slide-matrix {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(16px, 1.15vw, 20px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-matrix th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 12px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(17px, 1.2vw, 21px);
+      font-size: 24px;
+      line-height: 1.42;
       letter-spacing: -0.01em;
     }
     table.slide-matrix td {
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
       vertical-align: middle;
+      font-size: 23px;
     }
     table.slide-matrix tr:last-child td { border-bottom: none; }
     table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
@@ -1231,7 +1240,7 @@
       border: 2px solid var(--border-strong);
       border-radius: 14px;
       background: #FFFFFF;
-      font-size: 26px;
+      font-size: 27px;
       font-weight: 600;
       color: var(--text);
       text-align: left;
@@ -1248,7 +1257,7 @@
       margin-top: 20px;
       padding: 18px 24px;
       border-radius: 14px;
-      font-size: 24px;
+      font-size: 25px;
       line-height: 1.4;
       display: none;
     }
@@ -1346,7 +1355,7 @@
       font-weight: 700;
     }
     .panel-body { padding: 24px; font-size: 20px; line-height: 1.5; color: var(--text); }
-    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 18px; }
+    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 20px; }
 
     /* Modales y Popovers */
     .modal-overlay {
@@ -1737,7 +1746,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": "109-3-01", "type": "cover", "title": "109.3 Resolución de problemas básicos de red", "subtitle": "Fundamentos de redes · Peso 4", "content": "<div style=\"display:flex; flex-direction:column; gap:20px; align-items:center; justify-content:center; text-align:center; height:100%;\">\n  <div style=\"display:inline-flex; align-items:center; gap:12px; padding:8px 24px; background:var(--color-bg-subtle); border-radius:30px; font-weight:700; color:var(--color-accent); font-size:22px; border:1px solid var(--color-border);\">\n    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z\"/></svg>\n    LPIC-1 Examen 102 · Objetivo 109.3\n  </div>\n  <h1 style=\"font-size:46px; font-weight:800; margin:0; color:var(--color-text);\">Diagnóstico y Solución de Problemas de Red</h1>\n  <p style=\"font-size:23px; color:var(--color-text-muted); max-width:980px; margin:0;\">\n    Control manual con <code>iproute2</code> (<code>ip a</code>, <code>ip link</code>, <code>ip r</code>), inspección de puertos con <code>ss</code> y <code>netstat</code>, pruebas con <code>ping</code>, <code>traceroute</code>, <code>tracepath</code>, <code>netcat</code> y tabla de vecinos ARP.\n  </p>\n  <div style=\"display:flex; gap:18px; margin-top:10px;\">\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Peso LPI:</strong> 4 puntos\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Suite moderna:</strong> <code>iproute2</code> (comando <code>ip</code>)\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Sockets:</strong> <code>ss -tulpn</code>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-02", "type": "flow", "title": "Estrategia de Diagnóstico por Capas TCP/IP", "subtitle": "Metodología sistemática de abajo hacia arriba para aislar fallos de red", "content": "<div style=\"display:flex; flex-direction:column; gap:16px; align-items:center;\">\n  <div style=\"display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; width:100%; max-width:1150px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"width:36px; height:36px; border-radius:50%; background:var(--color-accent); color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; font-weight:800; font-size:18px;\">1</div>\n      <h4 style=\"margin:0 0 6px 0; font-size:20px; color:var(--color-text);\">Capa de Enlace (L2)</h4>\n      <p style=\"margin:0; font-size:17px; color:var(--color-text-muted);\">\n        Cable conectado, link UP en interfaz física y vecinos ARP.<br>\n        <code>ip link</code> · <code>ip neigh</code>\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"width:36px; height:36px; border-radius:50%; background:var(--color-accent); color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; font-weight:800; font-size:18px;\">2</div>\n      <h4 style=\"margin:0 0 6px 0; font-size:20px; color:var(--color-text);\">Capa de Red (L3)</h4>\n      <p style=\"margin:0; font-size:17px; color:var(--color-text-muted);\">\n        IP asignada, máscara correcta y ruta por defecto (gateway).<br>\n        <code>ip addr</code> · <code>ip route</code>\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"width:36px; height:36px; border-radius:50%; background:var(--color-accent); color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; font-weight:800; font-size:18px;\">3</div>\n      <h4 style=\"margin:0 0 6px 0; font-size:20px; color:var(--color-text);\">Conectividad</h4>\n      <p style=\"margin:0; font-size:17px; color:var(--color-text-muted);\">\n        Eco ICMP al gateway e Internet; saltos de ruta y MTU.<br>\n        <code>ping</code> · <code>traceroute</code> · <code>tracepath</code>\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:2px solid var(--color-accent); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"width:36px; height:36px; border-radius:50%; background:var(--color-accent); color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; font-weight:800; font-size:18px;\">4</div>\n      <h4 style=\"margin:0 0 6px 0; font-size:20px; color:var(--color-accent);\">Transporte (L4)</h4>\n      <p style=\"margin:0; font-size:17px; color:var(--color-text-muted);\">\n        Puertos abiertos, servicios a la escucha y sockets activos.<br>\n        <code>ss -tulpn</code> · <code>nc -zv</code>\n      </p>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:10px; padding:14px 20px; border-left:4px solid var(--color-accent); width:100%; max-width:1150px; font-size:18px;\">\n    <strong>Regla de oro:</strong> Nunca intentes resolver problemas de DNS o puertos web si la puerta de enlace local (gateway) no responde a <code>ping</code> o la interfaz está en estado <code>DOWN</code>.\n  </div>\n</div>"}, {"id": "109-3-03", "type": "matrix", "title": "La Gran Transición: iproute2 frente a net-tools", "subtitle": "Comandos heredados (obsoletos) frente a los estándares modernos de examen", "content": "<table style=\"width:100%; border-collapse:collapse; font-size:19px; text-align:left; background:var(--color-card-bg); border-radius:10px; overflow:hidden; border:1px solid var(--color-border);\">\n  <thead>\n    <tr style=\"background:var(--color-bg-subtle); border-bottom:2px solid var(--color-border);\">\n      <th style=\"padding:12px 16px; color:var(--color-text);\">Propósito</th>\n      <th style=\"padding:12px 16px; color:#e74c3c; width:40%;\">net-tools (Heredado / Obsoleto)</th>\n      <th style=\"padding:12px 16px; color:var(--color-accent); width:40%;\">iproute2 (Estándar Actual)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:10px 16px; font-weight:700;\">Ver direcciones IP</td>\n      <td style=\"padding:10px 16px;\"><code>ifconfig</code> (o <code>ifconfig eth0</code>)</td>\n      <td style=\"padding:10px 16px;\"><code>ip address</code> (o <code>ip a</code>)</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:10px 16px; font-weight:700;\">Levantar / Bajar enlace</td>\n      <td style=\"padding:10px 16px;\"><code>ifconfig eth0 up / down</code></td>\n      <td style=\"padding:10px 16px;\"><code>ip link set dev eth0 up / down</code></td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:10px 16px; font-weight:700;\">Tabla de enrutamiento</td>\n      <td style=\"padding:10px 16px;\"><code>route -n</code></td>\n      <td style=\"padding:10px 16px;\"><code>ip route</code> (o <code>ip r</code>)</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:10px 16px; font-weight:700;\">Auditoría de puertos/sockets</td>\n      <td style=\"padding:10px 16px;\"><code>netstat -tulpn</code></td>\n      <td style=\"padding:10px 16px;\"><strong style=\"color:var(--color-accent);\">ss -tulpn</strong></td>\n    </tr>\n    <tr>\n      <td style=\"padding:10px 16px; font-weight:700;\">Tabla de vecinos ARP</td>\n      <td style=\"padding:10px 16px;\"><code>arp -an</code></td>\n      <td style=\"padding:10px 16px;\"><code>ip neighbour</code> (o <code>ip neigh</code>)</td>\n    </tr>\n  </tbody>\n</table>\n<div style=\"margin-top:12px; padding:10px 16px; background:var(--color-bg-subtle); border-radius:8px; font-size:18px;\">\n  <strong>Enfoque LPIC-1:</strong> El aspirante debe dominar ambos enfoques; se evalúan tanto los comandos modernos de <code>ip</code> y <code>ss</code> como la interpretación de salidas heredadas de <code>ifconfig</code>, <code>route</code> y <code>netstat</code>.\n</div>"}, {"id": "109-3-04", "type": "command", "title": "Gestión de Direcciones: comando ip address (ip a)", "subtitle": "Asignación dinámica o estática manual sin persistencia de arranque", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Mostrar todas las direcciones asignadas:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> ip address show</div>\n    <div>2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 state UP</div>\n    <div>    inet <span style=\"color:#4ec9b0; font-weight:700;\">192.168.1.50/24</span> brd 192.168.1.255 scope global enp0s3</div>\n    <div>    inet6 <span style=\"color:#b5cea8;\">fe80::a00:27ff:fe85:a301/64</span> scope link</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Añadir una IP secundaria a la interfaz:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip addr add <span style=\"color:#4ec9b0;\">10.0.0.10/24</span> dev <span style=\"color:#dcdcaa;\">enp0s3</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Eliminar la dirección añadida:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip addr del <span style=\"color:#4ec9b0;\">10.0.0.10/24</span> dev <span style=\"color:#dcdcaa;\">enp0s3</span></div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:8px; padding:12px 18px; font-size:18px; border-left:4px solid var(--color-accent);\">\n    <strong>Importante:</strong> Los cambios realizados con <code>ip addr add</code> o <code>del</code> se aplican de inmediato en el kernel, pero <strong>no son persistentes</strong> y se perderán tras reiniciar el equipo.\n  </div>\n</div>"}, {"id": "109-3-05", "type": "command", "title": "Control de Enlace Físico y MTU: comando ip link", "subtitle": "Manipular flags UP/DOWN, tamaños de trama MTU y direcciones MAC", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Desactivar temporalmente una interfaz:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip link set <span style=\"color:#4ec9b0;\">enp0s8</span> down</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Volver a activar la interfaz:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip link set <span style=\"color:#4ec9b0;\">enp0s8</span> up</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Cambiar la MTU (Jumbo Frames a 9000 bytes):</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip link set <span style=\"color:#4ec9b0;\">enp0s8</span> mtu <span style=\"color:#b5cea8;\">9000</span></div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Banderas de Estado Clave:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:6px;\">\n      <div>• <code>UP</code>: La interfaz está administrativamente habilitada por el kernel.</div>\n      <div>• <code>LOWER_UP</code>: El cable o enlace físico está conectado y detecta señal eléctrica/portadora (Carrier).</div>\n      <div>• <code>NO-CARRIER</code>: Interfaz habilitada pero cable desconectado.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-06", "type": "command", "title": "Tablas de Enrutamiento: comando ip route (ip r)", "subtitle": "Configurar saltos hacia subredes y la puerta de enlace predeterminada", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Mostrar la tabla de enrutamiento del kernel:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> ip route show</div>\n    <div><span style=\"color:#4ec9b0; font-weight:700;\">default via 192.168.1.1</span> dev enp0s3 proto dhcp metric 100</div>\n    <div>192.168.1.0/24 dev enp0s3 proto kernel scope link src 192.168.1.50</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Añadir una ruta estática hacia otra subred a través de un router:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip route add <span style=\"color:#b5cea8;\">10.20.0.0/16</span> via <span style=\"color:#4ec9b0;\">192.168.1.254</span> dev <span style=\"color:#dcdcaa;\">enp0s3</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Cambiar o fijar la puerta de enlace predeterminada:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip route add default via <span style=\"color:#4ec9b0;\">192.168.1.1</span> dev enp0s3</div>\n    <div><span style=\"color:#569cd6;\">#</span> ip route del default</div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:8px; padding:12px 18px; font-size:18px; border-left:4px solid var(--color-accent);\">\n    <strong>En IPv6:</strong> Se utiliza exactamente la misma sintaxis: <code>ip -6 route add default via 2001:db8::1 dev enp0s8</code>.\n  </div>\n</div>"}, {"id": "109-3-07", "type": "command", "title": "Comandos Heredados: ifconfig y route -n", "subtitle": "Lectura de tablas clásicas y banderas U / G en el examen LPIC-1", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Comando ifconfig</h4>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:15px; line-height:1.4;\">\n      <div># Configurar IP y máscara:</div>\n      <div>$ sudo ifconfig eth0 192.168.1.50 \\</div>\n      <div>    netmask 255.255.255.0 up</div>\n      <div style=\"margin-top:4px;\"># Desactivar:</div>\n      <div>$ sudo ifconfig eth0 down</div>\n    </div>\n    <div style=\"font-size:18px; color:var(--color-text-muted);\">\n      Muestra bytes transmitidos/recibidos (RX/TX packets) y errores de colisión.\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Comando route -n (Banderas)</h4>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:15px; line-height:1.4;\">\n      <div>Destination Gateway  Genmask Flags Iface</div>\n      <div>0.0.0.0     192.168.1.1 0.0.0.0 <span style=\"color:#4ec9b0; font-weight:700;\">UG</span>    eth0</div>\n      <div>192.168.1.0 0.0.0.0 255.255.255.0 <span style=\"color:#b5cea8; font-weight:700;\">U</span>    eth0</div>\n    </div>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:4px;\">\n      <div>• <code>U</code> (Up): La ruta está activa y operativa.</div>\n      <div>• <code>G</code> (Gateway): Requiere saltar a través de un router.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-08", "type": "command", "title": "Auditoría de Puertos y Sockets: comando ss", "subtitle": "La herramienta moderna indispensable para auditar servicios a la escucha", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:16px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">#</span> ss <span style=\"color:#ce9178; font-weight:700;\">-tulpn</span></div>\n    <div style=\"color:#b5cea8;\">Netid State  Recv-Q Send-Q Local Address:Port  Peer Address:Port Process</div>\n    <div>tcp   LISTEN 0      128    0.0.0.0:22          0.0.0.0:*         users:((\"sshd\",pid=812))</div>\n    <div>tcp   LISTEN 0      100    127.0.0.1:25        0.0.0.0:*         users:((\"master\",pid=1045))</div>\n    <div>tcp   LISTEN 0      511    *:80                *:*               users:((\"apache2\",pid=1120))</div>\n    <div>udp   UNCONN 0      0      0.0.0.0:123         0.0.0.0:*         users:((\"chronyd\",pid=604))</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:8px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Desglose de flags: -tulpn</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:6px;\">\n      <div>• <code>-t</code>: Sockets TCP.</div>\n      <div>• <code>-u</code>: Sockets UDP.</div>\n      <div>• <code>-l</code>: Solo sockets a la <strong>escucha</strong> (Listening).</div>\n      <div>• <code>-p</code>: Muestra nombre y PID del proceso.</div>\n      <div>• <code>-n</code>: Muestra puertos en formato <strong>numérico</strong> (ej. 22 en vez de 'ssh').</div>\n      <div>• <code>-a</code>: Muestra todos los sockets (escucha + establecidos).</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-09", "type": "command", "title": "Inspección Heredada: comando netstat", "subtitle": "Opciones idénticas a ss pero con arquitectura basada en /proc", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Ver puertos y procesos en escucha:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo netstat <span style=\"color:#ce9178; font-weight:700;\">-tulpn</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Mostrar la tabla de enrutamiento numérica:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> netstat <span style=\"color:#4ec9b0; font-weight:700;\">-rn</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Estadísticas de errores en interfaces de red:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> netstat <span style=\"color:#4ec9b0; font-weight:700;\">-i</span></div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">¿Por qué fue sustituido?</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted); line-height:1.4;\">\n      <code>netstat</code> lee y analiza los ficheros de texto en <code>/proc/net/</code> secuencialmente. En servidores de alta carga con miles de conexiones abiertas, bloquea recursos y tarda segundos; <code>ss</code> obtiene los datos directamente por la interfaz netlink del kernel en milisegundos.\n    </p>\n  </div>\n</div>"}, {"id": "109-3-10", "type": "command", "title": "Verificación de Conectividad: ping y ping6", "subtitle": "Envío de paquetes ICMP Echo Request y evaluación de pérdidas y latencia", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">$</span> ping -c 3 192.168.1.1</div>\n    <div>PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.</div>\n    <div>64 bytes from 192.168.1.1: icmp_seq=1 ttl=64 <span style=\"color:#4ec9b0;\">time=0.452 ms</span></div>\n    <div>64 bytes from 192.168.1.1: icmp_seq=2 ttl=64 <span style=\"color:#4ec9b0;\">time=0.380 ms</span></div>\n    <div>64 bytes from 192.168.1.1: icmp_seq=3 ttl=64 <span style=\"color:#4ec9b0;\">time=0.410 ms</span></div>\n    <div style=\"color:#b5cea8;\">--- 192.168.1.1 ping statistics ---</div>\n    <div>3 packets transmitted, 3 received, <span style=\"color:#4ec9b0; font-weight:700;\">0% packet loss</span>, time 2048ms</div>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns:1fr 1fr; gap:14px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; font-size:18px;\">\n      <strong>Opciones habituales:</strong><br>\n      • <code>-c &lt;N&gt;</code>: Envía exactamente N paquetes y finaliza (evita bucles infinitos).<br>\n      • <code>-i &lt;seg&gt;</code>: Intervalo entre paquetes.\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; font-size:18px;\">\n      <strong>ping a IPv6:</strong><br>\n      En distribuciones modernas <code>ping dominio.com</code> detecta IPv6 automáticamente, pero el comando específico <code>ping6 2001:db8::1</code> sigue evaluándose.\n    </div>\n  </div>\n</div>"}, {"id": "109-3-11", "type": "command", "title": "Descubrimiento de Saltos: traceroute y traceroute6", "subtitle": "Identificación de los routers intermedios mediante el incremento progresivo de TTL", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:16px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">$</span> traceroute 8.8.8.8</div>\n    <div>traceroute to 8.8.8.8 (8.8.8.8), 30 hops max, 60 byte packets</div>\n    <div> 1  192.168.1.1 (192.168.1.1)  0.521 ms  0.412 ms  0.390 ms</div>\n    <div> 2  10.90.0.1 (10.90.0.1)      2.105 ms  1.980 ms  1.850 ms</div>\n    <div> 3  * * *  <span style=\"color:#6a9955;\">(router descarta o bloquea ICMP)</span></div>\n    <div> 4  dns.google (8.8.8.8)       12.450 ms  12.310 ms  12.180 ms</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Funcionamiento Técnico:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:6px;\">\n      <div>1. Envía paquetes con <code>TTL=1</code>: el primer router lo descarta y responde con ICMP Time Exceeded.</div>\n      <div>2. Envía con <code>TTL=2</code>: responde el segundo router.</div>\n      <div>3. Repite incrementando el TTL hasta alcanzar la dirección IP final.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-12", "type": "command", "title": "Detección de MTU en Ruta: comando tracepath", "subtitle": "Rastreo sin privilegios de root y detección automática de cuellos de botella MTU", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:16px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">$</span> tracepath 8.8.8.8</div>\n    <div> 1?: [LOCALHOST]     pmtu 1500</div>\n    <div> 1:  192.168.1.1     0.485ms</div>\n    <div> 1:  192.168.1.1     0.390ms</div>\n    <div> 2:  10.90.0.1       1.850ms <span style=\"color:#4ec9b0;\">pmtu 1492</span></div>\n    <div> 3:  dns.google      11.230ms reached</div>\n    <div>     Resume: pmtu 1492 hops 3 back 3</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-accent);\">Ventajas frente a traceroute:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <strong>Sin root:</strong> No requiere sockets crudos de superusuario; cualquier usuario puede ejecutarlo.</div>\n      <div>• <strong>Path MTU Discovery:</strong> Detecta enlaces intermedios con MTU reducida (ej. túneles VPN, PPPoE a 1492 bytes) evitando problemas de fragmentación silenciosa.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-13", "type": "command", "title": "La Navaja Suiza de Red: netcat (nc)", "subtitle": "Comprobación de puertos abiertos, transferencias y diagnóstico interactivo", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Escanear si un puerto TCP está abierto (sin enviar datos):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> nc <span style=\"color:#ce9178; font-weight:700;\">-zv</span> 192.168.1.50 <span style=\"color:#4ec9b0; font-weight:700;\">80</span></div>\n    <div style=\"color:#b5cea8;\">Connection to 192.168.1.50 80 port [tcp/http] succeeded!</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Levantar un servidor de escucha temporal en el puerto 1234:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> nc <span style=\"color:#ce9178; font-weight:700;\">-l</span> 1234</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Conectarse e interactuar con un servicio SMTP en el puerto 25:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> nc mail.empresa.com 25</div>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns:1fr 1fr; gap:14px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; font-size:18px;\">\n      <code>-z</code>: Modo Zero-I/O (escanea y cierra inmediatamente).\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; font-size:18px;\">\n      <code>-v</code>: Modo Verbose (muestra si la conexión tuvo éxito o fue rechazada).\n    </div>\n  </div>\n</div>"}, {"id": "109-3-14", "type": "command", "title": "Resolución de Capa 2: ip neighbour y arp", "subtitle": "Inspección de la tabla ARP local (asociación de IP a dirección física MAC)", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:16px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">$</span> ip neighbour show</div>\n    <div>192.168.1.1 dev enp0s3 lladdr <span style=\"color:#4ec9b0;\">00:11:22:33:44:55</span> <span style=\"color:#b5cea8; font-weight:700;\">REACHABLE</span></div>\n    <div>192.168.1.20 dev enp0s3 lladdr <span style=\"color:#4ec9b0;\">00:11:22:aa:bb:cc</span> <span style=\"color:#dcdcaa;\">STALE</span></div>\n    <div>192.168.1.99 dev enp0s3 <span style=\"color:#f44747;\">FAILED</span></div>\n    <div style=\"margin-top:10px;\"><span style=\"color:#6a9955;\"># Comando heredado equivalente:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> arp -an</div>\n    <div>? (192.168.1.1) at 00:11:22:33:44:55 [ether] on enp0s3</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:8px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Estados de Vecino (ip neigh):</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:6px;\">\n      <div>• <code>REACHABLE</code>: Entrada válida confirmada recientemente.</div>\n      <div>• <code>STALE</code>: Entrada válida pero caducada; se verificará al enviar tráfico.</div>\n      <div>• <code>DELAY</code>: Esperando confirmación de acuse.</div>\n      <div>• <code>FAILED</code>: El host no respondió a peticiones ARP.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-15", "type": "flow", "title": "Árbol de Decisión: Detección Rápida de Averías de Red", "subtitle": "5 comprobaciones que todo administrador debe realizar por orden", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"display:grid; grid-template-columns:repeat(5, 1fr); gap:12px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; text-align:center;\">\n      <strong style=\"color:var(--color-accent); font-size:18px;\">1. Interfaz</strong>\n      <div style=\"font-size:16px; margin-top:4px;\">¿Estado UP?</div>\n      <code style=\"font-size:15px;\">ip link</code>\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; text-align:center;\">\n      <strong style=\"color:var(--color-accent); font-size:18px;\">2. IP / Máscara</strong>\n      <div style=\"font-size:16px; margin-top:4px;\">¿IP correcta?</div>\n      <code style=\"font-size:15px;\">ip addr</code>\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; text-align:center;\">\n      <strong style=\"color:var(--color-accent); font-size:18px;\">3. Gateway</strong>\n      <div style=\"font-size:16px; margin-top:4px;\">¿Responde router?</div>\n      <code style=\"font-size:15px;\">ping &lt;GW&gt;</code>\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; text-align:center;\">\n      <strong style=\"color:var(--color-accent); font-size:18px;\">4. DNS</strong>\n      <div style=\"font-size:16px; margin-top:4px;\">¿Resuelve nombres?</div>\n      <code style=\"font-size:15px;\">ping 8.8.8.8 vs host</code>\n    </div>\n    <div style=\"background:var(--color-card-bg); border:2px solid var(--color-accent); border-radius:8px; padding:12px; text-align:center;\">\n      <strong style=\"color:var(--color-accent); font-size:18px;\">5. Puerto</strong>\n      <div style=\"font-size:16px; margin-top:4px;\">¿Servicio activo?</div>\n      <code style=\"font-size:15px;\">ss -tulpn</code>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:8px; padding:14px 20px; font-size:18px;\">\n    <strong>Diagnóstico clásico:</strong> Si <code>ping 8.8.8.8</code> funciona pero <code>ping google.com</code> falla, la red y el enrutamiento están 100% operativos; la incidencia reside exclusivamente en la resolución de nombres DNS (<code>/etc/resolv.conf</code>).\n  </div>\n</div>"}, {"id": "109-3-16", "type": "challenge", "title": "Trampas Críticas de Examen: 109.3 Diagnóstico", "subtitle": "4 escenarios engañosos en la línea de comandos de red", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:18px;\">\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">1. Sintaxis de default gateway</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      En <code>iproute2</code> se usa <code>ip route add default via IP</code>. En <code>route</code> heredado se usa <code>route add default gw IP</code>. ¡No mezclar <code>via</code> con <code>gw</code>!\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">2. traceroute vs tracepath</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      <code>tracepath</code> descubre la MTU en cada salto y <strong>no requiere ser root</strong>. <code>traceroute</code> tradicionalmente requiere privilegios de superusuario para enviar datagramas RAW.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">3. Flags -l vs -a en ss / netstat</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      <code>-l</code> muestra <em>únicamente</em> los puertos a la escucha (servidores esperando peticiones). <code>-a</code> muestra tanto los que escuchan como las conexiones ya establecidas con clientes.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">4. Flags de netcat para escaneo</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      Para probar si un puerto remoto está abierto sin enviar datos, se utiliza <code>nc -zv host puerto</code> (<code>-z</code> de zero I/O, <code>-v</code> de verbose).\n    </p>\n  </div>\n</div>"}, {"id": "109-3-17", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Manual LPI)", "subtitle": "Casos prácticos interactivos con solución oficial comprobada", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">1. Desactivar y activar interfaz con ip</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      ¿Cómo se desactiva temporalmente la interfaz <code>enp0s8</code> y cómo se vuelve a habilitar con <code>iproute2</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        Desactivar: <code>ip link set enp0s8 down</code><br>\n        Activar: <code>ip link set enp0s8 up</code>\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">2. Configurar puerta de enlace por defecto</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      ¿Qué comando configura la puerta de enlace por defecto a la IP <code>192.168.1.1</code> usando <code>iproute2</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        <code>sudo ip route add default via 192.168.1.1</code>\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">3. Identificar la ruta y MTU</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      ¿Qué comando puede ejecutar un usuario sin privilegios para rastrear la ruta y determinar la MTU hacia <code>8.8.8.8</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        <code>tracepath 8.8.8.8</code>\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">4. Servidor de escucha temporal</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      ¿Qué comando levanta un listener TCP en el puerto 1234 utilizando la utilidad netcat?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        <code>nc -l 1234</code>\n      </div>\n    </details>\n  </div>\n</div>"}, {"id": "109-3-18", "type": "flashcards", "title": "Flashcards de Memorización Rápida: 109.3 Diagnóstico", "subtitle": "Fija los comandos esenciales antes de pasar a resolución DNS de cliente", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:16px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Comando / Pregunta</div>\n    <h4 style=\"margin:0; font-size:22px; color:var(--color-text);\">¿Qué comando muestra los puertos TCP y UDP en escucha con PID?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        El comando <strong>ss -tulpn</strong> (o en net-tools heredado <code>netstat -tulpn</code>).\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:16px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Comando / Pregunta</div>\n    <h4 style=\"margin:0; font-size:22px; color:var(--color-text);\">¿Cómo se añade una dirección IP a una interfaz con iproute2?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        <code>sudo ip addr add 192.168.1.50/24 dev eth0</code>\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:16px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Comando / Pregunta</div>\n    <h4 style=\"margin:0; font-size:22px; color:var(--color-text);\">¿Qué subcomando de ip muestra la tabla de vecinos ARP?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        <code>ip neighbour show</code> (o <code>ip neigh</code>).\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:16px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Comando / Pregunta</div>\n    <h4 style=\"margin:0; font-size:22px; color:var(--color-text);\">¿Qué flags de netcat escanean si un puerto TCP está abierto?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        <code>nc -zv &lt;host&gt; &lt;puerto&gt;</code> (Zero-I/O y Verbose).\n      </div>\n    </details>\n  </div>\n</div>"}];
+    const SLIDES = [{"id": "109-3-01", "type": "cover", "title": "109.3 Resolución de problemas básicos de red", "subtitle": "Fundamentos de redes · Peso 4", "content": "<div style=\"display:flex; flex-direction:column; gap:20px; align-items:center; justify-content:center; text-align:center; height:100%;\">\n  <div style=\"display:inline-flex; align-items:center; gap:12px; padding:8px 24px; background:var(--color-bg-subtle); border-radius:30px; font-weight:700; color:var(--color-accent); font-size:22px; border:1px solid var(--color-border);\">\n    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z\"/></svg>\n    LPIC-1 Examen 102 · Objetivo 109.3\n  </div>\n  <h1 style=\"font-size:48px; font-weight:800; margin:0; color:var(--color-text);\">Diagnóstico y Solución de Problemas de Red</h1>\n  <p style=\"font-size:23px; color:var(--color-text-muted); max-width:980px; margin:0;\">\n    Control manual con <code>iproute2</code> (<code>ip a</code>, <code>ip link</code>, <code>ip r</code>), inspección de puertos con <code>ss</code> y <code>netstat</code>, pruebas con <code>ping</code>, <code>traceroute</code>, <code>tracepath</code>, <code>netcat</code> y tabla de vecinos ARP.\n  </p>\n  <div style=\"display:flex; gap:18px; margin-top:10px;\">\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Peso LPI:</strong> 4 puntos\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Suite moderna:</strong> <code>iproute2</code> (comando <code>ip</code>)\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Sockets:</strong> <code>ss -tulpn</code>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-02", "type": "flow", "title": "Estrategia de Diagnóstico por Capas TCP/IP", "subtitle": "Metodología sistemática de abajo hacia arriba para aislar fallos de red", "content": "<div style=\"display:flex; flex-direction:column; gap:16px; align-items:center;\">\n  <div style=\"display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; width:100%; max-width:1150px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"width:36px; height:36px; border-radius:50%; background:var(--color-accent); color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; font-weight:800; font-size:23px;\">1</div>\n      <h4 style=\"margin:0 0 6px 0; font-size:25px; color:var(--color-text);\">Capa de Enlace (L2)</h4>\n      <p style=\"margin:0; font-size:22px; color:var(--color-text-muted);\">\n        Cable conectado, link UP en interfaz física y vecinos ARP.<br>\n        <code>ip link</code> · <code>ip neigh</code>\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"width:36px; height:36px; border-radius:50%; background:var(--color-accent); color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; font-weight:800; font-size:23px;\">2</div>\n      <h4 style=\"margin:0 0 6px 0; font-size:25px; color:var(--color-text);\">Capa de Red (L3)</h4>\n      <p style=\"margin:0; font-size:22px; color:var(--color-text-muted);\">\n        IP asignada, máscara correcta y ruta por defecto (gateway).<br>\n        <code>ip addr</code> · <code>ip route</code>\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"width:36px; height:36px; border-radius:50%; background:var(--color-accent); color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; font-weight:800; font-size:23px;\">3</div>\n      <h4 style=\"margin:0 0 6px 0; font-size:25px; color:var(--color-text);\">Conectividad</h4>\n      <p style=\"margin:0; font-size:22px; color:var(--color-text-muted);\">\n        Eco ICMP al gateway e Internet; saltos de ruta y MTU.<br>\n        <code>ping</code> · <code>traceroute</code> · <code>tracepath</code>\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:2px solid var(--color-accent); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"width:36px; height:36px; border-radius:50%; background:var(--color-accent); color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; font-weight:800; font-size:23px;\">4</div>\n      <h4 style=\"margin:0 0 6px 0; font-size:25px; color:var(--color-accent);\">Transporte (L4)</h4>\n      <p style=\"margin:0; font-size:22px; color:var(--color-text-muted);\">\n        Puertos abiertos, servicios a la escucha y sockets activos.<br>\n        <code>ss -tulpn</code> · <code>nc -zv</code>\n      </p>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:10px; padding:14px 20px; border-left:4px solid var(--color-accent); width:100%; max-width:1150px; font-size:23px;\">\n    <strong>Regla de oro:</strong> Nunca intentes resolver problemas de DNS o puertos web si la puerta de enlace local (gateway) no responde a <code>ping</code> o la interfaz está en estado <code>DOWN</code>.\n  </div>\n</div>"}, {"id": "109-3-03", "type": "matrix", "title": "La Gran Transición: iproute2 frente a net-tools", "subtitle": "Comandos heredados (obsoletos) frente a los estándares modernos de examen", "content": "<table style=\"width:100%; border-collapse:collapse; font-size:22px; text-align:left; background:var(--color-card-bg); border-radius:10px; border:1px solid var(--color-border);\">\n  <thead>\n    <tr style=\"background:var(--color-bg-subtle); border-bottom:2px solid var(--color-border);\">\n      <th style=\"padding:14px 18px; color:var(--color-text);\">Propósito</th>\n      <th style=\"padding:14px 18px; color:#e74c3c; width:40%;\">net-tools (Heredado / Obsoleto)</th>\n      <th style=\"padding:14px 18px; color:var(--color-accent); width:40%;\">iproute2 (Estándar Actual)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:12px 18px; font-weight:700;\">Ver direcciones IP</td>\n      <td style=\"padding:12px 18px;\"><code>ifconfig</code> (o <code>ifconfig eth0</code>)</td>\n      <td style=\"padding:12px 18px;\"><code>ip address</code> (o <code>ip a</code>)</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:12px 18px; font-weight:700;\">Levantar / Bajar enlace</td>\n      <td style=\"padding:12px 18px;\"><code>ifconfig eth0 up / down</code></td>\n      <td style=\"padding:12px 18px;\"><code>ip link set dev eth0 up / down</code></td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:12px 18px; font-weight:700;\">Tabla de enrutamiento</td>\n      <td style=\"padding:12px 18px;\"><code>route -n</code></td>\n      <td style=\"padding:12px 18px;\"><code>ip route</code> (o <code>ip r</code>)</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:12px 18px; font-weight:700;\">Auditoría de puertos/sockets</td>\n      <td style=\"padding:12px 18px;\"><code>netstat -tulpn</code></td>\n      <td style=\"padding:12px 18px;\"><strong style=\"color:var(--color-accent);\">ss -tulpn</strong></td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 18px; font-weight:700;\">Tabla de vecinos ARP</td>\n      <td style=\"padding:12px 18px;\"><code>arp -an</code></td>\n      <td style=\"padding:12px 18px;\"><code>ip neighbour</code> (o <code>ip neigh</code>)</td>\n    </tr>\n  </tbody>\n</table>\n<div style=\"margin-top:12px; padding:10px 16px; background:var(--color-bg-subtle); border-radius:8px; font-size:23px;\">\n  <strong>Enfoque LPIC-1:</strong> El aspirante debe dominar ambos enfoques; se evalúan tanto los comandos modernos de <code>ip</code> y <code>ss</code> como la interpretación de salidas heredadas de <code>ifconfig</code>, <code>route</code> y <code>netstat</code>.\n</div>"}, {"id": "109-3-04", "type": "command", "title": "Gestión de Direcciones: comando ip address (ip a)", "subtitle": "Asignación dinámica o estática manual sin persistencia de arranque", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Mostrar todas las direcciones asignadas:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> ip address show</div>\n    <div>2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 state UP</div>\n    <div>    inet <span style=\"color:#4ec9b0; font-weight:700;\">192.168.1.50/24</span> brd 192.168.1.255 scope global enp0s3</div>\n    <div>    inet6 <span style=\"color:#b5cea8;\">fe80::a00:27ff:fe85:a301/64</span> scope link</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Añadir una IP secundaria a la interfaz:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip addr add <span style=\"color:#4ec9b0;\">10.0.0.10/24</span> dev <span style=\"color:#dcdcaa;\">enp0s3</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Eliminar la dirección añadida:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip addr del <span style=\"color:#4ec9b0;\">10.0.0.10/24</span> dev <span style=\"color:#dcdcaa;\">enp0s3</span></div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:8px; padding:12px 18px; font-size:23px; border-left:4px solid var(--color-accent);\">\n    <strong>Importante:</strong> Los cambios realizados con <code>ip addr add</code> o <code>del</code> se aplican de inmediato en el kernel, pero <strong>no son persistentes</strong> y se perderán tras reiniciar el equipo.\n  </div>\n</div>"}, {"id": "109-3-05", "type": "command", "title": "Control de Enlace Físico y MTU: comando ip link", "subtitle": "Manipular flags UP/DOWN, tamaños de trama MTU y direcciones MAC", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Desactivar temporalmente una interfaz:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip link set <span style=\"color:#4ec9b0;\">enp0s8</span> down</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Volver a activar la interfaz:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip link set <span style=\"color:#4ec9b0;\">enp0s8</span> up</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Cambiar la MTU (Jumbo Frames a 9000 bytes):</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip link set <span style=\"color:#4ec9b0;\">enp0s8</span> mtu <span style=\"color:#b5cea8;\">9000</span></div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Banderas de Estado Clave:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:10px;\">\n      <div>• <code>UP</code>: La interfaz está administrativamente habilitada por el kernel.</div>\n      <div>• <code>LOWER_UP</code>: El cable o enlace físico está conectado y detecta señal eléctrica/portadora (Carrier).</div>\n      <div>• <code>NO-CARRIER</code>: Interfaz habilitada pero cable desconectado.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-06", "type": "command", "title": "Tablas de Enrutamiento: comando ip route (ip r)", "subtitle": "Configurar saltos hacia subredes y la puerta de enlace predeterminada", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Mostrar la tabla de enrutamiento del kernel:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> ip route show</div>\n    <div><span style=\"color:#4ec9b0; font-weight:700;\">default via 192.168.1.1</span> dev enp0s3 proto dhcp metric 100</div>\n    <div>192.168.1.0/24 dev enp0s3 proto kernel scope link src 192.168.1.50</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Añadir una ruta estática hacia otra subred a través de un router:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip route add <span style=\"color:#b5cea8;\">10.20.0.0/16</span> via <span style=\"color:#4ec9b0;\">192.168.1.254</span> dev <span style=\"color:#dcdcaa;\">enp0s3</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Cambiar o fijar la puerta de enlace predeterminada:</span></div>\n    <div><span style=\"color:#569cd6;\">#</span> ip route add default via <span style=\"color:#4ec9b0;\">192.168.1.1</span> dev enp0s3</div>\n    <div><span style=\"color:#569cd6;\">#</span> ip route del default</div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:8px; padding:12px 18px; font-size:23px; border-left:4px solid var(--color-accent);\">\n    <strong>En IPv6:</strong> Se utiliza exactamente la misma sintaxis: <code>ip -6 route add default via 2001:db8::1 dev enp0s8</code>.\n  </div>\n</div>"}, {"id": "109-3-07", "type": "command", "title": "Comandos Heredados: ifconfig y route -n", "subtitle": "Lectura de tablas clásicas y banderas U / G en el examen LPIC-1", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Comando ifconfig</h4>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n      <div># Configurar IP y máscara:</div>\n      <div>$ sudo ifconfig eth0 192.168.1.50 \\</div>\n      <div>    netmask 255.255.255.0 up</div>\n      <div style=\"margin-top:4px;\"># Desactivar:</div>\n      <div>$ sudo ifconfig eth0 down</div>\n    </div>\n    <div style=\"font-size:23px; color:var(--color-text-muted);\">\n      Muestra bytes transmitidos/recibidos (RX/TX packets) y errores de colisión.\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Comando route -n (Banderas)</h4>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n      <div>Destination Gateway  Genmask Flags Iface</div>\n      <div>0.0.0.0     192.168.1.1 0.0.0.0 <span style=\"color:#4ec9b0; font-weight:700;\">UG</span>    eth0</div>\n      <div>192.168.1.0 0.0.0.0 255.255.255.0 <span style=\"color:#b5cea8; font-weight:700;\">U</span>    eth0</div>\n    </div>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:4px;\">\n      <div>• <code>U</code> (Up): La ruta está activa y operativa.</div>\n      <div>• <code>G</code> (Gateway): Requiere saltar a través de un router.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-08", "type": "command", "title": "Auditoría de Puertos y Sockets: comando ss", "subtitle": "La herramienta moderna indispensable para auditar servicios a la escucha", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">#</span> ss <span style=\"color:#ce9178; font-weight:700;\">-tulpn</span></div>\n    <div style=\"color:#b5cea8;\">Netid State  Recv-Q Send-Q Local Address:Port  Peer Address:Port Process</div>\n    <div>tcp   LISTEN 0      128    0.0.0.0:22          0.0.0.0:*         users:((\"sshd\",pid=812))</div>\n    <div>tcp   LISTEN 0      100    127.0.0.1:25        0.0.0.0:*         users:((\"master\",pid=1045))</div>\n    <div>tcp   LISTEN 0      511    *:80                *:*               users:((\"apache2\",pid=1120))</div>\n    <div>udp   UNCONN 0      0      0.0.0.0:123         0.0.0.0:*         users:((\"chronyd\",pid=604))</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Desglose de flags: -tulpn</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:10px;\">\n      <div>• <code>-t</code>: Sockets TCP.</div>\n      <div>• <code>-u</code>: Sockets UDP.</div>\n      <div>• <code>-l</code>: Solo sockets a la <strong>escucha</strong> (Listening).</div>\n      <div>• <code>-p</code>: Muestra nombre y PID del proceso.</div>\n      <div>• <code>-n</code>: Muestra puertos en formato <strong>numérico</strong> (ej. 22 en vez de 'ssh').</div>\n      <div>• <code>-a</code>: Muestra todos los sockets (escucha + establecidos).</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-09", "type": "command", "title": "Inspección Heredada: comando netstat", "subtitle": "Opciones idénticas a ss pero con arquitectura basada en /proc", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Ver puertos y procesos en escucha:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo netstat <span style=\"color:#ce9178; font-weight:700;\">-tulpn</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Mostrar la tabla de enrutamiento numérica:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> netstat <span style=\"color:#4ec9b0; font-weight:700;\">-rn</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Estadísticas de errores en interfaces de red:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> netstat <span style=\"color:#4ec9b0; font-weight:700;\">-i</span></div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">¿Por qué fue sustituido?</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted); line-height:1.4;\">\n      <code>netstat</code> lee y analiza los ficheros de texto en <code>/proc/net/</code> secuencialmente. En servidores de alta carga con miles de conexiones abiertas, bloquea recursos y tarda segundos; <code>ss</code> obtiene los datos directamente por la interfaz netlink del kernel en milisegundos.\n    </p>\n  </div>\n</div>"}, {"id": "109-3-10", "type": "command", "title": "Verificación de Conectividad: ping y ping6", "subtitle": "Envío de paquetes ICMP Echo Request y evaluación de pérdidas y latencia", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">$</span> ping -c 3 192.168.1.1</div>\n    <div>PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.</div>\n    <div>64 bytes from 192.168.1.1: icmp_seq=1 ttl=64 <span style=\"color:#4ec9b0;\">time=0.452 ms</span></div>\n    <div>64 bytes from 192.168.1.1: icmp_seq=2 ttl=64 <span style=\"color:#4ec9b0;\">time=0.380 ms</span></div>\n    <div>64 bytes from 192.168.1.1: icmp_seq=3 ttl=64 <span style=\"color:#4ec9b0;\">time=0.410 ms</span></div>\n    <div style=\"color:#b5cea8;\">--- 192.168.1.1 ping statistics ---</div>\n    <div>3 packets transmitted, 3 received, <span style=\"color:#4ec9b0; font-weight:700;\">0% packet loss</span>, time 2048ms</div>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns:1fr 1fr; gap:14px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; font-size:23px;\">\n      <strong>Opciones habituales:</strong><br>\n      • <code>-c &lt;N&gt;</code>: Envía exactamente N paquetes y finaliza (evita bucles infinitos).<br>\n      • <code>-i &lt;seg&gt;</code>: Intervalo entre paquetes.\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; font-size:23px;\">\n      <strong>ping a IPv6:</strong><br>\n      En distribuciones modernas <code>ping dominio.com</code> detecta IPv6 automáticamente, pero el comando específico <code>ping6 2001:db8::1</code> sigue evaluándose.\n    </div>\n  </div>\n</div>"}, {"id": "109-3-11", "type": "command", "title": "Descubrimiento de Saltos: traceroute y traceroute6", "subtitle": "Identificación de los routers intermedios mediante el incremento progresivo de TTL", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">$</span> traceroute 8.8.8.8</div>\n    <div>traceroute to 8.8.8.8 (8.8.8.8), 30 hops max, 60 byte packets</div>\n    <div> 1  192.168.1.1 (192.168.1.1)  0.521 ms  0.412 ms  0.390 ms</div>\n    <div> 2  10.90.0.1 (10.90.0.1)      2.105 ms  1.980 ms  1.850 ms</div>\n    <div> 3  * * *  <span style=\"color:#6a9955;\">(router descarta o bloquea ICMP)</span></div>\n    <div> 4  dns.google (8.8.8.8)       12.450 ms  12.310 ms  12.180 ms</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Funcionamiento Técnico:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:10px;\">\n      <div>1. Envía paquetes con <code>TTL=1</code>: el primer router lo descarta y responde con ICMP Time Exceeded.</div>\n      <div>2. Envía con <code>TTL=2</code>: responde el segundo router.</div>\n      <div>3. Repite incrementando el TTL hasta alcanzar la dirección IP final.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-12", "type": "command", "title": "Detección de MTU en Ruta: comando tracepath", "subtitle": "Rastreo sin privilegios de root y detección automática de cuellos de botella MTU", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">$</span> tracepath 8.8.8.8</div>\n    <div> 1?: [LOCALHOST]     pmtu 1500</div>\n    <div> 1:  192.168.1.1     0.485ms</div>\n    <div> 1:  192.168.1.1     0.390ms</div>\n    <div> 2:  10.90.0.1       1.850ms <span style=\"color:#4ec9b0;\">pmtu 1492</span></div>\n    <div> 3:  dns.google      11.230ms reached</div>\n    <div>     Resume: pmtu 1492 hops 3 back 3</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-accent);\">Ventajas frente a traceroute:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <strong>Sin root:</strong> No requiere sockets crudos de superusuario; cualquier usuario puede ejecutarlo.</div>\n      <div>• <strong>Path MTU Discovery:</strong> Detecta enlaces intermedios con MTU reducida (ej. túneles VPN, PPPoE a 1492 bytes) evitando problemas de fragmentación silenciosa.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-13", "type": "command", "title": "La Navaja Suiza de Red: netcat (nc)", "subtitle": "Comprobación de puertos abiertos, transferencias y diagnóstico interactivo", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Escanear si un puerto TCP está abierto (sin enviar datos):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> nc <span style=\"color:#ce9178; font-weight:700;\">-zv</span> 192.168.1.50 <span style=\"color:#4ec9b0; font-weight:700;\">80</span></div>\n    <div style=\"color:#b5cea8;\">Connection to 192.168.1.50 80 port [tcp/http] succeeded!</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Levantar un servidor de escucha temporal en el puerto 1234:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> nc <span style=\"color:#ce9178; font-weight:700;\">-l</span> 1234</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Conectarse e interactuar con un servicio SMTP en el puerto 25:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> nc mail.empresa.com 25</div>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns:1fr 1fr; gap:14px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; font-size:23px;\">\n      <code>-z</code>: Modo Zero-I/O (escanea y cierra inmediatamente).\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; font-size:23px;\">\n      <code>-v</code>: Modo Verbose (muestra si la conexión tuvo éxito o fue rechazada).\n    </div>\n  </div>\n</div>"}, {"id": "109-3-14", "type": "command", "title": "Resolución de Capa 2: ip neighbour y arp", "subtitle": "Inspección de la tabla ARP local (asociación de IP a dirección física MAC)", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">$</span> ip neighbour show</div>\n    <div>192.168.1.1 dev enp0s3 lladdr <span style=\"color:#4ec9b0;\">00:11:22:33:44:55</span> <span style=\"color:#b5cea8; font-weight:700;\">REACHABLE</span></div>\n    <div>192.168.1.20 dev enp0s3 lladdr <span style=\"color:#4ec9b0;\">00:11:22:aa:bb:cc</span> <span style=\"color:#dcdcaa;\">STALE</span></div>\n    <div>192.168.1.99 dev enp0s3 <span style=\"color:#f44747;\">FAILED</span></div>\n    <div style=\"margin-top:10px;\"><span style=\"color:#6a9955;\"># Comando heredado equivalente:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> arp -an</div>\n    <div>? (192.168.1.1) at 00:11:22:33:44:55 [ether] on enp0s3</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Estados de Vecino (ip neigh):</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:10px;\">\n      <div>• <code>REACHABLE</code>: Entrada válida confirmada recientemente.</div>\n      <div>• <code>STALE</code>: Entrada válida pero caducada; se verificará al enviar tráfico.</div>\n      <div>• <code>DELAY</code>: Esperando confirmación de acuse.</div>\n      <div>• <code>FAILED</code>: El host no respondió a peticiones ARP.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-3-15", "type": "flow", "title": "Árbol de Decisión: Detección Rápida de Averías de Red", "subtitle": "5 comprobaciones que todo administrador debe realizar por orden", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"display:grid; grid-template-columns:repeat(5, 1fr); gap:12px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; text-align:center;\">\n      <strong style=\"color:var(--color-accent); font-size:23px;\">1. Interfaz</strong>\n      <div style=\"font-size:22px; margin-top:4px;\">¿Estado UP?</div>\n      <code style=\"font-size:21px;\">ip link</code>\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; text-align:center;\">\n      <strong style=\"color:var(--color-accent); font-size:23px;\">2. IP / Máscara</strong>\n      <div style=\"font-size:22px; margin-top:4px;\">¿IP correcta?</div>\n      <code style=\"font-size:21px;\">ip addr</code>\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; text-align:center;\">\n      <strong style=\"color:var(--color-accent); font-size:23px;\">3. Gateway</strong>\n      <div style=\"font-size:22px; margin-top:4px;\">¿Responde router?</div>\n      <code style=\"font-size:21px;\">ping &lt;GW&gt;</code>\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:12px; text-align:center;\">\n      <strong style=\"color:var(--color-accent); font-size:23px;\">4. DNS</strong>\n      <div style=\"font-size:22px; margin-top:4px;\">¿Resuelve nombres?</div>\n      <code style=\"font-size:21px;\">ping 8.8.8.8 vs host</code>\n    </div>\n    <div style=\"background:var(--color-card-bg); border:2px solid var(--color-accent); border-radius:8px; padding:12px; text-align:center;\">\n      <strong style=\"color:var(--color-accent); font-size:23px;\">5. Puerto</strong>\n      <div style=\"font-size:22px; margin-top:4px;\">¿Servicio activo?</div>\n      <code style=\"font-size:21px;\">ss -tulpn</code>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:8px; padding:14px 20px; font-size:23px;\">\n    <strong>Diagnóstico clásico:</strong> Si <code>ping 8.8.8.8</code> funciona pero <code>ping google.com</code> falla, la red y el enrutamiento están 100% operativos; la incidencia reside exclusivamente en la resolución de nombres DNS (<code>/etc/resolv.conf</code>).\n  </div>\n</div>"}, {"id": "109-3-16", "type": "challenge", "title": "Trampas Críticas de Examen: 109.3 Diagnóstico", "subtitle": "4 escenarios engañosos en la línea de comandos de red", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:18px;\">\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">1. Sintaxis de default gateway</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      En <code>iproute2</code> se usa <code>ip route add default via IP</code>. En <code>route</code> heredado se usa <code>route add default gw IP</code>. ¡No mezclar <code>via</code> con <code>gw</code>!\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">2. traceroute vs tracepath</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      <code>tracepath</code> descubre la MTU en cada salto y <strong>no requiere ser root</strong>. <code>traceroute</code> tradicionalmente requiere privilegios de superusuario para enviar datagramas RAW.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">3. Flags -l vs -a en ss / netstat</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      <code>-l</code> muestra <em>únicamente</em> los puertos a la escucha (servidores esperando peticiones). <code>-a</code> muestra tanto los que escuchan como las conexiones ya establecidas con clientes.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">4. Flags de netcat para escaneo</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      Para probar si un puerto remoto está abierto sin enviar datos, se utiliza <code>nc -zv host puerto</code> (<code>-z</code> de zero I/O, <code>-v</code> de verbose).\n    </p>\n  </div>\n</div>"}, {"id": "109-3-17", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Manual LPI)", "subtitle": "Casos prácticos interactivos con solución oficial comprobada", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">1. Desactivar y activar interfaz con ip</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      ¿Cómo se desactiva temporalmente la interfaz <code>enp0s8</code> y cómo se vuelve a habilitar con <code>iproute2</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        Desactivar: <code>ip link set enp0s8 down</code><br>\n        Activar: <code>ip link set enp0s8 up</code>\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">2. Configurar puerta de enlace por defecto</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      ¿Qué comando configura la puerta de enlace por defecto a la IP <code>192.168.1.1</code> usando <code>iproute2</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        <code>sudo ip route add default via 192.168.1.1</code>\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">3. Identificar la ruta y MTU</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      ¿Qué comando puede ejecutar un usuario sin privilegios para rastrear la ruta y determinar la MTU hacia <code>8.8.8.8</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        <code>tracepath 8.8.8.8</code>\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">4. Servidor de escucha temporal</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      ¿Qué comando levanta un listener TCP en el puerto 1234 utilizando la utilidad netcat?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        <code>nc -l 1234</code>\n      </div>\n    </details>\n  </div>\n</div>"}, {"id": "109-3-18", "type": "flashcards", "title": "Flashcards de Memorización Rápida: 109.3 Diagnóstico", "subtitle": "Fija los comandos esenciales antes de pasar a resolución DNS de cliente", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:22px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Comando / Pregunta</div>\n    <h4 style=\"margin:0; font-size:26px; color:var(--color-text);\">¿Qué comando muestra los puertos TCP y UDP en escucha con PID?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        El comando <strong>ss -tulpn</strong> (o en net-tools heredado <code>netstat -tulpn</code>).\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:22px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Comando / Pregunta</div>\n    <h4 style=\"margin:0; font-size:26px; color:var(--color-text);\">¿Cómo se añade una dirección IP a una interfaz con iproute2?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        <code>sudo ip addr add 192.168.1.50/24 dev eth0</code>\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:22px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Comando / Pregunta</div>\n    <h4 style=\"margin:0; font-size:26px; color:var(--color-text);\">¿Qué subcomando de ip muestra la tabla de vecinos ARP?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        <code>ip neighbour show</code> (o <code>ip neigh</code>).\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:22px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Comando / Pregunta</div>\n    <h4 style=\"margin:0; font-size:26px; color:var(--color-text);\">¿Qué flags de netcat escanean si un puerto TCP está abierto?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        <code>nc -zv &lt;host&gt; &lt;puerto&gt;</code> (Zero-I/O y Verbose).\n      </div>\n    </details>\n  </div>\n</div>"}];
     const ERRATAS = [{"id": "errata-109-3-tracepath-vs-traceroute", "page": 461, "description": "El manual enfatiza la diferencia clave entre traceroute y tracepath: traceroute envía paquetes UDP o ICMP que tradicionalmente requieren privilegios elevados (raw sockets), mientras que tracepath puede ser ejecutado por usuarios comunes sin privilegios y mide específicamente la Path MTU (Unidad Máxima de Transmisión) en cada salto.", "correction": "Pregunta de examen habitual: Para identificar cuellos de botella de tamaño de paquete o MTU sin privilegios de root se debe usar 'tracepath' (o 'tracepath6')."}];
     const GLOSARIO = [{"term": "iproute2", "definition": "Conjunto moderno de utilidades de red en Linux encabezado por el comando 'ip' que reemplaza a la suite clásica net-tools (ifconfig, route, arp)."}, {"term": "ip address / ip a", "definition": "Subcomando de iproute2 para mostrar, añadir (add) o eliminar (del) direcciones IPv4 e IPv6 en interfaces de red."}, {"term": "ip link", "definition": "Subcomando de iproute2 para gestionar el estado de la capa de enlace físico (up/down), MTU y direcciones MAC."}, {"term": "ip route / ip r", "definition": "Subcomando de iproute2 para inspeccionar y manipular la tabla de enrutamiento del kernel y configurar la puerta de enlace predeterminada (default via)."}, {"term": "ss (Socket Statistics)", "definition": "Utilidad de alto rendimiento que reemplaza a netstat para volcar estadísticas de sockets de red y puertos a la escucha leyendo directamente del kernel mediante netlink."}, {"term": "ping / ping6", "definition": "Comando que envía mensajes ICMP Echo Request para comprobar la disponibilidad y latencia bidireccional de un host remoto."}, {"term": "traceroute / traceroute6", "definition": "Herramienta que identifica la ruta de routers intermedios hacia un destino enviando paquetes con valores crecientes de TTL (Time to Live) o Hop Limit."}, {"term": "tracepath / tracepath6", "definition": "Herramienta de diagnóstico de rutas similar a traceroute que no requiere privilegios de superusuario y rastrea la MTU máxima soportada a lo largo del camino."}, {"term": "netcat (nc)", "definition": "La 'navaja suiza' de TCP/IP; permite abrir conexiones arbitrarias, probar puertos abiertos, transferir archivos o levantar servidores de escucha temporales."}, {"term": "ip neighbour / ip neigh", "definition": "Subcomando de iproute2 para ver y manipular la tabla de vecinos ARP (resolución IP a MAC en la red local)."}];
     const META = {"topic": "109.3", "title": "Resolución de problemas básicos de red", "weight": 4, "description": "Herramientas de diagnóstico, configuración manual y resolución de problemas en Linux: manipulación de interfaces y rutas con iproute2 (ip addr, ip link, ip route), auditoría de sockets con ss y netstat, pruebas de conectividad con ping/ping6, descubrimiento de saltos y MTU con traceroute/tracepath, inspección de puertos con netcat (nc) y resolución ARP con ip neighbour."};
@@ -1758,7 +1767,7 @@
       const notesWidth = teacherNotesOpen ? 420 : 0;
       const availW = window.innerWidth - notesWidth;
       const availH = window.innerHeight - topBarHeight;
-      const scale = Math.min((availW - 40) / 1920, (availH - 40) / 1080);
+      const scale = Math.min((availW - 16) / 1920, (availH - 16) / 1080);
       stage.style.transform = `scale(${Math.max(scale, 0.25)})`;
     }
     window.addEventListener('resize', resizeStage);
@@ -1843,6 +1852,7 @@
       // Renderizado del cuerpo según el tipo
       const container = document.getElementById('slide-content');
       container.innerHTML = buildSlideHTML(s, colors);
+      container.scrollTop = 0;
 
       // Actualizar fragmentos
       const frags = container.querySelectorAll('.frag');
@@ -2057,8 +2067,8 @@
               <div style="display:grid; grid-template-columns: repeat(${Math.min(s.stats.length, 4)}, 1fr); gap:16px; margin-top:36px; max-width:1100px; margin-left:auto; margin-right:auto;">
                 ${s.stats.map(st => `
                   <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:14px; padding:16px 20px; text-align:center;">
-                    <div style="font-size:16px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
-                    <div style="font-size:20px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
+                    <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
+                    <div style="font-size:24px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
                   </div>
                 `).join('')}
               </div>
@@ -2078,7 +2088,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2110,8 +2120,8 @@
         if (s.syntax) {
           html += `
             <div class="syntax-bar">
-              <span style="font-weight:700; color:var(--text-muted); font-size:19px;">Sintaxis:</span>
-              <code class="t-cmd" style="font-size:21px;">${escapeHTML(s.syntax)}</code>
+              <span style="font-weight:700; color:var(--text-muted); font-size:24px;">Sintaxis:</span>
+              <code class="t-cmd" style="font-size:26px;">${escapeHTML(s.syntax)}</code>
             </div>
           `;
         }
@@ -2144,7 +2154,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2379,12 +2389,12 @@
             html += `
               <div class="concept-card" style="position:relative; display:flex; flex-direction:column; justify-content:space-between; border-left:6px solid var(--primary);">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-                  <span style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;">${st.num || idx + 1}</span>
+                  <span style="width:38px; height:38px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:22px;">${st.num || idx + 1}</span>
                   <div class="icon-box" style="margin:0;"><svg class="ic ic-md"><use href="#i-${st.icon || 'arrow-right'}"/></svg></div>
                 </div>
                 <div>
-                  <div style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
-                  <div style="font-size:18px; color:var(--text-muted); line-height:1.4;">${renderRichText(sdesc)}</div>
+                  <div style="font-size:24px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
+                  <div style="font-size:22px; color:var(--text-muted); line-height:1.42;">${renderRichText(sdesc)}</div>
                 </div>
               </div>
             `;
@@ -2413,7 +2423,7 @@
         }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:22px;">
               <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
             </span>
           </div>
@@ -2422,7 +2432,7 @@
         // Planteamiento del problema (Escenario claro)
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
             <div style="white-space:pre-line;">${renderRichText(scenarioText)}</div>
             ${questionText ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(questionText)}</div>` : ''}
           </div>
@@ -2434,7 +2444,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2442,7 +2452,7 @@
               const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(doText)}</span>
                 </div>
               `;
@@ -2451,7 +2461,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2463,15 +2473,15 @@
         // Botón docente interactivo para revelar resolución lineal y explicación
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-exercise" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-exercise" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar / Ocultar Resolución Guiada y Explicación
             </button>
-            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
         `;
 
         // Dentro del cuadro de resolución: pasos resueltos y comandos
         if (steps.length > 0) {
-          html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
+          html += `<div style="font-size:22px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
             const doText = st.action || st.do || st.task || st.step || '';
             const lookText = st.command || st.look || st.cmd || st.code || '';
@@ -2482,7 +2492,7 @@
                   <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
                   ${lookText ? `<code class="exercise-sol-code">${escapeHTML(lookText)}</code>` : ''}
                 </div>
-                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
+                ${reasonText ? `<div style="font-size:22px; color:var(--text-muted); line-height:1.4; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -2526,9 +2536,9 @@
         // Enunciado y Escenario del reto
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
             <div style="white-space:pre-line;">${renderRichText(scenario)}</div>
-            ${goalText ? `<div style="margin-top:10px; font-size:18px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
+            ${goalText ? `<div style="margin-top:10px; font-size:22px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
             ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(question)}</div>` : ''}
           </div>
         `;
@@ -2539,7 +2549,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2549,10 +2559,10 @@
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; justify-content:space-between; gap:16px;">
                   <div style="display:flex; align-items:center; gap:12px;">
-                    <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                    <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                     <span>${renderRichText(titleText)}</span>
                   </div>
-                  ${(st.action && st.step !== st.action) ? `<code style="font-size:18px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
+                  ${(st.action && st.step !== st.action) ? `<code style="font-size:22px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
                 </div>
               `;
             });
@@ -2560,7 +2570,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2578,7 +2588,7 @@
             const isCorrect = !!opt.correct;
             html += `
               <button class="quiz-btn challenge-opt-btn" onclick="this.classList.toggle('${isCorrect ? 'correct' : 'incorrect'}');">
-                <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
+                <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
                 <span>${renderRichText(optText)}</span>
               </button>
             `;
@@ -2601,13 +2611,13 @@
         const solTerminal = s.solution?.terminal || s.outcome?.terminal || (chObj ? (chObj.solution?.terminal || chObj.outcome?.terminal) : null) || null;
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-challenge" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar Solución y Razonamiento Docente
             </button>
-            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
               <div style="display:flex; align-items:flex-start; gap:12px;">
                 <svg class="ic ic-md" style="margin-top:2px; flex:none; color:var(--success);"><use href="#i-circle-check"/></svg>
-                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:20px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
+                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:22px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
               </div>
               ${solTerminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(solTerminal, 'solución')}</div>` : ''}
             </div>
@@ -2650,7 +2660,7 @@
           const optText = (typeof opt === 'object' && opt !== null) ? opt.text : opt;
           html += `
             <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${ansIdx}, '${escapeQuotes(expl)}')">
-              <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
+              <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(optText)}</span>
             </button>
           `;
@@ -2658,11 +2668,11 @@
         html += `</div>`;
         html += `
           <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
-            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:22px; padding:12px 24px; cursor:pointer;">
               <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
             </button>
           </div>
-          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:23px; line-height:1.5;"></div>
         `;
         }
       } else if (s.type === 'flashcards') {
@@ -2730,7 +2740,7 @@
         if (top3.length > 0) {
           html += `
             <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
-              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <div style="font-weight:800; font-size:23px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
                 <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
               </div>
               <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
@@ -2739,8 +2749,8 @@
             if (typeof t === 'string') {
               html += `
                 <div class="summary-cmd-card" style="display:flex; align-items:center; justify-content:space-between;">
-                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
-                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  <code class="t-cmd" style="font-size:22px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                 </div>
               `;
             } else {
@@ -2749,10 +2759,10 @@
               html += `
                 <div class="summary-cmd-card">
                   <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
-                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                    <code class="t-cmd" style="font-size:22px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                   </div>
-                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                  ${desc ? `<div style="font-size:21px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
                 </div>
               `;
             }
@@ -2776,7 +2786,7 @@
                   <div class="sp-desc">${renderRichText(pDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Web →
               </a>
             </div>
@@ -2796,7 +2806,7 @@
                 <div class="sp-desc" style="color:var(--text);">Explora visualmente los comandos, rutas y preguntas trampa de examen conectadas a este subtema en la red interactiva.</div>
               </div>
             </div>
-            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
               Ver en Grafo Interactivo →
             </a>
           </div>
@@ -2818,7 +2828,7 @@
                   <div class="sg-desc">${renderRichText(gpDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Global →
               </a>
             </div>
@@ -2878,7 +2888,13 @@
     // Navegación por teclado
     window.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      if (e.key === 'ArrowDown') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: 140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowUp') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: -140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         e.preventDefault();
         nextStep();
       } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
@@ -3034,7 +3050,7 @@
         content += `<div style="margin-bottom:8px; font-size:20px; line-height:1.4;">${escapeHTML(descText)}</div>`;
       }
       if (example) {
-        content += `<div style="font-family:monospace; font-size:18px; background:var(--surface-alt); padding:6px 10px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
+        content += `<div style="font-family:monospace; font-size:20px; background:var(--surface-alt); padding:8px 12px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
       }
       popover.innerHTML = content || '<div>Sin detalles adicionales</div>';
       const rect = e.currentTarget.getBoundingClientRect();
@@ -3188,8 +3204,8 @@
         item.style.color = 'var(--text)';
         item.style.cursor = 'pointer';
         item.innerHTML = `
-          <div style="font-weight:700; font-size:16px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
-          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
+          <div style="font-weight:700; font-size:19px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
+          <div style="font-size:21px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
         `;
         item.onclick = () => {
           closeModals();

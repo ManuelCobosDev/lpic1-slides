@@ -287,14 +287,15 @@
     [data-theme="dark"] .summary-global-box .sg-icon { background: #78350F !important; color: #FDE047 !important; }
 
     .exercise-sol-code {
-      font-size: 19px;
+      font-size: 23px;
       background: #FFFFFF;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 8px;
       border: 1px solid #86EFAC;
       color: #166534;
       font-family: monospace;
       font-weight: 700;
+      line-height: 1.48;
     }
     .summary-cmd-card {
       background: #FFFFFF;
@@ -313,8 +314,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-practice-box .sp-title { font-size: 20px; font-weight: 800; color: #166534; }
-    .summary-practice-box .sp-desc { font-size: 16px; color: #374151; }
+    .summary-practice-box .sp-title { font-size: 25px; font-weight: 800; color: #166534; }
+    .summary-practice-box .sp-desc { font-size: 21px; color: #374151; line-height: 1.45; }
     .summary-practice-box .sp-icon { width: 48px; height: 48px; border-radius: 12px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; flex: none; }
     .summary-global-box {
       margin-top: 12px;
@@ -327,8 +328,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-global-box .sg-title { font-size: 20px; font-weight: 800; color: #92400E; }
-    .summary-global-box .sg-desc { font-size: 16px; color: #78350F; }
+    .summary-global-box .sg-title { font-size: 25px; font-weight: 800; color: #92400E; }
+    .summary-global-box .sg-desc { font-size: 21px; color: #78350F; line-height: 1.45; }
     .summary-global-box .sg-icon { width: 48px; height: 48px; border-radius: 12px; background: #FEF3C7; color: #92400E; display: flex; align-items: center; justify-content: center; flex: none; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -540,32 +541,33 @@
     /* Área de contenido del slide (1680 x 870 aprox) */
     .slide-body {
       flex: 1;
-      padding: 30px 64px;
+      padding: 28px 52px 48px 52px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       position: relative;
       overflow-y: auto;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    .slide-body::-webkit-scrollbar { width: 8px; }
+    .slide-body::-webkit-scrollbar { width: 12px; }
     .slide-body::-webkit-scrollbar-track { background: transparent; }
-    .slide-body::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-    .slide-body::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+    .slide-body::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 6px; }
+    .slide-body::-webkit-scrollbar-thumb:hover { background: #64748B; }
 
     .slide-title {
-      font-size: 46px;
+      font-size: 48px;
       font-weight: 800;
       line-height: 1.15;
       color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
     }
     .slide-lead {
-      font-size: 26px;
-      line-height: 1.35;
+      font-size: 29px;
+      line-height: 1.38;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 500;
     }
 
@@ -598,21 +600,22 @@
       justify-content: center;
       flex: none;
     }
-    .concept-card .card-text { font-size: 24px; line-height: 1.35; font-weight: 600; color: var(--text); }
-    .concept-card .card-detail { font-size: 19px; color: var(--text-muted); margin-top: 4px; font-weight: 400; line-height: 1.35; }
+    .concept-card .card-text { font-size: 27px; line-height: 1.35; font-weight: 700; color: var(--text); }
+    .concept-card .card-detail { font-size: 23px; color: var(--text-muted); margin-top: 6px; font-weight: 400; line-height: 1.42; }
 
     /* Cajas Recuerda / Trampa / Callouts */
     .callout-box {
       margin-top: 10px;
-      padding: 10px 18px;
+      padding: 14px 22px;
       border-radius: 12px;
-      display: inline-flex;
+      display: flex;
+      width: 100%;
       align-items: center;
       gap: 14px;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
       border: 2px solid transparent;
-      line-height: 1.35;
+      line-height: 1.4;
     }
     .callout-warning {
       background: var(--warning-soft);
@@ -633,18 +636,18 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 24px !important;
-      height: 24px !important;
-      min-width: 24px !important;
-      max-width: 24px !important;
-      min-height: 24px !important;
-      max-height: 24px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      max-width: 30px !important;
+      min-height: 30px !important;
+      max-height: 30px !important;
       border-radius: 50% !important;
       background: #2563EB;
       color: #FFFFFF !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
       font-weight: 800 !important;
-      font-size: 13px !important;
+      font-size: 17px !important;
       line-height: 1 !important;
       vertical-align: middle !important;
       text-align: center !important;
@@ -678,7 +681,7 @@
       border-bottom: 1px solid #E2E8F0;
     }
     .slide-glossary-box .gl-tag {
-      font-size: 12px;
+      font-size: 19px;
       font-weight: 800;
       color: #2563EB;
       text-transform: uppercase;
@@ -689,7 +692,7 @@
     }
     .slide-glossary-box .gl-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 10px;
       align-items: stretch;
     }
@@ -712,11 +715,11 @@
     }
     .slide-glossary-box .gl-badge {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 12.5px;
+      font-size: 21px;
       font-weight: 700;
       color: #1D4ED8;
       background: #EFF6FF;
-      padding: 2px 8px;
+      padding: 4px 10px;
       border-radius: 5px;
       border: 1px solid #BFDBFE;
       display: inline-block;
@@ -725,13 +728,13 @@
     }
     .slide-glossary-box .gl-def {
       color: #334155;
-      font-size: 13.5px;
+      font-size: 21px;
       line-height: 1.45;
       flex: 1;
     }
     .slide-glossary-box .gl-def code {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
+      font-size: 20px;
       background: #F1F5F9;
       padding: 1px 4px;
       border-radius: 4px;
@@ -749,14 +752,14 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px 12px;
-      font-size: 13.5px;
+      font-size: 21px;
       color: var(--text-muted);
       line-height: 1.35;
     }
     .slide-glossary-strip .gl-title {
       font-weight: 800;
       color: var(--primary);
-      font-size: 12px;
+      font-size: 19px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       display: inline-flex;
@@ -775,7 +778,7 @@
     .slide-glossary-strip .gl-term {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-weight: 700;
-      font-size: 12.5px;
+      font-size: 21px;
       color: #1D4ED8;
     }
 
@@ -885,7 +888,7 @@
       align-items: center;
       justify-content: space-between;
       color: #475569;
-      font-size: 18px;
+      font-size: 21px;
       font-weight: 700;
     }
     .term-copy-btn, .terminal-copy-btn {
@@ -897,7 +900,7 @@
       border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -912,14 +915,14 @@
       transform: scale(0.96);
     }
     .term-code {
-      padding: 14px 20px;
+      padding: 18px 24px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: clamp(16px, 1.2vw, 22px);
-      line-height: 1.38;
+      font-size: 23px;
+      line-height: 1.48;
       color: #0F172A;
       white-space: pre-wrap;
       user-select: text;
-      max-height: 340px;
+      max-height: none;
       overflow-y: auto;
     }
     .term-code::-webkit-scrollbar { width: 6px; }
@@ -957,7 +960,7 @@
       flex-shrink: 0;
     }
     .terminal-title {
-      font-size: 14px;
+      font-size: 19px;
       font-weight: 700;
       color: #94A3B8;
       font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
@@ -978,13 +981,13 @@
       color: #38BDF8;
     }
     .terminal-body {
-      padding: 16px 20px;
+      padding: 18px 24px;
       margin: 0;
       background: #0F172A;
       color: #E2E8F0;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
-      font-size: 15.5px;
-      line-height: 1.55;
+      font-size: 22px;
+      line-height: 1.5;
       overflow-x: auto;
       white-space: pre-wrap;
     }
@@ -1016,14 +1019,14 @@
       margin-right: 22px;
     }
     .mini-term-title {
-      font-size: 12px;
+      font-size: 18px;
       color: #94A3B8;
       font-weight: 700;
     }
     .mini-term-body {
-      padding: 10px 14px;
-      font-size: 14.5px;
-      line-height: 1.55;
+      padding: 14px 18px;
+      font-size: 21px;
+      line-height: 1.5;
       color: #E2E8F0;
       background: #0F172A;
     }
@@ -1072,7 +1075,7 @@
       border-radius: 8px;
       border: 1.5px solid var(--border);
       background: var(--surface-alt);
-      font-size: 18px;
+      font-size: 22px;
       color: var(--text);
       cursor: pointer;
       transition: all 0.15s ease;
@@ -1100,30 +1103,31 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
+      padding: 8px 18px;
       background: #FFFFFF;
       border: 2px solid var(--control-border);
       border-radius: 10px;
-      font-size: 19px;
+      font-size: 23px;
       font-weight: 600;
       color: var(--text);
       cursor: pointer;
       transition: transform 0.1s, border-color 0.15s;
     }
-    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 21px; font-weight: 700; }
+    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 25px; font-weight: 700; }
 
     /* Sintaxis y Directivas */
     .syntax-bar {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 16px;
+      padding: 12px 20px;
       background: var(--surface-alt);
       border: 2px solid var(--border-strong);
       border-radius: 10px;
       margin-bottom: 10px;
-      font-size: 21px;
+      font-size: 24px;
     }
+    .syntax-bar code.t-cmd { font-size: 26px; }
     .directives-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1139,15 +1143,16 @@
     }
     .directive-key {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 700;
       color: #1D4ED8;
       margin-bottom: 4px;
+      line-height: 1.42;
     }
     .directive-desc {
-      font-size: 19px;
+      font-size: 23px;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.42;
     }
 
     /* Tablas (≤5x4) */
@@ -1163,22 +1168,24 @@
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(15px, 1.05vw, 18.5px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(15.5px, 1.1vw, 19.5px);
+      font-size: 24px;
+      line-height: 1.42;
     }
     table.slide-table td {
-      padding: 9px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
+      font-size: 23px;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: var(--warning-soft); }
@@ -1199,24 +1206,26 @@
     table.slide-matrix {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(16px, 1.15vw, 20px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-matrix th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 12px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(17px, 1.2vw, 21px);
+      font-size: 24px;
+      line-height: 1.42;
       letter-spacing: -0.01em;
     }
     table.slide-matrix td {
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
       vertical-align: middle;
+      font-size: 23px;
     }
     table.slide-matrix tr:last-child td { border-bottom: none; }
     table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
@@ -1231,7 +1240,7 @@
       border: 2px solid var(--border-strong);
       border-radius: 14px;
       background: #FFFFFF;
-      font-size: 26px;
+      font-size: 27px;
       font-weight: 600;
       color: var(--text);
       text-align: left;
@@ -1248,7 +1257,7 @@
       margin-top: 20px;
       padding: 18px 24px;
       border-radius: 14px;
-      font-size: 24px;
+      font-size: 25px;
       line-height: 1.4;
       display: none;
     }
@@ -1346,7 +1355,7 @@
       font-weight: 700;
     }
     .panel-body { padding: 24px; font-size: 20px; line-height: 1.5; color: var(--text); }
-    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 18px; }
+    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 20px; }
 
     /* Modales y Popovers */
     .modal-overlay {
@@ -1737,7 +1746,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "107.2", "cat": "admin", "type": "cover", "title": "Automatizar tareas mediante programación de trabajos", "subtitle": "Subtema 107.2 · Peso LPI: 4 · Examen LPIC-1 102-500", "meta": {"peso": 4, "paginas": "201-228", "duracion": "40 min"}, "icon": "clock", "notes": "Bienvenido al Subtema 107.2. Cubre la automatización de mantenimiento con cron, la ejecución no continua con anacron, trabajos diferidos únicos con at/batch y los modernos timers de systemd."}, {"id": 2, "section": "107.2", "cat": "admin", "type": "diagram", "title": "Herramientas de Programación en Linux: ¿Cuándo usar cada una?", "lead": "¿Qué mecanismo elegir según si la tarea es periódica, puntual o el equipo se apaga con frecuencia?", "ref": "201-203, 218", "pdf": {"manual": "B", "pages": [201, 202, 203, 218]}, "coverage": ["107.2-CON-001"], "remember": "🎯 Clave de Examen: cron = recurrente en servidores 24/7; anacron = recurrente en equipos que se apagan; at / batch = ejecución única diferida; systemd timers = alternativa moderna integrada en journald.", "notes": "Cron y at dependen de demonios en segundo plano: cron (o crond) y atd.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:13.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⏱️ Los Cuatro Pilares de la Automatización en LPIC-1</span>\n    <span style=\"font-size:10.5px; background:#EFF6FF; color:#1D4ED8; padding:2px 8px; border-radius:10px; font-weight:700;\">Objetivo 107.2</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; font-size:11px;\">\n    <!-- cron -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:10px;\">\n      <div style=\"color:#1D4ED8; font-weight:bold; font-size:12px; margin-bottom:4px;\">1. cron</div>\n      <div style=\"color:#1E3A8A; line-height:1.4;\">\n        • <strong>Tipo:</strong> Recurrente periódico.<br>\n        • <strong>Frecuencia:</strong> Desde minutos hasta meses.<br>\n        • <strong>Requisito:</strong> Servidor encendido a la hora exacta (si está apagado, se pierde la ejecución).\n      </div>\n    </div>\n\n    <!-- anacron -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:10px;\">\n      <div style=\"color:#15803D; font-weight:bold; font-size:12px; margin-bottom:4px;\">2. anacron</div>\n      <div style=\"color:#14532D; line-height:1.4;\">\n        • <strong>Tipo:</strong> Recurrente tolerante a apagados.<br>\n        • <strong>Frecuencia:</strong> Días (1, 7, 30 días).<br>\n        • <strong>Característica:</strong> Si el PC estaba apagado a la hora fijada, ejecuta la tarea pendiente al arrancar.\n      </div>\n    </div>\n\n    <!-- at / batch -->\n    <div style=\"background:#FFFBEB; border:1.5px solid #F59E0B; border-radius:8px; padding:10px;\">\n      <div style=\"color:#B45309; font-weight:bold; font-size:12px; margin-bottom:4px;\">3. at & batch</div>\n      <div style=\"color:#78350F; line-height:1.4;\">\n        • <strong>Tipo:</strong> Una sola vez (one-shot).<br>\n        • <strong>at:</strong> A una hora y fecha exacta del futuro.<br>\n        • <strong>batch:</strong> Solo cuando el load average de la CPU desciende por debajo de 0.8.\n      </div>\n    </div>\n\n    <!-- systemd timers -->\n    <div style=\"background:#FAF5FF; border:1.5px solid #A855F7; border-radius:8px; padding:10px;\">\n      <div style=\"color:#7E22CE; font-weight:bold; font-size:12px; margin-bottom:4px;\">4. systemd timers</div>\n      <div style=\"color:#581C87; line-height:1.4;\">\n        • <strong>Tipo:</strong> Reemplazo moderno.<br>\n        • <strong>Archivos:</strong> <code>.timer</code> activando <code>.service</code>.<br>\n        • <strong>Ventajas:</strong> Registro centralizado en journalctl y soporte de temporizadores monótonos (desde arranque).\n      </div>\n    </div>\n  </div>\n\n  <div style=\"margin-top:10px; background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:6px 10px; font-size:11px; color:#475569; display:flex; justify-content:space-between; align-items:center;\">\n    <span>🔔 <strong>Notificaciones:</strong> Tanto cron como at envían la salida estándar (stdout) y de errores (stderr) por correo electrónico local al usuario mediante la variable <code>MAILTO</code>.</span>\n    <span style=\"font-weight:700; color:#1E40AF;\">MAILTO=root</span>\n  </div>\n</div>\n"}, {"id": 3, "section": "107.2", "cat": "admin", "type": "diagram", "title": "Anatomía de /etc/crontab: La Sintaxis de 7 Columnas del Sistema", "lead": "¿Cómo se estructuran los trabajos periódicos de mantenimiento global en Linux?", "ref": "203-205", "pdf": {"manual": "B", "pages": [203, 204, 205]}, "coverage": ["107.2-ARC-001"], "remember": "🎯 Clave de Examen: En /etc/crontab el SEXTO campo es el USUARIO que ejecuta la orden (ej. root). El séptimo campo es el comando completo.", "notes": "En Debian /etc/crontab define variables de entorno SHELL=/bin/sh, PATH=/usr/local/sbin:... y MAILTO=root.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:13px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; justify-content:space-between;\">\n    <span>📄 Estructura de /etc/crontab (Tareas de Nivel de Sistema)</span>\n    <span style=\"font-size:10.5px; background:#EFF6FF; color:#1D4ED8; padding:2px 8px; border-radius:10px; font-weight:700;\">7 Columnas</span>\n  </div>\n\n  <div style=\"background:#0F172A; color:#E2E8F0; padding:10px 14px; border-radius:8px; font-family:monospace; font-size:13px; letter-spacing:0.5px; margin-bottom:10px;\">\n    <span style=\"color:#38BDF8;\">30</span> <span style=\"color:#F43F5E;\">04</span> <span style=\"color:#A855F7;\">*</span> <span style=\"color:#EAB308;\">*</span> <span style=\"color:#22C55E;\">1-5</span> <span style=\"color:#FB923C; font-weight:bold;\">root</span> <span style=\"color:#4ADE80;\">/usr/local/bin/backup-diario.sh</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(5, 1fr) 1.2fr 1.8fr; gap:6px; font-size:10.5px;\">\n    <div style=\"background:#F0F9FF; border:1px solid #BAE6FD; padding:6px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#0284C7;\">1. Minuto</strong><br>\n      <code>30</code><br>\n      0 - 59\n    </div>\n    <div style=\"background:#FFF1F2; border:1px solid #FECDD3; padding:6px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#E11D48;\">2. Hora</strong><br>\n      <code>04</code><br>\n      0 - 23\n    </div>\n    <div style=\"background:#FAF5FF; border:1px solid #E9D5FF; padding:6px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#9333EA;\">3. Día Mes</strong><br>\n      <code>*</code><br>\n      1 - 31\n    </div>\n    <div style=\"background:#FEFCE8; border:1px solid #FEF08A; padding:6px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#CA8A04;\">4. Mes</strong><br>\n      <code>*</code><br>\n      1 - 12\n    </div>\n    <div style=\"background:#F0FDF4; border:1px solid #BBF7D0; padding:6px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#16A34A;\">5. Día Sem</strong><br>\n      <code>1-5</code><br>\n      0-7 (Dom=0/7)\n    </div>\n    <div style=\"background:#FFF7ED; border:1px solid #FFEDD5; padding:6px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#EA580C;\">6. Usuario</strong><br>\n      <code>root</code><br>\n      Identidad ejecutora\n    </div>\n    <div style=\"background:#ECFDF5; border:1px solid #A7F3D0; padding:6px; border-radius:6px;\">\n      <strong style=\"color:#059669;\">7. Comando</strong><br>\n      <code>/usr/local/bin/backup...</code><br>\n      Ruta absoluta obligatoria\n    </div>\n  </div>\n\n  <div style=\"margin-top:10px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:6px; padding:6px 10px; font-size:11px; color:#475569;\">\n    🗣️ <strong>Traducción humana:</strong> <em>\"Ejecutar como root de lunes a viernes (1-5) a las 04:30 de la madrugada el script backup-diario.sh\"</em>.\n  </div>\n</div>\n"}, {"id": 4, "section": "107.2", "cat": "admin", "type": "flow", "title": "Operadores de Tiempo y Atajos Especiales (@)", "lead": "Sintaxis para rangos, listas, intervalos de paso y alias predefinidos de crontab.", "ref": "203-205", "pdf": {"manual": "B", "pages": [203, 204, 205]}, "coverage": ["107.2-CON-002"], "remember": "🎯 Clave de Examen: '*/15 * * * *' ejecuta cada 15 minutos. El atajo '@reboot' ejecuta la tarea una sola vez al arrancar el demonio cron.", "notes": "Los alias @daily, @hourly, etc., sustituyen por completo a las 5 primeras columnas temporales.", "steps": [{"title": "Asterisco (*): Todos los valores", "desc": "Indica 'cada minuto', 'cada hora' o 'cada día'. Un '*' en el campo de mes significa todos los meses del año."}, {"title": "Coma (,): Lista de valores discretos", "desc": "Ejemplo: <code>0,15,30,45</code> en el campo de minutos ejecuta la tarea exactamente en esos cuatro minutos de la hora."}, {"title": "Guión (-): Rango continuo de valores", "desc": "Ejemplo: <code>9-18</code> en horas ejecuta cada hora entre las 9:00 y las 18:00 inclusive. <code>1-5</code> en día de la semana indica de Lunes a Viernes."}, {"title": "Barra (/): Saltos o intervalos de paso (step)", "desc": "Ejemplo: <code>*/20</code> en minutos ejecuta en los minutos 0, 20 y 40. <code>10-30/5</code> ejecuta en los minutos 10, 15, 20, 25 y 30."}, {"title": "Atajos predefinidos con arroba (@)", "desc": "<code>@reboot</code> (al iniciar), <code>@hourly</code> (0 * * * *), <code>@daily</code> o <code>@midnight</code> (0 0 * * *), <code>@weekly</code> (0 0 * * 0), <code>@monthly</code> (0 0 1 * *), <code>@yearly</code> o <code>@annually</code> (0 0 1 1 *)."}]}, {"id": 5, "section": "107.2", "cat": "admin", "type": "command", "title": "Comando crontab: Tablas de Tareas Personales de Usuario", "lead": "¿Cómo gestiona cada usuario sus tareas periódicas sin acceso a /etc/crontab?", "ref": "205-206", "pdf": {"manual": "B", "pages": [205, 206]}, "coverage": ["107.2-CMD-001"], "remember": "🎯 Clave de Examen: ¡CUIDADO CON 'crontab -r'! Borra TODO tu archivo crontab sin pedir confirmación. En el crontab de usuario hay 6 campos (NO lleva nombre de usuario).", "notes": "crontab tiene el bit SUID activo o SGID crontab para escribir con seguridad en /var/spool/cron/crontabs/.", "syntax": "crontab [-u usuario] {-l | -r | -e}", "options": [{"flag": "-e", "desc": "Edita el archivo crontab del usuario actual con el editor configurado en $VISUAL o $EDITOR."}, {"flag": "-l", "desc": "Muestra por la salida estándar el contenido actual del archivo crontab."}, {"flag": "-r", "desc": "ELIMINA (remove) por completo el archivo crontab del usuario."}, {"flag": "-i", "desc": "Pide confirmación interactiva antes de eliminar el crontab con la opción -r."}, {"flag": "-u USUARIO", "desc": "Especifica el nombre del usuario cuyo crontab se quiere ver, editar o borrar (solo root)."}], "terminal": {"prompt": "frank@debian12:~$", "cmd": "crontab -l", "output": "# Crontab personal de Frank (6 campos: m h dom mon dow cmd)\nMAILTO=frank@empresa.com\n0 2 * * * /home/frank/scripts/limpiar_temporales.sh\n*/30 * * * 1-5 /home/frank/scripts/sincronizar_git.sh"}}, {"id": 6, "section": "107.2", "cat": "admin", "type": "diagram", "title": "Estructura Modular de Cron: /etc/cron.* y run-parts", "lead": "¿Cómo ejecutan los paquetes de Linux sus tareas de mantenimiento sin tocar /etc/crontab?", "ref": "206-207", "pdf": {"manual": "B", "pages": [206, 207]}, "coverage": ["107.2-ARC-002"], "remember": "🎯 Clave de Examen: /etc/cron.d/ admite archivos de formato /etc/crontab completo (7 campos). Los directorios /etc/cron.{hourly,daily,weekly,monthly} contienen scripts ejecutables sin extensión.", "notes": "run-parts ejecuta todos los scripts ejecutables encontrados en un directorio por orden alfabético.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"display:grid; grid-template-columns: 1.2fr 1fr; gap:14px; font-size:11.5px;\">\n    <!-- Directorios Periódicos -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:10px 12px;\">\n      <div style=\"color:#15803D; font-weight:bold; font-size:12.5px; margin-bottom:6px;\">\n        📁 Directorios de Scripts Periódicos (run-parts)\n      </div>\n      <div style=\"color:#14532D; line-height:1.4; font-size:11px;\">\n        • <code>/etc/cron.hourly/</code> : Se ejecutan cada hora.<br>\n        • <code>/etc/cron.daily/</code> : Se ejecutan una vez al día (06:25).<br>\n        • <code>/etc/cron.weekly/</code> : Se ejecutan una vez a la semana.<br>\n        • <code>/etc/cron.monthly/</code> : Se ejecutan el primer día de mes.<br>\n        <div style=\"margin-top:6px; background:#DCFCE7; padding:4px 6px; border-radius:4px; font-weight:600;\">\n          ⚠️ Requisitos: Permisos de ejecución (<code>chmod +x</code>) y NOMBRE SIN PUNTO NI EXTENSIÓN en Debian (ej. 'logrotate', NO 'logrotate.sh').\n        </div>\n      </div>\n    </div>\n\n    <!-- Directorio /etc/cron.d/ -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:10px 12px;\">\n      <div style=\"color:#1D4ED8; font-weight:bold; font-size:12.5px; margin-bottom:6px;\">\n        📄 Directorio Modular /etc/cron.d/\n      </div>\n      <div style=\"color:#1E3A8A; line-height:1.4; font-size:11px;\">\n        • Permite a los paquetes instalar tareas con su propia periodicidad personalizada sin editar el /etc/crontab central.<br>\n        • <strong>Formato idéntico a /etc/crontab:</strong> 7 columnas (incluye el nombre del usuario antes del comando).<br>\n        • Ejemplos habituales: <code>/etc/cron.d/certbot</code>, <code>/etc/cron.d/sysstat</code>.\n      </div>\n    </div>\n  </div>\n\n  <div style=\"margin-top:10px; background:#FFFBEB; border:1px solid #FCD34D; border-radius:6px; padding:6px 10px; font-size:11px; color:#92400E;\">\n    💡 <strong>Comprobación manual con run-parts:</strong> Puedes probar la ejecución de todos los scripts diarios ejecutando: <code>run-parts --report /etc/cron.daily</code>.\n  </div>\n</div>\n"}, {"id": 7, "section": "107.2", "cat": "admin", "type": "diagram", "title": "anacron: Automatización para Equipos no Conectados 24/7", "lead": "¿Qué pasa con las copias de seguridad de las 04:00 AM si tu portátil estaba suspendido o apagado?", "ref": "207-209", "pdf": {"manual": "B", "pages": [207, 208, 209]}, "coverage": ["107.2-CON-003"], "remember": "🎯 Clave de Examen: anacron NO trabaja con horas ni minutos fijos del reloj; trabaja con INTERVALOS EN DÍAS y un RETARDO en minutos tras el arranque.", "notes": "anacron guarda marcas de tiempo en /var/spool/anacron/ para saber cuándo se ejecutó cada trabajo por última vez.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:13px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; justify-content:space-between;\">\n    <span>📄 Estructura de /etc/anacrontab</span>\n    <span style=\"font-size:10.5px; background:#F0FDF4; color:#16A34A; padding:2px 8px; border-radius:10px; font-weight:700;\">4 Campos</span>\n  </div>\n\n  <div style=\"background:#0F172A; color:#E2E8F0; padding:10px 14px; border-radius:8px; font-family:monospace; font-size:13.5px; letter-spacing:0.5px; margin-bottom:10px;\">\n    <span style=\"color:#38BDF8;\">1</span>    <span style=\"color:#F43F5E;\">5</span>    <span style=\"color:#EAB308;\">cron.daily</span>    <span style=\"color:#4ADE80;\">run-parts --report /etc/cron.daily</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr 1.5fr; gap:8px; font-size:11px;\">\n    <div style=\"background:#F0F9FF; border:1px solid #BAE6FD; padding:8px; border-radius:6px;\">\n      <strong style=\"color:#0284C7;\">1. Período en días</strong><br>\n      <code>1</code> (diario), <code>7</code> (semanal) o <code>@monthly</code>.<br>\n      Frecuencia mínima en días entre ejecuciones.\n    </div>\n\n    <div style=\"background:#FFF1F2; border:1px solid #FECDD3; padding:8px; border-radius:6px;\">\n      <strong style=\"color:#E11D48;\">2. Retardo (minutos)</strong><br>\n      <code>5</code> minutos.<br>\n      Espera tras encender el PC para no saturar el arranque del sistema.\n    </div>\n\n    <div style=\"background:#FEFCE8; border:1px solid #FEF08A; padding:8px; border-radius:6px;\">\n      <strong style=\"color:#CA8A04;\">3. Identificador</strong><br>\n      <code>cron.daily</code><br>\n      Nombre del fichero de marca en <code>/var/spool/anacron/</code>.\n    </div>\n\n    <div style=\"background:#ECFDF5; border:1px solid #A7F3D0; padding:8px; border-radius:6px;\">\n      <strong style=\"color:#059669;\">4. Comando</strong><br>\n      <code>run-parts /etc/cron.daily</code><br>\n      Orden o script del sistema a ejecutar.\n    </div>\n  </div>\n\n  <div style=\"margin-top:10px; background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:6px 10px; font-size:11px; color:#475569;\">\n    🔄 <strong>Funcionamiento:</strong> Al iniciar sesión, anacron compara la fecha actual con la fecha guardada en <code>/var/spool/anacron/cron.daily</code>. Si la diferencia es &gt;= 1 día, espera 5 minutos y ejecuta la tarea.\n  </div>\n</div>\n"}, {"id": 8, "section": "107.2", "cat": "admin", "type": "matrix", "title": "Control de Acceso a Cron: /etc/cron.allow y /etc/cron.deny", "lead": "¿Quién tiene autorización para programar tareas periódicas en el servidor?", "ref": "207", "pdf": {"manual": "B", "pages": [207]}, "coverage": ["107.2-MAT-001"], "remember": "🎯 Clave de Examen: Si existe /etc/cron.allow, /etc/cron.deny es COMPLETAMENTE IGNORADO. Si ambos faltan, la política predeterminada suele permitir a todos los usuarios o solo a root.", "headers": ["Estado de /etc/cron.allow", "Estado de /etc/cron.deny", "Resultado de Acceso al Servicio cron"], "rows": [["<strong>Existe</strong> y contiene usuarios", "Ignorado (da igual si existe o no)", "✅ <strong>SOLO</strong> los usuarios listados en <code>cron.allow</code> pueden programar tareas. El resto queda bloqueado."], ["<strong>Existe pero está VACÍO</strong>", "Ignorado", "❌ <strong>NADIE</strong> excepto el superusuario <code>root</code> puede programar tareas."], ["<strong>NO existe</strong>", "<strong>Existe</strong> con usuarios listados", "🚫 <strong>TODOS</strong> pueden programar tareas, <strong>EXCEPTO</strong> los usuarios listados en <code>cron.deny</code>."], ["<strong>NO existe</strong>", "<strong>Existe pero está VACÍO</strong>", "✅ <strong>TODOS los usuarios</strong> del sistema tienen permiso para programar tareas con crontab."], ["<strong>NO existe</strong>", "<strong>NO existe</strong>", "Depende de la distribución (en Debian/Ubuntu permite a todos; en RHEL solo root)."]]}, {"id": 9, "section": "107.2", "cat": "admin", "type": "command", "title": "Comando at: Programación de Trabajos Únicos Diferidos", "lead": "Ejecución puntual en el futuro con un lenguaje natural extraordinariamente flexible.", "ref": "218-221", "pdf": {"manual": "B", "pages": [218, 219, 220, 221]}, "coverage": ["107.2-CMD-002"], "remember": "🎯 Clave de Examen: 'at' lee las órdenes de la entrada estándar y finaliza con 'Ctrl+D' (EOF). Utiliza '/bin/sh' para ejecutar las tareas, preservando las variables de entorno de la sesión actual.", "notes": "Si se especifica una hora que ya pasó en el día de hoy (ej. las 08:00 cuando son las 14:00), at programa la tarea para el día siguiente.", "syntax": "at [opciones] especificación_de_tiempo", "options": [{"flag": "-f ARCHIVO", "desc": "Lee los comandos desde un archivo de script en lugar de la entrada interactiva de consola."}, {"flag": "-m", "desc": "Envía un correo al usuario cuando la tarea finalice, incluso si no produjo ninguna salida."}, {"flag": "-q COLA", "desc": "Asigna el trabajo a una cola específica (de 'a' a 'z'; las colas más altas tienen menor prioridad)."}, {"flag": "-l", "desc": "Alias de atq: lista los trabajos en cola programados por el usuario."}, {"flag": "-d", "desc": "Alias de atrm: borra uno o más trabajos especificados por su identificador."}], "terminal": {"prompt": "frank@debian12:~$", "cmd": "at teatime tomorrow\nwarning: commands will be executed using /bin/sh\nat> tar -czf /home/frank/backup.tar.gz /home/frank/datos/\nat> echo \"Copia finalizada con exito\"\nat> <EOT> (pulsado Ctrl+D)", "output": "job 14 at Fri Oct 31 16:00:00 2026"}}, {"id": 10, "section": "107.2", "cat": "admin", "type": "concept", "title": "Especificaciones de Tiempo en at: Lenguaje y Palabras Clave", "lead": "¿Qué expresiones temporales son válidas según las especificaciones evaluadas por LPI?", "ref": "221", "pdf": {"manual": "B", "pages": [221]}, "coverage": ["107.2-CON-004"], "remember": "🎯 Clave de Examen: Palabras clave reservadas: 'now', 'noon' (12:00), 'midnight' (00:00), 'teatime' (16:00), 'today', 'tomorrow'. Los incrementos se expresan con '+' (ej. 'now + 30 minutes').", "notes": "El archivo de ayuda /usr/share/doc/at/timespec documenta la gramática completa aceptada por el analizador léxico de at.", "items": [{"title": "⏰ Horas Absolutas", "desc": "<code>at 09:30</code> (formato 24h) o <code>at 09:30 AM</code> / <code>at 11:45 PM</code>. Si la hora ya pasó hoy, se programa para mañana automáticamente."}, {"title": "☕ Palabras Clave Especiales", "desc": "<code>at noon</code> (las 12:00 del mediodía), <code>at midnight</code> (las 00:00 de la medianoche), <code>at teatime</code> (las 16:00 de la tarde; ¡pregunta fija de examen!)."}, {"title": "➕ Tiempos Relativos a Partir de 'now'", "desc": "<code>at now + 5 minutes</code>, <code>at now + 2 hours</code>, <code>at now + 3 days</code>, <code>at now + 2 weeks</code>."}, {"title": "📅 Fechas y Combinaciones Complejas", "desc": "<code>at 08:30 tomorrow</code>, <code>at 10:00 AM Oct 31</code>, <code>at 14:00 31.10.26</code>, <code>at 07:15 AM Jan 01</code>."}]}, {"id": 11, "section": "107.2", "cat": "admin", "type": "command", "title": "Supervisión y Control de at: atq, atrm y el comando batch", "lead": "Gestión de la cola de espera, cancelación de trabajos y ejecución sujeta a carga de CPU.", "ref": "219-221", "pdf": {"manual": "B", "pages": [219, 220, 221]}, "coverage": ["107.2-CMD-003"], "remember": "🎯 Clave de Examen: 'atq' como usuario normal solo muestra sus propias tareas; ejecutado como 'root' lista las tareas pendientes de TODOS los usuarios. 'batch' lanza trabajos solo si load average < 0.8.", "notes": "Control de acceso idéntico a cron: /etc/at.allow y /etc/at.deny.", "syntax": "atq [-q cola] | atrm id_trabajo... | batch", "options": [{"flag": "atq (o at -l)", "desc": "Lista las tareas pendientes mostrando: ID, fecha/hora programada, letra de cola y propietario."}, {"flag": "atrm (o at -d)", "desc": "Elimina una o más tareas de la cola mediante su ID (ej. 'atrm 12 14')."}, {"flag": "batch", "desc": "Variante de at sin argumento de hora: ejecuta los comandos cuando la carga del sistema es inferior a 0.8."}], "terminal": {"prompt": "root@debian12:~#", "cmd": "atq && atrm 13 && atq", "output": "14      Fri Oct 31 16:00:00 2026 a frank\n13      Sat Nov  1 09:30:00 2026 a laura\n12      Sat Nov  1 11:15:00 2026 a root\nroot@debian12:~# atrm 13\nroot@debian12:~# atq\n14      Fri Oct 31 16:00:00 2026 a frank\n12      Sat Nov  1 11:15:00 2026 a root"}}, {"id": 12, "section": "107.2", "cat": "admin", "type": "command", "title": "Alternativa Moderna: systemd-run y Unidades .timer", "lead": "¿Cómo sustituye systemd a cron y at en las distribuciones contemporáneas?", "ref": "221-222", "pdf": {"manual": "B", "pages": [221, 222]}, "coverage": ["107.2-CMD-004"], "remember": "🎯 Clave de Examen: 'systemd-run --on-calendar=...' programa tareas basadas en el calendario (estilo cron). 'systemd-run --on-active=...' programa retardos relativos (estilo at).", "notes": "systemctl list-timers muestra la próxima ejecución de todos los temporizadores del sistema.", "syntax": "systemd-run [--on-calendar=ESPEC | --on-active=TIEMPO] comando", "options": [{"flag": "--on-calendar='YYYY-MM-DD HH:MM'", "desc": "Crea un temporizador transitorio basado en fecha/hora absoluta o expresiones repetitivas."}, {"flag": "--on-active=\"2m\"", "desc": "Ejecuta la orden transcurrido un intervalo de tiempo relativo (ej. 2 minutos, 1 hora)."}, {"flag": "--unit=NOMBRE", "desc": "Asigna un nombre de unidad específico al servicio/temporizador transitorio generado."}, {"flag": "systemctl list-timers", "desc": "Muestra todos los temporizadores activos, su próxima ejecución (NEXT), cuándo se ejecutaron (LAST) y el servicio que activan."}], "terminal": {"prompt": "root@debian12:~#", "cmd": "systemd-run --on-calendar='2026-10-31 11:30' date && systemctl list-timers | head -n 5", "output": "Running as unit: run-rb57a26f8d1e4e2fb165.timer\nWill run service as unit: run-rb57a26f8d1e4e2fb165.service\nNEXT                        LEFT        LAST                        PASSED    UNIT\nFri 2026-10-31 11:30:00 CET 1d 3h left  -                           -         run-rb57a...timer\nFri 2026-10-30 09:00:00 CET 45min left  Fri 2026-10-30 08:00:03 CET 14min ago logrotate.timer"}}, {"id": 13, "section": "107.2", "cat": "admin", "type": "concept", "title": "Expresiones Temporales OnCalendar en systemd", "lead": "Formato normalizado de calendario: Día_Semana Año-Mes-Día Hora:Minuto:Segundo.", "ref": "210, 215, 221", "pdf": {"manual": "B", "pages": [210, 215, 221]}, "coverage": ["107.2-CON-005"], "remember": "🎯 Clave de Examen: En OnCalendar, los comodines se escriben con asterisco (*) o guiones dobles. 'hourly' = '*-*-* *:00:00'; 'daily' = '*-*-* 00:00:00'; 'weekly' = 'Mon *-*-* 00:00:00'.", "notes": "Se puede verificar la sintaxis de una expresión de calendario con el comando 'systemd-analyze calendar EXPRESION'.", "items": [{"title": "📅 Atajos Estándar Equivalentes a Crontab", "desc": "<code>hourly</code> equivale a <code>*-*-* *:00:00</code>.<br><code>daily</code> equivale a <code>*-*-* 00:00:00</code>.<br><code>weekly</code> equivale a <code>Mon *-*-* 00:00:00</code>.<br><code>monthly</code> equivale a <code>*-*-01 00:00:00</code>.<br><code>yearly</code> o <code>annually</code> equivale a <code>*-01-01 00:00:00</code>."}, {"title": "⏱️ Rangos y Repeticiones Específicas", "desc": "<code>Fri *-09..12-* 16:20:00</code>: Los viernes de septiembre a diciembre a las 16:20:00.<br><code>Mon,Tue *-*-1,15 08:30:00</code>: Los lunes y martes que coincidan con los días 1 o 15 del mes a las 08:30:00.<br><code>*-*-* *:00/05:00</code>: Cada 5 minutos durante todas las horas de todos los días."}]}, {"id": 14, "section": "107.2", "cat": "admin", "type": "matrix", "title": "Matriz Comparativa: cron vs anacron vs at vs systemd timers", "lead": "Resumen técnico de características clave evaluadas en las preguntas de certificación LPIC-1.", "ref": "201-228", "pdf": {"manual": "B", "pages": [201, 207, 218, 221]}, "coverage": ["107.2-MAT-002"], "remember": "🎯 Pista rápida: ¿Se apagará el equipo? usa anacron. ¿Una sola vez? usa at. ¿Cada 10 minutos en servidor continuo? usa cron. ¿Arquitectura moderna con dependencias? usa systemd timer.", "headers": ["Característica", "cron", "anacron", "at / batch", "systemd timers"], "rows": [["Tipo de Ejecución", "Recurrente periódica", "Recurrente periódica", "Única (one-shot)", "Ambas (única o periódica)"], ["Resolución Temporal", "Minutos (minuto exacto)", "Días (1, 7, 30 días)", "Minutos (hora/día exacto)", "Segundos y microsegundos"], ["Tolerancia a Apagados", "❌ Si está apagado, se pierde", "✅ Ejecuta tras el arranque", "❌ Si pasó la hora, se pierde", "✅ Con directiva <code>Persistent=true</code>"], ["Configuración", "<code>/etc/crontab</code>, <code>crontab -e</code>", "<code>/etc/anacrontab</code>", "Comando interactivo <code>at</code>", "Ficheros <code>.timer</code> o <code>systemd-run</code>"], ["Registro / Auditoría", "Syslog / Correo local", "Syslog / Correo local", "Correo local al usuario", "Journal estructurado (<code>journalctl</code>)"]]}, {"id": 15, "section": "107.2", "cat": "admin", "type": "exercise", "title": "Ejercicio Guiado LPI: Descifrado de Especificaciones de Tiempo", "lead": "Interpreta y traduce las expresiones de tiempo oficiales planteadas en el manual.", "ref": "210, 214", "pdf": {"manual": "B", "pages": [210, 214]}, "coverage": ["107.2-EXE-001"], "remember": "🎯 Pista: Los campos de cron son: 1º Minuto, 2º Hora, 3º Día de mes, 4º Mes, 5º Día de la semana.", "instructions": "Explica cuándo se ejecuta cada una de las siguientes especificaciones antes de pulsar en ver solución:<br>1. <code>30 13 * * 1-5</code><br>2. <code>00 09-18 * * *</code><br>3. <code>30 08 1 1 *</code><br>4. <code>0,20,40 11 * * Sun</code><br>5. <code>*/20 * * * *</code>", "solution": "\n<strong>1. <code>30 13 * * 1-5</code></strong>: A las 13:30 de lunes a viernes (días 1 al 5 de la semana).<br><br>\n<strong>2. <code>00 09-18 * * *</code></strong>: Cada hora en punto, desde las 09:00 hasta las 18:00 inclusive, todos los días.<br><br>\n<strong>3. <code>30 08 1 1 *</code></strong>: A las 08:30 de la mañana del día 1 de enero (año nuevo).<br><br>\n<strong>4. <code>0,20,40 11 * * Sun</code></strong>: A las 11:00, 11:20 y 11:40 todos los domingos.<br><br>\n<strong>5. <code>*/20 * * * *</code></strong>: Cada 20 minutos (en los minutos 0, 20 y 40 de cada hora de todos los días).\n"}, {"id": 16, "section": "107.2", "cat": "admin", "type": "exercise", "title": "Ejercicio Guiado LPI: Sintaxis Válida vs Inválida en at", "lead": "¿Cuáles de las siguientes órdenes de at son válidas para el analizador sintáctico de Linux?", "ref": "223, 226", "pdf": {"manual": "B", "pages": [223, 226]}, "coverage": ["107.2-EXE-002"], "remember": "🎯 Pista: at acepta 'midnight', 'noon' y 'teatime', pero NO acepta palabras inventadas como 'midday'. 'next week' requiere un incremento numérico como 'now + 1 week'.", "instructions": "Determina cuáles son sintácticamente VÁLIDAS y cuáles INVÁLIDAS:<br>• <code>at 08:30 AM next week</code><br>• <code>at midday</code><br>• <code>at 01-01-2020 07:30 PM</code><br>• <code>at 21:50 01.01.20</code><br>• <code>at now +4 days</code><br>• <code>at tomorrow 08:30 AM</code>", "solution": "\n• <code>at 08:30 AM next week</code> : ❌ <strong>INVÁLIDA</strong>. No se permite 'next week'; la sintaxis correcta es <code>at 08:30 AM next Monday</code> o <code>at 08:30 AM +1 week</code>.<br>\n• <code>at midday</code> : ❌ <strong>INVÁLIDA</strong>. La palabra oficial en inglés para el mediodía en at es <code>noon</code> (no existe 'midday').<br>\n• <code>at 01-01-2020 07:30 PM</code> : ❌ <strong>INVÁLIDA</strong>. La hora debe preceder a la fecha o usar los formatos admitidos (MMDDYY, MM/DD/YY o mes día).<br>\n• <code>at 21:50 01.01.20</code> : ✅ <strong>VÁLIDA</strong>. Formato hora seguido de día.mes.año.<br>\n• <code>at now +4 days</code> : ✅ <strong>VÁLIDA</strong>. Desplazamiento relativo respecto al momento presente.<br>\n• <code>at tomorrow 08:30 AM</code> : ❌ <strong>INVÁLIDA</strong>. La palabra 'tomorrow' debe ir DESPUÉS de la hora: <code>at 08:30 AM tomorrow</code>.\n"}, {"id": 17, "section": "107.2", "cat": "admin", "type": "challenge", "title": "Reto Práctico LPI: Despliegue de Mantenimiento Desatendido", "lead": "Configura un cron de usuario, restringe accesos y programa una alerta con at.", "ref": "205-207, 219", "pdf": {"manual": "B", "pages": [205, 206, 207, 219]}, "coverage": ["107.2-RET-001"], "scenario": "Eres administrador del servidor 'srv-backup'. Requerimientos:<br>1. Permitir que ÚNICAMENTE el usuario 'operador' y 'root' puedan programar trabajos con cron.<br>2. Crear una tarea en el crontab de 'operador' que ejecute '/opt/scripts/backup.sh' los domingos a las 02:30 AM redirigiendo la salida a '/var/log/backup.log'.<br>3. Programar con 'at' una tarea para hoy a las 16:00 (teatime) que compruebe si el disco tiene espacio libre.", "task": "Escribe los comandos y la línea exacta de crontab para resolver este escenario.", "solution": "\n<pre style=\"background:#0F172A; color:#E2E8F0; padding:10px; border-radius:6px; font-size:12px;\">\n# 1. Restringir acceso al servicio cron:\necho \"operador\" > /etc/cron.allow\necho \"root\" >> /etc/cron.allow\nrm -f /etc/cron.deny\n\n# 2. Instalar la tarea en el crontab de operador (6 campos):\n# Ejecutar como root: crontab -u operador -e\n# O inyectar directamente:\n(crontab -u operador -l 2>/dev/null; echo \"30 02 * * 0 /opt/scripts/backup.sh >> /var/log/backup.log 2>&1\") | crontab -u operador -\n\n# 3. Programar tarea puntual a las 16:00 (teatime):\necho \"df -h / > /tmp/espacio_disco.txt\" | at teatime\n</pre>\n"}, {"id": 18, "section": "107.2", "cat": "admin", "type": "review", "title": "Checklist de Examen: Trampas Frecuentes en el Subtema 107.2", "lead": "Puntos de fallo habituales detectados en las pruebas de certificación LPIC-1.", "ref": "201-228", "pdf": {"manual": "B", "pages": [203, 206, 207, 221]}, "coverage": ["107.2-REV-001"], "remember": "🎯 Regla de Oro: Si te piden borrar UNA tarea de at, usa 'atrm ID'. Si te piden borrar el crontab entero, es 'crontab -r'.", "takeaways": ["⚠️ <strong>Poner nombre de usuario en crontab -e</strong>: El crontab personal tiene solo 5 campos de tiempo + comando (6 en total). Si añades el usuario, cron creerá que el nombre de usuario es el comando y fallará.", "⚠️ <strong>Poner extensión .sh en /etc/cron.daily/</strong>: 'run-parts' descarta en silencio cualquier archivo con punto en sistemas Debian/Ubuntu.", "⚠️ <strong>Confundir teatime (16:00) con midday (no existe) o noon (12:00)</strong>: 'at' no admite 'midday', solo 'noon'.", "⚠️ <strong>Creer que cron.allow y cron.deny se combinan</strong>: Si existe 'cron.allow', 'cron.deny' queda absolutamente anulado y no se lee."]}, {"id": 19, "section": "107.2", "cat": "admin", "type": "summary", "title": "Resumen del Subtema 107.2 y Preparación para el Laboratorio", "lead": "Automatización dominada, comandos clave y enlace a la práctica guiada.", "ref": "213, 225", "pdf": {"manual": "B", "pages": [213, 225]}, "coverage": ["107.2-SUM-001"], "top3": ["Cron y Anacron: /etc/crontab (7 campos), crontab de usuario (6 campos), /etc/cron.* periódicos y /etc/anacrontab.", "At y Batch: Trabajos diferidos únicos con 'at [tiempo]', control con 'atq' ('at -l') y borrado con 'atrm' ('at -d').", "Systemd Timers y Control: 'systemd-run --on-calendar/--on-active', 'systemctl list-timers' y políticas allow/deny."], "practice": {"title": "Práctica 107.2 — Automatización de Tareas con cron, at y systemd-run", "url": "../practicas/p-107-2-automatizacion-cron-at.html", "duration": "30 min", "commands": ["crontab", "at", "atq", "atrm", "batch", "systemd-run", "systemctl"]}}];
+    const SLIDES = [{"id": 1, "section": "107.2", "cat": "admin", "type": "cover", "title": "Automatizar tareas mediante programación de trabajos", "subtitle": "Subtema 107.2 · Peso LPI: 4 · Examen LPIC-1 102-500", "meta": {"peso": 4, "paginas": "201-228", "duracion": "40 min"}, "icon": "clock", "notes": "Bienvenido al Subtema 107.2. Cubre la automatización de mantenimiento con cron, la ejecución no continua con anacron, trabajos diferidos únicos con at/batch y los modernos timers de systemd."}, {"id": 2, "section": "107.2", "cat": "admin", "type": "diagram", "title": "Herramientas de Programación en Linux: ¿Cuándo usar cada una?", "lead": "¿Qué mecanismo elegir según si la tarea es periódica, puntual o el equipo se apaga con frecuencia?", "ref": "201-203, 218", "pdf": {"manual": "B", "pages": [201, 202, 203, 218]}, "coverage": ["107.2-CON-001"], "remember": "🎯 Clave de Examen: cron = recurrente en servidores 24/7; anacron = recurrente en equipos que se apagan; at / batch = ejecución única diferida; systemd timers = alternativa moderna integrada en journald.", "notes": "Cron y at dependen de demonios en segundo plano: cron (o crond) y atd.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:24px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⏱️ Los Cuatro Pilares de la Automatización en LPIC-1</span>\n    <span style=\"font-size:20px; background:#EFF6FF; color:#1D4ED8; padding:4px 10px; border-radius:10px; font-weight:700;\">Objetivo 107.2</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:16px; font-size:22px;\">\n    <!-- cron -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:14px 16px;\">\n      <div style=\"color:#1D4ED8; font-weight:bold; font-size:23px; margin-bottom:4px;\">1. cron</div>\n      <div style=\"color:#1E3A8A; line-height:1.4;\">\n        • <strong>Tipo:</strong> Recurrente periódico.<br>\n        • <strong>Frecuencia:</strong> Desde minutos hasta meses.<br>\n        • <strong>Requisito:</strong> Servidor encendido a la hora exacta (si está apagado, se pierde la ejecución).\n      </div>\n    </div>\n\n    <!-- anacron -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:14px 16px;\">\n      <div style=\"color:#15803D; font-weight:bold; font-size:23px; margin-bottom:4px;\">2. anacron</div>\n      <div style=\"color:#14532D; line-height:1.4;\">\n        • <strong>Tipo:</strong> Recurrente tolerante a apagados.<br>\n        • <strong>Frecuencia:</strong> Días (1, 7, 30 días).<br>\n        • <strong>Característica:</strong> Si el PC estaba apagado a la hora fijada, ejecuta la tarea pendiente al arrancar.\n      </div>\n    </div>\n\n    <!-- at / batch -->\n    <div style=\"background:#FFFBEB; border:1.5px solid #F59E0B; border-radius:8px; padding:14px 16px;\">\n      <div style=\"color:#B45309; font-weight:bold; font-size:23px; margin-bottom:4px;\">3. at & batch</div>\n      <div style=\"color:#78350F; line-height:1.4;\">\n        • <strong>Tipo:</strong> Una sola vez (one-shot).<br>\n        • <strong>at:</strong> A una hora y fecha exacta del futuro.<br>\n        • <strong>batch:</strong> Solo cuando el load average de la CPU desciende por debajo de 0.8.\n      </div>\n    </div>\n\n    <!-- systemd timers -->\n    <div style=\"background:#FAF5FF; border:1.5px solid #A855F7; border-radius:8px; padding:14px 16px;\">\n      <div style=\"color:#7E22CE; font-weight:bold; font-size:23px; margin-bottom:4px;\">4. systemd timers</div>\n      <div style=\"color:#581C87; line-height:1.4;\">\n        • <strong>Tipo:</strong> Reemplazo moderno.<br>\n        • <strong>Archivos:</strong> <code>.timer</code> activando <code>.service</code>.<br>\n        • <strong>Ventajas:</strong> Registro centralizado en journalctl y soporte de temporizadores monótonos (desde arranque).\n      </div>\n    </div>\n  </div>\n\n  <div style=\"margin-top:10px; background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:12px 16px; font-size:22px; color:#475569; display:flex; justify-content:space-between; align-items:center;\">\n    <span>🔔 <strong>Notificaciones:</strong> Tanto cron como at envían la salida estándar (stdout) y de errores (stderr) por correo electrónico local al usuario mediante la variable <code>MAILTO</code>.</span>\n    <span style=\"font-weight:700; color:#1E40AF;\">MAILTO=root</span>\n  </div>\n</div>\n"}, {"id": 3, "section": "107.2", "cat": "admin", "type": "diagram", "title": "Anatomía de /etc/crontab: La Sintaxis de 7 Columnas del Sistema", "lead": "¿Cómo se estructuran los trabajos periódicos de mantenimiento global en Linux?", "ref": "203-205", "pdf": {"manual": "B", "pages": [203, 204, 205]}, "coverage": ["107.2-ARC-001"], "remember": "🎯 Clave de Examen: En /etc/crontab el SEXTO campo es el USUARIO que ejecuta la orden (ej. root). El séptimo campo es el comando completo.", "notes": "En Debian /etc/crontab define variables de entorno SHELL=/bin/sh, PATH=/usr/local/sbin:... y MAILTO=root.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:24px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; justify-content:space-between;\">\n    <span>📄 Estructura de /etc/crontab (Tareas de Nivel de Sistema)</span>\n    <span style=\"font-size:20px; background:#EFF6FF; color:#1D4ED8; padding:4px 10px; border-radius:10px; font-weight:700;\">7 Columnas</span>\n  </div>\n\n  <div style=\"background:#0F172A; color:#E2E8F0; padding:12px 18px; border-radius:8px; font-family:monospace; font-size:24px; letter-spacing:0.5px; margin-bottom:10px;\">\n    <span style=\"color:#38BDF8;\">30</span> <span style=\"color:#F43F5E;\">04</span> <span style=\"color:#A855F7;\">*</span> <span style=\"color:#EAB308;\">*</span> <span style=\"color:#22C55E;\">1-5</span> <span style=\"color:#FB923C; font-weight:bold;\">root</span> <span style=\"color:#4ADE80;\">/usr/local/bin/backup-diario.sh</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(5, 1fr) 1.2fr 1.8fr; gap:16px; font-size:20px;\">\n    <div style=\"background:#F0F9FF; border:1px solid #BAE6FD; padding:10px 12px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#0284C7;\">1. Minuto</strong><br>\n      <code>30</code><br>\n      0 - 59\n    </div>\n    <div style=\"background:#FFF1F2; border:1px solid #FECDD3; padding:10px 12px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#E11D48;\">2. Hora</strong><br>\n      <code>04</code><br>\n      0 - 23\n    </div>\n    <div style=\"background:#FAF5FF; border:1px solid #E9D5FF; padding:10px 12px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#9333EA;\">3. Día Mes</strong><br>\n      <code>*</code><br>\n      1 - 31\n    </div>\n    <div style=\"background:#FEFCE8; border:1px solid #FEF08A; padding:10px 12px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#CA8A04;\">4. Mes</strong><br>\n      <code>*</code><br>\n      1 - 12\n    </div>\n    <div style=\"background:#F0FDF4; border:1px solid #BBF7D0; padding:10px 12px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#16A34A;\">5. Día Sem</strong><br>\n      <code>1-5</code><br>\n      0-7 (Dom=0/7)\n    </div>\n    <div style=\"background:#FFF7ED; border:1px solid #FFEDD5; padding:10px 12px; border-radius:6px; text-align:center;\">\n      <strong style=\"color:#EA580C;\">6. Usuario</strong><br>\n      <code>root</code><br>\n      Identidad ejecutora\n    </div>\n    <div style=\"background:#ECFDF5; border:1px solid #A7F3D0; padding:10px 12px; border-radius:6px;\">\n      <strong style=\"color:#059669;\">7. Comando</strong><br>\n      <code>/usr/local/bin/backup...</code><br>\n      Ruta absoluta obligatoria\n    </div>\n  </div>\n\n  <div style=\"margin-top:10px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:6px; padding:12px 16px; font-size:22px; color:#475569;\">\n    🗣️ <strong>Traducción humana:</strong> <em>\"Ejecutar como root de lunes a viernes (1-5) a las 04:30 de la madrugada el script backup-diario.sh\"</em>.\n  </div>\n</div>\n"}, {"id": 4, "section": "107.2", "cat": "admin", "type": "flow", "title": "Operadores de Tiempo y Atajos Especiales (@)", "lead": "Sintaxis para rangos, listas, intervalos de paso y alias predefinidos de crontab.", "ref": "203-205", "pdf": {"manual": "B", "pages": [203, 204, 205]}, "coverage": ["107.2-CON-002"], "remember": "🎯 Clave de Examen: '*/15 * * * *' ejecuta cada 15 minutos. El atajo '@reboot' ejecuta la tarea una sola vez al arrancar el demonio cron.", "notes": "Los alias @daily, @hourly, etc., sustituyen por completo a las 5 primeras columnas temporales.", "steps": [{"title": "Asterisco (*): Todos los valores", "desc": "Indica 'cada minuto', 'cada hora' o 'cada día'. Un '*' en el campo de mes significa todos los meses del año."}, {"title": "Coma (,): Lista de valores discretos", "desc": "Ejemplo: <code>0,15,30,45</code> en el campo de minutos ejecuta la tarea exactamente en esos cuatro minutos de la hora."}, {"title": "Guión (-): Rango continuo de valores", "desc": "Ejemplo: <code>9-18</code> en horas ejecuta cada hora entre las 9:00 y las 18:00 inclusive. <code>1-5</code> en día de la semana indica de Lunes a Viernes."}, {"title": "Barra (/): Saltos o intervalos de paso (step)", "desc": "Ejemplo: <code>*/20</code> en minutos ejecuta en los minutos 0, 20 y 40. <code>10-30/5</code> ejecuta en los minutos 10, 15, 20, 25 y 30."}, {"title": "Atajos predefinidos con arroba (@)", "desc": "<code>@reboot</code> (al iniciar), <code>@hourly</code> (0 * * * *), <code>@daily</code> o <code>@midnight</code> (0 0 * * *), <code>@weekly</code> (0 0 * * 0), <code>@monthly</code> (0 0 1 * *), <code>@yearly</code> o <code>@annually</code> (0 0 1 1 *)."}]}, {"id": 5, "section": "107.2", "cat": "admin", "type": "command", "title": "Comando crontab: Tablas de Tareas Personales de Usuario", "lead": "¿Cómo gestiona cada usuario sus tareas periódicas sin acceso a /etc/crontab?", "ref": "205-206", "pdf": {"manual": "B", "pages": [205, 206]}, "coverage": ["107.2-CMD-001"], "remember": "🎯 Clave de Examen: ¡CUIDADO CON 'crontab -r'! Borra TODO tu archivo crontab sin pedir confirmación. En el crontab de usuario hay 6 campos (NO lleva nombre de usuario).", "notes": "crontab tiene el bit SUID activo o SGID crontab para escribir con seguridad en /var/spool/cron/crontabs/.", "syntax": "crontab [-u usuario] {-l | -r | -e}", "options": [{"flag": "-e", "desc": "Edita el archivo crontab del usuario actual con el editor configurado en $VISUAL o $EDITOR."}, {"flag": "-l", "desc": "Muestra por la salida estándar el contenido actual del archivo crontab."}, {"flag": "-r", "desc": "ELIMINA (remove) por completo el archivo crontab del usuario."}, {"flag": "-i", "desc": "Pide confirmación interactiva antes de eliminar el crontab con la opción -r."}, {"flag": "-u USUARIO", "desc": "Especifica el nombre del usuario cuyo crontab se quiere ver, editar o borrar (solo root)."}], "terminal": {"prompt": "frank@debian12:~$", "cmd": "crontab -l", "output": "# Crontab personal de Frank (6 campos: m h dom mon dow cmd)\nMAILTO=frank@empresa.com\n0 2 * * * /home/frank/scripts/limpiar_temporales.sh\n*/30 * * * 1-5 /home/frank/scripts/sincronizar_git.sh"}}, {"id": 6, "section": "107.2", "cat": "admin", "type": "diagram", "title": "Estructura Modular de Cron: /etc/cron.* y run-parts", "lead": "¿Cómo ejecutan los paquetes de Linux sus tareas de mantenimiento sin tocar /etc/crontab?", "ref": "206-207", "pdf": {"manual": "B", "pages": [206, 207]}, "coverage": ["107.2-ARC-002"], "remember": "🎯 Clave de Examen: /etc/cron.d/ admite archivos de formato /etc/crontab completo (7 campos). Los directorios /etc/cron.{hourly,daily,weekly,monthly} contienen scripts ejecutables sin extensión.", "notes": "run-parts ejecuta todos los scripts ejecutables encontrados en un directorio por orden alfabético.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"display:grid; grid-template-columns: 1.2fr 1fr; gap:16px; font-size:22px;\">\n    <!-- Directorios Periódicos -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:10px 12px;\">\n      <div style=\"color:#15803D; font-weight:bold; font-size:23px; margin-bottom:6px;\">\n        📁 Directorios de Scripts Periódicos (run-parts)\n      </div>\n      <div style=\"color:#14532D; line-height:1.4; font-size:22px;\">\n        • <code>/etc/cron.hourly/</code> : Se ejecutan cada hora.<br>\n        • <code>/etc/cron.daily/</code> : Se ejecutan una vez al día (06:25).<br>\n        • <code>/etc/cron.weekly/</code> : Se ejecutan una vez a la semana.<br>\n        • <code>/etc/cron.monthly/</code> : Se ejecutan el primer día de mes.<br>\n        <div style=\"margin-top:6px; background:#DCFCE7; padding:4px 6px; border-radius:4px; font-weight:600;\">\n          ⚠️ Requisitos: Permisos de ejecución (<code>chmod +x</code>) y NOMBRE SIN PUNTO NI EXTENSIÓN en Debian (ej. 'logrotate', NO 'logrotate.sh').\n        </div>\n      </div>\n    </div>\n\n    <!-- Directorio /etc/cron.d/ -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:10px 12px;\">\n      <div style=\"color:#1D4ED8; font-weight:bold; font-size:23px; margin-bottom:6px;\">\n        📄 Directorio Modular /etc/cron.d/\n      </div>\n      <div style=\"color:#1E3A8A; line-height:1.4; font-size:22px;\">\n        • Permite a los paquetes instalar tareas con su propia periodicidad personalizada sin editar el /etc/crontab central.<br>\n        • <strong>Formato idéntico a /etc/crontab:</strong> 7 columnas (incluye el nombre del usuario antes del comando).<br>\n        • Ejemplos habituales: <code>/etc/cron.d/certbot</code>, <code>/etc/cron.d/sysstat</code>.\n      </div>\n    </div>\n  </div>\n\n  <div style=\"margin-top:10px; background:#FFFBEB; border:1px solid #FCD34D; border-radius:6px; padding:12px 16px; font-size:22px; color:#92400E;\">\n    💡 <strong>Comprobación manual con run-parts:</strong> Puedes probar la ejecución de todos los scripts diarios ejecutando: <code>run-parts --report /etc/cron.daily</code>.\n  </div>\n</div>\n"}, {"id": 7, "section": "107.2", "cat": "admin", "type": "diagram", "title": "anacron: Automatización para Equipos no Conectados 24/7", "lead": "¿Qué pasa con las copias de seguridad de las 04:00 AM si tu portátil estaba suspendido o apagado?", "ref": "207-209", "pdf": {"manual": "B", "pages": [207, 208, 209]}, "coverage": ["107.2-CON-003"], "remember": "🎯 Clave de Examen: anacron NO trabaja con horas ni minutos fijos del reloj; trabaja con INTERVALOS EN DÍAS y un RETARDO en minutos tras el arranque.", "notes": "anacron guarda marcas de tiempo en /var/spool/anacron/ para saber cuándo se ejecutó cada trabajo por última vez.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:24px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; justify-content:space-between;\">\n    <span>📄 Estructura de /etc/anacrontab</span>\n    <span style=\"font-size:20px; background:#F0FDF4; color:#16A34A; padding:4px 10px; border-radius:10px; font-weight:700;\">4 Campos</span>\n  </div>\n\n  <div style=\"background:#0F172A; color:#E2E8F0; padding:12px 18px; border-radius:8px; font-family:monospace; font-size:24px; letter-spacing:0.5px; margin-bottom:10px;\">\n    <span style=\"color:#38BDF8;\">1</span>    <span style=\"color:#F43F5E;\">5</span>    <span style=\"color:#EAB308;\">cron.daily</span>    <span style=\"color:#4ADE80;\">run-parts --report /etc/cron.daily</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr 1.5fr; gap:16px; font-size:22px;\">\n    <div style=\"background:#F0F9FF; border:1px solid #BAE6FD; padding:12px 18px; border-radius:6px;\">\n      <strong style=\"color:#0284C7;\">1. Período en días</strong><br>\n      <code>1</code> (diario), <code>7</code> (semanal) o <code>@monthly</code>.<br>\n      Frecuencia mínima en días entre ejecuciones.\n    </div>\n\n    <div style=\"background:#FFF1F2; border:1px solid #FECDD3; padding:12px 18px; border-radius:6px;\">\n      <strong style=\"color:#E11D48;\">2. Retardo (minutos)</strong><br>\n      <code>5</code> minutos.<br>\n      Espera tras encender el PC para no saturar el arranque del sistema.\n    </div>\n\n    <div style=\"background:#FEFCE8; border:1px solid #FEF08A; padding:12px 18px; border-radius:6px;\">\n      <strong style=\"color:#CA8A04;\">3. Identificador</strong><br>\n      <code>cron.daily</code><br>\n      Nombre del fichero de marca en <code>/var/spool/anacron/</code>.\n    </div>\n\n    <div style=\"background:#ECFDF5; border:1px solid #A7F3D0; padding:12px 18px; border-radius:6px;\">\n      <strong style=\"color:#059669;\">4. Comando</strong><br>\n      <code>run-parts /etc/cron.daily</code><br>\n      Orden o script del sistema a ejecutar.\n    </div>\n  </div>\n\n  <div style=\"margin-top:10px; background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:12px 16px; font-size:22px; color:#475569;\">\n    🔄 <strong>Funcionamiento:</strong> Al iniciar sesión, anacron compara la fecha actual con la fecha guardada en <code>/var/spool/anacron/cron.daily</code>. Si la diferencia es &gt;= 1 día, espera 5 minutos y ejecuta la tarea.\n  </div>\n</div>\n"}, {"id": 8, "section": "107.2", "cat": "admin", "type": "matrix", "title": "Control de Acceso a Cron: /etc/cron.allow y /etc/cron.deny", "lead": "¿Quién tiene autorización para programar tareas periódicas en el servidor?", "ref": "207", "pdf": {"manual": "B", "pages": [207]}, "coverage": ["107.2-MAT-001"], "remember": "🎯 Clave de Examen: Si existe /etc/cron.allow, /etc/cron.deny es COMPLETAMENTE IGNORADO. Si ambos faltan, la política predeterminada suele permitir a todos los usuarios o solo a root.", "headers": ["Estado de /etc/cron.allow", "Estado de /etc/cron.deny", "Resultado de Acceso al Servicio cron"], "rows": [["<strong>Existe</strong> y contiene usuarios", "Ignorado (da igual si existe o no)", "✅ <strong>SOLO</strong> los usuarios listados en <code>cron.allow</code> pueden programar tareas. El resto queda bloqueado."], ["<strong>Existe pero está VACÍO</strong>", "Ignorado", "❌ <strong>NADIE</strong> excepto el superusuario <code>root</code> puede programar tareas."], ["<strong>NO existe</strong>", "<strong>Existe</strong> con usuarios listados", "🚫 <strong>TODOS</strong> pueden programar tareas, <strong>EXCEPTO</strong> los usuarios listados en <code>cron.deny</code>."], ["<strong>NO existe</strong>", "<strong>Existe pero está VACÍO</strong>", "✅ <strong>TODOS los usuarios</strong> del sistema tienen permiso para programar tareas con crontab."], ["<strong>NO existe</strong>", "<strong>NO existe</strong>", "Depende de la distribución (en Debian/Ubuntu permite a todos; en RHEL solo root)."]]}, {"id": 9, "section": "107.2", "cat": "admin", "type": "command", "title": "Comando at: Programación de Trabajos Únicos Diferidos", "lead": "Ejecución puntual en el futuro con un lenguaje natural extraordinariamente flexible.", "ref": "218-221", "pdf": {"manual": "B", "pages": [218, 219, 220, 221]}, "coverage": ["107.2-CMD-002"], "remember": "🎯 Clave de Examen: 'at' lee las órdenes de la entrada estándar y finaliza con 'Ctrl+D' (EOF). Utiliza '/bin/sh' para ejecutar las tareas, preservando las variables de entorno de la sesión actual.", "notes": "Si se especifica una hora que ya pasó en el día de hoy (ej. las 08:00 cuando son las 14:00), at programa la tarea para el día siguiente.", "syntax": "at [opciones] especificación_de_tiempo", "options": [{"flag": "-f ARCHIVO", "desc": "Lee los comandos desde un archivo de script en lugar de la entrada interactiva de consola."}, {"flag": "-m", "desc": "Envía un correo al usuario cuando la tarea finalice, incluso si no produjo ninguna salida."}, {"flag": "-q COLA", "desc": "Asigna el trabajo a una cola específica (de 'a' a 'z'; las colas más altas tienen menor prioridad)."}, {"flag": "-l", "desc": "Alias de atq: lista los trabajos en cola programados por el usuario."}, {"flag": "-d", "desc": "Alias de atrm: borra uno o más trabajos especificados por su identificador."}], "terminal": {"prompt": "frank@debian12:~$", "cmd": "at teatime tomorrow\nwarning: commands will be executed using /bin/sh\nat> tar -czf /home/frank/backup.tar.gz /home/frank/datos/\nat> echo \"Copia finalizada con exito\"\nat> <EOT> (pulsado Ctrl+D)", "output": "job 14 at Fri Oct 31 16:00:00 2026"}}, {"id": 10, "section": "107.2", "cat": "admin", "type": "concept", "title": "Especificaciones de Tiempo en at: Lenguaje y Palabras Clave", "lead": "¿Qué expresiones temporales son válidas según las especificaciones evaluadas por LPI?", "ref": "221", "pdf": {"manual": "B", "pages": [221]}, "coverage": ["107.2-CON-004"], "remember": "🎯 Clave de Examen: Palabras clave reservadas: 'now', 'noon' (12:00), 'midnight' (00:00), 'teatime' (16:00), 'today', 'tomorrow'. Los incrementos se expresan con '+' (ej. 'now + 30 minutes').", "notes": "El archivo de ayuda /usr/share/doc/at/timespec documenta la gramática completa aceptada por el analizador léxico de at.", "items": [{"title": "⏰ Horas Absolutas", "desc": "<code>at 09:30</code> (formato 24h) o <code>at 09:30 AM</code> / <code>at 11:45 PM</code>. Si la hora ya pasó hoy, se programa para mañana automáticamente."}, {"title": "☕ Palabras Clave Especiales", "desc": "<code>at noon</code> (las 12:00 del mediodía), <code>at midnight</code> (las 00:00 de la medianoche), <code>at teatime</code> (las 16:00 de la tarde; ¡pregunta fija de examen!)."}, {"title": "➕ Tiempos Relativos a Partir de 'now'", "desc": "<code>at now + 5 minutes</code>, <code>at now + 2 hours</code>, <code>at now + 3 days</code>, <code>at now + 2 weeks</code>."}, {"title": "📅 Fechas y Combinaciones Complejas", "desc": "<code>at 08:30 tomorrow</code>, <code>at 10:00 AM Oct 31</code>, <code>at 14:00 31.10.26</code>, <code>at 07:15 AM Jan 01</code>."}]}, {"id": 11, "section": "107.2", "cat": "admin", "type": "command", "title": "Supervisión y Control de at: atq, atrm y el comando batch", "lead": "Gestión de la cola de espera, cancelación de trabajos y ejecución sujeta a carga de CPU.", "ref": "219-221", "pdf": {"manual": "B", "pages": [219, 220, 221]}, "coverage": ["107.2-CMD-003"], "remember": "🎯 Clave de Examen: 'atq' como usuario normal solo muestra sus propias tareas; ejecutado como 'root' lista las tareas pendientes de TODOS los usuarios. 'batch' lanza trabajos solo si load average < 0.8.", "notes": "Control de acceso idéntico a cron: /etc/at.allow y /etc/at.deny.", "syntax": "atq [-q cola] | atrm id_trabajo... | batch", "options": [{"flag": "atq (o at -l)", "desc": "Lista las tareas pendientes mostrando: ID, fecha/hora programada, letra de cola y propietario."}, {"flag": "atrm (o at -d)", "desc": "Elimina una o más tareas de la cola mediante su ID (ej. 'atrm 12 14')."}, {"flag": "batch", "desc": "Variante de at sin argumento de hora: ejecuta los comandos cuando la carga del sistema es inferior a 0.8."}], "terminal": {"prompt": "root@debian12:~#", "cmd": "atq && atrm 13 && atq", "output": "14      Fri Oct 31 16:00:00 2026 a frank\n13      Sat Nov  1 09:30:00 2026 a laura\n12      Sat Nov  1 11:15:00 2026 a root\nroot@debian12:~# atrm 13\nroot@debian12:~# atq\n14      Fri Oct 31 16:00:00 2026 a frank\n12      Sat Nov  1 11:15:00 2026 a root"}}, {"id": 12, "section": "107.2", "cat": "admin", "type": "command", "title": "Alternativa Moderna: systemd-run y Unidades .timer", "lead": "¿Cómo sustituye systemd a cron y at en las distribuciones contemporáneas?", "ref": "221-222", "pdf": {"manual": "B", "pages": [221, 222]}, "coverage": ["107.2-CMD-004"], "remember": "🎯 Clave de Examen: 'systemd-run --on-calendar=...' programa tareas basadas en el calendario (estilo cron). 'systemd-run --on-active=...' programa retardos relativos (estilo at).", "notes": "systemctl list-timers muestra la próxima ejecución de todos los temporizadores del sistema.", "syntax": "systemd-run [--on-calendar=ESPEC | --on-active=TIEMPO] comando", "options": [{"flag": "--on-calendar='YYYY-MM-DD HH:MM'", "desc": "Crea un temporizador transitorio basado en fecha/hora absoluta o expresiones repetitivas."}, {"flag": "--on-active=\"2m\"", "desc": "Ejecuta la orden transcurrido un intervalo de tiempo relativo (ej. 2 minutos, 1 hora)."}, {"flag": "--unit=NOMBRE", "desc": "Asigna un nombre de unidad específico al servicio/temporizador transitorio generado."}, {"flag": "systemctl list-timers", "desc": "Muestra todos los temporizadores activos, su próxima ejecución (NEXT), cuándo se ejecutaron (LAST) y el servicio que activan."}], "terminal": {"prompt": "root@debian12:~#", "cmd": "systemd-run --on-calendar='2026-10-31 11:30' date && systemctl list-timers | head -n 5", "output": "Running as unit: run-rb57a26f8d1e4e2fb165.timer\nWill run service as unit: run-rb57a26f8d1e4e2fb165.service\nNEXT                        LEFT        LAST                        PASSED    UNIT\nFri 2026-10-31 11:30:00 CET 1d 3h left  -                           -         run-rb57a...timer\nFri 2026-10-30 09:00:00 CET 45min left  Fri 2026-10-30 08:00:03 CET 14min ago logrotate.timer"}}, {"id": 13, "section": "107.2", "cat": "admin", "type": "concept", "title": "Expresiones Temporales OnCalendar en systemd", "lead": "Formato normalizado de calendario: Día_Semana Año-Mes-Día Hora:Minuto:Segundo.", "ref": "210, 215, 221", "pdf": {"manual": "B", "pages": [210, 215, 221]}, "coverage": ["107.2-CON-005"], "remember": "🎯 Clave de Examen: En OnCalendar, los comodines se escriben con asterisco (*) o guiones dobles. 'hourly' = '*-*-* *:00:00'; 'daily' = '*-*-* 00:00:00'; 'weekly' = 'Mon *-*-* 00:00:00'.", "notes": "Se puede verificar la sintaxis de una expresión de calendario con el comando 'systemd-analyze calendar EXPRESION'.", "items": [{"title": "📅 Atajos Estándar Equivalentes a Crontab", "desc": "<code>hourly</code> equivale a <code>*-*-* *:00:00</code>.<br><code>daily</code> equivale a <code>*-*-* 00:00:00</code>.<br><code>weekly</code> equivale a <code>Mon *-*-* 00:00:00</code>.<br><code>monthly</code> equivale a <code>*-*-01 00:00:00</code>.<br><code>yearly</code> o <code>annually</code> equivale a <code>*-01-01 00:00:00</code>."}, {"title": "⏱️ Rangos y Repeticiones Específicas", "desc": "<code>Fri *-09..12-* 16:20:00</code>: Los viernes de septiembre a diciembre a las 16:20:00.<br><code>Mon,Tue *-*-1,15 08:30:00</code>: Los lunes y martes que coincidan con los días 1 o 15 del mes a las 08:30:00.<br><code>*-*-* *:00/05:00</code>: Cada 5 minutos durante todas las horas de todos los días."}]}, {"id": 14, "section": "107.2", "cat": "admin", "type": "matrix", "title": "Matriz Comparativa: cron vs anacron vs at vs systemd timers", "lead": "Resumen técnico de características clave evaluadas en las preguntas de certificación LPIC-1.", "ref": "201-228", "pdf": {"manual": "B", "pages": [201, 207, 218, 221]}, "coverage": ["107.2-MAT-002"], "remember": "🎯 Pista rápida: ¿Se apagará el equipo? usa anacron. ¿Una sola vez? usa at. ¿Cada 10 minutos en servidor continuo? usa cron. ¿Arquitectura moderna con dependencias? usa systemd timer.", "headers": ["Característica", "cron", "anacron", "at / batch", "systemd timers"], "rows": [["Tipo de Ejecución", "Recurrente periódica", "Recurrente periódica", "Única (one-shot)", "Ambas (única o periódica)"], ["Resolución Temporal", "Minutos (minuto exacto)", "Días (1, 7, 30 días)", "Minutos (hora/día exacto)", "Segundos y microsegundos"], ["Tolerancia a Apagados", "❌ Si está apagado, se pierde", "✅ Ejecuta tras el arranque", "❌ Si pasó la hora, se pierde", "✅ Con directiva <code>Persistent=true</code>"], ["Configuración", "<code>/etc/crontab</code>, <code>crontab -e</code>", "<code>/etc/anacrontab</code>", "Comando interactivo <code>at</code>", "Ficheros <code>.timer</code> o <code>systemd-run</code>"], ["Registro / Auditoría", "Syslog / Correo local", "Syslog / Correo local", "Correo local al usuario", "Journal estructurado (<code>journalctl</code>)"]]}, {"id": 15, "section": "107.2", "cat": "admin", "type": "exercise", "title": "Ejercicio Guiado LPI: Descifrado de Especificaciones de Tiempo", "lead": "Interpreta y traduce las expresiones de tiempo oficiales planteadas en el manual.", "ref": "210, 214", "pdf": {"manual": "B", "pages": [210, 214]}, "coverage": ["107.2-EXE-001"], "remember": "🎯 Pista: Los campos de cron son: 1º Minuto, 2º Hora, 3º Día de mes, 4º Mes, 5º Día de la semana.", "instructions": "Explica cuándo se ejecuta cada una de las siguientes especificaciones antes de pulsar en ver solución:<br>1. <code>30 13 * * 1-5</code><br>2. <code>00 09-18 * * *</code><br>3. <code>30 08 1 1 *</code><br>4. <code>0,20,40 11 * * Sun</code><br>5. <code>*/20 * * * *</code>", "solution": "\n<strong>1. <code>30 13 * * 1-5</code></strong>: A las 13:30 de lunes a viernes (días 1 al 5 de la semana).<br><br>\n<strong>2. <code>00 09-18 * * *</code></strong>: Cada hora en punto, desde las 09:00 hasta las 18:00 inclusive, todos los días.<br><br>\n<strong>3. <code>30 08 1 1 *</code></strong>: A las 08:30 de la mañana del día 1 de enero (año nuevo).<br><br>\n<strong>4. <code>0,20,40 11 * * Sun</code></strong>: A las 11:00, 11:20 y 11:40 todos los domingos.<br><br>\n<strong>5. <code>*/20 * * * *</code></strong>: Cada 20 minutos (en los minutos 0, 20 y 40 de cada hora de todos los días).\n"}, {"id": 16, "section": "107.2", "cat": "admin", "type": "exercise", "title": "Ejercicio Guiado LPI: Sintaxis Válida vs Inválida en at", "lead": "¿Cuáles de las siguientes órdenes de at son válidas para el analizador sintáctico de Linux?", "ref": "223, 226", "pdf": {"manual": "B", "pages": [223, 226]}, "coverage": ["107.2-EXE-002"], "remember": "🎯 Pista: at acepta 'midnight', 'noon' y 'teatime', pero NO acepta palabras inventadas como 'midday'. 'next week' requiere un incremento numérico como 'now + 1 week'.", "instructions": "Determina cuáles son sintácticamente VÁLIDAS y cuáles INVÁLIDAS:<br>• <code>at 08:30 AM next week</code><br>• <code>at midday</code><br>• <code>at 01-01-2020 07:30 PM</code><br>• <code>at 21:50 01.01.20</code><br>• <code>at now +4 days</code><br>• <code>at tomorrow 08:30 AM</code>", "solution": "\n• <code>at 08:30 AM next week</code> : ❌ <strong>INVÁLIDA</strong>. No se permite 'next week'; la sintaxis correcta es <code>at 08:30 AM next Monday</code> o <code>at 08:30 AM +1 week</code>.<br>\n• <code>at midday</code> : ❌ <strong>INVÁLIDA</strong>. La palabra oficial en inglés para el mediodía en at es <code>noon</code> (no existe 'midday').<br>\n• <code>at 01-01-2020 07:30 PM</code> : ❌ <strong>INVÁLIDA</strong>. La hora debe preceder a la fecha o usar los formatos admitidos (MMDDYY, MM/DD/YY o mes día).<br>\n• <code>at 21:50 01.01.20</code> : ✅ <strong>VÁLIDA</strong>. Formato hora seguido de día.mes.año.<br>\n• <code>at now +4 days</code> : ✅ <strong>VÁLIDA</strong>. Desplazamiento relativo respecto al momento presente.<br>\n• <code>at tomorrow 08:30 AM</code> : ❌ <strong>INVÁLIDA</strong>. La palabra 'tomorrow' debe ir DESPUÉS de la hora: <code>at 08:30 AM tomorrow</code>.\n"}, {"id": 17, "section": "107.2", "cat": "admin", "type": "challenge", "title": "Reto Práctico LPI: Despliegue de Mantenimiento Desatendido", "lead": "Configura un cron de usuario, restringe accesos y programa una alerta con at.", "ref": "205-207, 219", "pdf": {"manual": "B", "pages": [205, 206, 207, 219]}, "coverage": ["107.2-RET-001"], "scenario": "Eres administrador del servidor 'srv-backup'. Requerimientos:<br>1. Permitir que ÚNICAMENTE el usuario 'operador' y 'root' puedan programar trabajos con cron.<br>2. Crear una tarea en el crontab de 'operador' que ejecute '/opt/scripts/backup.sh' los domingos a las 02:30 AM redirigiendo la salida a '/var/log/backup.log'.<br>3. Programar con 'at' una tarea para hoy a las 16:00 (teatime) que compruebe si el disco tiene espacio libre.", "task": "Escribe los comandos y la línea exacta de crontab para resolver este escenario.", "solution": "\n<pre style=\"background:#0F172A; color:#E2E8F0; padding:14px 16px; border-radius:6px; font-size:23px;\">\n# 1. Restringir acceso al servicio cron:\necho \"operador\" > /etc/cron.allow\necho \"root\" >> /etc/cron.allow\nrm -f /etc/cron.deny\n\n# 2. Instalar la tarea en el crontab de operador (6 campos):\n# Ejecutar como root: crontab -u operador -e\n# O inyectar directamente:\n(crontab -u operador -l 2>/dev/null; echo \"30 02 * * 0 /opt/scripts/backup.sh >> /var/log/backup.log 2>&1\") | crontab -u operador -\n\n# 3. Programar tarea puntual a las 16:00 (teatime):\necho \"df -h / > /tmp/espacio_disco.txt\" | at teatime\n</pre>\n"}, {"id": 18, "section": "107.2", "cat": "admin", "type": "review", "title": "Checklist de Examen: Trampas Frecuentes en el Subtema 107.2", "lead": "Puntos de fallo habituales detectados en las pruebas de certificación LPIC-1.", "ref": "201-228", "pdf": {"manual": "B", "pages": [203, 206, 207, 221]}, "coverage": ["107.2-REV-001"], "remember": "🎯 Regla de Oro: Si te piden borrar UNA tarea de at, usa 'atrm ID'. Si te piden borrar el crontab entero, es 'crontab -r'.", "takeaways": ["⚠️ <strong>Poner nombre de usuario en crontab -e</strong>: El crontab personal tiene solo 5 campos de tiempo + comando (6 en total). Si añades el usuario, cron creerá que el nombre de usuario es el comando y fallará.", "⚠️ <strong>Poner extensión .sh en /etc/cron.daily/</strong>: 'run-parts' descarta en silencio cualquier archivo con punto en sistemas Debian/Ubuntu.", "⚠️ <strong>Confundir teatime (16:00) con midday (no existe) o noon (12:00)</strong>: 'at' no admite 'midday', solo 'noon'.", "⚠️ <strong>Creer que cron.allow y cron.deny se combinan</strong>: Si existe 'cron.allow', 'cron.deny' queda absolutamente anulado y no se lee."]}, {"id": 19, "section": "107.2", "cat": "admin", "type": "summary", "title": "Resumen del Subtema 107.2 y Preparación para el Laboratorio", "lead": "Automatización dominada, comandos clave y enlace a la práctica guiada.", "ref": "213, 225", "pdf": {"manual": "B", "pages": [213, 225]}, "coverage": ["107.2-SUM-001"], "top3": ["Cron y Anacron: /etc/crontab (7 campos), crontab de usuario (6 campos), /etc/cron.* periódicos y /etc/anacrontab.", "At y Batch: Trabajos diferidos únicos con 'at [tiempo]', control con 'atq' ('at -l') y borrado con 'atrm' ('at -d').", "Systemd Timers y Control: 'systemd-run --on-calendar/--on-active', 'systemctl list-timers' y políticas allow/deny."], "practice": {"title": "Práctica 107.2 — Automatización de Tareas con cron, at y systemd-run", "url": "../practicas/p-107-2-automatizacion-cron-at.html", "duration": "30 min", "commands": ["crontab", "at", "atq", "atrm", "batch", "systemd-run", "systemctl"]}}];
     const ERRATAS = [{"id": "ERR-107.2-01", "type": "trap", "title": "Diferencia de campos: crontab de sistema (7) vs crontab de usuario (6)", "context": "Manual LPI 102 (pág. 203 y 206): Estructura de /etc/crontab frente a crontab de usuario.", "description": "En '/etc/crontab' (crontab de sistema) y en los archivos de '/etc/cron.d/' hay SIETE campos: minuto, hora, día_mes, mes, día_semana, USUARIO y comando. En cambio, en los crontabs de usuario creados con 'crontab -e' hay SEIS campos (no existe el campo de usuario, porque la tarea siempre se ejecuta con la identidad del dueño del crontab).", "recommendation": "En examen LPIC-1, cuenta siempre los campos de la línea: si hay 6 campos es un crontab de usuario; si hay 7 campos (con nombre de usuario antes del comando) es el crontab del sistema /etc/crontab."}, {"id": "ERR-107.2-02", "type": "trap", "title": "Nomenclatura de scripts en /etc/cron.daily/ con run-parts", "context": "Manual LPI 102 (pág. 206-207): Directorios de ejecución periódica del sistema.", "description": "Los scripts colocados en '/etc/cron.hourly/', '/etc/cron.daily/', '/etc/cron.weekly/' y '/etc/cron.monthly/' son ejecutados mediante la utilidad 'run-parts'. En sistemas Debian y Ubuntu, 'run-parts' IGNORA en silencio cualquier archivo cuyo nombre contenga un punto o extensión (por ejemplo, 'backup.sh' NO se ejecutará). El archivo debe tener permisos de ejecución (+x) y llamarse simplemente 'backup'.", "recommendation": "Regla de examen: En los directorios /etc/cron.* periódicos, los scripts deben ser ejecutables y NO deben llevar extensión '.sh'."}, {"id": "ERR-107.2-03", "type": "clarification", "title": "Numeración de los días de la semana en cron: 0 y 7 representan Domingo", "context": "Manual LPI 102 (pág. 203): El quinto campo de tiempo de crontab.", "description": "En cron, el día de la semana admite valores de 0 a 7, donde TANTO el 0 COMO el 7 representan el DOMINGO (1=Lunes, 2=Martes, 3=Miércoles, 4=Jueves, 5=Viernes, 6=Sábado). Además, se pueden usar nombres de tres letras en inglés: Sun, Mon, Tue, Wed, Thu, Fri, Sat.", "recommendation": "No confundir el 0 con el Lunes: 0 = Domingo, y 7 = Domingo."}];
     const GLOSARIO = [{"term": "/etc/crontab", "definition": "Archivo principal del demonio cron para tareas del sistema. Contiene 7 campos: minuto (0-59), hora (0-23), día del mes (1-31), mes (1-12), día de la semana (0-7), usuario bajo el que se ejecuta la orden y el comando."}, {"term": "/var/spool/cron/", "definition": "Directorio del sistema donde se almacenan los archivos de crontab individuales de cada usuario (típicamente /var/spool/cron/crontabs/ en Debian), creados exclusivamente con 'crontab -e'."}, {"term": "anacron", "definition": "Subsistema complementario a cron diseñado para equipos que no están encendidos las 24 horas del día (como portátiles). Lee /etc/anacrontab y ejecuta trabajos con granularidad diaria, semanal o mensual al encender el equipo si el período ya venció."}, {"term": "at", "definition": "Comando y demonio (atd) para programar la ejecución de una tarea diferida para una ÚNICA ocasión en el futuro (ej. 'at 15:30 tomorrow' o 'at now + 2 hours')."}, {"term": "atq / atrm", "definition": "Herramientas de inspección y control de la cola de tareas at. 'atq' (equivalente a 'at -l') lista las tareas en espera; 'atrm' (equivalente a 'at -d') cancela una o varias tareas mediante su identificador numérico de trabajo."}, {"term": "batch", "definition": "Variante de at que encola comandos para ejecutarse una sola vez en el futuro, pero únicamente cuando el nivel de carga media del sistema (load average) cae por debajo del umbral estándar de 0.8."}, {"term": "cron.allow / cron.deny", "definition": "Archivos en /etc/ que determinan qué usuarios pueden usar crontab. Si existe cron.allow, solo los listados pueden; si no existe, se consulta cron.deny para vetar a los listados."}, {"term": "systemd-run", "definition": "Comando moderno de systemd que crea temporizadores y servicios transitorios desde la línea de órdenes (ej. 'systemd-run --on-calendar=... date') sin requerir crear ficheros .service o .timer fijos en disco."}];
     const META = {"topic": "107.2", "title": "Automatizar tareas mediante programación de trabajos", "weight": 4, "description": "Programación automatizada de tareas en Linux: servicio cron, archivos /etc/crontab y directorios cron.*, anacron, comando crontab, servicio at, atq, atrm, batch, control de acceso allow/deny y temporizadores modernos de systemd.", "duracion": "40 min"};
@@ -1758,7 +1767,7 @@
       const notesWidth = teacherNotesOpen ? 420 : 0;
       const availW = window.innerWidth - notesWidth;
       const availH = window.innerHeight - topBarHeight;
-      const scale = Math.min((availW - 40) / 1920, (availH - 40) / 1080);
+      const scale = Math.min((availW - 16) / 1920, (availH - 16) / 1080);
       stage.style.transform = `scale(${Math.max(scale, 0.25)})`;
     }
     window.addEventListener('resize', resizeStage);
@@ -1843,6 +1852,7 @@
       // Renderizado del cuerpo según el tipo
       const container = document.getElementById('slide-content');
       container.innerHTML = buildSlideHTML(s, colors);
+      container.scrollTop = 0;
 
       // Actualizar fragmentos
       const frags = container.querySelectorAll('.frag');
@@ -2057,8 +2067,8 @@
               <div style="display:grid; grid-template-columns: repeat(${Math.min(s.stats.length, 4)}, 1fr); gap:16px; margin-top:36px; max-width:1100px; margin-left:auto; margin-right:auto;">
                 ${s.stats.map(st => `
                   <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:14px; padding:16px 20px; text-align:center;">
-                    <div style="font-size:16px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
-                    <div style="font-size:20px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
+                    <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
+                    <div style="font-size:24px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
                   </div>
                 `).join('')}
               </div>
@@ -2078,7 +2088,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2110,8 +2120,8 @@
         if (s.syntax) {
           html += `
             <div class="syntax-bar">
-              <span style="font-weight:700; color:var(--text-muted); font-size:19px;">Sintaxis:</span>
-              <code class="t-cmd" style="font-size:21px;">${escapeHTML(s.syntax)}</code>
+              <span style="font-weight:700; color:var(--text-muted); font-size:24px;">Sintaxis:</span>
+              <code class="t-cmd" style="font-size:26px;">${escapeHTML(s.syntax)}</code>
             </div>
           `;
         }
@@ -2144,7 +2154,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2379,12 +2389,12 @@
             html += `
               <div class="concept-card" style="position:relative; display:flex; flex-direction:column; justify-content:space-between; border-left:6px solid var(--primary);">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-                  <span style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;">${st.num || idx + 1}</span>
+                  <span style="width:38px; height:38px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:22px;">${st.num || idx + 1}</span>
                   <div class="icon-box" style="margin:0;"><svg class="ic ic-md"><use href="#i-${st.icon || 'arrow-right'}"/></svg></div>
                 </div>
                 <div>
-                  <div style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
-                  <div style="font-size:18px; color:var(--text-muted); line-height:1.4;">${renderRichText(sdesc)}</div>
+                  <div style="font-size:24px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
+                  <div style="font-size:22px; color:var(--text-muted); line-height:1.42;">${renderRichText(sdesc)}</div>
                 </div>
               </div>
             `;
@@ -2413,7 +2423,7 @@
         }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:22px;">
               <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
             </span>
           </div>
@@ -2422,7 +2432,7 @@
         // Planteamiento del problema (Escenario claro)
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
             <div style="white-space:pre-line;">${renderRichText(scenarioText)}</div>
             ${questionText ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(questionText)}</div>` : ''}
           </div>
@@ -2434,7 +2444,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2442,7 +2452,7 @@
               const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(doText)}</span>
                 </div>
               `;
@@ -2451,7 +2461,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2463,15 +2473,15 @@
         // Botón docente interactivo para revelar resolución lineal y explicación
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-exercise" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-exercise" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar / Ocultar Resolución Guiada y Explicación
             </button>
-            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
         `;
 
         // Dentro del cuadro de resolución: pasos resueltos y comandos
         if (steps.length > 0) {
-          html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
+          html += `<div style="font-size:22px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
             const doText = st.action || st.do || st.task || st.step || '';
             const lookText = st.command || st.look || st.cmd || st.code || '';
@@ -2482,7 +2492,7 @@
                   <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
                   ${lookText ? `<code class="exercise-sol-code">${escapeHTML(lookText)}</code>` : ''}
                 </div>
-                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
+                ${reasonText ? `<div style="font-size:22px; color:var(--text-muted); line-height:1.4; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -2526,9 +2536,9 @@
         // Enunciado y Escenario del reto
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
             <div style="white-space:pre-line;">${renderRichText(scenario)}</div>
-            ${goalText ? `<div style="margin-top:10px; font-size:18px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
+            ${goalText ? `<div style="margin-top:10px; font-size:22px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
             ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(question)}</div>` : ''}
           </div>
         `;
@@ -2539,7 +2549,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2549,10 +2559,10 @@
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; justify-content:space-between; gap:16px;">
                   <div style="display:flex; align-items:center; gap:12px;">
-                    <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                    <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                     <span>${renderRichText(titleText)}</span>
                   </div>
-                  ${(st.action && st.step !== st.action) ? `<code style="font-size:18px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
+                  ${(st.action && st.step !== st.action) ? `<code style="font-size:22px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
                 </div>
               `;
             });
@@ -2560,7 +2570,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2578,7 +2588,7 @@
             const isCorrect = !!opt.correct;
             html += `
               <button class="quiz-btn challenge-opt-btn" onclick="this.classList.toggle('${isCorrect ? 'correct' : 'incorrect'}');">
-                <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
+                <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
                 <span>${renderRichText(optText)}</span>
               </button>
             `;
@@ -2601,13 +2611,13 @@
         const solTerminal = s.solution?.terminal || s.outcome?.terminal || (chObj ? (chObj.solution?.terminal || chObj.outcome?.terminal) : null) || null;
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-challenge" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar Solución y Razonamiento Docente
             </button>
-            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
               <div style="display:flex; align-items:flex-start; gap:12px;">
                 <svg class="ic ic-md" style="margin-top:2px; flex:none; color:var(--success);"><use href="#i-circle-check"/></svg>
-                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:20px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
+                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:22px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
               </div>
               ${solTerminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(solTerminal, 'solución')}</div>` : ''}
             </div>
@@ -2650,7 +2660,7 @@
           const optText = (typeof opt === 'object' && opt !== null) ? opt.text : opt;
           html += `
             <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${ansIdx}, '${escapeQuotes(expl)}')">
-              <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
+              <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(optText)}</span>
             </button>
           `;
@@ -2658,11 +2668,11 @@
         html += `</div>`;
         html += `
           <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
-            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:22px; padding:12px 24px; cursor:pointer;">
               <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
             </button>
           </div>
-          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:23px; line-height:1.5;"></div>
         `;
         }
       } else if (s.type === 'flashcards') {
@@ -2730,7 +2740,7 @@
         if (top3.length > 0) {
           html += `
             <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
-              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <div style="font-weight:800; font-size:23px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
                 <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
               </div>
               <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
@@ -2739,8 +2749,8 @@
             if (typeof t === 'string') {
               html += `
                 <div class="summary-cmd-card" style="display:flex; align-items:center; justify-content:space-between;">
-                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
-                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  <code class="t-cmd" style="font-size:22px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                 </div>
               `;
             } else {
@@ -2749,10 +2759,10 @@
               html += `
                 <div class="summary-cmd-card">
                   <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
-                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                    <code class="t-cmd" style="font-size:22px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                   </div>
-                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                  ${desc ? `<div style="font-size:21px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
                 </div>
               `;
             }
@@ -2776,7 +2786,7 @@
                   <div class="sp-desc">${renderRichText(pDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Web →
               </a>
             </div>
@@ -2796,7 +2806,7 @@
                 <div class="sp-desc" style="color:var(--text);">Explora visualmente los comandos, rutas y preguntas trampa de examen conectadas a este subtema en la red interactiva.</div>
               </div>
             </div>
-            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
               Ver en Grafo Interactivo →
             </a>
           </div>
@@ -2818,7 +2828,7 @@
                   <div class="sg-desc">${renderRichText(gpDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Global →
               </a>
             </div>
@@ -2878,7 +2888,13 @@
     // Navegación por teclado
     window.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      if (e.key === 'ArrowDown') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: 140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowUp') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: -140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         e.preventDefault();
         nextStep();
       } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
@@ -3034,7 +3050,7 @@
         content += `<div style="margin-bottom:8px; font-size:20px; line-height:1.4;">${escapeHTML(descText)}</div>`;
       }
       if (example) {
-        content += `<div style="font-family:monospace; font-size:18px; background:var(--surface-alt); padding:6px 10px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
+        content += `<div style="font-family:monospace; font-size:20px; background:var(--surface-alt); padding:8px 12px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
       }
       popover.innerHTML = content || '<div>Sin detalles adicionales</div>';
       const rect = e.currentTarget.getBoundingClientRect();
@@ -3188,8 +3204,8 @@
         item.style.color = 'var(--text)';
         item.style.cursor = 'pointer';
         item.innerHTML = `
-          <div style="font-weight:700; font-size:16px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
-          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
+          <div style="font-weight:700; font-size:19px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
+          <div style="font-size:21px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
         `;
         item.onclick = () => {
           closeModals();

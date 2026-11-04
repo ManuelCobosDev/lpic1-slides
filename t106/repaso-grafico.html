@@ -7,6 +7,7 @@
   <meta name="description" content="Diapositivas interactivas de aula para la certificación Linux Professional Institute LPIC-1 — Subtema 106-REPASO: Repaso Gráfico & Resumen de Examen — Tema 106 (Interfaces y Escritorios).">
   <title>106-REPASO Repaso Gráfico & Resumen de Examen — Tema 106 (Interfaces y Escritorios) — LPIC-1</title>
   <!-- Icons: Lucide v0.468.0 (ISC) https://lucide.dev -->
+  <script src="../config-temas.js"></script>
   <script>
     (function() {
       var saved = localStorage.getItem('lpic1_theme');
@@ -86,6 +87,55 @@
       --cat-neutral-accent: #2563EB;
       --cat-neutral-soft: #DBEAFE;
       --cat-neutral-ink: #1D4ED8;
+
+      /* Compatibilidad de tokens y estilos de contenido */
+      --color-bg-subtle: #F1F5F9;
+      --color-card-bg: #FFFFFF;
+      --color-accent: #2563EB;
+      --color-text: #0F172A;
+      --color-text-muted: #475569;
+      --color-border: #CBD5E1;
+
+      --border-soft: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --surface-sunken: #F8FAFC;
+      --text-light: #64748B;
+      --purple: #7C3AED;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+
+      --primary-border: #93C5FD;
+      --success-border: #86EFAC;
+      --success-text: #166534;
+      --warning-border: #FCD34D;
+
+      --cat-cmd-accent: #2563EB;
+      --cat-cmd-soft: #DBEAFE;
+      --cat-cmd-ink: #1D4ED8;
+
+      --cat-debian-accent: #BE185D;
+      --cat-debian-soft: #FCE7F3;
+      --cat-debian-ink: #9D174D;
+
+      --cat-rpm-accent: #C2410C;
+      --cat-rpm-soft: #FFEDD5;
+      --cat-rpm-ink: #9A3412;
+
+      --cat-libs-accent: #047857;
+      --cat-libs-soft: #D1FAE5;
+      --cat-libs-ink: #065F46;
+
+      --cat-proc-accent: #B45309;
+      --cat-proc-soft: #FEF3C7;
+      --cat-proc-ink: #92400E;
+
+      --cat-install-accent: #4338CA;
+      --cat-install-soft: #E0E7FF;
+      --cat-install-ink: #3730A3;
+
+      --cat-virtual-accent: #0F766E;
+      --cat-virtual-soft: #CCFBF1;
+      --cat-virtual-ink: #115E59;
     }
 
     /* Modo Oscuro WCAG AAA */
@@ -150,6 +200,17 @@
       --cat-neutral-accent: #38BDF8;
       --cat-neutral-soft: #0C4A6E;
       --cat-neutral-ink: #BAE6FD;
+
+      /* Compatibilidad de tokens en modo oscuro */
+      --color-bg-subtle: #1E293B;
+      --color-card-bg: #111827;
+      --color-accent: #38BDF8;
+      --color-text: #F8FAFC;
+      --color-text-muted: #CBD5E1;
+      --color-border: #334155;
+      --border-soft: #334155;
+      --surface-sunken: #0B0F19;
+      --text-light: #94A3B8;
     }
 
     [data-theme="dark"] #stage { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45); }
@@ -226,14 +287,15 @@
     [data-theme="dark"] .summary-global-box .sg-icon { background: #78350F !important; color: #FDE047 !important; }
 
     .exercise-sol-code {
-      font-size: 19px;
+      font-size: 23px;
       background: #FFFFFF;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 8px;
       border: 1px solid #86EFAC;
       color: #166534;
       font-family: monospace;
       font-weight: 700;
+      line-height: 1.48;
     }
     .summary-cmd-card {
       background: #FFFFFF;
@@ -252,8 +314,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-practice-box .sp-title { font-size: 20px; font-weight: 800; color: #166534; }
-    .summary-practice-box .sp-desc { font-size: 16px; color: #374151; }
+    .summary-practice-box .sp-title { font-size: 25px; font-weight: 800; color: #166534; }
+    .summary-practice-box .sp-desc { font-size: 21px; color: #374151; line-height: 1.45; }
     .summary-practice-box .sp-icon { width: 48px; height: 48px; border-radius: 12px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; flex: none; }
     .summary-global-box {
       margin-top: 12px;
@@ -266,8 +328,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-global-box .sg-title { font-size: 20px; font-weight: 800; color: #92400E; }
-    .summary-global-box .sg-desc { font-size: 16px; color: #78350F; }
+    .summary-global-box .sg-title { font-size: 25px; font-weight: 800; color: #92400E; }
+    .summary-global-box .sg-desc { font-size: 21px; color: #78350F; line-height: 1.45; }
     .summary-global-box .sg-icon { width: 48px; height: 48px; border-radius: 12px; background: #FEF3C7; color: #92400E; display: flex; align-items: center; justify-content: center; flex: none; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -479,32 +541,33 @@
     /* Área de contenido del slide (1680 x 870 aprox) */
     .slide-body {
       flex: 1;
-      padding: 30px 64px;
+      padding: 28px 52px 48px 52px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       position: relative;
       overflow-y: auto;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    .slide-body::-webkit-scrollbar { width: 8px; }
+    .slide-body::-webkit-scrollbar { width: 12px; }
     .slide-body::-webkit-scrollbar-track { background: transparent; }
-    .slide-body::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-    .slide-body::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+    .slide-body::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 6px; }
+    .slide-body::-webkit-scrollbar-thumb:hover { background: #64748B; }
 
     .slide-title {
-      font-size: 46px;
+      font-size: 48px;
       font-weight: 800;
       line-height: 1.15;
       color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
     }
     .slide-lead {
-      font-size: 26px;
-      line-height: 1.35;
+      font-size: 29px;
+      line-height: 1.38;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 500;
     }
 
@@ -537,21 +600,22 @@
       justify-content: center;
       flex: none;
     }
-    .concept-card .card-text { font-size: 24px; line-height: 1.35; font-weight: 600; color: var(--text); }
-    .concept-card .card-detail { font-size: 19px; color: var(--text-muted); margin-top: 4px; font-weight: 400; line-height: 1.35; }
+    .concept-card .card-text { font-size: 27px; line-height: 1.35; font-weight: 700; color: var(--text); }
+    .concept-card .card-detail { font-size: 23px; color: var(--text-muted); margin-top: 6px; font-weight: 400; line-height: 1.42; }
 
     /* Cajas Recuerda / Trampa / Callouts */
     .callout-box {
       margin-top: 10px;
-      padding: 10px 18px;
+      padding: 14px 22px;
       border-radius: 12px;
-      display: inline-flex;
+      display: flex;
+      width: 100%;
       align-items: center;
       gap: 14px;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
       border: 2px solid transparent;
-      line-height: 1.35;
+      line-height: 1.4;
     }
     .callout-warning {
       background: var(--warning-soft);
@@ -572,18 +636,18 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 24px !important;
-      height: 24px !important;
-      min-width: 24px !important;
-      max-width: 24px !important;
-      min-height: 24px !important;
-      max-height: 24px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      max-width: 30px !important;
+      min-height: 30px !important;
+      max-height: 30px !important;
       border-radius: 50% !important;
       background: #2563EB;
       color: #FFFFFF !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
       font-weight: 800 !important;
-      font-size: 13px !important;
+      font-size: 17px !important;
       line-height: 1 !important;
       vertical-align: middle !important;
       text-align: center !important;
@@ -617,7 +681,7 @@
       border-bottom: 1px solid #E2E8F0;
     }
     .slide-glossary-box .gl-tag {
-      font-size: 12px;
+      font-size: 19px;
       font-weight: 800;
       color: #2563EB;
       text-transform: uppercase;
@@ -628,7 +692,7 @@
     }
     .slide-glossary-box .gl-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 10px;
       align-items: stretch;
     }
@@ -651,11 +715,11 @@
     }
     .slide-glossary-box .gl-badge {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 12.5px;
+      font-size: 21px;
       font-weight: 700;
       color: #1D4ED8;
       background: #EFF6FF;
-      padding: 2px 8px;
+      padding: 4px 10px;
       border-radius: 5px;
       border: 1px solid #BFDBFE;
       display: inline-block;
@@ -664,13 +728,13 @@
     }
     .slide-glossary-box .gl-def {
       color: #334155;
-      font-size: 13.5px;
+      font-size: 21px;
       line-height: 1.45;
       flex: 1;
     }
     .slide-glossary-box .gl-def code {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
+      font-size: 20px;
       background: #F1F5F9;
       padding: 1px 4px;
       border-radius: 4px;
@@ -688,14 +752,14 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px 12px;
-      font-size: 13.5px;
+      font-size: 21px;
       color: var(--text-muted);
       line-height: 1.35;
     }
     .slide-glossary-strip .gl-title {
       font-weight: 800;
       color: var(--primary);
-      font-size: 12px;
+      font-size: 19px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       display: inline-flex;
@@ -714,7 +778,7 @@
     .slide-glossary-strip .gl-term {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-weight: 700;
-      font-size: 12.5px;
+      font-size: 21px;
       color: #1D4ED8;
     }
 
@@ -824,7 +888,7 @@
       align-items: center;
       justify-content: space-between;
       color: #475569;
-      font-size: 18px;
+      font-size: 21px;
       font-weight: 700;
     }
     .term-copy-btn, .terminal-copy-btn {
@@ -836,7 +900,7 @@
       border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -851,14 +915,14 @@
       transform: scale(0.96);
     }
     .term-code {
-      padding: 14px 20px;
+      padding: 18px 24px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: clamp(16px, 1.2vw, 22px);
-      line-height: 1.38;
+      font-size: 23px;
+      line-height: 1.48;
       color: #0F172A;
       white-space: pre-wrap;
       user-select: text;
-      max-height: 340px;
+      max-height: none;
       overflow-y: auto;
     }
     .term-code::-webkit-scrollbar { width: 6px; }
@@ -896,7 +960,7 @@
       flex-shrink: 0;
     }
     .terminal-title {
-      font-size: 14px;
+      font-size: 19px;
       font-weight: 700;
       color: #94A3B8;
       font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
@@ -917,13 +981,13 @@
       color: #38BDF8;
     }
     .terminal-body {
-      padding: 16px 20px;
+      padding: 18px 24px;
       margin: 0;
       background: #0F172A;
       color: #E2E8F0;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
-      font-size: 15.5px;
-      line-height: 1.55;
+      font-size: 22px;
+      line-height: 1.5;
       overflow-x: auto;
       white-space: pre-wrap;
     }
@@ -955,14 +1019,14 @@
       margin-right: 22px;
     }
     .mini-term-title {
-      font-size: 12px;
+      font-size: 18px;
       color: #94A3B8;
       font-weight: 700;
     }
     .mini-term-body {
-      padding: 10px 14px;
-      font-size: 14.5px;
-      line-height: 1.55;
+      padding: 14px 18px;
+      font-size: 21px;
+      line-height: 1.5;
       color: #E2E8F0;
       background: #0F172A;
     }
@@ -1011,7 +1075,7 @@
       border-radius: 8px;
       border: 1.5px solid var(--border);
       background: var(--surface-alt);
-      font-size: 18px;
+      font-size: 22px;
       color: var(--text);
       cursor: pointer;
       transition: all 0.15s ease;
@@ -1039,30 +1103,31 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
+      padding: 8px 18px;
       background: #FFFFFF;
       border: 2px solid var(--control-border);
       border-radius: 10px;
-      font-size: 19px;
+      font-size: 23px;
       font-weight: 600;
       color: var(--text);
       cursor: pointer;
       transition: transform 0.1s, border-color 0.15s;
     }
-    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 21px; font-weight: 700; }
+    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 25px; font-weight: 700; }
 
     /* Sintaxis y Directivas */
     .syntax-bar {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 16px;
+      padding: 12px 20px;
       background: var(--surface-alt);
       border: 2px solid var(--border-strong);
       border-radius: 10px;
       margin-bottom: 10px;
-      font-size: 21px;
+      font-size: 24px;
     }
+    .syntax-bar code.t-cmd { font-size: 26px; }
     .directives-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1078,15 +1143,16 @@
     }
     .directive-key {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 700;
       color: #1D4ED8;
       margin-bottom: 4px;
+      line-height: 1.42;
     }
     .directive-desc {
-      font-size: 19px;
+      font-size: 23px;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.42;
     }
 
     /* Tablas (≤5x4) */
@@ -1102,22 +1168,24 @@
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(15px, 1.05vw, 18.5px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(15.5px, 1.1vw, 19.5px);
+      font-size: 24px;
+      line-height: 1.42;
     }
     table.slide-table td {
-      padding: 9px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
+      font-size: 23px;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: var(--warning-soft); }
@@ -1138,24 +1206,26 @@
     table.slide-matrix {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(16px, 1.15vw, 20px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-matrix th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 12px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(17px, 1.2vw, 21px);
+      font-size: 24px;
+      line-height: 1.42;
       letter-spacing: -0.01em;
     }
     table.slide-matrix td {
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
       vertical-align: middle;
+      font-size: 23px;
     }
     table.slide-matrix tr:last-child td { border-bottom: none; }
     table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
@@ -1170,7 +1240,7 @@
       border: 2px solid var(--border-strong);
       border-radius: 14px;
       background: #FFFFFF;
-      font-size: 26px;
+      font-size: 27px;
       font-weight: 600;
       color: var(--text);
       text-align: left;
@@ -1187,7 +1257,7 @@
       margin-top: 20px;
       padding: 18px 24px;
       border-radius: 14px;
-      font-size: 24px;
+      font-size: 25px;
       line-height: 1.4;
       display: none;
     }
@@ -1285,7 +1355,7 @@
       font-weight: 700;
     }
     .panel-body { padding: 24px; font-size: 20px; line-height: 1.5; color: var(--text); }
-    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 18px; }
+    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 20px; }
 
     /* Modales y Popovers */
     .modal-overlay {
@@ -1396,7 +1466,6 @@
       #top-nav { top: 40px; }
     }
   </style>
-  <script src="../config-temas.js"></script>
 </head>
 <body>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -1677,7 +1746,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "type": "cover", "cat": "gui", "icon": "monitor", "title": "Repaso Gráfico & Resumen de Examen", "subtitle": "Tema 106: Interfaces de Usuario y Escritorios", "meta": {"peso": "4", "paginas": "43 págs. PDF", "duracion": "50 min"}, "notes": "Sesión intensiva de consolidación visual del Tema 106 (Peso 4 sobre 60 en el Examen 102-500). Arquitectura X11, variable DISPLAY, xorg.conf.d, xhost vs xauth, entornos KDE/GNOME/Xfce, protocolos RDP/VNC/SPICE y tecnologías de accesibilidad."}, {"id": 2, "type": "custom", "cat": "gui", "section": "106.1", "ref": "134-138", "title": "106.1 · Arquitectura de Red X11 y Variable $DISPLAY", "lead": "Separación modular: el servidor dibuja localmente y el cliente procesa la lógica.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:stretch; margin-top:10px;\">\n  <div style=\"background:var(--surface); border:2px solid var(--primary-border); border-radius:14px; padding:18px;\">\n    <div style=\"display:flex; align-items:center; gap:12px; margin-bottom:12px;\">\n      <div style=\"width:42px; height:42px; border-radius:10px; background:var(--primary-soft); display:flex; align-items:center; justify-content:center; color:var(--primary);\">\n        <svg class=\"ic ic-lg\"><use href=\"#i-monitor\"/></svg>\n      </div>\n      <div>\n        <div style=\"font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase;\">Protocolo Gráfico</div>\n        <h3 style=\"font-size:20px; margin:0; color:var(--text);\">Servidor X vs Cliente X</h3>\n      </div>\n    </div>\n    <p style=\"font-size:15px; color:var(--text-muted); line-height:1.45; margin-bottom:12px;\">\n      <strong>Servidor X (Local):</strong> Gestiona la pantalla física, tarjeta de vídeo, teclado y ratón donde está sentado el usuario.<br>\n      <strong>Cliente X (Remoto o Local):</strong> La aplicación que realiza el trabajo (ej. GIMP, Firefox) y solicita operaciones de dibujo por red.\n    </p>\n    <div class=\"callout callout-info\" style=\"margin:0; font-size:14px; line-height:1.4;\">\n      <strong>Formato DISPLAY:</strong> <code>[host]:display[.screen]</code> (ej: <code>lab01:0.2</code> = máquina lab01, primer display, tercera pantalla).\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:14px; font-weight:800; color:var(--text); text-transform:uppercase;\">Componentes Clave de X11</div>\n    <div style=\"border-left:4px solid var(--primary); padding:8px 12px; background:var(--primary-soft); border-radius:0 8px 8px 0; font-size:14px;\">\n      <strong>xdpyinfo:</strong> Vuelca información técnica detallada: resolución DPI, profundidad en bits y extensiones cargadas (RANDR, GLX, XINERAMA).\n    </div>\n    <div style=\"border-left:4px solid var(--success); padding:8px 12px; background:var(--success-soft); border-radius:0 8px 8px 0; font-size:14px;\">\n      <strong>localectl / setxkbmap:</strong> Configura la distribución del teclado en caliente y la persiste en <code>/etc/X11/xorg.conf.d/00-keyboard.conf</code>.\n    </div>\n    <div style=\"border-left:4px solid var(--warning); padding:8px 12px; background:var(--warning-soft); border-radius:0 8px 8px 0; font-size:14px;\">\n      <strong>Wayland vs X11:</strong> Wayland utiliza la variable <code>WAYLAND_DISPLAY</code> y ejecuta aplicaciones clásicas X11 mediante <strong>XWayland</strong>.\n    </div>\n  </div>\n</div>\n", "notes": "Destaca la distinción técnica de servidor local vs cliente remoto, pregunta recurrente en LPIC-1."}, {"id": 3, "type": "custom", "cat": "gui", "section": "106.1", "ref": "138-143", "title": "106.1 · Configuración de Xorg: xorg.conf frente a xorg.conf.d", "lead": "De las estrofas monolíticas al directorio modular moderno.", "html": "\n<div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px; margin-top:8px;\">\n  <div style=\"display:grid; grid-template-columns: 1.1fr 0.9fr; gap:18px; font-size:13px;\">\n    <!-- Secciones xorg.conf -->\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:8px; padding:12px;\">\n      <strong style=\"color:#0F172A; font-size:14px; display:block; margin-bottom:8px;\">1. Estructura de Secciones de xorg.conf</strong>\n      <div style=\"display:flex; flex-direction:column; gap:6px; font-size:12px;\">\n        <div><code>Section \"Device\"</code> &rarr; Tarjeta gráfica (driver del kernel, BusID).</div>\n        <div><code>Section \"Monitor\"</code> &rarr; Frecuencias de refresco y resolución.</div>\n        <div style=\"background:#EFF6FF; padding:4px 6px; border-radius:4px; border-left:3px solid #3B82F6;\">\n          <code>Section \"Screen\"</code> &rarr; <strong>Unión:</strong> Asocia un Device con un Monitor.\n        </div>\n        <div><code>Section \"InputDevice\"</code> &rarr; Hardware de entrada específico (teclado/ratón).</div>\n        <div style=\"background:#EFF6FF; padding:4px 6px; border-radius:4px; border-left:3px solid #3B82F6;\">\n          <code>Section \"ServerLayout\"</code> &rarr; <strong>Coordinador:</strong> Agrupa Screens e Inputs.\n        </div>\n        <div><code>Section \"ServerFlags\"</code> &rarr; Opciones globales (ej. <code>Option \"DontVTSwitch\" \"True\"</code>).</div>\n      </div>\n    </div>\n\n    <!-- Modular xorg.conf.d -->\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:12px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <strong style=\"color:#166534; font-size:14px; display:block; margin-bottom:8px;\">2. Enfoque Modular Moderno</strong>\n        <p style=\"color:#14532D; font-size:12.5px; line-height:1.4; margin:0 0 8px 0;\">\n          En lugar de un único archivo frágil, se crean fragmentos en <code>/etc/X11/xorg.conf.d/</code> con secciones <strong>InputClass</strong> que se aplican automáticamente según reglas de udev.\n        </p>\n      </div>\n      <div style=\"background:#DCFCE7; border:1px solid #BBF7D0; padding:8px; border-radius:6px; font-size:12px; color:#166534;\">\n        <strong>Generación de plantilla:</strong> <code>Xorg -configure</code> (o <code>X -configure</code>) sondea el hardware y genera un borrador inicial.\n      </div>\n    </div>\n  </div>\n</div>\n", "notes": "Recuerda que Screen une Device y Monitor, y que DontVTSwitch impide saltar a consolas TTY en kioscos."}, {"id": 4, "type": "custom", "cat": "gui", "section": "106.1", "ref": "136, 147", "title": "106.1 · Seguridad y Control de Acceso: xhost frente a xauth", "lead": "Dos modelos opuestos: filtrado de red por host frente a cookies criptográficas.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:stretch; margin-top:10px;\">\n  <div style=\"background:#FEF2F2; border:2px solid #EF4444; border-radius:14px; padding:18px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;\">\n      <h3 style=\"font-size:18px; margin:0; color:#B91C1C;\">xhost (Control por Host/IP)</h3>\n      <span style=\"background:#DC2626; color:#FFF; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;\">Inseguro</span>\n    </div>\n    <p style=\"font-size:14px; color:#7F1D1D; line-height:1.4; margin-bottom:10px;\">\n      Autoriza máquinas por dirección IP o nombre de host sin verificar qué usuario ejecuta el comando.\n    </p>\n    <div style=\"background:#FFFFFF; border:1px solid #FCA5A5; border-radius:8px; padding:10px; font-size:13px; color:#991B1B; line-height:1.4;\">\n      &bull; <code>xhost +192.168.1.50</code>: Permite acceso a esa IP.<br>\n      &bull; ⚠️ <code>xhost +</code>: <strong>PELIGRO</strong>: Desactiva el control de acceso y permite a cualquiera capturar pantalla y pulsaciones.<br>\n      &bull; <code>xhost -</code>: Reactiva el control estricto.\n    </div>\n  </div>\n\n  <div style=\"background:#F0FDF4; border:2px solid #22C55E; border-radius:14px; padding:18px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;\">\n      <h3 style=\"font-size:18px; margin:0; color:#15803D;\">xauth (Cookies de Autorización)</h3>\n      <span style=\"background:#16A34A; color:#FFF; font-size:11px; font-weight:800; padding:2px 8px; border-radius:4px;\">Criptográfico</span>\n    </div>\n    <p style=\"font-size:14px; color:#14532D; line-height:1.4; margin-bottom:10px;\">\n      Autentica a cada usuario mediante tokens criptográficos secretos (MIT-MAGIC-COOKIE-1).\n    </p>\n    <div style=\"background:#FFFFFF; border:1px solid #BBF7D0; border-radius:8px; padding:10px; font-size:13px; color:#15803D; line-height:1.4;\">\n      &bull; <strong>Almacén:</strong> Fichero binario <code>~/.Xauthority</code> en el home del usuario (permisos estrictos 600).<br>\n      &bull; <code>xauth list</code>: Muestra las cookies activas por display.<br>\n      &bull; <strong>Estándar SSH:</strong> Empleado automáticamente por <code>ssh -X</code>.\n    </div>\n  </div>\n</div>\n", "notes": "xauth es el mecanismo estándar y seguro que pregunta el examen oficial."}, {"id": 5, "type": "custom", "cat": "gui", "section": "106.2", "ref": "154-156, 160", "title": "106.2 · Los 4 Grandes Entornos de Escritorio y sus Toolkits", "lead": "Correspondencia entre bibliotecas de widgets, gestores de ventanas y requisitos de hardware.", "html": "\n<div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; margin-top:10px; font-size:12px;\">\n  <!-- KDE -->\n  <div style=\"background:var(--surface); border:2px solid #3B82F6; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#1D4ED8; font-size:14px; display:block; margin-bottom:4px;\">KDE Plasma</strong>\n    <div style=\"background:#EFF6FF; color:#1E40AF; padding:3px 6px; border-radius:4px; font-weight:700; margin-bottom:6px;\">Toolkit: Qt (C++)</div>\n    <div style=\"color:var(--text-muted); line-height:1.35;\">\n      • Gestor: <strong>KWin</strong><br>\n      • Terminal: <code>konsole</code><br>\n      • Archivos: <strong>Dolphin</strong><br>\n      • Apps: <code>transmission-qt</code>\n    </div>\n  </div>\n\n  <!-- GNOME -->\n  <div style=\"background:var(--surface); border:2px solid #10B981; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#047857; font-size:14px; display:block; margin-bottom:4px;\">GNOME</strong>\n    <div style=\"background:#ECFDF5; color:#065F46; padding:3px 6px; border-radius:4px; font-weight:700; margin-bottom:6px;\">Toolkit: GTK+ (C)</div>\n    <div style=\"color:var(--text-muted); line-height:1.35;\">\n      • Gestor: <strong>Mutter</strong><br>\n      • Terminal: <code>gnome-terminal</code><br>\n      • Archivos: <strong>Nautilus</strong><br>\n      • Apps: <code>transmission-gtk</code>\n    </div>\n  </div>\n\n  <!-- Xfce -->\n  <div style=\"background:var(--surface); border:2px solid #F59E0B; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#B45309; font-size:14px; display:block; margin-bottom:4px;\">Xfce</strong>\n    <div style=\"background:#FFFBEB; color:#92400E; padding:3px 6px; border-radius:4px; font-weight:700; margin-bottom:6px;\">Toolkit: GTK+ ligero</div>\n    <div style=\"color:var(--text-muted); line-height:1.35;\">\n      • Gestor: <strong>Xfwm4</strong><br>\n      • Terminal: <code>xfce4-terminal</code><br>\n      • Archivos: <strong>Thunar</strong><br>\n      • Uso: VMs y hardware medio\n    </div>\n  </div>\n\n  <!-- LXDE / LXQt -->\n  <div style=\"background:var(--surface); border:2px solid #8B5CF6; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#6D28D9; font-size:14px; display:block; margin-bottom:4px;\">LXDE / LXQt</strong>\n    <div style=\"background:#F5F3FF; color:#5B21B6; padding:3px 6px; border-radius:4px; font-weight:700; margin-bottom:6px;\">Consumo Mínimo</div>\n    <div style=\"color:var(--text-muted); line-height:1.35;\">\n      • Gestor: <strong>Openbox</strong><br>\n      • Terminal: <code>qterminal</code><br>\n      • Archivos: <strong>PCManFM</strong><br>\n      • Uso: <strong>SBCs (Raspberry Pi)</strong>\n    </div>\n  </div>\n</div>\n", "notes": "Recuerda en clase que KDE usa Qt y que para equipos modestos de placa única (SBC) se recomienda Xfce o LXDE."}, {"id": 6, "type": "custom", "cat": "gui", "section": "106.2", "ref": "161, 164", "title": "106.2 · Portapapeles en X11 y la Trampa de Ctrl+C", "lead": "Por qué copiar texto en una terminal gráfica requiere usar el botón central del ratón.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:stretch; margin-top:10px;\">\n  <div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px;\">\n    <strong style=\"color:var(--text); font-size:16px; display:block; margin-bottom:10px;\">Los 2 Búferes del Portapapeles en X11</strong>\n    <div style=\"display:flex; flex-direction:column; gap:10px; font-size:13.5px;\">\n      <div style=\"background:var(--surface-sunken); padding:10px; border-radius:8px;\">\n        <strong>1. CLIPBOARD (Atajos Tradicionales):</strong><br>\n        Usa <code>Ctrl + C</code> para copiar y <code>Ctrl + V</code> para pegar en procesadores de texto y navegadores.\n      </div>\n      <div style=\"background:var(--surface-sunken); padding:10px; border-radius:8px;\">\n        <strong>2. PRIMARY (Selección Rápida de X11):</strong><br>\n        Basta con <strong>seleccionar texto con el ratón</strong> y pegarlo haciendo clic con el <strong>BOTÓN CENTRAL DEL RATÓN</strong> (rueda).\n      </div>\n    </div>\n  </div>\n\n  <div style=\"background:#FEF2F2; border:2px solid #EF4444; border-radius:14px; padding:18px; display:flex; flex-direction:column; justify-content:space-between;\">\n    <div>\n      <div style=\"display:flex; align-items:center; gap:8px; color:#B91C1C; font-weight:800; font-size:16px; margin-bottom:8px;\">\n        <svg class=\"ic ic-md\"><use href=\"#i-alert-triangle\"/></svg>\n        <span>¡TRAMPA DE EXAMEN EN TERMINALES!</span>\n      </div>\n      <p style=\"font-size:14px; color:#7F1D1D; line-height:1.45; margin:0 0 10px 0;\">\n        En los emuladores de terminal (konsole, gnome-terminal, xterm), la combinación <code>Ctrl + C</code> no copia: envía la señal de kernel <strong>SIGINT</strong> que aborta inmediatamente el comando en ejecución.\n      </p>\n    </div>\n    <div style=\"background:#FEE2E2; padding:8px 10px; border-radius:6px; font-size:13px; color:#991B1B; font-weight:700;\">\n      Solución recomendada LPI: Seleccionar texto y pulsar el botón central del ratón (o usar Ctrl+Shift+C).\n    </div>\n  </div>\n</div>\n", "notes": "Concepto evaluado con frecuencia en preguntas de opción múltiple."}, {"id": 7, "type": "custom", "cat": "gui", "section": "106.2", "ref": "158-159, 162", "title": "106.2 · Protocolos de Acceso Remoto al Escritorio", "lead": "Comparativa de puertos y casos de uso: Windows, Unix y Virtualización.", "html": "\n<div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; margin-top:10px; font-size:12px;\">\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:12px;\">\n    <strong style=\"color:var(--primary); font-size:15px; display:block; margin-bottom:4px;\">RDP</strong>\n    <span class=\"badge\" style=\"background:#EFF6FF; color:#1D4ED8; font-weight:800; margin-bottom:6px;\">TCP 3389</span>\n    <div style=\"color:var(--text-muted); line-height:1.4;\">\n      Estándar de Microsoft Windows. Conexiones eficientes de escritorio remoto; accesible desde Linux con Remmina/FreeRDP.\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:12px;\">\n    <strong style=\"color:var(--success); font-size:15px; display:block; margin-bottom:4px;\">VNC (RFB)</strong>\n    <span class=\"badge\" style=\"background:#F0FDF4; color:#166534; font-weight:800; margin-bottom:6px;\">TCP 5900+N</span>\n    <div style=\"color:var(--text-muted); line-height:1.4;\">\n      Protocolo Remote FrameBuffer multiplataforma. Transmite mapa de píxeles simple (puerto 5900 para :0, 5901 para :1).\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:12px;\">\n    <strong style=\"color:var(--warning); font-size:15px; display:block; margin-bottom:4px;\">XDMCP</strong>\n    <span class=\"badge\" style=\"background:#FEF3C7; color:#92400E; font-weight:800; margin-bottom:6px;\">UDP 177</span>\n    <div style=\"color:var(--text-muted); line-height:1.4;\">\n      Nativo del Sistema X Window. Requiere instancias de X en ambos extremos; no cifrado de forma nativa.\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:12px;\">\n    <strong style=\"color:#7C3AED; font-size:15px; display:block; margin-bottom:4px;\">SPICE</strong>\n    <span class=\"badge\" style=\"background:#F5F3FF; color:#6D28D9; font-weight:800; margin-bottom:6px;\">TCP 5900+</span>\n    <div style=\"color:var(--text-muted); line-height:1.4;\">\n      Diseñado específicamente para máquinas virtuales QEMU/KVM con soporte de audio, aceleración 2D y redirección USB.\n    </div>\n  </div>\n</div>\n", "notes": "Memorizar los puertos: RDP 3389, VNC 5900 y XDMCP UDP 177."}, {"id": 8, "type": "custom", "cat": "gui", "section": "106.3", "ref": "166-170", "title": "106.3 · Tecnologías de Accesibilidad en Linux", "lead": "Adaptaciones para usuarios con movilidad reducida o diversidad visual.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:stretch; margin-top:10px;\">\n  <div style=\"background:var(--surface); border:2px solid var(--primary-border); border-radius:14px; padding:18px;\">\n    <div style=\"display:flex; align-items:center; gap:12px; margin-bottom:12px;\">\n      <div style=\"width:42px; height:42px; border-radius:10px; background:var(--primary-soft); display:flex; align-items:center; justify-content:center; color:var(--primary);\">\n        <svg class=\"ic ic-lg\"><use href=\"#i-eye\"/></svg>\n      </div>\n      <div>\n        <div style=\"font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase;\">Asistencia de Sistema</div>\n        <h3 style=\"font-size:20px; margin:0; color:var(--text);\">Teclado y Movilidad</h3>\n      </div>\n    </div>\n    <div style=\"display:flex; flex-direction:column; gap:8px; font-size:14px;\">\n      <div><strong>Sticky Keys (Adhesivas):</strong> Permite pulsar atajos tecla a tecla (ej. Alt, luego Tab). Gesto: Shift 5 veces.</div>\n      <div><strong>Slow Keys (Lentas):</strong> Exige mantener pulsada la tecla para evitar pulsaciones accidentales por roce.</div>\n      <div><strong>Bounce Keys (Rebote):</strong> Descarta pulsaciones repetidas rápidas causadas por temblores involuntarios.</div>\n      <div><strong>Mouse Keys:</strong> Emula el ratón mediante el bloque numérico del teclado.</div>\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:14px; font-weight:800; color:var(--text); text-transform:uppercase;\">Herramientas Especializadas</div>\n    <div style=\"border-left:4px solid var(--primary); padding:8px 12px; background:var(--primary-soft); border-radius:0 8px 8px 0; font-size:14px;\">\n      <strong>Orca:</strong> Lector de pantalla con síntesis de voz y soporte para pantallas Braille táctiles actualizables.\n    </div>\n    <div style=\"border-left:4px solid var(--success); padding:8px 12px; background:var(--success-soft); border-radius:0 8px 8px 0; font-size:14px;\">\n      <strong>KMouseTool:</strong> Genera clics automáticos al pausar el puntero (prevención de lesiones por esfuerzo repetitivo RSI).\n    </div>\n    <div style=\"border-left:4px solid var(--warning); padding:8px 12px; background:var(--warning-soft); border-radius:0 8px 8px 0; font-size:14px;\">\n      <strong>Onboard:</strong> Teclado en pantalla flotante para introducir texto usando ratón o pantallas táctiles.\n    </div>\n  </div>\n</div>\n", "notes": "Resumen completo de las tecnologías de asistencia del subtema 106.3."}, {"id": 9, "type": "custom", "cat": "gui", "section": "106.3", "ref": "168, 174", "title": "106.3 · Trilogía de Teclado: Sticky, Slow y Bounce Keys", "lead": "Los tres modificadores temporales de teclado evaluados por LPI.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-top:10px; font-size:12px;\">\n  <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#1E40AF; font-size:14px; display:block; margin-bottom:4px;\">Sticky Keys (Adhesivas)</strong>\n    <span class=\"badge\" style=\"background:#2563EB; color:#FFF; font-weight:800; margin-bottom:6px;\">Shift x 5</span>\n    <div style=\"color:#1E3A8A; line-height:1.4;\">\n      Permite ejecutar atajos de teclado secuencialmente. Pulsa modificador (Ctrl/Alt), suelta, y luego pulsa la letra.\n    </div>\n  </div>\n\n  <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#15803D; font-size:14px; display:block; margin-bottom:4px;\">Slow Keys (Lentas)</strong>\n    <span class=\"badge\" style=\"background:#16A34A; color:#FFF; font-weight:800; margin-bottom:6px;\">Retardo de Aceptación</span>\n    <div style=\"color:#14532D; line-height:1.4;\">\n      La tecla debe mantenerse presionada durante un tiempo configurable para ser aceptada. Evita roces accidentales.\n    </div>\n  </div>\n\n  <div style=\"background:#FEF2F2; border:1.5px solid #EF4444; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#B91C1C; font-size:14px; display:block; margin-bottom:4px;\">Bounce Keys (Rebote)</strong>\n    <span class=\"badge\" style=\"background:#DC2626; color:#FFF; font-weight:800; margin-bottom:6px;\">Filtro de Temblores</span>\n    <div style=\"color:#7F1D1D; line-height:1.4;\">\n      Descarta pulsaciones repetidas de la misma tecla si ocurren muy rápido. Diseñado para usuarios con temblores en las manos.\n    </div>\n  </div>\n</div>\n", "notes": "Cuadro mnemotécnico esencial para fijar la diferencia entre las tres funciones."}, {"id": 10, "type": "custom", "cat": "gui", "section": "106.3", "ref": "170, 175", "title": "106.3 · Discapacidad Visual: Orca, Braille y Alto Contraste", "lead": "Salidas de audio sintetizado, terminales táctiles y ajustes visuales de alto contraste.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:stretch; margin-top:10px;\">\n  <div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px;\">\n    <h3 style=\"font-size:18px; margin:0 0 10px 0; color:var(--text);\">El Lector de Pantalla Orca</h3>\n    <p style=\"font-size:14px; color:var(--text-muted); line-height:1.45; margin-bottom:12px;\">\n      Herramienta estándar de código abierto para asistencia visual en escritorios Linux:\n    </p>\n    <div style=\"display:flex; flex-direction:column; gap:8px; font-size:13.5px;\">\n      <div style=\"background:var(--surface-sunken); padding:8px 12px; border-radius:6px;\">\n        <strong>1. Síntesis de Voz (TTS):</strong> Lee ventanas, menús y texto bajo el cursor mediante speech-dispatcher.\n      </div>\n      <div style=\"background:var(--surface-sunken); padding:8px 12px; border-radius:6px;\">\n        <strong>2. Pantallas Braille Actualizables:</strong> Genera patrones táctiles en relieve (Refreshable Braille Displays).\n      </div>\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h3 style=\"font-size:18px; margin:0 0 4px 0; color:var(--text);\">Ajustes de Interfaz Gráfica</h3>\n    <div style=\"border-left:4px solid var(--primary); padding:8px 12px; background:var(--primary-soft); border-radius:0 8px 8px 0; font-size:13.5px;\">\n      <strong>Temas de Alto Contraste:</strong> Paletas contrastadas para personas con baja visión o daltonismo.\n    </div>\n    <div style=\"border-left:4px solid var(--success); padding:8px 12px; background:var(--success-soft); border-radius:0 8px 8px 0; font-size:13.5px;\">\n      <strong>Lupas de Pantalla:</strong> Zoom de área para ampliar sectores específicos del escritorio.\n    </div>\n    <div style=\"border-left:4px solid var(--warning); padding:8px 12px; background:var(--warning-soft); border-radius:0 8px 8px 0; font-size:13.5px;\">\n      <strong>Emacspeak:</strong> Alternativa especializada para usuarios invidentes dentro del editor Emacs.\n    </div>\n  </div>\n</div>\n", "notes": "Orca es la respuesta canónica para lectores de pantalla en Linux."}, {"id": 11, "type": "custom", "cat": "cmd", "section": "106", "ref": "133-175", "title": "Cheatsheet de Comandos Clave del Tema 106", "lead": "Las órdenes indispensables para superar el bloque de interfaz y accesibilidad en LPIC-1.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:10px; font-size:13px;\">\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:14px;\">xdpyinfo</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:12.5px;\">\n      Inspecciona extensiones activas (RANDR, GLX), resolución y pantallas del servidor X (<code>xdpyinfo</code>).\n    </p>\n  </div>\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:14px;\">xhost / xauth</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:12.5px;\">\n      Control de acceso a pantalla por IP (<code>xhost +IP</code>) y por cookies seguras en <code>~/.Xauthority</code> (<code>xauth list</code>).\n    </p>\n  </div>\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:14px;\">localectl / setxkbmap</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:12.5px;\">\n      Configura la distribución del teclado en consola y X11 (<code>localectl set-x11-keymap es</code>).\n    </p>\n  </div>\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:14px;\">orca</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:12.5px;\">\n      Lector y magnificador de pantalla libre con síntesis de voz y soporte Braille (<code>orca -s</code>).\n    </p>\n  </div>\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:14px;\">kmousetool / onboard</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:12.5px;\">\n      Clic automático asistido para RSI (<code>kmousetool</code>) y teclado virtual en pantalla (<code>onboard</code>).\n    </p>\n  </div>\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:14px;\">remmina</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:12.5px;\">\n      Cliente gráfico multiprotocolo para conexiones RDP (3389), VNC (5900), SPICE y SSH.\n    </p>\n  </div>\n</div>\n", "notes": "Hoja de referencia de comandos del Tema 106."}, {"id": 12, "type": "review", "cat": "gui", "section": "106.1", "ref": "136, 148", "title": "Autotest Tema 106 · Pregunta 1 de 3", "lead": "Arquitectura y variable DISPLAY.", "remember": "🎯 Clave: lab01:0.2 -> Host 'lab01', primer display (0), tercera pantalla (.2).", "question": {"text": "Un técnico configura un sistema llamado 'lab01' con tres monitores independientes. Se lanza una aplicación gráfica en la tercera pantalla del primer servidor X. ¿Cuál es el valor exacto de la variable DISPLAY?", "options": [{"letter": "A", "text": "lab01:1.3"}, {"letter": "B", "text": "lab01:0.2", "correct": true}, {"letter": "C", "text": ":3.0"}, {"letter": "D", "text": "lab01/screen2"}], "explanation": "El formato estándar es [host]:display[.screen]. El primer display es el 0, y la tercera pantalla física corresponde al índice 2 (ya que la primera es 0 y la segunda es 1). Por tanto, el valor correcto es 'lab01:0.2'."}}, {"id": 13, "type": "review", "cat": "gui", "section": "106.2", "ref": "158, 164", "title": "Autotest Tema 106 · Pregunta 2 de 3", "lead": "Protocolos de escritorio remoto y puertos.", "remember": "🎯 Clave: RDP usa puerto TCP 3389 para escritorios Windows.", "question": {"text": "¿Qué protocolo y puerto de red se utiliza preferentemente para conectar una estación Linux a un servidor remoto de Microsoft Windows?", "options": [{"letter": "A", "text": "VNC en el puerto UDP 177"}, {"letter": "B", "text": "RDP en el puerto TCP 3389", "correct": true}, {"letter": "C", "text": "XDMCP en el puerto TCP 5900"}, {"letter": "D", "text": "SPICE en el puerto TCP 22"}], "explanation": "RDP (Remote Desktop Protocol) es el protocolo nativo de Windows y opera en el puerto TCP 3389. VNC utiliza 5900 y XDMCP utiliza UDP 177."}}, {"id": 14, "type": "review", "cat": "gui", "section": "106.3", "ref": "168, 174", "title": "Autotest Tema 106 · Pregunta 3 de 3", "lead": "Ajustes de accesibilidad de teclado.", "remember": "🎯 Clave: Temblores = Bounce Keys (Rebote). Sticky Keys = Shift 5 veces.", "question": {"text": "Un usuario con temblores involuntarios en las manos presiona la misma tecla varias veces seguidas de forma accidental. ¿Qué función de accesibilidad descarta estas pulsaciones repetidas rápidas?", "options": [{"letter": "A", "text": "Slow Keys"}, {"letter": "B", "text": "Bounce Keys", "correct": true}, {"letter": "C", "text": "Mouse Keys"}, {"letter": "D", "text": "Sticky Keys"}], "explanation": "Bounce Keys (Teclas de rebote) está diseñada para descartar pulsaciones repetidas de una tecla que se produzcan dentro de un breve umbral de tiempo, resolviendo los problemas derivados de temblores en las manos."}}];
+    const SLIDES = [{"id": 1, "type": "cover", "cat": "gui", "icon": "monitor", "title": "Repaso Gráfico & Resumen de Examen", "subtitle": "Tema 106: Interfaces de Usuario y Escritorios", "meta": {"peso": "4", "paginas": "43 págs. PDF", "duracion": "50 min"}, "notes": "Sesión intensiva de consolidación visual del Tema 106 (Peso 4 sobre 60 en el Examen 102-500). Arquitectura X11, variable DISPLAY, xorg.conf.d, xhost vs xauth, entornos KDE/GNOME/Xfce, protocolos RDP/VNC/SPICE y tecnologías de accesibilidad."}, {"id": 2, "type": "custom", "cat": "gui", "section": "106.1", "ref": "134-138", "title": "106.1 · Arquitectura de Red X11 y Variable $DISPLAY", "lead": "Separación modular: el servidor dibuja localmente y el cliente procesa la lógica.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:stretch; margin-top:10px;\">\n  <div style=\"background:var(--surface); border:2px solid var(--primary-border); border-radius:14px; padding:18px;\">\n    <div style=\"display:flex; align-items:center; gap:12px; margin-bottom:12px;\">\n      <div style=\"width:42px; height:42px; border-radius:10px; background:var(--primary-soft); display:flex; align-items:center; justify-content:center; color:var(--primary);\">\n        <svg class=\"ic ic-lg\"><use href=\"#i-monitor\"/></svg>\n      </div>\n      <div>\n        <div style=\"font-size:24px; font-weight:800; color:var(--primary); text-transform:uppercase;\">Protocolo Gráfico</div>\n        <h3 style=\"font-size:31px; margin:0; color:var(--text);\">Servidor X vs Cliente X</h3>\n      </div>\n    </div>\n    <p style=\"font-size:26px; color:var(--text-muted); line-height:1.45; margin-bottom:12px;\">\n      <strong>Servidor X (Local):</strong> Gestiona la pantalla física, tarjeta de vídeo, teclado y ratón donde está sentado el usuario.<br>\n      <strong>Cliente X (Remoto o Local):</strong> La aplicación que realiza el trabajo (ej. GIMP, Firefox) y solicita operaciones de dibujo por red.\n    </p>\n    <div class=\"callout callout-info\" style=\"margin:0; font-size:25px; line-height:1.4;\">\n      <strong>Formato DISPLAY:</strong> <code>[host]:display[.screen]</code> (ej: <code>lab01:0.2</code> = máquina lab01, primer display, tercera pantalla).\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:25px; font-weight:800; color:var(--text); text-transform:uppercase;\">Componentes Clave de X11</div>\n    <div style=\"border-left:4px solid var(--primary); padding:12px 16px; background:var(--primary-soft); border-radius:0 8px 8px 0; font-size:25px;\">\n      <strong>xdpyinfo:</strong> Vuelca información técnica detallada: resolución DPI, profundidad en bits y extensiones cargadas (RANDR, GLX, XINERAMA).\n    </div>\n    <div style=\"border-left:4px solid var(--success); padding:12px 16px; background:var(--success-soft); border-radius:0 8px 8px 0; font-size:25px;\">\n      <strong>localectl / setxkbmap:</strong> Configura la distribución del teclado en caliente y la persiste en <code>/etc/X11/xorg.conf.d/00-keyboard.conf</code>.\n    </div>\n    <div style=\"border-left:4px solid var(--warning); padding:12px 16px; background:var(--warning-soft); border-radius:0 8px 8px 0; font-size:25px;\">\n      <strong>Wayland vs X11:</strong> Wayland utiliza la variable <code>WAYLAND_DISPLAY</code> y ejecuta aplicaciones clásicas X11 mediante <strong>XWayland</strong>.\n    </div>\n  </div>\n</div>\n", "notes": "Destaca la distinción técnica de servidor local vs cliente remoto, pregunta recurrente en LPIC-1."}, {"id": 3, "type": "custom", "cat": "gui", "section": "106.1", "ref": "138-143", "title": "106.1 · Configuración de Xorg: xorg.conf frente a xorg.conf.d", "lead": "De las estrofas monolíticas al directorio modular moderno.", "html": "\n<div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px; margin-top:8px;\">\n  <div style=\"display:grid; grid-template-columns: 1.1fr 0.9fr; gap:18px; font-size:24px;\">\n    <!-- Secciones xorg.conf -->\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:8px; padding:12px;\">\n      <strong style=\"color:#0F172A; font-size:25px; display:block; margin-bottom:8px;\">1. Estructura de Secciones de xorg.conf</strong>\n      <div style=\"display:flex; flex-direction:column; gap:12px; font-size:23px;\">\n        <div><code>Section \"Device\"</code> &rarr; Tarjeta gráfica (driver del kernel, BusID).</div>\n        <div><code>Section \"Monitor\"</code> &rarr; Frecuencias de refresco y resolución.</div>\n        <div style=\"background:#EFF6FF; padding:6px 12px; border-radius:4px; border-left:3px solid #3B82F6;\">\n          <code>Section \"Screen\"</code> &rarr; <strong>Unión:</strong> Asocia un Device con un Monitor.\n        </div>\n        <div><code>Section \"InputDevice\"</code> &rarr; Hardware de entrada específico (teclado/ratón).</div>\n        <div style=\"background:#EFF6FF; padding:6px 12px; border-radius:4px; border-left:3px solid #3B82F6;\">\n          <code>Section \"ServerLayout\"</code> &rarr; <strong>Coordinador:</strong> Agrupa Screens e Inputs.\n        </div>\n        <div><code>Section \"ServerFlags\"</code> &rarr; Opciones globales (ej. <code>Option \"DontVTSwitch\" \"True\"</code>).</div>\n      </div>\n    </div>\n\n    <!-- Modular xorg.conf.d -->\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:12px; display:flex; flex-direction:column; justify-content:space-between;\">\n      <div>\n        <strong style=\"color:#166534; font-size:25px; display:block; margin-bottom:8px;\">2. Enfoque Modular Moderno</strong>\n        <p style=\"color:#14532D; font-size:23px; line-height:1.4; margin:0 0 8px 0;\">\n          En lugar de un único archivo frágil, se crean fragmentos en <code>/etc/X11/xorg.conf.d/</code> con secciones <strong>InputClass</strong> que se aplican automáticamente según reglas de udev.\n        </p>\n      </div>\n      <div style=\"background:#DCFCE7; border:1px solid #BBF7D0; padding:8px; border-radius:6px; font-size:23px; color:#166534;\">\n        <strong>Generación de plantilla:</strong> <code>Xorg -configure</code> (o <code>X -configure</code>) sondea el hardware y genera un borrador inicial.\n      </div>\n    </div>\n  </div>\n</div>\n", "notes": "Recuerda que Screen une Device y Monitor, y que DontVTSwitch impide saltar a consolas TTY en kioscos."}, {"id": 4, "type": "custom", "cat": "gui", "section": "106.1", "ref": "136, 147", "title": "106.1 · Seguridad y Control de Acceso: xhost frente a xauth", "lead": "Dos modelos opuestos: filtrado de red por host frente a cookies criptográficas.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:stretch; margin-top:10px;\">\n  <div style=\"background:#FEF2F2; border:2px solid #EF4444; border-radius:14px; padding:18px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;\">\n      <h3 style=\"font-size:29px; margin:0; color:#B91C1C;\">xhost (Control por Host/IP)</h3>\n      <span style=\"background:#DC2626; color:#FFF; font-size:22px; font-weight:800; padding:4px 10px; border-radius:4px;\">Inseguro</span>\n    </div>\n    <p style=\"font-size:25px; color:#7F1D1D; line-height:1.4; margin-bottom:10px;\">\n      Autoriza máquinas por dirección IP o nombre de host sin verificar qué usuario ejecuta el comando.\n    </p>\n    <div style=\"background:#FFFFFF; border:1px solid #FCA5A5; border-radius:8px; padding:10px; font-size:24px; color:#991B1B; line-height:1.4;\">\n      &bull; <code>xhost +192.168.1.50</code>: Permite acceso a esa IP.<br>\n      &bull; ⚠️ <code>xhost +</code>: <strong>PELIGRO</strong>: Desactiva el control de acceso y permite a cualquiera capturar pantalla y pulsaciones.<br>\n      &bull; <code>xhost -</code>: Reactiva el control estricto.\n    </div>\n  </div>\n\n  <div style=\"background:#F0FDF4; border:2px solid #22C55E; border-radius:14px; padding:18px;\">\n    <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;\">\n      <h3 style=\"font-size:29px; margin:0; color:#15803D;\">xauth (Cookies de Autorización)</h3>\n      <span style=\"background:#16A34A; color:#FFF; font-size:22px; font-weight:800; padding:4px 10px; border-radius:4px;\">Criptográfico</span>\n    </div>\n    <p style=\"font-size:25px; color:#14532D; line-height:1.4; margin-bottom:10px;\">\n      Autentica a cada usuario mediante tokens criptográficos secretos (MIT-MAGIC-COOKIE-1).\n    </p>\n    <div style=\"background:#FFFFFF; border:1px solid #BBF7D0; border-radius:8px; padding:10px; font-size:24px; color:#15803D; line-height:1.4;\">\n      &bull; <strong>Almacén:</strong> Fichero binario <code>~/.Xauthority</code> en el home del usuario (permisos estrictos 600).<br>\n      &bull; <code>xauth list</code>: Muestra las cookies activas por display.<br>\n      &bull; <strong>Estándar SSH:</strong> Empleado automáticamente por <code>ssh -X</code>.\n    </div>\n  </div>\n</div>\n", "notes": "xauth es el mecanismo estándar y seguro que pregunta el examen oficial."}, {"id": 5, "type": "custom", "cat": "gui", "section": "106.2", "ref": "154-156, 160", "title": "106.2 · Los 4 Grandes Entornos de Escritorio y sus Toolkits", "lead": "Correspondencia entre bibliotecas de widgets, gestores de ventanas y requisitos de hardware.", "html": "\n<div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; margin-top:10px; font-size:23px;\">\n  <!-- KDE -->\n  <div style=\"background:var(--surface); border:2px solid #3B82F6; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#1D4ED8; font-size:25px; display:block; margin-bottom:4px;\">KDE Plasma</strong>\n    <div style=\"background:#EFF6FF; color:#1E40AF; padding:5px 12px; border-radius:4px; font-weight:700; margin-bottom:6px;\">Toolkit: Qt (C++)</div>\n    <div style=\"color:var(--text-muted); line-height:1.35;\">\n      • Gestor: <strong>KWin</strong><br>\n      • Terminal: <code>konsole</code><br>\n      • Archivos: <strong>Dolphin</strong><br>\n      • Apps: <code>transmission-qt</code>\n    </div>\n  </div>\n\n  <!-- GNOME -->\n  <div style=\"background:var(--surface); border:2px solid #10B981; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#047857; font-size:25px; display:block; margin-bottom:4px;\">GNOME</strong>\n    <div style=\"background:#ECFDF5; color:#065F46; padding:5px 12px; border-radius:4px; font-weight:700; margin-bottom:6px;\">Toolkit: GTK+ (C)</div>\n    <div style=\"color:var(--text-muted); line-height:1.35;\">\n      • Gestor: <strong>Mutter</strong><br>\n      • Terminal: <code>gnome-terminal</code><br>\n      • Archivos: <strong>Nautilus</strong><br>\n      • Apps: <code>transmission-gtk</code>\n    </div>\n  </div>\n\n  <!-- Xfce -->\n  <div style=\"background:var(--surface); border:2px solid #F59E0B; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#B45309; font-size:25px; display:block; margin-bottom:4px;\">Xfce</strong>\n    <div style=\"background:#FFFBEB; color:#92400E; padding:5px 12px; border-radius:4px; font-weight:700; margin-bottom:6px;\">Toolkit: GTK+ ligero</div>\n    <div style=\"color:var(--text-muted); line-height:1.35;\">\n      • Gestor: <strong>Xfwm4</strong><br>\n      • Terminal: <code>xfce4-terminal</code><br>\n      • Archivos: <strong>Thunar</strong><br>\n      • Uso: VMs y hardware medio\n    </div>\n  </div>\n\n  <!-- LXDE / LXQt -->\n  <div style=\"background:var(--surface); border:2px solid #8B5CF6; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#6D28D9; font-size:25px; display:block; margin-bottom:4px;\">LXDE / LXQt</strong>\n    <div style=\"background:#F5F3FF; color:#5B21B6; padding:5px 12px; border-radius:4px; font-weight:700; margin-bottom:6px;\">Consumo Mínimo</div>\n    <div style=\"color:var(--text-muted); line-height:1.35;\">\n      • Gestor: <strong>Openbox</strong><br>\n      • Terminal: <code>qterminal</code><br>\n      • Archivos: <strong>PCManFM</strong><br>\n      • Uso: <strong>SBCs (Raspberry Pi)</strong>\n    </div>\n  </div>\n</div>\n", "notes": "Recuerda en clase que KDE usa Qt y que para equipos modestos de placa única (SBC) se recomienda Xfce o LXDE."}, {"id": 6, "type": "custom", "cat": "gui", "section": "106.2", "ref": "161, 164", "title": "106.2 · Portapapeles en X11 y la Trampa de Ctrl+C", "lead": "Por qué copiar texto en una terminal gráfica requiere usar el botón central del ratón.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:stretch; margin-top:10px;\">\n  <div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px;\">\n    <strong style=\"color:var(--text); font-size:27px; display:block; margin-bottom:10px;\">Los 2 Búferes del Portapapeles en X11</strong>\n    <div style=\"display:flex; flex-direction:column; gap:10px; font-size:24px;\">\n      <div style=\"background:var(--surface-sunken); padding:10px; border-radius:8px;\">\n        <strong>1. CLIPBOARD (Atajos Tradicionales):</strong><br>\n        Usa <code>Ctrl + C</code> para copiar y <code>Ctrl + V</code> para pegar en procesadores de texto y navegadores.\n      </div>\n      <div style=\"background:var(--surface-sunken); padding:10px; border-radius:8px;\">\n        <strong>2. PRIMARY (Selección Rápida de X11):</strong><br>\n        Basta con <strong>seleccionar texto con el ratón</strong> y pegarlo haciendo clic con el <strong>BOTÓN CENTRAL DEL RATÓN</strong> (rueda).\n      </div>\n    </div>\n  </div>\n\n  <div style=\"background:#FEF2F2; border:2px solid #EF4444; border-radius:14px; padding:18px; display:flex; flex-direction:column; justify-content:space-between;\">\n    <div>\n      <div style=\"display:flex; align-items:center; gap:14px; color:#B91C1C; font-weight:800; font-size:27px; margin-bottom:8px;\">\n        <svg class=\"ic ic-md\"><use href=\"#i-alert-triangle\"/></svg>\n        <span>¡TRAMPA DE EXAMEN EN TERMINALES!</span>\n      </div>\n      <p style=\"font-size:25px; color:#7F1D1D; line-height:1.45; margin:0 0 10px 0;\">\n        En los emuladores de terminal (konsole, gnome-terminal, xterm), la combinación <code>Ctrl + C</code> no copia: envía la señal de kernel <strong>SIGINT</strong> que aborta inmediatamente el comando en ejecución.\n      </p>\n    </div>\n    <div style=\"background:#FEE2E2; padding:12px 16px; border-radius:6px; font-size:24px; color:#991B1B; font-weight:700;\">\n      Solución recomendada LPI: Seleccionar texto y pulsar el botón central del ratón (o usar Ctrl+Shift+C).\n    </div>\n  </div>\n</div>\n", "notes": "Concepto evaluado con frecuencia en preguntas de opción múltiple."}, {"id": 7, "type": "custom", "cat": "gui", "section": "106.2", "ref": "158-159, 162", "title": "106.2 · Protocolos de Acceso Remoto al Escritorio", "lead": "Comparativa de puertos y casos de uso: Windows, Unix y Virtualización.", "html": "\n<div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; margin-top:10px; font-size:23px;\">\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:12px;\">\n    <strong style=\"color:var(--primary); font-size:26px; display:block; margin-bottom:4px;\">RDP</strong>\n    <span class=\"badge\" style=\"background:#EFF6FF; color:#1D4ED8; font-weight:800; margin-bottom:6px;\">TCP 3389</span>\n    <div style=\"color:var(--text-muted); line-height:1.4;\">\n      Estándar de Microsoft Windows. Conexiones eficientes de escritorio remoto; accesible desde Linux con Remmina/FreeRDP.\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:12px;\">\n    <strong style=\"color:var(--success); font-size:26px; display:block; margin-bottom:4px;\">VNC (RFB)</strong>\n    <span class=\"badge\" style=\"background:#F0FDF4; color:#166534; font-weight:800; margin-bottom:6px;\">TCP 5900+N</span>\n    <div style=\"color:var(--text-muted); line-height:1.4;\">\n      Protocolo Remote FrameBuffer multiplataforma. Transmite mapa de píxeles simple (puerto 5900 para :0, 5901 para :1).\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:12px;\">\n    <strong style=\"color:var(--warning); font-size:26px; display:block; margin-bottom:4px;\">XDMCP</strong>\n    <span class=\"badge\" style=\"background:#FEF3C7; color:#92400E; font-weight:800; margin-bottom:6px;\">UDP 177</span>\n    <div style=\"color:var(--text-muted); line-height:1.4;\">\n      Nativo del Sistema X Window. Requiere instancias de X en ambos extremos; no cifrado de forma nativa.\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:12px;\">\n    <strong style=\"color:#7C3AED; font-size:26px; display:block; margin-bottom:4px;\">SPICE</strong>\n    <span class=\"badge\" style=\"background:#F5F3FF; color:#6D28D9; font-weight:800; margin-bottom:6px;\">TCP 5900+</span>\n    <div style=\"color:var(--text-muted); line-height:1.4;\">\n      Diseñado específicamente para máquinas virtuales QEMU/KVM con soporte de audio, aceleración 2D y redirección USB.\n    </div>\n  </div>\n</div>\n", "notes": "Memorizar los puertos: RDP 3389, VNC 5900 y XDMCP UDP 177."}, {"id": 8, "type": "custom", "cat": "gui", "section": "106.3", "ref": "166-170", "title": "106.3 · Tecnologías de Accesibilidad en Linux", "lead": "Adaptaciones para usuarios con movilidad reducida o diversidad visual.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:stretch; margin-top:10px;\">\n  <div style=\"background:var(--surface); border:2px solid var(--primary-border); border-radius:14px; padding:18px;\">\n    <div style=\"display:flex; align-items:center; gap:12px; margin-bottom:12px;\">\n      <div style=\"width:42px; height:42px; border-radius:10px; background:var(--primary-soft); display:flex; align-items:center; justify-content:center; color:var(--primary);\">\n        <svg class=\"ic ic-lg\"><use href=\"#i-eye\"/></svg>\n      </div>\n      <div>\n        <div style=\"font-size:24px; font-weight:800; color:var(--primary); text-transform:uppercase;\">Asistencia de Sistema</div>\n        <h3 style=\"font-size:31px; margin:0; color:var(--text);\">Teclado y Movilidad</h3>\n      </div>\n    </div>\n    <div style=\"display:flex; flex-direction:column; gap:14px; font-size:25px;\">\n      <div><strong>Sticky Keys (Adhesivas):</strong> Permite pulsar atajos tecla a tecla (ej. Alt, luego Tab). Gesto: Shift 5 veces.</div>\n      <div><strong>Slow Keys (Lentas):</strong> Exige mantener pulsada la tecla para evitar pulsaciones accidentales por roce.</div>\n      <div><strong>Bounce Keys (Rebote):</strong> Descarta pulsaciones repetidas rápidas causadas por temblores involuntarios.</div>\n      <div><strong>Mouse Keys:</strong> Emula el ratón mediante el bloque numérico del teclado.</div>\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:25px; font-weight:800; color:var(--text); text-transform:uppercase;\">Herramientas Especializadas</div>\n    <div style=\"border-left:4px solid var(--primary); padding:12px 16px; background:var(--primary-soft); border-radius:0 8px 8px 0; font-size:25px;\">\n      <strong>Orca:</strong> Lector de pantalla con síntesis de voz y soporte para pantallas Braille táctiles actualizables.\n    </div>\n    <div style=\"border-left:4px solid var(--success); padding:12px 16px; background:var(--success-soft); border-radius:0 8px 8px 0; font-size:25px;\">\n      <strong>KMouseTool:</strong> Genera clics automáticos al pausar el puntero (prevención de lesiones por esfuerzo repetitivo RSI).\n    </div>\n    <div style=\"border-left:4px solid var(--warning); padding:12px 16px; background:var(--warning-soft); border-radius:0 8px 8px 0; font-size:25px;\">\n      <strong>Onboard:</strong> Teclado en pantalla flotante para introducir texto usando ratón o pantallas táctiles.\n    </div>\n  </div>\n</div>\n", "notes": "Resumen completo de las tecnologías de asistencia del subtema 106.3."}, {"id": 9, "type": "custom", "cat": "gui", "section": "106.3", "ref": "168, 174", "title": "106.3 · Trilogía de Teclado: Sticky, Slow y Bounce Keys", "lead": "Los tres modificadores temporales de teclado evaluados por LPI.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-top:10px; font-size:23px;\">\n  <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#1E40AF; font-size:25px; display:block; margin-bottom:4px;\">Sticky Keys (Adhesivas)</strong>\n    <span class=\"badge\" style=\"background:#2563EB; color:#FFF; font-weight:800; margin-bottom:6px;\">Shift x 5</span>\n    <div style=\"color:#1E3A8A; line-height:1.4;\">\n      Permite ejecutar atajos de teclado secuencialmente. Pulsa modificador (Ctrl/Alt), suelta, y luego pulsa la letra.\n    </div>\n  </div>\n\n  <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#15803D; font-size:25px; display:block; margin-bottom:4px;\">Slow Keys (Lentas)</strong>\n    <span class=\"badge\" style=\"background:#16A34A; color:#FFF; font-weight:800; margin-bottom:6px;\">Retardo de Aceptación</span>\n    <div style=\"color:#14532D; line-height:1.4;\">\n      La tecla debe mantenerse presionada durante un tiempo configurable para ser aceptada. Evita roces accidentales.\n    </div>\n  </div>\n\n  <div style=\"background:#FEF2F2; border:1.5px solid #EF4444; border-radius:10px; padding:12px;\">\n    <strong style=\"color:#B91C1C; font-size:25px; display:block; margin-bottom:4px;\">Bounce Keys (Rebote)</strong>\n    <span class=\"badge\" style=\"background:#DC2626; color:#FFF; font-weight:800; margin-bottom:6px;\">Filtro de Temblores</span>\n    <div style=\"color:#7F1D1D; line-height:1.4;\">\n      Descarta pulsaciones repetidas de la misma tecla si ocurren muy rápido. Diseñado para usuarios con temblores en las manos.\n    </div>\n  </div>\n</div>\n", "notes": "Cuadro mnemotécnico esencial para fijar la diferencia entre las tres funciones."}, {"id": 10, "type": "custom", "cat": "gui", "section": "106.3", "ref": "170, 175", "title": "106.3 · Discapacidad Visual: Orca, Braille y Alto Contraste", "lead": "Salidas de audio sintetizado, terminales táctiles y ajustes visuales de alto contraste.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:stretch; margin-top:10px;\">\n  <div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px;\">\n    <h3 style=\"font-size:29px; margin:0 0 10px 0; color:var(--text);\">El Lector de Pantalla Orca</h3>\n    <p style=\"font-size:25px; color:var(--text-muted); line-height:1.45; margin-bottom:12px;\">\n      Herramienta estándar de código abierto para asistencia visual en escritorios Linux:\n    </p>\n    <div style=\"display:flex; flex-direction:column; gap:14px; font-size:24px;\">\n      <div style=\"background:var(--surface-sunken); padding:12px 16px; border-radius:6px;\">\n        <strong>1. Síntesis de Voz (TTS):</strong> Lee ventanas, menús y texto bajo el cursor mediante speech-dispatcher.\n      </div>\n      <div style=\"background:var(--surface-sunken); padding:12px 16px; border-radius:6px;\">\n        <strong>2. Pantallas Braille Actualizables:</strong> Genera patrones táctiles en relieve (Refreshable Braille Displays).\n      </div>\n    </div>\n  </div>\n\n  <div style=\"background:var(--surface); border:2px solid var(--border); border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h3 style=\"font-size:29px; margin:0 0 4px 0; color:var(--text);\">Ajustes de Interfaz Gráfica</h3>\n    <div style=\"border-left:4px solid var(--primary); padding:12px 16px; background:var(--primary-soft); border-radius:0 8px 8px 0; font-size:24px;\">\n      <strong>Temas de Alto Contraste:</strong> Paletas contrastadas para personas con baja visión o daltonismo.\n    </div>\n    <div style=\"border-left:4px solid var(--success); padding:12px 16px; background:var(--success-soft); border-radius:0 8px 8px 0; font-size:24px;\">\n      <strong>Lupas de Pantalla:</strong> Zoom de área para ampliar sectores específicos del escritorio.\n    </div>\n    <div style=\"border-left:4px solid var(--warning); padding:12px 16px; background:var(--warning-soft); border-radius:0 8px 8px 0; font-size:24px;\">\n      <strong>Emacspeak:</strong> Alternativa especializada para usuarios invidentes dentro del editor Emacs.\n    </div>\n  </div>\n</div>\n", "notes": "Orca es la respuesta canónica para lectores de pantalla en Linux."}, {"id": 11, "type": "custom", "cat": "cmd", "section": "106", "ref": "133-175", "title": "Cheatsheet de Comandos Clave del Tema 106", "lead": "Las órdenes indispensables para superar el bloque de interfaz y accesibilidad en LPIC-1.", "html": "\n<div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:10px; font-size:24px;\">\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:25px;\">xdpyinfo</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:23px;\">\n      Inspecciona extensiones activas (RANDR, GLX), resolución y pantallas del servidor X (<code>xdpyinfo</code>).\n    </p>\n  </div>\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:25px;\">xhost / xauth</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:23px;\">\n      Control de acceso a pantalla por IP (<code>xhost +IP</code>) y por cookies seguras en <code>~/.Xauthority</code> (<code>xauth list</code>).\n    </p>\n  </div>\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:25px;\">localectl / setxkbmap</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:23px;\">\n      Configura la distribución del teclado en consola y X11 (<code>localectl set-x11-keymap es</code>).\n    </p>\n  </div>\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:25px;\">orca</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:23px;\">\n      Lector y magnificador de pantalla libre con síntesis de voz y soporte Braille (<code>orca -s</code>).\n    </p>\n  </div>\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:25px;\">kmousetool / onboard</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:23px;\">\n      Clic automático asistido para RSI (<code>kmousetool</code>) y teclado virtual en pantalla (<code>onboard</code>).\n    </p>\n  </div>\n  <div style=\"background:var(--surface); border:1.5px solid var(--border); border-radius:10px; padding:10px 14px;\">\n    <strong style=\"color:var(--primary); font-size:25px;\">remmina</strong>\n    <p style=\"margin:2px 0 0 0; color:var(--text-muted); font-size:23px;\">\n      Cliente gráfico multiprotocolo para conexiones RDP (3389), VNC (5900), SPICE y SSH.\n    </p>\n  </div>\n</div>\n", "notes": "Hoja de referencia de comandos del Tema 106."}, {"id": 12, "type": "review", "cat": "gui", "section": "106.1", "ref": "136, 148", "title": "Autotest Tema 106 · Pregunta 1 de 3", "lead": "Arquitectura y variable DISPLAY.", "remember": "🎯 Clave: lab01:0.2 -> Host 'lab01', primer display (0), tercera pantalla (.2).", "question": {"text": "Un técnico configura un sistema llamado 'lab01' con tres monitores independientes. Se lanza una aplicación gráfica en la tercera pantalla del primer servidor X. ¿Cuál es el valor exacto de la variable DISPLAY?", "options": [{"letter": "A", "text": "lab01:1.3"}, {"letter": "B", "text": "lab01:0.2", "correct": true}, {"letter": "C", "text": ":3.0"}, {"letter": "D", "text": "lab01/screen2"}], "explanation": "El formato estándar es [host]:display[.screen]. El primer display es el 0, y la tercera pantalla física corresponde al índice 2 (ya que la primera es 0 y la segunda es 1). Por tanto, el valor correcto es 'lab01:0.2'."}}, {"id": 13, "type": "review", "cat": "gui", "section": "106.2", "ref": "158, 164", "title": "Autotest Tema 106 · Pregunta 2 de 3", "lead": "Protocolos de escritorio remoto y puertos.", "remember": "🎯 Clave: RDP usa puerto TCP 3389 para escritorios Windows.", "question": {"text": "¿Qué protocolo y puerto de red se utiliza preferentemente para conectar una estación Linux a un servidor remoto de Microsoft Windows?", "options": [{"letter": "A", "text": "VNC en el puerto UDP 177"}, {"letter": "B", "text": "RDP en el puerto TCP 3389", "correct": true}, {"letter": "C", "text": "XDMCP en el puerto TCP 5900"}, {"letter": "D", "text": "SPICE en el puerto TCP 22"}], "explanation": "RDP (Remote Desktop Protocol) es el protocolo nativo de Windows y opera en el puerto TCP 3389. VNC utiliza 5900 y XDMCP utiliza UDP 177."}}, {"id": 14, "type": "review", "cat": "gui", "section": "106.3", "ref": "168, 174", "title": "Autotest Tema 106 · Pregunta 3 de 3", "lead": "Ajustes de accesibilidad de teclado.", "remember": "🎯 Clave: Temblores = Bounce Keys (Rebote). Sticky Keys = Shift 5 veces.", "question": {"text": "Un usuario con temblores involuntarios en las manos presiona la misma tecla varias veces seguidas de forma accidental. ¿Qué función de accesibilidad descarta estas pulsaciones repetidas rápidas?", "options": [{"letter": "A", "text": "Slow Keys"}, {"letter": "B", "text": "Bounce Keys", "correct": true}, {"letter": "C", "text": "Mouse Keys"}, {"letter": "D", "text": "Sticky Keys"}], "explanation": "Bounce Keys (Teclas de rebote) está diseñada para descartar pulsaciones repetidas de una tecla que se produzcan dentro de un breve umbral de tiempo, resolviendo los problemas derivados de temblores en las manos."}}];
     const ERRATAS = [];
     const GLOSARIO = [];
     const META = {"topic": "106-REPASO", "title": "Repaso Gráfico & Resumen de Examen — Tema 106", "weight": 4, "description": "Sesión completa de consolidación visual de Tema 106 (Interfaces de usuario y escritorios). Incluye 106.1, 106.2 y 106.3, Resumen de Unidad y Autotest interactivo.", "duracion": "50 min", "total_slides": 14};
@@ -1698,7 +1767,7 @@
       const notesWidth = teacherNotesOpen ? 420 : 0;
       const availW = window.innerWidth - notesWidth;
       const availH = window.innerHeight - topBarHeight;
-      const scale = Math.min((availW - 40) / 1920, (availH - 40) / 1080);
+      const scale = Math.min((availW - 16) / 1920, (availH - 16) / 1080);
       stage.style.transform = `scale(${Math.max(scale, 0.25)})`;
     }
     window.addEventListener('resize', resizeStage);
@@ -1783,6 +1852,7 @@
       // Renderizado del cuerpo según el tipo
       const container = document.getElementById('slide-content');
       container.innerHTML = buildSlideHTML(s, colors);
+      container.scrollTop = 0;
 
       // Actualizar fragmentos
       const frags = container.querySelectorAll('.frag');
@@ -1838,34 +1908,56 @@
     function renderTerminalBox(term, title) {
       if (!term) return '';
       const termTitle = title || term.title || term.name || 'bash';
-      let lines = [];
+      let rawLines = [];
       let cmdToCopy = '';
 
-      if (term.lines && Array.isArray(term.lines)) {
-        lines = term.lines;
-        cmdToCopy = lines.find(l => l.t === 'cmd')?.v || termTitle;
+      if (Array.isArray(term)) {
+        rawLines = term;
+      } else if (term.lines && Array.isArray(term.lines)) {
+        rawLines = term.lines;
+        const c = term.lines.find(l => (l.t || l.type) === 'cmd');
+        if (c) cmdToCopy = c.v !== undefined ? c.v : (c.text !== undefined ? c.text : '');
       } else if (term.command) {
         cmdToCopy = term.command;
         const prompt = term.prompt || '$ ';
-        lines.push({ t: 'cmd', v: term.command, prompt: prompt });
+        rawLines.push({ t: 'cmd', v: term.command, prompt: prompt });
         if (term.output) {
           const outList = Array.isArray(term.output) ? term.output : String(term.output).split('\n');
           outList.forEach(outLine => {
             const trimmed = String(outLine).trim();
             if (trimmed.startsWith('#')) {
-              lines.push({ t: 'cmt', v: outLine });
+              rawLines.push({ t: 'cmt', v: outLine });
             } else {
-              lines.push({ t: 'out', v: outLine });
+              rawLines.push({ t: 'out', v: outLine });
             }
           });
         }
         if (term.comment) {
-          lines.push({ t: 'cmt', v: '# ' + term.comment });
+          rawLines.push({ t: 'cmt', v: '# ' + term.comment });
         }
       } else if (typeof term === 'string') {
         cmdToCopy = term;
-        lines.push({ t: 'cmd', v: term, prompt: '$ ' });
+        rawLines.push({ t: 'cmd', v: term, prompt: '$ ' });
       }
+
+      const lines = [];
+      rawLines.forEach(l => {
+        if (typeof l === 'string') {
+          lines.push({ t: 'out', v: l });
+          return;
+        }
+        const lType = l.t || l.type || 'out';
+        const lVal = l.v !== undefined ? l.v : (l.text !== undefined ? l.text : (l.val !== undefined ? l.val : ''));
+        const lPrompt = l.prompt || (lType === 'cmd' ? (term.prompt || '$ ') : '');
+        if (!cmdToCopy && lType === 'cmd') cmdToCopy = lVal;
+        lines.push({ t: lType, v: lVal, prompt: lPrompt });
+      });
+
+      if (!cmdToCopy && lines.length > 0) {
+        const firstCmd = lines.find(l => l.t === 'cmd');
+        if (firstCmd) cmdToCopy = firstCmd.v;
+      }
+      if (!cmdToCopy) cmdToCopy = termTitle;
 
       let h = `
         <div class="term-wrapper">
@@ -1880,24 +1972,83 @@
           </div>
           <div class="term-code">`;
       lines.forEach(l => {
-        if (l.t === 'cmd') {
-          const p = l.prompt || term.prompt || '$ ';
-          h += `<div><span class="t-prompt">${escapeHTML(p)} </span><span class="t-cmd">${escapeHTML(l.v)}</span></div>`;
-        } else if (l.t === 'hl') {
-          h += `<div><span class="t-hl">${escapeHTML(l.v)}</span></div>`;
-        } else if (l.t === 'err') {
-          h += `<div><span class="t-err">${escapeHTML(l.v)}</span></div>`;
-        } else if (l.t === 'cmt') {
-          h += `<div><span class="t-cmt">${escapeHTML(l.v)}</span></div>`;
-        } else {
-          h += `<div>${escapeHTML(l.v)}</div>`;
-        }
+        const valStr = String(l.v !== undefined ? l.v : '');
+        const subLines = valStr.split('\n');
+        subLines.forEach(subLine => {
+          if (l.t === 'cmd') {
+            const p = l.prompt || '$ ';
+            h += `<div><span class="t-prompt">${escapeHTML(p)} </span><span class="t-cmd">${escapeHTML(subLine)}</span></div>`;
+          } else if (l.t === 'hl') {
+            h += `<div><span class="t-hl">${escapeHTML(subLine)}</span></div>`;
+          } else if (l.t === 'err') {
+            h += `<div><span class="t-err">${escapeHTML(subLine)}</span></div>`;
+          } else if (l.t === 'cmt') {
+            h += `<div><span class="t-cmt">${escapeHTML(subLine)}</span></div>`;
+          } else {
+            h += `<div>${escapeHTML(subLine)}</div>`;
+          }
+        });
       });
       h += `</div></div>`;
       return h;
     }
 
     function buildSlideHTML(s, colors) {
+      // 1. Normalizar si el contenido es un string HTML crudo (ej. temas 108.3, 108.4, 109.1-4)
+      if (typeof s.content === 'string' && /^\s*<[a-zA-Z!]/.test(s.content)) {
+        if (s.type === 'cover') {
+          return s.content;
+        }
+        let h = `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
+        const sub = s.subtitle || s.lead || s.desc || '';
+        if (sub) h += `<div class="slide-lead">${renderRichText(sub)}</div>`;
+        h += s.content;
+        if (s.remember) {
+          h += `
+            <div class="callout-box callout-remember" style="margin-top:16px;">
+              <svg class="ic ic-md"><use href="#i-lightbulb"/></svg>
+              <span><strong>Recuerda:</strong> ${renderRichText(s.remember)}</span>
+            </div>
+          `;
+        }
+        return h;
+      }
+
+      // 2. Normalizar si el contenido viene empaquetado en un objeto (ej. tema 110)
+      if (s.content && typeof s.content === 'object' && !Array.isArray(s.content)) {
+        for (const [k, v] of Object.entries(s.content)) {
+          if (s[k] === undefined) s[k] = v;
+        }
+      }
+
+      // 3. Normalizar alias de propiedades
+      if (!s.lead && s.desc) s.lead = s.desc;
+      if (!s.remember && s.footer) s.remember = s.footer;
+      if (!s.points && s.blocks) {
+        s.points = s.blocks.map(b => ({
+          title: b.title || b.text || '',
+          text: b.title || b.text || '',
+          desc: b.desc || b.detail || '',
+          detail: b.desc || b.detail || '',
+          badge: b.badge || '',
+          icon: b.badge ? 'shield' : 'check'
+        }));
+      }
+      if (!s.options && s.args) {
+        s.options = s.args.map(a => ({
+          flag: a.flag || a.opt || '',
+          short: a.desc || '',
+          desc: a.desc || '',
+          detail: a.desc || ''
+        }));
+      }
+      if (!s.syntax && s.command && typeof s.command === 'string' && s.command.length < 80) {
+        s.syntax = s.command;
+      }
+      if (!s.deck && s.cards) {
+        s.deck = s.cards;
+      }
+
       let html = '';
       if (s.type === 'cover') {
         html += `
@@ -1912,6 +2063,16 @@
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Páginas: ${escapeHTML(s.meta?.paginas || '')}</span>
               <span class="ref-badge" style="font-size:22px; padding:8px 20px;">Duración: ${escapeHTML(s.meta?.duracion || '30 min')}</span>
             </div>
+            ${s.stats && Array.isArray(s.stats) && s.stats.length > 0 ? `
+              <div style="display:grid; grid-template-columns: repeat(${Math.min(s.stats.length, 4)}, 1fr); gap:16px; margin-top:36px; max-width:1100px; margin-left:auto; margin-right:auto;">
+                ${s.stats.map(st => `
+                  <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:14px; padding:16px 20px; text-align:center;">
+                    <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
+                    <div style="font-size:24px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
           </div>
         `;
       } else if (s.type === 'concept') {
@@ -1925,7 +2086,10 @@
               <div class="concept-card">
                 <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'check'}"/></svg></div>
                 <div style="flex:1;">
-                  <div class="card-text">${renderRichText(p.text || p.title || '')}</div>
+                  <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+                    <span>${renderRichText(p.text || p.title || '')}</span>
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                  </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
               </div>
@@ -1956,8 +2120,8 @@
         if (s.syntax) {
           html += `
             <div class="syntax-bar">
-              <span style="font-weight:700; color:var(--text-muted); font-size:19px;">Sintaxis:</span>
-              <code class="t-cmd" style="font-size:21px;">${escapeHTML(s.syntax)}</code>
+              <span style="font-weight:700; color:var(--text-muted); font-size:24px;">Sintaxis:</span>
+              <code class="t-cmd" style="font-size:26px;">${escapeHTML(s.syntax)}</code>
             </div>
           `;
         }
@@ -1988,7 +2152,10 @@
               <div class="concept-card">
                 <div class="icon-box"><svg class="ic ic-md"><use href="#i-${p.icon || 'check'}"/></svg></div>
                 <div style="flex:1;">
-                  <div class="card-text">${renderRichText(p.text || p.title || '')}</div>
+                  <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+                    <span>${renderRichText(p.text || p.title || '')}</span>
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                  </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
               </div>
@@ -2064,8 +2231,11 @@
           }
         }
 
-        // Directivas o Viñetas explicativas (points)
-        const pointsList = s.points || s.directives || [];
+        // Directivas o Viñetas explicativas (points o sections)
+        const pointsList = s.points || s.directives || (s.sections ? s.sections.map(sec => ({
+          text: sec.name || sec.title || '',
+          detail: sec.desc || sec.detail || ''
+        })) : []);
         if (pointsList.length > 0) {
           html += `<div class="concept-grid">`;
           pointsList.forEach(p => {
@@ -2219,12 +2389,12 @@
             html += `
               <div class="concept-card" style="position:relative; display:flex; flex-direction:column; justify-content:space-between; border-left:6px solid var(--primary);">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-                  <span style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;">${st.num || idx + 1}</span>
+                  <span style="width:38px; height:38px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:22px;">${st.num || idx + 1}</span>
                   <div class="icon-box" style="margin:0;"><svg class="ic ic-md"><use href="#i-${st.icon || 'arrow-right'}"/></svg></div>
                 </div>
                 <div>
-                  <div style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
-                  <div style="font-size:18px; color:var(--text-muted); line-height:1.4;">${renderRichText(sdesc)}</div>
+                  <div style="font-size:24px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
+                  <div style="font-size:22px; color:var(--text-muted); line-height:1.42;">${renderRichText(sdesc)}</div>
                 </div>
               </div>
             `;
@@ -2244,14 +2414,16 @@
         
         // Badge del manual oficial
         let pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
-        const scenarioText = s.scenario || s.problem || s.lead || s.desc || s.goal || '';
+        const exObj = (typeof s.exercise === 'object' && s.exercise !== null) ? s.exercise : null;
+        const scenarioText = s.scenario || s.problem || (exObj ? exObj.scenario : null) || s.lead || s.desc || s.goal || '';
+        const questionText = s.question || (exObj ? exObj.question : null) || '';
         if (!pdfRef && scenarioText) {
           const m = scenarioText.match(/P[áa]gina\s+oficial\s+(\d+(?:[–-]\d+)?)/i);
           if (m) pdfRef = m[1];
         }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:22px;">
               <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
             </span>
           </div>
@@ -2259,9 +2431,10 @@
 
         // Planteamiento del problema (Escenario claro)
         html += `
-          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
-            <div>${renderRichText(scenarioText)}</div>
+          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
+            <div style="font-size:21px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
+            <div style="white-space:pre-line;">${renderRichText(scenarioText)}</div>
+            ${questionText ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(questionText)}</div>` : ''}
           </div>
         `;
 
@@ -2271,7 +2444,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2279,7 +2452,7 @@
               const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(doText)}</span>
                 </div>
               `;
@@ -2288,7 +2461,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2300,38 +2473,39 @@
         // Botón docente interactivo para revelar resolución lineal y explicación
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-exercise" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-exercise" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar / Ocultar Resolución Guiada y Explicación
             </button>
-            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
         `;
 
         // Dentro del cuadro de resolución: pasos resueltos y comandos
         if (steps.length > 0) {
-          html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
+          html += `<div style="font-size:22px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
             const doText = st.action || st.do || st.task || st.step || '';
             const lookText = st.command || st.look || st.cmd || st.code || '';
-            const reasonText = st.reason || st.explain || '';
+            const reasonText = st.reason || st.explain || (st.expected ? `<strong>Resultado esperado:</strong> ${st.expected}` : '');
             html += `
               <div class="exercise-step-row" style="width:100%; display:flex; flex-direction:column; gap:6px; padding:8px 0; border-bottom:1px dashed #BBF7D0;">
                 <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
                   <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
                   ${lookText ? `<code class="exercise-sol-code">${escapeHTML(lookText)}</code>` : ''}
                 </div>
-                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
+                ${reasonText ? `<div style="font-size:22px; color:var(--text-muted); line-height:1.4; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
         }
 
         // Explicación de la solución ("Por qué")
-        const solText = s.solution?.explain || s.solution?.text || (typeof s.solution === 'string' ? s.solution : '');
+        const rawSol = s.solution || (exObj ? exObj.solution : null) || s.explanation || '';
+        const solText = rawSol?.explain || rawSol?.text || (typeof rawSol === 'string' ? rawSol : '');
         if (solText) {
           html += `
-            <div style="margin-top:6px; line-height:1.45;">
-              <strong style="color:var(--success-ink);">Por qué se resuelve así (Explicación docente):</strong><br>
-              <div style="margin-top:4px;">${renderRichText(solText)}</div>
+            <div style="margin-top:6px; line-height:1.5; font-size:19px;">
+              <strong style="color:var(--success-ink); font-size:20px;">Por qué se resuelve así (Explicación docente):</strong><br>
+              <div style="margin-top:6px; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</div>
             </div>
           `;
         }
@@ -2346,6 +2520,11 @@
         
         // Badge del manual oficial
         const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
+        const chObj = (typeof s.challenge === 'object' && s.challenge !== null) ? s.challenge : null;
+        const scenario = s.scenario || (chObj ? chObj.scenario : null) || s.prompt || s.lead || '';
+        const question = s.question || (chObj ? chObj.question : null) || s.task || '';
+        const goalText = s.goal || (chObj ? chObj.goal : null) || '';
+        const hintText = s.hint || (chObj && chObj.hints ? (Array.isArray(chObj.hints) ? chObj.hints.join(' | ') : chObj.hints) : '');
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span class="ref-badge" style="font-weight:700; color:var(--warning-ink); background:var(--warning-soft); border-color:#FCD34D; font-size:19px;">
@@ -2355,68 +2534,151 @@
         `;
 
         // Enunciado y Escenario del reto
-        const scenario = s.scenario || s.prompt || s.lead || '';
-        const question = s.question || s.task || '';
         html += `
-          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:23px; font-weight:600; line-height:1.45; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
-            <div>${renderRichText(scenario)}</div>
-            ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border);">${renderRichText(question)}</div>` : ''}
+          <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
+            <div style="font-size:21px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
+            <div style="white-space:pre-line;">${renderRichText(scenario)}</div>
+            ${goalText ? `<div style="margin-top:10px; font-size:22px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
+            ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(question)}</div>` : ''}
           </div>
         `;
 
-        if (s.hint) {
+        // Pasos o tareas guiadas del reto (si existen)
+        const steps = s.steps || (chObj ? chObj.steps : []) || [];
+        const tasks = s.tasks || (chObj ? chObj.tasks : []) || [];
+        if (steps.length > 0 || tasks.length > 0) {
+          html += `
+            <div style="margin-bottom:16px;">
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+          `;
+          if (steps.length > 0) {
+            steps.forEach((st, idx) => {
+              const doText = st.action || st.do || st.task || st.step || '';
+              const titleText = (st.step && st.action && st.step !== st.action) ? st.step : `Paso ${idx + 1}`;
+              html += `
+                <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; justify-content:space-between; gap:16px;">
+                  <div style="display:flex; align-items:center; gap:12px;">
+                    <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
+                    <span>${renderRichText(titleText)}</span>
+                  </div>
+                  ${(st.action && st.step !== st.action) ? `<code style="font-size:22px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
+                </div>
+              `;
+            });
+          } else {
+            tasks.forEach((t, idx) => {
+              html += `
+                <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span>${renderRichText(t)}</span>
+                </div>
+              `;
+            });
+          }
+          html += `</div></div>`;
+        }
+
+        // Si el reto contiene opciones interactivas
+        if (s.options && Array.isArray(s.options) && s.options.length > 0) {
+          html += `<div class="quiz-options" style="margin-bottom:16px;">`;
+          s.options.forEach((opt, oidx) => {
+            const optLetter = opt.opt || String.fromCharCode(65 + oidx);
+            const optText = opt.text || opt;
+            const isCorrect = !!opt.correct;
+            html += `
+              <button class="quiz-btn challenge-opt-btn" onclick="this.classList.toggle('${isCorrect ? 'correct' : 'incorrect'}');">
+                <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
+                <span>${renderRichText(optText)}</span>
+              </button>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        if (hintText) {
           html += `
             <div class="callout-box callout-info" style="margin-bottom:16px;">
               <svg class="ic ic-md"><use href="#i-help-circle"/></svg>
-              <span><strong>Pista para los alumnos:</strong> ${renderRichText(s.hint)}</span>
+              <span><strong>Pistas para resolver:</strong> ${renderRichText(hintText)}</span>
             </div>
           `;
         }
 
         // Botón docente interactivo
-        const solText = s.solution?.explain || s.solution?.text || (typeof s.solution === 'string' ? s.solution : '');
+        const rawSol = s.solution || s.outcome || (chObj ? (chObj.solution || chObj.outcome) : null) || s.explanation || '';
+        const solText = rawSol?.explain || rawSol?.text || rawSol?.solution || (typeof rawSol === 'string' ? rawSol : '');
+        const solTerminal = s.solution?.terminal || s.outcome?.terminal || (chObj ? (chObj.solution?.terminal || chObj.outcome?.terminal) : null) || null;
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-challenge" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar Solución y Razonamiento Docente
             </button>
-            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
               <div style="display:flex; align-items:flex-start; gap:12px;">
-                <svg class="ic ic-md" style="margin-top:2px; flex:none;"><use href="#i-circle-check"/></svg>
-                <div style="line-height:1.45;"><strong>Solución y Razonamiento:</strong><br><span style="margin-top:4px; display:inline-block;">${renderRichText(solText)}</span></div>
+                <svg class="ic ic-md" style="margin-top:2px; flex:none; color:var(--success);"><use href="#i-circle-check"/></svg>
+                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:22px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
               </div>
-              ${s.solution?.terminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(s.solution.terminal, 'solución')}</div>` : ''}
+              ${solTerminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(solTerminal, 'solución')}</div>` : ''}
             </div>
           </div>
         `;
       } else if (s.type === 'review') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
-        const qText = s.q || s.question || s.prompt || 'Pregunta de repaso:';
-        html += `<div style="font-size:32px; font-weight:700; margin-bottom:24px;">${renderRichText(qText)}</div>`;
+        const lead = s.lead || s.desc || '';
+        if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
+
+        if (s.traps && Array.isArray(s.traps) && s.traps.length > 0) {
+          html += `<div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:18px; margin-top:18px;">`;
+          s.traps.forEach(trap => {
+            html += `
+              <div style="background:var(--surface); border:2px solid #FCD34D; border-left:8px solid #F59E0B; border-radius:14px; padding:18px 22px; display:flex; flex-direction:column; gap:8px;">
+                <div style="font-size:21px; font-weight:800; color:#92400E; display:flex; align-items:center; gap:10px;">
+                  <svg class="ic ic-md" style="color:#D97706;"><use href="#i-triangle-alert"/></svg>
+                  <span>${renderRichText(trap.title || '')}</span>
+                </div>
+                <div style="font-size:18px; color:var(--text); line-height:1.45;">
+                  ${renderRichText(trap.desc || trap.detail || '')}
+                </div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        } else {
+        const qObj = (typeof s.question === 'object' && s.question !== null) ? s.question : null;
+        const qText = s.q || (qObj ? qObj.text : s.question) || s.prompt || 'Pregunta de repaso:';
+        html += `<div style="font-size:30px; font-weight:700; margin-bottom:24px; color:var(--text);">${renderRichText(qText)}</div>`;
         html += `<div class="quiz-options">`;
-        const options = s.options || [];
-        options.forEach((opt, oidx) => {
+        const rawOptions = s.options || (qObj ? qObj.options : []);
+        let ansIdx = (s.answer !== undefined) ? s.answer : 0;
+        if (qObj && qObj.options && Array.isArray(qObj.options)) {
+          const foundCorrect = qObj.options.findIndex(o => (typeof o === 'object' && o.correct));
+          if (foundCorrect !== -1) ansIdx = foundCorrect;
+        }
+        const expl = s.why || s.explanation || (qObj ? qObj.explanation : '');
+        rawOptions.forEach((opt, oidx) => {
+          const optText = (typeof opt === 'object' && opt !== null) ? opt.text : opt;
           html += `
-            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')">
-              <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
-              <span>${renderRichText(opt)}</span>
+            <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${ansIdx}, '${escapeQuotes(expl)}')">
+              <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
+              <span>${renderRichText(optText)}</span>
             </button>
           `;
         });
         html += `</div>`;
         html += `
           <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
-            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${s.answer}, '${escapeQuotes(s.why || s.explanation || '')}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:22px; padding:12px 24px; cursor:pointer;">
               <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
             </button>
           </div>
-          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:23px; line-height:1.5;"></div>
         `;
+        }
       } else if (s.type === 'flashcards') {
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         html += `<div class="slide-lead">Haz clic en la tarjeta para voltearla o pulsa las flechas para avanzar:</div>`;
-        const deck = s.deck || s.cards || [];
+        const deck = s.deck || s.cards || s.flashcards || [];
         const firstFront = deck[0]?.front || deck[0]?.q || '';
         const firstBack = deck[0]?.back || deck[0]?.a || '';
         html += `
@@ -2443,7 +2705,8 @@
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
         html += `<div class="concept-grid">`;
-        const items = s.takeaways || s.items || s.points || s.cards || [];
+        const sumObj = (typeof s.summary === 'object' && s.summary !== null) ? s.summary : null;
+        const items = s.takeaways || s.items || s.points || s.cards || (sumObj ? (sumObj.takeaways || sumObj.items || sumObj.points || sumObj.cards) : []) || [];
         items.forEach((item, idx) => {
           let cardTitle = '';
           let cardDesc = '';
@@ -2477,7 +2740,7 @@
         if (top3.length > 0) {
           html += `
             <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
-              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <div style="font-weight:800; font-size:23px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
                 <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
               </div>
               <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
@@ -2486,8 +2749,8 @@
             if (typeof t === 'string') {
               html += `
                 <div class="summary-cmd-card" style="display:flex; align-items:center; justify-content:space-between;">
-                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
-                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  <code class="t-cmd" style="font-size:22px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                 </div>
               `;
             } else {
@@ -2496,10 +2759,10 @@
               html += `
                 <div class="summary-cmd-card">
                   <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
-                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                    <code class="t-cmd" style="font-size:22px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                   </div>
-                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                  ${desc ? `<div style="font-size:21px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
                 </div>
               `;
             }
@@ -2523,7 +2786,7 @@
                   <div class="sp-desc">${renderRichText(pDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Web →
               </a>
             </div>
@@ -2543,7 +2806,7 @@
                 <div class="sp-desc" style="color:var(--text);">Explora visualmente los comandos, rutas y preguntas trampa de examen conectadas a este subtema en la red interactiva.</div>
               </div>
             </div>
-            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
               Ver en Grafo Interactivo →
             </a>
           </div>
@@ -2565,7 +2828,7 @@
                   <div class="sg-desc">${renderRichText(gpDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Global →
               </a>
             </div>
@@ -2625,7 +2888,13 @@
     // Navegación por teclado
     window.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      if (e.key === 'ArrowDown') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: 140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowUp') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: -140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         e.preventDefault();
         nextStep();
       } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
@@ -2781,7 +3050,7 @@
         content += `<div style="margin-bottom:8px; font-size:20px; line-height:1.4;">${escapeHTML(descText)}</div>`;
       }
       if (example) {
-        content += `<div style="font-family:monospace; font-size:18px; background:var(--surface-alt); padding:6px 10px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
+        content += `<div style="font-family:monospace; font-size:20px; background:var(--surface-alt); padding:8px 12px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
       }
       popover.innerHTML = content || '<div>Sin detalles adicionales</div>';
       const rect = e.currentTarget.getBoundingClientRect();
@@ -2886,7 +3155,7 @@
     }
     function updateCardView() {
       const s = SLIDES[currentSlideIdx];
-      const deck = s.deck || [];
+      const deck = s.deck || s.cards || s.flashcards || [];
       const c = deck[currentCardIdx];
       document.getElementById('fc-inner').classList.remove('flipped');
       document.getElementById('fc-front-text').textContent = c?.front || '';
@@ -2894,7 +3163,7 @@
       document.getElementById('fc-counter').textContent = `${currentCardIdx + 1} / ${deck.length}`;
     }
     function nextCard() {
-      const deck = SLIDES[currentSlideIdx].deck || [];
+      const deck = SLIDES[currentSlideIdx].deck || SLIDES[currentSlideIdx].cards || (SLIDES[currentSlideIdx] && SLIDES[currentSlideIdx].flashcards) || [];
       if (currentCardIdx < deck.length - 1) {
         currentCardIdx++;
         updateCardView();
@@ -2935,8 +3204,8 @@
         item.style.color = 'var(--text)';
         item.style.cursor = 'pointer';
         item.innerHTML = `
-          <div style="font-weight:700; font-size:16px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
-          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
+          <div style="font-weight:700; font-size:19px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
+          <div style="font-size:21px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
         `;
         item.onclick = () => {
           closeModals();

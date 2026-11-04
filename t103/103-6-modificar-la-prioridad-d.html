@@ -287,14 +287,15 @@
     [data-theme="dark"] .summary-global-box .sg-icon { background: #78350F !important; color: #FDE047 !important; }
 
     .exercise-sol-code {
-      font-size: 19px;
+      font-size: 23px;
       background: #FFFFFF;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 8px;
       border: 1px solid #86EFAC;
       color: #166534;
       font-family: monospace;
       font-weight: 700;
+      line-height: 1.48;
     }
     .summary-cmd-card {
       background: #FFFFFF;
@@ -313,8 +314,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-practice-box .sp-title { font-size: 20px; font-weight: 800; color: #166534; }
-    .summary-practice-box .sp-desc { font-size: 16px; color: #374151; }
+    .summary-practice-box .sp-title { font-size: 25px; font-weight: 800; color: #166534; }
+    .summary-practice-box .sp-desc { font-size: 21px; color: #374151; line-height: 1.45; }
     .summary-practice-box .sp-icon { width: 48px; height: 48px; border-radius: 12px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; flex: none; }
     .summary-global-box {
       margin-top: 12px;
@@ -327,8 +328,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-global-box .sg-title { font-size: 20px; font-weight: 800; color: #92400E; }
-    .summary-global-box .sg-desc { font-size: 16px; color: #78350F; }
+    .summary-global-box .sg-title { font-size: 25px; font-weight: 800; color: #92400E; }
+    .summary-global-box .sg-desc { font-size: 21px; color: #78350F; line-height: 1.45; }
     .summary-global-box .sg-icon { width: 48px; height: 48px; border-radius: 12px; background: #FEF3C7; color: #92400E; display: flex; align-items: center; justify-content: center; flex: none; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -540,32 +541,33 @@
     /* Área de contenido del slide (1680 x 870 aprox) */
     .slide-body {
       flex: 1;
-      padding: 30px 64px;
+      padding: 28px 52px 48px 52px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       position: relative;
       overflow-y: auto;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    .slide-body::-webkit-scrollbar { width: 8px; }
+    .slide-body::-webkit-scrollbar { width: 12px; }
     .slide-body::-webkit-scrollbar-track { background: transparent; }
-    .slide-body::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-    .slide-body::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+    .slide-body::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 6px; }
+    .slide-body::-webkit-scrollbar-thumb:hover { background: #64748B; }
 
     .slide-title {
-      font-size: 46px;
+      font-size: 48px;
       font-weight: 800;
       line-height: 1.15;
       color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
     }
     .slide-lead {
-      font-size: 26px;
-      line-height: 1.35;
+      font-size: 29px;
+      line-height: 1.38;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 500;
     }
 
@@ -598,21 +600,22 @@
       justify-content: center;
       flex: none;
     }
-    .concept-card .card-text { font-size: 24px; line-height: 1.35; font-weight: 600; color: var(--text); }
-    .concept-card .card-detail { font-size: 19px; color: var(--text-muted); margin-top: 4px; font-weight: 400; line-height: 1.35; }
+    .concept-card .card-text { font-size: 27px; line-height: 1.35; font-weight: 700; color: var(--text); }
+    .concept-card .card-detail { font-size: 23px; color: var(--text-muted); margin-top: 6px; font-weight: 400; line-height: 1.42; }
 
     /* Cajas Recuerda / Trampa / Callouts */
     .callout-box {
       margin-top: 10px;
-      padding: 10px 18px;
+      padding: 14px 22px;
       border-radius: 12px;
-      display: inline-flex;
+      display: flex;
+      width: 100%;
       align-items: center;
       gap: 14px;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
       border: 2px solid transparent;
-      line-height: 1.35;
+      line-height: 1.4;
     }
     .callout-warning {
       background: var(--warning-soft);
@@ -633,18 +636,18 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 24px !important;
-      height: 24px !important;
-      min-width: 24px !important;
-      max-width: 24px !important;
-      min-height: 24px !important;
-      max-height: 24px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      max-width: 30px !important;
+      min-height: 30px !important;
+      max-height: 30px !important;
       border-radius: 50% !important;
       background: #2563EB;
       color: #FFFFFF !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
       font-weight: 800 !important;
-      font-size: 13px !important;
+      font-size: 17px !important;
       line-height: 1 !important;
       vertical-align: middle !important;
       text-align: center !important;
@@ -678,7 +681,7 @@
       border-bottom: 1px solid #E2E8F0;
     }
     .slide-glossary-box .gl-tag {
-      font-size: 12px;
+      font-size: 19px;
       font-weight: 800;
       color: #2563EB;
       text-transform: uppercase;
@@ -689,7 +692,7 @@
     }
     .slide-glossary-box .gl-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 10px;
       align-items: stretch;
     }
@@ -712,11 +715,11 @@
     }
     .slide-glossary-box .gl-badge {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 12.5px;
+      font-size: 21px;
       font-weight: 700;
       color: #1D4ED8;
       background: #EFF6FF;
-      padding: 2px 8px;
+      padding: 4px 10px;
       border-radius: 5px;
       border: 1px solid #BFDBFE;
       display: inline-block;
@@ -725,13 +728,13 @@
     }
     .slide-glossary-box .gl-def {
       color: #334155;
-      font-size: 13.5px;
+      font-size: 21px;
       line-height: 1.45;
       flex: 1;
     }
     .slide-glossary-box .gl-def code {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
+      font-size: 20px;
       background: #F1F5F9;
       padding: 1px 4px;
       border-radius: 4px;
@@ -749,14 +752,14 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px 12px;
-      font-size: 13.5px;
+      font-size: 21px;
       color: var(--text-muted);
       line-height: 1.35;
     }
     .slide-glossary-strip .gl-title {
       font-weight: 800;
       color: var(--primary);
-      font-size: 12px;
+      font-size: 19px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       display: inline-flex;
@@ -775,7 +778,7 @@
     .slide-glossary-strip .gl-term {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-weight: 700;
-      font-size: 12.5px;
+      font-size: 21px;
       color: #1D4ED8;
     }
 
@@ -885,7 +888,7 @@
       align-items: center;
       justify-content: space-between;
       color: #475569;
-      font-size: 18px;
+      font-size: 21px;
       font-weight: 700;
     }
     .term-copy-btn, .terminal-copy-btn {
@@ -897,7 +900,7 @@
       border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -912,14 +915,14 @@
       transform: scale(0.96);
     }
     .term-code {
-      padding: 14px 20px;
+      padding: 18px 24px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: clamp(16px, 1.2vw, 22px);
-      line-height: 1.38;
+      font-size: 23px;
+      line-height: 1.48;
       color: #0F172A;
       white-space: pre-wrap;
       user-select: text;
-      max-height: 340px;
+      max-height: none;
       overflow-y: auto;
     }
     .term-code::-webkit-scrollbar { width: 6px; }
@@ -957,7 +960,7 @@
       flex-shrink: 0;
     }
     .terminal-title {
-      font-size: 14px;
+      font-size: 19px;
       font-weight: 700;
       color: #94A3B8;
       font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
@@ -978,13 +981,13 @@
       color: #38BDF8;
     }
     .terminal-body {
-      padding: 16px 20px;
+      padding: 18px 24px;
       margin: 0;
       background: #0F172A;
       color: #E2E8F0;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
-      font-size: 15.5px;
-      line-height: 1.55;
+      font-size: 22px;
+      line-height: 1.5;
       overflow-x: auto;
       white-space: pre-wrap;
     }
@@ -1016,14 +1019,14 @@
       margin-right: 22px;
     }
     .mini-term-title {
-      font-size: 12px;
+      font-size: 18px;
       color: #94A3B8;
       font-weight: 700;
     }
     .mini-term-body {
-      padding: 10px 14px;
-      font-size: 14.5px;
-      line-height: 1.55;
+      padding: 14px 18px;
+      font-size: 21px;
+      line-height: 1.5;
       color: #E2E8F0;
       background: #0F172A;
     }
@@ -1072,7 +1075,7 @@
       border-radius: 8px;
       border: 1.5px solid var(--border);
       background: var(--surface-alt);
-      font-size: 18px;
+      font-size: 22px;
       color: var(--text);
       cursor: pointer;
       transition: all 0.15s ease;
@@ -1100,30 +1103,31 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
+      padding: 8px 18px;
       background: #FFFFFF;
       border: 2px solid var(--control-border);
       border-radius: 10px;
-      font-size: 19px;
+      font-size: 23px;
       font-weight: 600;
       color: var(--text);
       cursor: pointer;
       transition: transform 0.1s, border-color 0.15s;
     }
-    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 21px; font-weight: 700; }
+    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 25px; font-weight: 700; }
 
     /* Sintaxis y Directivas */
     .syntax-bar {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 16px;
+      padding: 12px 20px;
       background: var(--surface-alt);
       border: 2px solid var(--border-strong);
       border-radius: 10px;
       margin-bottom: 10px;
-      font-size: 21px;
+      font-size: 24px;
     }
+    .syntax-bar code.t-cmd { font-size: 26px; }
     .directives-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1139,15 +1143,16 @@
     }
     .directive-key {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 700;
       color: #1D4ED8;
       margin-bottom: 4px;
+      line-height: 1.42;
     }
     .directive-desc {
-      font-size: 19px;
+      font-size: 23px;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.42;
     }
 
     /* Tablas (≤5x4) */
@@ -1163,22 +1168,24 @@
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(15px, 1.05vw, 18.5px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(15.5px, 1.1vw, 19.5px);
+      font-size: 24px;
+      line-height: 1.42;
     }
     table.slide-table td {
-      padding: 9px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
+      font-size: 23px;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: var(--warning-soft); }
@@ -1199,24 +1206,26 @@
     table.slide-matrix {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(16px, 1.15vw, 20px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-matrix th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 12px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(17px, 1.2vw, 21px);
+      font-size: 24px;
+      line-height: 1.42;
       letter-spacing: -0.01em;
     }
     table.slide-matrix td {
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
       vertical-align: middle;
+      font-size: 23px;
     }
     table.slide-matrix tr:last-child td { border-bottom: none; }
     table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
@@ -1231,7 +1240,7 @@
       border: 2px solid var(--border-strong);
       border-radius: 14px;
       background: #FFFFFF;
-      font-size: 26px;
+      font-size: 27px;
       font-weight: 600;
       color: var(--text);
       text-align: left;
@@ -1248,7 +1257,7 @@
       margin-top: 20px;
       padding: 18px 24px;
       border-radius: 14px;
-      font-size: 24px;
+      font-size: 25px;
       line-height: 1.4;
       display: none;
     }
@@ -1346,7 +1355,7 @@
       font-weight: 700;
     }
     .panel-body { padding: 24px; font-size: 20px; line-height: 1.5; color: var(--text); }
-    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 18px; }
+    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 20px; }
 
     /* Modales y Popovers */
     .modal-overlay {
@@ -1737,7 +1746,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "103.6", "cat": "proc", "type": "cover", "title": "Modificar la prioridad de ejecución de procesos", "subtitle": "Multitarea preventiva, escala de niceness (-20 a 19), ps -el, top, nice y renice (Modo Examen)", "ref": "345-346", "pdf": {"manual": "A", "pages": [345, 346], "figure": null}, "coverage": ["103.6-OBJ-001", "103.6-OBJ-002"], "meta": {"peso": 2, "paginas": "345–360", "duracion": "30 min"}, "icon": "sliders", "notes": "Iniciamos el subtema 103.6 (peso 2). En servidores de producción no todos los procesos tienen la misma urgencia: una base de datos crítica debe tener preferencia sobre una copia de seguridad pesada. Aprenderemos cómo el kernel planifica la CPU y cómo manipular la escala de 'amabilidad' (niceness) mediante nice y renice."}, {"id": 2, "section": "103.6", "cat": "proc", "type": "concept", "title": "Multitarea Preventiva y el Planificador del Kernel", "lead": "¿Cómo reparte Linux la CPU entre cientos de procesos sin que ninguno congele el sistema?", "ref": "346-348", "pdf": {"manual": "A", "pages": [346, 347, 348], "figure": null}, "coverage": ["103.6-CON-001"], "points": [{"icon": "cpu", "text": "1. Multitarea Preventiva (Preemptive)", "detail": "🎯 El kernel tiene el control supremo. Asigna a cada proceso una pequeña cuota de tiempo (time slice en ms). Cuando expira, desaloja al proceso por la fuerza para dar paso al siguiente."}, {"icon": "shuffle", "text": "2. Planificador CFS (Completely Fair Scheduler)", "detail": "🎯 Algoritmo de 'reparto equitativo': calcula dinámicamente qué proceso debe ejecutarse según el tiempo de CPU consumido y su factor de prioridad asignado."}, {"icon": "sliders", "text": "3. Niceness: La Palanca del Administrador", "detail": "🎯 Permite al administrador graduar el peso de un proceso: los procesos más 'amables' reciben cuotas menores y los 'egoístas' acaparan mayor porcentaje de CPU."}], "remember": "🎯 Clave de Examen: Linux utiliza multitarea preventiva: el kernel decide cuándo expulsar un proceso de la CPU; 'nice' y 'renice' son las herramientas para influir en esa decisión.", "notes": "La alternancia entre procesos es tan rápida (cientos de veces por segundo) que da la ilusión de ejecución simultánea continua.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:14px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚙️ Arquitectura del Planificador CFS: ¿Cómo reparte la CPU el Kernel?</span>\n    <span style=\"font-size:11px; background:#EEF2FF; color:#4338CA; padding:2px 8px; border-radius:12px; font-weight:700;\">Núcleo Linux</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; font-size:11.5px;\">\n    <!-- 1. Time Slice -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:9px 11px;\">\n      <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;\">\n        <strong style=\"color:#1E40AF; font-size:12.5px;\">1. Cuotas de Tiempo (Time Slice)</strong>\n        <span style=\"background:#2563EB; color:#FFF; font-size:9.5px; font-weight:800; padding:1px 5px; border-radius:3px;\">Milisegundos</span>\n      </div>\n      <div style=\"color:#1E3A8A; line-height:1.35;\">\n        El kernel concede ráfagas de tiempo breves a cada tarea activa en la cola de ejecución.\n      </div>\n    </div>\n\n    <!-- 2. Desalojo -->\n    <div style=\"background:#FEF2F2; border:1.5px solid #EF4444; border-radius:8px; padding:9px 11px;\">\n      <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;\">\n        <strong style=\"color:#991B1B; font-size:12.5px;\">2. Desalojo Preventivo</strong>\n        <span style=\"background:#DC2626; color:#FFF; font-size:9.5px; font-weight:800; padding:1px 5px; border-radius:3px;\">Sin Bloqueos</span>\n      </div>\n      <div style=\"color:#7F1D1D; line-height:1.35;\">\n        Si un proceso intenta acaparar el 100% de la CPU, el kernel lo expulsa y rota al siguiente.\n      </div>\n    </div>\n\n    <!-- 3. Niceness -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:9px 11px;\">\n      <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;\">\n        <strong style=\"color:#15803D; font-size:12.5px;\">3. Factor Niceness (NI)</strong>\n        <span style=\"background:#16A34A; color:#FFF; font-size:9.5px; font-weight:800; padding:1px 5px; border-radius:3px;\">Ajuste Admin</span>\n      </div>\n      <div style=\"color:#14532D; line-height:1.35;\">\n        Valores negativos (-20) reciben cuotas gigantes; valores positivos (+19) reciben sobras.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 3, "section": "103.6", "cat": "proc", "type": "diagram", "title": "El Espectro de Niceness: De -20 (Máxima) a +19 (Mínima)", "lead": "La escala de amabilidad (niceness) es contraintuitiva: menor número implica mayor preferencia de CPU:", "ref": "348-350", "pdf": {"manual": "A", "pages": [348, 349, 350], "figure": null}, "coverage": ["103.6-CON-002"], "points": [{"icon": "zap", "text": "Valor -20: MÁXIMA Prioridad (Menos amable)", "detail": "🎯 El proceso es muy egoísta ('poco amable' con los demás). Exige la mayor cuota de CPU posible. Se reserva para servicios ultra-críticos de tiempo real."}, {"icon": "minus-circle", "text": "Valor 0: Prioridad Estándar por Defecto", "detail": "🎯 Todos los procesos ordinarios del sistema nacen con un valor de niceness fijado en 0 por defecto."}, {"icon": "coffee", "text": "Valor +19: MÍNIMA Prioridad (Más amable)", "detail": "🎯 El proceso es extremadamente cortés y generoso ('muy amable'). Solo consume CPU cuando ningún otro proceso la está utilizando (ideal para backups, renders o minería)."}], "remember": "🎯 Regla Mnemotécnica de Oro: Cuanto más negativo sea el número (-20), MÁS prioridad tiene; cuanto más positivo (+19), MENOS prioridad tiene.", "notes": "Haz que los alumnos repitan: 'Nice alto = prioridad baja; Nice bajo = prioridad alta'.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:14px; padding:18px 24px; margin:14px 0;\">\n  <div style=\"font-size:15.5px; font-weight:800; color:var(--text); margin-bottom:14px;\">\n    ⚡ El Gradiente de Amabilidad con la CPU en Linux:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:12.5px; text-align:center; position:relative;\">\n    <!-- -20 a -1 (Root) -->\n    <div style=\"background:#FEF2F2; border:2px solid #EF4444; border-radius:10px; padding:12px; flex:1.2;\">\n      <div style=\"background:#DC2626; color:#FFF; font-weight:800; font-size:12px; padding:2px 6px; border-radius:4px; margin-bottom:6px;\">\n        -20 a -1 (ALTA PRIORIDAD)\n      </div>\n      <strong style=\"color:#991B1B; font-size:14px;\">Menos Amable (Egoísta)</strong><br>\n      <span style=\"color:#7F1D1D; font-size:11.5px;\">Exige máxima cuota de CPU.</span><br>\n      <span style=\"background:#FEE2E2; color:#991B1B; padding:2px 6px; border-radius:4px; font-size:11px; font-weight:800; display:inline-block; margin-top:4px;\">\n        🔒 SOLO ROOT\n      </span>\n    </div>\n\n    <!-- Flecha izquierda -->\n    <span style=\"font-size:18px; color:#DC2626; font-weight:900; margin:0 8px;\">◀</span>\n\n    <!-- 0 (Defecto) -->\n    <div style=\"background:#EFF6FF; border:2px solid #3B82F6; border-radius:10px; padding:12px; flex:1;\">\n      <div style=\"background:#2563EB; color:#FFF; font-weight:800; font-size:12px; padding:2px 6px; border-radius:4px; margin-bottom:6px;\">\n        0 (POR DEFECTO)\n      </div>\n      <strong style=\"color:#1E40AF; font-size:14px;\">Prioridad Estándar</strong><br>\n      <span style=\"color:#475569; font-size:11.5px;\">Todo proceso nace en 0.</span><br>\n      <span style=\"color:#64748B; font-size:11px;\">Equilibrio normal</span>\n    </div>\n\n    <!-- Flecha derecha -->\n    <span style=\"font-size:18px; color:#16A34A; font-weight:900; margin:0 8px;\">▶</span>\n\n    <!-- +1 a +19 (Todos) -->\n    <div style=\"background:#F0FDF4; border:2px solid #22C55E; border-radius:10px; padding:12px; flex:1.2;\">\n      <div style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:12px; padding:2px 6px; border-radius:4px; margin-bottom:6px;\">\n        +1 a +19 (BAJA PRIORIDAD)\n      </div>\n      <strong style=\"color:#15803D; font-size:14px;\">Más Amable (Generoso)</strong><br>\n      <span style=\"color:#14532D; font-size:11.5px;\">Cede CPU voluntariamente.</span><br>\n      <span style=\"background:#DCFCE7; color:#15803D; padding:2px 6px; border-radius:4px; font-size:11px; font-weight:800; display:inline-block; margin-top:4px;\">\n        👥 CUALQUIER USUARIO\n      </span>\n    </div>\n  </div>\n\n  <div style=\"margin-top:14px; padding:8px 14px; background:#F8FAFC; border-left:4px solid #3B82F6; border-radius:4px; font-size:13px; color:#1E3A8A;\">\n    🎯 <strong>MNEMOTECNIA DE ORO:</strong> 'Nice alto = prioridad baja' (eres muy educado, dejas pasar a los demás); 'Nice bajo/negativo = prioridad alta' (eres impaciente y acaparas la CPU).\n  </div>\n</div>\n"}, {"id": 4, "section": "103.6", "cat": "proc", "type": "concept", "title": "Mapeo de Escalas: Kernel Priority (PR) frente a Niceness (NI)", "lead": "¿Por qué en 'top' se ven números como 20 o 0 mientras en 'ps' se ven números de -20 a 19?", "ref": "350-352", "pdf": {"manual": "A", "pages": [350, 351, 352], "figure": null}, "coverage": ["103.6-CON-003"], "headers": ["Concepto", "Escala de Valores", "Fórmula de Mapeo Interno", "Interpretación en Examen"], "rows": [["Niceness (NI)", "🎯 -20 a +19 (40 niveles)", "Valor fijado por el usuario con nice / renice", "Escala de configuración del administrador."], ["Kernel Priority (PR)", "0 a 139 (140 niveles)", "🎯 Para procesos normales: PR = 20 + NI", "Escala interna que maneja el planificador del kernel."], ["Prioridad Normal (NI = 0)", "PR = 20 + 0 = 20", "nice = 0 -> PR = 20 en 'top'", "Prioridad estándar de cualquier programa al arrancar."], ["Máxima Prioridad (NI = -20)", "PR = 20 + (-20) = 0", "nice = -20 -> PR = 0 en 'top'", "Máxima preferencia de CPU en procesos no RT."], ["Mínima Prioridad (NI = 19)", "PR = 20 + 19 = 39", "nice = 19 -> PR = 39 en 'top'", "Mínima preferencia de CPU."], ["Tiempo Real (RT)", "0 a 99 (en kernel)", "Aparece como 'rt' o número negativo en top", "Procesos del kernel con prioridad superior a todo."]], "remember": "🎯 FÓRMULA SAGRADA DE EXAMEN: PR = 20 + NI. Si un proceso tiene nice de -5, en top su PR será 15 (20 + (-5)). Si tiene nice de 0, su PR será 20. Si tiene nice de +10, su PR será 30.", "notes": "Pregunta clásica: 'Un proceso muestra PR = 10 en top. ¿Cuál es su valor NI?'. Respuesta: NI = -10 (10 - 20 = -10).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:14px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>🧮 La Fórmula Matemática del Planificador: <code>PR = 20 + NI</code></span>\n    <span style=\"font-size:11px; background:#EFF6FF; color:#1D4ED8; padding:2px 8px; border-radius:12px; font-weight:700;\">Cálculo Directo LPIC-1</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; font-size:11.5px; text-align:center;\">\n    <!-- Normal -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:9px;\">\n      <span style=\"background:#2563EB; color:#FFF; font-weight:800; font-size:10px; padding:2px 6px; border-radius:4px;\">DEFECTO</span>\n      <div style=\"font-weight:800; color:#1E40AF; font-size:13px; margin:4px 0;\">NI = 0</div>\n      <div style=\"font-size:12px; color:#1E3A8A;\"><code>20 + 0 =</code> <strong>PR 20</strong></div>\n      <span style=\"color:#64748B; font-size:10.5px;\">Prioridad estándar</span>\n    </div>\n\n    <!-- Urgente -->\n    <div style=\"background:#FEF2F2; border:1.5px solid #F87171; border-radius:8px; padding:9px;\">\n      <span style=\"background:#EF4444; color:#FFF; font-weight:800; font-size:10px; padding:2px 6px; border-radius:4px;\">URGENTE</span>\n      <div style=\"font-weight:800; color:#991B1B; font-size:13px; margin:4px 0;\">NI = -5</div>\n      <div style=\"font-size:12px; color:#991B1B;\"><code>20 + (-5) =</code> <strong>PR 15</strong></div>\n      <span style=\"color:#B91C1C; font-size:10.5px;\">Atendido antes</span>\n    </div>\n\n    <!-- Máxima -->\n    <div style=\"background:#FEF2F2; border:2px solid #DC2626; border-radius:8px; padding:9px;\">\n      <span style=\"background:#DC2626; color:#FFF; font-weight:800; font-size:10px; padding:2px 6px; border-radius:4px;\">MÁXIMA (Root)</span>\n      <div style=\"font-weight:800; color:#991B1B; font-size:13px; margin:4px 0;\">NI = -20</div>\n      <div style=\"font-size:12px; color:#991B1B;\"><code>20 + (-20) =</code> <strong>PR 0</strong></div>\n      <span style=\"color:#991B1B; font-size:10.5px; font-weight:800;\">Tope procesos CFS</span>\n    </div>\n\n    <!-- Mínima -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:9px;\">\n      <span style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:10px; padding:2px 6px; border-radius:4px;\">MÍNIMA</span>\n      <div style=\"font-weight:800; color:#15803D; font-size:13px; margin:4px 0;\">NI = +19</div>\n      <div style=\"font-size:12px; color:#14532D;\"><code>20 + 19 =</code> <strong>PR 39</strong></div>\n      <span style=\"color:#15803D; font-size:10.5px;\">Máxima amabilidad</span>\n    </div>\n  </div>\n</div>\n", "points": [{"icon": "sliders", "text": "1. Niceness (NI) — La Escala de Usuario (-20 a +19)", "detail": "🎯 Es el valor de 40 niveles que el administrador manipula con 'nice' y 'renice'. Cuanto más negativo, mayor prioridad exige el proceso."}, {"icon": "cpu", "text": "2. Prioridad del Kernel (PR en top: 0 a 39)", "detail": "🎯 Es la escala interna que usa el planificador del kernel para ordenar la cola de CPU. Menor número PR = el proceso se atiende antes."}, {"icon": "zap", "text": "3. Procesos de Tiempo Real (RT)", "detail": "🎯 Prioridades críticas de hardware (0 a 99 en kernel). En 'top' aparecen con la etiqueta 'rt' o valores negativos, con preferencia absoluta sobre todo lo demás."}]}, {"id": 5, "section": "103.6", "cat": "proc", "type": "command", "title": "Inspección de Prioridades con ps: -l y Columnas a Medida", "lead": "Comandos clave y opciones exactas de 'ps' para auditar los valores NI y PRI en el sistema:", "ref": "352-354", "pdf": {"manual": "A", "pages": [352, 353, 354], "figure": null}, "coverage": ["103.6-CMD-001", "103.6-OPT-001"], "command": "ps -l | ps -el | ps -o pid,user,ni,pri,stat,cmd", "purpose": "Comprobar las columnas NI (Niceness) y PRI (Prioridad del kernel) y los indicadores de STAT", "terminal": {"title": "Caso Real: Comprobar prioridades de tareas en ejecución con formato a medida (-o)", "command": "ps -o pid,user,ni,pri,stat,cmd -C render,backup,bash", "lines": [{"t": "cmt", "v": "# Inspeccionamos PID, usuario, Niceness (NI), prioridad kernel (PRI) y modificadores (STAT):"}, {"t": "cmd", "v": "ps -o pid,user,ni,pri,stat,cmd -C render,backup,bash", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "  PID USER        NI  PRI STAT CMD\n14205 root        -5   15 S<   /usr/bin/render_urgente\n18940 sysadmin    15   35 SN   tar -czf /backup/logs.tar.gz /var/log\n28415 sysadmin     0   20 Ss+  -bash"}, {"t": "cmt", "v": "# Fíjate en STAT: '<' indica nice negativo (alta prioridad); 'N' indica nice positivo (baja prioridad)."}]}, "options": [{"flag": "ps -l (o ps -el)", "short": "Formato largo estándar", "desc": "🎯 Clave de Examen: Añade obligatoriamente las columnas 'PRI' (prioridad) y 'NI' (niceness)."}, {"flag": "ps -o <columnas>", "short": "Columnas personalizadas", "desc": "🎯 Permite seleccionar solo los campos que te interesan (ej: 'ps -o pid,ni,pri,cmd')."}, {"flag": "STAT: '<'", "short": "Alta prioridad", "desc": "🎯 Clave de Examen: El proceso tiene niceness negativo (not nice, acapara CPU)."}, {"flag": "STAT: 'N'", "short": "Baja prioridad", "desc": "🎯 Clave de Examen: El proceso tiene niceness positivo (nice, cortés con la CPU)."}], "remember": "🎯 Regla Mnemotécnica de Examen: 'ps -l' muestra PRI y NI; en 'ps aux', la columna STAT muestra '<' si el nice es negativo (alta prioridad) y 'N' si el nice es positivo (baja prioridad).", "notes": "Muestra a los alumnos que en ps -l tradicional, la escala PRI puede variar según la versión, pero NI siempre es el valor exacto de -20 a 19.", "syntax": "ps -l | ps -el | ps -o pid,ni,pri,cmd -C nginx"}, {"id": 6, "section": "103.6", "cat": "proc", "type": "command", "title": "Supervisión Interactiva en top: Columnas PR, NI y la tecla 'r'", "lead": "¿Cómo monitorizar las prioridades en tiempo real y ejecutar renice interactivamente con la tecla 'r'?", "ref": "354-356", "pdf": {"manual": "A", "pages": [354, 355, 356], "figure": null}, "coverage": ["103.6-CMD-002", "103.6-OPT-002"], "command": "top (dentro de top pulsar la tecla 'r')", "purpose": "Supervisar las columnas PR y NI en vivo y modificar la prioridad de un proceso sin salir del monitor", "terminal": {"title": "Caso Real: Detectar proceso que ahoga la CPU y reasignar prioridad con tecla 'r'", "command": "top (pulsar 'r' -> 4120 -> 15)", "lines": [{"t": "cmt", "v": "# 1. top muestra que el script PID 4120 consume el 98% de CPU con prioridad normal (NI 0, PR 20):"}, {"t": "out", "v": "  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\n 4120 alumno    20   0  352140  48200  12400 R  98.5   2.1   1:24.10 script_pesado.py\n 1418 root      20   0   55140   5210   4100 S   0.0   0.1   0:00.02 nginx"}, {"t": "cmt", "v": "# 2. Pulsamos la tecla 'r' para Renice interactivo dentro de top:"}, {"t": "out", "v": "PID to renice [default pid = 4120]: 4120\nRenice PID 4120 to value: 15"}, {"t": "cmt", "v": "# 3. Resultado instantáneo: el script_pesado pasa automáticamente a PR 35 y NI 15."}]}, "options": [{"flag": "Columna PR", "short": "Prioridad kernel dinámica", "desc": "🎯 Valor de 0 a 39 que el kernel usa para el reparto de CPU (PR = 20 + NI)."}, {"flag": "Columna NI", "short": "Niceness estático", "desc": "🎯 Valor de -20 a +19 fijado por el usuario o administrador."}, {"flag": "Tecla 'r' (Renice)", "short": "Reasignar prioridad", "desc": "🎯 Clave de Examen: Solicita el PID y el nuevo valor de nice para aplicarlo al vuelo."}, {"flag": "Tecla 'q'", "short": "Salir de top", "desc": "Cierra el monitor interactivo y devuelve el control a la terminal."}], "remember": "🎯 Atajo Fijo de Examen: En el monitor interactivo 'top', la tecla 'r' ejecuta la acción de renice para alterar la prioridad de un proceso en ejecución sin cerrarlo.", "notes": "Explica que un usuario ordinario dentro de top solo podrá aumentar el valor de NI de sus propios procesos; para valores negativos se necesita ejecutar top como root.", "syntax": "top | dentro de top pulsar 'r' -> teclear PID -> teclear nuevo nice"}, {"id": 7, "section": "103.6", "cat": "proc", "type": "command", "title": "Lanzar Nuevos Procesos con Prioridad Modificada: nice", "lead": "¿Para qué sirve nice y cómo arrancar un comando fijando su amabilidad desde el primer segundo?", "ref": "356-358", "pdf": {"manual": "A", "pages": [356, 357, 358], "figure": null}, "coverage": ["103.6-CMD-003", "103.6-OPT-003"], "command": "nice [-n <incremento>] <comando> [argumentos...]", "purpose": "Arrancar un proceso NUEVO con un valor de niceness diferente al estándar 0", "terminal": {"title": "Caso Real: Lanzar un backup que no ralentice el servidor (nice +15) y acelerar compilación (nice -10)", "command": "nice -n 15 tar -czf /backup/sistema.tar.gz /var/www &; sudo nice -n -10 make -j4", "lines": [{"t": "cmt", "v": "# 1. Tarea pesada en segundo plano con baja prioridad (+15) para no ahogar la web:"}, {"t": "cmd", "v": "nice -n 15 tar -czf /backup/sistema.tar.gz /var/www &", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "[1] 31204  # (Nace con NI = 15; cede CPU si entran visitas a la web)"}, {"t": "cmt", "v": "# 2. Compilación crítica urgente: usamos sudo para asignar nice negativo (-10):"}, {"t": "cmd", "v": "sudo nice -n -10 make -j4", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "# (Nace con NI = -10 y PR = 10; el kernel le dará máxima preferencia de CPU)"}]}, "options": [{"flag": "nice cmd (sin número)", "short": "Suma +10 por defecto", "desc": "🎯 Pregunta Fija de Certificación: Si ejecutas 'nice comando' a secas, arranca con nice = 10."}, {"flag": "nice -n <valor> cmd", "short": "Sintaxis estándar POSIX", "desc": "🎯 Sintaxis oficial recomendada: 'nice -n 5 script.sh' (+5) o 'nice -n -10 script.sh' (-10)."}, {"flag": "nice -5 cmd (Histórico)", "short": "Asigna +5 (¡un guión!)", "desc": "⚠️ Trampa de Examen: El guión es el indicador de opción, no el signo menos: asigna +5."}, {"flag": "nice --5 cmd (Histórico)", "short": "Asigna -5 (doble guión)", "desc": "⚠️ Trampa de Examen: 1er guión = opción; 2º guión = signo matemático negativo (exige root)."}], "remember": "🎯 LAS DOS TRAMPAS CLAVE DE NICE: 1ª 'nice comando' sin argumentos arranca con nice = 10 (no 0). 2ª En sintaxis antigua, 'nice -5' es +5 de nice y 'nice --5' es -5 de nice (solo root).", "notes": "Asegúrate de que todos los alumnos entiendan por qué 'nice --5 comando' tiene dos guiones: el primero indica opción, el segundo es el signo negativo del número.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:6px;\">\n  <div style=\"font-size:13.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚠️ Trampa de Examen: Sintaxis Antigua de Guiones en <code>nice</code></span>\n    <span style=\"font-size:11px; background:#FEF2F2; color:#DC2626; padding:2px 8px; border-radius:12px; font-weight:700;\">Alerta LPIC-1</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:10px; font-size:11.5px;\">\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:8px 11px;\">\n      <strong style=\"color:#1E40AF; font-size:12.5px;\"><code>nice -5 comando</code></strong><br>\n      <span style=\"color:#1E3A8A; line-height:1.35;\">\n        El guión '-' es la bandera del comando, NO un signo menos.<br>\n        ➔ <strong>Resultado:</strong> Asigna nice <strong>+5</strong> (amable, baja prioridad).<br>\n        <span style=\"color:#16A34A; font-weight:700;\">Cualquier usuario puede ejecutarlo.</span>\n      </span>\n    </div>\n\n    <div style=\"background:#FEF2F2; border:1.5px solid #EF4444; border-radius:8px; padding:8px 11px;\">\n      <strong style=\"color:#991B1B; font-size:12.5px;\"><code>nice --5 comando</code></strong><br>\n      <span style=\"color:#7F1D1D; line-height:1.35;\">\n        1º guión = bandera de opción; 2º guión = signo negativo.<br>\n        ➔ <strong>Resultado:</strong> Asigna nice <strong>-5</strong> (alta prioridad de CPU).<br>\n        <span style=\"color:#DC2626; font-weight:800;\">🔒 ¡Exige permisos de ROOT!</span>\n      </span>\n    </div>\n  </div>\n</div>\n", "syntax": "nice -n 15 tar -czf bkp.tar.gz /var & | sudo nice -n -10 make -j4"}, {"id": 8, "section": "103.6", "cat": "proc", "type": "concept", "title": "Reglas de Privilegios en Prioridades: Usuario frente a Root", "lead": "Límites estrictos de seguridad: qué puede y qué NO puede hacer un usuario ordinario con la CPU:", "ref": "358-359", "pdf": {"manual": "A", "pages": [358, 359], "figure": null}, "coverage": ["103.6-CON-004", "103.6-WARN-001"], "points": [{"icon": "user", "text": "1. Usuario Ordinario: Solo puede ser MÁS amable (0 a +19)", "detail": "🎯 Puede voluntariamente ceder CPU asignando valores positivos (de 0 a 19). No puede perjudicar a otros usuarios."}, {"icon": "shield-alert", "text": "2. Usuario Ordinario: ¡Prohibidos los valores negativos!", "detail": "🎯 No puede autoasignarse nice negativo (-1 a -20). Si lo intenta, el kernel responde: 'nice: cannot set niceness: Permission denied'."}, {"icon": "shield-check", "text": "3. Superusuario Root: Control absoluto bidireccional", "detail": "🎯 Solo root puede asignar valores negativos (-20 a -1) y modificar la prioridad de los procesos de cualquier usuario en cualquier sentido."}], "remember": "🎯 Regla de Oro de Examen: Para asignar cualquier valor de nice negativo (-1 a -20) se requieren OBLIGATORIAMENTE privilegios de root.", "notes": "Muestra cómo un alumno intentando hacer 'nice -n -2' recibe 'Permission denied'.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:14px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>🔒 Matriz de Privilegios de Planificación de Procesos</span>\n    <span style=\"font-size:11px; background:#F8FAFC; color:#475569; padding:2px 8px; border-radius:12px; font-weight:700;\">Seguridad Linux</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px; font-size:12px;\">\n    <!-- Usuario Ordinario -->\n    <div style=\"background:#F8FAFC; border:2px solid #CBD5E1; border-radius:10px; padding:10px 14px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <strong style=\"color:#0F172A; font-size:13px;\">👤 Usuario Estándar</strong>\n        <span style=\"background:#E2E8F0; color:#334155; font-size:10px; font-weight:800; padding:1px 6px; border-radius:4px;\">Sin sudo</span>\n      </div>\n      <div style=\"color:#334155; line-height:1.4;\">\n        • <strong>Valores permitidos:</strong> Solo de <strong>0 a +19</strong>.<br>\n        • <strong>Acción:</strong> Solo puede ser <em>más amable</em> (bajar su prioridad).<br>\n        • <strong>Valores negativos (-1 a -20):</strong> <span style=\"color:#DC2626; font-weight:700;\">⛔ Permission Denied</span>.<br>\n        • <strong>Regla de sentido único:</strong> Si sube a 15, ¡no puede volver a bajar a 0!\n      </div>\n    </div>\n\n    <!-- Superusuario Root -->\n    <div style=\"background:#FEF2F2; border:2px solid #EF4444; border-radius:10px; padding:10px 14px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <strong style=\"color:#991B1B; font-size:13px;\">🛡️ Superusuario (root / sudo)</strong>\n        <span style=\"background:#DC2626; color:#FFF; font-size:10px; font-weight:800; padding:1px 6px; border-radius:4px;\">Total</span>\n      </div>\n      <div style=\"color:#7F1D1D; line-height:1.4;\">\n        • <strong>Valores permitidos:</strong> Todo el rango de <strong>-20 a +19</strong>.<br>\n        • <strong>Acción:</strong> Puede subir o bajar la prioridad a su antojo.<br>\n        • <strong>Alcance:</strong> Sobre sus propios procesos o los de cualquier usuario.<br>\n        • <strong>Poder único:</strong> Puede rescatar y acelerar procesos en caliente.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "103.6", "cat": "proc", "type": "command", "title": "Modificar Procesos en Ejecución: renice", "lead": "¿Cómo alterar el valor de niceness en caliente sobre procesos que ya están vivos en memoria?", "ref": "359-360", "pdf": {"manual": "A", "pages": [359, 360], "figure": null}, "coverage": ["103.6-CMD-004", "103.6-OPT-004", "103.6-OPT-005"], "command": "renice [-n] <nuevo_nice> -p <PID> | -u <usuario> | -g <PGID>", "purpose": "Reasignar el valor absoluto de niceness a procesos activos por PID, por usuario o por grupo", "terminal": {"title": "Caso Real: Proceso saturando CPU ➔ Bajar prioridad en caliente ➔ Modificación masiva por usuario", "command": "renice -n 15 -p 4120; sudo renice -n -5 -p 1420; sudo renice -n 10 -u becario", "lines": [{"t": "cmt", "v": "# 1. El script 4120 ahoga el servidor. El usuario le baja la prioridad en caliente (de 0 a 15):"}, {"t": "cmd", "v": "renice -n 15 -p 4120", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "4120 (process ID) old priority 0, new priority 15  # (¡Liberó CPU de inmediato!)"}, {"t": "cmt", "v": "# 2. Con sudo aceleramos la base de datos MySQL (PID 1420) a alta prioridad (-5):"}, {"t": "cmd", "v": "sudo renice -n -5 -p 1420", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "1420 (process ID) old priority 0, new priority -5"}, {"t": "cmt", "v": "# 3. Modificación masiva: bajamos la prioridad de todos los procesos del usuario 'becario':"}, {"t": "cmd", "v": "sudo renice -n 10 -u becario", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "1002 (user ID) old priority 0, new priority 10"}]}, "options": [{"flag": "renice -n <val> -p <PID>", "short": "Por PID específico", "desc": "🎯 Fija el valor ABSOLUTO de niceness del proceso indicado (la opción -p es el modo por defecto)."}, {"flag": "renice -n <val> -u <user>", "short": "Por nombre de usuario", "desc": "🎯 Clave de Examen: Aplica el nuevo valor a la totalidad de procesos del usuario indicado."}, {"flag": "renice -n <val> -g <PGID>", "short": "Por Process Group ID", "desc": "Modifica la prioridad de un grupo de procesos completo a la vez."}, {"flag": "Valor Absoluto", "short": "No suma ni resta", "desc": "🎯 Clave de Examen: 'renice 5' asigna exactamente nice = 5 (no suma 5 a la prioridad anterior)."}], "remember": "🎯 Regla de Examen: 'renice' fija siempre el valor ABSOLUTO de nice; nunca suma ni resta. Para modificar procesos de otros usuarios o asignar nice negativo se requiere sudo.", "notes": "La comparativa detallada entre nice y renice se analiza en profundidad en la siguiente sección.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:6px;\">\n  <div style=\"font-size:13.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚡ Los 3 Selectores Clave de <code>renice</code>:</span>\n    <span style=\"font-size:11px; background:#EFF6FF; color:#1D4ED8; padding:2px 8px; border-radius:12px; font-weight:700;\">Sintaxis Directa</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; font-size:11.5px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:8px;\">\n      <strong style=\"color:#1E40AF; font-size:12.5px;\">-p (Por PID)</strong><br>\n      <code>renice 10 -p 1420</code><br>\n      <span style=\"color:#2563EB; font-size:10.5px;\">Afecta a un único proceso</span>\n    </div>\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:8px;\">\n      <strong style=\"color:#15803D; font-size:12.5px;\">-u (Por Usuario)</strong><br>\n      <code>sudo renice 15 -u alumno</code><br>\n      <span style=\"color:#166534; font-size:10.5px;\">Afecta a todo el usuario</span>\n    </div>\n    <div style=\"background:#FAF5FF; border:1px solid #D8B4FE; border-radius:8px; padding:8px;\">\n      <strong style=\"color:#6B21A8; font-size:12.5px;\">-g (Por Grupo PGID)</strong><br>\n      <code>sudo renice 5 -g 3000</code><br>\n      <span style=\"color:#7E22CE; font-size:10.5px;\">Afecta al Process Group</span>\n    </div>\n  </div>\n</div>\n", "syntax": "renice -n 15 -p 4120 | sudo renice -n -5 -p 1420 | sudo renice -n 10 -u becario"}, {"id": 10, "section": "103.6", "cat": "proc", "type": "file", "title": "Configuración de Límites: /etc/security/limits.conf", "lead": "¿Dónde y cómo se autoriza a usuarios específicos a fijar prioridades negativas sin ser root?", "ref": "360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "coverage": ["103.6-FILE-001"], "file": "/etc/security/limits.conf (Procesado por pam_limits.so)", "syntax": "<dominio>    <tipo>    <item>    <valor>", "content": "# /etc/security/limits.conf — Límites de recursos por usuario y grupo\n# Dominio       Tipo    Item            Valor\n\n# 1. Los miembros del grupo '@devs' pueden ponerse nice negativo hasta -10\n@devs           hard    nice            -10\n@devs           soft    nice            -5\n\n# 2. El usuario 'musico' puede usar prioridades de tiempo real para audio sin latencia\nmusico          hard    rtprio          95\nmusico          soft    rtprio          80\n\n# 3. Todos los demás usuarios ordinarios (*) tienen prohibido nice negativo\n*               hard    nice            0", "fields": [{"field": "<dominio>", "desc": "A quién aplica: un usuario (ej: 'musico'), un grupo con arroba (ej: '@devs') o comodín para todos ('*')."}, {"field": "<tipo>: soft vs hard", "desc": "🎯 'soft' es el límite por defecto que el usuario puede aumentar; 'hard' es el techo infranqueable fijado por root."}, {"field": "<item>: nice", "desc": "🎯 Clave de Examen: Define el valor MÁS NEGATIVO (máxima prioridad) que el usuario tiene permitido autoasignarse."}, {"field": "<item>: rtprio", "desc": "Define la máxima prioridad de tiempo real (Real-Time, 0-99) permitida para procesos críticos de baja latencia."}], "remember": "🎯 Clave de Examen: Para que un usuario ordinario pueda usar nice negativo (-1 a -20) sin sudo, debe configurarse la directiva 'nice' en el archivo '/etc/security/limits.conf'.", "notes": "Este archivo es evaluado por el módulo PAM 'pam_limits.so' durante el inicio de sesión del usuario.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:8px;\">\n  <div style=\"font-size:13.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>📁 Anatomía de una Línea de Configuración en <code>/etc/security/limits.conf</code>:</span>\n    <span style=\"font-size:11px; background:#EFF6FF; color:#1D4ED8; padding:2px 8px; border-radius:12px; font-weight:700;\">4 Columnas Clave</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; font-size:11px; text-align:center;\">\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:7px;\">\n      <span style=\"font-weight:800; color:#1E40AF; font-size:12px;\">1. @devs</span><br>\n      <span style=\"color:#475569;\">Grupo o Usuario</span>\n    </div>\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:7px;\">\n      <span style=\"font-weight:800; color:#0F172A; font-size:12px;\">2. hard</span><br>\n      <span style=\"color:#475569;\">Techo Infranqueable</span>\n    </div>\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:7px;\">\n      <span style=\"font-weight:800; color:#B45309; font-size:12px;\">3. nice</span><br>\n      <span style=\"color:#475569;\">Recurso a Limitar</span>\n    </div>\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:6px; padding:7px;\">\n      <span style=\"font-weight:800; color:#2563EB; font-size:12px;\">4. -10</span><br>\n      <span style=\"color:#1E40AF; font-weight:700;\">Límite Asignado</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 11, "section": "103.6", "cat": "proc", "type": "table", "title": "Comparativa Maestra: nice frente a renice", "lead": "Los 5 puntos de contraste clave para diferenciar ambas órdenes de forma definitiva:", "ref": "360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "coverage": ["103.6-CMD-003", "103.6-CMD-004"], "headers": ["Criterio de Examen", "Comando nice", "Comando renice"], "rows": [["<strong>Momento de Acción</strong>", "🎯 <strong>Al arrancar</strong> un proceso nuevo.", "🎯 <strong>En caliente</strong> sobre procesos que ya corren."], ["<strong>Identificador usado</strong>", "El <strong>nombre del comando</strong> (ej: <code>nice tar ...</code>).", "El <strong>PID</strong> (<code>-p</code>), <strong>usuario</strong> (<code>-u</code>) o <strong>PGID</strong> (<code>-g</code>)."], ["<strong>Valor por Defecto</strong>", "🎯 Suma <strong>+10</strong> si no se indica número.", "<strong>Sin valor por defecto</strong>: exige indicar el nuevo nice."], ["<strong>Tipo de Valor</strong>", "Relativo (suma al valor base).", "🎯 <strong>Valor Absoluto</strong> (fija exactamente el valor indicado)."], ["<strong>Privilegio de Usuario</strong>", "Puede fijar nice de <strong>0 a +19</strong>.", "🎯 Puede <em>subir</em> su nice (+), pero <strong>¡NUNCA volver a bajarlo!</strong>"]], "remember": "🎯 FÓRMULA SAGRADA: 'nice' para procesos por nacer (suma +10 por defecto); 'renice' para procesos vivos (valor absoluto). Los usuarios normales solo pueden subir el nice, nunca reducirlo.", "notes": "Esta diapositiva sintetiza todas las preguntas de comparación directa del examen 101-500.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:8px;\">\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px; font-size:12px;\">\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#1E40AF; font-size:13px;\">nice (Nacimiento de Proceso)</strong>\n      <div style=\"color:#1E3A8A; line-height:1.4; margin-top:4px;\">\n        • Sintaxis: <code>nice -n 10 ./script.sh</code><br>\n        • Si omites <code>-n</code>: aplica <strong>+10</strong> automáticamente.<br>\n        • Modifica el entorno antes de hacer <code>exec()</code>.\n      </div>\n    </div>\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#15803D; font-size:13px;\">renice (En Caliente en RAM)</strong>\n      <div style=\"color:#14532D; line-height:1.4; margin-top:4px;\">\n        • Sintaxis: <code>renice -n 15 -p 4120</code><br>\n        • Fija el valor <strong>absoluto</strong> (fija 15, no suma).<br>\n        • Permite rescate masivo con <code>-u <usuario></code>.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 12, "section": "103.6", "cat": "proc", "type": "concept", "title": "Trampas Clásicas de Examen en Prioridades y Niceness", "lead": "Los 4 descuidos conceptuales y de sintaxis más penalizados en las preguntas oficiales de certificación LPIC-1:", "ref": "360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "coverage": ["103.6-WARN-001", "103.6-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Creer que +19 es la máxima prioridad", "detail": "🎯 ¡Totalmente al revés! Cuanto mayor es el número, más 'amable' es el proceso y MENOS CPU recibe. El valor -20 es la máxima prioridad y +19 es la mínima."}, {"icon": "alert-triangle", "text": "2. La Trampa de los Guiones Históricos (nice -5 vs nice --5)", "detail": "🎯 'nice -5' asigna +5 de nice (el guión es opción, no signo). Para asignar -5 debes escribir 'nice --5' o la sintaxis moderna 'nice -n -5' (ambas requieren root)."}, {"icon": "alert-triangle", "text": "3. Olvidar que 'nice comando' suma +10 por defecto", "detail": "🎯 Ejecutar 'nice updatedb' sin argumentos NO arranca con nice 0 (nice 0 es el arranque sin nice). Arranca con nice = 10."}, {"icon": "alert-triangle", "text": "4. Creer que un usuario normal puede revertir renice", "detail": "🎯 Si un usuario sube su nice de 0 a 10 con renice, y luego intenta bajarlo a 0, fallará con 'Permission denied'. Solo root puede reducir el valor de niceness."}], "remember": "🎯 RESUMEN DE TRAMPAS: -20 = máxima velocidad; +19 = mínima velocidad; 'nice' sin número = +10; 'nice -5' = +5; 'nice --5' = -5 (solo root); renice no tiene marcha atrás para usuarios normales.", "notes": "Repasa estas 4 trampas clave antes de abordar los ejercicios guiados.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:8px;\">\n  <div style=\"font-size:13.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚡ Los 4 Falsos Amigos que Suspenden Candidatos en LPIC-1</span>\n    <span style=\"font-size:11px; background:#FEF2F2; color:#DC2626; padding:2px 8px; border-radius:12px; font-weight:700;\">Preguntas Trampa Oficiales</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:10px; font-size:11.5px;\">\n    <!-- Trampa 1 -->\n    <div style=\"background:#FEF2F2; border-left:4px solid #DC2626; border-radius:6px; padding:8px 10px;\">\n      <div style=\"color:#991B1B; font-weight:800; font-size:12px;\">❌ Trampa 1: \"+19 corre más rápido que -20\"</div>\n      <div style=\"color:#7F1D1D; margin-top:2px; line-height:1.35;\">\n        <strong>Realidad:</strong> 'Nice' es amabilidad. Quien tiene nice +19 es hipereducado y cede la CPU. <strong>-20 es la máxima velocidad</strong>.\n      </div>\n    </div>\n\n    <!-- Trampa 2 -->\n    <div style=\"background:#FEF2F2; border-left:4px solid #DC2626; border-radius:6px; padding:8px 10px;\">\n      <div style=\"color:#991B1B; font-weight:800; font-size:12px;\">❌ Trampa 2: \"nice -5 asigna prioridad negativa\"</div>\n      <div style=\"color:#7F1D1D; margin-top:2px; line-height:1.35;\">\n        <strong>Realidad:</strong> El guión es el flag. Asigna <strong>+5</strong>. Para asignar -5 debes escribir <code>nice --5</code> o <code>nice -n -5</code> (solo root).\n      </div>\n    </div>\n\n    <!-- Trampa 3 -->\n    <div style=\"background:#FEF2F2; border-left:4px solid #DC2626; border-radius:6px; padding:8px 10px;\">\n      <div style=\"color:#991B1B; font-weight:800; font-size:12px;\">❌ Trampa 3: \"nice comando arranca en nice 0\"</div>\n      <div style=\"color:#7F1D1D; margin-top:2px; line-height:1.35;\">\n        <strong>Realidad:</strong> El comando <code>nice</code> sin argumentos <strong>añade +10</strong> por defecto. El proceso arranca con nice = 10.\n      </div>\n    </div>\n\n    <!-- Trampa 4 -->\n    <div style=\"background:#FEF2F2; border-left:4px solid #DC2626; border-radius:6px; padding:8px 10px;\">\n      <div style=\"color:#991B1B; font-weight:800; font-size:12px;\">❌ Trampa 4: \"El usuario puede deshacer su renice\"</div>\n      <div style=\"color:#7F1D1D; margin-top:2px; line-height:1.35;\">\n        <strong>Realidad:</strong> Un usuario estándar solo puede subir el nice (0 a 19). Reducir el valor para ganar CPU da <code>Permission denied</code>.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 13, "section": "103.6", "cat": "proc", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Escalas y Mapeo)", "ref": "Manual A - Pág 360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 360): ¿Cuál es el rango numérico completo de valores de 'niceness' que pueden asignarse a un proceso en Linux y cuál de los extremos representa la máxima prioridad de CPU?", "command": "Rango de -20 a +19. El valor -20 representa la máxima prioridad.", "reason": "La escala de amabilidad consta de 40 niveles; los valores negativos representan menor amabilidad (mayor agresividad por la CPU) y los positivos representan mayor cortesía."}, {"action": "Caso 2 (Oficial Pág 360): Un proceso en el monitor 'top' tiene un valor de Niceness de NI = -5. Según la fórmula del kernel (PR = 20 + NI), ¿qué valor numérico exacto mostrará la columna PR?", "command": "PR = 15", "reason": "20 + (-5) = 15. En la escala interna de prioridades del kernel para procesos CFS ordinarios, 15 indica una preferencia elevada respecto al valor estándar 20."}, {"action": "Caso 3 (Oficial Pág 360): ¿Qué opción del comando 'ps' permite visualizar en la consola las columnas de prioridad del kernel (PRI) y valor nice (NI)?", "command": "ps -l (o ps -el / ps -Al)", "reason": "La opción -l (long format) incluye obligatoriamente los campos de estado y planificación del proceso."}], "solution": {"explain": "-20 a 19 con -20 máxima velocidad; fórmula PR = 20 + NI; y ps -l para inspección de columnas."}, "notes": "Muestra que si un proceso tiene NI = 0, en top su PR es exactamente 20."}, {"id": 14, "section": "103.6", "cat": "proc", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: nice y renice)", "ref": "Manual A - Pág 360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 360): Un usuario estándar ejecuta 'nice -n -10 backup.sh' y recibe el mensaje de error 'nice: cannot set niceness: Permission denied'. ¿A qué se debe y cómo se soluciona?", "command": "Se debe a que los valores de nice negativos requieren permisos de superusuario. Se soluciona ejecutándolo con root: 'sudo nice -n -10 ./backup.sh'", "reason": "Los usuarios sin privilegios tienen estrictamente prohibido aumentar la prioridad de sus procesos para evitar monopolizar la CPU."}, {"action": "Caso 5 (Oficial Pág 360): ¿Cuál es el comando exacto para fijar el valor de niceness a 15 de todos los procesos que pertenecen al usuario 'invitado' en un solo paso?", "command": "sudo renice -n 15 -u invitado", "reason": "El subcomando '-u' de renice aplica el nuevo valor a la totalidad de procesos cuyo propietario sea el usuario especificado."}], "solution": {"explain": "Valores negativos requieren root; renice -u aplica modificaciones masivas por cuenta de usuario."}, "notes": "Recuerda que renice -u es muy útil cuando un usuario ha lanzado muchas tareas que están saturando el servidor."}, {"id": 15, "section": "103.6", "cat": "proc", "type": "challenge", "title": "Retos de Exploración Oficiales (Comportamiento de nice y top)", "ref": "Manual A - Pág 360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Si un administrador arranca una copia pesada ejecutando exactamente 'nice tar -czf backup.tar.gz /var', ¿con qué valor de niceness exacto nacerá el proceso tar?\n2. Estás monitorizando el sistema con 'top' y detectas un script que consume el 99% de CPU con PID 8420. ¿Qué teclas exactas debes pulsar dentro de top para cambiar su prioridad a nice 19 sin cerrar el monitor?\n3. ¿Puede un usuario ordinario que ha lanzado un script con 'nice -n 10 script.sh' usar luego el comando renice para devolverlo a nice 0?", "hint": "Recuerda: valor por defecto de nice a secas; tecla 'r' en top; y regla de irreversibilidad para usuarios normales.", "solution": {"explain": "1. Nacerá con nice = 10 (el comando nice sin argumentos añade 10 al valor base 0).\n2. Se pulsa la tecla 'r', se teclea el PID '8420' y Enter, y luego se introduce '19' y Enter.\n3. ¡NO! Un usuario ordinario no puede aumentar la prioridad de un proceso (pasar de 10 a 0 es un aumento de prioridad). Dará error 'Permission denied' a menos que lo ejecute root."}, "notes": "El reto 3 ilustra una de las trampas más sutiles de la administración de sistemas."}, {"id": 16, "section": "103.6", "cat": "proc", "type": "review", "title": "Pregunta de Examen LPIC-1: Valor por Defecto de nice", "q": "Si un usuario ejecuta en la consola de comandos la orden 'nice updatedb' sin especificar ningún flag adicional, ¿con qué valor de niceness se ejecutará el comando?", "options": ["0", "5", "10", "19"], "answer": 2, "why": "Por especificación estándar, cuando el comando 'nice' se invoca sin el parámetro '-n', aplica un incremento predeterminado de +10 al valor de niceness del proceso hijo. Por tanto, el comando se ejecutará con nice = 10.", "notes": "Pregunta clásica de certificación que todo candidato debe acertar sin dudar."}, {"id": 17, "section": "103.6", "cat": "proc", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Prioridades de Proceso 103.6", "deck": [{"front": "¿Cuál es el rango de valores de nice en Linux?", "back": "De -20 (máxima prioridad) a +19 (mínima prioridad)."}, {"front": "¿Qué valor de niceness tienen los procesos normales por defecto?", "back": "El valor 0."}, {"front": "¿Qué valor de niceness asigna 'nice comando' sin opciones?", "back": "El valor 10 (añade +10 al valor actual)."}, {"front": "¿Quién puede asignar valores de nice negativos (-1 a -20)?", "back": "Únicamente el superusuario root."}, {"front": "¿Qué comando modifica la prioridad de un proceso que ya está corriendo?", "back": "renice (ej: renice -n 5 -p <PID>)."}, {"front": "¿Qué fórmula relaciona la prioridad en top (PR) con el niceness (NI)?", "back": "PR = 20 + NI."}, {"front": "¿Qué tecla de 'top' permite cambiar la prioridad de un proceso?", "back": "La tecla 'r' (renice)."}, {"front": "¿Qué letra en la columna STAT de 'ps aux' indica un nice de alta prioridad?", "back": "El carácter '<' (alta prioridad); la letra 'N' indica baja prioridad."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.6."}, {"id": 18, "section": "103.6", "cat": "proc", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.6", "takeaways": ["Escala de Niceness: de -20 (máxima prioridad) a +19 (mínima prioridad), con 0 como estándar. Cuanto más negativo, más CPU recibe.", "Fórmula de Mapeo: PR = 20 + NI en top. Un nice de -5 se muestra como PR = 15.", "nice vs renice: nice lanza procesos nuevos (nice sin argumentos aplica +10); renice modifica procesos vivos (renice -n <val> -p <PID>).", "Permisos: Usuarios normales solo pueden reducir prioridad (valores positivos de 0 a 19) y no pueden revertir renices previos. Valores negativos exigen root."], "top3": [{"cmd": "nice -n 19 <comando>", "desc": "Lanza un proceso en segundo plano con mínima prioridad de CPU para no ralentizar el servidor."}, {"cmd": "renice -n -5 -p <PID>", "desc": "Aumenta la prioridad de un proceso crítico en ejecución (requiere sudo)."}, {"cmd": "ps -o pid,ni,pri,cmd -p <PID>", "desc": "Verifica los valores exactos de niceness y prioridad asignados a un proceso."}], "practice": {"name": "Practica 103.6: Modificar la Prioridad de Procesos (Nice y Renice)", "url": "../practicas/p-103-6-prioridades-nice-renice.html", "desc": "Aprende a graduar la prioridad en el planificador de la CPU con nice (-20 a +19), modifica procesos en vivo con renice y comprende las reglas de privilegios de root."}, "notes": "Concluimos el subtema 103.6. Los alumnos dominan ahora la planificación y prioridades de procesos."}];
+    const SLIDES = [{"id": 1, "section": "103.6", "cat": "proc", "type": "cover", "title": "Modificar la prioridad de ejecución de procesos", "subtitle": "Multitarea preventiva, escala de niceness (-20 a 19), ps -el, top, nice y renice (Modo Examen)", "ref": "345-346", "pdf": {"manual": "A", "pages": [345, 346], "figure": null}, "coverage": ["103.6-OBJ-001", "103.6-OBJ-002"], "meta": {"peso": 2, "paginas": "345–360", "duracion": "30 min"}, "icon": "sliders", "notes": "Iniciamos el subtema 103.6 (peso 2). En servidores de producción no todos los procesos tienen la misma urgencia: una base de datos crítica debe tener preferencia sobre una copia de seguridad pesada. Aprenderemos cómo el kernel planifica la CPU y cómo manipular la escala de 'amabilidad' (niceness) mediante nice y renice."}, {"id": 2, "section": "103.6", "cat": "proc", "type": "concept", "title": "Multitarea Preventiva y el Planificador del Kernel", "lead": "¿Cómo reparte Linux la CPU entre cientos de procesos sin que ninguno congele el sistema?", "ref": "346-348", "pdf": {"manual": "A", "pages": [346, 347, 348], "figure": null}, "coverage": ["103.6-CON-001"], "points": [{"icon": "cpu", "text": "1. Multitarea Preventiva (Preemptive)", "detail": "🎯 El kernel tiene el control supremo. Asigna a cada proceso una pequeña cuota de tiempo (time slice en ms). Cuando expira, desaloja al proceso por la fuerza para dar paso al siguiente."}, {"icon": "shuffle", "text": "2. Planificador CFS (Completely Fair Scheduler)", "detail": "🎯 Algoritmo de 'reparto equitativo': calcula dinámicamente qué proceso debe ejecutarse según el tiempo de CPU consumido y su factor de prioridad asignado."}, {"icon": "sliders", "text": "3. Niceness: La Palanca del Administrador", "detail": "🎯 Permite al administrador graduar el peso de un proceso: los procesos más 'amables' reciben cuotas menores y los 'egoístas' acaparan mayor porcentaje de CPU."}], "remember": "🎯 Clave de Examen: Linux utiliza multitarea preventiva: el kernel decide cuándo expulsar un proceso de la CPU; 'nice' y 'renice' son las herramientas para influir en esa decisión.", "notes": "La alternancia entre procesos es tan rápida (cientos de veces por segundo) que da la ilusión de ejecución simultánea continua.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:25px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚙️ Arquitectura del Planificador CFS: ¿Cómo reparte la CPU el Kernel?</span>\n    <span style=\"font-size:22px; background:#EEF2FF; color:#4338CA; padding:4px 10px; border-radius:12px; font-weight:700;\">Núcleo Linux</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; font-size:22px;\">\n    <!-- 1. Time Slice -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:14px 18px;\">\n      <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;\">\n        <strong style=\"color:#1E40AF; font-size:23px;\">1. Cuotas de Tiempo (Time Slice)</strong>\n        <span style=\"background:#2563EB; color:#FFF; font-size:20px; font-weight:800; padding:4px 10px; border-radius:3px;\">Milisegundos</span>\n      </div>\n      <div style=\"color:#1E3A8A; line-height:1.35;\">\n        El kernel concede ráfagas de tiempo breves a cada tarea activa en la cola de ejecución.\n      </div>\n    </div>\n\n    <!-- 2. Desalojo -->\n    <div style=\"background:#FEF2F2; border:1.5px solid #EF4444; border-radius:8px; padding:14px 18px;\">\n      <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;\">\n        <strong style=\"color:#991B1B; font-size:23px;\">2. Desalojo Preventivo</strong>\n        <span style=\"background:#DC2626; color:#FFF; font-size:20px; font-weight:800; padding:4px 10px; border-radius:3px;\">Sin Bloqueos</span>\n      </div>\n      <div style=\"color:#7F1D1D; line-height:1.35;\">\n        Si un proceso intenta acaparar el 100% de la CPU, el kernel lo expulsa y rota al siguiente.\n      </div>\n    </div>\n\n    <!-- 3. Niceness -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:14px 18px;\">\n      <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;\">\n        <strong style=\"color:#15803D; font-size:23px;\">3. Factor Niceness (NI)</strong>\n        <span style=\"background:#16A34A; color:#FFF; font-size:20px; font-weight:800; padding:4px 10px; border-radius:3px;\">Ajuste Admin</span>\n      </div>\n      <div style=\"color:#14532D; line-height:1.35;\">\n        Valores negativos (-20) reciben cuotas gigantes; valores positivos (+19) reciben sobras.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 3, "section": "103.6", "cat": "proc", "type": "diagram", "title": "El Espectro de Niceness: De -20 (Máxima) a +19 (Mínima)", "lead": "La escala de amabilidad (niceness) es contraintuitiva: menor número implica mayor preferencia de CPU:", "ref": "348-350", "pdf": {"manual": "A", "pages": [348, 349, 350], "figure": null}, "coverage": ["103.6-CON-002"], "points": [{"icon": "zap", "text": "Valor -20: MÁXIMA Prioridad (Menos amable)", "detail": "🎯 El proceso es muy egoísta ('poco amable' con los demás). Exige la mayor cuota de CPU posible. Se reserva para servicios ultra-críticos de tiempo real."}, {"icon": "minus-circle", "text": "Valor 0: Prioridad Estándar por Defecto", "detail": "🎯 Todos los procesos ordinarios del sistema nacen con un valor de niceness fijado en 0 por defecto."}, {"icon": "coffee", "text": "Valor +19: MÍNIMA Prioridad (Más amable)", "detail": "🎯 El proceso es extremadamente cortés y generoso ('muy amable'). Solo consume CPU cuando ningún otro proceso la está utilizando (ideal para backups, renders o minería)."}], "remember": "🎯 Regla Mnemotécnica de Oro: Cuanto más negativo sea el número (-20), MÁS prioridad tiene; cuanto más positivo (+19), MENOS prioridad tiene.", "notes": "Haz que los alumnos repitan: 'Nice alto = prioridad baja; Nice bajo = prioridad alta'.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:14px; padding:18px 24px; margin:14px 0;\">\n  <div style=\"font-size:26px; font-weight:800; color:var(--text); margin-bottom:14px;\">\n    ⚡ El Gradiente de Amabilidad con la CPU en Linux:\n  </div>\n\n  <div style=\"display:flex; justify-content:space-between; align-items:center; font-size:23px; text-align:center; position:relative;\">\n    <!-- -20 a -1 (Root) -->\n    <div style=\"background:#FEF2F2; border:2px solid #EF4444; border-radius:10px; padding:12px; flex:1.2;\">\n      <div style=\"background:#DC2626; color:#FFF; font-weight:800; font-size:23px; padding:4px 10px; border-radius:4px; margin-bottom:6px;\">\n        -20 a -1 (ALTA PRIORIDAD)\n      </div>\n      <strong style=\"color:#991B1B; font-size:25px;\">Menos Amable (Egoísta)</strong><br>\n      <span style=\"color:#7F1D1D; font-size:22px;\">Exige máxima cuota de CPU.</span><br>\n      <span style=\"background:#FEE2E2; color:#991B1B; padding:4px 10px; border-radius:4px; font-size:22px; font-weight:800; display:inline-block; margin-top:4px;\">\n        🔒 SOLO ROOT\n      </span>\n    </div>\n\n    <!-- Flecha izquierda -->\n    <span style=\"font-size:29px; color:#DC2626; font-weight:900; margin:0 8px;\">◀</span>\n\n    <!-- 0 (Defecto) -->\n    <div style=\"background:#EFF6FF; border:2px solid #3B82F6; border-radius:10px; padding:12px; flex:1;\">\n      <div style=\"background:#2563EB; color:#FFF; font-weight:800; font-size:23px; padding:4px 10px; border-radius:4px; margin-bottom:6px;\">\n        0 (POR DEFECTO)\n      </div>\n      <strong style=\"color:#1E40AF; font-size:25px;\">Prioridad Estándar</strong><br>\n      <span style=\"color:#475569; font-size:22px;\">Todo proceso nace en 0.</span><br>\n      <span style=\"color:#64748B; font-size:22px;\">Equilibrio normal</span>\n    </div>\n\n    <!-- Flecha derecha -->\n    <span style=\"font-size:29px; color:#16A34A; font-weight:900; margin:0 8px;\">▶</span>\n\n    <!-- +1 a +19 (Todos) -->\n    <div style=\"background:#F0FDF4; border:2px solid #22C55E; border-radius:10px; padding:12px; flex:1.2;\">\n      <div style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:23px; padding:4px 10px; border-radius:4px; margin-bottom:6px;\">\n        +1 a +19 (BAJA PRIORIDAD)\n      </div>\n      <strong style=\"color:#15803D; font-size:25px;\">Más Amable (Generoso)</strong><br>\n      <span style=\"color:#14532D; font-size:22px;\">Cede CPU voluntariamente.</span><br>\n      <span style=\"background:#DCFCE7; color:#15803D; padding:4px 10px; border-radius:4px; font-size:22px; font-weight:800; display:inline-block; margin-top:4px;\">\n        👥 CUALQUIER USUARIO\n      </span>\n    </div>\n  </div>\n\n  <div style=\"margin-top:14px; padding:12px 16px; background:#F8FAFC; border-left:4px solid #3B82F6; border-radius:4px; font-size:24px; color:#1E3A8A;\">\n    🎯 <strong>MNEMOTECNIA DE ORO:</strong> 'Nice alto = prioridad baja' (eres muy educado, dejas pasar a los demás); 'Nice bajo/negativo = prioridad alta' (eres impaciente y acaparas la CPU).\n  </div>\n</div>\n"}, {"id": 4, "section": "103.6", "cat": "proc", "type": "concept", "title": "Mapeo de Escalas: Kernel Priority (PR) frente a Niceness (NI)", "lead": "¿Por qué en 'top' se ven números como 20 o 0 mientras en 'ps' se ven números de -20 a 19?", "ref": "350-352", "pdf": {"manual": "A", "pages": [350, 351, 352], "figure": null}, "coverage": ["103.6-CON-003"], "headers": ["Concepto", "Escala de Valores", "Fórmula de Mapeo Interno", "Interpretación en Examen"], "rows": [["Niceness (NI)", "🎯 -20 a +19 (40 niveles)", "Valor fijado por el usuario con nice / renice", "Escala de configuración del administrador."], ["Kernel Priority (PR)", "0 a 139 (140 niveles)", "🎯 Para procesos normales: PR = 20 + NI", "Escala interna que maneja el planificador del kernel."], ["Prioridad Normal (NI = 0)", "PR = 20 + 0 = 20", "nice = 0 -> PR = 20 en 'top'", "Prioridad estándar de cualquier programa al arrancar."], ["Máxima Prioridad (NI = -20)", "PR = 20 + (-20) = 0", "nice = -20 -> PR = 0 en 'top'", "Máxima preferencia de CPU en procesos no RT."], ["Mínima Prioridad (NI = 19)", "PR = 20 + 19 = 39", "nice = 19 -> PR = 39 en 'top'", "Mínima preferencia de CPU."], ["Tiempo Real (RT)", "0 a 99 (en kernel)", "Aparece como 'rt' o número negativo en top", "Procesos del kernel con prioridad superior a todo."]], "remember": "🎯 FÓRMULA SAGRADA DE EXAMEN: PR = 20 + NI. Si un proceso tiene nice de -5, en top su PR será 15 (20 + (-5)). Si tiene nice de 0, su PR será 20. Si tiene nice de +10, su PR será 30.", "notes": "Pregunta clásica: 'Un proceso muestra PR = 10 en top. ¿Cuál es su valor NI?'. Respuesta: NI = -10 (10 - 20 = -10).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:25px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>🧮 La Fórmula Matemática del Planificador: <code>PR = 20 + NI</code></span>\n    <span style=\"font-size:22px; background:#EFF6FF; color:#1D4ED8; padding:4px 10px; border-radius:12px; font-weight:700;\">Cálculo Directo LPIC-1</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; font-size:22px; text-align:center;\">\n    <!-- Normal -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:14px 16px;\">\n      <span style=\"background:#2563EB; color:#FFF; font-weight:800; font-size:20px; padding:4px 10px; border-radius:4px;\">DEFECTO</span>\n      <div style=\"font-weight:800; color:#1E40AF; font-size:24px; margin:4px 0;\">NI = 0</div>\n      <div style=\"font-size:23px; color:#1E3A8A;\"><code>20 + 0 =</code> <strong>PR 20</strong></div>\n      <span style=\"color:#64748B; font-size:20px;\">Prioridad estándar</span>\n    </div>\n\n    <!-- Urgente -->\n    <div style=\"background:#FEF2F2; border:1.5px solid #F87171; border-radius:8px; padding:14px 16px;\">\n      <span style=\"background:#EF4444; color:#FFF; font-weight:800; font-size:20px; padding:4px 10px; border-radius:4px;\">URGENTE</span>\n      <div style=\"font-weight:800; color:#991B1B; font-size:24px; margin:4px 0;\">NI = -5</div>\n      <div style=\"font-size:23px; color:#991B1B;\"><code>20 + (-5) =</code> <strong>PR 15</strong></div>\n      <span style=\"color:#B91C1C; font-size:20px;\">Atendido antes</span>\n    </div>\n\n    <!-- Máxima -->\n    <div style=\"background:#FEF2F2; border:2px solid #DC2626; border-radius:8px; padding:14px 16px;\">\n      <span style=\"background:#DC2626; color:#FFF; font-weight:800; font-size:20px; padding:4px 10px; border-radius:4px;\">MÁXIMA (Root)</span>\n      <div style=\"font-weight:800; color:#991B1B; font-size:24px; margin:4px 0;\">NI = -20</div>\n      <div style=\"font-size:23px; color:#991B1B;\"><code>20 + (-20) =</code> <strong>PR 0</strong></div>\n      <span style=\"color:#991B1B; font-size:20px; font-weight:800;\">Tope procesos CFS</span>\n    </div>\n\n    <!-- Mínima -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:14px 16px;\">\n      <span style=\"background:#16A34A; color:#FFF; font-weight:800; font-size:20px; padding:4px 10px; border-radius:4px;\">MÍNIMA</span>\n      <div style=\"font-weight:800; color:#15803D; font-size:24px; margin:4px 0;\">NI = +19</div>\n      <div style=\"font-size:23px; color:#14532D;\"><code>20 + 19 =</code> <strong>PR 39</strong></div>\n      <span style=\"color:#15803D; font-size:20px;\">Máxima amabilidad</span>\n    </div>\n  </div>\n</div>\n", "points": [{"icon": "sliders", "text": "1. Niceness (NI) — La Escala de Usuario (-20 a +19)", "detail": "🎯 Es el valor de 40 niveles que el administrador manipula con 'nice' y 'renice'. Cuanto más negativo, mayor prioridad exige el proceso."}, {"icon": "cpu", "text": "2. Prioridad del Kernel (PR en top: 0 a 39)", "detail": "🎯 Es la escala interna que usa el planificador del kernel para ordenar la cola de CPU. Menor número PR = el proceso se atiende antes."}, {"icon": "zap", "text": "3. Procesos de Tiempo Real (RT)", "detail": "🎯 Prioridades críticas de hardware (0 a 99 en kernel). En 'top' aparecen con la etiqueta 'rt' o valores negativos, con preferencia absoluta sobre todo lo demás."}]}, {"id": 5, "section": "103.6", "cat": "proc", "type": "command", "title": "Inspección de Prioridades con ps: -l y Columnas a Medida", "lead": "Comandos clave y opciones exactas de 'ps' para auditar los valores NI y PRI en el sistema:", "ref": "352-354", "pdf": {"manual": "A", "pages": [352, 353, 354], "figure": null}, "coverage": ["103.6-CMD-001", "103.6-OPT-001"], "command": "ps -l | ps -el | ps -o pid,user,ni,pri,stat,cmd", "purpose": "Comprobar las columnas NI (Niceness) y PRI (Prioridad del kernel) y los indicadores de STAT", "terminal": {"title": "Caso Real: Comprobar prioridades de tareas en ejecución con formato a medida (-o)", "command": "ps -o pid,user,ni,pri,stat,cmd -C render,backup,bash", "lines": [{"t": "cmt", "v": "# Inspeccionamos PID, usuario, Niceness (NI), prioridad kernel (PRI) y modificadores (STAT):"}, {"t": "cmd", "v": "ps -o pid,user,ni,pri,stat,cmd -C render,backup,bash", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "  PID USER        NI  PRI STAT CMD\n14205 root        -5   15 S<   /usr/bin/render_urgente\n18940 sysadmin    15   35 SN   tar -czf /backup/logs.tar.gz /var/log\n28415 sysadmin     0   20 Ss+  -bash"}, {"t": "cmt", "v": "# Fíjate en STAT: '<' indica nice negativo (alta prioridad); 'N' indica nice positivo (baja prioridad)."}]}, "options": [{"flag": "ps -l (o ps -el)", "short": "Formato largo estándar", "desc": "🎯 Clave de Examen: Añade obligatoriamente las columnas 'PRI' (prioridad) y 'NI' (niceness)."}, {"flag": "ps -o <columnas>", "short": "Columnas personalizadas", "desc": "🎯 Permite seleccionar solo los campos que te interesan (ej: 'ps -o pid,ni,pri,cmd')."}, {"flag": "STAT: '<'", "short": "Alta prioridad", "desc": "🎯 Clave de Examen: El proceso tiene niceness negativo (not nice, acapara CPU)."}, {"flag": "STAT: 'N'", "short": "Baja prioridad", "desc": "🎯 Clave de Examen: El proceso tiene niceness positivo (nice, cortés con la CPU)."}], "remember": "🎯 Regla Mnemotécnica de Examen: 'ps -l' muestra PRI y NI; en 'ps aux', la columna STAT muestra '<' si el nice es negativo (alta prioridad) y 'N' si el nice es positivo (baja prioridad).", "notes": "Muestra a los alumnos que en ps -l tradicional, la escala PRI puede variar según la versión, pero NI siempre es el valor exacto de -20 a 19.", "syntax": "ps -l | ps -el | ps -o pid,ni,pri,cmd -C nginx"}, {"id": 6, "section": "103.6", "cat": "proc", "type": "command", "title": "Supervisión Interactiva en top: Columnas PR, NI y la tecla 'r'", "lead": "¿Cómo monitorizar las prioridades en tiempo real y ejecutar renice interactivamente con la tecla 'r'?", "ref": "354-356", "pdf": {"manual": "A", "pages": [354, 355, 356], "figure": null}, "coverage": ["103.6-CMD-002", "103.6-OPT-002"], "command": "top (dentro de top pulsar la tecla 'r')", "purpose": "Supervisar las columnas PR y NI en vivo y modificar la prioridad de un proceso sin salir del monitor", "terminal": {"title": "Caso Real: Detectar proceso que ahoga la CPU y reasignar prioridad con tecla 'r'", "command": "top (pulsar 'r' -> 4120 -> 15)", "lines": [{"t": "cmt", "v": "# 1. top muestra que el script PID 4120 consume el 98% de CPU con prioridad normal (NI 0, PR 20):"}, {"t": "out", "v": "  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\n 4120 alumno    20   0  352140  48200  12400 R  98.5   2.1   1:24.10 script_pesado.py\n 1418 root      20   0   55140   5210   4100 S   0.0   0.1   0:00.02 nginx"}, {"t": "cmt", "v": "# 2. Pulsamos la tecla 'r' para Renice interactivo dentro de top:"}, {"t": "out", "v": "PID to renice [default pid = 4120]: 4120\nRenice PID 4120 to value: 15"}, {"t": "cmt", "v": "# 3. Resultado instantáneo: el script_pesado pasa automáticamente a PR 35 y NI 15."}]}, "options": [{"flag": "Columna PR", "short": "Prioridad kernel dinámica", "desc": "🎯 Valor de 0 a 39 que el kernel usa para el reparto de CPU (PR = 20 + NI)."}, {"flag": "Columna NI", "short": "Niceness estático", "desc": "🎯 Valor de -20 a +19 fijado por el usuario o administrador."}, {"flag": "Tecla 'r' (Renice)", "short": "Reasignar prioridad", "desc": "🎯 Clave de Examen: Solicita el PID y el nuevo valor de nice para aplicarlo al vuelo."}, {"flag": "Tecla 'q'", "short": "Salir de top", "desc": "Cierra el monitor interactivo y devuelve el control a la terminal."}], "remember": "🎯 Atajo Fijo de Examen: En el monitor interactivo 'top', la tecla 'r' ejecuta la acción de renice para alterar la prioridad de un proceso en ejecución sin cerrarlo.", "notes": "Explica que un usuario ordinario dentro de top solo podrá aumentar el valor de NI de sus propios procesos; para valores negativos se necesita ejecutar top como root.", "syntax": "top | dentro de top pulsar 'r' -> teclear PID -> teclear nuevo nice"}, {"id": 7, "section": "103.6", "cat": "proc", "type": "command", "title": "Lanzar Nuevos Procesos con Prioridad Modificada: nice", "lead": "¿Para qué sirve nice y cómo arrancar un comando fijando su amabilidad desde el primer segundo?", "ref": "356-358", "pdf": {"manual": "A", "pages": [356, 357, 358], "figure": null}, "coverage": ["103.6-CMD-003", "103.6-OPT-003"], "command": "nice [-n <incremento>] <comando> [argumentos...]", "purpose": "Arrancar un proceso NUEVO con un valor de niceness diferente al estándar 0", "terminal": {"title": "Caso Real: Lanzar un backup que no ralentice el servidor (nice +15) y acelerar compilación (nice -10)", "command": "nice -n 15 tar -czf /backup/sistema.tar.gz /var/www &; sudo nice -n -10 make -j4", "lines": [{"t": "cmt", "v": "# 1. Tarea pesada en segundo plano con baja prioridad (+15) para no ahogar la web:"}, {"t": "cmd", "v": "nice -n 15 tar -czf /backup/sistema.tar.gz /var/www &", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "[1] 31204  # (Nace con NI = 15; cede CPU si entran visitas a la web)"}, {"t": "cmt", "v": "# 2. Compilación crítica urgente: usamos sudo para asignar nice negativo (-10):"}, {"t": "cmd", "v": "sudo nice -n -10 make -j4", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "# (Nace con NI = -10 y PR = 10; el kernel le dará máxima preferencia de CPU)"}]}, "options": [{"flag": "nice cmd (sin número)", "short": "Suma +10 por defecto", "desc": "🎯 Pregunta Fija de Certificación: Si ejecutas 'nice comando' a secas, arranca con nice = 10."}, {"flag": "nice -n <valor> cmd", "short": "Sintaxis estándar POSIX", "desc": "🎯 Sintaxis oficial recomendada: 'nice -n 5 script.sh' (+5) o 'nice -n -10 script.sh' (-10)."}, {"flag": "nice -5 cmd (Histórico)", "short": "Asigna +5 (¡un guión!)", "desc": "⚠️ Trampa de Examen: El guión es el indicador de opción, no el signo menos: asigna +5."}, {"flag": "nice --5 cmd (Histórico)", "short": "Asigna -5 (doble guión)", "desc": "⚠️ Trampa de Examen: 1er guión = opción; 2º guión = signo matemático negativo (exige root)."}], "remember": "🎯 LAS DOS TRAMPAS CLAVE DE NICE: 1ª 'nice comando' sin argumentos arranca con nice = 10 (no 0). 2ª En sintaxis antigua, 'nice -5' es +5 de nice y 'nice --5' es -5 de nice (solo root).", "notes": "Asegúrate de que todos los alumnos entiendan por qué 'nice --5 comando' tiene dos guiones: el primero indica opción, el segundo es el signo negativo del número.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:6px;\">\n  <div style=\"font-size:24px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚠️ Trampa de Examen: Sintaxis Antigua de Guiones en <code>nice</code></span>\n    <span style=\"font-size:22px; background:#FEF2F2; color:#DC2626; padding:4px 10px; border-radius:12px; font-weight:700;\">Alerta LPIC-1</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:22px;\">\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:12px 16px;\">\n      <strong style=\"color:#1E40AF; font-size:23px;\"><code>nice -5 comando</code></strong><br>\n      <span style=\"color:#1E3A8A; line-height:1.35;\">\n        El guión '-' es la bandera del comando, NO un signo menos.<br>\n        ➔ <strong>Resultado:</strong> Asigna nice <strong>+5</strong> (amable, baja prioridad).<br>\n        <span style=\"color:#16A34A; font-weight:700;\">Cualquier usuario puede ejecutarlo.</span>\n      </span>\n    </div>\n\n    <div style=\"background:#FEF2F2; border:1.5px solid #EF4444; border-radius:8px; padding:12px 16px;\">\n      <strong style=\"color:#991B1B; font-size:23px;\"><code>nice --5 comando</code></strong><br>\n      <span style=\"color:#7F1D1D; line-height:1.35;\">\n        1º guión = bandera de opción; 2º guión = signo negativo.<br>\n        ➔ <strong>Resultado:</strong> Asigna nice <strong>-5</strong> (alta prioridad de CPU).<br>\n        <span style=\"color:#DC2626; font-weight:800;\">🔒 ¡Exige permisos de ROOT!</span>\n      </span>\n    </div>\n  </div>\n</div>\n", "syntax": "nice -n 15 tar -czf bkp.tar.gz /var & | sudo nice -n -10 make -j4"}, {"id": 8, "section": "103.6", "cat": "proc", "type": "concept", "title": "Reglas de Privilegios en Prioridades: Usuario frente a Root", "lead": "Límites estrictos de seguridad: qué puede y qué NO puede hacer un usuario ordinario con la CPU:", "ref": "358-359", "pdf": {"manual": "A", "pages": [358, 359], "figure": null}, "coverage": ["103.6-CON-004", "103.6-WARN-001"], "points": [{"icon": "user", "text": "1. Usuario Ordinario: Solo puede ser MÁS amable (0 a +19)", "detail": "🎯 Puede voluntariamente ceder CPU asignando valores positivos (de 0 a 19). No puede perjudicar a otros usuarios."}, {"icon": "shield-alert", "text": "2. Usuario Ordinario: ¡Prohibidos los valores negativos!", "detail": "🎯 No puede autoasignarse nice negativo (-1 a -20). Si lo intenta, el kernel responde: 'nice: cannot set niceness: Permission denied'."}, {"icon": "shield-check", "text": "3. Superusuario Root: Control absoluto bidireccional", "detail": "🎯 Solo root puede asignar valores negativos (-20 a -1) y modificar la prioridad de los procesos de cualquier usuario en cualquier sentido."}], "remember": "🎯 Regla de Oro de Examen: Para asignar cualquier valor de nice negativo (-1 a -20) se requieren OBLIGATORIAMENTE privilegios de root.", "notes": "Muestra cómo un alumno intentando hacer 'nice -n -2' recibe 'Permission denied'.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:25px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>🔒 Matriz de Privilegios de Planificación de Procesos</span>\n    <span style=\"font-size:22px; background:#F8FAFC; color:#475569; padding:4px 10px; border-radius:12px; font-weight:700;\">Seguridad Linux</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:16px; font-size:23px;\">\n    <!-- Usuario Ordinario -->\n    <div style=\"background:#F8FAFC; border:2px solid #CBD5E1; border-radius:10px; padding:10px 14px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <strong style=\"color:#0F172A; font-size:24px;\">👤 Usuario Estándar</strong>\n        <span style=\"background:#E2E8F0; color:#334155; font-size:20px; font-weight:800; padding:4px 10px; border-radius:4px;\">Sin sudo</span>\n      </div>\n      <div style=\"color:#334155; line-height:1.4;\">\n        • <strong>Valores permitidos:</strong> Solo de <strong>0 a +19</strong>.<br>\n        • <strong>Acción:</strong> Solo puede ser <em>más amable</em> (bajar su prioridad).<br>\n        • <strong>Valores negativos (-1 a -20):</strong> <span style=\"color:#DC2626; font-weight:700;\">⛔ Permission Denied</span>.<br>\n        • <strong>Regla de sentido único:</strong> Si sube a 15, ¡no puede volver a bajar a 0!\n      </div>\n    </div>\n\n    <!-- Superusuario Root -->\n    <div style=\"background:#FEF2F2; border:2px solid #EF4444; border-radius:10px; padding:10px 14px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <strong style=\"color:#991B1B; font-size:24px;\">🛡️ Superusuario (root / sudo)</strong>\n        <span style=\"background:#DC2626; color:#FFF; font-size:20px; font-weight:800; padding:4px 10px; border-radius:4px;\">Total</span>\n      </div>\n      <div style=\"color:#7F1D1D; line-height:1.4;\">\n        • <strong>Valores permitidos:</strong> Todo el rango de <strong>-20 a +19</strong>.<br>\n        • <strong>Acción:</strong> Puede subir o bajar la prioridad a su antojo.<br>\n        • <strong>Alcance:</strong> Sobre sus propios procesos o los de cualquier usuario.<br>\n        • <strong>Poder único:</strong> Puede rescatar y acelerar procesos en caliente.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 9, "section": "103.6", "cat": "proc", "type": "command", "title": "Modificar Procesos en Ejecución: renice", "lead": "¿Cómo alterar el valor de niceness en caliente sobre procesos que ya están vivos en memoria?", "ref": "359-360", "pdf": {"manual": "A", "pages": [359, 360], "figure": null}, "coverage": ["103.6-CMD-004", "103.6-OPT-004", "103.6-OPT-005"], "command": "renice [-n] <nuevo_nice> -p <PID> | -u <usuario> | -g <PGID>", "purpose": "Reasignar el valor absoluto de niceness a procesos activos por PID, por usuario o por grupo", "terminal": {"title": "Caso Real: Proceso saturando CPU ➔ Bajar prioridad en caliente ➔ Modificación masiva por usuario", "command": "renice -n 15 -p 4120; sudo renice -n -5 -p 1420; sudo renice -n 10 -u becario", "lines": [{"t": "cmt", "v": "# 1. El script 4120 ahoga el servidor. El usuario le baja la prioridad en caliente (de 0 a 15):"}, {"t": "cmd", "v": "renice -n 15 -p 4120", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "4120 (process ID) old priority 0, new priority 15  # (¡Liberó CPU de inmediato!)"}, {"t": "cmt", "v": "# 2. Con sudo aceleramos la base de datos MySQL (PID 1420) a alta prioridad (-5):"}, {"t": "cmd", "v": "sudo renice -n -5 -p 1420", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "1420 (process ID) old priority 0, new priority -5"}, {"t": "cmt", "v": "# 3. Modificación masiva: bajamos la prioridad de todos los procesos del usuario 'becario':"}, {"t": "cmd", "v": "sudo renice -n 10 -u becario", "prompt": "sysadmin@srv:~$ "}, {"t": "out", "v": "1002 (user ID) old priority 0, new priority 10"}]}, "options": [{"flag": "renice -n <val> -p <PID>", "short": "Por PID específico", "desc": "🎯 Fija el valor ABSOLUTO de niceness del proceso indicado (la opción -p es el modo por defecto)."}, {"flag": "renice -n <val> -u <user>", "short": "Por nombre de usuario", "desc": "🎯 Clave de Examen: Aplica el nuevo valor a la totalidad de procesos del usuario indicado."}, {"flag": "renice -n <val> -g <PGID>", "short": "Por Process Group ID", "desc": "Modifica la prioridad de un grupo de procesos completo a la vez."}, {"flag": "Valor Absoluto", "short": "No suma ni resta", "desc": "🎯 Clave de Examen: 'renice 5' asigna exactamente nice = 5 (no suma 5 a la prioridad anterior)."}], "remember": "🎯 Regla de Examen: 'renice' fija siempre el valor ABSOLUTO de nice; nunca suma ni resta. Para modificar procesos de otros usuarios o asignar nice negativo se requiere sudo.", "notes": "La comparativa detallada entre nice y renice se analiza en profundidad en la siguiente sección.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:6px;\">\n  <div style=\"font-size:24px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚡ Los 3 Selectores Clave de <code>renice</code>:</span>\n    <span style=\"font-size:22px; background:#EFF6FF; color:#1D4ED8; padding:4px 10px; border-radius:12px; font-weight:700;\">Sintaxis Directa</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px; font-size:22px; text-align:center;\">\n    <div style=\"background:#EFF6FF; border:1px solid #93C5FD; border-radius:8px; padding:12px 14px;\">\n      <strong style=\"color:#1E40AF; font-size:23px;\">-p (Por PID)</strong><br>\n      <code>renice 10 -p 1420</code><br>\n      <span style=\"color:#2563EB; font-size:20px;\">Afecta a un único proceso</span>\n    </div>\n    <div style=\"background:#F0FDF4; border:1px solid #86EFAC; border-radius:8px; padding:12px 14px;\">\n      <strong style=\"color:#15803D; font-size:23px;\">-u (Por Usuario)</strong><br>\n      <code>sudo renice 15 -u alumno</code><br>\n      <span style=\"color:#166534; font-size:20px;\">Afecta a todo el usuario</span>\n    </div>\n    <div style=\"background:#FAF5FF; border:1px solid #D8B4FE; border-radius:8px; padding:12px 14px;\">\n      <strong style=\"color:#6B21A8; font-size:23px;\">-g (Por Grupo PGID)</strong><br>\n      <code>sudo renice 5 -g 3000</code><br>\n      <span style=\"color:#7E22CE; font-size:20px;\">Afecta al Process Group</span>\n    </div>\n  </div>\n</div>\n", "syntax": "renice -n 15 -p 4120 | sudo renice -n -5 -p 1420 | sudo renice -n 10 -u becario"}, {"id": 10, "section": "103.6", "cat": "proc", "type": "file", "title": "Configuración de Límites: /etc/security/limits.conf", "lead": "¿Dónde y cómo se autoriza a usuarios específicos a fijar prioridades negativas sin ser root?", "ref": "360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "coverage": ["103.6-FILE-001"], "file": "/etc/security/limits.conf (Procesado por pam_limits.so)", "syntax": "<dominio>    <tipo>    <item>    <valor>", "content": "# /etc/security/limits.conf — Límites de recursos por usuario y grupo\n# Dominio       Tipo    Item            Valor\n\n# 1. Los miembros del grupo '@devs' pueden ponerse nice negativo hasta -10\n@devs           hard    nice            -10\n@devs           soft    nice            -5\n\n# 2. El usuario 'musico' puede usar prioridades de tiempo real para audio sin latencia\nmusico          hard    rtprio          95\nmusico          soft    rtprio          80\n\n# 3. Todos los demás usuarios ordinarios (*) tienen prohibido nice negativo\n*               hard    nice            0", "fields": [{"field": "<dominio>", "desc": "A quién aplica: un usuario (ej: 'musico'), un grupo con arroba (ej: '@devs') o comodín para todos ('*')."}, {"field": "<tipo>: soft vs hard", "desc": "🎯 'soft' es el límite por defecto que el usuario puede aumentar; 'hard' es el techo infranqueable fijado por root."}, {"field": "<item>: nice", "desc": "🎯 Clave de Examen: Define el valor MÁS NEGATIVO (máxima prioridad) que el usuario tiene permitido autoasignarse."}, {"field": "<item>: rtprio", "desc": "Define la máxima prioridad de tiempo real (Real-Time, 0-99) permitida para procesos críticos de baja latencia."}], "remember": "🎯 Clave de Examen: Para que un usuario ordinario pueda usar nice negativo (-1 a -20) sin sudo, debe configurarse la directiva 'nice' en el archivo '/etc/security/limits.conf'.", "notes": "Este archivo es evaluado por el módulo PAM 'pam_limits.so' durante el inicio de sesión del usuario.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:8px;\">\n  <div style=\"font-size:24px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>📁 Anatomía de una Línea de Configuración en <code>/etc/security/limits.conf</code>:</span>\n    <span style=\"font-size:22px; background:#EFF6FF; color:#1D4ED8; padding:4px 10px; border-radius:12px; font-weight:700;\">4 Columnas Clave</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; font-size:22px; text-align:center;\">\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:12px 14px;\">\n      <span style=\"font-weight:800; color:#1E40AF; font-size:23px;\">1. @devs</span><br>\n      <span style=\"color:#475569;\">Grupo o Usuario</span>\n    </div>\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:12px 14px;\">\n      <span style=\"font-weight:800; color:#0F172A; font-size:23px;\">2. hard</span><br>\n      <span style=\"color:#475569;\">Techo Infranqueable</span>\n    </div>\n    <div style=\"background:#F8FAFC; border:1px solid #CBD5E1; border-radius:6px; padding:12px 14px;\">\n      <span style=\"font-weight:800; color:#B45309; font-size:23px;\">3. nice</span><br>\n      <span style=\"color:#475569;\">Recurso a Limitar</span>\n    </div>\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:6px; padding:12px 14px;\">\n      <span style=\"font-weight:800; color:#2563EB; font-size:23px;\">4. -10</span><br>\n      <span style=\"color:#1E40AF; font-weight:700;\">Límite Asignado</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 11, "section": "103.6", "cat": "proc", "type": "table", "title": "Comparativa Maestra: nice frente a renice", "lead": "Los 5 puntos de contraste clave para diferenciar ambas órdenes de forma definitiva:", "ref": "360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "coverage": ["103.6-CMD-003", "103.6-CMD-004"], "headers": ["Criterio de Examen", "Comando nice", "Comando renice"], "rows": [["<strong>Momento de Acción</strong>", "🎯 <strong>Al arrancar</strong> un proceso nuevo.", "🎯 <strong>En caliente</strong> sobre procesos que ya corren."], ["<strong>Identificador usado</strong>", "El <strong>nombre del comando</strong> (ej: <code>nice tar ...</code>).", "El <strong>PID</strong> (<code>-p</code>), <strong>usuario</strong> (<code>-u</code>) o <strong>PGID</strong> (<code>-g</code>)."], ["<strong>Valor por Defecto</strong>", "🎯 Suma <strong>+10</strong> si no se indica número.", "<strong>Sin valor por defecto</strong>: exige indicar el nuevo nice."], ["<strong>Tipo de Valor</strong>", "Relativo (suma al valor base).", "🎯 <strong>Valor Absoluto</strong> (fija exactamente el valor indicado)."], ["<strong>Privilegio de Usuario</strong>", "Puede fijar nice de <strong>0 a +19</strong>.", "🎯 Puede <em>subir</em> su nice (+), pero <strong>¡NUNCA volver a bajarlo!</strong>"]], "remember": "🎯 FÓRMULA SAGRADA: 'nice' para procesos por nacer (suma +10 por defecto); 'renice' para procesos vivos (valor absoluto). Los usuarios normales solo pueden subir el nice, nunca reducirlo.", "notes": "Esta diapositiva sintetiza todas las preguntas de comparación directa del examen 101-500.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:8px;\">\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:16px; font-size:23px;\">\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#1E40AF; font-size:24px;\">nice (Nacimiento de Proceso)</strong>\n      <div style=\"color:#1E3A8A; line-height:1.4; margin-top:4px;\">\n        • Sintaxis: <code>nice -n 10 ./script.sh</code><br>\n        • Si omites <code>-n</code>: aplica <strong>+10</strong> automáticamente.<br>\n        • Modifica el entorno antes de hacer <code>exec()</code>.\n      </div>\n    </div>\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:10px;\">\n      <strong style=\"color:#15803D; font-size:24px;\">renice (En Caliente en RAM)</strong>\n      <div style=\"color:#14532D; line-height:1.4; margin-top:4px;\">\n        • Sintaxis: <code>renice -n 15 -p 4120</code><br>\n        • Fija el valor <strong>absoluto</strong> (fija 15, no suma).<br>\n        • Permite rescate masivo con <code>-u <usuario></code>.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 12, "section": "103.6", "cat": "proc", "type": "concept", "title": "Trampas Clásicas de Examen en Prioridades y Niceness", "lead": "Los 4 descuidos conceptuales y de sintaxis más penalizados en las preguntas oficiales de certificación LPIC-1:", "ref": "360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "coverage": ["103.6-WARN-001", "103.6-WARN-002"], "points": [{"icon": "alert-triangle", "text": "1. Creer que +19 es la máxima prioridad", "detail": "🎯 ¡Totalmente al revés! Cuanto mayor es el número, más 'amable' es el proceso y MENOS CPU recibe. El valor -20 es la máxima prioridad y +19 es la mínima."}, {"icon": "alert-triangle", "text": "2. La Trampa de los Guiones Históricos (nice -5 vs nice --5)", "detail": "🎯 'nice -5' asigna +5 de nice (el guión es opción, no signo). Para asignar -5 debes escribir 'nice --5' o la sintaxis moderna 'nice -n -5' (ambas requieren root)."}, {"icon": "alert-triangle", "text": "3. Olvidar que 'nice comando' suma +10 por defecto", "detail": "🎯 Ejecutar 'nice updatedb' sin argumentos NO arranca con nice 0 (nice 0 es el arranque sin nice). Arranca con nice = 10."}, {"icon": "alert-triangle", "text": "4. Creer que un usuario normal puede revertir renice", "detail": "🎯 Si un usuario sube su nice de 0 a 10 con renice, y luego intenta bajarlo a 0, fallará con 'Permission denied'. Solo root puede reducir el valor de niceness."}], "remember": "🎯 RESUMEN DE TRAMPAS: -20 = máxima velocidad; +19 = mínima velocidad; 'nice' sin número = +10; 'nice -5' = +5; 'nice --5' = -5 (solo root); renice no tiene marcha atrás para usuarios normales.", "notes": "Repasa estas 4 trampas clave antes de abordar los ejercicios guiados.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:8px;\">\n  <div style=\"font-size:24px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>⚡ Los 4 Falsos Amigos que Suspenden Candidatos en LPIC-1</span>\n    <span style=\"font-size:22px; background:#FEF2F2; color:#DC2626; padding:4px 10px; border-radius:12px; font-weight:700;\">Preguntas Trampa Oficiales</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:22px;\">\n    <!-- Trampa 1 -->\n    <div style=\"background:#FEF2F2; border-left:4px solid #DC2626; border-radius:6px; padding:12px 16px;\">\n      <div style=\"color:#991B1B; font-weight:800; font-size:23px;\">❌ Trampa 1: \"+19 corre más rápido que -20\"</div>\n      <div style=\"color:#7F1D1D; margin-top:2px; line-height:1.35;\">\n        <strong>Realidad:</strong> 'Nice' es amabilidad. Quien tiene nice +19 es hipereducado y cede la CPU. <strong>-20 es la máxima velocidad</strong>.\n      </div>\n    </div>\n\n    <!-- Trampa 2 -->\n    <div style=\"background:#FEF2F2; border-left:4px solid #DC2626; border-radius:6px; padding:12px 16px;\">\n      <div style=\"color:#991B1B; font-weight:800; font-size:23px;\">❌ Trampa 2: \"nice -5 asigna prioridad negativa\"</div>\n      <div style=\"color:#7F1D1D; margin-top:2px; line-height:1.35;\">\n        <strong>Realidad:</strong> El guión es el flag. Asigna <strong>+5</strong>. Para asignar -5 debes escribir <code>nice --5</code> o <code>nice -n -5</code> (solo root).\n      </div>\n    </div>\n\n    <!-- Trampa 3 -->\n    <div style=\"background:#FEF2F2; border-left:4px solid #DC2626; border-radius:6px; padding:12px 16px;\">\n      <div style=\"color:#991B1B; font-weight:800; font-size:23px;\">❌ Trampa 3: \"nice comando arranca en nice 0\"</div>\n      <div style=\"color:#7F1D1D; margin-top:2px; line-height:1.35;\">\n        <strong>Realidad:</strong> El comando <code>nice</code> sin argumentos <strong>añade +10</strong> por defecto. El proceso arranca con nice = 10.\n      </div>\n    </div>\n\n    <!-- Trampa 4 -->\n    <div style=\"background:#FEF2F2; border-left:4px solid #DC2626; border-radius:6px; padding:12px 16px;\">\n      <div style=\"color:#991B1B; font-weight:800; font-size:23px;\">❌ Trampa 4: \"El usuario puede deshacer su renice\"</div>\n      <div style=\"color:#7F1D1D; margin-top:2px; line-height:1.35;\">\n        <strong>Realidad:</strong> Un usuario estándar solo puede subir el nice (0 a 19). Reducir el valor para ganar CPU da <code>Permission denied</code>.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 13, "section": "103.6", "cat": "proc", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 1: Escalas y Mapeo)", "ref": "Manual A - Pág 360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "steps": [{"action": "Caso 1 (Oficial Pág 360): ¿Cuál es el rango numérico completo de valores de 'niceness' que pueden asignarse a un proceso en Linux y cuál de los extremos representa la máxima prioridad de CPU?", "command": "Rango de -20 a +19. El valor -20 representa la máxima prioridad.", "reason": "La escala de amabilidad consta de 40 niveles; los valores negativos representan menor amabilidad (mayor agresividad por la CPU) y los positivos representan mayor cortesía."}, {"action": "Caso 2 (Oficial Pág 360): Un proceso en el monitor 'top' tiene un valor de Niceness de NI = -5. Según la fórmula del kernel (PR = 20 + NI), ¿qué valor numérico exacto mostrará la columna PR?", "command": "PR = 15", "reason": "20 + (-5) = 15. En la escala interna de prioridades del kernel para procesos CFS ordinarios, 15 indica una preferencia elevada respecto al valor estándar 20."}, {"action": "Caso 3 (Oficial Pág 360): ¿Qué opción del comando 'ps' permite visualizar en la consola las columnas de prioridad del kernel (PRI) y valor nice (NI)?", "command": "ps -l (o ps -el / ps -Al)", "reason": "La opción -l (long format) incluye obligatoriamente los campos de estado y planificación del proceso."}], "solution": {"explain": "-20 a 19 con -20 máxima velocidad; fórmula PR = 20 + NI; y ps -l para inspección de columnas."}, "notes": "Muestra que si un proceso tiene NI = 0, en top su PR es exactamente 20."}, {"id": 14, "section": "103.6", "cat": "proc", "type": "exercise", "title": "Ejercicios Guiados Oficiales del Manual LPIC-1 (Parte 2: nice y renice)", "ref": "Manual A - Pág 360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "steps": [{"action": "Caso 4 (Oficial Pág 360): Un usuario estándar ejecuta 'nice -n -10 backup.sh' y recibe el mensaje de error 'nice: cannot set niceness: Permission denied'. ¿A qué se debe y cómo se soluciona?", "command": "Se debe a que los valores de nice negativos requieren permisos de superusuario. Se soluciona ejecutándolo con root: 'sudo nice -n -10 ./backup.sh'", "reason": "Los usuarios sin privilegios tienen estrictamente prohibido aumentar la prioridad de sus procesos para evitar monopolizar la CPU."}, {"action": "Caso 5 (Oficial Pág 360): ¿Cuál es el comando exacto para fijar el valor de niceness a 15 de todos los procesos que pertenecen al usuario 'invitado' en un solo paso?", "command": "sudo renice -n 15 -u invitado", "reason": "El subcomando '-u' de renice aplica el nuevo valor a la totalidad de procesos cuyo propietario sea el usuario especificado."}], "solution": {"explain": "Valores negativos requieren root; renice -u aplica modificaciones masivas por cuenta de usuario."}, "notes": "Recuerda que renice -u es muy útil cuando un usuario ha lanzado muchas tareas que están saturando el servidor."}, {"id": 15, "section": "103.6", "cat": "proc", "type": "challenge", "title": "Retos de Exploración Oficiales (Comportamiento de nice y top)", "ref": "Manual A - Pág 360", "pdf": {"manual": "A", "pages": [360], "figure": null}, "scenario": "Resuelve estos 3 retos de examen planteados en el manual oficial LPIC-1:\n1. Si un administrador arranca una copia pesada ejecutando exactamente 'nice tar -czf backup.tar.gz /var', ¿con qué valor de niceness exacto nacerá el proceso tar?\n2. Estás monitorizando el sistema con 'top' y detectas un script que consume el 99% de CPU con PID 8420. ¿Qué teclas exactas debes pulsar dentro de top para cambiar su prioridad a nice 19 sin cerrar el monitor?\n3. ¿Puede un usuario ordinario que ha lanzado un script con 'nice -n 10 script.sh' usar luego el comando renice para devolverlo a nice 0?", "hint": "Recuerda: valor por defecto de nice a secas; tecla 'r' en top; y regla de irreversibilidad para usuarios normales.", "solution": {"explain": "1. Nacerá con nice = 10 (el comando nice sin argumentos añade 10 al valor base 0).\n2. Se pulsa la tecla 'r', se teclea el PID '8420' y Enter, y luego se introduce '19' y Enter.\n3. ¡NO! Un usuario ordinario no puede aumentar la prioridad de un proceso (pasar de 10 a 0 es un aumento de prioridad). Dará error 'Permission denied' a menos que lo ejecute root."}, "notes": "El reto 3 ilustra una de las trampas más sutiles de la administración de sistemas."}, {"id": 16, "section": "103.6", "cat": "proc", "type": "review", "title": "Pregunta de Examen LPIC-1: Valor por Defecto de nice", "q": "Si un usuario ejecuta en la consola de comandos la orden 'nice updatedb' sin especificar ningún flag adicional, ¿con qué valor de niceness se ejecutará el comando?", "options": ["0", "5", "10", "19"], "answer": 2, "why": "Por especificación estándar, cuando el comando 'nice' se invoca sin el parámetro '-n', aplica un incremento predeterminado de +10 al valor de niceness del proceso hijo. Por tanto, el comando se ejecutará con nice = 10.", "notes": "Pregunta clásica de certificación que todo candidato debe acertar sin dudar."}, {"id": 17, "section": "103.6", "cat": "proc", "type": "flashcards", "title": "Tarjetas Nemotécnicas: Prioridades de Proceso 103.6", "deck": [{"front": "¿Cuál es el rango de valores de nice en Linux?", "back": "De -20 (máxima prioridad) a +19 (mínima prioridad)."}, {"front": "¿Qué valor de niceness tienen los procesos normales por defecto?", "back": "El valor 0."}, {"front": "¿Qué valor de niceness asigna 'nice comando' sin opciones?", "back": "El valor 10 (añade +10 al valor actual)."}, {"front": "¿Quién puede asignar valores de nice negativos (-1 a -20)?", "back": "Únicamente el superusuario root."}, {"front": "¿Qué comando modifica la prioridad de un proceso que ya está corriendo?", "back": "renice (ej: renice -n 5 -p <PID>)."}, {"front": "¿Qué fórmula relaciona la prioridad en top (PR) con el niceness (NI)?", "back": "PR = 20 + NI."}, {"front": "¿Qué tecla de 'top' permite cambiar la prioridad de un proceso?", "back": "La tecla 'r' (renice)."}, {"front": "¿Qué letra en la columna STAT de 'ps aux' indica un nice de alta prioridad?", "back": "El carácter '<' (alta prioridad); la letra 'N' indica baja prioridad."}], "notes": "Repasa estas 8 tarjetas para asegurar el pleno de aciertos en el objetivo 103.6."}, {"id": 18, "section": "103.6", "cat": "proc", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 103.6", "takeaways": ["Escala de Niceness: de -20 (máxima prioridad) a +19 (mínima prioridad), con 0 como estándar. Cuanto más negativo, más CPU recibe.", "Fórmula de Mapeo: PR = 20 + NI en top. Un nice de -5 se muestra como PR = 15.", "nice vs renice: nice lanza procesos nuevos (nice sin argumentos aplica +10); renice modifica procesos vivos (renice -n <val> -p <PID>).", "Permisos: Usuarios normales solo pueden reducir prioridad (valores positivos de 0 a 19) y no pueden revertir renices previos. Valores negativos exigen root."], "top3": [{"cmd": "nice -n 19 <comando>", "desc": "Lanza un proceso en segundo plano con mínima prioridad de CPU para no ralentizar el servidor."}, {"cmd": "renice -n -5 -p <PID>", "desc": "Aumenta la prioridad de un proceso crítico en ejecución (requiere sudo)."}, {"cmd": "ps -o pid,ni,pri,cmd -p <PID>", "desc": "Verifica los valores exactos de niceness y prioridad asignados a un proceso."}], "practice": {"name": "Practica 103.6: Modificar la Prioridad de Procesos (Nice y Renice)", "url": "../practicas/p-103-6-prioridades-nice-renice.html", "desc": "Aprende a graduar la prioridad en el planificador de la CPU con nice (-20 a +19), modifica procesos en vivo con renice y comprende las reglas de privilegios de root."}, "notes": "Concluimos el subtema 103.6. Los alumnos dominan ahora la planificación y prioridades de procesos."}];
     const ERRATAS = [{"id": "ERR-103.6-01", "section": "103.6", "ref": "p. 11", "manual_says": "Cualquier usuario puede asignar un nice de -5 a sus procesos.", "reality": "Solo root (superusuario) puede asignar valores negativos de nice (aumentar prioridad de CPU). Los usuarios normales solo pueden subir el nice (0 a 19).", "exam_tip": "Pregunta típica de examen: si un usuario normal ejecuta renice -5 1234, fallará por falta de permisos."}];
     const GLOSARIO = [{"id": "nice", "term": "nice / NI", "def": "Valor de prioridad de CPU de un proceso en Linux (-20 máxima prioridad, 19 mínima prioridad, 0 por defecto).", "ref": "p. 1-8"}, {"id": "renice", "term": "renice", "def": "Comando para alterar el valor de nice de uno o más procesos que ya se encuentran en ejecución.", "ref": "p. 9-14"}, {"id": "top", "term": "top", "def": "Herramienta interactiva de monitorización de procesos en tiempo real, uso de CPU y memoria.", "ref": "p. 15-20"}, {"id": "ps", "term": "ps", "def": "Comando que muestra una instantánea estática de los procesos activos en el sistema.", "ref": "p. 5-12"}];
     const META = {"topic": "103.6", "title": "Modificar la prioridad de ejecución de los procesos", "weight": 2, "description": "Multitarea preventiva, escala de niceness (-20 a 19), ps -el, top, nice y renice (Alta Densidad LPIC-1)", "duracion": "30 min"};
@@ -1758,7 +1767,7 @@
       const notesWidth = teacherNotesOpen ? 420 : 0;
       const availW = window.innerWidth - notesWidth;
       const availH = window.innerHeight - topBarHeight;
-      const scale = Math.min((availW - 40) / 1920, (availH - 40) / 1080);
+      const scale = Math.min((availW - 16) / 1920, (availH - 16) / 1080);
       stage.style.transform = `scale(${Math.max(scale, 0.25)})`;
     }
     window.addEventListener('resize', resizeStage);
@@ -1843,6 +1852,7 @@
       // Renderizado del cuerpo según el tipo
       const container = document.getElementById('slide-content');
       container.innerHTML = buildSlideHTML(s, colors);
+      container.scrollTop = 0;
 
       // Actualizar fragmentos
       const frags = container.querySelectorAll('.frag');
@@ -2057,8 +2067,8 @@
               <div style="display:grid; grid-template-columns: repeat(${Math.min(s.stats.length, 4)}, 1fr); gap:16px; margin-top:36px; max-width:1100px; margin-left:auto; margin-right:auto;">
                 ${s.stats.map(st => `
                   <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:14px; padding:16px 20px; text-align:center;">
-                    <div style="font-size:16px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
-                    <div style="font-size:20px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
+                    <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
+                    <div style="font-size:24px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
                   </div>
                 `).join('')}
               </div>
@@ -2078,7 +2088,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2110,8 +2120,8 @@
         if (s.syntax) {
           html += `
             <div class="syntax-bar">
-              <span style="font-weight:700; color:var(--text-muted); font-size:19px;">Sintaxis:</span>
-              <code class="t-cmd" style="font-size:21px;">${escapeHTML(s.syntax)}</code>
+              <span style="font-weight:700; color:var(--text-muted); font-size:24px;">Sintaxis:</span>
+              <code class="t-cmd" style="font-size:26px;">${escapeHTML(s.syntax)}</code>
             </div>
           `;
         }
@@ -2144,7 +2154,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2379,12 +2389,12 @@
             html += `
               <div class="concept-card" style="position:relative; display:flex; flex-direction:column; justify-content:space-between; border-left:6px solid var(--primary);">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-                  <span style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;">${st.num || idx + 1}</span>
+                  <span style="width:38px; height:38px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:22px;">${st.num || idx + 1}</span>
                   <div class="icon-box" style="margin:0;"><svg class="ic ic-md"><use href="#i-${st.icon || 'arrow-right'}"/></svg></div>
                 </div>
                 <div>
-                  <div style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
-                  <div style="font-size:18px; color:var(--text-muted); line-height:1.4;">${renderRichText(sdesc)}</div>
+                  <div style="font-size:24px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
+                  <div style="font-size:22px; color:var(--text-muted); line-height:1.42;">${renderRichText(sdesc)}</div>
                 </div>
               </div>
             `;
@@ -2413,7 +2423,7 @@
         }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:22px;">
               <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
             </span>
           </div>
@@ -2422,7 +2432,7 @@
         // Planteamiento del problema (Escenario claro)
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
             <div style="white-space:pre-line;">${renderRichText(scenarioText)}</div>
             ${questionText ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(questionText)}</div>` : ''}
           </div>
@@ -2434,7 +2444,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2442,7 +2452,7 @@
               const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(doText)}</span>
                 </div>
               `;
@@ -2451,7 +2461,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2463,15 +2473,15 @@
         // Botón docente interactivo para revelar resolución lineal y explicación
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-exercise" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-exercise" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar / Ocultar Resolución Guiada y Explicación
             </button>
-            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
         `;
 
         // Dentro del cuadro de resolución: pasos resueltos y comandos
         if (steps.length > 0) {
-          html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
+          html += `<div style="font-size:22px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
             const doText = st.action || st.do || st.task || st.step || '';
             const lookText = st.command || st.look || st.cmd || st.code || '';
@@ -2482,7 +2492,7 @@
                   <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
                   ${lookText ? `<code class="exercise-sol-code">${escapeHTML(lookText)}</code>` : ''}
                 </div>
-                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
+                ${reasonText ? `<div style="font-size:22px; color:var(--text-muted); line-height:1.4; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -2526,9 +2536,9 @@
         // Enunciado y Escenario del reto
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
             <div style="white-space:pre-line;">${renderRichText(scenario)}</div>
-            ${goalText ? `<div style="margin-top:10px; font-size:18px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
+            ${goalText ? `<div style="margin-top:10px; font-size:22px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
             ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(question)}</div>` : ''}
           </div>
         `;
@@ -2539,7 +2549,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2549,10 +2559,10 @@
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; justify-content:space-between; gap:16px;">
                   <div style="display:flex; align-items:center; gap:12px;">
-                    <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                    <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                     <span>${renderRichText(titleText)}</span>
                   </div>
-                  ${(st.action && st.step !== st.action) ? `<code style="font-size:18px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
+                  ${(st.action && st.step !== st.action) ? `<code style="font-size:22px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
                 </div>
               `;
             });
@@ -2560,7 +2570,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2578,7 +2588,7 @@
             const isCorrect = !!opt.correct;
             html += `
               <button class="quiz-btn challenge-opt-btn" onclick="this.classList.toggle('${isCorrect ? 'correct' : 'incorrect'}');">
-                <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
+                <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
                 <span>${renderRichText(optText)}</span>
               </button>
             `;
@@ -2601,13 +2611,13 @@
         const solTerminal = s.solution?.terminal || s.outcome?.terminal || (chObj ? (chObj.solution?.terminal || chObj.outcome?.terminal) : null) || null;
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-challenge" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar Solución y Razonamiento Docente
             </button>
-            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
               <div style="display:flex; align-items:flex-start; gap:12px;">
                 <svg class="ic ic-md" style="margin-top:2px; flex:none; color:var(--success);"><use href="#i-circle-check"/></svg>
-                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:20px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
+                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:22px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
               </div>
               ${solTerminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(solTerminal, 'solución')}</div>` : ''}
             </div>
@@ -2650,7 +2660,7 @@
           const optText = (typeof opt === 'object' && opt !== null) ? opt.text : opt;
           html += `
             <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${ansIdx}, '${escapeQuotes(expl)}')">
-              <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
+              <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(optText)}</span>
             </button>
           `;
@@ -2658,11 +2668,11 @@
         html += `</div>`;
         html += `
           <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
-            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:22px; padding:12px 24px; cursor:pointer;">
               <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
             </button>
           </div>
-          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:23px; line-height:1.5;"></div>
         `;
         }
       } else if (s.type === 'flashcards') {
@@ -2730,7 +2740,7 @@
         if (top3.length > 0) {
           html += `
             <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
-              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <div style="font-weight:800; font-size:23px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
                 <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
               </div>
               <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
@@ -2739,8 +2749,8 @@
             if (typeof t === 'string') {
               html += `
                 <div class="summary-cmd-card" style="display:flex; align-items:center; justify-content:space-between;">
-                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
-                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  <code class="t-cmd" style="font-size:22px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                 </div>
               `;
             } else {
@@ -2749,10 +2759,10 @@
               html += `
                 <div class="summary-cmd-card">
                   <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
-                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                    <code class="t-cmd" style="font-size:22px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                   </div>
-                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                  ${desc ? `<div style="font-size:21px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
                 </div>
               `;
             }
@@ -2776,7 +2786,7 @@
                   <div class="sp-desc">${renderRichText(pDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Web →
               </a>
             </div>
@@ -2796,7 +2806,7 @@
                 <div class="sp-desc" style="color:var(--text);">Explora visualmente los comandos, rutas y preguntas trampa de examen conectadas a este subtema en la red interactiva.</div>
               </div>
             </div>
-            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
               Ver en Grafo Interactivo →
             </a>
           </div>
@@ -2818,7 +2828,7 @@
                   <div class="sg-desc">${renderRichText(gpDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Global →
               </a>
             </div>
@@ -2878,7 +2888,13 @@
     // Navegación por teclado
     window.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      if (e.key === 'ArrowDown') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: 140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowUp') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: -140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         e.preventDefault();
         nextStep();
       } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
@@ -3034,7 +3050,7 @@
         content += `<div style="margin-bottom:8px; font-size:20px; line-height:1.4;">${escapeHTML(descText)}</div>`;
       }
       if (example) {
-        content += `<div style="font-family:monospace; font-size:18px; background:var(--surface-alt); padding:6px 10px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
+        content += `<div style="font-family:monospace; font-size:20px; background:var(--surface-alt); padding:8px 12px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
       }
       popover.innerHTML = content || '<div>Sin detalles adicionales</div>';
       const rect = e.currentTarget.getBoundingClientRect();
@@ -3188,8 +3204,8 @@
         item.style.color = 'var(--text)';
         item.style.cursor = 'pointer';
         item.innerHTML = `
-          <div style="font-weight:700; font-size:16px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
-          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
+          <div style="font-weight:700; font-size:19px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
+          <div style="font-size:21px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
         `;
         item.onclick = () => {
           closeModals();

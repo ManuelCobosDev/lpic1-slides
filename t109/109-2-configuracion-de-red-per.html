@@ -287,14 +287,15 @@
     [data-theme="dark"] .summary-global-box .sg-icon { background: #78350F !important; color: #FDE047 !important; }
 
     .exercise-sol-code {
-      font-size: 19px;
+      font-size: 23px;
       background: #FFFFFF;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 8px;
       border: 1px solid #86EFAC;
       color: #166534;
       font-family: monospace;
       font-weight: 700;
+      line-height: 1.48;
     }
     .summary-cmd-card {
       background: #FFFFFF;
@@ -313,8 +314,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-practice-box .sp-title { font-size: 20px; font-weight: 800; color: #166534; }
-    .summary-practice-box .sp-desc { font-size: 16px; color: #374151; }
+    .summary-practice-box .sp-title { font-size: 25px; font-weight: 800; color: #166534; }
+    .summary-practice-box .sp-desc { font-size: 21px; color: #374151; line-height: 1.45; }
     .summary-practice-box .sp-icon { width: 48px; height: 48px; border-radius: 12px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; flex: none; }
     .summary-global-box {
       margin-top: 12px;
@@ -327,8 +328,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-global-box .sg-title { font-size: 20px; font-weight: 800; color: #92400E; }
-    .summary-global-box .sg-desc { font-size: 16px; color: #78350F; }
+    .summary-global-box .sg-title { font-size: 25px; font-weight: 800; color: #92400E; }
+    .summary-global-box .sg-desc { font-size: 21px; color: #78350F; line-height: 1.45; }
     .summary-global-box .sg-icon { width: 48px; height: 48px; border-radius: 12px; background: #FEF3C7; color: #92400E; display: flex; align-items: center; justify-content: center; flex: none; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -540,32 +541,33 @@
     /* Área de contenido del slide (1680 x 870 aprox) */
     .slide-body {
       flex: 1;
-      padding: 30px 64px;
+      padding: 28px 52px 48px 52px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       position: relative;
       overflow-y: auto;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    .slide-body::-webkit-scrollbar { width: 8px; }
+    .slide-body::-webkit-scrollbar { width: 12px; }
     .slide-body::-webkit-scrollbar-track { background: transparent; }
-    .slide-body::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-    .slide-body::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+    .slide-body::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 6px; }
+    .slide-body::-webkit-scrollbar-thumb:hover { background: #64748B; }
 
     .slide-title {
-      font-size: 46px;
+      font-size: 48px;
       font-weight: 800;
       line-height: 1.15;
       color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
     }
     .slide-lead {
-      font-size: 26px;
-      line-height: 1.35;
+      font-size: 29px;
+      line-height: 1.38;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 500;
     }
 
@@ -598,21 +600,22 @@
       justify-content: center;
       flex: none;
     }
-    .concept-card .card-text { font-size: 24px; line-height: 1.35; font-weight: 600; color: var(--text); }
-    .concept-card .card-detail { font-size: 19px; color: var(--text-muted); margin-top: 4px; font-weight: 400; line-height: 1.35; }
+    .concept-card .card-text { font-size: 27px; line-height: 1.35; font-weight: 700; color: var(--text); }
+    .concept-card .card-detail { font-size: 23px; color: var(--text-muted); margin-top: 6px; font-weight: 400; line-height: 1.42; }
 
     /* Cajas Recuerda / Trampa / Callouts */
     .callout-box {
       margin-top: 10px;
-      padding: 10px 18px;
+      padding: 14px 22px;
       border-radius: 12px;
-      display: inline-flex;
+      display: flex;
+      width: 100%;
       align-items: center;
       gap: 14px;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
       border: 2px solid transparent;
-      line-height: 1.35;
+      line-height: 1.4;
     }
     .callout-warning {
       background: var(--warning-soft);
@@ -633,18 +636,18 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 24px !important;
-      height: 24px !important;
-      min-width: 24px !important;
-      max-width: 24px !important;
-      min-height: 24px !important;
-      max-height: 24px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      max-width: 30px !important;
+      min-height: 30px !important;
+      max-height: 30px !important;
       border-radius: 50% !important;
       background: #2563EB;
       color: #FFFFFF !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
       font-weight: 800 !important;
-      font-size: 13px !important;
+      font-size: 17px !important;
       line-height: 1 !important;
       vertical-align: middle !important;
       text-align: center !important;
@@ -678,7 +681,7 @@
       border-bottom: 1px solid #E2E8F0;
     }
     .slide-glossary-box .gl-tag {
-      font-size: 12px;
+      font-size: 19px;
       font-weight: 800;
       color: #2563EB;
       text-transform: uppercase;
@@ -689,7 +692,7 @@
     }
     .slide-glossary-box .gl-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 10px;
       align-items: stretch;
     }
@@ -712,11 +715,11 @@
     }
     .slide-glossary-box .gl-badge {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 12.5px;
+      font-size: 21px;
       font-weight: 700;
       color: #1D4ED8;
       background: #EFF6FF;
-      padding: 2px 8px;
+      padding: 4px 10px;
       border-radius: 5px;
       border: 1px solid #BFDBFE;
       display: inline-block;
@@ -725,13 +728,13 @@
     }
     .slide-glossary-box .gl-def {
       color: #334155;
-      font-size: 13.5px;
+      font-size: 21px;
       line-height: 1.45;
       flex: 1;
     }
     .slide-glossary-box .gl-def code {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
+      font-size: 20px;
       background: #F1F5F9;
       padding: 1px 4px;
       border-radius: 4px;
@@ -749,14 +752,14 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px 12px;
-      font-size: 13.5px;
+      font-size: 21px;
       color: var(--text-muted);
       line-height: 1.35;
     }
     .slide-glossary-strip .gl-title {
       font-weight: 800;
       color: var(--primary);
-      font-size: 12px;
+      font-size: 19px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       display: inline-flex;
@@ -775,7 +778,7 @@
     .slide-glossary-strip .gl-term {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-weight: 700;
-      font-size: 12.5px;
+      font-size: 21px;
       color: #1D4ED8;
     }
 
@@ -885,7 +888,7 @@
       align-items: center;
       justify-content: space-between;
       color: #475569;
-      font-size: 18px;
+      font-size: 21px;
       font-weight: 700;
     }
     .term-copy-btn, .terminal-copy-btn {
@@ -897,7 +900,7 @@
       border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -912,14 +915,14 @@
       transform: scale(0.96);
     }
     .term-code {
-      padding: 14px 20px;
+      padding: 18px 24px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: clamp(16px, 1.2vw, 22px);
-      line-height: 1.38;
+      font-size: 23px;
+      line-height: 1.48;
       color: #0F172A;
       white-space: pre-wrap;
       user-select: text;
-      max-height: 340px;
+      max-height: none;
       overflow-y: auto;
     }
     .term-code::-webkit-scrollbar { width: 6px; }
@@ -957,7 +960,7 @@
       flex-shrink: 0;
     }
     .terminal-title {
-      font-size: 14px;
+      font-size: 19px;
       font-weight: 700;
       color: #94A3B8;
       font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
@@ -978,13 +981,13 @@
       color: #38BDF8;
     }
     .terminal-body {
-      padding: 16px 20px;
+      padding: 18px 24px;
       margin: 0;
       background: #0F172A;
       color: #E2E8F0;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
-      font-size: 15.5px;
-      line-height: 1.55;
+      font-size: 22px;
+      line-height: 1.5;
       overflow-x: auto;
       white-space: pre-wrap;
     }
@@ -1016,14 +1019,14 @@
       margin-right: 22px;
     }
     .mini-term-title {
-      font-size: 12px;
+      font-size: 18px;
       color: #94A3B8;
       font-weight: 700;
     }
     .mini-term-body {
-      padding: 10px 14px;
-      font-size: 14.5px;
-      line-height: 1.55;
+      padding: 14px 18px;
+      font-size: 21px;
+      line-height: 1.5;
       color: #E2E8F0;
       background: #0F172A;
     }
@@ -1072,7 +1075,7 @@
       border-radius: 8px;
       border: 1.5px solid var(--border);
       background: var(--surface-alt);
-      font-size: 18px;
+      font-size: 22px;
       color: var(--text);
       cursor: pointer;
       transition: all 0.15s ease;
@@ -1100,30 +1103,31 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
+      padding: 8px 18px;
       background: #FFFFFF;
       border: 2px solid var(--control-border);
       border-radius: 10px;
-      font-size: 19px;
+      font-size: 23px;
       font-weight: 600;
       color: var(--text);
       cursor: pointer;
       transition: transform 0.1s, border-color 0.15s;
     }
-    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 21px; font-weight: 700; }
+    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 25px; font-weight: 700; }
 
     /* Sintaxis y Directivas */
     .syntax-bar {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 16px;
+      padding: 12px 20px;
       background: var(--surface-alt);
       border: 2px solid var(--border-strong);
       border-radius: 10px;
       margin-bottom: 10px;
-      font-size: 21px;
+      font-size: 24px;
     }
+    .syntax-bar code.t-cmd { font-size: 26px; }
     .directives-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1139,15 +1143,16 @@
     }
     .directive-key {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 700;
       color: #1D4ED8;
       margin-bottom: 4px;
+      line-height: 1.42;
     }
     .directive-desc {
-      font-size: 19px;
+      font-size: 23px;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.42;
     }
 
     /* Tablas (≤5x4) */
@@ -1163,22 +1168,24 @@
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(15px, 1.05vw, 18.5px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(15.5px, 1.1vw, 19.5px);
+      font-size: 24px;
+      line-height: 1.42;
     }
     table.slide-table td {
-      padding: 9px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
+      font-size: 23px;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: var(--warning-soft); }
@@ -1199,24 +1206,26 @@
     table.slide-matrix {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(16px, 1.15vw, 20px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-matrix th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 12px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(17px, 1.2vw, 21px);
+      font-size: 24px;
+      line-height: 1.42;
       letter-spacing: -0.01em;
     }
     table.slide-matrix td {
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
       vertical-align: middle;
+      font-size: 23px;
     }
     table.slide-matrix tr:last-child td { border-bottom: none; }
     table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
@@ -1231,7 +1240,7 @@
       border: 2px solid var(--border-strong);
       border-radius: 14px;
       background: #FFFFFF;
-      font-size: 26px;
+      font-size: 27px;
       font-weight: 600;
       color: var(--text);
       text-align: left;
@@ -1248,7 +1257,7 @@
       margin-top: 20px;
       padding: 18px 24px;
       border-radius: 14px;
-      font-size: 24px;
+      font-size: 25px;
       line-height: 1.4;
       display: none;
     }
@@ -1346,7 +1355,7 @@
       font-weight: 700;
     }
     .panel-body { padding: 24px; font-size: 20px; line-height: 1.5; color: var(--text); }
-    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 18px; }
+    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 20px; }
 
     /* Modales y Popovers */
     .modal-overlay {
@@ -1737,7 +1746,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": "109-2-01", "type": "cover", "title": "109.2 Configuración de red persistente", "subtitle": "Fundamentos de redes · Peso 4", "content": "<div style=\"display:flex; flex-direction:column; gap:20px; align-items:center; justify-content:center; text-align:center; height:100%;\">\n  <div style=\"display:inline-flex; align-items:center; gap:12px; padding:8px 24px; background:var(--color-bg-subtle); border-radius:30px; font-weight:700; color:var(--color-accent); font-size:22px; border:1px solid var(--color-border);\">\n    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M5 12.55a11 11 0 0 1 14.08 0\"/><path d=\"M1.42 9a16 16 0 0 1 21.16 0\"/><path d=\"M8.53 16.11a6 6 0 0 1 6.95 0\"/><line x1=\"12\" y1=\"20\" x2=\"12.01\" y2=\"20\"/></svg>\n    LPIC-1 Examen 102 · Objetivo 109.2\n  </div>\n  <h1 style=\"font-size:46px; font-weight:800; margin:0; color:var(--color-text);\">Configuración Persistente de Red</h1>\n  <p style=\"font-size:23px; color:var(--color-text-muted); max-width:980px; margin:0;\">\n    Nombres predecibles de interfaz, ficheros tradicionales en Debian y RHEL, gestión de <code>hostnamectl</code>, resolución estática en <code>/etc/hosts</code> y <code>/etc/resolv.conf</code>, administración integral con <code>nmcli</code> y despliegue con <code>systemd-networkd</code>.\n  </p>\n  <div style=\"display:flex; gap:18px; margin-top:10px;\">\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Peso LPI:</strong> 4 puntos\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Gestor principal:</strong> NetworkManager (<code>nmcli</code>)\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Ficheros clave:</strong> <code>/etc/hostname</code> · <code>/etc/hosts</code>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-02", "type": "concept", "title": "Nombres Predecibles de Interfaces (systemd/udev)", "subtitle": "Fin de la ambigüedad de eth0: nombres deterministas basados en hardware", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-accent);\">Prefijos según Tecnología</h4>\n    <div style=\"font-size:19px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <code>en...</code>: Interfaz Ethernet cableada (ej. <code>eno1</code>, <code>enp3s5</code>).</div>\n      <div>• <code>wl...</code>: Interfaz inalámbrica Wi-Fi (ej. <code>wlp2s0</code>, <code>wlo1</code>).</div>\n      <div>• <code>ww...</code>: Interfaz de red de área amplia móvil / GSM (ej. <code>wwp0s20u4</code>).</div>\n      <div>• <code>lo</code>: Interfaz virtual de bucle local (Loopback).</div>\n    </div>\n    <div style=\"margin-top:auto; padding:10px; background:var(--color-bg-subtle); border-radius:8px; font-size:18px;\">\n      <strong>Ventaja:</strong> Los nombres no cambian aleatoriamente al añadir o retirar tarjetas PCIe.\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Sufijos según Ubicación Física</h4>\n    <div style=\"font-size:19px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <code>o&lt;índice&gt;</code>: Dispositivo on-board de la placa base (ej. <code>eno1</code>).</div>\n      <div>• <code>s&lt;ranura&gt;</code>: Dispositivo en ranura PCIe conectada (ej. <code>ens1</code>).</div>\n      <div>• <code>p&lt;bus&gt;s&lt;ranura&gt;</code>: Ubicación por bus y ranura PCI (ej. <code>enp3s5</code>).</div>\n      <div>• <code>x&lt;MAC&gt;</code>: Nombres basados en dirección MAC física.</div>\n    </div>\n    <div style=\"margin-top:auto; padding:10px; background:var(--color-bg-subtle); border-radius:8px; font-size:18px;\">\n      <strong>Desactivación legacy:</strong> Parámetro del kernel <code>net.ifnames=0 biosdevname=0</code>.\n    </div>\n  </div>\n</div>"}, {"id": "109-2-03", "type": "file", "title": "Configuración Tradicional en Debian: /etc/network/interfaces", "subtitle": "Estructura declarativa para asignación estática o dinámica (DHCP)", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div style=\"color:#6a9955;\"># /etc/network/interfaces</div>\n    <div style=\"color:#6a9955;\"># Interfaz loopback obligatoria:</div>\n    <div>auto lo</div>\n    <div>iface lo inet loopback</div>\n    <div style=\"margin-top:6px; color:#6a9955;\"># Interfaz 1: Dinámica por DHCP</div>\n    <div>auto enp3s5</div>\n    <div>iface enp3s5 inet <span style=\"color:#4ec9b0; font-weight:700;\">dhcp</span></div>\n    <div style=\"margin-top:6px; color:#6a9955;\"># Interfaz 2: IP Estática manual</div>\n    <div>auto enp3s6</div>\n    <div>iface enp3s6 inet <span style=\"color:#ce9178; font-weight:700;\">static</span></div>\n    <div>    address <span style=\"color:#b5cea8;\">192.168.1.50</span></div>\n    <div>    netmask <span style=\"color:#b5cea8;\">255.255.255.0</span></div>\n    <div>    gateway <span style=\"color:#b5cea8;\">192.168.1.1</span></div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Directivas Fundamentales:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <code>auto &lt;iface&gt;</code>: Levanta la interfaz automáticamente al arrancar o con <code>ifup -a</code>.</div>\n      <div>• <code>allow-hotplug &lt;iface&gt;</code>: La activa ante eventos udev (conectar cable USB o tarjeta).</div>\n      <div>• <code>inet / inet6</code>: Especifica si la configuración es para IPv4 o IPv6.</div>\n      <div>• <code>dhcp vs static</code>: Método dinámico o estático.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-04", "type": "command", "title": "Activación y Desactivación: ifup e ifdown", "subtitle": "Herramientas de alto nivel que aplican /etc/network/interfaces", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:18px; line-height:1.5;\">\n    <div><span style=\"color:#6a9955;\"># Levantar una interfaz específica:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo ifup <span style=\"color:#4ec9b0;\">enp3s5</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Bajar la interfaz y liberar asignación DHCP:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo ifdown <span style=\"color:#4ec9b0;\">enp3s5</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Activar TODAS las interfaces marcadas con 'auto':</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo ifup <span style=\"color:#ce9178; font-weight:700;\">-a</span></div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Comportamiento Técnico:</h4>\n    <p style=\"margin:0; font-size:19px; color:var(--color-text-muted); line-height:1.4;\">\n      <code>ifup</code> y <code>ifdown</code> no modifican los drivers directamente; ejecutan internamente comandos de bajo nivel (<code>ip</code>, clientes DHCP como <code>dhclient</code>) y registran el estado actual en <code>/run/network/ifstate</code>.\n    </p>\n  </div>\n</div>"}, {"id": "109-2-05", "type": "file", "title": "Configuración Tradicional en RHEL/CentOS: ifcfg-*", "subtitle": "Archivos clave-valor en /etc/sysconfig/network-scripts/", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div style=\"color:#6a9955;\"># /etc/sysconfig/network-scripts/ifcfg-enp3s5</div>\n    <div>TYPE=Ethernet</div>\n    <div>BOOTPROTO=<span style=\"color:#4ec9b0; font-weight:700;\">none</span>   <span style=\"color:#6a9955;\"># o \"dhcp\"</span></div>\n    <div>NAME=enp3s5</div>\n    <div>DEVICE=enp3s5</div>\n    <div>ONBOOT=<span style=\"color:#ce9178; font-weight:700;\">yes</span>         <span style=\"color:#6a9955;\"># activa al arrancar</span></div>\n    <div>IPADDR=<span style=\"color:#b5cea8;\">192.168.1.50</span></div>\n    <div>NETMASK=<span style=\"color:#b5cea8;\">255.255.255.0</span>  <span style=\"color:#6a9955;\"># o PREFIX=24</span></div>\n    <div>GATEWAY=<span style=\"color:#b5cea8;\">192.168.1.1</span></div>\n    <div>DNS1=8.8.8.8</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Parámetros Esenciales:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <code>BOOTPROTO</code>: <code>dhcp</code>, <code>bootp</code> o <code>none</code> / <code>static</code>.</div>\n      <div>• <code>ONBOOT=yes</code>: Imprescindible para que la interfaz se inicialice en el inicio del sistema.</div>\n      <div>• <code>IPADDR</code> y <code>NETMASK</code> / <code>PREFIX</code>: Dirección y longitud de máscara.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-06", "type": "command", "title": "Nombre de Host: /etc/hostname y hostnamectl", "subtitle": "Gestión de los tres tipos de hostname en systemd", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"display:flex; flex-direction:column; gap:16px;\">\n    <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:18px; line-height:1.4;\">\n      <div><span style=\"color:#6a9955;\"># Cambiar el nombre permanente del equipo:</span></div>\n      <div><span style=\"color:#569cd6;\">#</span> hostnamectl set-hostname <span style=\"color:#4ec9b0;\">storage.midominio.org</span></div>\n      <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># Comprobar el fichero estático:</span></div>\n      <div><span style=\"color:#569cd6;\">$</span> cat /etc/hostname</div>\n      <div style=\"color:#b5cea8;\">storage.midominio.org</div>\n      <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># Inspeccionar estado completo:</span></div>\n      <div><span style=\"color:#569cd6;\">$</span> hostnamectl status</div>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-accent);\">Los 3 Tipos de Hostname:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <strong>Static (Estático):</strong> Almacenado en <code>/etc/hostname</code>. Asignado en el arranque.</div>\n      <div>• <strong>Transient (Transitorio):</strong> Mantenido por el kernel en memoria; puede cambiar dinámicamente vía DHCP o mDNS.</div>\n      <div>• <strong>Pretty (Descriptivo):</strong> Texto libre UTF-8 para usuarios (ej. <em>\"Servidor de Archivos 2ª Planta\"</em>). Guardado en <code>/etc/machine-info</code>.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-07", "type": "file", "title": "Resolución Estática Local: Archivo /etc/hosts", "subtitle": "Asociación directa IP ➔ Nombres sin depender de servidores DNS", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.5;\">\n    <div style=\"color:#6a9955;\"># /etc/hosts: Formato &lt;IP&gt; &lt;FQDN&gt; [alias...]</div>\n    <div>127.0.0.1   localhost localhost.localdomain</div>\n    <div>::1         localhost ip6-localhost ip6-loopback</div>\n    <div style=\"margin-top:8px; color:#6a9955;\"># Mapeo de servidores locales:</div>\n    <div>192.168.1.10 <span style=\"color:#4ec9b0;\">storage.midominio.org</span> <span style=\"color:#ce9178;\">storage nas</span></div>\n    <div>192.168.1.20 <span style=\"color:#4ec9b0;\">db.midominio.org</span>      <span style=\"color:#ce9178;\">db mysql</span></div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Reglas Críticas del Archivo:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <strong>Estructura:</strong> Cada línea comienza obligatoriamente por la dirección IP, seguida de uno o más nombres separados por espacios o tabulaciones.</div>\n      <div>• <strong>Primero el FQDN:</strong> El nombre canónico completo debe ir antes de los alias cortos.</div>\n      <div>• <strong>Independencia:</strong> Funciona aunque la red no tenga conectividad exterior.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-08", "type": "file", "title": "Configuración del Cliente DNS: /etc/resolv.conf", "subtitle": "Servidores de nombres y dominios de búsqueda del resolver glibc", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:18px; line-height:1.5;\">\n    <div style=\"color:#6a9955;\"># /etc/resolv.conf</div>\n    <div>nameserver <span style=\"color:#4ec9b0;\">192.168.1.1</span></div>\n    <div>nameserver <span style=\"color:#4ec9b0;\">8.8.8.8</span></div>\n    <div>search <span style=\"color:#ce9178;\">empresa.lan midominio.com</span></div>\n    <div>options timeout:2 attempts:3</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Directivas de Examen:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <code>nameserver IP</code>: Dirección IP del servidor DNS a consultar. Se pueden definir <strong>hasta un máximo de 3</strong> (se prueban en orden estricto de arriba abajo).</div>\n      <div>• <code>search lista_dominios</code>: Lista de dominios que se agregan automáticamente al resolver nombres cortos no cualificados.</div>\n      <div>• <code>domain nombre</code>: Similar a search, pero especifica un único dominio por omisión.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-09", "type": "concept", "title": "Orden de Resolución: /etc/nsswitch.conf", "subtitle": "El conmutador de servicios de nombres (Name Service Switch)", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"display:flex; flex-direction:column; gap:16px;\">\n    <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:18px; line-height:1.4;\">\n      <div style=\"color:#6a9955;\"># /etc/nsswitch.conf (Línea de hosts):</div>\n      <div>hosts: <span style=\"color:#4ec9b0; font-weight:700;\">files</span> <span style=\"color:#ce9178; font-weight:700;\">dns</span> myhostname</div>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; font-size:19px;\">\n      <strong>Flujo de resolución por omisión:</strong><br>\n      1. <code>files</code>: Consulta primero el archivo local <code>/etc/hosts</code>.<br>\n      2. <code>dns</code>: Si no existe en el archivo local, consulta los servidores DNS definidos en <code>/etc/resolv.conf</code>.<br>\n      3. <code>myhostname</code>: Resuelve el nombre del host local automáticamente.\n    </div>\n  </div>\n\n  <div style=\"background:rgba(231,76,60,0.06); border:2px dashed #e74c3c; border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:#c0392b;\">¡Alerta de Examen LPIC-1!</h4>\n    <p style=\"margin:0; font-size:19px; color:var(--color-text); line-height:1.45;\">\n      Si un administrador configura: <code>hosts: dns files</code>, el sistema consultará a los servidores DNS externos <em>antes</em> de mirar en <code>/etc/hosts</code>, ralentizando o sobreescribiendo las entradas locales si el dominio existe públicamente.\n    </p>\n  </div>\n</div>"}, {"id": "109-2-10", "type": "concept", "title": "Arquitectura de NetworkManager y Utilidad nmcli", "subtitle": "Gestor integral moderno de interfaces alámbricas, inalámbricas y virtuales", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-accent);\">Dispositivos frente a Conexiones</h4>\n    <p style=\"margin:0; font-size:19px; color:var(--color-text); line-height:1.4;\">\n      NetworkManager distingue conceptualmente entre dos entidades clave:\n    </p>\n    <div style=\"padding:10px; background:var(--color-bg-subtle); border-radius:8px; font-size:18px;\">\n      <strong>Device (Dispositivo):</strong> La interfaz física o virtual detectada por el kernel (ej. <code>enp3s5</code>, <code>wlo1</code>).\n    </div>\n    <div style=\"padding:10px; background:var(--color-bg-subtle); border-radius:8px; font-size:18px;\">\n      <strong>Connection (Conexión / Perfil):</strong> Conjunto de ajustes de configuración (IP, gateway, DNS, credenciales Wi-Fi) que se aplican a un dispositivo.\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Comandos de Interacción:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <code>nmcli</code>: Línea de comandos no interactiva y scriptable (objetivo obligatorio de LPIC-1).</div>\n      <div>• <code>nmtui</code>: Interfaz semigráfica interactiva basada en texto (ncurses) para terminal.</div>\n      <div>• Demonio: <code>NetworkManager.service</code>.</div>\n      <div>• Almacenamiento: Perfiles guardados en <code>/etc/NetworkManager/system-connections/</code>.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-11", "type": "command", "title": "Diagnóstico de Red con nmcli: Estados y Conectividad", "subtitle": "Consultar salud del gestor, dispositivos físicos y conexiones activas", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:16px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">$</span> nmcli general status</div>\n    <div style=\"color:#b5cea8;\">STATE      CONNECTIVITY  WIFI-HW  WIFI     WWAN-HW  WWAN</div>\n    <div>connected  <span style=\"color:#4ec9b0; font-weight:700;\">full</span>          enabled  enabled  enabled  enabled</div>\n    <div style=\"margin-top:10px;\"><span style=\"color:#569cd6;\">$</span> nmcli device status</div>\n    <div style=\"color:#b5cea8;\">DEVICE   TYPE      STATE      CONNECTION</div>\n    <div>enp3s5   ethernet  connected  Wired connection 1</div>\n    <div>wlo1     wifi      connected  Oficina-5G</div>\n    <div>lo       loopback  unmanaged  --</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Valores de CONNECTIVITY:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:6px;\">\n      <div>• <code>full</code>: Acceso total a Internet verificado.</div>\n      <div>• <code>limited</code>: Conectado a red local sin salida a Internet.</div>\n      <div>• <strong style=\"color:#e67e22;\">portal:</strong> Detectado un <strong>portal cautivo</strong> (red de hotel/aeropuerto que exige login web previo).</div>\n      <div>• <code>none</code>: Sin conexión de red.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-12", "type": "command", "title": "Gestión Inalámbrica con nmcli: Redes Wi-Fi", "subtitle": "Escanear puntos de acceso, ver potencias de señal y conectarse por CLI", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Escanear puntos de acceso inalámbricos cercanos:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> nmcli device wifi list</div>\n    <div style=\"color:#b5cea8;\">IN-USE  BSSID              SSID         MODE   CHAN  RATE        SIGNAL  SECURITY</div>\n    <div>*       90:F6:52:C5:FA:12  Hypnotoad    Infra  11    130 Mbit/s  67      WPA2</div>\n    <div>        00:25:9C:12:34:56  Empresa_Guest Infra 6     54 Mbit/s   45      WPA2 Enterprise</div>\n    <div style=\"margin-top:10px;\"><span style=\"color:#6a9955;\"># Conectar a una red protegida por contraseña:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo nmcli device wifi connect <span style=\"color:#4ec9b0;\">\"Hypnotoad\"</span> password <span style=\"color:#ce9178;\">\"ClaveSegura2026\"</span></div>\n    <div style=\"color:#b5cea8;\">Device 'wlo1' successfully activated with '...'</div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:8px; padding:12px 18px; font-size:18px; border-left:4px solid var(--color-accent);\">\n    <strong>Generación automática de perfil:</strong> Al usar <code>nmcli device wifi connect</code>, NetworkManager crea y guarda automáticamente un perfil de conexión persistente con el mismo nombre que el SSID.\n  </div>\n</div>"}, {"id": "109-2-13", "type": "command", "title": "Crear y Modificar Perfiles con nmcli", "subtitle": "Configuración completa de interfaces estáticas por línea de comandos", "content": "<div style=\"display:flex; flex-direction:column; gap:14px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:14px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># 1. Crear nuevo perfil de conexión cableada ethernet:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo nmcli con add type ethernet con-name <span style=\"color:#4ec9b0;\">\"LAN-Estatica\"</span> ifname <span style=\"color:#dcdcaa;\">enp3s5</span></div>\n    <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># 2. Modificar IP, Gateway, DNS y fijar método manual:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo nmcli con mod <span style=\"color:#4ec9b0;\">\"LAN-Estatica\"</span> \\</div>\n    <div>    ipv4.addresses <span style=\"color:#b5cea8;\">192.168.1.50/24</span> \\</div>\n    <div>    ipv4.gateway <span style=\"color:#b5cea8;\">192.168.1.1</span> \\</div>\n    <div>    ipv4.dns <span style=\"color:#b5cea8;\">8.8.8.8</span> \\</div>\n    <div>    ipv4.method <span style=\"color:#ce9178; font-weight:700;\">manual</span></div>\n    <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># 3. Activar la conexión (up):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo nmcli con up <span style=\"color:#4ec9b0;\">\"LAN-Estatica\"</span></div>\n    <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># 4. Eliminar una conexión no deseada:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo nmcli con delete <span style=\"color:#4ec9b0;\">\"Hotel Internet\"</span></div>\n  </div>\n</div>"}, {"id": "109-2-14", "type": "concept", "title": "Configuración Ligera con systemd-networkd", "subtitle": "Alternativa declarativa sin interfaz gráfica ideal para servidores y nubes", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-accent);\">¿Qué es systemd-networkd?</h4>\n    <p style=\"margin:0; font-size:19px; color:var(--color-text); line-height:1.4;\">\n      Demonio integrado de systemd (<code>systemd-networkd.service</code>) que administra las conexiones de red de manera completamente declarativa.\n    </p>\n    <div style=\"padding:10px; background:var(--color-bg-subtle); border-radius:8px; font-size:18px;\">\n      <strong>Ámbito:</strong> Muy utilizado en distribuciones minimalistas, servidores sin GUI, contenedores (Docker/LXC) e hipervisores.\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Directorio y Prioridad:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <code>/etc/systemd/network/*.network</code>: Ficheros de configuración del administrador (máxima prioridad).</div>\n      <div>• <code>/run/systemd/network/</code>: Configuraciones volátiles generadas en tiempo de ejecución.</div>\n      <div>• <code>/lib/systemd/network/</code>: Valores por defecto del sistema.</div>\n      <div>• Se procesan en orden lexicográfico según el prefijo numérico (ej. <code>10-lan.network</code>).</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-15", "type": "file", "title": "Ficheros .network en systemd-networkd", "subtitle": "Sintaxis INI de secciones: [Match] y [Network]", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div style=\"color:#6a9955;\"># /etc/systemd/network/20-dhcp.network</div>\n    <div>[Match]</div>\n    <div>Name=<span style=\"color:#4ec9b0;\">enp3s5</span></div>\n    <div style=\"margin-top:8px;\">[Network]</div>\n    <div>DHCP=<span style=\"color:#ce9178; font-weight:700;\">yes</span></div>\n  </div>\n\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div style=\"color:#6a9955;\"># /etc/systemd/network/10-static.network</div>\n    <div>[Match]</div>\n    <div>Name=<span style=\"color:#4ec9b0;\">enp3s6</span></div>\n    <div style=\"margin-top:8px;\">[Network]</div>\n    <div>Address=<span style=\"color:#b5cea8;\">192.168.1.50/24</span></div>\n    <div>Gateway=<span style=\"color:#b5cea8;\">192.168.1.1</span></div>\n    <div>DNS=<span style=\"color:#b5cea8;\">8.8.8.8</span></div>\n  </div>\n</div>\n<div style=\"margin-top:14px; padding:10px 16px; background:var(--color-bg-subtle); border-radius:8px; font-size:18px;\">\n  <strong>Sección [Match]:</strong> Permite asociar la configuración por nombre de dispositivo (<code>Name=</code>), dirección física (<code>MACAddress=</code>) o tipo de tecnología.\n</div>"}, {"id": "109-2-16", "type": "matrix", "title": "Matriz Comparativa: Métodos de Configuración Persistente", "subtitle": "Síntesis para identificar la herramienta o archivo según la distribución", "content": "<table style=\"width:100%; border-collapse:collapse; font-size:19px; text-align:left; background:var(--color-card-bg); border-radius:10px; overflow:hidden; border:1px solid var(--color-border);\">\n  <thead>\n    <tr style=\"background:var(--color-bg-subtle); border-bottom:2px solid var(--color-border);\">\n      <th style=\"padding:12px 16px; color:var(--color-text);\">Método</th>\n      <th style=\"padding:12px 16px; color:var(--color-accent);\">Ficheros de Configuración</th>\n      <th style=\"padding:12px 16px; color:var(--color-text);\">Comandos de Control</th>\n      <th style=\"padding:12px 16px; color:var(--color-text);\">Ámbito Predominante</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:10px 16px; font-weight:700;\">Debian Tradicional</td>\n      <td style=\"padding:10px 16px;\"><code>/etc/network/interfaces</code></td>\n      <td style=\"padding:10px 16px;\"><code>ifup</code> / <code>ifdown</code></td>\n      <td style=\"padding:10px 16px;\">Servidores Debian/Ubuntu legacy</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:10px 16px; font-weight:700;\">RHEL Tradicional</td>\n      <td style=\"padding:10px 16px;\"><code>/etc/sysconfig/network-scripts/ifcfg-*</code></td>\n      <td style=\"padding:10px 16px;\"><code>ifup</code> / <code>ifdown</code></td>\n      <td style=\"padding:10px 16px;\">Servidores CentOS/RHEL 7 y anteriores</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border); background:rgba(30,144,255,0.06);\">\n      <td style=\"padding:10px 16px; font-weight:700; color:var(--color-accent);\">NetworkManager</td>\n      <td style=\"padding:10px 16px;\"><code>/etc/NetworkManager/system-connections/</code></td>\n      <td style=\"padding:10px 16px;\"><code>nmcli</code> / <code>nmtui</code></td>\n      <td style=\"padding:10px 16px;\">Estaciones de trabajo, Wi-Fi, RHEL 8/9</td>\n    </tr>\n    <tr>\n      <td style=\"padding:10px 16px; font-weight:700;\">systemd-networkd</td>\n      <td style=\"padding:10px 16px;\"><code>/etc/systemd/network/*.network</code></td>\n      <td style=\"padding:10px 16px;\"><code>networkctl</code> / <code>systemctl</code></td>\n      <td style=\"padding:10px 16px;\">Contenedores, nubes, entornos headless</td>\n    </tr>\n  </tbody>\n</table>"}, {"id": "109-2-17", "type": "challenge", "title": "Trampas Críticas de Examen: 109.2 Red Persistente", "subtitle": "4 puntos donde suelen equivocarse los aspirantes al examen 102-500", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:18px;\">\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">1. Invertir orden en nsswitch.conf</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      La directiva estándar es <code>hosts: files dns</code>. Si se invierte a <code>dns files</code>, el equipo ignora o consulta tarde las definiciones locales de <code>/etc/hosts</code>.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">2. Conectividad \"portal\" en nmcli</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      En <code>nmcli general status</code>, la salida <code>portal</code> significa que hay conexión a la red local pero se requiere autenticación web (portal cautivo) para acceder a Internet.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">3. Olvidar ipv4.method manual en nmcli</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      Asignar <code>ipv4.addresses</code> no cambia el método. Si no se fija <code>ipv4.method manual</code>, NetworkManager seguirá solicitando DHCP en el siguiente reinicio.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">4. Hostname static vs transient</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      El hostname estático se almacena en <code>/etc/hostname</code> y sobrevive a reinicios. El transitorio reside solo en memoria del kernel y puede ser alterado por DHCP.\n    </p>\n  </div>\n</div>"}, {"id": "109-2-18", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Manual LPI)", "subtitle": "Casos prácticos interactivos con solución oficial comprobada", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">1. Significado de 'portal' en nmcli</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      ¿Qué significa la palabra <code>portal</code> en la columna CONNECTIVITY de <code>nmcli general status</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        Indica que el host está detrás de un <strong>portal cautivo</strong> y no puede acceder a la Internet completa hasta completar el inicio de sesión web.\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">2. Eliminar conexión con nmcli</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      ¿Cómo puede un usuario ejecutar el comando nmcli para eliminar una conexión no utilizada llamada <code>Hotel Internet</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        <code>nmcli con delete \"Hotel Internet\"</code> (o <code>connection delete</code>).\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">3. Modificar solo el hostname estático</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      ¿Cómo podría usarse <code>hostnamectl</code> para cambiar únicamente el nombre de host estático de la máquina a <code>firewall</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        <code>hostnamectl set-hostname --static firewall</code>\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">4. Levantar todas las interfaces auto</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      En sistemas basados en <code>/etc/network/interfaces</code>, ¿qué comando levanta de golpe todas las interfaces marcadas con 'auto'?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        <code>sudo ifup -a</code>\n      </div>\n    </details>\n  </div>\n</div>"}];
+    const SLIDES = [{"id": "109-2-01", "type": "cover", "title": "109.2 Configuración de red persistente", "subtitle": "Fundamentos de redes · Peso 4", "content": "<div style=\"display:flex; flex-direction:column; gap:20px; align-items:center; justify-content:center; text-align:center; height:100%;\">\n  <div style=\"display:inline-flex; align-items:center; gap:12px; padding:8px 24px; background:var(--color-bg-subtle); border-radius:30px; font-weight:700; color:var(--color-accent); font-size:22px; border:1px solid var(--color-border);\">\n    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M5 12.55a11 11 0 0 1 14.08 0\"/><path d=\"M1.42 9a16 16 0 0 1 21.16 0\"/><path d=\"M8.53 16.11a6 6 0 0 1 6.95 0\"/><line x1=\"12\" y1=\"20\" x2=\"12.01\" y2=\"20\"/></svg>\n    LPIC-1 Examen 102 · Objetivo 109.2\n  </div>\n  <h1 style=\"font-size:48px; font-weight:800; margin:0; color:var(--color-text);\">Configuración Persistente de Red</h1>\n  <p style=\"font-size:23px; color:var(--color-text-muted); max-width:980px; margin:0;\">\n    Nombres predecibles de interfaz, ficheros tradicionales en Debian y RHEL, gestión de <code>hostnamectl</code>, resolución estática en <code>/etc/hosts</code> y <code>/etc/resolv.conf</code>, administración integral con <code>nmcli</code> y despliegue con <code>systemd-networkd</code>.\n  </p>\n  <div style=\"display:flex; gap:18px; margin-top:10px;\">\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Peso LPI:</strong> 4 puntos\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Gestor principal:</strong> NetworkManager (<code>nmcli</code>)\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Ficheros clave:</strong> <code>/etc/hostname</code> · <code>/etc/hosts</code>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-02", "type": "concept", "title": "Nombres Predecibles de Interfaces (systemd/udev)", "subtitle": "Fin de la ambigüedad de eth0: nombres deterministas basados en hardware", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-accent);\">Prefijos según Tecnología</h4>\n    <div style=\"font-size:19px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <code>en...</code>: Interfaz Ethernet cableada (ej. <code>eno1</code>, <code>enp3s5</code>).</div>\n      <div>• <code>wl...</code>: Interfaz inalámbrica Wi-Fi (ej. <code>wlp2s0</code>, <code>wlo1</code>).</div>\n      <div>• <code>ww...</code>: Interfaz de red de área amplia móvil / GSM (ej. <code>wwp0s20u4</code>).</div>\n      <div>• <code>lo</code>: Interfaz virtual de bucle local (Loopback).</div>\n    </div>\n    <div style=\"margin-top:auto; padding:10px; background:var(--color-bg-subtle); border-radius:8px; font-size:23px;\">\n      <strong>Ventaja:</strong> Los nombres no cambian aleatoriamente al añadir o retirar tarjetas PCIe.\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Sufijos según Ubicación Física</h4>\n    <div style=\"font-size:19px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <code>o&lt;índice&gt;</code>: Dispositivo on-board de la placa base (ej. <code>eno1</code>).</div>\n      <div>• <code>s&lt;ranura&gt;</code>: Dispositivo en ranura PCIe conectada (ej. <code>ens1</code>).</div>\n      <div>• <code>p&lt;bus&gt;s&lt;ranura&gt;</code>: Ubicación por bus y ranura PCI (ej. <code>enp3s5</code>).</div>\n      <div>• <code>x&lt;MAC&gt;</code>: Nombres basados en dirección MAC física.</div>\n    </div>\n    <div style=\"margin-top:auto; padding:10px; background:var(--color-bg-subtle); border-radius:8px; font-size:23px;\">\n      <strong>Desactivación legacy:</strong> Parámetro del kernel <code>net.ifnames=0 biosdevname=0</code>.\n    </div>\n  </div>\n</div>"}, {"id": "109-2-03", "type": "file", "title": "Configuración Tradicional en Debian: /etc/network/interfaces", "subtitle": "Estructura declarativa para asignación estática o dinámica (DHCP)", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div style=\"color:#6a9955;\"># /etc/network/interfaces</div>\n    <div style=\"color:#6a9955;\"># Interfaz loopback obligatoria:</div>\n    <div>auto lo</div>\n    <div>iface lo inet loopback</div>\n    <div style=\"margin-top:6px; color:#6a9955;\"># Interfaz 1: Dinámica por DHCP</div>\n    <div>auto enp3s5</div>\n    <div>iface enp3s5 inet <span style=\"color:#4ec9b0; font-weight:700;\">dhcp</span></div>\n    <div style=\"margin-top:6px; color:#6a9955;\"># Interfaz 2: IP Estática manual</div>\n    <div>auto enp3s6</div>\n    <div>iface enp3s6 inet <span style=\"color:#ce9178; font-weight:700;\">static</span></div>\n    <div>    address <span style=\"color:#b5cea8;\">192.168.1.50</span></div>\n    <div>    netmask <span style=\"color:#b5cea8;\">255.255.255.0</span></div>\n    <div>    gateway <span style=\"color:#b5cea8;\">192.168.1.1</span></div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Directivas Fundamentales:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <code>auto &lt;iface&gt;</code>: Levanta la interfaz automáticamente al arrancar o con <code>ifup -a</code>.</div>\n      <div>• <code>allow-hotplug &lt;iface&gt;</code>: La activa ante eventos udev (conectar cable USB o tarjeta).</div>\n      <div>• <code>inet / inet6</code>: Especifica si la configuración es para IPv4 o IPv6.</div>\n      <div>• <code>dhcp vs static</code>: Método dinámico o estático.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-04", "type": "command", "title": "Activación y Desactivación: ifup e ifdown", "subtitle": "Herramientas de alto nivel que aplican /etc/network/interfaces", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:23px; line-height:1.5;\">\n    <div><span style=\"color:#6a9955;\"># Levantar una interfaz específica:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo ifup <span style=\"color:#4ec9b0;\">enp3s5</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Bajar la interfaz y liberar asignación DHCP:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo ifdown <span style=\"color:#4ec9b0;\">enp3s5</span></div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Activar TODAS las interfaces marcadas con 'auto':</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo ifup <span style=\"color:#ce9178; font-weight:700;\">-a</span></div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Comportamiento Técnico:</h4>\n    <p style=\"margin:0; font-size:19px; color:var(--color-text-muted); line-height:1.4;\">\n      <code>ifup</code> y <code>ifdown</code> no modifican los drivers directamente; ejecutan internamente comandos de bajo nivel (<code>ip</code>, clientes DHCP como <code>dhclient</code>) y registran el estado actual en <code>/run/network/ifstate</code>.\n    </p>\n  </div>\n</div>"}, {"id": "109-2-05", "type": "file", "title": "Configuración Tradicional en RHEL/CentOS: ifcfg-*", "subtitle": "Archivos clave-valor en /etc/sysconfig/network-scripts/", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div style=\"color:#6a9955;\"># /etc/sysconfig/network-scripts/ifcfg-enp3s5</div>\n    <div>TYPE=Ethernet</div>\n    <div>BOOTPROTO=<span style=\"color:#4ec9b0; font-weight:700;\">none</span>   <span style=\"color:#6a9955;\"># o \"dhcp\"</span></div>\n    <div>NAME=enp3s5</div>\n    <div>DEVICE=enp3s5</div>\n    <div>ONBOOT=<span style=\"color:#ce9178; font-weight:700;\">yes</span>         <span style=\"color:#6a9955;\"># activa al arrancar</span></div>\n    <div>IPADDR=<span style=\"color:#b5cea8;\">192.168.1.50</span></div>\n    <div>NETMASK=<span style=\"color:#b5cea8;\">255.255.255.0</span>  <span style=\"color:#6a9955;\"># o PREFIX=24</span></div>\n    <div>GATEWAY=<span style=\"color:#b5cea8;\">192.168.1.1</span></div>\n    <div>DNS1=8.8.8.8</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Parámetros Esenciales:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <code>BOOTPROTO</code>: <code>dhcp</code>, <code>bootp</code> o <code>none</code> / <code>static</code>.</div>\n      <div>• <code>ONBOOT=yes</code>: Imprescindible para que la interfaz se inicialice en el inicio del sistema.</div>\n      <div>• <code>IPADDR</code> y <code>NETMASK</code> / <code>PREFIX</code>: Dirección y longitud de máscara.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-06", "type": "command", "title": "Nombre de Host: /etc/hostname y hostnamectl", "subtitle": "Gestión de los tres tipos de hostname en systemd", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"display:flex; flex-direction:column; gap:16px;\">\n    <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:23px; line-height:1.4;\">\n      <div><span style=\"color:#6a9955;\"># Cambiar el nombre permanente del equipo:</span></div>\n      <div><span style=\"color:#569cd6;\">#</span> hostnamectl set-hostname <span style=\"color:#4ec9b0;\">storage.midominio.org</span></div>\n      <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># Comprobar el fichero estático:</span></div>\n      <div><span style=\"color:#569cd6;\">$</span> cat /etc/hostname</div>\n      <div style=\"color:#b5cea8;\">storage.midominio.org</div>\n      <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># Inspeccionar estado completo:</span></div>\n      <div><span style=\"color:#569cd6;\">$</span> hostnamectl status</div>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-accent);\">Los 3 Tipos de Hostname:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <strong>Static (Estático):</strong> Almacenado en <code>/etc/hostname</code>. Asignado en el arranque.</div>\n      <div>• <strong>Transient (Transitorio):</strong> Mantenido por el kernel en memoria; puede cambiar dinámicamente vía DHCP o mDNS.</div>\n      <div>• <strong>Pretty (Descriptivo):</strong> Texto libre UTF-8 para usuarios (ej. <em>\"Servidor de Archivos 2ª Planta\"</em>). Guardado en <code>/etc/machine-info</code>.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-07", "type": "file", "title": "Resolución Estática Local: Archivo /etc/hosts", "subtitle": "Asociación directa IP ➔ Nombres sin depender de servidores DNS", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.5;\">\n    <div style=\"color:#6a9955;\"># /etc/hosts: Formato &lt;IP&gt; &lt;FQDN&gt; [alias...]</div>\n    <div>127.0.0.1   localhost localhost.localdomain</div>\n    <div>::1         localhost ip6-localhost ip6-loopback</div>\n    <div style=\"margin-top:8px; color:#6a9955;\"># Mapeo de servidores locales:</div>\n    <div>192.168.1.10 <span style=\"color:#4ec9b0;\">storage.midominio.org</span> <span style=\"color:#ce9178;\">storage nas</span></div>\n    <div>192.168.1.20 <span style=\"color:#4ec9b0;\">db.midominio.org</span>      <span style=\"color:#ce9178;\">db mysql</span></div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Reglas Críticas del Archivo:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <strong>Estructura:</strong> Cada línea comienza obligatoriamente por la dirección IP, seguida de uno o más nombres separados por espacios o tabulaciones.</div>\n      <div>• <strong>Primero el FQDN:</strong> El nombre canónico completo debe ir antes de los alias cortos.</div>\n      <div>• <strong>Independencia:</strong> Funciona aunque la red no tenga conectividad exterior.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-08", "type": "file", "title": "Configuración del Cliente DNS: /etc/resolv.conf", "subtitle": "Servidores de nombres y dominios de búsqueda del resolver glibc", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:23px; line-height:1.5;\">\n    <div style=\"color:#6a9955;\"># /etc/resolv.conf</div>\n    <div>nameserver <span style=\"color:#4ec9b0;\">192.168.1.1</span></div>\n    <div>nameserver <span style=\"color:#4ec9b0;\">8.8.8.8</span></div>\n    <div>search <span style=\"color:#ce9178;\">empresa.lan midominio.com</span></div>\n    <div>options timeout:2 attempts:3</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Directivas de Examen:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <code>nameserver IP</code>: Dirección IP del servidor DNS a consultar. Se pueden definir <strong>hasta un máximo de 3</strong> (se prueban en orden estricto de arriba abajo).</div>\n      <div>• <code>search lista_dominios</code>: Lista de dominios que se agregan automáticamente al resolver nombres cortos no cualificados.</div>\n      <div>• <code>domain nombre</code>: Similar a search, pero especifica un único dominio por omisión.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-09", "type": "concept", "title": "Orden de Resolución: /etc/nsswitch.conf", "subtitle": "El conmutador de servicios de nombres (Name Service Switch)", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"display:flex; flex-direction:column; gap:16px;\">\n    <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:23px; line-height:1.4;\">\n      <div style=\"color:#6a9955;\"># /etc/nsswitch.conf (Línea de hosts):</div>\n      <div>hosts: <span style=\"color:#4ec9b0; font-weight:700;\">files</span> <span style=\"color:#ce9178; font-weight:700;\">dns</span> myhostname</div>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; font-size:19px;\">\n      <strong>Flujo de resolución por omisión:</strong><br>\n      1. <code>files</code>: Consulta primero el archivo local <code>/etc/hosts</code>.<br>\n      2. <code>dns</code>: Si no existe en el archivo local, consulta los servidores DNS definidos en <code>/etc/resolv.conf</code>.<br>\n      3. <code>myhostname</code>: Resuelve el nombre del host local automáticamente.\n    </div>\n  </div>\n\n  <div style=\"background:rgba(231,76,60,0.06); border:2px dashed #e74c3c; border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:#c0392b;\">¡Alerta de Examen LPIC-1!</h4>\n    <p style=\"margin:0; font-size:19px; color:var(--color-text); line-height:1.45;\">\n      Si un administrador configura: <code>hosts: dns files</code>, el sistema consultará a los servidores DNS externos <em>antes</em> de mirar en <code>/etc/hosts</code>, ralentizando o sobreescribiendo las entradas locales si el dominio existe públicamente.\n    </p>\n  </div>\n</div>"}, {"id": "109-2-10", "type": "concept", "title": "Arquitectura de NetworkManager y Utilidad nmcli", "subtitle": "Gestor integral moderno de interfaces alámbricas, inalámbricas y virtuales", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-accent);\">Dispositivos frente a Conexiones</h4>\n    <p style=\"margin:0; font-size:19px; color:var(--color-text); line-height:1.4;\">\n      NetworkManager distingue conceptualmente entre dos entidades clave:\n    </p>\n    <div style=\"padding:10px; background:var(--color-bg-subtle); border-radius:8px; font-size:23px;\">\n      <strong>Device (Dispositivo):</strong> La interfaz física o virtual detectada por el kernel (ej. <code>enp3s5</code>, <code>wlo1</code>).\n    </div>\n    <div style=\"padding:10px; background:var(--color-bg-subtle); border-radius:8px; font-size:23px;\">\n      <strong>Connection (Conexión / Perfil):</strong> Conjunto de ajustes de configuración (IP, gateway, DNS, credenciales Wi-Fi) que se aplican a un dispositivo.\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Comandos de Interacción:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <code>nmcli</code>: Línea de comandos no interactiva y scriptable (objetivo obligatorio de LPIC-1).</div>\n      <div>• <code>nmtui</code>: Interfaz semigráfica interactiva basada en texto (ncurses) para terminal.</div>\n      <div>• Demonio: <code>NetworkManager.service</code>.</div>\n      <div>• Almacenamiento: Perfiles guardados en <code>/etc/NetworkManager/system-connections/</code>.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-11", "type": "command", "title": "Diagnóstico de Red con nmcli: Estados y Conectividad", "subtitle": "Consultar salud del gestor, dispositivos físicos y conexiones activas", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#569cd6;\">$</span> nmcli general status</div>\n    <div style=\"color:#b5cea8;\">STATE      CONNECTIVITY  WIFI-HW  WIFI     WWAN-HW  WWAN</div>\n    <div>connected  <span style=\"color:#4ec9b0; font-weight:700;\">full</span>          enabled  enabled  enabled  enabled</div>\n    <div style=\"margin-top:10px;\"><span style=\"color:#569cd6;\">$</span> nmcli device status</div>\n    <div style=\"color:#b5cea8;\">DEVICE   TYPE      STATE      CONNECTION</div>\n    <div>enp3s5   ethernet  connected  Wired connection 1</div>\n    <div>wlo1     wifi      connected  Oficina-5G</div>\n    <div>lo       loopback  unmanaged  --</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Valores de CONNECTIVITY:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:10px;\">\n      <div>• <code>full</code>: Acceso total a Internet verificado.</div>\n      <div>• <code>limited</code>: Conectado a red local sin salida a Internet.</div>\n      <div>• <strong style=\"color:#e67e22;\">portal:</strong> Detectado un <strong>portal cautivo</strong> (red de hotel/aeropuerto que exige login web previo).</div>\n      <div>• <code>none</code>: Sin conexión de red.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-12", "type": "command", "title": "Gestión Inalámbrica con nmcli: Redes Wi-Fi", "subtitle": "Escanear puntos de acceso, ver potencias de señal y conectarse por CLI", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Escanear puntos de acceso inalámbricos cercanos:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> nmcli device wifi list</div>\n    <div style=\"color:#b5cea8;\">IN-USE  BSSID              SSID         MODE   CHAN  RATE        SIGNAL  SECURITY</div>\n    <div>*       90:F6:52:C5:FA:12  Hypnotoad    Infra  11    130 Mbit/s  67      WPA2</div>\n    <div>        00:25:9C:12:34:56  Empresa_Guest Infra 6     54 Mbit/s   45      WPA2 Enterprise</div>\n    <div style=\"margin-top:10px;\"><span style=\"color:#6a9955;\"># Conectar a una red protegida por contraseña:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo nmcli device wifi connect <span style=\"color:#4ec9b0;\">\"Hypnotoad\"</span> password <span style=\"color:#ce9178;\">\"ClaveSegura2026\"</span></div>\n    <div style=\"color:#b5cea8;\">Device 'wlo1' successfully activated with '...'</div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:8px; padding:12px 18px; font-size:23px; border-left:4px solid var(--color-accent);\">\n    <strong>Generación automática de perfil:</strong> Al usar <code>nmcli device wifi connect</code>, NetworkManager crea y guarda automáticamente un perfil de conexión persistente con el mismo nombre que el SSID.\n  </div>\n</div>"}, {"id": "109-2-13", "type": "command", "title": "Crear y Modificar Perfiles con nmcli", "subtitle": "Configuración completa de interfaces estáticas por línea de comandos", "content": "<div style=\"display:flex; flex-direction:column; gap:14px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:14px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># 1. Crear nuevo perfil de conexión cableada ethernet:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo nmcli con add type ethernet con-name <span style=\"color:#4ec9b0;\">\"LAN-Estatica\"</span> ifname <span style=\"color:#dcdcaa;\">enp3s5</span></div>\n    <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># 2. Modificar IP, Gateway, DNS y fijar método manual:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo nmcli con mod <span style=\"color:#4ec9b0;\">\"LAN-Estatica\"</span> \\</div>\n    <div>    ipv4.addresses <span style=\"color:#b5cea8;\">192.168.1.50/24</span> \\</div>\n    <div>    ipv4.gateway <span style=\"color:#b5cea8;\">192.168.1.1</span> \\</div>\n    <div>    ipv4.dns <span style=\"color:#b5cea8;\">8.8.8.8</span> \\</div>\n    <div>    ipv4.method <span style=\"color:#ce9178; font-weight:700;\">manual</span></div>\n    <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># 3. Activar la conexión (up):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo nmcli con up <span style=\"color:#4ec9b0;\">\"LAN-Estatica\"</span></div>\n    <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># 4. Eliminar una conexión no deseada:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> sudo nmcli con delete <span style=\"color:#4ec9b0;\">\"Hotel Internet\"</span></div>\n  </div>\n</div>"}, {"id": "109-2-14", "type": "concept", "title": "Configuración Ligera con systemd-networkd", "subtitle": "Alternativa declarativa sin interfaz gráfica ideal para servidores y nubes", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-accent);\">¿Qué es systemd-networkd?</h4>\n    <p style=\"margin:0; font-size:19px; color:var(--color-text); line-height:1.4;\">\n      Demonio integrado de systemd (<code>systemd-networkd.service</code>) que administra las conexiones de red de manera completamente declarativa.\n    </p>\n    <div style=\"padding:10px; background:var(--color-bg-subtle); border-radius:8px; font-size:23px;\">\n      <strong>Ámbito:</strong> Muy utilizado en distribuciones minimalistas, servidores sin GUI, contenedores (Docker/LXC) e hipervisores.\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Directorio y Prioridad:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <code>/etc/systemd/network/*.network</code>: Ficheros de configuración del administrador (máxima prioridad).</div>\n      <div>• <code>/run/systemd/network/</code>: Configuraciones volátiles generadas en tiempo de ejecución.</div>\n      <div>• <code>/lib/systemd/network/</code>: Valores por defecto del sistema.</div>\n      <div>• Se procesan en orden lexicográfico según el prefijo numérico (ej. <code>10-lan.network</code>).</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-2-15", "type": "file", "title": "Ficheros .network en systemd-networkd", "subtitle": "Sintaxis INI de secciones: [Match] y [Network]", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div style=\"color:#6a9955;\"># /etc/systemd/network/20-dhcp.network</div>\n    <div>[Match]</div>\n    <div>Name=<span style=\"color:#4ec9b0;\">enp3s5</span></div>\n    <div style=\"margin-top:8px;\">[Network]</div>\n    <div>DHCP=<span style=\"color:#ce9178; font-weight:700;\">yes</span></div>\n  </div>\n\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div style=\"color:#6a9955;\"># /etc/systemd/network/10-static.network</div>\n    <div>[Match]</div>\n    <div>Name=<span style=\"color:#4ec9b0;\">enp3s6</span></div>\n    <div style=\"margin-top:8px;\">[Network]</div>\n    <div>Address=<span style=\"color:#b5cea8;\">192.168.1.50/24</span></div>\n    <div>Gateway=<span style=\"color:#b5cea8;\">192.168.1.1</span></div>\n    <div>DNS=<span style=\"color:#b5cea8;\">8.8.8.8</span></div>\n  </div>\n</div>\n<div style=\"margin-top:14px; padding:10px 16px; background:var(--color-bg-subtle); border-radius:8px; font-size:23px;\">\n  <strong>Sección [Match]:</strong> Permite asociar la configuración por nombre de dispositivo (<code>Name=</code>), dirección física (<code>MACAddress=</code>) o tipo de tecnología.\n</div>"}, {"id": "109-2-16", "type": "matrix", "title": "Matriz Comparativa: Métodos de Configuración Persistente", "subtitle": "Síntesis para identificar la herramienta o archivo según la distribución", "content": "<table style=\"width:100%; border-collapse:collapse; font-size:22px; text-align:left; background:var(--color-card-bg); border-radius:10px; border:1px solid var(--color-border);\">\n  <thead>\n    <tr style=\"background:var(--color-bg-subtle); border-bottom:2px solid var(--color-border);\">\n      <th style=\"padding:14px 18px; color:var(--color-text);\">Método</th>\n      <th style=\"padding:14px 18px; color:var(--color-accent);\">Ficheros de Configuración</th>\n      <th style=\"padding:14px 18px; color:var(--color-text);\">Comandos de Control</th>\n      <th style=\"padding:14px 18px; color:var(--color-text);\">Ámbito Predominante</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:12px 18px; font-weight:700;\">Debian Tradicional</td>\n      <td style=\"padding:12px 18px;\"><code>/etc/network/interfaces</code></td>\n      <td style=\"padding:12px 18px;\"><code>ifup</code> / <code>ifdown</code></td>\n      <td style=\"padding:12px 18px;\">Servidores Debian/Ubuntu legacy</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:12px 18px; font-weight:700;\">RHEL Tradicional</td>\n      <td style=\"padding:12px 18px;\"><code>/etc/sysconfig/network-scripts/ifcfg-*</code></td>\n      <td style=\"padding:12px 18px;\"><code>ifup</code> / <code>ifdown</code></td>\n      <td style=\"padding:12px 18px;\">Servidores CentOS/RHEL 7 y anteriores</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border); background:rgba(30,144,255,0.06);\">\n      <td style=\"padding:12px 18px; font-weight:700; color:var(--color-accent);\">NetworkManager</td>\n      <td style=\"padding:12px 18px;\"><code>/etc/NetworkManager/system-connections/</code></td>\n      <td style=\"padding:12px 18px;\"><code>nmcli</code> / <code>nmtui</code></td>\n      <td style=\"padding:12px 18px;\">Estaciones de trabajo, Wi-Fi, RHEL 8/9</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 18px; font-weight:700;\">systemd-networkd</td>\n      <td style=\"padding:12px 18px;\"><code>/etc/systemd/network/*.network</code></td>\n      <td style=\"padding:12px 18px;\"><code>networkctl</code> / <code>systemctl</code></td>\n      <td style=\"padding:12px 18px;\">Contenedores, nubes, entornos headless</td>\n    </tr>\n  </tbody>\n</table>"}, {"id": "109-2-17", "type": "challenge", "title": "Trampas Críticas de Examen: 109.2 Red Persistente", "subtitle": "4 puntos donde suelen equivocarse los aspirantes al examen 102-500", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:18px;\">\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">1. Invertir orden en nsswitch.conf</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      La directiva estándar es <code>hosts: files dns</code>. Si se invierte a <code>dns files</code>, el equipo ignora o consulta tarde las definiciones locales de <code>/etc/hosts</code>.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">2. Conectividad \"portal\" en nmcli</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      En <code>nmcli general status</code>, la salida <code>portal</code> significa que hay conexión a la red local pero se requiere autenticación web (portal cautivo) para acceder a Internet.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">3. Olvidar ipv4.method manual en nmcli</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      Asignar <code>ipv4.addresses</code> no cambia el método. Si no se fija <code>ipv4.method manual</code>, NetworkManager seguirá solicitando DHCP en el siguiente reinicio.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">4. Hostname static vs transient</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      El hostname estático se almacena en <code>/etc/hostname</code> y sobrevive a reinicios. El transitorio reside solo en memoria del kernel y puede ser alterado por DHCP.\n    </p>\n  </div>\n</div>"}, {"id": "109-2-18", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Manual LPI)", "subtitle": "Casos prácticos interactivos con solución oficial comprobada", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">1. Significado de 'portal' en nmcli</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      ¿Qué significa la palabra <code>portal</code> en la columna CONNECTIVITY de <code>nmcli general status</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        Indica que el host está detrás de un <strong>portal cautivo</strong> y no puede acceder a la Internet completa hasta completar el inicio de sesión web.\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">2. Eliminar conexión con nmcli</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      ¿Cómo puede un usuario ejecutar el comando nmcli para eliminar una conexión no utilizada llamada <code>Hotel Internet</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        <code>nmcli con delete \"Hotel Internet\"</code> (o <code>connection delete</code>).\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">3. Modificar solo el hostname estático</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      ¿Cómo podría usarse <code>hostnamectl</code> para cambiar únicamente el nombre de host estático de la máquina a <code>firewall</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        <code>hostnamectl set-hostname --static firewall</code>\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">4. Levantar todas las interfaces auto</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      En sistemas basados en <code>/etc/network/interfaces</code>, ¿qué comando levanta de golpe todas las interfaces marcadas con 'auto'?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        <code>sudo ifup -a</code>\n      </div>\n    </details>\n  </div>\n</div>"}];
     const ERRATAS = [{"id": "errata-109-2-nmcli-manual-method", "page": 440, "description": "Al configurar una IP estática con nmcli, si se define 'ipv4.addresses' pero no se cambia 'ipv4.method manual', la conexión seguirá solicitando DHCP por defecto.", "correction": "Para fijar una IP estática persistente con nmcli es obligatorio ejecutar: 'nmcli con mod <nombre> ipv4.addresses <IP/CIDR> ipv4.gateway <GW> ipv4.method manual'."}];
     const GLOSARIO = [{"term": "Nombres Predecibles de Interfaces", "definition": "Esquema introducido por systemd/udev que asigna nombres deterministas inmutables basados en hardware o topología (eno = on-board, ens = PCIe slot, enp = bus PCI, wlp = wifi) sustituyendo a los volátiles eth0/wlan0."}, {"term": "/etc/network/interfaces", "definition": "Fichero de configuración de red tradicional en distribuciones Debian y derivadas, gestionado por las utilidades ifup e ifdown."}, {"term": "ifup / ifdown", "definition": "Comandos de alto nivel para activar o desactivar interfaces de red leyendo la configuración definida en /etc/network/interfaces."}, {"term": "/etc/hostname", "definition": "Fichero de configuración estático que almacena el nombre del equipo asignado permanentemente en el arranque."}, {"term": "hostnamectl", "definition": "Comando de systemd para consultar y configurar los tres tipos de nombre de host: estático (static), transitorio (transient) y descriptivo (pretty)."}, {"term": "/etc/hosts", "definition": "Fichero de asignación local estática que mapea direcciones IP a nombres FQDN y alias antes o de forma complementaria al DNS."}, {"term": "/etc/resolv.conf", "definition": "Fichero de configuración del resolver DNS del sistema donde se especifican los servidores de nombres (nameserver) y dominios de búsqueda (search)."}, {"term": "NetworkManager", "definition": "Demonio de gestión de redes diseñado para simplificar la conectividad alámbrica, inalámbrica, VPN y móvil, controlado mediante la CLI nmcli."}, {"term": "nmcli", "definition": "Herramienta de línea de comandos para consultar dispositivos, crear perfiles, modificar conexiones y gestionar el estado global de NetworkManager."}, {"term": "systemd-networkd", "definition": "Demonio nativo de systemd especializado en la configuración de interfaces de red mediante ficheros declarativos en /etc/systemd/network/*.network."}];
     const META = {"topic": "109.2", "title": "Configuración de red persistente", "weight": 4, "description": "Configuración estática y dinámica permanente en Linux: nombres predecibles de interfaces, ficheros tradicionales (/etc/network/interfaces y ifcfg-*), gestión de hostname con /etc/hostname y hostnamectl, resolución local (/etc/hosts, /etc/nsswitch.conf, /etc/resolv.conf), administración con NetworkManager (nmcli) y configuración mediante systemd-networkd."};
@@ -1758,7 +1767,7 @@
       const notesWidth = teacherNotesOpen ? 420 : 0;
       const availW = window.innerWidth - notesWidth;
       const availH = window.innerHeight - topBarHeight;
-      const scale = Math.min((availW - 40) / 1920, (availH - 40) / 1080);
+      const scale = Math.min((availW - 16) / 1920, (availH - 16) / 1080);
       stage.style.transform = `scale(${Math.max(scale, 0.25)})`;
     }
     window.addEventListener('resize', resizeStage);
@@ -1843,6 +1852,7 @@
       // Renderizado del cuerpo según el tipo
       const container = document.getElementById('slide-content');
       container.innerHTML = buildSlideHTML(s, colors);
+      container.scrollTop = 0;
 
       // Actualizar fragmentos
       const frags = container.querySelectorAll('.frag');
@@ -2057,8 +2067,8 @@
               <div style="display:grid; grid-template-columns: repeat(${Math.min(s.stats.length, 4)}, 1fr); gap:16px; margin-top:36px; max-width:1100px; margin-left:auto; margin-right:auto;">
                 ${s.stats.map(st => `
                   <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:14px; padding:16px 20px; text-align:center;">
-                    <div style="font-size:16px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
-                    <div style="font-size:20px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
+                    <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
+                    <div style="font-size:24px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
                   </div>
                 `).join('')}
               </div>
@@ -2078,7 +2088,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2110,8 +2120,8 @@
         if (s.syntax) {
           html += `
             <div class="syntax-bar">
-              <span style="font-weight:700; color:var(--text-muted); font-size:19px;">Sintaxis:</span>
-              <code class="t-cmd" style="font-size:21px;">${escapeHTML(s.syntax)}</code>
+              <span style="font-weight:700; color:var(--text-muted); font-size:24px;">Sintaxis:</span>
+              <code class="t-cmd" style="font-size:26px;">${escapeHTML(s.syntax)}</code>
             </div>
           `;
         }
@@ -2144,7 +2154,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2379,12 +2389,12 @@
             html += `
               <div class="concept-card" style="position:relative; display:flex; flex-direction:column; justify-content:space-between; border-left:6px solid var(--primary);">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-                  <span style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;">${st.num || idx + 1}</span>
+                  <span style="width:38px; height:38px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:22px;">${st.num || idx + 1}</span>
                   <div class="icon-box" style="margin:0;"><svg class="ic ic-md"><use href="#i-${st.icon || 'arrow-right'}"/></svg></div>
                 </div>
                 <div>
-                  <div style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
-                  <div style="font-size:18px; color:var(--text-muted); line-height:1.4;">${renderRichText(sdesc)}</div>
+                  <div style="font-size:24px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
+                  <div style="font-size:22px; color:var(--text-muted); line-height:1.42;">${renderRichText(sdesc)}</div>
                 </div>
               </div>
             `;
@@ -2413,7 +2423,7 @@
         }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:22px;">
               <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
             </span>
           </div>
@@ -2422,7 +2432,7 @@
         // Planteamiento del problema (Escenario claro)
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
             <div style="white-space:pre-line;">${renderRichText(scenarioText)}</div>
             ${questionText ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(questionText)}</div>` : ''}
           </div>
@@ -2434,7 +2444,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2442,7 +2452,7 @@
               const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(doText)}</span>
                 </div>
               `;
@@ -2451,7 +2461,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2463,15 +2473,15 @@
         // Botón docente interactivo para revelar resolución lineal y explicación
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-exercise" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-exercise" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar / Ocultar Resolución Guiada y Explicación
             </button>
-            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
         `;
 
         // Dentro del cuadro de resolución: pasos resueltos y comandos
         if (steps.length > 0) {
-          html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
+          html += `<div style="font-size:22px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
             const doText = st.action || st.do || st.task || st.step || '';
             const lookText = st.command || st.look || st.cmd || st.code || '';
@@ -2482,7 +2492,7 @@
                   <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
                   ${lookText ? `<code class="exercise-sol-code">${escapeHTML(lookText)}</code>` : ''}
                 </div>
-                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
+                ${reasonText ? `<div style="font-size:22px; color:var(--text-muted); line-height:1.4; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -2526,9 +2536,9 @@
         // Enunciado y Escenario del reto
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
             <div style="white-space:pre-line;">${renderRichText(scenario)}</div>
-            ${goalText ? `<div style="margin-top:10px; font-size:18px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
+            ${goalText ? `<div style="margin-top:10px; font-size:22px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
             ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(question)}</div>` : ''}
           </div>
         `;
@@ -2539,7 +2549,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2549,10 +2559,10 @@
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; justify-content:space-between; gap:16px;">
                   <div style="display:flex; align-items:center; gap:12px;">
-                    <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                    <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                     <span>${renderRichText(titleText)}</span>
                   </div>
-                  ${(st.action && st.step !== st.action) ? `<code style="font-size:18px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
+                  ${(st.action && st.step !== st.action) ? `<code style="font-size:22px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
                 </div>
               `;
             });
@@ -2560,7 +2570,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2578,7 +2588,7 @@
             const isCorrect = !!opt.correct;
             html += `
               <button class="quiz-btn challenge-opt-btn" onclick="this.classList.toggle('${isCorrect ? 'correct' : 'incorrect'}');">
-                <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
+                <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
                 <span>${renderRichText(optText)}</span>
               </button>
             `;
@@ -2601,13 +2611,13 @@
         const solTerminal = s.solution?.terminal || s.outcome?.terminal || (chObj ? (chObj.solution?.terminal || chObj.outcome?.terminal) : null) || null;
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-challenge" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar Solución y Razonamiento Docente
             </button>
-            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
               <div style="display:flex; align-items:flex-start; gap:12px;">
                 <svg class="ic ic-md" style="margin-top:2px; flex:none; color:var(--success);"><use href="#i-circle-check"/></svg>
-                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:20px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
+                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:22px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
               </div>
               ${solTerminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(solTerminal, 'solución')}</div>` : ''}
             </div>
@@ -2650,7 +2660,7 @@
           const optText = (typeof opt === 'object' && opt !== null) ? opt.text : opt;
           html += `
             <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${ansIdx}, '${escapeQuotes(expl)}')">
-              <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
+              <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(optText)}</span>
             </button>
           `;
@@ -2658,11 +2668,11 @@
         html += `</div>`;
         html += `
           <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
-            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:22px; padding:12px 24px; cursor:pointer;">
               <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
             </button>
           </div>
-          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:23px; line-height:1.5;"></div>
         `;
         }
       } else if (s.type === 'flashcards') {
@@ -2730,7 +2740,7 @@
         if (top3.length > 0) {
           html += `
             <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
-              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <div style="font-weight:800; font-size:23px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
                 <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
               </div>
               <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
@@ -2739,8 +2749,8 @@
             if (typeof t === 'string') {
               html += `
                 <div class="summary-cmd-card" style="display:flex; align-items:center; justify-content:space-between;">
-                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
-                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  <code class="t-cmd" style="font-size:22px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                 </div>
               `;
             } else {
@@ -2749,10 +2759,10 @@
               html += `
                 <div class="summary-cmd-card">
                   <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
-                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                    <code class="t-cmd" style="font-size:22px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                   </div>
-                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                  ${desc ? `<div style="font-size:21px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
                 </div>
               `;
             }
@@ -2776,7 +2786,7 @@
                   <div class="sp-desc">${renderRichText(pDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Web →
               </a>
             </div>
@@ -2796,7 +2806,7 @@
                 <div class="sp-desc" style="color:var(--text);">Explora visualmente los comandos, rutas y preguntas trampa de examen conectadas a este subtema en la red interactiva.</div>
               </div>
             </div>
-            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
               Ver en Grafo Interactivo →
             </a>
           </div>
@@ -2818,7 +2828,7 @@
                   <div class="sg-desc">${renderRichText(gpDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Global →
               </a>
             </div>
@@ -2878,7 +2888,13 @@
     // Navegación por teclado
     window.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      if (e.key === 'ArrowDown') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: 140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowUp') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: -140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         e.preventDefault();
         nextStep();
       } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
@@ -3034,7 +3050,7 @@
         content += `<div style="margin-bottom:8px; font-size:20px; line-height:1.4;">${escapeHTML(descText)}</div>`;
       }
       if (example) {
-        content += `<div style="font-family:monospace; font-size:18px; background:var(--surface-alt); padding:6px 10px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
+        content += `<div style="font-family:monospace; font-size:20px; background:var(--surface-alt); padding:8px 12px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
       }
       popover.innerHTML = content || '<div>Sin detalles adicionales</div>';
       const rect = e.currentTarget.getBoundingClientRect();
@@ -3188,8 +3204,8 @@
         item.style.color = 'var(--text)';
         item.style.cursor = 'pointer';
         item.innerHTML = `
-          <div style="font-weight:700; font-size:16px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
-          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
+          <div style="font-weight:700; font-size:19px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
+          <div style="font-size:21px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
         `;
         item.onclick = () => {
           closeModals();

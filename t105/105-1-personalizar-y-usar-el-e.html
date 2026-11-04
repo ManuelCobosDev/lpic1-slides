@@ -287,14 +287,15 @@
     [data-theme="dark"] .summary-global-box .sg-icon { background: #78350F !important; color: #FDE047 !important; }
 
     .exercise-sol-code {
-      font-size: 19px;
+      font-size: 23px;
       background: #FFFFFF;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 8px;
       border: 1px solid #86EFAC;
       color: #166534;
       font-family: monospace;
       font-weight: 700;
+      line-height: 1.48;
     }
     .summary-cmd-card {
       background: #FFFFFF;
@@ -313,8 +314,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-practice-box .sp-title { font-size: 20px; font-weight: 800; color: #166534; }
-    .summary-practice-box .sp-desc { font-size: 16px; color: #374151; }
+    .summary-practice-box .sp-title { font-size: 25px; font-weight: 800; color: #166534; }
+    .summary-practice-box .sp-desc { font-size: 21px; color: #374151; line-height: 1.45; }
     .summary-practice-box .sp-icon { width: 48px; height: 48px; border-radius: 12px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; flex: none; }
     .summary-global-box {
       margin-top: 12px;
@@ -327,8 +328,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-global-box .sg-title { font-size: 20px; font-weight: 800; color: #92400E; }
-    .summary-global-box .sg-desc { font-size: 16px; color: #78350F; }
+    .summary-global-box .sg-title { font-size: 25px; font-weight: 800; color: #92400E; }
+    .summary-global-box .sg-desc { font-size: 21px; color: #78350F; line-height: 1.45; }
     .summary-global-box .sg-icon { width: 48px; height: 48px; border-radius: 12px; background: #FEF3C7; color: #92400E; display: flex; align-items: center; justify-content: center; flex: none; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -540,32 +541,33 @@
     /* Área de contenido del slide (1680 x 870 aprox) */
     .slide-body {
       flex: 1;
-      padding: 30px 64px;
+      padding: 28px 52px 48px 52px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       position: relative;
       overflow-y: auto;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    .slide-body::-webkit-scrollbar { width: 8px; }
+    .slide-body::-webkit-scrollbar { width: 12px; }
     .slide-body::-webkit-scrollbar-track { background: transparent; }
-    .slide-body::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-    .slide-body::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+    .slide-body::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 6px; }
+    .slide-body::-webkit-scrollbar-thumb:hover { background: #64748B; }
 
     .slide-title {
-      font-size: 46px;
+      font-size: 48px;
       font-weight: 800;
       line-height: 1.15;
       color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
     }
     .slide-lead {
-      font-size: 26px;
-      line-height: 1.35;
+      font-size: 29px;
+      line-height: 1.38;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 500;
     }
 
@@ -598,21 +600,22 @@
       justify-content: center;
       flex: none;
     }
-    .concept-card .card-text { font-size: 24px; line-height: 1.35; font-weight: 600; color: var(--text); }
-    .concept-card .card-detail { font-size: 19px; color: var(--text-muted); margin-top: 4px; font-weight: 400; line-height: 1.35; }
+    .concept-card .card-text { font-size: 27px; line-height: 1.35; font-weight: 700; color: var(--text); }
+    .concept-card .card-detail { font-size: 23px; color: var(--text-muted); margin-top: 6px; font-weight: 400; line-height: 1.42; }
 
     /* Cajas Recuerda / Trampa / Callouts */
     .callout-box {
       margin-top: 10px;
-      padding: 10px 18px;
+      padding: 14px 22px;
       border-radius: 12px;
-      display: inline-flex;
+      display: flex;
+      width: 100%;
       align-items: center;
       gap: 14px;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
       border: 2px solid transparent;
-      line-height: 1.35;
+      line-height: 1.4;
     }
     .callout-warning {
       background: var(--warning-soft);
@@ -633,18 +636,18 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 24px !important;
-      height: 24px !important;
-      min-width: 24px !important;
-      max-width: 24px !important;
-      min-height: 24px !important;
-      max-height: 24px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      max-width: 30px !important;
+      min-height: 30px !important;
+      max-height: 30px !important;
       border-radius: 50% !important;
       background: #2563EB;
       color: #FFFFFF !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
       font-weight: 800 !important;
-      font-size: 13px !important;
+      font-size: 17px !important;
       line-height: 1 !important;
       vertical-align: middle !important;
       text-align: center !important;
@@ -678,7 +681,7 @@
       border-bottom: 1px solid #E2E8F0;
     }
     .slide-glossary-box .gl-tag {
-      font-size: 12px;
+      font-size: 19px;
       font-weight: 800;
       color: #2563EB;
       text-transform: uppercase;
@@ -689,7 +692,7 @@
     }
     .slide-glossary-box .gl-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 10px;
       align-items: stretch;
     }
@@ -712,11 +715,11 @@
     }
     .slide-glossary-box .gl-badge {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 12.5px;
+      font-size: 21px;
       font-weight: 700;
       color: #1D4ED8;
       background: #EFF6FF;
-      padding: 2px 8px;
+      padding: 4px 10px;
       border-radius: 5px;
       border: 1px solid #BFDBFE;
       display: inline-block;
@@ -725,13 +728,13 @@
     }
     .slide-glossary-box .gl-def {
       color: #334155;
-      font-size: 13.5px;
+      font-size: 21px;
       line-height: 1.45;
       flex: 1;
     }
     .slide-glossary-box .gl-def code {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
+      font-size: 20px;
       background: #F1F5F9;
       padding: 1px 4px;
       border-radius: 4px;
@@ -749,14 +752,14 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px 12px;
-      font-size: 13.5px;
+      font-size: 21px;
       color: var(--text-muted);
       line-height: 1.35;
     }
     .slide-glossary-strip .gl-title {
       font-weight: 800;
       color: var(--primary);
-      font-size: 12px;
+      font-size: 19px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       display: inline-flex;
@@ -775,7 +778,7 @@
     .slide-glossary-strip .gl-term {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-weight: 700;
-      font-size: 12.5px;
+      font-size: 21px;
       color: #1D4ED8;
     }
 
@@ -885,7 +888,7 @@
       align-items: center;
       justify-content: space-between;
       color: #475569;
-      font-size: 18px;
+      font-size: 21px;
       font-weight: 700;
     }
     .term-copy-btn, .terminal-copy-btn {
@@ -897,7 +900,7 @@
       border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -912,14 +915,14 @@
       transform: scale(0.96);
     }
     .term-code {
-      padding: 14px 20px;
+      padding: 18px 24px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: clamp(16px, 1.2vw, 22px);
-      line-height: 1.38;
+      font-size: 23px;
+      line-height: 1.48;
       color: #0F172A;
       white-space: pre-wrap;
       user-select: text;
-      max-height: 340px;
+      max-height: none;
       overflow-y: auto;
     }
     .term-code::-webkit-scrollbar { width: 6px; }
@@ -957,7 +960,7 @@
       flex-shrink: 0;
     }
     .terminal-title {
-      font-size: 14px;
+      font-size: 19px;
       font-weight: 700;
       color: #94A3B8;
       font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
@@ -978,13 +981,13 @@
       color: #38BDF8;
     }
     .terminal-body {
-      padding: 16px 20px;
+      padding: 18px 24px;
       margin: 0;
       background: #0F172A;
       color: #E2E8F0;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
-      font-size: 15.5px;
-      line-height: 1.55;
+      font-size: 22px;
+      line-height: 1.5;
       overflow-x: auto;
       white-space: pre-wrap;
     }
@@ -1016,14 +1019,14 @@
       margin-right: 22px;
     }
     .mini-term-title {
-      font-size: 12px;
+      font-size: 18px;
       color: #94A3B8;
       font-weight: 700;
     }
     .mini-term-body {
-      padding: 10px 14px;
-      font-size: 14.5px;
-      line-height: 1.55;
+      padding: 14px 18px;
+      font-size: 21px;
+      line-height: 1.5;
       color: #E2E8F0;
       background: #0F172A;
     }
@@ -1072,7 +1075,7 @@
       border-radius: 8px;
       border: 1.5px solid var(--border);
       background: var(--surface-alt);
-      font-size: 18px;
+      font-size: 22px;
       color: var(--text);
       cursor: pointer;
       transition: all 0.15s ease;
@@ -1100,30 +1103,31 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
+      padding: 8px 18px;
       background: #FFFFFF;
       border: 2px solid var(--control-border);
       border-radius: 10px;
-      font-size: 19px;
+      font-size: 23px;
       font-weight: 600;
       color: var(--text);
       cursor: pointer;
       transition: transform 0.1s, border-color 0.15s;
     }
-    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 21px; font-weight: 700; }
+    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 25px; font-weight: 700; }
 
     /* Sintaxis y Directivas */
     .syntax-bar {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 16px;
+      padding: 12px 20px;
       background: var(--surface-alt);
       border: 2px solid var(--border-strong);
       border-radius: 10px;
       margin-bottom: 10px;
-      font-size: 21px;
+      font-size: 24px;
     }
+    .syntax-bar code.t-cmd { font-size: 26px; }
     .directives-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1139,15 +1143,16 @@
     }
     .directive-key {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 700;
       color: #1D4ED8;
       margin-bottom: 4px;
+      line-height: 1.42;
     }
     .directive-desc {
-      font-size: 19px;
+      font-size: 23px;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.42;
     }
 
     /* Tablas (≤5x4) */
@@ -1163,22 +1168,24 @@
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(15px, 1.05vw, 18.5px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(15.5px, 1.1vw, 19.5px);
+      font-size: 24px;
+      line-height: 1.42;
     }
     table.slide-table td {
-      padding: 9px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
+      font-size: 23px;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: var(--warning-soft); }
@@ -1199,24 +1206,26 @@
     table.slide-matrix {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(16px, 1.15vw, 20px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-matrix th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 12px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(17px, 1.2vw, 21px);
+      font-size: 24px;
+      line-height: 1.42;
       letter-spacing: -0.01em;
     }
     table.slide-matrix td {
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
       vertical-align: middle;
+      font-size: 23px;
     }
     table.slide-matrix tr:last-child td { border-bottom: none; }
     table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
@@ -1231,7 +1240,7 @@
       border: 2px solid var(--border-strong);
       border-radius: 14px;
       background: #FFFFFF;
-      font-size: 26px;
+      font-size: 27px;
       font-weight: 600;
       color: var(--text);
       text-align: left;
@@ -1248,7 +1257,7 @@
       margin-top: 20px;
       padding: 18px 24px;
       border-radius: 14px;
-      font-size: 24px;
+      font-size: 25px;
       line-height: 1.4;
       display: none;
     }
@@ -1346,7 +1355,7 @@
       font-weight: 700;
     }
     .panel-body { padding: 24px; font-size: 20px; line-height: 1.5; color: var(--text); }
-    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 18px; }
+    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 20px; }
 
     /* Modales y Popovers */
     .modal-overlay {
@@ -1737,7 +1746,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": 1, "section": "105.1", "cat": "shell", "type": "cover", "title": "Personalizar y usar el entorno de shell", "subtitle": "Subtema 105.1 · Peso LPI: 4 · Examen LPIC-1 102-500", "meta": {"peso": 4, "paginas": "4-84", "duracion": "40 min"}, "icon": "terminal", "notes": "Bienvenida al Tema 105 (el primero del Examen 102-500). Este subtema tiene peso 4 y trata sobre cómo personalizar Bash, sus archivos de configuración y variables."}, {"id": 2, "section": "105.1", "cat": "shell", "type": "diagram", "title": "Tipos de Shell en Linux: Interactivos vs No Interactivos", "lead": "¿Qué diferencia a un shell de login de uno interactivo o de un script automatizado?", "ref": "14-24", "pdf": {"manual": "B", "pages": [14, 15, 19, 21, 23]}, "coverage": ["105.1-CON-001"], "remember": "🎯 Clave de Examen: Un shell de login pide autenticación (consola física, SSH o 'su -') y lee /etc/profile. Un shell interactivo sin login (abrir terminal gráfica o 'su') lee ~/.bashrc.", "notes": "Enseña a los alumnos la matriz de 4 combinaciones: login interactivo, non-login interactivo, login no-interactivo y non-login no-interactivo (scripts).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:13.5px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>🧭 Clasificación Fundamental de Shells en Bash</span>\n    <span style=\"font-size:10.5px; background:#EFF6FF; color:#1D4ED8; padding:2px 8px; border-radius:10px; font-weight:700;\">Matriz 2×2</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px; font-size:11.5px;\">\n    <!-- Interactivo con Login -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#1E40AF; font-size:12.5px;\">1. Interactivo con Login</strong>\n        <span style=\"background:#2563EB; color:#FFF; font-size:9.5px; font-weight:800; padding:1px 5px; border-radius:3px;\">SSH / Consola / su -</span>\n      </div>\n      <div style=\"color:#1E3A8A; line-height:1.4;\">\n        • <strong>Cómo surge:</strong> Entrar por SSH, consola virtual TTY (Ctrl+Alt+F3) o <code>su - usuario</code>.<br>\n        • <strong>Comportamiento:</strong> Pide usuario/password e inicializa el entorno completo.<br>\n        • <strong>Archivos que lee:</strong> <code>/etc/profile</code> ➔ <code>~/.bash_profile</code> (o <code>~/.profile</code>).\n      </div>\n    </div>\n\n    <!-- Interactivo sin Login -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#15803D; font-size:12.5px;\">2. Interactivo sin Login</strong>\n        <span style=\"background:#16A34A; color:#FFF; font-size:9.5px; font-weight:800; padding:1px 5px; border-radius:3px;\">Terminal Gráfica / su</span>\n      </div>\n      <div style=\"color:#14532D; line-height:1.4;\">\n        • <strong>Cómo surge:</strong> Abrir GNOME Terminal, xterm, bash dentro de otra shell o <code>su usuario</code>.<br>\n        • <strong>Comportamiento:</strong> Hereda variables del escritorio pero no recarga perfiles globales.<br>\n        • <strong>Archivos que lee:</strong> <code>/etc/bash.bashrc</code> ➔ <code>~/.bashrc</code> directamente.\n      </div>\n    </div>\n\n    <!-- No Interactivo con Login -->\n    <div style=\"background:#FEF3C7; border:1.5px solid #F59E0B; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#92400E; font-size:12.5px;\">3. No Interactivo con Login</strong>\n        <span style=\"background:#D97706; color:#FFF; font-size:9.5px; font-weight:800; padding:1px 5px; border-radius:3px;\">ssh host 'comando'</span>\n      </div>\n      <div style=\"color:#78350F; line-height:1.4;\">\n        • <strong>Cómo surge:</strong> Ejecutar una orden remota mediante SSH sin abrir terminal interactiva.<br>\n        • <strong>Comportamiento:</strong> Autentica con login pero ejecuta el comando y sale al terminar.<br>\n        • <strong>Archivos que lee:</strong> <code>/etc/profile</code> y perfiles personales.\n      </div>\n    </div>\n\n    <!-- No Interactivo sin Login -->\n    <div style=\"background:#F1F5F9; border:1.5px solid #94A3B8; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#334155; font-size:12.5px;\">4. No Interactivo sin Login</strong>\n        <span style=\"background:#64748B; color:#FFF; font-size:9.5px; font-weight:800; padding:1px 5px; border-radius:3px;\">Scripts / Cron</span>\n      </div>\n      <div style=\"color:#475569; line-height:1.4;\">\n        • <strong>Cómo surge:</strong> Al lanzar scripts ejecutables <code>./script.sh</code> o tareas de Cron.<br>\n        • <strong>Comportamiento:</strong> ⚠️ <strong>NO lee ningún archivo de inicio</strong> interactivo.<br>\n        • <strong>Variables:</strong> Solo hereda las variables del proceso padre si estaban con <code>export</code>.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 3, "section": "105.1", "cat": "shell", "type": "diagram", "title": "Secuencia de Carga de Archivos en Shell con Login", "lead": "¿En qué orden estricto lee Bash los archivos de configuración al iniciar sesión?", "ref": "19-21", "pdf": {"manual": "B", "pages": [19, 20, 21]}, "coverage": ["105.1-FILE-001", "105.1-FILE-002", "105.1-FILE-003"], "remember": "🎯 Pregunta Estrella de Examen: Para el usuario personal, Bash busca ~/.bash_profile, luego ~/.bash_login y luego ~/.profile. ¡SOLO ejecuta el PRIMERO que exista y descarta los demás!", "notes": "Muestra el diagrama de flujo: 1) /etc/profile; 2) /etc/profile.d/*.sh; 3) el primer archivo personal disponible.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:13px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>🔄 Ruta Lineal de Inicio: Shell con Login (SSH / Consola Virtual / su -)</span>\n    <span style=\"font-size:10.5px; background:#EFF6FF; color:#1D4ED8; padding:2px 8px; border-radius:10px; font-weight:700;\">Orden de Ejecución</span>\n  </div>\n\n  <!-- Paso 1 Global -->\n  <div style=\"display:flex; align-items:center; gap:8px; margin-bottom:10px;\">\n    <div style=\"width:26px; height:26px; border-radius:50%; background:#2563EB; color:#FFF; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; flex:none;\">1</div>\n    <div style=\"flex:1; background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:8px 12px; font-size:11.5px;\">\n      <strong style=\"color:#1E40AF;\">/etc/profile (Global para todo el sistema)</strong>\n      <div style=\"color:#1E3A8A; font-size:11px; margin-top:2px;\">\n        Establece variables globales (<code>PATH</code>, <code>UMASK</code>) y recorre todos los scripts secundarios en <code>/etc/profile.d/*.sh</code>.\n      </div>\n    </div>\n  </div>\n\n  <div style=\"text-align:center; font-size:14px; font-weight:900; color:#64748B; margin:-4px 0 6px 0;\">⬇️ A continuación busca en el directorio HOME del usuario (~):</div>\n\n  <!-- Paso 2 Personal con descarte -->\n  <div style=\"display:flex; align-items:flex-start; gap:8px;\">\n    <div style=\"width:26px; height:26px; border-radius:50%; background:#16A34A; color:#FFF; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; flex:none; margin-top:4px;\">2</div>\n    <div style=\"flex:1; background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:10px 14px; font-size:11.5px;\">\n      <strong style=\"color:#15803D; font-size:12.5px;\">Archivos Personales: Regla del \"Primer Coincidente\"</strong>\n      <div style=\"color:#14532D; margin:4px 0 8px 0; font-size:11px;\">\n        Bash prueba los 3 archivos en estricto orden de izquierda a derecha. <strong>En cuanto encuentra uno, lo ejecuta y SE DETIENE</strong> (no lee los siguientes):\n      </div>\n      <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr; gap:8px; text-align:center; font-family:monospace; font-size:11px;\">\n        <div style=\"background:#DCFCE7; border:1.5px solid #16A34A; padding:6px; border-radius:6px; color:#166534; font-weight:800;\">\n          1º ~/.bash_profile<br><span style=\"font-weight:400; font-size:9.5px; font-family:sans-serif;\">(Máxima prioridad)</span>\n        </div>\n        <div style=\"background:#FEF3C7; border:1.5px solid #F59E0B; padding:6px; border-radius:6px; color:#92400E; font-weight:800;\">\n          2º ~/.bash_login<br><span style=\"font-weight:400; font-size:9.5px; font-family:sans-serif;\">(Si 1º no existe)</span>\n        </div>\n        <div style=\"background:#F1F5F9; border:1.5px solid #94A3B8; padding:6px; border-radius:6px; color:#334155; font-weight:800;\">\n          3º ~/.profile<br><span style=\"font-weight:400; font-size:9.5px; font-family:sans-serif;\">(Estándar POSIX/sh)</span>\n        </div>\n      </div>\n      <div style=\"margin-top:8px; font-size:10.5px; color:#14532D; font-style:italic;\">\n        💡 Nota didáctica: Normalmente <code>~/.bash_profile</code> incluye una línea con <code>source ~/.bashrc</code> para cargar también alias y funciones personales.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 4, "section": "105.1", "cat": "shell", "type": "diagram", "title": "Shell Sin Inicio de Sesión y Archivo de Cierre ~/.bash_logout", "lead": "¿Qué archivos se leen al abrir ventanas de terminal en el escritorio y qué ocurre al cerrar sesión?", "ref": "21-23", "pdf": {"manual": "B", "pages": [21, 22, 23]}, "coverage": ["105.1-FILE-004", "105.1-FILE-005"], "remember": "🎯 Clave de Examen: Las terminales gráficas NO leen /etc/profile ni ~/.bash_profile; leen directamente ~/.bashrc. Al salir con 'exit' o 'logout', se ejecuta automáticamente ~/.bash_logout.", "notes": "Muestra que ~/.bash_logout se usa típicamente para limpiar la pantalla (clear), eliminar archivos temporales o registrar la hora de salida.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:11.5px;\">\n    <!-- Shell interactivo sin login -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <strong style=\"color:#15803D; font-size:13px;\">🖥️ Apertura de Terminal (Sin Login)</strong>\n        <span style=\"background:#16A34A; color:#FFF; font-size:9.5px; font-weight:700; padding:1px 5px; border-radius:3px;\">GNOME Terminal / xterm</span>\n      </div>\n      <div style=\"color:#14532D; line-height:1.45;\">\n        Cuando abres una ventana de terminal en tu escritorio gráfico (o lanzas <code>su usuario</code>):\n        <ol style=\"margin:6px 0 0 16px; padding:0;\">\n          <li>Lee <code>/etc/bash.bashrc</code> (configuración global de Bash).</li>\n          <li>Lee <code>~/.bashrc</code> (alias, colores, variables y funciones personales).</li>\n        </ol>\n        <span style=\"display:block; margin-top:6px; background:#DCFCE7; padding:4px 6px; border-radius:4px; font-size:10.5px;\">\n          ⚠️ <strong>Ojo de examen:</strong> No lee <code>/etc/profile</code> ni <code>~/.profile</code>.\n        </span>\n      </div>\n    </div>\n\n    <!-- Cierre de sesión -->\n    <div style=\"background:#FEF2F2; border:1.5px solid #EF4444; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <strong style=\"color:#991B1B; font-size:13px;\">🚪 Cierre de Sesión (Logout)</strong>\n        <span style=\"background:#DC2626; color:#FFF; font-size:9.5px; font-weight:700; padding:1px 5px; border-radius:3px;\">exit / logout</span>\n      </div>\n      <div style=\"color:#7F1D1D; line-height:1.45;\">\n        Al terminar una shell de inicio de sesión con <code>exit</code>, <code>logout</code> o Ctrl+D:\n        <ul style=\"margin:6px 0 0 16px; padding:0;\">\n          <li>Bash ejecuta automáticamente el script <code>~/.bash_logout</code>.</li>\n        </ul>\n        <div style=\"background:#FEE2E2; padding:6px 8px; border-radius:4px; margin-top:8px; font-size:10.5px;\">\n          <strong>Usos habituales en producción:</strong><br>\n          • Limpiar la pantalla para evitar que otros vean tus datos (<code>clear</code>).<br>\n          • Eliminar claves SSH temporales en memoria con <code>ssh-add -D</code>.<br>\n          • Borrar ficheros temporales en <code>/tmp</code>.\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 5, "section": "105.1", "cat": "shell", "type": "file", "title": "El Esqueleto de Usuarios: /etc/skel y useradd", "lead": "¿De dónde salen los archivos ocultos (.bashrc, .profile) cuando creas una cuenta nueva?", "ref": "25-27", "pdf": {"manual": "B", "pages": [25, 26, 27]}, "coverage": ["105.1-FILE-006"], "file": "/etc/skel", "syntax": "useradd -m <usuario> (copia automáticamente el contenido de /etc/skel)", "content": "# Listado de la plantilla del sistema en /etc/skel:\n$ ls -la /etc/skel/\ntotal 24\ndrwxr-xr-x   2 root root 4096 oct 20 10:00 .\ndrwxr-xr-x 130 root root 4096 oct 20 09:50 ..\n-rw-r--r--   1 root root  220 feb 25  2020 .bash_logout\n-rw-r--r--   1 root root 3771 feb 25  2020 .bashrc\n-rw-r--r--   1 root root  807 feb 25  2020 .profile\n\n# Si el administrador añade un archivo aquí, todos los nuevos usuarios lo recibirán:\n$ sudo touch /etc/skel/.bash_aliases", "remember": "🎯 Clave de Examen: /etc/skel actúa como plantilla. Solo afecta a los NUEVOS usuarios creados a partir de ese momento con 'useradd -m'; los usuarios que ya existían previamente no se modifican.", "notes": "Muestra que si un administrador quiere que todos los futuros empleados tengan un alias corporativo por defecto, lo agrega a /etc/skel/.bashrc.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:8px;\">\n  <div style=\"font-size:13px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>🔄 Mecánica de /etc/skel durante la creación de cuentas</span>\n    <span style=\"font-size:10.5px; background:#DCFCE7; color:#166534; padding:2px 7px; border-radius:10px; font-weight:700;\">Plantilla Automática</span>\n  </div>\n\n  <div style=\"display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:11.5px; text-align:center;\">\n    <div style=\"flex:1.2; background:#EFF6FF; border:1.5px solid #3B82F6; padding:8px 6px; border-radius:6px;\">\n      <strong style=\"color:#1E40AF; display:block;\">📁 Plantilla del Sistema</strong>\n      <code>/etc/skel/</code><br>\n      <span style=\"font-size:10px; color:#1E3A8A;\">(.bashrc, .profile, .bash_logout)</span>\n    </div>\n    <span style=\"color:#64748B; font-weight:900; font-size:14px;\">➔ useradd -m ana ➔</span>\n    <div style=\"flex:1.2; background:#F0FDF4; border:1.5px solid #22C55E; padding:8px 6px; border-radius:6px;\">\n      <strong style=\"color:#166534; display:block;\">🏠 Nuevo Directorio Home</strong>\n      <code>/home/ana/</code><br>\n      <span style=\"font-size:10px; color:#14532D;\">Copia exacta con dueño ana:ana</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 6, "section": "105.1", "cat": "shell", "type": "command", "title": "Variables Locales vs Variables de Entorno: export y unset", "lead": "¿Por qué un script o subproceso no puede ver las variables de tu shell a menos que uses export?", "ref": "32-35", "pdf": {"manual": "B", "pages": [32, 33, 34, 35]}, "coverage": ["105.1-CMD-001", "105.1-CMD-002", "105.1-CMD-003", "105.1-CMD-004"], "command": "VAR=valor | export VAR | env | set | unset VAR", "purpose": "Controlar el ciclo de vida y la herencia de variables entre la shell actual y sus procesos hijos", "options": [{"flag": "VAR=valor", "desc": "Variable Local", "detail": "Solo vive en la shell actual. Si ejecutas un script o abres una subshell con 'bash', NO es visible."}, {"flag": "export VAR", "desc": "Exportar al Entorno", "detail": "Promociona la variable al entorno global; a partir de ese momento todos los procesos hijos la heredan."}, {"flag": "env", "desc": "Listar Entorno", "detail": "Muestra ÚNICAMENTE las variables de entorno (globales exportadas)."}, {"flag": "set", "desc": "Listar Todo", "detail": "Muestra ABSOLUTAMENTE TODAS las variables (locales y de entorno) y funciones definidas."}, {"flag": "unset VAR", "desc": "Eliminar Variable", "detail": "Destruye y borra por completo una variable (sea local o de entorno)."}], "terminal": {"command": "CURSO='LPIC-1' && export SERVIDOR='SRV01' && bash -c 'echo Local: $CURSO | Entorno: $SERVIDOR'", "output": ["$ CURSO='LPIC-1'           # Variable local sin exportar", "$ export SERVIDOR='SRV01'   # Variable de entorno global", "$ bash -c 'echo Local: $CURSO | Entorno: $SERVIDOR'", "Local:  | Entorno: SRV01", "# $CURSO está vacía en el subshell hijo porque no se exportó.", "$ unset SERVIDOR            # Elimina SERVIDOR del entorno"]}, "remember": "🎯 Diferencia Clave de Examen: 'env' lista solo variables exportadas al entorno; 'set' lista variables locales, de entorno y funciones de shell. 'unset' borra cualquier variable.", "notes": "Prueba en vivo con los alumnos: declara una variable, entra a 'bash' y comprueba que desaparece. Sal con 'exit', expórtala y vuelve a entrar."}, {"id": 7, "section": "105.1", "cat": "shell", "type": "table", "title": "Variables Canónicas Estándar de Linux", "lead": "Las variables de entorno más importantes evaluadas en la certificación LPIC-1:", "ref": "38-42", "pdf": {"manual": "B", "pages": [38, 39, 40, 41, 42]}, "coverage": ["105.1-CON-002"], "headers": ["Variable", "Significado / Contenido", "Ejemplo Típico", "Impacto en el Sistema"], "rows": [["PATH", "Lista de directorios separados por dos puntos (:) donde Bash busca los ejecutables.", "/usr/local/bin:/usr/bin:/bin", "Si un ejecutable no está en el PATH, requiere ruta absoluta (/ruta/cmd) o relativa (./cmd)."], ["HOME", "Ruta absoluta del directorio personal del usuario activo.", "/home/usuario (o /root)", "El comando 'cd' sin argumentos te lleva directamente al valor guardado en $HOME."], ["USER (o LOGNAME)", "Nombre de la cuenta de usuario que inició la sesión actual.", "alumno", "Utilizada por scripts para verificar privilegios o registrar acciones."], ["SHELL", "Ruta absoluta del intérprete de comandos asignado en /etc/passwd.", "/bin/bash", "El shell por defecto que se lanza al abrir terminales o scripts."], ["HISTSIZE", "Número máximo de comandos guardados en la memoria RAM durante la sesión.", "1000", "Controla cuántos comandos puedes recuperar con las flechas o con 'history'."], ["PS1", "Prompt primario de la línea de comandos interactiva.", "\\u@\\h:\\w\\$ ", "Define el texto y colores que ves en pantalla antes de escribir cada orden."]], "remember": "🎯 Regla Fija de Examen: En la variable PATH los directorios se separan con DOS PUNTOS (:). Si el directorio actual no está en PATH, ejecutar un script en la misma carpeta requiere obligatoriamente escribir './script.sh'.", "notes": "Pregunta a los alumnos qué pasa si borran el PATH: ningún comando funcionará sin su ruta completa como /bin/ls."}, {"id": 8, "section": "105.1", "cat": "shell", "type": "concept", "title": "Afinar el Historial y el Prompt: HISTCONTROL y PS2", "lead": "¿Cómo evitar comandos duplicados en el historial y qué significan PS1, PS2 y PROMPT_COMMAND?", "ref": "43-46", "pdf": {"manual": "B", "pages": [43, 44, 45, 46]}, "coverage": ["105.1-CON-003"], "points": [{"icon": "history", "text": "HISTCONTROL: Control de almacenamiento en el historial", "detail": "• <code>ignorespace</code>: Si pones un espacio en blanco antes de un comando, NO se guarda en el historial (ideal para contraseñas).<br>• <code>ignoredups</code>: No guarda comandos idénticos consecutivos.<br>• <code>ignoreboth</code>: Aplica ambas reglas a la vez."}, {"icon": "file-text", "text": "HISTFILE y HISTFILESIZE: Persistencia en disco", "detail": "• <code>HISTFILE</code>: Archivo de disco donde se vuelca el historial al salir (por defecto <code>~/.bash_history</code>).<br>• <code>HISTFILESIZE</code>: Número máximo de líneas que almacena el archivo en disco (suele ser 2000)."}, {"icon": "terminal", "text": "Los Prompts de Bash: PS1, PS2 y PROMPT_COMMAND", "detail": "• <code>PS1</code>: Prompt principal normal (ej: <code>alumno@srv:~$</code>).<br>• <code>PS2</code>: Prompt secundario para comandos multilínea incompletos (por defecto es <code>></code>).<br>• <code>PROMPT_COMMAND</code>: Comando que Bash ejecuta justo antes de mostrar cada prompt."}], "remember": "🎯 Pregunta Típica de Certificación: 'HISTCONTROL=ignoreboth' evita guardar comandos duplicados seguidos y cualquier comando que empiece con un espacio inicial. 'PS2' es el indicador de continuación multilínea (>).", "notes": "Muestra a los alumnos en terminal: escribe ' echo secreto' con espacio inicial y comprueba con 'history | tail -n 3' que no aparece."}, {"id": 9, "section": "105.1", "cat": "shell", "type": "command", "title": "Atajos de Shell: alias, unalias y Funciones", "lead": "¿Cómo crear abreviaturas de comandos y agrupar instrucciones complejas con funciones?", "ref": "48-54", "pdf": {"manual": "B", "pages": [48, 49, 50, 51, 52]}, "coverage": ["105.1-CMD-005", "105.1-CMD-006", "105.1-CMD-007"], "command": "alias nombre='comando' | unalias nombre | function mi_func() { ...; }", "purpose": "Ahorrar pulsaciones creando atajos y definir funciones reutilizables con parámetros dentro del shell", "options": [{"flag": "alias", "desc": "Listar Alias", "detail": "Ejecutado sin argumentos muestra la lista de todos los alias activos actualmente en la sesión."}, {"flag": "alias n='cmd'", "desc": "Definir Alias", "detail": "Crea un alias. Cuidado: NO debe haber espacios alrededor del signo '=' (ej: alias ll='ls -l')."}, {"flag": "unalias <nombre>", "desc": "Eliminar Alias", "detail": "Elimina el alias especificado de la sesión actual."}, {"flag": "unalias -a", "desc": "Eliminar Todos", "detail": "Borra absolutamente todos los alias definidos en la sesión."}, {"flag": "function f() {}", "desc": "Función de Shell", "detail": "Agrupa órdenes complejas y acepta parámetros posicionales ($1, $2) que los alias no admiten."}], "terminal": {"command": "alias ll='ls -la' && unalias ll && buscar() { grep -rn \"$1\" /etc/ 2>/dev/null; }", "output": ["$ alias ll='ls -la'          # Crea atajo 'll' para listar todo con detalles", "$ ll /tmp                   # Ejecuta ls -la /tmp", "$ unalias ll                # Borra el alias de la memoria", "$ buscar() { grep -rn \"$1\" /etc/ 2>/dev/null; } # Función con parámetro $1", "$ buscar 'UMASK'           # Busca 'UMASK' dentro de /etc/"]}, "remember": "🎯 Clave de Examen: Los alias NO aceptan argumentos o parámetros variables; para pasar argumentos dinámicos ($1, $2) se debe utilizar obligatoriamente una FUNCIÓN de Bash.", "notes": "Recuerda a los alumnos: los alias creados en la terminal se pierden al salir. Para hacerlos permanentes deben guardarse en ~/.bashrc o ~/.bash_aliases."}, {"id": 10, "section": "105.1", "cat": "shell", "type": "command", "title": "Ejecución en el Shell Actual: source y el Atajo '.'", "lead": "¿Por qué ejecutar './script.sh' no mantiene las variables en tu terminal y 'source script.sh' sí?", "ref": "52-54", "pdf": {"manual": "B", "pages": [52, 53, 54]}, "coverage": ["105.1-CMD-008", "105.1-CMD-009"], "command": "source archivo.sh | . archivo.sh", "purpose": "Leer y ejecutar un archivo de comandos dentro del proceso actual de shell sin lanzar un subshell", "options": [{"flag": "source <archivo>", "desc": "Comando source", "detail": "Lee y ejecuta el archivo en el shell actual. Cualquier variable o alias definido en él permanecerá activo."}, {"flag": ". <archivo>", "desc": "Atajo Punto (.)", "detail": "Es exactamente el sinónimo oficial POSIX de 'source'. Requiere un espacio entre el punto y el nombre del archivo."}, {"flag": "./archivo.sh", "desc": "Ejecución Normal", "detail": "Lanza un subshell hijo separado. Al terminar, el subshell muere y todas sus variables se destruyen con él."}], "terminal": {"command": "echo 'MI_VAR=100' > test.sh && ./test.sh && echo $MI_VAR && source test.sh && echo $MI_VAR", "output": ["$ echo 'MI_VAR=100' > test.sh", "$ chmod +x test.sh", "$ ./test.sh              # Se ejecuta en un subshell hijo separado", "$ echo $MI_VAR           # Salida vacía (el subshell murió y no afectó al padre)", "", "$ source test.sh         # Se ejecuta directamente en el shell actual (o: . test.sh)", "$ echo $MI_VAR", "100                      # ¡La variable ahora sí está presente en tu sesión!"]}, "remember": "🎯 Pregunta Fija de Certificación: El comando 'source' y el comando '.' (punto seguido de espacio) son exactamente lo mismo. Se usan para recargar archivos como ~/.bashrc tras modificarlos sin cerrar sesión.", "notes": "Compara ante los alumnos: 'source ~/.bashrc' vs cerrar y volver a abrir la terminal. Es la herramienta clave de administración."}, {"id": 11, "section": "105.1", "cat": "shell", "type": "concept", "title": "Caso Práctico: Añadir ~/bin al PATH y Persistencia en ~/.bashrc", "lead": "¿Cómo configurar tu entorno de trabajo profesional para ejecutar tus propios scripts desde cualquier lugar?", "ref": "46-48", "pdf": {"manual": "B", "pages": [46, 47, 48]}, "coverage": ["105.1-CON-004"], "points": [{"icon": "folder-plus", "text": "1. Crear la carpeta personal de binarios", "detail": "Ejecuta <code>mkdir -p ~/bin</code>. Es la ubicación estándar para scripts y programas personales del usuario."}, {"icon": "edit-3", "text": "2. Incorporar ~/bin a la variable PATH", "detail": "Añade a tu <code>~/.profile</code> o <code>~/.bashrc</code>:<br><code>export PATH=\"$HOME/bin:$PATH\"</code><br>Ponerlo al principio garantiza que tus scripts tengan prioridad sobre programas del sistema."}, {"icon": "refresh-cw", "text": "3. Recargar la configuración al instante", "detail": "Aplica los cambios en tu sesión abierta sin reiniciar con:<br><code>source ~/.bashrc</code> (o <code>. ~/.profile</code>)."}, {"icon": "check-circle", "text": "4. Ejecutar tus scripts desde cualquier ruta", "detail": "Cualquier script con permisos de ejecución (<code>chmod +x</code>) colocado en <code>~/bin/</code> se podrá invocar escribiendo solo su nombre, sin poner <code>./</code> ni rutas absolutas."}], "remember": "🎯 Buenas Prácticas LPIC-1: El archivo ~/.profile se usa para variables de entorno de login como PATH; el archivo ~/.bashrc se usa para alias, funciones y opciones interactivas de la shell.", "notes": "Guía a los alumnos en este procedimiento: es la base para el subtema 105.2 de scripts."}, {"id": 12, "section": "105.1", "cat": "shell", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: Variables Locales vs Entorno)", "ref": "45-46", "pdf": {"manual": "B", "pages": [45, 46]}, "coverage": ["105.1-EXC-001"], "scenario": "Manual Oficial LPI 102 (pág. 45): Analiza las siguientes declaraciones y determina si la variable final queda como 'Local' o como variable de 'Entorno' (Global):", "tasks": ["1. debian=mother", "2. mint=ubuntu-based ; export mint", "3. export suse=rpm-based", "4. ¿Qué comando lista exclusivamente variables de entorno y cuál lista también las locales?"], "solution": {"explain": "1) debian=mother es LOCAL porque no se usó export. 2) mint es de ENTORNO porque se exportó en el segundo comando. 3) suse es de ENTORNO directa en una sola orden. 4) 'env' lista solo las de entorno; 'set' lista tanto locales como de entorno.", "terminal": {"command": "debian=mother && export suse=rpm-based && env | grep -E 'debian|suse'", "output": ["$ debian=mother", "$ export suse=rpm-based", "$ env | grep -E 'debian|suse'", "suse=rpm-based       # Solo 'suse' aparece en env", "$ set | grep '^debian='", "debian=mother        # 'debian' solo aparece en set (local)"]}}, "notes": "Haz que los alumnos contesten oralmente antes de pulsar el botón de mostrar resolución."}, {"id": 13, "section": "105.1", "cat": "shell", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: Modificar PATH y Funciones)", "ref": "46-47", "pdf": {"manual": "B", "pages": [46, 47]}, "coverage": ["105.1-EXC-002"], "scenario": "Manual Oficial LPI 102 (pág. 46-47): Configuración de rutas y funciones reutilizables.", "tasks": ["1. Crea la carpeta ~/bin en tu directorio de usuario.", "2. Escribe el comando para anteponer ~/bin al PATH actual.", "3. ¿Qué código condicional añade Ubuntu por defecto en ~/.profile para agregar ~/bin solo si existe?", "4. Escribe una función de Bash llamada 'alerta' que reciba un mensaje como parámetro ($1) y lo imprima en mayúsculas."], "solution": {"explain": "1) mkdir -p ~/bin. 2) export PATH=\"$HOME/bin:$PATH\". 3) if [ -d \"$HOME/bin\" ] ; then PATH=\"$HOME/bin:$PATH\" ; fi. 4) alerta() { echo \"[ALERTA]: $1\" | tr '[:lower:]' '[:upper:]'; }", "terminal": {"command": "alerta() { echo \"[ALERTA]: $1\" | tr '[:lower:]' '[:upper:]'; } && alerta 'disco lleno'", "output": ["$ alerta() { echo \"[ALERTA]: $1\" | tr '[:lower:]' '[:upper:]'; }", "$ alerta 'disco lleno'", "[ALERTA]: DISCO LLENO"]}}, "notes": "Destaca la condición 'if [ -d $HOME/bin ]': evita añadir carpetas al PATH que no existen físicamente."}, {"id": 14, "section": "105.1", "cat": "shell", "type": "challenge", "title": "Retos de Exploración del Manual Oficial (Funciones Read-Only)", "lead": "Investigación avanzada planteada en la página 76 del manual oficial LPI:", "ref": "76", "pdf": {"manual": "B", "pages": [76]}, "coverage": ["105.1-CHAL-001"], "scenario": "Manual Oficial LPI 102 (pág. 76): Blindaje de Funciones Críticas en Shell.\nEn entornos de producción o scripts de administración multiusuario, es necesario proteger ciertas funciones personalizadas para que ningún subproceso, script secundario o usuario pueda sobrescribirlas ni borrarlas de la memoria activa durante la sesión.", "goal": "Comprender la protección de funciones y variables contra modificaciones accidentales mediante atributos de solo lectura.", "question": "¿Qué comando específico de Bash permite marcar una función como de solo lectura ('read-only'), y qué respuesta emite el shell si intentas eliminarla con 'unset -f'?", "hint": "Recuerda que para que el comando 'readonly' afecte a funciones y no a variables, requiere un parámetro obligatorio.", "steps": [{"step": "1. Definir la función en el shell", "action": "saludar() { echo 'Hola mundo'; }"}, {"step": "2. Marcar la función como de solo lectura", "action": "readonly -f saludar"}, {"step": "3. Intentar redefinir o borrar con unset", "action": "unset -f saludar"}], "solution": {"explain": "1. El comando interno de Bash para proteger funciones es 'readonly -f <nombre_funcion>'.\n2. Al aplicar este atributo, la función queda blindada en memoria: no puede ser redefinida ni eliminada durante toda la sesión activa.\n3. Cualquier intento de borrado mediante 'unset -f saludar' generará el error:\n   bash: unset: saludar: cannot unset: readonly function\n4. ¡Clave de Examen LPIC-1!: El flag '-f' (Functions) es obligatorio. Si ejecutas 'readonly' sin flags, solo afecta o lista variables de entorno.", "terminal": {"prompt": "usuario@servidor:~$", "command": "saludar() { echo 'Hola mundo'; } && readonly -f saludar && unset -f saludar", "output": "bash: unset: saludar: cannot unset: readonly function"}}, "outcome": {"explain": "Al declarar 'readonly -f saludar', Bash bloquea la función en memoria. Cualquier intento posterior de redefinirla o borrarla con 'unset -f' arroja un error: 'bash: unset: saludar: cannot unset: readonly function'. Esto protege funciones críticas del sistema.", "terminal": {"prompt": "usuario@servidor:~$", "command": "saludar() { echo 'Hola mundo'; } && readonly -f saludar && unset -f saludar", "output": "bash: unset: saludar: cannot unset: readonly function"}}, "notes": "Pregunta de examen avanzada: ¿Qué comando hace una función de solo lectura? -> readonly -f."}, {"id": 15, "section": "105.1", "cat": "shell", "type": "review", "title": "Pregunta de Examen LPIC-1: Archivos de Inicio en Bash Login", "q": "Un usuario inicia sesión mediante SSH en un servidor Linux. En su directorio personal existen los archivos ~/.bash_profile, ~/.bash_login y ~/.profile. ¿Cuál de ellos ejecutará Bash primero?", "options": ["~/.profile", "~/.bash_profile", "~/.bash_login", "Ejecutará los tres en orden secuencial inverso"], "answer": 1, "why": "Al iniciar una shell de login interactiva, Bash busca en el HOME del usuario en el siguiente orden estricto: 1º ~/.bash_profile, 2º ~/.bash_login y 3º ~/.profile. En cuanto encuentra el primero existente (~/.bash_profile), lo ejecuta y omite totalmente los otros dos.", "notes": "Pregunta clásica con trampa. Muchos creen que ejecuta todos, pero solo lee el primero que encuentre."}, {"id": 16, "section": "105.1", "cat": "shell", "type": "review", "title": "Pregunta de Examen LPIC-1: Variables y Herencia a Subprocesos", "q": "Un administrador ejecuta en su terminal: 'PUERTO=8080' y a continuación lanza un script de Python con './servidor.py'. Sin embargo, el script falla porque la variable PUERTO no está definida en su entorno. ¿Qué orden previa debería haber ejecutado?", "options": ["set PUERTO", "source PUERTO=8080", "export PUERTO", "env PUERTO=8080"], "answer": 2, "why": "Al asignar 'PUERTO=8080', la variable es local para la shell interactiva actual y los subprocesos hijos no la heredan. Para que esté disponible en los comandos y scripts derivados, se debe exportar al entorno con 'export PUERTO' (o 'export PUERTO=8080').", "notes": "Concepto nuclear de Linux: los hijos no heredan variables locales, solo las de entorno (exportadas)."}, {"id": 17, "section": "105.1", "cat": "shell", "type": "review", "title": "Pregunta de Examen LPIC-1: El Comando source y el Punto (.)", "q": "¿Cuál de los siguientes comandos permite recargar las modificaciones recién guardadas en el archivo ~/.bashrc dentro de la sesión de terminal actual sin tener que cerrarla y volverla a abrir?", "options": ["./~/.bashrc", "exec bash ~/.bashrc", "source ~/.bashrc", "bash ~/.bashrc"], "answer": 2, "why": "'source ~/.bashrc' (o su equivalente oficial '. ~/.bashrc') lee y ejecuta el archivo directamente dentro del proceso de shell actual, manteniendo todos los nuevos alias y variables en la ventana abierta. Ejecutar './~/.bashrc' o 'bash ~/.bashrc' crearía una subshell que se cerraría inmediatamente sin afectar a la sesión actual.", "notes": "Enseña la diferencia entre ejecutar en subshell frente a ejecutar en el entorno actual."}, {"id": 18, "section": "105.1", "cat": "shell", "type": "flashcards", "title": "Tarjetas de Memorización: Entorno de Shell 105.1", "deck": [{"front": "¿Qué archivo global lee Bash primero al iniciar una shell de login?", "back": "/etc/profile (y los scripts dentro de /etc/profile.d/*.sh)."}, {"front": "¿Cuál es el orden de búsqueda de los archivos de inicio personales en una shell con login?", "back": "1º ~/.bash_profile ➔ 2º ~/.bash_login ➔ 3º ~/.profile (ejecuta solo el primero que encuentre)."}, {"front": "¿Qué archivo lee una terminal interactiva gráfica que NO es de login?", "back": "~/.bashrc (tras leer /etc/bash.bashrc)."}, {"front": "¿Qué archivo se ejecuta automáticamente al salir de una sesión con login?", "back": "~/.bash_logout."}, {"front": "¿Qué directorio sirve de plantilla para los archivos ocultos de los nuevos usuarios?", "back": "/etc/skel (se copia con 'useradd -m')."}, {"front": "¿Qué comando convierte una variable local en variable de entorno heredable?", "back": "export VARIABLE (o export VARIABLE=valor)."}, {"front": "¿Qué diferencia hay entre el comando 'env' y el comando 'set'?", "back": "'env' muestra solo variables de entorno; 'set' muestra variables locales, de entorno y funciones."}, {"front": "¿Cuál es el sinónimo POSIX oficial de una sola letra del comando 'source'?", "back": "El comando punto '.' seguido de un espacio (ej: '. ~/.bashrc')."}], "notes": "Repasa estas 8 tarjetas con los alumnos para fijar los conceptos evaluados en el Examen 102."}, {"id": 19, "section": "105.1", "cat": "shell", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 105.1", "takeaways": ["Shells: Las shells con login leen /etc/profile y el primer archivo personal disponible (~/.bash_profile, ~/.bash_login o ~/.profile). Las shells sin login leen ~/.bashrc.", "Plantilla: /etc/skel contiene los archivos base (.bashrc, .profile) copiados a los nuevos usuarios creados con useradd -m.", "Variables: Las locales solo viven en la sesión actual; 'export' las pasa al entorno para que las hereden los procesos hijos. 'env' lista entorno, 'set' lista todo, 'unset' borra.", "Atajos y Funciones: 'alias' crea atajos estáticos sin argumentos; las funciones 'nombre() { ... }' aceptan parámetros ($1, $2). 'source' o '.' ejecuta en el shell actual."], "top3": [{"cmd": "export VAR=valor", "desc": "Promociona una variable al entorno global para herencia en subprocesos."}, {"cmd": "source ~/.bashrc (o . ~/.bashrc)", "desc": "Recarga la configuración de Bash en caliente en la sesión actual."}, {"cmd": "alias nombre='comando'", "desc": "Crea un atajo personalizado de comando para la sesión interactiva."}], "practice": {"name": "Práctica 105.1: Personalizar y Usar el Entorno de Shell", "url": "../practicas/p-105-1-entorno-shell.html", "desc": "Configura variables de entorno, personaliza el prompt PS1, define alias permanentes en ~/.bashrc y prueba la herencia con export."}, "notes": "Fin del subtema 105.1. Procedemos con 105.2 para completar el Tema 105."}];
+    const SLIDES = [{"id": 1, "section": "105.1", "cat": "shell", "type": "cover", "title": "Personalizar y usar el entorno de shell", "subtitle": "Subtema 105.1 · Peso LPI: 4 · Examen LPIC-1 102-500", "meta": {"peso": 4, "paginas": "4-84", "duracion": "40 min"}, "icon": "terminal", "notes": "Bienvenida al Tema 105 (el primero del Examen 102-500). Este subtema tiene peso 4 y trata sobre cómo personalizar Bash, sus archivos de configuración y variables."}, {"id": 2, "section": "105.1", "cat": "shell", "type": "diagram", "title": "Tipos de Shell en Linux: Interactivos vs No Interactivos", "lead": "¿Qué diferencia a un shell de login de uno interactivo o de un script automatizado?", "ref": "14-24", "pdf": {"manual": "B", "pages": [14, 15, 19, 21, 23]}, "coverage": ["105.1-CON-001"], "remember": "🎯 Clave de Examen: Un shell de login pide autenticación (consola física, SSH o 'su -') y lee /etc/profile. Un shell interactivo sin login (abrir terminal gráfica o 'su') lee ~/.bashrc.", "notes": "Enseña a los alumnos la matriz de 4 combinaciones: login interactivo, non-login interactivo, login no-interactivo y non-login no-interactivo (scripts).", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:24px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>🧭 Clasificación Fundamental de Shells en Bash</span>\n    <span style=\"font-size:20px; background:#EFF6FF; color:#1D4ED8; padding:4px 10px; border-radius:10px; font-weight:700;\">Matriz 2×2</span>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:12px; font-size:22px;\">\n    <!-- Interactivo con Login -->\n    <div style=\"background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#1E40AF; font-size:23px;\">1. Interactivo con Login</strong>\n        <span style=\"background:#2563EB; color:#FFF; font-size:20px; font-weight:800; padding:4px 10px; border-radius:3px;\">SSH / Consola / su -</span>\n      </div>\n      <div style=\"color:#1E3A8A; line-height:1.4;\">\n        • <strong>Cómo surge:</strong> Entrar por SSH, consola virtual TTY (Ctrl+Alt+F3) o <code>su - usuario</code>.<br>\n        • <strong>Comportamiento:</strong> Pide usuario/password e inicializa el entorno completo.<br>\n        • <strong>Archivos que lee:</strong> <code>/etc/profile</code> ➔ <code>~/.bash_profile</code> (o <code>~/.profile</code>).\n      </div>\n    </div>\n\n    <!-- Interactivo sin Login -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#15803D; font-size:23px;\">2. Interactivo sin Login</strong>\n        <span style=\"background:#16A34A; color:#FFF; font-size:20px; font-weight:800; padding:4px 10px; border-radius:3px;\">Terminal Gráfica / su</span>\n      </div>\n      <div style=\"color:#14532D; line-height:1.4;\">\n        • <strong>Cómo surge:</strong> Abrir GNOME Terminal, xterm, bash dentro de otra shell o <code>su usuario</code>.<br>\n        • <strong>Comportamiento:</strong> Hereda variables del escritorio pero no recarga perfiles globales.<br>\n        • <strong>Archivos que lee:</strong> <code>/etc/bash.bashrc</code> ➔ <code>~/.bashrc</code> directamente.\n      </div>\n    </div>\n\n    <!-- No Interactivo con Login -->\n    <div style=\"background:#FEF3C7; border:1.5px solid #F59E0B; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#92400E; font-size:23px;\">3. No Interactivo con Login</strong>\n        <span style=\"background:#D97706; color:#FFF; font-size:20px; font-weight:800; padding:4px 10px; border-radius:3px;\">ssh host 'comando'</span>\n      </div>\n      <div style=\"color:#78350F; line-height:1.4;\">\n        • <strong>Cómo surge:</strong> Ejecutar una orden remota mediante SSH sin abrir terminal interactiva.<br>\n        • <strong>Comportamiento:</strong> Autentica con login pero ejecuta el comando y sale al terminar.<br>\n        • <strong>Archivos que lee:</strong> <code>/etc/profile</code> y perfiles personales.\n      </div>\n    </div>\n\n    <!-- No Interactivo sin Login -->\n    <div style=\"background:#F1F5F9; border:1.5px solid #94A3B8; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;\">\n        <strong style=\"color:#334155; font-size:23px;\">4. No Interactivo sin Login</strong>\n        <span style=\"background:#64748B; color:#FFF; font-size:20px; font-weight:800; padding:4px 10px; border-radius:3px;\">Scripts / Cron</span>\n      </div>\n      <div style=\"color:#475569; line-height:1.4;\">\n        • <strong>Cómo surge:</strong> Al lanzar scripts ejecutables <code>./script.sh</code> o tareas de Cron.<br>\n        • <strong>Comportamiento:</strong> ⚠️ <strong>NO lee ningún archivo de inicio</strong> interactivo.<br>\n        • <strong>Variables:</strong> Solo hereda las variables del proceso padre si estaban con <code>export</code>.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 3, "section": "105.1", "cat": "shell", "type": "diagram", "title": "Secuencia de Carga de Archivos en Shell con Login", "lead": "¿En qué orden estricto lee Bash los archivos de configuración al iniciar sesión?", "ref": "19-21", "pdf": {"manual": "B", "pages": [19, 20, 21]}, "coverage": ["105.1-FILE-001", "105.1-FILE-002", "105.1-FILE-003"], "remember": "🎯 Pregunta Estrella de Examen: Para el usuario personal, Bash busca ~/.bash_profile, luego ~/.bash_login y luego ~/.profile. ¡SOLO ejecuta el PRIMERO que exista y descarta los demás!", "notes": "Muestra el diagrama de flujo: 1) /etc/profile; 2) /etc/profile.d/*.sh; 3) el primer archivo personal disponible.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"font-size:24px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>🔄 Ruta Lineal de Inicio: Shell con Login (SSH / Consola Virtual / su -)</span>\n    <span style=\"font-size:20px; background:#EFF6FF; color:#1D4ED8; padding:4px 10px; border-radius:10px; font-weight:700;\">Orden de Ejecución</span>\n  </div>\n\n  <!-- Paso 1 Global -->\n  <div style=\"display:flex; align-items:center; gap:14px; margin-bottom:10px;\">\n    <div style=\"width:26px; height:26px; border-radius:50%; background:#2563EB; color:#FFF; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:24px; flex:none;\">1</div>\n    <div style=\"flex:1; background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:12px 16px; font-size:22px;\">\n      <strong style=\"color:#1E40AF;\">/etc/profile (Global para todo el sistema)</strong>\n      <div style=\"color:#1E3A8A; font-size:22px; margin-top:2px;\">\n        Establece variables globales (<code>PATH</code>, <code>UMASK</code>) y recorre todos los scripts secundarios en <code>/etc/profile.d/*.sh</code>.\n      </div>\n    </div>\n  </div>\n\n  <div style=\"text-align:center; font-size:25px; font-weight:900; color:#64748B; margin:-4px 0 6px 0;\">⬇️ A continuación busca en el directorio HOME del usuario (~):</div>\n\n  <!-- Paso 2 Personal con descarte -->\n  <div style=\"display:flex; align-items:flex-start; gap:14px;\">\n    <div style=\"width:26px; height:26px; border-radius:50%; background:#16A34A; color:#FFF; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:24px; flex:none; margin-top:4px;\">2</div>\n    <div style=\"flex:1; background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:10px 14px; font-size:22px;\">\n      <strong style=\"color:#15803D; font-size:23px;\">Archivos Personales: Regla del \"Primer Coincidente\"</strong>\n      <div style=\"color:#14532D; margin:4px 0 8px 0; font-size:22px;\">\n        Bash prueba los 3 archivos en estricto orden de izquierda a derecha. <strong>En cuanto encuentra uno, lo ejecuta y SE DETIENE</strong> (no lee los siguientes):\n      </div>\n      <div style=\"display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px; text-align:center; font-family:monospace; font-size:22px;\">\n        <div style=\"background:#DCFCE7; border:1.5px solid #16A34A; padding:6px; border-radius:6px; color:#166534; font-weight:800;\">\n          1º ~/.bash_profile<br><span style=\"font-weight:400; font-size:20px; font-family:sans-serif;\">(Máxima prioridad)</span>\n        </div>\n        <div style=\"background:#FEF3C7; border:1.5px solid #F59E0B; padding:6px; border-radius:6px; color:#92400E; font-weight:800;\">\n          2º ~/.bash_login<br><span style=\"font-weight:400; font-size:20px; font-family:sans-serif;\">(Si 1º no existe)</span>\n        </div>\n        <div style=\"background:#F1F5F9; border:1.5px solid #94A3B8; padding:6px; border-radius:6px; color:#334155; font-weight:800;\">\n          3º ~/.profile<br><span style=\"font-weight:400; font-size:20px; font-family:sans-serif;\">(Estándar POSIX/sh)</span>\n        </div>\n      </div>\n      <div style=\"margin-top:8px; font-size:20px; color:#14532D; font-style:italic;\">\n        💡 Nota didáctica: Normalmente <code>~/.bash_profile</code> incluye una línea con <code>source ~/.bashrc</code> para cargar también alias y funciones personales.\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 4, "section": "105.1", "cat": "shell", "type": "diagram", "title": "Shell Sin Inicio de Sesión y Archivo de Cierre ~/.bash_logout", "lead": "¿Qué archivos se leen al abrir ventanas de terminal en el escritorio y qué ocurre al cerrar sesión?", "ref": "21-23", "pdf": {"manual": "B", "pages": [21, 22, 23]}, "coverage": ["105.1-FILE-004", "105.1-FILE-005"], "remember": "🎯 Clave de Examen: Las terminales gráficas NO leen /etc/profile ni ~/.bash_profile; leen directamente ~/.bashrc. Al salir con 'exit' o 'logout', se ejecuta automáticamente ~/.bash_logout.", "notes": "Muestra que ~/.bash_logout se usa típicamente para limpiar la pantalla (clear), eliminar archivos temporales o registrar la hora de salida.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:12px 18px; margin-top:8px;\">\n  <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:14px; font-size:22px;\">\n    <!-- Shell interactivo sin login -->\n    <div style=\"background:#F0FDF4; border:1.5px solid #22C55E; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <strong style=\"color:#15803D; font-size:24px;\">🖥️ Apertura de Terminal (Sin Login)</strong>\n        <span style=\"background:#16A34A; color:#FFF; font-size:20px; font-weight:700; padding:4px 10px; border-radius:3px;\">GNOME Terminal / xterm</span>\n      </div>\n      <div style=\"color:#14532D; line-height:1.45;\">\n        Cuando abres una ventana de terminal en tu escritorio gráfico (o lanzas <code>su usuario</code>):\n        <ol style=\"margin:6px 0 0 16px; padding:0;\">\n          <li>Lee <code>/etc/bash.bashrc</code> (configuración global de Bash).</li>\n          <li>Lee <code>~/.bashrc</code> (alias, colores, variables y funciones personales).</li>\n        </ol>\n        <span style=\"display:block; margin-top:6px; background:#DCFCE7; padding:6px 12px; border-radius:4px; font-size:20px;\">\n          ⚠️ <strong>Ojo de examen:</strong> No lee <code>/etc/profile</code> ni <code>~/.profile</code>.\n        </span>\n      </div>\n    </div>\n\n    <!-- Cierre de sesión -->\n    <div style=\"background:#FEF2F2; border:1.5px solid #EF4444; border-radius:8px; padding:10px 12px;\">\n      <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;\">\n        <strong style=\"color:#991B1B; font-size:24px;\">🚪 Cierre de Sesión (Logout)</strong>\n        <span style=\"background:#DC2626; color:#FFF; font-size:20px; font-weight:700; padding:4px 10px; border-radius:3px;\">exit / logout</span>\n      </div>\n      <div style=\"color:#7F1D1D; line-height:1.45;\">\n        Al terminar una shell de inicio de sesión con <code>exit</code>, <code>logout</code> o Ctrl+D:\n        <ul style=\"margin:6px 0 0 16px; padding:0;\">\n          <li>Bash ejecuta automáticamente el script <code>~/.bash_logout</code>.</li>\n        </ul>\n        <div style=\"background:#FEE2E2; padding:10px 14px; border-radius:4px; margin-top:8px; font-size:20px;\">\n          <strong>Usos habituales en producción:</strong><br>\n          • Limpiar la pantalla para evitar que otros vean tus datos (<code>clear</code>).<br>\n          • Eliminar claves SSH temporales en memoria con <code>ssh-add -D</code>.<br>\n          • Borrar ficheros temporales en <code>/tmp</code>.\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"}, {"id": 5, "section": "105.1", "cat": "shell", "type": "file", "title": "El Esqueleto de Usuarios: /etc/skel y useradd", "lead": "¿De dónde salen los archivos ocultos (.bashrc, .profile) cuando creas una cuenta nueva?", "ref": "25-27", "pdf": {"manual": "B", "pages": [25, 26, 27]}, "coverage": ["105.1-FILE-006"], "file": "/etc/skel", "syntax": "useradd -m <usuario> (copia automáticamente el contenido de /etc/skel)", "content": "# Listado de la plantilla del sistema en /etc/skel:\n$ ls -la /etc/skel/\ntotal 24\ndrwxr-xr-x   2 root root 4096 oct 20 10:00 .\ndrwxr-xr-x 130 root root 4096 oct 20 09:50 ..\n-rw-r--r--   1 root root  220 feb 25  2020 .bash_logout\n-rw-r--r--   1 root root 3771 feb 25  2020 .bashrc\n-rw-r--r--   1 root root  807 feb 25  2020 .profile\n\n# Si el administrador añade un archivo aquí, todos los nuevos usuarios lo recibirán:\n$ sudo touch /etc/skel/.bash_aliases", "remember": "🎯 Clave de Examen: /etc/skel actúa como plantilla. Solo afecta a los NUEVOS usuarios creados a partir de ese momento con 'useradd -m'; los usuarios que ya existían previamente no se modifican.", "notes": "Muestra que si un administrador quiere que todos los futuros empleados tengan un alias corporativo por defecto, lo agrega a /etc/skel/.bashrc.", "diagram_html": "\n<div style=\"background:#FFFFFF; border:2px solid var(--border-strong); border-radius:12px; padding:10px 16px; margin-top:8px;\">\n  <div style=\"font-size:24px; font-weight:800; color:var(--text); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;\">\n    <span>🔄 Mecánica de /etc/skel durante la creación de cuentas</span>\n    <span style=\"font-size:20px; background:#DCFCE7; color:#166534; padding:4px 10px; border-radius:10px; font-weight:700;\">Plantilla Automática</span>\n  </div>\n\n  <div style=\"display:flex; align-items:center; justify-content:space-between; gap:14px; font-size:22px; text-align:center;\">\n    <div style=\"flex:1.2; background:#EFF6FF; border:1.5px solid #3B82F6; padding:10px 14px; border-radius:6px;\">\n      <strong style=\"color:#1E40AF; display:block;\">📁 Plantilla del Sistema</strong>\n      <code>/etc/skel/</code><br>\n      <span style=\"font-size:20px; color:#1E3A8A;\">(.bashrc, .profile, .bash_logout)</span>\n    </div>\n    <span style=\"color:#64748B; font-weight:900; font-size:25px;\">➔ useradd -m ana ➔</span>\n    <div style=\"flex:1.2; background:#F0FDF4; border:1.5px solid #22C55E; padding:10px 14px; border-radius:6px;\">\n      <strong style=\"color:#166534; display:block;\">🏠 Nuevo Directorio Home</strong>\n      <code>/home/ana/</code><br>\n      <span style=\"font-size:20px; color:#14532D;\">Copia exacta con dueño ana:ana</span>\n    </div>\n  </div>\n</div>\n"}, {"id": 6, "section": "105.1", "cat": "shell", "type": "command", "title": "Variables Locales vs Variables de Entorno: export y unset", "lead": "¿Por qué un script o subproceso no puede ver las variables de tu shell a menos que uses export?", "ref": "32-35", "pdf": {"manual": "B", "pages": [32, 33, 34, 35]}, "coverage": ["105.1-CMD-001", "105.1-CMD-002", "105.1-CMD-003", "105.1-CMD-004"], "command": "VAR=valor | export VAR | env | set | unset VAR", "purpose": "Controlar el ciclo de vida y la herencia de variables entre la shell actual y sus procesos hijos", "options": [{"flag": "VAR=valor", "desc": "Variable Local", "detail": "Solo vive en la shell actual. Si ejecutas un script o abres una subshell con 'bash', NO es visible."}, {"flag": "export VAR", "desc": "Exportar al Entorno", "detail": "Promociona la variable al entorno global; a partir de ese momento todos los procesos hijos la heredan."}, {"flag": "env", "desc": "Listar Entorno", "detail": "Muestra ÚNICAMENTE las variables de entorno (globales exportadas)."}, {"flag": "set", "desc": "Listar Todo", "detail": "Muestra ABSOLUTAMENTE TODAS las variables (locales y de entorno) y funciones definidas."}, {"flag": "unset VAR", "desc": "Eliminar Variable", "detail": "Destruye y borra por completo una variable (sea local o de entorno)."}], "terminal": {"command": "CURSO='LPIC-1' && export SERVIDOR='SRV01' && bash -c 'echo Local: $CURSO | Entorno: $SERVIDOR'", "output": ["$ CURSO='LPIC-1'           # Variable local sin exportar", "$ export SERVIDOR='SRV01'   # Variable de entorno global", "$ bash -c 'echo Local: $CURSO | Entorno: $SERVIDOR'", "Local:  | Entorno: SRV01", "# $CURSO está vacía en el subshell hijo porque no se exportó.", "$ unset SERVIDOR            # Elimina SERVIDOR del entorno"]}, "remember": "🎯 Diferencia Clave de Examen: 'env' lista solo variables exportadas al entorno; 'set' lista variables locales, de entorno y funciones de shell. 'unset' borra cualquier variable.", "notes": "Prueba en vivo con los alumnos: declara una variable, entra a 'bash' y comprueba que desaparece. Sal con 'exit', expórtala y vuelve a entrar."}, {"id": 7, "section": "105.1", "cat": "shell", "type": "table", "title": "Variables Canónicas Estándar de Linux", "lead": "Las variables de entorno más importantes evaluadas en la certificación LPIC-1:", "ref": "38-42", "pdf": {"manual": "B", "pages": [38, 39, 40, 41, 42]}, "coverage": ["105.1-CON-002"], "headers": ["Variable", "Significado / Contenido", "Ejemplo Típico", "Impacto en el Sistema"], "rows": [["PATH", "Lista de directorios separados por dos puntos (:) donde Bash busca los ejecutables.", "/usr/local/bin:/usr/bin:/bin", "Si un ejecutable no está en el PATH, requiere ruta absoluta (/ruta/cmd) o relativa (./cmd)."], ["HOME", "Ruta absoluta del directorio personal del usuario activo.", "/home/usuario (o /root)", "El comando 'cd' sin argumentos te lleva directamente al valor guardado en $HOME."], ["USER (o LOGNAME)", "Nombre de la cuenta de usuario que inició la sesión actual.", "alumno", "Utilizada por scripts para verificar privilegios o registrar acciones."], ["SHELL", "Ruta absoluta del intérprete de comandos asignado en /etc/passwd.", "/bin/bash", "El shell por defecto que se lanza al abrir terminales o scripts."], ["HISTSIZE", "Número máximo de comandos guardados en la memoria RAM durante la sesión.", "1000", "Controla cuántos comandos puedes recuperar con las flechas o con 'history'."], ["PS1", "Prompt primario de la línea de comandos interactiva.", "\\u@\\h:\\w\\$ ", "Define el texto y colores que ves en pantalla antes de escribir cada orden."]], "remember": "🎯 Regla Fija de Examen: En la variable PATH los directorios se separan con DOS PUNTOS (:). Si el directorio actual no está en PATH, ejecutar un script en la misma carpeta requiere obligatoriamente escribir './script.sh'.", "notes": "Pregunta a los alumnos qué pasa si borran el PATH: ningún comando funcionará sin su ruta completa como /bin/ls."}, {"id": 8, "section": "105.1", "cat": "shell", "type": "concept", "title": "Afinar el Historial y el Prompt: HISTCONTROL y PS2", "lead": "¿Cómo evitar comandos duplicados en el historial y qué significan PS1, PS2 y PROMPT_COMMAND?", "ref": "43-46", "pdf": {"manual": "B", "pages": [43, 44, 45, 46]}, "coverage": ["105.1-CON-003"], "points": [{"icon": "history", "text": "HISTCONTROL: Control de almacenamiento en el historial", "detail": "• <code>ignorespace</code>: Si pones un espacio en blanco antes de un comando, NO se guarda en el historial (ideal para contraseñas).<br>• <code>ignoredups</code>: No guarda comandos idénticos consecutivos.<br>• <code>ignoreboth</code>: Aplica ambas reglas a la vez."}, {"icon": "file-text", "text": "HISTFILE y HISTFILESIZE: Persistencia en disco", "detail": "• <code>HISTFILE</code>: Archivo de disco donde se vuelca el historial al salir (por defecto <code>~/.bash_history</code>).<br>• <code>HISTFILESIZE</code>: Número máximo de líneas que almacena el archivo en disco (suele ser 2000)."}, {"icon": "terminal", "text": "Los Prompts de Bash: PS1, PS2 y PROMPT_COMMAND", "detail": "• <code>PS1</code>: Prompt principal normal (ej: <code>alumno@srv:~$</code>).<br>• <code>PS2</code>: Prompt secundario para comandos multilínea incompletos (por defecto es <code>></code>).<br>• <code>PROMPT_COMMAND</code>: Comando que Bash ejecuta justo antes de mostrar cada prompt."}], "remember": "🎯 Pregunta Típica de Certificación: 'HISTCONTROL=ignoreboth' evita guardar comandos duplicados seguidos y cualquier comando que empiece con un espacio inicial. 'PS2' es el indicador de continuación multilínea (>).", "notes": "Muestra a los alumnos en terminal: escribe ' echo secreto' con espacio inicial y comprueba con 'history | tail -n 3' que no aparece."}, {"id": 9, "section": "105.1", "cat": "shell", "type": "command", "title": "Atajos de Shell: alias, unalias y Funciones", "lead": "¿Cómo crear abreviaturas de comandos y agrupar instrucciones complejas con funciones?", "ref": "48-54", "pdf": {"manual": "B", "pages": [48, 49, 50, 51, 52]}, "coverage": ["105.1-CMD-005", "105.1-CMD-006", "105.1-CMD-007"], "command": "alias nombre='comando' | unalias nombre | function mi_func() { ...; }", "purpose": "Ahorrar pulsaciones creando atajos y definir funciones reutilizables con parámetros dentro del shell", "options": [{"flag": "alias", "desc": "Listar Alias", "detail": "Ejecutado sin argumentos muestra la lista de todos los alias activos actualmente en la sesión."}, {"flag": "alias n='cmd'", "desc": "Definir Alias", "detail": "Crea un alias. Cuidado: NO debe haber espacios alrededor del signo '=' (ej: alias ll='ls -l')."}, {"flag": "unalias <nombre>", "desc": "Eliminar Alias", "detail": "Elimina el alias especificado de la sesión actual."}, {"flag": "unalias -a", "desc": "Eliminar Todos", "detail": "Borra absolutamente todos los alias definidos en la sesión."}, {"flag": "function f() {}", "desc": "Función de Shell", "detail": "Agrupa órdenes complejas y acepta parámetros posicionales ($1, $2) que los alias no admiten."}], "terminal": {"command": "alias ll='ls -la' && unalias ll && buscar() { grep -rn \"$1\" /etc/ 2>/dev/null; }", "output": ["$ alias ll='ls -la'          # Crea atajo 'll' para listar todo con detalles", "$ ll /tmp                   # Ejecuta ls -la /tmp", "$ unalias ll                # Borra el alias de la memoria", "$ buscar() { grep -rn \"$1\" /etc/ 2>/dev/null; } # Función con parámetro $1", "$ buscar 'UMASK'           # Busca 'UMASK' dentro de /etc/"]}, "remember": "🎯 Clave de Examen: Los alias NO aceptan argumentos o parámetros variables; para pasar argumentos dinámicos ($1, $2) se debe utilizar obligatoriamente una FUNCIÓN de Bash.", "notes": "Recuerda a los alumnos: los alias creados en la terminal se pierden al salir. Para hacerlos permanentes deben guardarse en ~/.bashrc o ~/.bash_aliases."}, {"id": 10, "section": "105.1", "cat": "shell", "type": "command", "title": "Ejecución en el Shell Actual: source y el Atajo '.'", "lead": "¿Por qué ejecutar './script.sh' no mantiene las variables en tu terminal y 'source script.sh' sí?", "ref": "52-54", "pdf": {"manual": "B", "pages": [52, 53, 54]}, "coverage": ["105.1-CMD-008", "105.1-CMD-009"], "command": "source archivo.sh | . archivo.sh", "purpose": "Leer y ejecutar un archivo de comandos dentro del proceso actual de shell sin lanzar un subshell", "options": [{"flag": "source <archivo>", "desc": "Comando source", "detail": "Lee y ejecuta el archivo en el shell actual. Cualquier variable o alias definido en él permanecerá activo."}, {"flag": ". <archivo>", "desc": "Atajo Punto (.)", "detail": "Es exactamente el sinónimo oficial POSIX de 'source'. Requiere un espacio entre el punto y el nombre del archivo."}, {"flag": "./archivo.sh", "desc": "Ejecución Normal", "detail": "Lanza un subshell hijo separado. Al terminar, el subshell muere y todas sus variables se destruyen con él."}], "terminal": {"command": "echo 'MI_VAR=100' > test.sh && ./test.sh && echo $MI_VAR && source test.sh && echo $MI_VAR", "output": ["$ echo 'MI_VAR=100' > test.sh", "$ chmod +x test.sh", "$ ./test.sh              # Se ejecuta en un subshell hijo separado", "$ echo $MI_VAR           # Salida vacía (el subshell murió y no afectó al padre)", "", "$ source test.sh         # Se ejecuta directamente en el shell actual (o: . test.sh)", "$ echo $MI_VAR", "100                      # ¡La variable ahora sí está presente en tu sesión!"]}, "remember": "🎯 Pregunta Fija de Certificación: El comando 'source' y el comando '.' (punto seguido de espacio) son exactamente lo mismo. Se usan para recargar archivos como ~/.bashrc tras modificarlos sin cerrar sesión.", "notes": "Compara ante los alumnos: 'source ~/.bashrc' vs cerrar y volver a abrir la terminal. Es la herramienta clave de administración."}, {"id": 11, "section": "105.1", "cat": "shell", "type": "concept", "title": "Caso Práctico: Añadir ~/bin al PATH y Persistencia en ~/.bashrc", "lead": "¿Cómo configurar tu entorno de trabajo profesional para ejecutar tus propios scripts desde cualquier lugar?", "ref": "46-48", "pdf": {"manual": "B", "pages": [46, 47, 48]}, "coverage": ["105.1-CON-004"], "points": [{"icon": "folder-plus", "text": "1. Crear la carpeta personal de binarios", "detail": "Ejecuta <code>mkdir -p ~/bin</code>. Es la ubicación estándar para scripts y programas personales del usuario."}, {"icon": "edit-3", "text": "2. Incorporar ~/bin a la variable PATH", "detail": "Añade a tu <code>~/.profile</code> o <code>~/.bashrc</code>:<br><code>export PATH=\"$HOME/bin:$PATH\"</code><br>Ponerlo al principio garantiza que tus scripts tengan prioridad sobre programas del sistema."}, {"icon": "refresh-cw", "text": "3. Recargar la configuración al instante", "detail": "Aplica los cambios en tu sesión abierta sin reiniciar con:<br><code>source ~/.bashrc</code> (o <code>. ~/.profile</code>)."}, {"icon": "check-circle", "text": "4. Ejecutar tus scripts desde cualquier ruta", "detail": "Cualquier script con permisos de ejecución (<code>chmod +x</code>) colocado en <code>~/bin/</code> se podrá invocar escribiendo solo su nombre, sin poner <code>./</code> ni rutas absolutas."}], "remember": "🎯 Buenas Prácticas LPIC-1: El archivo ~/.profile se usa para variables de entorno de login como PATH; el archivo ~/.bashrc se usa para alias, funciones y opciones interactivas de la shell.", "notes": "Guía a los alumnos en este procedimiento: es la base para el subtema 105.2 de scripts."}, {"id": 12, "section": "105.1", "cat": "shell", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 1: Variables Locales vs Entorno)", "ref": "45-46", "pdf": {"manual": "B", "pages": [45, 46]}, "coverage": ["105.1-EXC-001"], "scenario": "Manual Oficial LPI 102 (pág. 45): Analiza las siguientes declaraciones y determina si la variable final queda como 'Local' o como variable de 'Entorno' (Global):", "tasks": ["1. debian=mother", "2. mint=ubuntu-based ; export mint", "3. export suse=rpm-based", "4. ¿Qué comando lista exclusivamente variables de entorno y cuál lista también las locales?"], "solution": {"explain": "1) debian=mother es LOCAL porque no se usó export. 2) mint es de ENTORNO porque se exportó en el segundo comando. 3) suse es de ENTORNO directa en una sola orden. 4) 'env' lista solo las de entorno; 'set' lista tanto locales como de entorno.", "terminal": {"command": "debian=mother && export suse=rpm-based && env | grep -E 'debian|suse'", "output": ["$ debian=mother", "$ export suse=rpm-based", "$ env | grep -E 'debian|suse'", "suse=rpm-based       # Solo 'suse' aparece en env", "$ set | grep '^debian='", "debian=mother        # 'debian' solo aparece en set (local)"]}}, "notes": "Haz que los alumnos contesten oralmente antes de pulsar el botón de mostrar resolución."}, {"id": 13, "section": "105.1", "cat": "shell", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Parte 2: Modificar PATH y Funciones)", "ref": "46-47", "pdf": {"manual": "B", "pages": [46, 47]}, "coverage": ["105.1-EXC-002"], "scenario": "Manual Oficial LPI 102 (pág. 46-47): Configuración de rutas y funciones reutilizables.", "tasks": ["1. Crea la carpeta ~/bin en tu directorio de usuario.", "2. Escribe el comando para anteponer ~/bin al PATH actual.", "3. ¿Qué código condicional añade Ubuntu por defecto en ~/.profile para agregar ~/bin solo si existe?", "4. Escribe una función de Bash llamada 'alerta' que reciba un mensaje como parámetro ($1) y lo imprima en mayúsculas."], "solution": {"explain": "1) mkdir -p ~/bin. 2) export PATH=\"$HOME/bin:$PATH\". 3) if [ -d \"$HOME/bin\" ] ; then PATH=\"$HOME/bin:$PATH\" ; fi. 4) alerta() { echo \"[ALERTA]: $1\" | tr '[:lower:]' '[:upper:]'; }", "terminal": {"command": "alerta() { echo \"[ALERTA]: $1\" | tr '[:lower:]' '[:upper:]'; } && alerta 'disco lleno'", "output": ["$ alerta() { echo \"[ALERTA]: $1\" | tr '[:lower:]' '[:upper:]'; }", "$ alerta 'disco lleno'", "[ALERTA]: DISCO LLENO"]}}, "notes": "Destaca la condición 'if [ -d $HOME/bin ]': evita añadir carpetas al PATH que no existen físicamente."}, {"id": 14, "section": "105.1", "cat": "shell", "type": "challenge", "title": "Retos de Exploración del Manual Oficial (Funciones Read-Only)", "lead": "Investigación avanzada planteada en la página 76 del manual oficial LPI:", "ref": "76", "pdf": {"manual": "B", "pages": [76]}, "coverage": ["105.1-CHAL-001"], "scenario": "Manual Oficial LPI 102 (pág. 76): Blindaje de Funciones Críticas en Shell.\nEn entornos de producción o scripts de administración multiusuario, es necesario proteger ciertas funciones personalizadas para que ningún subproceso, script secundario o usuario pueda sobrescribirlas ni borrarlas de la memoria activa durante la sesión.", "goal": "Comprender la protección de funciones y variables contra modificaciones accidentales mediante atributos de solo lectura.", "question": "¿Qué comando específico de Bash permite marcar una función como de solo lectura ('read-only'), y qué respuesta emite el shell si intentas eliminarla con 'unset -f'?", "hint": "Recuerda que para que el comando 'readonly' afecte a funciones y no a variables, requiere un parámetro obligatorio.", "steps": [{"step": "1. Definir la función en el shell", "action": "saludar() { echo 'Hola mundo'; }"}, {"step": "2. Marcar la función como de solo lectura", "action": "readonly -f saludar"}, {"step": "3. Intentar redefinir o borrar con unset", "action": "unset -f saludar"}], "solution": {"explain": "1. El comando interno de Bash para proteger funciones es 'readonly -f <nombre_funcion>'.\n2. Al aplicar este atributo, la función queda blindada en memoria: no puede ser redefinida ni eliminada durante toda la sesión activa.\n3. Cualquier intento de borrado mediante 'unset -f saludar' generará el error:\n   bash: unset: saludar: cannot unset: readonly function\n4. ¡Clave de Examen LPIC-1!: El flag '-f' (Functions) es obligatorio. Si ejecutas 'readonly' sin flags, solo afecta o lista variables de entorno.", "terminal": {"prompt": "usuario@servidor:~$", "command": "saludar() { echo 'Hola mundo'; } && readonly -f saludar && unset -f saludar", "output": "bash: unset: saludar: cannot unset: readonly function"}}, "outcome": {"explain": "Al declarar 'readonly -f saludar', Bash bloquea la función en memoria. Cualquier intento posterior de redefinirla o borrarla con 'unset -f' arroja un error: 'bash: unset: saludar: cannot unset: readonly function'. Esto protege funciones críticas del sistema.", "terminal": {"prompt": "usuario@servidor:~$", "command": "saludar() { echo 'Hola mundo'; } && readonly -f saludar && unset -f saludar", "output": "bash: unset: saludar: cannot unset: readonly function"}}, "notes": "Pregunta de examen avanzada: ¿Qué comando hace una función de solo lectura? -> readonly -f."}, {"id": 15, "section": "105.1", "cat": "shell", "type": "review", "title": "Pregunta de Examen LPIC-1: Archivos de Inicio en Bash Login", "q": "Un usuario inicia sesión mediante SSH en un servidor Linux. En su directorio personal existen los archivos ~/.bash_profile, ~/.bash_login y ~/.profile. ¿Cuál de ellos ejecutará Bash primero?", "options": ["~/.profile", "~/.bash_profile", "~/.bash_login", "Ejecutará los tres en orden secuencial inverso"], "answer": 1, "why": "Al iniciar una shell de login interactiva, Bash busca en el HOME del usuario en el siguiente orden estricto: 1º ~/.bash_profile, 2º ~/.bash_login y 3º ~/.profile. En cuanto encuentra el primero existente (~/.bash_profile), lo ejecuta y omite totalmente los otros dos.", "notes": "Pregunta clásica con trampa. Muchos creen que ejecuta todos, pero solo lee el primero que encuentre."}, {"id": 16, "section": "105.1", "cat": "shell", "type": "review", "title": "Pregunta de Examen LPIC-1: Variables y Herencia a Subprocesos", "q": "Un administrador ejecuta en su terminal: 'PUERTO=8080' y a continuación lanza un script de Python con './servidor.py'. Sin embargo, el script falla porque la variable PUERTO no está definida en su entorno. ¿Qué orden previa debería haber ejecutado?", "options": ["set PUERTO", "source PUERTO=8080", "export PUERTO", "env PUERTO=8080"], "answer": 2, "why": "Al asignar 'PUERTO=8080', la variable es local para la shell interactiva actual y los subprocesos hijos no la heredan. Para que esté disponible en los comandos y scripts derivados, se debe exportar al entorno con 'export PUERTO' (o 'export PUERTO=8080').", "notes": "Concepto nuclear de Linux: los hijos no heredan variables locales, solo las de entorno (exportadas)."}, {"id": 17, "section": "105.1", "cat": "shell", "type": "review", "title": "Pregunta de Examen LPIC-1: El Comando source y el Punto (.)", "q": "¿Cuál de los siguientes comandos permite recargar las modificaciones recién guardadas en el archivo ~/.bashrc dentro de la sesión de terminal actual sin tener que cerrarla y volverla a abrir?", "options": ["./~/.bashrc", "exec bash ~/.bashrc", "source ~/.bashrc", "bash ~/.bashrc"], "answer": 2, "why": "'source ~/.bashrc' (o su equivalente oficial '. ~/.bashrc') lee y ejecuta el archivo directamente dentro del proceso de shell actual, manteniendo todos los nuevos alias y variables en la ventana abierta. Ejecutar './~/.bashrc' o 'bash ~/.bashrc' crearía una subshell que se cerraría inmediatamente sin afectar a la sesión actual.", "notes": "Enseña la diferencia entre ejecutar en subshell frente a ejecutar en el entorno actual."}, {"id": 18, "section": "105.1", "cat": "shell", "type": "flashcards", "title": "Tarjetas de Memorización: Entorno de Shell 105.1", "deck": [{"front": "¿Qué archivo global lee Bash primero al iniciar una shell de login?", "back": "/etc/profile (y los scripts dentro de /etc/profile.d/*.sh)."}, {"front": "¿Cuál es el orden de búsqueda de los archivos de inicio personales en una shell con login?", "back": "1º ~/.bash_profile ➔ 2º ~/.bash_login ➔ 3º ~/.profile (ejecuta solo el primero que encuentre)."}, {"front": "¿Qué archivo lee una terminal interactiva gráfica que NO es de login?", "back": "~/.bashrc (tras leer /etc/bash.bashrc)."}, {"front": "¿Qué archivo se ejecuta automáticamente al salir de una sesión con login?", "back": "~/.bash_logout."}, {"front": "¿Qué directorio sirve de plantilla para los archivos ocultos de los nuevos usuarios?", "back": "/etc/skel (se copia con 'useradd -m')."}, {"front": "¿Qué comando convierte una variable local en variable de entorno heredable?", "back": "export VARIABLE (o export VARIABLE=valor)."}, {"front": "¿Qué diferencia hay entre el comando 'env' y el comando 'set'?", "back": "'env' muestra solo variables de entorno; 'set' muestra variables locales, de entorno y funciones."}, {"front": "¿Cuál es el sinónimo POSIX oficial de una sola letra del comando 'source'?", "back": "El comando punto '.' seguido de un espacio (ej: '. ~/.bashrc')."}], "notes": "Repasa estas 8 tarjetas con los alumnos para fijar los conceptos evaluados en el Examen 102."}, {"id": 19, "section": "105.1", "cat": "shell", "type": "summary", "title": "Resumen y Claves de Examen: Subtema 105.1", "takeaways": ["Shells: Las shells con login leen /etc/profile y el primer archivo personal disponible (~/.bash_profile, ~/.bash_login o ~/.profile). Las shells sin login leen ~/.bashrc.", "Plantilla: /etc/skel contiene los archivos base (.bashrc, .profile) copiados a los nuevos usuarios creados con useradd -m.", "Variables: Las locales solo viven en la sesión actual; 'export' las pasa al entorno para que las hereden los procesos hijos. 'env' lista entorno, 'set' lista todo, 'unset' borra.", "Atajos y Funciones: 'alias' crea atajos estáticos sin argumentos; las funciones 'nombre() { ... }' aceptan parámetros ($1, $2). 'source' o '.' ejecuta en el shell actual."], "top3": [{"cmd": "export VAR=valor", "desc": "Promociona una variable al entorno global para herencia en subprocesos."}, {"cmd": "source ~/.bashrc (o . ~/.bashrc)", "desc": "Recarga la configuración de Bash en caliente en la sesión actual."}, {"cmd": "alias nombre='comando'", "desc": "Crea un atajo personalizado de comando para la sesión interactiva."}], "practice": {"name": "Práctica 105.1: Personalizar y Usar el Entorno de Shell", "url": "../practicas/p-105-1-entorno-shell.html", "desc": "Configura variables de entorno, personaliza el prompt PS1, define alias permanentes en ~/.bashrc y prueba la herencia con export."}, "notes": "Fin del subtema 105.1. Procedemos con 105.2 para completar el Tema 105."}];
     const ERRATAS = [{"id": "ERR-105.1-01", "type": "clarification", "title": "Confusión habitual: Orden de lectura de archivos personales de login en Bash", "context": "Manual LPI 102 (pág. 19-21): Archivos de inicio en bash login.", "description": "Muchos estudiantes creen erróneamente que Bash lee ~/.bash_profile, ~/.bash_login Y ~/.profile en ese orden consecutivo. En realidad, Bash busca en ese orden pero SOLO EJECUTA EL PRIMERO QUE ENCUENTRA y se detiene inmediatamente.", "recommendation": "En el examen LPIC-1, si existen ~/.bash_profile y ~/.profile, Bash SOLO leerá ~/.bash_profile e ignorará completamente ~/.profile."}];
     const GLOSARIO = [{"term": "Shell de login", "definition": "Sesión de intérprete que se inicia tras autenticar usuario y contraseña en consola física, SSH o con 'su -'. Lee primero /etc/profile y luego el primer archivo personal disponible (~/.bash_profile, ~/.bash_login o ~/.profile)."}, {"term": "Variable de entorno", "definition": "Variable exportada al entorno global mediante 'export', lo que permite que sea heredada por cualquier proceso hijo o subshell que se ejecute a partir de esa sesión."}, {"term": "/etc/skel", "definition": "Directorio plantilla del sistema que contiene los archivos de configuración ocultos (.bashrc, .profile) que el comando useradd copia automáticamente a la carpeta de cada nuevo usuario creado."}, {"term": "source (o punto '.')", "definition": "Orden interna de Bash que lee y ejecuta un archivo de comandos dentro del shell ACTUAL, aplicando variables y alias inmediatamente sin crear un subshell secundario."}];
     const META = {"topic": "105.1", "title": "Personalizar y usar el entorno de shell", "weight": 4, "description": "Tipos de shells, archivos de inicio, variables locales y de entorno, esqueleto /etc/skel, alias, funciones y comando source.", "duracion": "40 min"};
@@ -1758,7 +1767,7 @@
       const notesWidth = teacherNotesOpen ? 420 : 0;
       const availW = window.innerWidth - notesWidth;
       const availH = window.innerHeight - topBarHeight;
-      const scale = Math.min((availW - 40) / 1920, (availH - 40) / 1080);
+      const scale = Math.min((availW - 16) / 1920, (availH - 16) / 1080);
       stage.style.transform = `scale(${Math.max(scale, 0.25)})`;
     }
     window.addEventListener('resize', resizeStage);
@@ -1843,6 +1852,7 @@
       // Renderizado del cuerpo según el tipo
       const container = document.getElementById('slide-content');
       container.innerHTML = buildSlideHTML(s, colors);
+      container.scrollTop = 0;
 
       // Actualizar fragmentos
       const frags = container.querySelectorAll('.frag');
@@ -2057,8 +2067,8 @@
               <div style="display:grid; grid-template-columns: repeat(${Math.min(s.stats.length, 4)}, 1fr); gap:16px; margin-top:36px; max-width:1100px; margin-left:auto; margin-right:auto;">
                 ${s.stats.map(st => `
                   <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:14px; padding:16px 20px; text-align:center;">
-                    <div style="font-size:16px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
-                    <div style="font-size:20px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
+                    <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
+                    <div style="font-size:24px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
                   </div>
                 `).join('')}
               </div>
@@ -2078,7 +2088,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2110,8 +2120,8 @@
         if (s.syntax) {
           html += `
             <div class="syntax-bar">
-              <span style="font-weight:700; color:var(--text-muted); font-size:19px;">Sintaxis:</span>
-              <code class="t-cmd" style="font-size:21px;">${escapeHTML(s.syntax)}</code>
+              <span style="font-weight:700; color:var(--text-muted); font-size:24px;">Sintaxis:</span>
+              <code class="t-cmd" style="font-size:26px;">${escapeHTML(s.syntax)}</code>
             </div>
           `;
         }
@@ -2144,7 +2154,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2379,12 +2389,12 @@
             html += `
               <div class="concept-card" style="position:relative; display:flex; flex-direction:column; justify-content:space-between; border-left:6px solid var(--primary);">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-                  <span style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;">${st.num || idx + 1}</span>
+                  <span style="width:38px; height:38px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:22px;">${st.num || idx + 1}</span>
                   <div class="icon-box" style="margin:0;"><svg class="ic ic-md"><use href="#i-${st.icon || 'arrow-right'}"/></svg></div>
                 </div>
                 <div>
-                  <div style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
-                  <div style="font-size:18px; color:var(--text-muted); line-height:1.4;">${renderRichText(sdesc)}</div>
+                  <div style="font-size:24px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
+                  <div style="font-size:22px; color:var(--text-muted); line-height:1.42;">${renderRichText(sdesc)}</div>
                 </div>
               </div>
             `;
@@ -2413,7 +2423,7 @@
         }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:22px;">
               <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
             </span>
           </div>
@@ -2422,7 +2432,7 @@
         // Planteamiento del problema (Escenario claro)
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
             <div style="white-space:pre-line;">${renderRichText(scenarioText)}</div>
             ${questionText ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(questionText)}</div>` : ''}
           </div>
@@ -2434,7 +2444,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2442,7 +2452,7 @@
               const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(doText)}</span>
                 </div>
               `;
@@ -2451,7 +2461,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2463,15 +2473,15 @@
         // Botón docente interactivo para revelar resolución lineal y explicación
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-exercise" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-exercise" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar / Ocultar Resolución Guiada y Explicación
             </button>
-            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
         `;
 
         // Dentro del cuadro de resolución: pasos resueltos y comandos
         if (steps.length > 0) {
-          html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
+          html += `<div style="font-size:22px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
             const doText = st.action || st.do || st.task || st.step || '';
             const lookText = st.command || st.look || st.cmd || st.code || '';
@@ -2482,7 +2492,7 @@
                   <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
                   ${lookText ? `<code class="exercise-sol-code">${escapeHTML(lookText)}</code>` : ''}
                 </div>
-                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
+                ${reasonText ? `<div style="font-size:22px; color:var(--text-muted); line-height:1.4; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -2526,9 +2536,9 @@
         // Enunciado y Escenario del reto
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
             <div style="white-space:pre-line;">${renderRichText(scenario)}</div>
-            ${goalText ? `<div style="margin-top:10px; font-size:18px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
+            ${goalText ? `<div style="margin-top:10px; font-size:22px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
             ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(question)}</div>` : ''}
           </div>
         `;
@@ -2539,7 +2549,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2549,10 +2559,10 @@
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; justify-content:space-between; gap:16px;">
                   <div style="display:flex; align-items:center; gap:12px;">
-                    <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                    <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                     <span>${renderRichText(titleText)}</span>
                   </div>
-                  ${(st.action && st.step !== st.action) ? `<code style="font-size:18px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
+                  ${(st.action && st.step !== st.action) ? `<code style="font-size:22px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
                 </div>
               `;
             });
@@ -2560,7 +2570,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2578,7 +2588,7 @@
             const isCorrect = !!opt.correct;
             html += `
               <button class="quiz-btn challenge-opt-btn" onclick="this.classList.toggle('${isCorrect ? 'correct' : 'incorrect'}');">
-                <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
+                <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
                 <span>${renderRichText(optText)}</span>
               </button>
             `;
@@ -2601,13 +2611,13 @@
         const solTerminal = s.solution?.terminal || s.outcome?.terminal || (chObj ? (chObj.solution?.terminal || chObj.outcome?.terminal) : null) || null;
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-challenge" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar Solución y Razonamiento Docente
             </button>
-            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
               <div style="display:flex; align-items:flex-start; gap:12px;">
                 <svg class="ic ic-md" style="margin-top:2px; flex:none; color:var(--success);"><use href="#i-circle-check"/></svg>
-                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:20px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
+                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:22px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
               </div>
               ${solTerminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(solTerminal, 'solución')}</div>` : ''}
             </div>
@@ -2650,7 +2660,7 @@
           const optText = (typeof opt === 'object' && opt !== null) ? opt.text : opt;
           html += `
             <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${ansIdx}, '${escapeQuotes(expl)}')">
-              <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
+              <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(optText)}</span>
             </button>
           `;
@@ -2658,11 +2668,11 @@
         html += `</div>`;
         html += `
           <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
-            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:22px; padding:12px 24px; cursor:pointer;">
               <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
             </button>
           </div>
-          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:23px; line-height:1.5;"></div>
         `;
         }
       } else if (s.type === 'flashcards') {
@@ -2730,7 +2740,7 @@
         if (top3.length > 0) {
           html += `
             <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
-              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <div style="font-weight:800; font-size:23px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
                 <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
               </div>
               <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
@@ -2739,8 +2749,8 @@
             if (typeof t === 'string') {
               html += `
                 <div class="summary-cmd-card" style="display:flex; align-items:center; justify-content:space-between;">
-                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
-                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  <code class="t-cmd" style="font-size:22px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                 </div>
               `;
             } else {
@@ -2749,10 +2759,10 @@
               html += `
                 <div class="summary-cmd-card">
                   <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
-                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                    <code class="t-cmd" style="font-size:22px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                   </div>
-                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                  ${desc ? `<div style="font-size:21px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
                 </div>
               `;
             }
@@ -2776,7 +2786,7 @@
                   <div class="sp-desc">${renderRichText(pDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Web →
               </a>
             </div>
@@ -2796,7 +2806,7 @@
                 <div class="sp-desc" style="color:var(--text);">Explora visualmente los comandos, rutas y preguntas trampa de examen conectadas a este subtema en la red interactiva.</div>
               </div>
             </div>
-            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
               Ver en Grafo Interactivo →
             </a>
           </div>
@@ -2818,7 +2828,7 @@
                   <div class="sg-desc">${renderRichText(gpDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Global →
               </a>
             </div>
@@ -2878,7 +2888,13 @@
     // Navegación por teclado
     window.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      if (e.key === 'ArrowDown') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: 140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowUp') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: -140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         e.preventDefault();
         nextStep();
       } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
@@ -3034,7 +3050,7 @@
         content += `<div style="margin-bottom:8px; font-size:20px; line-height:1.4;">${escapeHTML(descText)}</div>`;
       }
       if (example) {
-        content += `<div style="font-family:monospace; font-size:18px; background:var(--surface-alt); padding:6px 10px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
+        content += `<div style="font-family:monospace; font-size:20px; background:var(--surface-alt); padding:8px 12px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
       }
       popover.innerHTML = content || '<div>Sin detalles adicionales</div>';
       const rect = e.currentTarget.getBoundingClientRect();
@@ -3188,8 +3204,8 @@
         item.style.color = 'var(--text)';
         item.style.cursor = 'pointer';
         item.innerHTML = `
-          <div style="font-weight:700; font-size:16px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
-          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
+          <div style="font-weight:700; font-size:19px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
+          <div style="font-size:21px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
         `;
         item.onclick = () => {
           closeModals();

@@ -287,14 +287,15 @@
     [data-theme="dark"] .summary-global-box .sg-icon { background: #78350F !important; color: #FDE047 !important; }
 
     .exercise-sol-code {
-      font-size: 19px;
+      font-size: 23px;
       background: #FFFFFF;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 8px;
       border: 1px solid #86EFAC;
       color: #166534;
       font-family: monospace;
       font-weight: 700;
+      line-height: 1.48;
     }
     .summary-cmd-card {
       background: #FFFFFF;
@@ -313,8 +314,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-practice-box .sp-title { font-size: 20px; font-weight: 800; color: #166534; }
-    .summary-practice-box .sp-desc { font-size: 16px; color: #374151; }
+    .summary-practice-box .sp-title { font-size: 25px; font-weight: 800; color: #166534; }
+    .summary-practice-box .sp-desc { font-size: 21px; color: #374151; line-height: 1.45; }
     .summary-practice-box .sp-icon { width: 48px; height: 48px; border-radius: 12px; background: #DCFCE7; color: #166534; display: flex; align-items: center; justify-content: center; flex: none; }
     .summary-global-box {
       margin-top: 12px;
@@ -327,8 +328,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .summary-global-box .sg-title { font-size: 20px; font-weight: 800; color: #92400E; }
-    .summary-global-box .sg-desc { font-size: 16px; color: #78350F; }
+    .summary-global-box .sg-title { font-size: 25px; font-weight: 800; color: #92400E; }
+    .summary-global-box .sg-desc { font-size: 21px; color: #78350F; line-height: 1.45; }
     .summary-global-box .sg-icon { width: 48px; height: 48px; border-radius: 12px; background: #FEF3C7; color: #92400E; display: flex; align-items: center; justify-content: center; flex: none; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -540,32 +541,33 @@
     /* Área de contenido del slide (1680 x 870 aprox) */
     .slide-body {
       flex: 1;
-      padding: 30px 64px;
+      padding: 28px 52px 48px 52px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       position: relative;
       overflow-y: auto;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    .slide-body::-webkit-scrollbar { width: 8px; }
+    .slide-body::-webkit-scrollbar { width: 12px; }
     .slide-body::-webkit-scrollbar-track { background: transparent; }
-    .slide-body::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-    .slide-body::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+    .slide-body::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 6px; }
+    .slide-body::-webkit-scrollbar-thumb:hover { background: #64748B; }
 
     .slide-title {
-      font-size: 46px;
+      font-size: 48px;
       font-weight: 800;
       line-height: 1.15;
       color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
     }
     .slide-lead {
-      font-size: 26px;
-      line-height: 1.35;
+      font-size: 29px;
+      line-height: 1.38;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 500;
     }
 
@@ -598,21 +600,22 @@
       justify-content: center;
       flex: none;
     }
-    .concept-card .card-text { font-size: 24px; line-height: 1.35; font-weight: 600; color: var(--text); }
-    .concept-card .card-detail { font-size: 19px; color: var(--text-muted); margin-top: 4px; font-weight: 400; line-height: 1.35; }
+    .concept-card .card-text { font-size: 27px; line-height: 1.35; font-weight: 700; color: var(--text); }
+    .concept-card .card-detail { font-size: 23px; color: var(--text-muted); margin-top: 6px; font-weight: 400; line-height: 1.42; }
 
     /* Cajas Recuerda / Trampa / Callouts */
     .callout-box {
       margin-top: 10px;
-      padding: 10px 18px;
+      padding: 14px 22px;
       border-radius: 12px;
-      display: inline-flex;
+      display: flex;
+      width: 100%;
       align-items: center;
       gap: 14px;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
       border: 2px solid transparent;
-      line-height: 1.35;
+      line-height: 1.4;
     }
     .callout-warning {
       background: var(--warning-soft);
@@ -633,18 +636,18 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 24px !important;
-      height: 24px !important;
-      min-width: 24px !important;
-      max-width: 24px !important;
-      min-height: 24px !important;
-      max-height: 24px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      max-width: 30px !important;
+      min-height: 30px !important;
+      max-height: 30px !important;
       border-radius: 50% !important;
       background: #2563EB;
       color: #FFFFFF !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
       font-weight: 800 !important;
-      font-size: 13px !important;
+      font-size: 17px !important;
       line-height: 1 !important;
       vertical-align: middle !important;
       text-align: center !important;
@@ -678,7 +681,7 @@
       border-bottom: 1px solid #E2E8F0;
     }
     .slide-glossary-box .gl-tag {
-      font-size: 12px;
+      font-size: 19px;
       font-weight: 800;
       color: #2563EB;
       text-transform: uppercase;
@@ -689,7 +692,7 @@
     }
     .slide-glossary-box .gl-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 10px;
       align-items: stretch;
     }
@@ -712,11 +715,11 @@
     }
     .slide-glossary-box .gl-badge {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 12.5px;
+      font-size: 21px;
       font-weight: 700;
       color: #1D4ED8;
       background: #EFF6FF;
-      padding: 2px 8px;
+      padding: 4px 10px;
       border-radius: 5px;
       border: 1px solid #BFDBFE;
       display: inline-block;
@@ -725,13 +728,13 @@
     }
     .slide-glossary-box .gl-def {
       color: #334155;
-      font-size: 13.5px;
+      font-size: 21px;
       line-height: 1.45;
       flex: 1;
     }
     .slide-glossary-box .gl-def code {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
+      font-size: 20px;
       background: #F1F5F9;
       padding: 1px 4px;
       border-radius: 4px;
@@ -749,14 +752,14 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px 12px;
-      font-size: 13.5px;
+      font-size: 21px;
       color: var(--text-muted);
       line-height: 1.35;
     }
     .slide-glossary-strip .gl-title {
       font-weight: 800;
       color: var(--primary);
-      font-size: 12px;
+      font-size: 19px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       display: inline-flex;
@@ -775,7 +778,7 @@
     .slide-glossary-strip .gl-term {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-weight: 700;
-      font-size: 12.5px;
+      font-size: 21px;
       color: #1D4ED8;
     }
 
@@ -885,7 +888,7 @@
       align-items: center;
       justify-content: space-between;
       color: #475569;
-      font-size: 18px;
+      font-size: 21px;
       font-weight: 700;
     }
     .term-copy-btn, .terminal-copy-btn {
@@ -897,7 +900,7 @@
       border: 1px solid var(--control-border);
       background: #FFFFFF;
       color: var(--text);
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -912,14 +915,14 @@
       transform: scale(0.96);
     }
     .term-code {
-      padding: 14px 20px;
+      padding: 18px 24px;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: clamp(16px, 1.2vw, 22px);
-      line-height: 1.38;
+      font-size: 23px;
+      line-height: 1.48;
       color: #0F172A;
       white-space: pre-wrap;
       user-select: text;
-      max-height: 340px;
+      max-height: none;
       overflow-y: auto;
     }
     .term-code::-webkit-scrollbar { width: 6px; }
@@ -957,7 +960,7 @@
       flex-shrink: 0;
     }
     .terminal-title {
-      font-size: 14px;
+      font-size: 19px;
       font-weight: 700;
       color: #94A3B8;
       font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
@@ -978,13 +981,13 @@
       color: #38BDF8;
     }
     .terminal-body {
-      padding: 16px 20px;
+      padding: 18px 24px;
       margin: 0;
       background: #0F172A;
       color: #E2E8F0;
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
-      font-size: 15.5px;
-      line-height: 1.55;
+      font-size: 22px;
+      line-height: 1.5;
       overflow-x: auto;
       white-space: pre-wrap;
     }
@@ -1016,14 +1019,14 @@
       margin-right: 22px;
     }
     .mini-term-title {
-      font-size: 12px;
+      font-size: 18px;
       color: #94A3B8;
       font-weight: 700;
     }
     .mini-term-body {
-      padding: 10px 14px;
-      font-size: 14.5px;
-      line-height: 1.55;
+      padding: 14px 18px;
+      font-size: 21px;
+      line-height: 1.5;
       color: #E2E8F0;
       background: #0F172A;
     }
@@ -1072,7 +1075,7 @@
       border-radius: 8px;
       border: 1.5px solid var(--border);
       background: var(--surface-alt);
-      font-size: 18px;
+      font-size: 22px;
       color: var(--text);
       cursor: pointer;
       transition: all 0.15s ease;
@@ -1100,30 +1103,31 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
+      padding: 8px 18px;
       background: #FFFFFF;
       border: 2px solid var(--control-border);
       border-radius: 10px;
-      font-size: 19px;
+      font-size: 23px;
       font-weight: 600;
       color: var(--text);
       cursor: pointer;
       transition: transform 0.1s, border-color 0.15s;
     }
-    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 21px; font-weight: 700; }
+    .opt-chip .flag { color: #1D4ED8; font-family: monospace; font-size: 25px; font-weight: 700; }
 
     /* Sintaxis y Directivas */
     .syntax-bar {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 16px;
+      padding: 12px 20px;
       background: var(--surface-alt);
       border: 2px solid var(--border-strong);
       border-radius: 10px;
       margin-bottom: 10px;
-      font-size: 21px;
+      font-size: 24px;
     }
+    .syntax-bar code.t-cmd { font-size: 26px; }
     .directives-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1139,15 +1143,16 @@
     }
     .directive-key {
       font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 700;
       color: #1D4ED8;
       margin-bottom: 4px;
+      line-height: 1.42;
     }
     .directive-desc {
-      font-size: 19px;
+      font-size: 23px;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.42;
     }
 
     /* Tablas (≤5x4) */
@@ -1163,22 +1168,24 @@
     table.slide-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(15px, 1.05vw, 18.5px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-table th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(15.5px, 1.1vw, 19.5px);
+      font-size: 24px;
+      line-height: 1.42;
     }
     table.slide-table td {
-      padding: 9px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
+      font-size: 23px;
     }
     table.slide-table tr:last-child td { border-bottom: none; }
     table.slide-table tr.highlighted { background: var(--warning-soft); }
@@ -1199,24 +1206,26 @@
     table.slide-matrix {
       width: 100%;
       border-collapse: collapse;
-      font-size: clamp(16px, 1.15vw, 20px);
+      font-size: 23px;
       text-align: left;
     }
     table.slide-matrix th {
       background: var(--surface-alt);
       color: var(--text);
-      padding: 12px 18px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--border-strong);
       font-weight: 700;
-      font-size: clamp(17px, 1.2vw, 21px);
+      font-size: 24px;
+      line-height: 1.42;
       letter-spacing: -0.01em;
     }
     table.slide-matrix td {
-      padding: 10px 18px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.42;
       vertical-align: middle;
+      font-size: 23px;
     }
     table.slide-matrix tr:last-child td { border-bottom: none; }
     table.slide-matrix tr:nth-child(even) td { background: #F8FAFC; }
@@ -1231,7 +1240,7 @@
       border: 2px solid var(--border-strong);
       border-radius: 14px;
       background: #FFFFFF;
-      font-size: 26px;
+      font-size: 27px;
       font-weight: 600;
       color: var(--text);
       text-align: left;
@@ -1248,7 +1257,7 @@
       margin-top: 20px;
       padding: 18px 24px;
       border-radius: 14px;
-      font-size: 24px;
+      font-size: 25px;
       line-height: 1.4;
       display: none;
     }
@@ -1346,7 +1355,7 @@
       font-weight: 700;
     }
     .panel-body { padding: 24px; font-size: 20px; line-height: 1.5; color: var(--text); }
-    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 18px; }
+    .panel-meta { margin-bottom: 20px; padding: 14px; background: var(--surface-alt); border-radius: 10px; font-size: 20px; }
 
     /* Modales y Popovers */
     .modal-overlay {
@@ -1737,7 +1746,7 @@
        DATOS DE LAS DIAPOSITIVAS (Inline)
        ------------------------------------------------------------- -->
   <script>
-    const SLIDES = [{"id": "109-4-01", "type": "cover", "title": "109.4 Configuración DNS del cliente", "subtitle": "Fundamentos de redes · Peso 2", "content": "<div style=\"display:flex; flex-direction:column; gap:20px; align-items:center; justify-content:center; text-align:center; height:100%;\">\n  <div style=\"display:inline-flex; align-items:center; gap:12px; padding:8px 24px; background:var(--color-bg-subtle); border-radius:30px; font-weight:700; color:var(--color-accent); font-size:22px; border:1px solid var(--color-border);\">\n    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\"/><path d=\"M2 12h20\"/></svg>\n    LPIC-1 Examen 102 · Objetivo 109.4\n  </div>\n  <h1 style=\"font-size:46px; font-weight:800; margin:0; color:var(--color-text);\">Resolución DNS en el Lado del Cliente</h1>\n  <p style=\"font-size:23px; color:var(--color-text-muted); max-width:980px; margin:0;\">\n    Librería resolver de glibc, orden en <code>/etc/nsswitch.conf</code>, directivas de <code>/etc/resolv.conf</code>, <code>/etc/hosts</code> y herramientas de consulta con <code>getent</code>, <code>host</code> y <code>dig</code>.\n  </p>\n  <div style=\"display:flex; gap:18px; margin-top:10px;\">\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Peso LPI:</strong> 2 puntos\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Ficheros clave:</strong> <code>/etc/resolv.conf</code> · <code>/etc/nsswitch.conf</code>\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Herramientas:</strong> <code>dig</code> · <code>host</code> · <code>getent</code>\n    </div>\n  </div>\n</div>"}, {"id": "109-4-02", "type": "flow", "title": "El Flujo de Resolución de Nombres en el Cliente", "subtitle": "Cómo una aplicación convierte 'www.lpi.org' en una IP mediante glibc", "content": "<div style=\"display:flex; flex-direction:column; gap:18px; align-items:center;\">\n  <div style=\"display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; width:100%; max-width:1150px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"font-size:16px; font-weight:700; color:var(--color-accent);\">1. Aplicación</div>\n      <p style=\"margin:8px 0 0 0; font-size:17px; color:var(--color-text-muted);\">\n        Llama a la función estándar <code>getaddrinfo()</code> de glibc.\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:2px solid var(--color-accent); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"font-size:16px; font-weight:700; color:var(--color-accent);\">2. /etc/nsswitch.conf</div>\n      <p style=\"margin:8px 0 0 0; font-size:17px; color:var(--color-text);\">\n        Consulta la directiva <code>hosts: files dns</code> para fijar el orden.\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"font-size:16px; font-weight:700; color:var(--color-accent);\">3. /etc/hosts (files)</div>\n      <p style=\"margin:8px 0 0 0; font-size:17px; color:var(--color-text-muted);\">\n        Verifica si el nombre está definido localmente en texto plano.\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"font-size:16px; font-weight:700; color:var(--color-accent);\">4. DNS (resolv.conf)</div>\n      <p style=\"margin:8px 0 0 0; font-size:17px; color:var(--color-text-muted);\">\n        Envía consulta UDP 53 a los <code>nameserver</code> configurados.\n      </p>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:10px; padding:14px 20px; border-left:4px solid var(--color-accent); width:100%; max-width:1150px; font-size:19px;\">\n    <strong>Diferencia clave de examen:</strong> Las herramientas de sistema como <code>ping</code>, <code>curl</code> o <code>ssh</code> usan este flujo completo (pasan por <code>/etc/hosts</code>). En cambio, <code>host</code> y <code>dig</code> <strong>ignoran /etc/hosts</strong> y van directamente a los servidores DNS.\n  </div>\n</div>"}, {"id": "109-4-03", "type": "file", "title": "Fichero Maestro de DNS: /etc/resolv.conf", "subtitle": "Servidores de nombres, dominios de búsqueda y parámetros de temporización", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.5;\">\n    <div style=\"color:#6a9955;\"># /etc/resolv.conf</div>\n    <div>nameserver <span style=\"color:#4ec9b0;\">192.168.1.1</span></div>\n    <div>nameserver <span style=\"color:#4ec9b0;\">8.8.8.8</span></div>\n    <div>nameserver <span style=\"color:#4ec9b0;\">1.1.1.1</span></div>\n    <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># Dominios de búsqueda para nombres cortos:</span></div>\n    <div>search <span style=\"color:#ce9178;\">empresa.local dpto.empresa.local</span></div>\n    <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># Parámetros de timeout y reintentos:</span></div>\n    <div>options timeout:2 attempts:2</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Directivas Evaluadas:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <code>nameserver IP</code>: Servidor DNS de consulta. <strong>Límite: hasta 3</strong> (los siguientes se ignoran silenciosamente).</div>\n      <div>• <code>search lista</code>: Añade automáticamente los sufijos cuando el usuario escribe un nombre sin punto (ej. <code>ping server</code> busca <code>server.empresa.local</code>).</div>\n      <div>• <code>domain nombre</code>: Define un único dominio local base (mutuamente excluyente con <code>search</code>).</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-4-04", "type": "file", "title": "/etc/resolv.conf Moderno y systemd-resolved", "subtitle": "El intermediario stub resolver local en la IP de bucle 127.0.0.53", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"display:flex; flex-direction:column; gap:14px;\">\n    <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:16px; line-height:1.4;\">\n      <div style=\"color:#6a9955;\"># Salida habitual en distribuciones con systemd:</div>\n      <div>$ ls -l /etc/resolv.conf</div>\n      <div style=\"color:#b5cea8;\">lrwxrwxrwx 1 root root ... /etc/resolv.conf -&gt; ../run/systemd/resolve/stub-resolv.conf</div>\n      <div style=\"margin-top:6px;\">$ cat /etc/resolv.conf</div>\n      <div>nameserver <span style=\"color:#4ec9b0; font-weight:700;\">127.0.0.53</span></div>\n      <div>options edns0 trust-ad</div>\n    </div>\n\n    <div style=\"background:var(--color-bg-subtle); border-radius:8px; padding:12px 16px; font-size:18px;\">\n      <strong>Dirección 127.0.0.53:</strong> Pertenece al rango <code>127.0.0.0/8</code> (loopback). Es el puerto local donde <code>systemd-resolved</code> recibe las llamadas para cachear respuestas y reenviarlas por interfaz.\n    </div>\n  </div>\n\n  <div style=\"background:rgba(231,76,60,0.06); border:2px dashed #e74c3c; border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:#c0392b;\">¡ADVERTENCIA DEL MANUAL!</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.45;\">\n      Si editas <code>/etc/resolv.conf</code> manualmente en un sistema gestionado por NetworkManager o systemd-resolved, <strong>tus cambios se borrarán</strong> en cuanto cambie la red o renueve la concesión DHCP.\n    </p>\n  </div>\n</div>"}, {"id": "109-4-05", "type": "concept", "title": "Control de Búsqueda: /etc/nsswitch.conf", "subtitle": "Acciones condicionales y conmutación entre fuentes de nombres", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-accent);\">Directiva Estándar de Hosts</h4>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px;\">\n      hosts: files dns myhostname\n    </div>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <code>files</code>: Consulta <code>/etc/hosts</code>.</div>\n      <div>• <code>dns</code>: Consulta los servidores de <code>/etc/resolv.conf</code>.</div>\n      <div>• <code>myhostname</code>: Resuelve localmente el nombre del propio equipo sin tocar ficheros.</div>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Criterios de Acción Condicional</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted); line-height:1.4;\">\n      Se pueden especificar acciones entre corchetes <code>[ESTADO=ACCION]</code>:\n    </p>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:16px;\">\n      hosts: files <span style=\"color:#4ec9b0;\">[!UNAVAIL=return]</span> dns\n    </div>\n    <div style=\"font-size:18px; color:var(--color-text);\">\n      Significa: <em>\"Si el servicio previo está disponible (aunque no encuentre el nombre), no continúes con el siguiente\"</em>.\n    </div>\n  </div>\n</div>"}, {"id": "109-4-06", "type": "command", "title": "Resolución Respetando NSS: comando getent hosts", "subtitle": "La forma correcta de probar cómo resuelve exactamente una aplicación del sistema", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Resolver un nombre respetando /etc/nsswitch.conf:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> getent hosts <span style=\"color:#4ec9b0;\">storage</span></div>\n    <div style=\"color:#b5cea8;\">192.168.1.10    storage.midominio.org storage</div>\n    <div style=\"margin-top:10px;\"><span style=\"color:#6a9955;\"># Resolver un dominio público externo:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> getent hosts <span style=\"color:#4ec9b0;\">www.lpi.org</span></div>\n    <div style=\"color:#b5cea8;\">198.51.100.1    www.lpi.org</div>\n    <div style=\"margin-top:10px;\"><span style=\"color:#6a9955;\"># Volcar toda la base de datos de hosts locales:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> getent hosts</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">¿Por qué usar getent?</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted); line-height:1.4;\">\n      Comandos como <code>dig</code> o <code>host</code> van directos al servidor DNS e <strong>ignoran /etc/hosts</strong>. <code>getent hosts</code> es la única utilidad CLI que replica con total exactitud la resolución de las aplicaciones estándar.\n    </p>\n  </div>\n</div>"}, {"id": "109-4-07", "type": "command", "title": "Consultas Rápidas con host: Tipos de Registros (-t)", "subtitle": "Herramienta directa para obtener registros A, AAAA, MX, NS y TXT", "content": "<div style=\"display:flex; flex-direction:column; gap:14px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Consulta simple (devuelve A, AAAA y MX):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> host lpi.org</div>\n    <div>lpi.org has address 65.254.248.204</div>\n    <div>lpi.org has IPv6 address 2607:f1c0:1000:70::204</div>\n    <div>lpi.org mail is handled by 10 mail.lpi.org.</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Filtrar por tipo de registro específico (-t):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> host <span style=\"color:#ce9178; font-weight:700;\">-t MX</span> lpi.org</div>\n    <div><span style=\"color:#569cd6;\">$</span> host <span style=\"color:#ce9178; font-weight:700;\">-t NS</span> lpi.org</div>\n    <div><span style=\"color:#569cd6;\">$</span> host <span style=\"color:#ce9178; font-weight:700;\">-t TXT</span> lpi.org</div>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; font-size:17px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:10px;\">\n      <code>-t A</code>: Dirección IPv4 (32 bits)\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:10px;\">\n      <code>-t AAAA</code>: Dirección IPv6 (128 bits)\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:10px;\">\n      <code>-t CNAME</code>: Alias canónico a otro nombre\n    </div>\n  </div>\n</div>"}, {"id": "109-4-08", "type": "command", "title": "Búsqueda Inversa y Servidores Específicos con host", "subtitle": "Resolución PTR (IP a nombre) y bypass de /etc/resolv.conf", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-accent);\">1. Resolución Inversa (Reverse Lookup)</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      Pasando directamente una dirección IP como argumento, <code>host</code> consulta el registro <strong>PTR</strong> en el dominio especial <code>in-addr.arpa</code>:\n    </p>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:16px;\">\n      $ host 8.8.8.8<br>\n      <span style=\"color:#b5cea8;\">8.8.8.8.in-addr.arpa domain name pointer dns.google.</span>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">2. Consultar un Servidor DNS Específico</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      Para probar un DNS remoto sin modificar <code>/etc/resolv.conf</code>, añade su IP como último argumento:\n    </p>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:16px;\">\n      $ host lpi.org <span style=\"color:#4ec9b0; font-weight:700;\">1.1.1.1</span><br>\n      <span style=\"color:#b5cea8;\">Using domain server:<br>\n      Name: 1.1.1.1<br>\n      Address: 1.1.1.1#53</span>\n    </div>\n  </div>\n</div>"}, {"id": "109-4-09", "type": "command", "title": "Diagnóstico Exhaustivo: anatomía del comando dig", "subtitle": "La herramienta estándar de depuración DNS y sus 4 secciones de salida", "content": "<div style=\"display:flex; flex-direction:column; gap:14px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:14px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:15px; line-height:1.35;\">\n    <div><span style=\"color:#569cd6;\">$</span> dig lpi.org</div>\n    <div style=\"color:#b5cea8;\">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, <span style=\"color:#4ec9b0; font-weight:700;\">status: NOERROR</span>, id: 47774</div>\n    <div style=\"color:#b5cea8;\">;; flags: <span style=\"color:#ce9178; font-weight:700;\">qr rd ra</span>; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 3</div>\n    <div style=\"margin-top:6px; color:#6a9955;\">;; QUESTION SECTION:</div>\n    <div>;lpi.org.                       IN      A</div>\n    <div style=\"margin-top:6px; color:#6a9955;\">;; ANSWER SECTION:</div>\n    <div>lpi.org.                300     IN      A       <span style=\"color:#4ec9b0; font-weight:700;\">65.254.248.204</span></div>\n    <div style=\"margin-top:6px; color:#6a9955;\">;; AUTHORITY SECTION:</div>\n    <div>lpi.org.                86400   IN      NS      dns1.easydns.com.</div>\n    <div style=\"margin-top:6px; color:#6a9955;\">;; Query time: 18 msec | SERVER: 127.0.0.53#53 | WHEN: Fri Oct 30</div>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; font-size:16px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:8px;\">\n      <strong>HEADER:</strong> Código de estado y flags de respuesta.\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:8px;\">\n      <strong>QUESTION:</strong> Registro y dominio consultados.\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:8px;\">\n      <strong>ANSWER:</strong> Resultado(s) obtenido(s).\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:8px;\">\n      <strong>AUTHORITY:</strong> Servidores NS con autoridad.\n    </div>\n  </div>\n</div>"}, {"id": "109-4-10", "type": "concept", "title": "Interpretación de Códigos y Flags en dig", "subtitle": "Comprender la cabecera HEADER para identificar fallos en el examen", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-accent);\">Códigos de Estado (status:)</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <code>NOERROR</code>: Consulta completada con éxito.</div>\n      <div>• <strong style=\"color:#e74c3c;\">NXDOMAIN:</strong> El dominio o nombre de host consultado <strong>no existe</strong>.</div>\n      <div>• <code>SERVFAIL</code>: El servidor de nombres encontró un fallo interno o problema de conectividad.</div>\n      <div>• <code>REFUSED</code>: El servidor DNS rechazó responder por política o control de acceso.</div>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Flags Clave en la Cabecera:</h4>\n    <div style=\"font-size:18px; display:flex; flex-direction:column; gap:8px;\">\n      <div>• <code>qr</code> (Query Response): Es una respuesta, no una petición.</div>\n      <div>• <strong style=\"color:var(--color-accent);\">aa (Authoritative Answer):</strong> La respuesta proviene de un servidor con autoridad delegada sobre la zona (no de caché).</div>\n      <div>• <code>rd</code> (Recursion Desired): El cliente solicitó resolución recursiva.</div>\n      <div>• <code>ra</code> (Recursion Available): El servidor admite recursión.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-4-11", "type": "command", "title": "Opciones Avanzadas de dig (+short, -x, @servidor)", "subtitle": "Filtrar la salida verbosa para scripts y consultas rápidas", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:17px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># 1. Salida limpia para scripts (solo la IP):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> dig <span style=\"color:#ce9178; font-weight:700;\">+short</span> lpi.org</div>\n    <div style=\"color:#4ec9b0;\">65.254.248.204</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># 2. Consultar un servidor DNS específico (@):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> dig <span style=\"color:#ce9178; font-weight:700;\">@8.8.8.8</span> lpi.org MX</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># 3. Resolución inversa por IP (-x):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> dig <span style=\"color:#ce9178; font-weight:700;\">-x</span> 8.8.8.8 <span style=\"color:#ce9178;\">+short</span></div>\n    <div style=\"color:#4ec9b0;\">dns.google.</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:21px; color:var(--color-text);\">Fichero ~/.digrc</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted); line-height:1.4;\">\n      Un usuario puede colocar sus opciones favoritas en <code>~/.digrc</code> (ej. <code>+noall +answer</code>) para que <code>dig</code> aplique automáticamente esa vista compacta sin teclear flags en cada comando.\n    </p>\n  </div>\n</div>"}, {"id": "109-4-12", "type": "matrix", "title": "Matriz Comparativa: getent frente a host y dig", "subtitle": "Cuándo usar cada utilidad para evitar confusiones de diagnóstico", "content": "<table style=\"width:100%; border-collapse:collapse; font-size:19px; text-align:left; background:var(--color-card-bg); border-radius:10px; overflow:hidden; border:1px solid var(--color-border);\">\n  <thead>\n    <tr style=\"background:var(--color-bg-subtle); border-bottom:2px solid var(--color-border);\">\n      <th style=\"padding:12px 16px; color:var(--color-text);\">Característica</th>\n      <th style=\"padding:12px 16px; color:var(--color-accent); width:32%;\">getent hosts</th>\n      <th style=\"padding:12px 16px; color:#27ae60; width:32%;\">host</th>\n      <th style=\"padding:12px 16px; color:#e67e22; width:32%;\">dig</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:10px 16px; font-weight:700;\">¿Lee /etc/hosts?</td>\n      <td style=\"padding:10px 16px;\"><strong style=\"color:var(--color-accent);\">SÍ</strong> (según nsswitch)</td>\n      <td style=\"padding:10px 16px; color:#e74c3c;\">NO (solo DNS)</td>\n      <td style=\"padding:10px 16px; color:#e74c3c;\">NO (solo DNS)</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:10px 16px; font-weight:700;\">Servidor específico</td>\n      <td style=\"padding:10px 16px;\">No soportado</td>\n      <td style=\"padding:10px 16px;\"><code>host dominio &lt;IP&gt;</code></td>\n      <td style=\"padding:10px 16px;\"><code>dig @&lt;IP&gt; dominio</code></td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:10px 16px; font-weight:700;\">Resolución inversa</td>\n      <td style=\"padding:10px 16px;\"><code>getent hosts &lt;IP&gt;</code></td>\n      <td style=\"padding:10px 16px;\"><code>host &lt;IP&gt;</code></td>\n      <td style=\"padding:10px 16px;\"><code>dig -x &lt;IP&gt;</code></td>\n    </tr>\n    <tr>\n      <td style=\"padding:10px 16px; font-weight:700;\">Nivel de detalle</td>\n      <td style=\"padding:10px 16px;\">Línea única de mapeo</td>\n      <td style=\"padding:10px 16px;\">Líneas resumen limpias</td>\n      <td style=\"padding:10px 16px;\">Estructura completa de paquetes DNS</td>\n    </tr>\n  </tbody>\n</table>"}, {"id": "109-4-13", "type": "flow", "title": "Resumen de la Cadena de Resolución en el Cliente", "subtitle": "Interacción global entre archivos, servicios y librerías", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; font-size:19px;\">\n    <strong>1. Aplicación / Shell:</strong> Ejecuta <code>ssh server</code> o <code>curl http://server</code>.\n  </div>\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; font-size:19px;\">\n    <strong>2. Conmutador NSS:</strong> <code>/etc/nsswitch.conf</code> dicta buscar primero en <code>files</code> (<code>/etc/hosts</code>).\n  </div>\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; font-size:19px;\">\n    <strong>3. Servidor de nombres:</strong> Si no está en hosts, acude a los <code>nameserver</code> de <code>/etc/resolv.conf</code> (hasta 3).\n  </div>\n  <div style=\"background:var(--color-card-bg); border:2px solid var(--color-accent); border-radius:10px; padding:16px; font-size:19px;\">\n    <strong>4. Sufijos automáticos:</strong> Si el nombre no incluye puntos, añade los dominios de la directiva <code>search</code>.\n  </div>\n</div>"}, {"id": "109-4-14", "type": "challenge", "title": "Trampas Críticas de Examen: 109.4 DNS Cliente", "subtitle": "4 puntos engañosos frecuentes en las preguntas de certificación", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:18px;\">\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">1. Probar /etc/hosts con dig o host</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      Un técnico añade un host a <code>/etc/hosts</code> y ejecuta <code>dig mi-servidor</code> diciendo que no funciona. ¡Error conceptual: <code>dig</code> y <code>host</code> ignoran <code>/etc/hosts</code>! Se debe probar con <code>getent hosts</code>.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">2. Búsqueda inversa: flag -x en dig</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      En <code>dig</code>, para resolver una IP a nombre no se pasa la IP directamente; se requiere la opción <code>dig -x &lt;IP&gt;</code>. En cambio, en <code>host &lt;IP&gt;</code> no hace falta flag.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">3. Límite de 3 nameserver</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      En <code>/etc/resolv.conf</code> solo son efectivos los <strong>primeros 3 servidores nameserver</strong>. Definir una 4ª línea no causará error pero será totalmente ignorada por el resolver de glibc.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:20px; color:#c0392b;\">4. Significado de NXDOMAIN</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text); line-height:1.4;\">\n      No significa caída del servidor de red. Significa que el servidor DNS respondió correctamente informando de que ese registro o dominio <strong>no existe</strong>.\n    </p>\n  </div>\n</div>"}, {"id": "109-4-15", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Manual LPI)", "subtitle": "Casos prácticos interactivos con solución oficial comprobada", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">1. Función de getent group</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      ¿Qué hace el comando <code>getent group openldap</code> en un sistema configurado con NSS?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        Consulta la base de datos de grupos (en <code>/etc/group</code> o LDAP/red según <code>nsswitch.conf</code>) y devuelve la entrada del grupo <code>openldap</code>.\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">2. Edición manual de resolv.conf</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      Si edita con nano o vi un <code>/etc/resolv.conf</code> administrado por systemd-resolved, ¿qué ocurrirá probablemente?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        Los cambios serán sobreescritos y eliminados automáticamente por el servicio en la siguiente reconexión o reinicio.\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">3. Salida limpia con dig</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      ¿Qué modificador se le añade a <code>dig</code> para que solo devuelva la dirección IP resultante sin comentarios ni secciones de cabecera?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        La opción <code>+short</code> (ej. <code>dig +short lpi.org</code>).\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:20px; color:var(--color-text);\">4. Fichero de opciones por defecto de dig</h4>\n    <p style=\"margin:0; font-size:18px; color:var(--color-text-muted);\">\n      ¿Cómo se llama el archivo en el directorio personal donde un usuario puede fijar opciones permanentes para el comando <code>dig</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:18px; color:var(--color-text);\">\n        El archivo <code>~/.digrc</code>.\n      </div>\n    </details>\n  </div>\n</div>"}, {"id": "109-4-16", "type": "flashcards", "title": "Flashcards de Memorización Rápida: 109.4 DNS Cliente", "subtitle": "Fija los conceptos finales del Tema 109 antes del Repaso Gráfico", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:16px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Pregunta / Concepto</div>\n    <h4 style=\"margin:0; font-size:22px; color:var(--color-text);\">¿Por qué 'dig' no encuentra un host definido en /etc/hosts?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        Porque <code>dig</code> (y <code>host</code>) son herramientas puras de diagnóstico DNS que consultan únicamente la red e <strong>ignoran NSS y /etc/hosts</strong>.\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:16px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Pregunta / Concepto</div>\n    <h4 style=\"margin:0; font-size:22px; color:var(--color-text);\">¿Cómo se hace una consulta inversa de IP a nombre con dig?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        Mediante la opción <strong>-x</strong>: <code>dig -x 8.8.8.8</code> (busca el registro PTR en <code>in-addr.arpa</code>).\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:16px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Pregunta / Concepto</div>\n    <h4 style=\"margin:0; font-size:22px; color:var(--color-text);\">¿Cuántas directivas 'nameserver' procesa /etc/resolv.conf?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        Hasta <strong>un máximo de 3</strong> servidores DNS. Las directivas posteriores se ignoran silenciosamente.\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:16px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Pregunta / Concepto</div>\n    <h4 style=\"margin:0; font-size:22px; color:var(--color-text);\">¿Qué indica el estado NXDOMAIN en la salida de dig?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        Indica <strong>Non-Existent Domain</strong>: el servidor DNS autoritativo confirma que el nombre de dominio consultado no existe en la zona.\n      </div>\n    </details>\n  </div>\n</div>"}];
+    const SLIDES = [{"id": "109-4-01", "type": "cover", "title": "109.4 Configuración DNS del cliente", "subtitle": "Fundamentos de redes · Peso 2", "content": "<div style=\"display:flex; flex-direction:column; gap:20px; align-items:center; justify-content:center; text-align:center; height:100%;\">\n  <div style=\"display:inline-flex; align-items:center; gap:12px; padding:8px 24px; background:var(--color-bg-subtle); border-radius:30px; font-weight:700; color:var(--color-accent); font-size:22px; border:1px solid var(--color-border);\">\n    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\"/><path d=\"M2 12h20\"/></svg>\n    LPIC-1 Examen 102 · Objetivo 109.4\n  </div>\n  <h1 style=\"font-size:48px; font-weight:800; margin:0; color:var(--color-text);\">Resolución DNS en el Lado del Cliente</h1>\n  <p style=\"font-size:23px; color:var(--color-text-muted); max-width:980px; margin:0;\">\n    Librería resolver de glibc, orden en <code>/etc/nsswitch.conf</code>, directivas de <code>/etc/resolv.conf</code>, <code>/etc/hosts</code> y herramientas de consulta con <code>getent</code>, <code>host</code> y <code>dig</code>.\n  </p>\n  <div style=\"display:flex; gap:18px; margin-top:10px;\">\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Peso LPI:</strong> 2 puntos\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Ficheros clave:</strong> <code>/etc/resolv.conf</code> · <code>/etc/nsswitch.conf</code>\n    </div>\n    <div style=\"padding:14px 22px; background:var(--color-card-bg); border-radius:12px; border:1px solid var(--color-border); font-size:20px;\">\n      <strong>Herramientas:</strong> <code>dig</code> · <code>host</code> · <code>getent</code>\n    </div>\n  </div>\n</div>"}, {"id": "109-4-02", "type": "flow", "title": "El Flujo de Resolución de Nombres en el Cliente", "subtitle": "Cómo una aplicación convierte 'www.lpi.org' en una IP mediante glibc", "content": "<div style=\"display:flex; flex-direction:column; gap:18px; align-items:center;\">\n  <div style=\"display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; width:100%; max-width:1150px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"font-size:22px; font-weight:700; color:var(--color-accent);\">1. Aplicación</div>\n      <p style=\"margin:8px 0 0 0; font-size:22px; color:var(--color-text-muted);\">\n        Llama a la función estándar <code>getaddrinfo()</code> de glibc.\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:2px solid var(--color-accent); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"font-size:22px; font-weight:700; color:var(--color-accent);\">2. /etc/nsswitch.conf</div>\n      <p style=\"margin:8px 0 0 0; font-size:22px; color:var(--color-text);\">\n        Consulta la directiva <code>hosts: files dns</code> para fijar el orden.\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"font-size:22px; font-weight:700; color:var(--color-accent);\">3. /etc/hosts (files)</div>\n      <p style=\"margin:8px 0 0 0; font-size:22px; color:var(--color-text-muted);\">\n        Verifica si el nombre está definido localmente en texto plano.\n      </p>\n    </div>\n\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; text-align:center;\">\n      <div style=\"font-size:22px; font-weight:700; color:var(--color-accent);\">4. DNS (resolv.conf)</div>\n      <p style=\"margin:8px 0 0 0; font-size:22px; color:var(--color-text-muted);\">\n        Envía consulta UDP 53 a los <code>nameserver</code> configurados.\n      </p>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-bg-subtle); border-radius:10px; padding:14px 20px; border-left:4px solid var(--color-accent); width:100%; max-width:1150px; font-size:19px;\">\n    <strong>Diferencia clave de examen:</strong> Las herramientas de sistema como <code>ping</code>, <code>curl</code> o <code>ssh</code> usan este flujo completo (pasan por <code>/etc/hosts</code>). En cambio, <code>host</code> y <code>dig</code> <strong>ignoran /etc/hosts</strong> y van directamente a los servidores DNS.\n  </div>\n</div>"}, {"id": "109-4-03", "type": "file", "title": "Fichero Maestro de DNS: /etc/resolv.conf", "subtitle": "Servidores de nombres, dominios de búsqueda y parámetros de temporización", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.5;\">\n    <div style=\"color:#6a9955;\"># /etc/resolv.conf</div>\n    <div>nameserver <span style=\"color:#4ec9b0;\">192.168.1.1</span></div>\n    <div>nameserver <span style=\"color:#4ec9b0;\">8.8.8.8</span></div>\n    <div>nameserver <span style=\"color:#4ec9b0;\">1.1.1.1</span></div>\n    <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># Dominios de búsqueda para nombres cortos:</span></div>\n    <div>search <span style=\"color:#ce9178;\">empresa.local dpto.empresa.local</span></div>\n    <div style=\"margin-top:6px;\"><span style=\"color:#6a9955;\"># Parámetros de timeout y reintentos:</span></div>\n    <div>options timeout:2 attempts:2</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Directivas Evaluadas:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <code>nameserver IP</code>: Servidor DNS de consulta. <strong>Límite: hasta 3</strong> (los siguientes se ignoran silenciosamente).</div>\n      <div>• <code>search lista</code>: Añade automáticamente los sufijos cuando el usuario escribe un nombre sin punto (ej. <code>ping server</code> busca <code>server.empresa.local</code>).</div>\n      <div>• <code>domain nombre</code>: Define un único dominio local base (mutuamente excluyente con <code>search</code>).</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-4-04", "type": "file", "title": "/etc/resolv.conf Moderno y systemd-resolved", "subtitle": "El intermediario stub resolver local en la IP de bucle 127.0.0.53", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"display:flex; flex-direction:column; gap:14px;\">\n    <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n      <div style=\"color:#6a9955;\"># Salida habitual en distribuciones con systemd:</div>\n      <div>$ ls -l /etc/resolv.conf</div>\n      <div style=\"color:#b5cea8;\">lrwxrwxrwx 1 root root ... /etc/resolv.conf -&gt; ../run/systemd/resolve/stub-resolv.conf</div>\n      <div style=\"margin-top:6px;\">$ cat /etc/resolv.conf</div>\n      <div>nameserver <span style=\"color:#4ec9b0; font-weight:700;\">127.0.0.53</span></div>\n      <div>options edns0 trust-ad</div>\n    </div>\n\n    <div style=\"background:var(--color-bg-subtle); border-radius:8px; padding:12px 16px; font-size:23px;\">\n      <strong>Dirección 127.0.0.53:</strong> Pertenece al rango <code>127.0.0.0/8</code> (loopback). Es el puerto local donde <code>systemd-resolved</code> recibe las llamadas para cachear respuestas y reenviarlas por interfaz.\n    </div>\n  </div>\n\n  <div style=\"background:rgba(231,76,60,0.06); border:2px dashed #e74c3c; border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:#c0392b;\">¡ADVERTENCIA DEL MANUAL!</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.45;\">\n      Si editas <code>/etc/resolv.conf</code> manualmente en un sistema gestionado por NetworkManager o systemd-resolved, <strong>tus cambios se borrarán</strong> en cuanto cambie la red o renueve la concesión DHCP.\n    </p>\n  </div>\n</div>"}, {"id": "109-4-05", "type": "concept", "title": "Control de Búsqueda: /etc/nsswitch.conf", "subtitle": "Acciones condicionales y conmutación entre fuentes de nombres", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-accent);\">Directiva Estándar de Hosts</h4>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px;\">\n      hosts: files dns myhostname\n    </div>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <code>files</code>: Consulta <code>/etc/hosts</code>.</div>\n      <div>• <code>dns</code>: Consulta los servidores de <code>/etc/resolv.conf</code>.</div>\n      <div>• <code>myhostname</code>: Resuelve localmente el nombre del propio equipo sin tocar ficheros.</div>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Criterios de Acción Condicional</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted); line-height:1.4;\">\n      Se pueden especificar acciones entre corchetes <code>[ESTADO=ACCION]</code>:\n    </p>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px;\">\n      hosts: files <span style=\"color:#4ec9b0;\">[!UNAVAIL=return]</span> dns\n    </div>\n    <div style=\"font-size:23px; color:var(--color-text);\">\n      Significa: <em>\"Si el servicio previo está disponible (aunque no encuentre el nombre), no continúes con el siguiente\"</em>.\n    </div>\n  </div>\n</div>"}, {"id": "109-4-06", "type": "command", "title": "Resolución Respetando NSS: comando getent hosts", "subtitle": "La forma correcta de probar cómo resuelve exactamente una aplicación del sistema", "content": "<div style=\"display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Resolver un nombre respetando /etc/nsswitch.conf:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> getent hosts <span style=\"color:#4ec9b0;\">storage</span></div>\n    <div style=\"color:#b5cea8;\">192.168.1.10    storage.midominio.org storage</div>\n    <div style=\"margin-top:10px;\"><span style=\"color:#6a9955;\"># Resolver un dominio público externo:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> getent hosts <span style=\"color:#4ec9b0;\">www.lpi.org</span></div>\n    <div style=\"color:#b5cea8;\">198.51.100.1    www.lpi.org</div>\n    <div style=\"margin-top:10px;\"><span style=\"color:#6a9955;\"># Volcar toda la base de datos de hosts locales:</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> getent hosts</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">¿Por qué usar getent?</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted); line-height:1.4;\">\n      Comandos como <code>dig</code> o <code>host</code> van directos al servidor DNS e <strong>ignoran /etc/hosts</strong>. <code>getent hosts</code> es la única utilidad CLI que replica con total exactitud la resolución de las aplicaciones estándar.\n    </p>\n  </div>\n</div>"}, {"id": "109-4-07", "type": "command", "title": "Consultas Rápidas con host: Tipos de Registros (-t)", "subtitle": "Herramienta directa para obtener registros A, AAAA, MX, NS y TXT", "content": "<div style=\"display:flex; flex-direction:column; gap:14px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># Consulta simple (devuelve A, AAAA y MX):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> host lpi.org</div>\n    <div>lpi.org has address 65.254.248.204</div>\n    <div>lpi.org has IPv6 address 2607:f1c0:1000:70::204</div>\n    <div>lpi.org mail is handled by 10 mail.lpi.org.</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># Filtrar por tipo de registro específico (-t):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> host <span style=\"color:#ce9178; font-weight:700;\">-t MX</span> lpi.org</div>\n    <div><span style=\"color:#569cd6;\">$</span> host <span style=\"color:#ce9178; font-weight:700;\">-t NS</span> lpi.org</div>\n    <div><span style=\"color:#569cd6;\">$</span> host <span style=\"color:#ce9178; font-weight:700;\">-t TXT</span> lpi.org</div>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; font-size:22px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:10px;\">\n      <code>-t A</code>: Dirección IPv4 (32 bits)\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:10px;\">\n      <code>-t AAAA</code>: Dirección IPv6 (128 bits)\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:10px;\">\n      <code>-t CNAME</code>: Alias canónico a otro nombre\n    </div>\n  </div>\n</div>"}, {"id": "109-4-08", "type": "command", "title": "Búsqueda Inversa y Servidores Específicos con host", "subtitle": "Resolución PTR (IP a nombre) y bypass de /etc/resolv.conf", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-accent);\">1. Resolución Inversa (Reverse Lookup)</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      Pasando directamente una dirección IP como argumento, <code>host</code> consulta el registro <strong>PTR</strong> en el dominio especial <code>in-addr.arpa</code>:\n    </p>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px;\">\n      $ host 8.8.8.8<br>\n      <span style=\"color:#b5cea8;\">8.8.8.8.in-addr.arpa domain name pointer dns.google.</span>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">2. Consultar un Servidor DNS Específico</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      Para probar un DNS remoto sin modificar <code>/etc/resolv.conf</code>, añade su IP como último argumento:\n    </p>\n    <div style=\"background:#1e1e1e; border-radius:8px; padding:12px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px;\">\n      $ host lpi.org <span style=\"color:#4ec9b0; font-weight:700;\">1.1.1.1</span><br>\n      <span style=\"color:#b5cea8;\">Using domain server:<br>\n      Name: 1.1.1.1<br>\n      Address: 1.1.1.1#53</span>\n    </div>\n  </div>\n</div>"}, {"id": "109-4-09", "type": "command", "title": "Diagnóstico Exhaustivo: anatomía del comando dig", "subtitle": "La herramienta estándar de depuración DNS y sus 4 secciones de salida", "content": "<div style=\"display:flex; flex-direction:column; gap:14px;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:14px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.35;\">\n    <div><span style=\"color:#569cd6;\">$</span> dig lpi.org</div>\n    <div style=\"color:#b5cea8;\">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, <span style=\"color:#4ec9b0; font-weight:700;\">status: NOERROR</span>, id: 47774</div>\n    <div style=\"color:#b5cea8;\">;; flags: <span style=\"color:#ce9178; font-weight:700;\">qr rd ra</span>; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 3</div>\n    <div style=\"margin-top:6px; color:#6a9955;\">;; QUESTION SECTION:</div>\n    <div>;lpi.org.                       IN      A</div>\n    <div style=\"margin-top:6px; color:#6a9955;\">;; ANSWER SECTION:</div>\n    <div>lpi.org.                300     IN      A       <span style=\"color:#4ec9b0; font-weight:700;\">65.254.248.204</span></div>\n    <div style=\"margin-top:6px; color:#6a9955;\">;; AUTHORITY SECTION:</div>\n    <div>lpi.org.                86400   IN      NS      dns1.easydns.com.</div>\n    <div style=\"margin-top:6px; color:#6a9955;\">;; Query time: 18 msec | SERVER: 127.0.0.53#53 | WHEN: Fri Oct 30</div>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; font-size:22px;\">\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:8px;\">\n      <strong>HEADER:</strong> Código de estado y flags de respuesta.\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:8px;\">\n      <strong>QUESTION:</strong> Registro y dominio consultados.\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:8px;\">\n      <strong>ANSWER:</strong> Resultado(s) obtenido(s).\n    </div>\n    <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:8px; padding:8px;\">\n      <strong>AUTHORITY:</strong> Servidores NS con autoridad.\n    </div>\n  </div>\n</div>"}, {"id": "109-4-10", "type": "concept", "title": "Interpretación de Códigos y Flags en dig", "subtitle": "Comprender la cabecera HEADER para identificar fallos en el examen", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-accent);\">Códigos de Estado (status:)</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <code>NOERROR</code>: Consulta completada con éxito.</div>\n      <div>• <strong style=\"color:#e74c3c;\">NXDOMAIN:</strong> El dominio o nombre de host consultado <strong>no existe</strong>.</div>\n      <div>• <code>SERVFAIL</code>: El servidor de nombres encontró un fallo interno o problema de conectividad.</div>\n      <div>• <code>REFUSED</code>: El servidor DNS rechazó responder por política o control de acceso.</div>\n    </div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Flags Clave en la Cabecera:</h4>\n    <div style=\"font-size:23px; display:flex; flex-direction:column; gap:12px;\">\n      <div>• <code>qr</code> (Query Response): Es una respuesta, no una petición.</div>\n      <div>• <strong style=\"color:var(--color-accent);\">aa (Authoritative Answer):</strong> La respuesta proviene de un servidor con autoridad delegada sobre la zona (no de caché).</div>\n      <div>• <code>rd</code> (Recursion Desired): El cliente solicitó resolución recursiva.</div>\n      <div>• <code>ra</code> (Recursion Available): El servidor admite recursión.</div>\n    </div>\n  </div>\n</div>"}, {"id": "109-4-11", "type": "command", "title": "Opciones Avanzadas de dig (+short, -x, @servidor)", "subtitle": "Filtrar la salida verbosa para scripts y consultas rápidas", "content": "<div style=\"display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:#1e1e1e; border-radius:10px; padding:16px; color:#d4d4d4; font-family:'Consolas','Courier New',monospace; font-size:22px; line-height:1.4;\">\n    <div><span style=\"color:#6a9955;\"># 1. Salida limpia para scripts (solo la IP):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> dig <span style=\"color:#ce9178; font-weight:700;\">+short</span> lpi.org</div>\n    <div style=\"color:#4ec9b0;\">65.254.248.204</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># 2. Consultar un servidor DNS específico (@):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> dig <span style=\"color:#ce9178; font-weight:700;\">@8.8.8.8</span> lpi.org MX</div>\n    <div style=\"margin-top:8px;\"><span style=\"color:#6a9955;\"># 3. Resolución inversa por IP (-x):</span></div>\n    <div><span style=\"color:#569cd6;\">$</span> dig <span style=\"color:#ce9178; font-weight:700;\">-x</span> 8.8.8.8 <span style=\"color:#ce9178;\">+short</span></div>\n    <div style=\"color:#4ec9b0;\">dns.google.</div>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; justify-content:center;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">Fichero ~/.digrc</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted); line-height:1.4;\">\n      Un usuario puede colocar sus opciones favoritas en <code>~/.digrc</code> (ej. <code>+noall +answer</code>) para que <code>dig</code> aplique automáticamente esa vista compacta sin teclear flags en cada comando.\n    </p>\n  </div>\n</div>"}, {"id": "109-4-12", "type": "matrix", "title": "Matriz Comparativa: getent frente a host y dig", "subtitle": "Cuándo usar cada utilidad para evitar confusiones de diagnóstico", "content": "<table style=\"width:100%; border-collapse:collapse; font-size:22px; text-align:left; background:var(--color-card-bg); border-radius:10px; border:1px solid var(--color-border);\">\n  <thead>\n    <tr style=\"background:var(--color-bg-subtle); border-bottom:2px solid var(--color-border);\">\n      <th style=\"padding:14px 18px; color:var(--color-text);\">Característica</th>\n      <th style=\"padding:14px 18px; color:var(--color-accent); width:32%;\">getent hosts</th>\n      <th style=\"padding:14px 18px; color:#27ae60; width:32%;\">host</th>\n      <th style=\"padding:14px 18px; color:#e67e22; width:32%;\">dig</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:12px 18px; font-weight:700;\">¿Lee /etc/hosts?</td>\n      <td style=\"padding:12px 18px;\"><strong style=\"color:var(--color-accent);\">SÍ</strong> (según nsswitch)</td>\n      <td style=\"padding:12px 18px; color:#e74c3c;\">NO (solo DNS)</td>\n      <td style=\"padding:12px 18px; color:#e74c3c;\">NO (solo DNS)</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:12px 18px; font-weight:700;\">Servidor específico</td>\n      <td style=\"padding:12px 18px;\">No soportado</td>\n      <td style=\"padding:12px 18px;\"><code>host dominio &lt;IP&gt;</code></td>\n      <td style=\"padding:12px 18px;\"><code>dig @&lt;IP&gt; dominio</code></td>\n    </tr>\n    <tr style=\"border-bottom:1px solid var(--color-border);\">\n      <td style=\"padding:12px 18px; font-weight:700;\">Resolución inversa</td>\n      <td style=\"padding:12px 18px;\"><code>getent hosts &lt;IP&gt;</code></td>\n      <td style=\"padding:12px 18px;\"><code>host &lt;IP&gt;</code></td>\n      <td style=\"padding:12px 18px;\"><code>dig -x &lt;IP&gt;</code></td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 18px; font-weight:700;\">Nivel de detalle</td>\n      <td style=\"padding:12px 18px;\">Línea única de mapeo</td>\n      <td style=\"padding:12px 18px;\">Líneas resumen limpias</td>\n      <td style=\"padding:12px 18px;\">Estructura completa de paquetes DNS</td>\n    </tr>\n  </tbody>\n</table>"}, {"id": "109-4-13", "type": "flow", "title": "Resumen de la Cadena de Resolución en el Cliente", "subtitle": "Interacción global entre archivos, servicios y librerías", "content": "<div style=\"display:flex; flex-direction:column; gap:16px;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; font-size:19px;\">\n    <strong>1. Aplicación / Shell:</strong> Ejecuta <code>ssh server</code> o <code>curl http://server</code>.\n  </div>\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; font-size:19px;\">\n    <strong>2. Conmutador NSS:</strong> <code>/etc/nsswitch.conf</code> dicta buscar primero en <code>files</code> (<code>/etc/hosts</code>).\n  </div>\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:10px; padding:16px; font-size:19px;\">\n    <strong>3. Servidor de nombres:</strong> Si no está en hosts, acude a los <code>nameserver</code> de <code>/etc/resolv.conf</code> (hasta 3).\n  </div>\n  <div style=\"background:var(--color-card-bg); border:2px solid var(--color-accent); border-radius:10px; padding:16px; font-size:19px;\">\n    <strong>4. Sufijos automáticos:</strong> Si el nombre no incluye puntos, añade los dominios de la directiva <code>search</code>.\n  </div>\n</div>"}, {"id": "109-4-14", "type": "challenge", "title": "Trampas Críticas de Examen: 109.4 DNS Cliente", "subtitle": "4 puntos engañosos frecuentes en las preguntas de certificación", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:18px;\">\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">1. Probar /etc/hosts con dig o host</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      Un técnico añade un host a <code>/etc/hosts</code> y ejecuta <code>dig mi-servidor</code> diciendo que no funciona. ¡Error conceptual: <code>dig</code> y <code>host</code> ignoran <code>/etc/hosts</code>! Se debe probar con <code>getent hosts</code>.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">2. Búsqueda inversa: flag -x en dig</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      En <code>dig</code>, para resolver una IP a nombre no se pasa la IP directamente; se requiere la opción <code>dig -x &lt;IP&gt;</code>. En cambio, en <code>host &lt;IP&gt;</code> no hace falta flag.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">3. Límite de 3 nameserver</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      En <code>/etc/resolv.conf</code> solo son efectivos los <strong>primeros 3 servidores nameserver</strong>. Definir una 4ª línea no causará error pero será totalmente ignorada por el resolver de glibc.\n    </p>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border-left:5px solid #e74c3c; border-radius:8px; padding:16px; border:1px solid var(--color-border); border-left-width:5px;\">\n    <h4 style=\"margin:0 0 6px 0; font-size:25px; color:#c0392b;\">4. Significado de NXDOMAIN</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text); line-height:1.4;\">\n      No significa caída del servidor de red. Significa que el servidor DNS respondió correctamente informando de que ese registro o dominio <strong>no existe</strong>.\n    </p>\n  </div>\n</div>"}, {"id": "109-4-15", "type": "exercise", "title": "Ejercicios Guiados Oficiales (Manual LPI)", "subtitle": "Casos prácticos interactivos con solución oficial comprobada", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">1. Función de getent group</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      ¿Qué hace el comando <code>getent group openldap</code> en un sistema configurado con NSS?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        Consulta la base de datos de grupos (en <code>/etc/group</code> o LDAP/red según <code>nsswitch.conf</code>) y devuelve la entrada del grupo <code>openldap</code>.\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">2. Edición manual de resolv.conf</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      Si edita con nano o vi un <code>/etc/resolv.conf</code> administrado por systemd-resolved, ¿qué ocurrirá probablemente?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        Los cambios serán sobreescritos y eliminados automáticamente por el servicio en la siguiente reconexión o reinicio.\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">3. Salida limpia con dig</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      ¿Qué modificador se le añade a <code>dig</code> para que solo devuelva la dirección IP resultante sin comentarios ni secciones de cabecera?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        La opción <code>+short</code> (ej. <code>dig +short lpi.org</code>).\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <h4 style=\"margin:0; font-size:25px; color:var(--color-text);\">4. Fichero de opciones por defecto de dig</h4>\n    <p style=\"margin:0; font-size:23px; color:var(--color-text-muted);\">\n      ¿Cómo se llama el archivo en el directorio personal donde un usuario puede fijar opciones permanentes para el comando <code>dig</code>?\n    </p>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:10px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Mostrar Solución</summary>\n      <div style=\"margin-top:8px; font-size:23px; color:var(--color-text);\">\n        El archivo <code>~/.digrc</code>.\n      </div>\n    </details>\n  </div>\n</div>"}, {"id": "109-4-16", "type": "flashcards", "title": "Flashcards de Memorización Rápida: 109.4 DNS Cliente", "subtitle": "Fija los conceptos finales del Tema 109 antes del Repaso Gráfico", "content": "<div style=\"display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;\">\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:22px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Pregunta / Concepto</div>\n    <h4 style=\"margin:0; font-size:26px; color:var(--color-text);\">¿Por qué 'dig' no encuentra un host definido en /etc/hosts?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        Porque <code>dig</code> (y <code>host</code>) son herramientas puras de diagnóstico DNS que consultan únicamente la red e <strong>ignoran NSS y /etc/hosts</strong>.\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:22px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Pregunta / Concepto</div>\n    <h4 style=\"margin:0; font-size:26px; color:var(--color-text);\">¿Cómo se hace una consulta inversa de IP a nombre con dig?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        Mediante la opción <strong>-x</strong>: <code>dig -x 8.8.8.8</code> (busca el registro PTR en <code>in-addr.arpa</code>).\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:22px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Pregunta / Concepto</div>\n    <h4 style=\"margin:0; font-size:26px; color:var(--color-text);\">¿Cuántas directivas 'nameserver' procesa /etc/resolv.conf?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        Hasta <strong>un máximo de 3</strong> servidores DNS. Las directivas posteriores se ignoran silenciosamente.\n      </div>\n    </details>\n  </div>\n\n  <div style=\"background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px;\">\n    <div style=\"font-size:22px; font-weight:700; color:var(--color-accent); text-transform:uppercase;\">Pregunta / Concepto</div>\n    <h4 style=\"margin:0; font-size:26px; color:var(--color-text);\">¿Qué indica el estado NXDOMAIN en la salida de dig?</h4>\n    <details style=\"margin-top:auto; background:var(--color-bg-subtle); border-radius:8px; padding:12px;\">\n      <summary style=\"cursor:pointer; font-weight:700; color:var(--color-accent); font-size:19px;\">Ver Respuesta</summary>\n      <div style=\"margin-top:8px; font-size:19px; color:var(--color-text); line-height:1.4;\">\n        Indica <strong>Non-Existent Domain</strong>: el servidor DNS autoritativo confirma que el nombre de dominio consultado no existe en la zona.\n      </div>\n    </details>\n  </div>\n</div>"}];
     const ERRATAS = [{"id": "errata-109-4-resolv-conf-overwrite", "page": 487, "description": "El manual señala expresamente que en la mayoría de distribuciones modernas /etc/resolv.conf está administrado dinámicamente por NetworkManager o systemd-resolved.", "correction": "Si se edita manualmente /etc/resolv.conf con un editor de texto sin desactivar el gestor de red, los cambios serán sobreescritos automáticamente en la próxima renovación DHCP o reinicio."}];
     const GLOSARIO = [{"term": "DNS (Domain Name System)", "definition": "Sistema jerárquico y distribuido de bases de datos que traduce nombres de host legibles por personas (ej. www.lpi.org) a direcciones IP numéricas (ej. 2001:db8::1 o 198.51.100.1)."}, {"term": "Stub Resolver", "definition": "Conjunto de funciones de biblioteca (proporcionadas por glibc) en el sistema cliente que reciben peticiones de aplicaciones y las envían a servidores DNS recursivos."}, {"term": "/etc/resolv.conf", "definition": "Fichero donde se configuran los servidores de nombres DNS externos (directiva nameserver) y los sufijos de dominio de búsqueda automática (directiva search)."}, {"term": "/etc/nsswitch.conf", "definition": "Fichero de configuración del Name Service Switch que establece el orden en que se consultan las fuentes de información (ej. 'hosts: files dns')."}, {"term": "getent hosts", "definition": "Comando que consulta la base de datos de nombres respetando rigurosamente el orden y las fuentes definidas en /etc/nsswitch.conf (incluyendo /etc/hosts y DNS)."}, {"term": "host", "definition": "Utilidad de línea de comandos sencilla y directa para realizar consultas DNS directas, inversas o por tipo de registro (A, AAAA, MX, NS, CNAME)."}, {"term": "dig (Domain Information Groper)", "definition": "Herramienta completa y detallada de administración para depurar DNS que muestra las secciones estructuradas de la respuesta, cabeceras, códigos y flags."}, {"term": "NXDOMAIN (Non-Existent Domain)", "definition": "Código de estado devuelto por un servidor DNS autoritativo que indica que el nombre de dominio consultado no existe."}, {"term": "Registro PTR (Pointer Record)", "definition": "Tipo de registro DNS utilizado en las zonas de resolución inversa (.in-addr.arpa y .ip6.arpa) para mapear una dirección IP a un nombre de host."}, {"term": "systemd-resolved", "definition": "Servicio de systemd que proporciona resolución de nombres local a aplicaciones, escuchando en la IP de bucle local 127.0.0.53:53."}];
     const META = {"topic": "109.4", "title": "Configuración DNS en el lado del cliente", "weight": 2, "description": "Configuración de la resolución de nombres del lado del cliente en Linux: resolver de glibc, orden en /etc/nsswitch.conf, ficheros /etc/hosts y /etc/resolv.conf, integración con systemd-resolved (127.0.0.53) y herramientas de consulta CLI con getent, host y dig (secciones de cabecera, registros y opciones)."};
@@ -1758,7 +1767,7 @@
       const notesWidth = teacherNotesOpen ? 420 : 0;
       const availW = window.innerWidth - notesWidth;
       const availH = window.innerHeight - topBarHeight;
-      const scale = Math.min((availW - 40) / 1920, (availH - 40) / 1080);
+      const scale = Math.min((availW - 16) / 1920, (availH - 16) / 1080);
       stage.style.transform = `scale(${Math.max(scale, 0.25)})`;
     }
     window.addEventListener('resize', resizeStage);
@@ -1843,6 +1852,7 @@
       // Renderizado del cuerpo según el tipo
       const container = document.getElementById('slide-content');
       container.innerHTML = buildSlideHTML(s, colors);
+      container.scrollTop = 0;
 
       // Actualizar fragmentos
       const frags = container.querySelectorAll('.frag');
@@ -2057,8 +2067,8 @@
               <div style="display:grid; grid-template-columns: repeat(${Math.min(s.stats.length, 4)}, 1fr); gap:16px; margin-top:36px; max-width:1100px; margin-left:auto; margin-right:auto;">
                 ${s.stats.map(st => `
                   <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:14px; padding:16px 20px; text-align:center;">
-                    <div style="font-size:16px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
-                    <div style="font-size:20px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
+                    <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">${escapeHTML(st.label || '')}</div>
+                    <div style="font-size:24px; font-weight:800; color:var(--primary-ink);">${escapeHTML(st.val || '')}</div>
                   </div>
                 `).join('')}
               </div>
@@ -2078,7 +2088,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2110,8 +2120,8 @@
         if (s.syntax) {
           html += `
             <div class="syntax-bar">
-              <span style="font-weight:700; color:var(--text-muted); font-size:19px;">Sintaxis:</span>
-              <code class="t-cmd" style="font-size:21px;">${escapeHTML(s.syntax)}</code>
+              <span style="font-weight:700; color:var(--text-muted); font-size:24px;">Sintaxis:</span>
+              <code class="t-cmd" style="font-size:26px;">${escapeHTML(s.syntax)}</code>
             </div>
           `;
         }
@@ -2144,7 +2154,7 @@
                 <div style="flex:1;">
                   <div class="card-text" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
                     <span>${renderRichText(p.text || p.title || '')}</span>
-                    ${p.badge ? `<span class="ref-badge" style="font-size:14px; padding:2px 8px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
+                    ${p.badge ? `<span class="ref-badge" style="font-size:20px; padding:4px 12px; flex:none;">${escapeHTML(p.badge)}</span>` : ''}
                   </div>
                   ${p.detail || p.desc ? `<div class="card-detail">${renderRichText(p.detail || p.desc)}</div>` : ''}
                 </div>
@@ -2379,12 +2389,12 @@
             html += `
               <div class="concept-card" style="position:relative; display:flex; flex-direction:column; justify-content:space-between; border-left:6px solid var(--primary);">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-                  <span style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;">${st.num || idx + 1}</span>
+                  <span style="width:38px; height:38px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:22px;">${st.num || idx + 1}</span>
                   <div class="icon-box" style="margin:0;"><svg class="ic ic-md"><use href="#i-${st.icon || 'arrow-right'}"/></svg></div>
                 </div>
                 <div>
-                  <div style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
-                  <div style="font-size:18px; color:var(--text-muted); line-height:1.4;">${renderRichText(sdesc)}</div>
+                  <div style="font-size:24px; font-weight:700; color:var(--text); margin-bottom:6px;">${renderRichText(stitle)}</div>
+                  <div style="font-size:22px; color:var(--text-muted); line-height:1.42;">${renderRichText(sdesc)}</div>
                 </div>
               </div>
             `;
@@ -2413,7 +2423,7 @@
         }
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:19px;">
+            <span class="ref-badge" style="font-weight:700; color:var(--primary-ink); background:var(--primary-soft); border-color:var(--primary); font-size:22px;">
               <svg class="ic ic-sm"><use href="#i-book-open"/></svg>📖 Enunciado oficial: Manual p. ${escapeHTML(pdfRef || '-')}
             </span>
           </div>
@@ -2422,7 +2432,7 @@
         // Planteamiento del problema (Escenario claro)
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--primary); border-radius:14px; padding:18px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--primary-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Planteamiento del problema:</div>
             <div style="white-space:pre-line;">${renderRichText(scenarioText)}</div>
             ${questionText ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(questionText)}</div>` : ''}
           </div>
@@ -2434,7 +2444,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Objetivo del ejercicio para los alumnos:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2442,7 +2452,7 @@
               const doText = st.action || st.do || st.task || st.step || '';
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(doText)}</span>
                 </div>
               `;
@@ -2451,7 +2461,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:21px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2463,15 +2473,15 @@
         // Botón docente interactivo para revelar resolución lineal y explicación
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-exercise" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-exercise" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-exercise-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar / Ocultar Resolución Guiada y Explicación
             </button>
-            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-exercise-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:14px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
         `;
 
         // Dentro del cuadro de resolución: pasos resueltos y comandos
         if (steps.length > 0) {
-          html += `<div style="font-size:18px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
+          html += `<div style="font-size:22px; font-weight:800; text-transform:uppercase; color:var(--success-ink); letter-spacing:0.05em;">Pasos de Resolución y Comandos:</div>`;
           steps.forEach((st, idx) => {
             const doText = st.action || st.do || st.task || st.step || '';
             const lookText = st.command || st.look || st.cmd || st.code || '';
@@ -2482,7 +2492,7 @@
                   <div><strong>Paso ${idx + 1}:</strong> ${renderRichText(doText)}</div>
                   ${lookText ? `<code class="exercise-sol-code">${escapeHTML(lookText)}</code>` : ''}
                 </div>
-                ${reasonText ? `<div style="font-size:18px; color:var(--text-muted); line-height:1.35; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
+                ${reasonText ? `<div style="font-size:22px; color:var(--text-muted); line-height:1.4; padding-left:12px; border-left:3px solid #86EFAC;"><em>Motivo:</em> ${renderRichText(reasonText)}</div>` : ''}
               </div>
             `;
           });
@@ -2526,9 +2536,9 @@
         // Enunciado y Escenario del reto
         html += `
           <div style="background:var(--surface); border:2px solid var(--border-strong); border-left:8px solid var(--warning); border-radius:14px; padding:20px 24px; font-size:20px; font-weight:600; line-height:1.5; color:var(--text); margin-bottom:16px;">
-            <div style="font-size:16px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
+            <div style="font-size:21px; font-weight:800; color:var(--warning-ink); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Enunciado y Escenario del Reto:</div>
             <div style="white-space:pre-line;">${renderRichText(scenario)}</div>
-            ${goalText ? `<div style="margin-top:10px; font-size:18px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
+            ${goalText ? `<div style="margin-top:10px; font-size:22px; color:var(--text-muted);"><strong style="color:var(--text);">Objetivo:</strong> ${renderRichText(goalText)}</div>` : ''}
             ${question ? `<div style="font-weight:700; color:#1D4ED8; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); white-space:pre-line;">${renderRichText(question)}</div>` : ''}
           </div>
         `;
@@ -2539,7 +2549,7 @@
         if (steps.length > 0 || tasks.length > 0) {
           html += `
             <div style="margin-bottom:16px;">
-              <div style="font-size:18px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
+              <div style="font-size:22px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Pasos de exploración guiada:</div>
               <div style="display:flex; flex-direction:column; gap:10px;">
           `;
           if (steps.length > 0) {
@@ -2549,10 +2559,10 @@
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; justify-content:space-between; gap:16px;">
                   <div style="display:flex; align-items:center; gap:12px;">
-                    <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                    <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                     <span>${renderRichText(titleText)}</span>
                   </div>
-                  ${(st.action && st.step !== st.action) ? `<code style="font-size:18px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
+                  ${(st.action && st.step !== st.action) ? `<code style="font-size:22px; background:#FFFFFF; padding:4px 12px; border-radius:6px; border:1px solid var(--border); color:#1E40AF; font-family:monospace; font-weight:700;">${escapeHTML(st.action)}</code>` : ''}
                 </div>
               `;
             });
@@ -2560,7 +2570,7 @@
             tasks.forEach((t, idx) => {
               html += `
                 <div style="background:var(--surface-alt); border:1px solid var(--border-strong); border-radius:10px; padding:12px 18px; font-size:20px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:12px;">
-                  <span style="width:30px; height:30px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; flex:none;">${idx + 1}</span>
+                  <span style="width:34px; height:34px; border-radius:50%; background:var(--warning-ink); color:#FFFFFF; display:inline-flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; flex:none;">${idx + 1}</span>
                   <span>${renderRichText(t)}</span>
                 </div>
               `;
@@ -2578,7 +2588,7 @@
             const isCorrect = !!opt.correct;
             html += `
               <button class="quiz-btn challenge-opt-btn" onclick="this.classList.toggle('${isCorrect ? 'correct' : 'incorrect'}');">
-                <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
+                <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; flex:none;">${escapeHTML(optLetter)}</span>
                 <span>${renderRichText(optText)}</span>
               </button>
             `;
@@ -2601,13 +2611,13 @@
         const solTerminal = s.solution?.terminal || s.outcome?.terminal || (chObj ? (chObj.solution?.terminal || chObj.outcome?.terminal) : null) || null;
         html += `
           <div>
-            <button class="nav-btn primary btn-reveal-challenge" style="font-size:20px; padding:10px 22px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
+            <button class="nav-btn primary btn-reveal-challenge" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
               <svg class="ic ic-sm"><use href="#i-eye"/></svg>Mostrar Solución y Razonamiento Docente
             </button>
-            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:21px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
+            <div id="sol-challenge-box" class="callout-box callout-success" style="display:none; font-size:23px; flex-direction:column; align-items:flex-start; gap:12px; margin-top:14px; border-radius:14px; padding:18px 24px; border:2px solid #86EFAC;">
               <div style="display:flex; align-items:flex-start; gap:12px;">
                 <svg class="ic ic-md" style="margin-top:2px; flex:none; color:var(--success);"><use href="#i-circle-check"/></svg>
-                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:20px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
+                <div style="line-height:1.5;"><strong style="color:var(--success-ink); font-size:22px;">Solución y Razonamiento Docente:</strong><br><span style="margin-top:6px; display:inline-block; color:var(--text); white-space:pre-line;">${renderRichText(solText)}</span></div>
               </div>
               ${solTerminal ? `<div style="width:100%; margin-top:10px;">${renderTerminalBox(solTerminal, 'solución')}</div>` : ''}
             </div>
@@ -2650,7 +2660,7 @@
           const optText = (typeof opt === 'object' && opt !== null) ? opt.text : opt;
           html += `
             <button class="quiz-btn" data-opt-idx="${oidx}" onclick="checkReviewAnswer(this, ${oidx}, ${ansIdx}, '${escapeQuotes(expl)}')">
-              <span style="width:36px; height:36px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
+              <span style="width:38px; height:38px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800;">${String.fromCharCode(65 + oidx)}</span>
               <span>${renderRichText(optText)}</span>
             </button>
           `;
@@ -2658,11 +2668,11 @@
         html += `</div>`;
         html += `
           <div style="margin-top:20px; display:flex; gap:16px; align-items:center;">
-            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:20px; padding:10px 22px; cursor:pointer;">
+            <button class="nav-btn primary btn-resolve-quiz" onclick="revealReviewAnswer(this, ${ansIdx}, '${escapeQuotes(expl)}')" style="font-size:22px; padding:12px 24px; cursor:pointer;">
               <svg class="ic ic-sm"><use href="#i-circle-check"/></svg>Resolver Pregunta y Mostrar 'Por Qué'
             </button>
           </div>
-          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:21px; line-height:1.5;"></div>
+          <div class="quiz-feedback" id="quiz-feedback-box" style="display:none; margin-top:16px; padding:18px 24px; border-radius:12px; font-size:23px; line-height:1.5;"></div>
         `;
         }
       } else if (s.type === 'flashcards') {
@@ -2730,7 +2740,7 @@
         if (top3.length > 0) {
           html += `
             <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
-              <div style="font-weight:800; font-size:20px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <div style="font-weight:800; font-size:23px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
                 <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
               </div>
               <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
@@ -2739,8 +2749,8 @@
             if (typeof t === 'string') {
               html += `
                 <div class="summary-cmd-card" style="display:flex; align-items:center; justify-content:space-between;">
-                  <code class="t-cmd" style="font-size:18px;">${escapeHTML(t)}</code>
-                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                  <code class="t-cmd" style="font-size:22px;">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                 </div>
               `;
             } else {
@@ -2749,10 +2759,10 @@
               html += `
                 <div class="summary-cmd-card">
                   <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-                    <code class="t-cmd" style="font-size:19px; font-weight:800;">${escapeHTML(cmd)}</code>
-                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:14px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                    <code class="t-cmd" style="font-size:22px; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:6px 12px; font-size:19px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                   </div>
-                  ${desc ? `<div style="font-size:16px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                  ${desc ? `<div style="font-size:21px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
                 </div>
               `;
             }
@@ -2776,7 +2786,7 @@
                   <div class="sp-desc">${renderRichText(pDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Web →
               </a>
             </div>
@@ -2796,7 +2806,7 @@
                 <div class="sp-desc" style="color:var(--text);">Explora visualmente los comandos, rutas y preguntas trampa de examen conectadas a este subtema en la red interactiva.</div>
               </div>
             </div>
-            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+            <a href="../grafo.html?subtopic=${escapeHTML(currentSubId)}" class="nav-btn primary" style="font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
               Ver en Grafo Interactivo →
             </a>
           </div>
@@ -2818,7 +2828,7 @@
                   <div class="sg-desc">${renderRichText(gpDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:18px; padding:10px 22px; flex:none;">
+              <a href="${escapeHTML(gpUrl)}" class="nav-btn" style="background:#D97706; color:#FFFFFF; border-color:#D97706; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
                 Abrir Práctica Global →
               </a>
             </div>
@@ -2878,7 +2888,13 @@
     // Navegación por teclado
     window.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      if (e.key === 'ArrowDown') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: 140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowUp') {
+        const c = document.getElementById('slide-content');
+        if (c) c.scrollBy({ top: -140, behavior: 'smooth' });
+      } else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         e.preventDefault();
         nextStep();
       } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
@@ -3034,7 +3050,7 @@
         content += `<div style="margin-bottom:8px; font-size:20px; line-height:1.4;">${escapeHTML(descText)}</div>`;
       }
       if (example) {
-        content += `<div style="font-family:monospace; font-size:18px; background:var(--surface-alt); padding:6px 10px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
+        content += `<div style="font-family:monospace; font-size:20px; background:var(--surface-alt); padding:8px 12px; border-radius:6px; color:#0F172A;">${escapeHTML(example)}</div>`;
       }
       popover.innerHTML = content || '<div>Sin detalles adicionales</div>';
       const rect = e.currentTarget.getBoundingClientRect();
@@ -3188,8 +3204,8 @@
         item.style.color = 'var(--text)';
         item.style.cursor = 'pointer';
         item.innerHTML = `
-          <div style="font-weight:700; font-size:16px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
-          <div style="font-size:18px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
+          <div style="font-weight:700; font-size:19px; color:var(--text-muted);">${i + 1}. [${s.type}]</div>
+          <div style="font-size:21px; font-weight:600; margin-top:4px; line-height:1.2; color:var(--text);">${s.title}</div>
         `;
         item.onclick = () => {
           closeModals();
