@@ -2736,7 +2736,7 @@
         html += `</div>`;
 
         // Top 3 Comandos Clave (Soporta strings y objetos {cmd, desc})
-        const top3 = s.top3 || s.commands || [];
+        const top3 = s.top3 || s.commands || s.top_commands || (sumObj ? (sumObj.top3 || sumObj.top_commands || sumObj.commands) : []) || [];
         if (top3.length > 0) {
           html += `
             <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
