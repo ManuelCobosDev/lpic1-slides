@@ -15,14 +15,14 @@
  *   - T10 (o 110) -> Tema 110: Seguridad
  *
  * Ejemplos:
- *   window.TEMAS_VISIBLES = "T5,T6,T7";               // Solo visibles temas 5 y 6
+ *   window.TEMAS_VISIBLES = "ALL";               // Solo visibles temas 5 y 6
  *   window.TEMAS_VISIBLES = "T5,T6,T7";            // Solo visibles temas 5, 6 y 7
  *   window.TEMAS_VISIBLES = "T5,T6,T7,T8,T9,T10";  // Todos visibles (o "ALL")
  *   window.TEMAS_VISIBLES = "";                    // Ninguno visible (o "NONE")
  * ============================================================================
  */
 
-window.TEMAS_VISIBLES = "T5,T6,T7";
+window.TEMAS_VISIBLES = "ALL";
 
 (function () {
   'use strict';

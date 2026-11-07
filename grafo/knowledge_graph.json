@@ -2,8 +2,8 @@
   "metadata": {
     "title": "Grafo de Conocimiento y Mapa Mental LPIC-1 (Exámenes 101 y 102 v5.0)",
     "version": "1.0",
-    "total_nodes": 431,
-    "total_edges": 620,
+    "total_nodes": 408,
+    "total_edges": 592,
     "total_temas": 10,
     "temas": {
       "101": {
@@ -1307,78 +1307,6 @@
         {
           "flag": "journalctl --list-boots",
           "desc": "Lista todos los arranques que el sistema tiene guardados en su historial con sus fechas y horas exactas."
-        },
-        {
-          "flag": "-b, --boot [ID]",
-          "desc": "Muestra los mensajes del arranque especificado (0=actual, -1=anterior, o por hash de boot)."
-        },
-        {
-          "flag": "--list-boots",
-          "desc": "Muestra la lista de todos los inicios registrados con su fecha y hash de máquina."
-        },
-        {
-          "flag": "-f, --follow",
-          "desc": "Sigue los registros en tiempo real (equivalente a tail -f en archivos planos)."
-        },
-        {
-          "flag": "-n [LÍNEAS]",
-          "desc": "Muestra las últimas N líneas registradas (por defecto 10)."
-        },
-        {
-          "flag": "-r, --reverse",
-          "desc": "Imprime las entradas en orden cronológico inverso (los eventos más recientes primero)."
-        },
-        {
-          "flag": "-u, --unit=SERVICIO",
-          "desc": "Filtra los mensajes generados por la unidad de systemd especificada (ej. ssh.service)."
-        },
-        {
-          "flag": "-p, --priority=NIVEL",
-          "desc": "Filtra por prioridad mínima (ej. 'err', 'warning', o rangos numéricos como '0..3')."
-        },
-        {
-          "flag": "-k, --dmesg",
-          "desc": "Muestra exclusivamente los mensajes del buffer del kernel (equivalente a dmesg)."
-        },
-        {
-          "flag": "--since / --until",
-          "desc": "Filtra por ventana de tiempo (ej. --since '2026-10-30 08:00', --since '1 hour ago')."
-        },
-        {
-          "flag": "_PID=1234 / _UID=1000",
-          "desc": "Filtra por variables internas de metadatos de proceso o usuario de systemd."
-        },
-        {
-          "flag": "-o short",
-          "desc": "Formato predeterminado idéntico al syslog tradicional clásico."
-        },
-        {
-          "flag": "-o verbose",
-          "desc": "Desglose exhaustivo de todos los campos estructurados internos de systemd."
-        },
-        {
-          "flag": "-o json / json-pretty",
-          "desc": "Exporta las entradas en objetos JSON válidos para análisis e indexación."
-        },
-        {
-          "flag": "-D DIRECTORY",
-          "desc": "Abre y consulta los archivos de journal ubicados en un directorio externo (modo rescate/forense)."
-        },
-        {
-          "flag": "--disk-usage",
-          "desc": "Calcula y muestra el espacio total consumido en disco por los diarios activos y archivados."
-        },
-        {
-          "flag": "--vacuum-size=TAMAÑO",
-          "desc": "Borra los archivos de diario más antiguos hasta que el tamaño total sea inferior al fijado (ej. 500M, 1G)."
-        },
-        {
-          "flag": "--vacuum-time=TIEMPO",
-          "desc": "Elimina todos los archivos de diario que no contengan eventos posteriores al tiempo fijado (ej. 10d, 2weeks)."
-        },
-        {
-          "flag": "--vacuum-files=N",
-          "desc": "Conserva únicamente un número máximo de N archivos de diario rotados."
         }
       ],
       "examples": [
@@ -9144,976 +9072,6 @@
       "weight": 2
     },
     {
-      "id": "cmd-hwclock",
-      "label": "hwclock",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.1",
-      "title": "Comando: hwclock",
-      "desc": "¿Cómo transferir la hora precisa entre el chip físico RTC y el kernel?",
-      "syntax": "hwclock [función] [opciones]",
-      "flags": [
-        {
-          "flag": "-r, --show",
-          "desc": "Lee y muestra por pantalla la hora actual del reloj de hardware (RTC)."
-        },
-        {
-          "flag": "-w, --systohc",
-          "desc": "Copia la hora del sistema hacia el reloj de hardware (System TO Hardware Clock)."
-        },
-        {
-          "flag": "-s, --hctosys",
-          "desc": "Copia la hora del reloj de hardware hacia el sistema operativo (Hardware Clock TO System)."
-        },
-        {
-          "flag": "--set --date='FECHA'",
-          "desc": "Fija manualmente la hora del reloj de hardware a la fecha especificada."
-        },
-        {
-          "flag": "-u, --utc",
-          "desc": "Indica que el reloj de hardware almacena la hora en formato UTC (estándar Linux)."
-        },
-        {
-          "flag": "--localtime",
-          "desc": "Indica que el reloj de hardware está configurado en hora local (típico en arranque dual Windows)."
-        },
-        {
-          "flag": "-w / --systohc",
-          "desc": "Escribe la hora del sistema (kernel) en el reloj RTC de hardware."
-        },
-        {
-          "flag": "-s / --hctosys",
-          "desc": "Fija la hora del sistema a partir de la hora leída del reloj RTC de hardware."
-        },
-        {
-          "flag": "--show",
-          "desc": "Muestra la hora actual del reloj RTC."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [
-        {
-          "q_num": 71,
-          "exam": "102",
-          "stem": "Which command is used to sync the hardware clock to the system clock? (Specify only the command without any path or parameters.).",
-          "answer": "hwclock",
-          "explanation": "El comando hwclock permite leer el reloj de hardware (RTC/BIOS) y sincronizarlo desde el reloj del sistema ( hwclock --systohc / -w ) o viceversa ( hwclock --hctosys / -s )."
-        }
-      ],
-      "slide_url": "t108/108-1-mantener-la-hora-del-sis.html#/3",
-      "practice_url": "practicas/p-108-1-sincronizacion-hora-ntp.html",
-      "weight": 2
-    },
-    {
-      "id": "cmd-timedatectl",
-      "label": "timedatectl",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.1",
-      "title": "Comando: timedatectl",
-      "desc": "Gestión moderna del reloj de software, RTC, zona horaria y sincronización NTP.",
-      "syntax": "timedatectl [subcomando]",
-      "flags": [
-        {
-          "flag": "status",
-          "desc": "Muestra Local time, Universal time, RTC time, Time zone y estado de sincronización NTP."
-        },
-        {
-          "flag": "set-time 'YYYY-MM-DD HH:MM:SS'",
-          "desc": "Ajusta la hora del sistema y actualiza el RTC al mismo tiempo (requiere NTP desactivado)."
-        },
-        {
-          "flag": "set-timezone ZONA",
-          "desc": "Cambia permanentemente la zona horaria del sistema (actualiza /etc/localtime)."
-        },
-        {
-          "flag": "set-ntp true|false",
-          "desc": "Activa o desactiva la sincronización horaria automática por protocolo NTP."
-        },
-        {
-          "flag": "list-timezones",
-          "desc": "Lista todas las zonas horarias reconocidas por la base de datos tz."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t108/108-1-mantener-la-hora-del-sis.html#/4",
-      "practice_url": "practicas/p-108-1-sincronizacion-hora-ntp.html",
-      "weight": 2
-    },
-    {
-      "id": "cmd-ntpdate",
-      "label": "ntpdate",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.1",
-      "title": "Comando: ntpdate",
-      "desc": "¿Cómo interpretar los símbolos y métricas de estado de los pares NTP?",
-      "syntax": "ntpq -p [host] | ntpdate [-u] servidor",
-      "flags": [
-        {
-          "flag": "ntpq -p",
-          "desc": "Imprime en formato de tabla el estado de todos los pares NTP (peers), retraso, offset y jitter."
-        },
-        {
-          "flag": "Símbolo * (asterisco)",
-          "desc": "Par actualmente sincronizado y utilizado como fuente principal de tiempo."
-        },
-        {
-          "flag": "Símbolo + (más)",
-          "desc": "Candidato válido de respaldo listo para reemplazar al principal si falla."
-        },
-        {
-          "flag": "Símbolo - (menos)",
-          "desc": "Par descartado por el algoritmo de agrupamiento (cluster)."
-        },
-        {
-          "flag": "ntpdate servidor",
-          "desc": "(Obsoleto) Realiza un salto instantáneo hacia la hora del servidor (falla si ntpd está corriendo)."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t108/108-1-mantener-la-hora-del-sis.html#/8",
-      "practice_url": "practicas/p-108-1-sincronizacion-hora-ntp.html",
-      "weight": 2
-    },
-    {
-      "id": "cmd-ntpq",
-      "label": "ntpq",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.1",
-      "title": "Comando: ntpq",
-      "desc": "¿Cómo interpretar los símbolos y métricas de estado de los pares NTP?",
-      "syntax": "ntpq -p [host] | ntpdate [-u] servidor",
-      "flags": [
-        {
-          "flag": "ntpq -p",
-          "desc": "Imprime en formato de tabla el estado de todos los pares NTP (peers), retraso, offset y jitter."
-        },
-        {
-          "flag": "Símbolo * (asterisco)",
-          "desc": "Par actualmente sincronizado y utilizado como fuente principal de tiempo."
-        },
-        {
-          "flag": "Símbolo + (más)",
-          "desc": "Candidato válido de respaldo listo para reemplazar al principal si falla."
-        },
-        {
-          "flag": "Símbolo - (menos)",
-          "desc": "Par descartado por el algoritmo de agrupamiento (cluster)."
-        },
-        {
-          "flag": "ntpdate servidor",
-          "desc": "(Obsoleto) Realiza un salto instantáneo hacia la hora del servidor (falla si ntpd está corriendo)."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t108/108-1-mantener-la-hora-del-sis.html#/8",
-      "practice_url": "practicas/p-108-1-sincronizacion-hora-ntp.html",
-      "weight": 2
-    },
-    {
-      "id": "cmd-chronyc",
-      "label": "chronyc",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.1",
-      "title": "Comando: chronyc",
-      "desc": "Comandos de diagnóstico en tiempo real de fuentes, seguimiento y actividad.",
-      "syntax": "chronyc [comando]",
-      "flags": [
-        {
-          "flag": "sources [-v]",
-          "desc": "Muestra las fuentes NTP configuradas y su estado (* actual, + candidato, ? inalcanzable)."
-        },
-        {
-          "flag": "sourcestats [-v]",
-          "desc": "Muestra estadísticas de deriva y fluctuación de frecuencia de cada fuente."
-        },
-        {
-          "flag": "tracking",
-          "desc": "Vuelca los parámetros actuales del reloj local: Stratum, Reference ID, System time offset y Drift."
-        },
-        {
-          "flag": "activity",
-          "desc": "Informa de cuántas fuentes están online, offline o pendientes de resolución."
-        },
-        {
-          "flag": "makestep",
-          "desc": "Ordena a chronyd realizar un salto manual instantáneo para eliminar cualquier desfase."
-        },
-        {
-          "flag": "sources",
-          "desc": "Lista los servidores de tiempo NTP consultados y su estado/estrato."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t108/108-1-mantener-la-hora-del-sis.html#/10",
-      "practice_url": "practicas/p-108-1-sincronizacion-hora-ntp.html",
-      "weight": 2
-    },
-    {
-      "id": "cmd-logger",
-      "label": "logger",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.2",
-      "title": "Comando: logger",
-      "desc": "¿Cómo registrar eventos personalizados desde nuestros propios scripts de administración?",
-      "syntax": "logger [opciones] [mensaje] | systemd-cat [opciones] comando",
-      "flags": [
-        {
-          "flag": "-p, --priority FAC.PRI",
-          "desc": "Especifica el subsistema y severidad (ej. local0.err, auth.notice). Por defecto es user.notice."
-        },
-        {
-          "flag": "-t, --tag ETIQUETA",
-          "desc": "Marca cada línea de log con una etiqueta identificativa de la aplicación o script."
-        },
-        {
-          "flag": "-s, --stderr",
-          "desc": "Imprime el mensaje por la salida estándar de error además de registrarlo en el log."
-        },
-        {
-          "flag": "systemd-cat -t TAG cmd",
-          "desc": "Lanza un ejecutable enviando toda su salida directamente a systemd-journald."
-        },
-        {
-          "flag": "-p",
-          "desc": "Especifica facilidad y prioridad (ej. auth.notice, local0.err)."
-        },
-        {
-          "flag": "-t",
-          "desc": "Etiqueta identificativa de la aplicación que emite el log."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [
-        {
-          "q_num": 69,
-          "exam": "102",
-          "stem": "On a system using systemd-journald, which of the following commands add the message Howdy to the system log? (Choose two.).",
-          "answer": "logger Howdy , systemd-cat echo Howdy",
-          "explanation": "logger envía mensajes al socket de syslog (que systemd-journald recoge), y systemd-cat conecta la salida estándar de cualquier programa (en este caso echo Howdy ) directamente con el diario de systemd."
-        }
-      ],
-      "slide_url": "t108/108-2-registros-del-sistema.html#/13",
-      "practice_url": "practicas/p-108-2-gestion-logs-rsyslog-journald.html",
-      "weight": 2
-    },
-    {
-      "id": "cmd-systemd-cat",
-      "label": "systemd-cat",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.2",
-      "title": "Comando: systemd-cat",
-      "desc": "¿Cómo registrar eventos personalizados desde nuestros propios scripts de administración?",
-      "syntax": "logger [opciones] [mensaje] | systemd-cat [opciones] comando",
-      "flags": [
-        {
-          "flag": "-p, --priority FAC.PRI",
-          "desc": "Especifica el subsistema y severidad (ej. local0.err, auth.notice). Por defecto es user.notice."
-        },
-        {
-          "flag": "-t, --tag ETIQUETA",
-          "desc": "Marca cada línea de log con una etiqueta identificativa de la aplicación o script."
-        },
-        {
-          "flag": "-s, --stderr",
-          "desc": "Imprime el mensaje por la salida estándar de error además de registrarlo en el log."
-        },
-        {
-          "flag": "systemd-cat -t TAG cmd",
-          "desc": "Lanza un ejecutable enviando toda su salida directamente a systemd-journald."
-        },
-        {
-          "flag": "-p",
-          "desc": "Especifica facilidad y prioridad (ej. auth.notice, local0.err)."
-        },
-        {
-          "flag": "-t",
-          "desc": "Etiqueta identificativa de la aplicación que emite el log."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [
-        {
-          "q_num": 69,
-          "exam": "102",
-          "stem": "On a system using systemd-journald, which of the following commands add the message Howdy to the system log? (Choose two.).",
-          "answer": "logger Howdy , systemd-cat echo Howdy",
-          "explanation": "logger envía mensajes al socket de syslog (que systemd-journald recoge), y systemd-cat conecta la salida estándar de cualquier programa (en este caso echo Howdy ) directamente con el diario de systemd."
-        }
-      ],
-      "slide_url": "t108/108-2-registros-del-sistema.html#/13",
-      "practice_url": "practicas/p-108-2-gestion-logs-rsyslog-journald.html",
-      "weight": 2
-    },
-    {
-      "id": "cmd-mail",
-      "label": "mail",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.3",
-      "title": "Comando: mail",
-      "desc": "El cliente de consola: comando mail (paquete mailx)",
-      "syntax": "mail [opciones]",
-      "flags": [
-        {
-          "flag": "-s",
-          "desc": "Especifica la línea de asunto (subject)."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [
-        {
-          "q_num": 31,
-          "exam": "102",
-          "stem": "Which of the following commands is used to rotate, compress, and mail system logs?",
-          "answer": "logrotate",
-          "explanation": "logrotate está diseñado para facilitar la administración de sistemas que generan gran cantidad de archivos de registro, permitiendo su rotación automática, compresión, eliminación y envío por correo electrónico."
-        },
-        {
-          "q_num": 33,
-          "exam": "102",
-          "stem": "Which command, available with all sendmail-compatible MTAs, is used to list the contents of the MTA's mail queue? (Specify only the command without any path or ...",
-          "answer": "mailq",
-          "explanation": "mailq (equivalente a sendmail -bp ) es el comando estándar proporcionado por todos los MTA compatibles con Sendmail (incluyendo Postfix y Exim) para listar los correos encolados pendientes de entrega."
-        },
-        {
-          "q_num": 36,
-          "exam": "102",
-          "stem": "Which of the following entries in /etc/syslog.conf writes all mail related events to the file /var/log/maillog and sends all critical events to the remote serve...",
-          "answer": "mail.* /var/log/maillog \\n mail.crit @logger.example.org",
-          "explanation": "En syslog.conf , el selector tiene el formato facilidad.prioridad (separados por un punto). Para todos los niveles de correo se usa mail.* y para los críticos mail.crit . Los servidores remotos se indican anteponiendo una arroba ( @nombre_host )."
-        }
-      ],
-      "slide_url": "t108/108-3-conceptos-basicos-del-ag.html#/108-3-06",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-fichero-global-de-alias---etc-aliases",
-      "label": "Fichero global de alias: /etc/aliases",
-      "type": "file",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.3",
-      "title": "Archivo/Ruta: Fichero global de alias: /etc/aliases",
-      "desc": "",
-      "syntax": "Fichero global de alias: /etc/aliases",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t108/108-3-conceptos-basicos-del-ag.html#/108-3-08",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-newaliases",
-      "label": "newaliases",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.3",
-      "title": "Comando: newaliases",
-      "desc": "Activación de alias: comando newaliases",
-      "syntax": "newaliases [opciones]",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [
-        {
-          "q_num": 29,
-          "exam": "102",
-          "stem": "Which command must be run after adding a new email alias to the configuration in order to make this change effective? (Specify the command without any path but ...",
-          "answer": "newaliases",
-          "explanation": "Tras editar el archivo de texto /etc/aliases , es obligatorio ejecutar newaliases (que no requiere parámetros) para reconstruir la base de datos indexada binaria ( /etc/aliases.db ) que utiliza el MTA."
-        },
-        {
-          "q_num": 64,
-          "exam": "102",
-          "stem": "Which file is processed by newaliases? (Specify the full name of the file, including path.).",
-          "answer": "/etc/aliases",
-          "explanation": "El comando newaliases lee el archivo de configuración de alias del sistema /etc/aliases y compila su base de datos correspondiente."
-        },
-        {
-          "q_num": 67,
-          "exam": "102",
-          "stem": "What is true regarding the file ~/.forward?",
-          "answer": "When configured correctly ~/.forward can be used to forward each incoming mail to one or more other recipients.",
-          "explanation": "Cualquier usuario puede crear y editar directamente el archivo .forward en su directorio personal ( ~ ) para redirigir sus correos entrantes a una o más direcciones externas sin necesidad de privilegios de root ni de ejecutar newaliases ."
-        }
-      ],
-      "slide_url": "t108/108-3-conceptos-basicos-del-ag.html#/108-3-09",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-redirecci-n-individual-por-usuario-----forward",
-      "label": "Redirección individual por usuario: ~/.forward",
-      "type": "file",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.3",
-      "title": "Archivo/Ruta: Redirección individual por usuario: ~/.forward",
-      "desc": "",
-      "syntax": "Redirección individual por usuario: ~/.forward",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t108/108-3-conceptos-basicos-del-ag.html#/108-3-10",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-mailq",
-      "label": "mailq",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.3",
-      "title": "Comando: mailq",
-      "desc": "Inspección de la cola de correo: comando mailq",
-      "syntax": "mailq [opciones]",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [
-        {
-          "q_num": 33,
-          "exam": "102",
-          "stem": "Which command, available with all sendmail-compatible MTAs, is used to list the contents of the MTA's mail queue? (Specify only the command without any path or ...",
-          "answer": "mailq",
-          "explanation": "mailq (equivalente a sendmail -bp ) es el comando estándar proporcionado por todos los MTA compatibles con Sendmail (incluyendo Postfix y Exim) para listar los correos encolados pendientes de entrega."
-        }
-      ],
-      "slide_url": "t108/108-3-conceptos-basicos-del-ag.html#/108-3-11",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-ficheros-de-configuraci-n-de-cups",
-      "label": "Ficheros de Configuración de CUPS",
-      "type": "file",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.4",
-      "title": "Archivo/Ruta: Ficheros de Configuración de CUPS",
-      "desc": "",
-      "syntax": "Ficheros de Configuración de CUPS",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t108/108-4-gestion-de-la-impresion.html#/108-4-04",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-lpadmin",
-      "label": "lpadmin",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.4",
-      "title": "Comando: lpadmin",
-      "desc": "Añadir y Modificar Impresoras: comando lpadmin",
-      "syntax": "lpadmin [opciones]",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t108/108-4-gestion-de-la-impresion.html#/108-4-05",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-lpoptions",
-      "label": "lpoptions",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.4",
-      "title": "Comando: lpoptions",
-      "desc": "Impresora por Defecto: comando lpoptions",
-      "syntax": "lpoptions [opciones]",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t108/108-4-gestion-de-la-impresion.html#/108-4-07",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-lpstat",
-      "label": "lpstat",
-      "type": "command",
-      "exam": "102",
-      "tema": "108",
-      "subtopic_id": "108.4",
-      "title": "Comando: lpstat",
-      "desc": "Diagnóstico y Estado de Impresión: comando lpstat",
-      "syntax": "lpstat [opciones]",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [
-        {
-          "q_num": 68,
-          "exam": "102",
-          "stem": "Which of the following commands display a list of jobs in the print queue? (Choose two.).",
-          "answer": "lpstat , lpq",
-          "explanation": "lpq (estilo BSD) y lpstat (estilo System V) son los dos comandos estándar en CUPS para consultar los trabajos pendientes en la cola de impresión."
-        }
-      ],
-      "slide_url": "t108/108-4-gestion-de-la-impresion.html#/108-4-08",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "concept-m-scaras-de-red-y-notaci-n-c",
-      "label": "Máscaras de Red y Notaci",
-      "type": "concept",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.1",
-      "title": "Concepto: Máscaras de Red y Notación CIDR",
-      "desc": "",
-      "syntax": "",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-1-fundamentos-de-los-proto.html#/109-1-05",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-puertos-y-servicios-de-red--archivo--etc-services",
-      "label": "Puertos y Servicios de Red: Archivo /etc/services",
-      "type": "file",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.1",
-      "title": "Archivo/Ruta: Puertos y Servicios de Red: Archivo /etc/services",
-      "desc": "",
-      "syntax": "Puertos y Servicios de Red: Archivo /etc/services",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-1-fundamentos-de-los-proto.html#/109-1-07",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-configuraci-n-tradicional-en-debian---etc-network-interfaces",
-      "label": "Configuración Tradicional en Debian: /etc/network/interfaces",
-      "type": "file",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.2",
-      "title": "Archivo/Ruta: Configuración Tradicional en Debian: /etc/network/interfaces",
-      "desc": "",
-      "syntax": "Configuración Tradicional en Debian: /etc/network/interfaces",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-2-configuracion-de-red-per.html#/109-2-03",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-configuraci-n-tradicional-en-rhel-centos--ifcfg",
-      "label": "Configuración Tradicional en RHEL/CentOS: ifcfg-*",
-      "type": "file",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.2",
-      "title": "Archivo/Ruta: Configuración Tradicional en RHEL/CentOS: ifcfg-*",
-      "desc": "",
-      "syntax": "Configuración Tradicional en RHEL/CentOS: ifcfg-*",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-2-configuracion-de-red-per.html#/109-2-05",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-resoluci-n-est-tica-local--archivo--etc-hosts",
-      "label": "Resolución Estática Local: Archivo /etc/hosts",
-      "type": "file",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.2",
-      "title": "Archivo/Ruta: Resolución Estática Local: Archivo /etc/hosts",
-      "desc": "",
-      "syntax": "Resolución Estática Local: Archivo /etc/hosts",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-2-configuracion-de-red-per.html#/109-2-07",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-configuraci-n-del-cliente-dns---etc-resolv-conf",
-      "label": "Configuración del Cliente DNS: /etc/resolv.conf",
-      "type": "file",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.2",
-      "title": "Archivo/Ruta: Configuración del Cliente DNS: /etc/resolv.conf",
-      "desc": "",
-      "syntax": "Configuración del Cliente DNS: /etc/resolv.conf",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-2-configuracion-de-red-per.html#/109-2-08",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-ficheros--network-en-systemd-networkd",
-      "label": "Ficheros .network en systemd-networkd",
-      "type": "file",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.2",
-      "title": "Archivo/Ruta: Ficheros .network en systemd-networkd",
-      "desc": "",
-      "syntax": "Ficheros .network en systemd-networkd",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-2-configuracion-de-red-per.html#/109-2-15",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-ip",
-      "label": "ip",
-      "type": "command",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.3",
-      "title": "Comando: ip",
-      "desc": "Gestión de Direcciones: comando ip address (ip a)",
-      "syntax": "ip [opciones]",
-      "flags": [
-        {
-          "flag": "addr show",
-          "desc": "Muestra las direcciones IP asignadas a todas las interfaces."
-        },
-        {
-          "flag": "addr add IP/MASK dev IFACE",
-          "desc": "Asigna una dirección IP a una interfaz."
-        },
-        {
-          "flag": "link set IFACE up|down",
-          "desc": "Levanta o desactiva una interfaz de red."
-        },
-        {
-          "flag": "route show",
-          "desc": "Muestra la tabla de enrutamiento del kernel."
-        },
-        {
-          "flag": "route add default via GW",
-          "desc": "Establece la puerta de enlace predeterminada."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-3-resolucion-de-problemas.html#/109-3-04",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-heredados",
-      "label": "heredados",
-      "type": "command",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.3",
-      "title": "Comando: heredados",
-      "desc": "Comandos Heredados: ifconfig y route -n",
-      "syntax": "heredados [opciones]",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-3-resolucion-de-problemas.html#/109-3-07",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-ss",
-      "label": "ss",
-      "type": "command",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.3",
-      "title": "Comando: ss",
-      "desc": "Auditoría de Puertos y Sockets: comando ss",
-      "syntax": "ss [opciones]",
-      "flags": [
-        {
-          "flag": "-t",
-          "desc": "Filtra puertos TCP."
-        },
-        {
-          "flag": "-u",
-          "desc": "Filtra puertos UDP."
-        },
-        {
-          "flag": "-l",
-          "desc": "Muestra únicamente sockets escuchando (listen)."
-        },
-        {
-          "flag": "-p",
-          "desc": "Muestra el proceso y PID propietario."
-        },
-        {
-          "flag": "-n",
-          "desc": "Muestra IPs y puertos numéricos sin resolución de nombres."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-3-resolucion-de-problemas.html#/109-3-08",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-netstat",
-      "label": "netstat",
-      "type": "command",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.3",
-      "title": "Comando: netstat",
-      "desc": "Inspección Heredada: comando netstat",
-      "syntax": "netstat [opciones]",
-      "flags": [
-        {
-          "flag": "-t",
-          "desc": "Muestra conexiones TCP."
-        },
-        {
-          "flag": "-u",
-          "desc": "Muestra conexiones UDP."
-        },
-        {
-          "flag": "-l",
-          "desc": "Muestra sockets en estado de escucha (LISTENING)."
-        },
-        {
-          "flag": "-p",
-          "desc": "Muestra el PID y nombre del programa dueño del socket."
-        },
-        {
-          "flag": "-n",
-          "desc": "Muestra IPs y puertos de forma numérica."
-        },
-        {
-          "flag": "-r",
-          "desc": "Muestra la tabla de rutas del kernel."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [
-        {
-          "q_num": 3,
-          "exam": "102",
-          "stem": "What command, depending on its options, can display the open TCP connections, the routing tables, as well as network interface statistics? (Specify only the com...",
-          "answer": "netstat",
-          "explanation": "netstat (de la suite net-tools ) es la herramienta multifunción clásica que muestra conexiones abiertas (por defecto o -t ), la tabla de enrutamiento ( -r ) y estadísticas de las interfaces de red ( -i o -s )."
-        }
-      ],
-      "slide_url": "t109/109-3-resolucion-de-problemas.html#/109-3-09",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-tracepath",
-      "label": "tracepath",
-      "type": "command",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.3",
-      "title": "Comando: tracepath",
-      "desc": "Detección de MTU en Ruta: comando tracepath",
-      "syntax": "tracepath [opciones]",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-3-resolucion-de-problemas.html#/109-3-12",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-fichero-maestro-de-dns---etc-resolv-conf",
-      "label": "Fichero Maestro de DNS: /etc/resolv.conf",
-      "type": "file",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.4",
-      "title": "Archivo/Ruta: Fichero Maestro de DNS: /etc/resolv.conf",
-      "desc": "",
-      "syntax": "Fichero Maestro de DNS: /etc/resolv.conf",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-4-configuracion-dns-en-el.html#/109-4-03",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-etc-resolv-conf-moderno-y-systemd-resolved",
-      "label": "/etc/resolv.conf Moderno y systemd-resolved",
-      "type": "file",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.4",
-      "title": "Archivo/Ruta: /etc/resolv.conf Moderno y systemd-resolved",
-      "desc": "",
-      "syntax": "/etc/resolv.conf Moderno y systemd-resolved",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t109/109-4-configuracion-dns-en-el.html#/109-4-04",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-getent",
-      "label": "getent",
-      "type": "command",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.4",
-      "title": "Comando: getent",
-      "desc": "Resolución Respetando NSS: comando getent hosts",
-      "syntax": "getent [opciones]",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [
-        {
-          "q_num": 112,
-          "exam": "102",
-          "stem": "Which of the following getent invocations lists all existing users?",
-          "answer": "getent passwd",
-          "explanation": "getent consulta las bases de datos configuradas en /etc/nsswitch.conf . La base de datos que contiene las cuentas de usuario se llama passwd , por lo que getent passwd lista todos los usuarios locales y de red (LDAP/NIS/AD)."
-        }
-      ],
-      "slide_url": "t109/109-4-configuracion-dns-en-el.html#/109-4-06",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "cmd-dig",
-      "label": "dig",
-      "type": "command",
-      "exam": "102",
-      "tema": "109",
-      "subtopic_id": "109.4",
-      "title": "Comando: dig",
-      "desc": "Diagnóstico Exhaustivo: anatomía del comando dig",
-      "syntax": "dig [opciones]",
-      "flags": [
-        {
-          "flag": "+short",
-          "desc": "Respuesta resumida (solo las IPs resultantes)."
-        },
-        {
-          "flag": "+trace",
-          "desc": "Traza completa recursiva desde los servidores raíz DNS."
-        },
-        {
-          "flag": "-x",
-          "desc": "Realiza una consulta DNS inversa (IP a nombre)."
-        }
-      ],
-      "examples": [],
-      "exam_tips": [
-        {
-          "q_num": 5,
-          "exam": "102",
-          "stem": "Which if the following tools, used for DNS debugging, reports not only the response from the name sever but also details about the query?",
-          "answer": "dig",
-          "explanation": "dig ( Domain Information Groper ) realiza consultas DNS y devuelve tanto la sección de respuesta como los encabezados completos de la consulta ( QUESTION SECTION , AUTHORITY , tiempos de respuesta, flags y estado del servidor)."
-        },
-        {
-          "q_num": 93,
-          "exam": "102",
-          "stem": "Which of the commands below might have produced the following output?",
-          "answer": "dig -t ns www.example.org",
-          "explanation": "En la sección QUESTION SECTION de la salida mostrada se observa que el tipo de registro consultado para www.example.org. es NS ( Name Server ). Eso se solicita especificando -t ns en el comando dig ."
-        }
-      ],
-      "slide_url": "t109/109-4-configuracion-dns-en-el.html#/109-4-09",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-configuraci-n-de-xinetd---etc-xinetd-conf-y--etc-xinetd-d",
-      "label": "Configuración de xinetd: /etc/xinetd.conf y /etc/xinetd.d/",
-      "type": "file",
-      "exam": "102",
-      "tema": "110",
-      "subtopic_id": "110.2",
-      "title": "Archivo/Ruta: Configuración de xinetd: /etc/xinetd.conf y /etc/xinetd.d/",
-      "desc": "",
-      "syntax": "Configuración de xinetd: /etc/xinetd.conf y /etc/xinetd.d/",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t110/110-2-configuracion-de-la-segu.html#/110-2-05",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-reglas-de-acceso-en--etc-hosts-allow-y--etc-hosts-deny",
-      "label": "Reglas de Acceso en /etc/hosts.allow y /etc/hosts.deny",
-      "type": "file",
-      "exam": "102",
-      "tema": "110",
-      "subtopic_id": "110.2",
-      "title": "Archivo/Ruta: Reglas de Acceso en /etc/hosts.allow y /etc/hosts.deny",
-      "desc": "",
-      "syntax": "Reglas de Acceso en /etc/hosts.allow y /etc/hosts.deny",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t110/110-2-configuracion-de-la-segu.html#/110-2-10",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
-      "id": "file-el-directorio----ssh--y-archivos-de-autenticaci-n",
-      "label": "El Directorio ~/.ssh/ y Archivos de Autenticación",
-      "type": "file",
-      "exam": "102",
-      "tema": "110",
-      "subtopic_id": "110.3",
-      "title": "Archivo/Ruta: El Directorio ~/.ssh/ y Archivos de Autenticación",
-      "desc": "",
-      "syntax": "El Directorio ~/.ssh/ y Archivos de Autenticación",
-      "flags": [],
-      "examples": [],
-      "exam_tips": [],
-      "slide_url": "t110/110-3-proteccion-de-datos-medi.html#/110-3-05",
-      "practice_url": "",
-      "weight": 2
-    },
-    {
       "id": "cmd-bash",
       "label": "bash",
       "type": "command",
@@ -11508,6 +10466,28 @@
       "weight": 2
     },
     {
+      "id": "cmd-timedatectl",
+      "label": "timedatectl",
+      "type": "command",
+      "exam": "102",
+      "tema": "107",
+      "subtopic_id": "107.3",
+      "title": "Comando: timedatectl",
+      "desc": "Consulta y ajusta la hora del sistema, la zona horaria (timezone) y la sincronización NTP.",
+      "syntax": "timedatectl [status | set-timezone ZONA | set-time 'YYYY-MM-DD HH:MM:SS']",
+      "flags": [
+        {
+          "flag": "list-timezones",
+          "desc": "Lista todas las zonas horarias reconocidas por la base de datos tz."
+        }
+      ],
+      "examples": [],
+      "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
       "id": "cmd-tzselect",
       "label": "tzselect",
       "type": "command",
@@ -11648,6 +10628,74 @@
       "weight": 2
     },
     {
+      "id": "cmd-hwclock",
+      "label": "hwclock",
+      "type": "command",
+      "exam": "102",
+      "tema": "108",
+      "subtopic_id": "108.1",
+      "title": "Comando: hwclock",
+      "desc": "Consulta y sincroniza el reloj de hardware en tiempo real (RTC) de la placa base con el reloj del sistema (kernel).",
+      "syntax": "hwclock [--systohc | --hctosys]",
+      "flags": [
+        {
+          "flag": "-w / --systohc",
+          "desc": "Escribe la hora del sistema (kernel) en el reloj RTC de hardware."
+        },
+        {
+          "flag": "-s / --hctosys",
+          "desc": "Fija la hora del sistema a partir de la hora leída del reloj RTC de hardware."
+        },
+        {
+          "flag": "--show",
+          "desc": "Muestra la hora actual del reloj RTC."
+        }
+      ],
+      "examples": [],
+      "exam_tips": [
+        {
+          "q_num": 71,
+          "exam": "102",
+          "stem": "Which command is used to sync the hardware clock to the system clock? (Specify only the command without any path or parameters.).",
+          "answer": "hwclock",
+          "explanation": "El comando hwclock permite leer el reloj de hardware (RTC/BIOS) y sincronizarlo desde el reloj del sistema ( hwclock --systohc / -w ) o viceversa ( hwclock --hctosys / -s )."
+        }
+      ],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-chronyc",
+      "label": "chronyc",
+      "type": "command",
+      "exam": "102",
+      "tema": "108",
+      "subtopic_id": "108.1",
+      "title": "Comando: chronyc",
+      "desc": "Línea de comandos de monitorización y control del demonio de sincronización horaria chronyd.",
+      "syntax": "chronyc [sources | tracking | makestep]",
+      "flags": [
+        {
+          "flag": "sources",
+          "desc": "Lista los servidores de tiempo NTP consultados y su estado/estrato."
+        },
+        {
+          "flag": "tracking",
+          "desc": "Muestra estadísticas del desfase y error del reloj del sistema."
+        },
+        {
+          "flag": "makestep",
+          "desc": "Fuerza un salto inmediato de hora si el desfase es grande."
+        }
+      ],
+      "examples": [],
+      "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
       "id": "cmd-date",
       "label": "date",
       "type": "command",
@@ -11718,6 +10766,40 @@
       "flags": [],
       "examples": [],
       "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-logger",
+      "label": "logger",
+      "type": "command",
+      "exam": "102",
+      "tema": "108",
+      "subtopic_id": "108.2",
+      "title": "Comando: logger",
+      "desc": "Permite a usuarios o scripts enviar mensajes de registro personalizados directamente al servicio syslog/journald.",
+      "syntax": "logger [-p facil.nivel] [-t tag] 'mensaje'",
+      "flags": [
+        {
+          "flag": "-p",
+          "desc": "Especifica facilidad y prioridad (ej. auth.notice, local0.err)."
+        },
+        {
+          "flag": "-t",
+          "desc": "Etiqueta identificativa de la aplicación que emite el log."
+        }
+      ],
+      "examples": [],
+      "exam_tips": [
+        {
+          "q_num": 69,
+          "exam": "102",
+          "stem": "On a system using systemd-journald, which of the following commands add the message Howdy to the system log? (Choose two.).",
+          "answer": "logger Howdy , systemd-cat echo Howdy",
+          "explanation": "logger envía mensajes al socket de syslog (que systemd-journald recoge), y systemd-cat conecta la salida estándar de cualquier programa (en este caso echo Howdy ) directamente con el diario de systemd."
+        }
+      ],
       "slide_url": "",
       "practice_url": "",
       "weight": 2
@@ -11854,6 +10936,114 @@
       "flags": [],
       "examples": [],
       "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-newaliases",
+      "label": "newaliases",
+      "type": "command",
+      "exam": "102",
+      "tema": "108",
+      "subtopic_id": "108.3",
+      "title": "Comando: newaliases",
+      "desc": "Reconstruye la base de datos binaria /etc/aliases.db a partir del fichero de texto /etc/aliases.",
+      "syntax": "newaliases",
+      "flags": [],
+      "examples": [],
+      "exam_tips": [
+        {
+          "q_num": 29,
+          "exam": "102",
+          "stem": "Which command must be run after adding a new email alias to the configuration in order to make this change effective? (Specify the command without any path but ...",
+          "answer": "newaliases",
+          "explanation": "Tras editar el archivo de texto /etc/aliases , es obligatorio ejecutar newaliases (que no requiere parámetros) para reconstruir la base de datos indexada binaria ( /etc/aliases.db ) que utiliza el MTA."
+        },
+        {
+          "q_num": 64,
+          "exam": "102",
+          "stem": "Which file is processed by newaliases? (Specify the full name of the file, including path.).",
+          "answer": "/etc/aliases",
+          "explanation": "El comando newaliases lee el archivo de configuración de alias del sistema /etc/aliases y compila su base de datos correspondiente."
+        },
+        {
+          "q_num": 67,
+          "exam": "102",
+          "stem": "What is true regarding the file ~/.forward?",
+          "answer": "When configured correctly ~/.forward can be used to forward each incoming mail to one or more other recipients.",
+          "explanation": "Cualquier usuario puede crear y editar directamente el archivo .forward en su directorio personal ( ~ ) para redirigir sus correos entrantes a una o más direcciones externas sin necesidad de privilegios de root ni de ejecutar newaliases ."
+        }
+      ],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-mailq",
+      "label": "mailq",
+      "type": "command",
+      "exam": "102",
+      "tema": "108",
+      "subtopic_id": "108.3",
+      "title": "Comando: mailq",
+      "desc": "Muestra la cola de correos salientes pendientes de entrega del MTA (alias de 'sendmail -bp').",
+      "syntax": "mailq",
+      "flags": [],
+      "examples": [],
+      "exam_tips": [
+        {
+          "q_num": 33,
+          "exam": "102",
+          "stem": "Which command, available with all sendmail-compatible MTAs, is used to list the contents of the MTA's mail queue? (Specify only the command without any path or ...",
+          "answer": "mailq",
+          "explanation": "mailq (equivalente a sendmail -bp ) es el comando estándar proporcionado por todos los MTA compatibles con Sendmail (incluyendo Postfix y Exim) para listar los correos encolados pendientes de entrega."
+        }
+      ],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-mail",
+      "label": "mail",
+      "type": "command",
+      "exam": "102",
+      "tema": "108",
+      "subtopic_id": "108.3",
+      "title": "Comando: mail",
+      "desc": "Cliente CLI básico para leer y redactar correos electrónicos en sistemas Unix/Linux.",
+      "syntax": "mail [-s asunto] destinatario",
+      "flags": [
+        {
+          "flag": "-s",
+          "desc": "Especifica la línea de asunto (subject)."
+        }
+      ],
+      "examples": [],
+      "exam_tips": [
+        {
+          "q_num": 31,
+          "exam": "102",
+          "stem": "Which of the following commands is used to rotate, compress, and mail system logs?",
+          "answer": "logrotate",
+          "explanation": "logrotate está diseñado para facilitar la administración de sistemas que generan gran cantidad de archivos de registro, permitiendo su rotación automática, compresión, eliminación y envío por correo electrónico."
+        },
+        {
+          "q_num": 33,
+          "exam": "102",
+          "stem": "Which command, available with all sendmail-compatible MTAs, is used to list the contents of the MTA's mail queue? (Specify only the command without any path or ...",
+          "answer": "mailq",
+          "explanation": "mailq (equivalente a sendmail -bp ) es el comando estándar proporcionado por todos los MTA compatibles con Sendmail (incluyendo Postfix y Exim) para listar los correos encolados pendientes de entrega."
+        },
+        {
+          "q_num": 36,
+          "exam": "102",
+          "stem": "Which of the following entries in /etc/syslog.conf writes all mail related events to the file /var/log/maillog and sends all critical events to the remote serve...",
+          "answer": "mail.* /var/log/maillog \\n mail.crit @logger.example.org",
+          "explanation": "En syslog.conf , el selector tiene el formato facilidad.prioridad (separados por un punto). Para todos los niveles de correo se usa mail.* y para los críticos mail.crit . Los servidores remotos se indican anteponiendo una arroba ( @nombre_host )."
+        }
+      ],
       "slide_url": "",
       "practice_url": "",
       "weight": 2
@@ -12185,6 +11375,44 @@
       "desc": "Direcciones de 128 bits en hexadecimal separadas por dos puntos. '::' comprime ceros consecutivos una sola vez. Loopback es ::1/128. Link-local empieza por fe80::/10. Unique Local por fc00::/7 o fd00::/8. Global Unicast por 2000::/3.",
       "syntax": "",
       "flags": [],
+      "examples": [],
+      "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-ip",
+      "label": "ip",
+      "type": "command",
+      "exam": "102",
+      "tema": "109",
+      "subtopic_id": "109.2",
+      "title": "Comando: ip",
+      "desc": "Herramienta moderna de la suite iproute2 para inspeccionar y configurar interfaces, direcciones, enlaces y tablas de enrutamiento.",
+      "syntax": "ip [link | addr | route] [subcomando]",
+      "flags": [
+        {
+          "flag": "addr show",
+          "desc": "Muestra las direcciones IP asignadas a todas las interfaces."
+        },
+        {
+          "flag": "addr add IP/MASK dev IFACE",
+          "desc": "Asigna una dirección IP a una interfaz."
+        },
+        {
+          "flag": "link set IFACE up|down",
+          "desc": "Levanta o desactiva una interfaz de red."
+        },
+        {
+          "flag": "route show",
+          "desc": "Muestra la tabla de enrutamiento del kernel."
+        },
+        {
+          "flag": "route add default via GW",
+          "desc": "Establece la puerta de enlace predeterminada."
+        }
+      ],
       "examples": [],
       "exam_tips": [],
       "slide_url": "",
@@ -12534,6 +11762,111 @@
       "weight": 2
     },
     {
+      "id": "cmd-tracepath",
+      "label": "tracepath",
+      "type": "command",
+      "exam": "102",
+      "tema": "109",
+      "subtopic_id": "109.3",
+      "title": "Comando: tracepath",
+      "desc": "Rastrea la ruta a un destino detectando la MTU del camino (Path MTU) sin requerir privilegios de superusuario.",
+      "syntax": "tracepath [-n] destino",
+      "flags": [],
+      "examples": [],
+      "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-netstat",
+      "label": "netstat",
+      "type": "command",
+      "exam": "102",
+      "tema": "109",
+      "subtopic_id": "109.3",
+      "title": "Comando: netstat",
+      "desc": "Herramienta clásica multifunción para monitorizar conexiones de red, puertos a la escucha y tablas de rutas.",
+      "syntax": "netstat [-t] [-u] [-l] [-p] [-n]",
+      "flags": [
+        {
+          "flag": "-t",
+          "desc": "Muestra conexiones TCP."
+        },
+        {
+          "flag": "-u",
+          "desc": "Muestra conexiones UDP."
+        },
+        {
+          "flag": "-l",
+          "desc": "Muestra sockets en estado de escucha (LISTENING)."
+        },
+        {
+          "flag": "-p",
+          "desc": "Muestra el PID y nombre del programa dueño del socket."
+        },
+        {
+          "flag": "-n",
+          "desc": "Muestra IPs y puertos de forma numérica."
+        },
+        {
+          "flag": "-r",
+          "desc": "Muestra la tabla de rutas del kernel."
+        }
+      ],
+      "examples": [],
+      "exam_tips": [
+        {
+          "q_num": 3,
+          "exam": "102",
+          "stem": "What command, depending on its options, can display the open TCP connections, the routing tables, as well as network interface statistics? (Specify only the com...",
+          "answer": "netstat",
+          "explanation": "netstat (de la suite net-tools ) es la herramienta multifunción clásica que muestra conexiones abiertas (por defecto o -t ), la tabla de enrutamiento ( -r ) y estadísticas de las interfaces de red ( -i o -s )."
+        }
+      ],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-ss",
+      "label": "ss",
+      "type": "command",
+      "exam": "102",
+      "tema": "109",
+      "subtopic_id": "109.3",
+      "title": "Comando: ss",
+      "desc": "Herramienta moderna y veloz (de iproute2) que inspecciona sockets de red leyendo directamente de la memoria del kernel.",
+      "syntax": "ss [-t] [-u] [-l] [-p] [-n]",
+      "flags": [
+        {
+          "flag": "-t",
+          "desc": "Filtra puertos TCP."
+        },
+        {
+          "flag": "-u",
+          "desc": "Filtra puertos UDP."
+        },
+        {
+          "flag": "-l",
+          "desc": "Muestra únicamente sockets escuchando (listen)."
+        },
+        {
+          "flag": "-p",
+          "desc": "Muestra el proceso y PID propietario."
+        },
+        {
+          "flag": "-n",
+          "desc": "Muestra IPs y puertos numéricos sin resolución de nombres."
+        }
+      ],
+      "examples": [],
+      "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
       "id": "cmd-nc",
       "label": "nc",
       "type": "command",
@@ -12576,6 +11909,51 @@
       "flags": [],
       "examples": [],
       "exam_tips": [],
+      "slide_url": "",
+      "practice_url": "",
+      "weight": 2
+    },
+    {
+      "id": "cmd-dig",
+      "label": "dig",
+      "type": "command",
+      "exam": "102",
+      "tema": "109",
+      "subtopic_id": "109.4",
+      "title": "Comando: dig",
+      "desc": "Herramienta avanzada y flexible de consulta y depuración DNS (Domain Information Groper).",
+      "syntax": "dig [@servidor] nombre [tipo_registro]",
+      "flags": [
+        {
+          "flag": "+short",
+          "desc": "Respuesta resumida (solo las IPs resultantes)."
+        },
+        {
+          "flag": "+trace",
+          "desc": "Traza completa recursiva desde los servidores raíz DNS."
+        },
+        {
+          "flag": "-x",
+          "desc": "Realiza una consulta DNS inversa (IP a nombre)."
+        }
+      ],
+      "examples": [],
+      "exam_tips": [
+        {
+          "q_num": 5,
+          "exam": "102",
+          "stem": "Which if the following tools, used for DNS debugging, reports not only the response from the name sever but also details about the query?",
+          "answer": "dig",
+          "explanation": "dig ( Domain Information Groper ) realiza consultas DNS y devuelve tanto la sección de respuesta como los encabezados completos de la consulta ( QUESTION SECTION , AUTHORITY , tiempos de respuesta, flags y estado del servidor)."
+        },
+        {
+          "q_num": 93,
+          "exam": "102",
+          "stem": "Which of the commands below might have produced the following output?",
+          "answer": "dig -t ns www.example.org",
+          "explanation": "En la sección QUESTION SECTION de la salida mostrada se observa que el tipo de registro consultado para www.example.org. es NS ( Name Server ). Eso se solicita especificando -t ns en el comando dig ."
+        }
+      ],
       "slide_url": "",
       "practice_url": "",
       "weight": 2
@@ -15893,302 +15271,6 @@
     },
     {
       "id": "e_227",
-      "from": "sub-108-1",
-      "to": "cmd-hwclock",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_228",
-      "from": "sub-108-1",
-      "to": "cmd-timedatectl",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_229",
-      "from": "sub-108-1",
-      "to": "cmd-ntpdate",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_230",
-      "from": "sub-108-1",
-      "to": "cmd-ntpq",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_231",
-      "from": "sub-108-1",
-      "to": "cmd-chronyc",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_232",
-      "from": "sub-108-2",
-      "to": "cmd-journalctl",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_233",
-      "from": "sub-108-2",
-      "to": "cmd-logger",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_234",
-      "from": "sub-108-2",
-      "to": "cmd-systemd-cat",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_235",
-      "from": "sub-108-3",
-      "to": "cmd-mail",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_236",
-      "from": "sub-108-3",
-      "to": "file-fichero-global-de-alias---etc-aliases",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_237",
-      "from": "sub-108-3",
-      "to": "cmd-newaliases",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_238",
-      "from": "sub-108-3",
-      "to": "file-redirecci-n-individual-por-usuario-----forward",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_239",
-      "from": "sub-108-3",
-      "to": "cmd-mailq",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_240",
-      "from": "sub-108-4",
-      "to": "file-ficheros-de-configuraci-n-de-cups",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_241",
-      "from": "sub-108-4",
-      "to": "cmd-lpadmin",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_242",
-      "from": "sub-108-4",
-      "to": "cmd-lpoptions",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_243",
-      "from": "sub-108-4",
-      "to": "cmd-lpstat",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_244",
-      "from": "sub-109-1",
-      "to": "concept-m-scaras-de-red-y-notaci-n-c",
-      "label": "explica",
-      "rel_type": "concept",
-      "dashes": false
-    },
-    {
-      "id": "e_245",
-      "from": "sub-109-1",
-      "to": "file-puertos-y-servicios-de-red--archivo--etc-services",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_246",
-      "from": "sub-109-2",
-      "to": "file-configuraci-n-tradicional-en-debian---etc-network-interfaces",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_247",
-      "from": "sub-109-2",
-      "to": "file-configuraci-n-tradicional-en-rhel-centos--ifcfg",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_248",
-      "from": "sub-109-2",
-      "to": "file-resoluci-n-est-tica-local--archivo--etc-hosts",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_249",
-      "from": "sub-109-2",
-      "to": "file-configuraci-n-del-cliente-dns---etc-resolv-conf",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_250",
-      "from": "sub-109-2",
-      "to": "file-ficheros--network-en-systemd-networkd",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_251",
-      "from": "sub-109-3",
-      "to": "cmd-ip",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_252",
-      "from": "sub-109-3",
-      "to": "cmd-heredados",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_253",
-      "from": "sub-109-3",
-      "to": "cmd-ss",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_254",
-      "from": "sub-109-3",
-      "to": "cmd-netstat",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_255",
-      "from": "sub-109-3",
-      "to": "cmd-tracepath",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_256",
-      "from": "sub-109-4",
-      "to": "file-fichero-maestro-de-dns---etc-resolv-conf",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_257",
-      "from": "sub-109-4",
-      "to": "file-etc-resolv-conf-moderno-y-systemd-resolved",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_258",
-      "from": "sub-109-4",
-      "to": "cmd-getent",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_259",
-      "from": "sub-109-4",
-      "to": "cmd-dig",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_260",
-      "from": "sub-110-1",
-      "to": "cmd-find",
-      "label": "evalúa",
-      "rel_type": "evaluation",
-      "dashes": false
-    },
-    {
-      "id": "e_261",
-      "from": "sub-110-2",
-      "to": "file-configuraci-n-de-xinetd---etc-xinetd-conf-y--etc-xinetd-d",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_262",
-      "from": "sub-110-2",
-      "to": "file-reglas-de-acceso-en--etc-hosts-allow-y--etc-hosts-deny",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_263",
-      "from": "sub-110-3",
-      "to": "file-el-directorio----ssh--y-archivos-de-autenticaci-n",
-      "label": "define",
-      "rel_type": "definition",
-      "dashes": false
-    },
-    {
-      "id": "e_264",
       "from": "sub-105-1",
       "to": "cmd-bash",
       "label": "evalúa",
@@ -16196,7 +15278,7 @@
       "dashes": false
     },
     {
-      "id": "e_265",
+      "id": "e_228",
       "from": "sub-105-1",
       "to": "file-etc-profile",
       "label": "define",
@@ -16204,7 +15286,7 @@
       "dashes": false
     },
     {
-      "id": "e_266",
+      "id": "e_229",
       "from": "sub-105-1",
       "to": "file-etc-profile-d---sh",
       "label": "define",
@@ -16212,7 +15294,7 @@
       "dashes": false
     },
     {
-      "id": "e_267",
+      "id": "e_230",
       "from": "sub-105-1",
       "to": "file-bash-profile",
       "label": "define",
@@ -16220,7 +15302,7 @@
       "dashes": false
     },
     {
-      "id": "e_268",
+      "id": "e_231",
       "from": "sub-105-1",
       "to": "file-bashrc",
       "label": "define",
@@ -16228,7 +15310,7 @@
       "dashes": false
     },
     {
-      "id": "e_269",
+      "id": "e_232",
       "from": "sub-105-1",
       "to": "file-etc-bash-bashrc",
       "label": "define",
@@ -16236,7 +15318,7 @@
       "dashes": false
     },
     {
-      "id": "e_270",
+      "id": "e_233",
       "from": "sub-105-1",
       "to": "file-bash-logout",
       "label": "define",
@@ -16244,7 +15326,7 @@
       "dashes": false
     },
     {
-      "id": "e_271",
+      "id": "e_234",
       "from": "sub-105-1",
       "to": "concept-login-vs-non-login-shell",
       "label": "explica",
@@ -16252,7 +15334,7 @@
       "dashes": false
     },
     {
-      "id": "e_272",
+      "id": "e_235",
       "from": "sub-105-1",
       "to": "concept-herencia-de-variables",
       "label": "explica",
@@ -16260,7 +15342,7 @@
       "dashes": false
     },
     {
-      "id": "e_273",
+      "id": "e_236",
       "from": "sub-105-2",
       "to": "cmd-test",
       "label": "evalúa",
@@ -16268,7 +15350,7 @@
       "dashes": false
     },
     {
-      "id": "e_274",
+      "id": "e_237",
       "from": "sub-105-2",
       "to": "cmd-read",
       "label": "evalúa",
@@ -16276,7 +15358,7 @@
       "dashes": false
     },
     {
-      "id": "e_275",
+      "id": "e_238",
       "from": "sub-105-2",
       "to": "cmd-seq",
       "label": "evalúa",
@@ -16284,7 +15366,7 @@
       "dashes": false
     },
     {
-      "id": "e_276",
+      "id": "e_239",
       "from": "sub-105-2",
       "to": "cmd-exec",
       "label": "evalúa",
@@ -16292,7 +15374,7 @@
       "dashes": false
     },
     {
-      "id": "e_277",
+      "id": "e_240",
       "from": "sub-105-2",
       "to": "cmd-shift",
       "label": "evalúa",
@@ -16300,7 +15382,7 @@
       "dashes": false
     },
     {
-      "id": "e_278",
+      "id": "e_241",
       "from": "sub-105-2",
       "to": "concept-shebang-----bin-bash",
       "label": "explica",
@@ -16308,7 +15390,7 @@
       "dashes": false
     },
     {
-      "id": "e_279",
+      "id": "e_242",
       "from": "sub-105-2",
       "to": "concept-par-metros-posicionales",
       "label": "explica",
@@ -16316,7 +15398,7 @@
       "dashes": false
     },
     {
-      "id": "e_280",
+      "id": "e_243",
       "from": "sub-106-1",
       "to": "cmd-xrandr",
       "label": "evalúa",
@@ -16324,7 +15406,7 @@
       "dashes": false
     },
     {
-      "id": "e_281",
+      "id": "e_244",
       "from": "sub-106-1",
       "to": "cmd-xdpyinfo",
       "label": "evalúa",
@@ -16332,7 +15414,7 @@
       "dashes": false
     },
     {
-      "id": "e_282",
+      "id": "e_245",
       "from": "sub-106-1",
       "to": "cmd-xhost",
       "label": "evalúa",
@@ -16340,7 +15422,7 @@
       "dashes": false
     },
     {
-      "id": "e_283",
+      "id": "e_246",
       "from": "sub-106-1",
       "to": "cmd-xauth",
       "label": "evalúa",
@@ -16348,7 +15430,7 @@
       "dashes": false
     },
     {
-      "id": "e_284",
+      "id": "e_247",
       "from": "sub-106-1",
       "to": "file-etc-x11-xorg-conf",
       "label": "define",
@@ -16356,7 +15438,7 @@
       "dashes": false
     },
     {
-      "id": "e_285",
+      "id": "e_248",
       "from": "sub-106-1",
       "to": "file-etc-x11-xorg-conf-d",
       "label": "define",
@@ -16364,7 +15446,7 @@
       "dashes": false
     },
     {
-      "id": "e_286",
+      "id": "e_249",
       "from": "sub-106-1",
       "to": "file-xinitrc",
       "label": "define",
@@ -16372,7 +15454,7 @@
       "dashes": false
     },
     {
-      "id": "e_287",
+      "id": "e_250",
       "from": "sub-106-1",
       "to": "file-xauthority",
       "label": "define",
@@ -16380,7 +15462,7 @@
       "dashes": false
     },
     {
-      "id": "e_288",
+      "id": "e_251",
       "from": "sub-106-1",
       "to": "concept-variable-display",
       "label": "explica",
@@ -16388,7 +15470,7 @@
       "dashes": false
     },
     {
-      "id": "e_289",
+      "id": "e_252",
       "from": "sub-106-1",
       "to": "concept-x11-vs-wayland",
       "label": "explica",
@@ -16396,7 +15478,7 @@
       "dashes": false
     },
     {
-      "id": "e_290",
+      "id": "e_253",
       "from": "sub-106-2",
       "to": "cmd-startx",
       "label": "evalúa",
@@ -16404,7 +15486,7 @@
       "dashes": false
     },
     {
-      "id": "e_291",
+      "id": "e_254",
       "from": "sub-106-2",
       "to": "file-etc-x11-default-display-manager",
       "label": "define",
@@ -16412,7 +15494,7 @@
       "dashes": false
     },
     {
-      "id": "e_292",
+      "id": "e_255",
       "from": "sub-106-2",
       "to": "concept-display-managers--dm",
       "label": "explica",
@@ -16420,7 +15502,7 @@
       "dashes": false
     },
     {
-      "id": "e_293",
+      "id": "e_256",
       "from": "sub-106-3",
       "to": "cmd-orca",
       "label": "evalúa",
@@ -16428,7 +15510,7 @@
       "dashes": false
     },
     {
-      "id": "e_294",
+      "id": "e_257",
       "from": "sub-106-3",
       "to": "concept-tecnolog-as-de-accesibil",
       "label": "explica",
@@ -16436,7 +15518,7 @@
       "dashes": false
     },
     {
-      "id": "e_295",
+      "id": "e_258",
       "from": "sub-106-3",
       "to": "concept-emacspeak",
       "label": "explica",
@@ -16444,7 +15526,7 @@
       "dashes": false
     },
     {
-      "id": "e_296",
+      "id": "e_259",
       "from": "sub-107-1",
       "to": "cmd-useradd",
       "label": "evalúa",
@@ -16452,7 +15534,7 @@
       "dashes": false
     },
     {
-      "id": "e_297",
+      "id": "e_260",
       "from": "sub-107-1",
       "to": "cmd-usermod",
       "label": "evalúa",
@@ -16460,7 +15542,7 @@
       "dashes": false
     },
     {
-      "id": "e_298",
+      "id": "e_261",
       "from": "sub-107-1",
       "to": "cmd-userdel",
       "label": "evalúa",
@@ -16468,7 +15550,7 @@
       "dashes": false
     },
     {
-      "id": "e_299",
+      "id": "e_262",
       "from": "sub-107-1",
       "to": "cmd-groupadd",
       "label": "evalúa",
@@ -16476,7 +15558,7 @@
       "dashes": false
     },
     {
-      "id": "e_300",
+      "id": "e_263",
       "from": "sub-107-1",
       "to": "cmd-passwd",
       "label": "evalúa",
@@ -16484,7 +15566,7 @@
       "dashes": false
     },
     {
-      "id": "e_301",
+      "id": "e_264",
       "from": "sub-107-1",
       "to": "cmd-chage",
       "label": "evalúa",
@@ -16492,7 +15574,7 @@
       "dashes": false
     },
     {
-      "id": "e_302",
+      "id": "e_265",
       "from": "sub-107-1",
       "to": "file-etc-passwd",
       "label": "define",
@@ -16500,7 +15582,7 @@
       "dashes": false
     },
     {
-      "id": "e_303",
+      "id": "e_266",
       "from": "sub-107-1",
       "to": "file-etc-shadow",
       "label": "define",
@@ -16508,7 +15590,7 @@
       "dashes": false
     },
     {
-      "id": "e_304",
+      "id": "e_267",
       "from": "sub-107-1",
       "to": "file-etc-group",
       "label": "define",
@@ -16516,7 +15598,7 @@
       "dashes": false
     },
     {
-      "id": "e_305",
+      "id": "e_268",
       "from": "sub-107-1",
       "to": "file-etc-gshadow",
       "label": "define",
@@ -16524,7 +15606,7 @@
       "dashes": false
     },
     {
-      "id": "e_306",
+      "id": "e_269",
       "from": "sub-107-1",
       "to": "file-etc-skel",
       "label": "define",
@@ -16532,7 +15614,7 @@
       "dashes": false
     },
     {
-      "id": "e_307",
+      "id": "e_270",
       "from": "sub-107-1",
       "to": "file-etc-default-useradd",
       "label": "define",
@@ -16540,7 +15622,7 @@
       "dashes": false
     },
     {
-      "id": "e_308",
+      "id": "e_271",
       "from": "sub-107-1",
       "to": "file-etc-login-defs",
       "label": "define",
@@ -16548,7 +15630,7 @@
       "dashes": false
     },
     {
-      "id": "e_309",
+      "id": "e_272",
       "from": "sub-107-1",
       "to": "concept-uids-est-ndar-en-linux",
       "label": "explica",
@@ -16556,7 +15638,7 @@
       "dashes": false
     },
     {
-      "id": "e_310",
+      "id": "e_273",
       "from": "sub-107-2",
       "to": "cmd-crontab",
       "label": "evalúa",
@@ -16564,7 +15646,7 @@
       "dashes": false
     },
     {
-      "id": "e_311",
+      "id": "e_274",
       "from": "sub-107-2",
       "to": "cmd-at",
       "label": "evalúa",
@@ -16572,7 +15654,7 @@
       "dashes": false
     },
     {
-      "id": "e_312",
+      "id": "e_275",
       "from": "sub-107-2",
       "to": "cmd-atq",
       "label": "evalúa",
@@ -16580,7 +15662,7 @@
       "dashes": false
     },
     {
-      "id": "e_313",
+      "id": "e_276",
       "from": "sub-107-2",
       "to": "cmd-atrm",
       "label": "evalúa",
@@ -16588,7 +15670,7 @@
       "dashes": false
     },
     {
-      "id": "e_314",
+      "id": "e_277",
       "from": "sub-107-2",
       "to": "cmd-anacron",
       "label": "evalúa",
@@ -16596,7 +15678,7 @@
       "dashes": false
     },
     {
-      "id": "e_315",
+      "id": "e_278",
       "from": "sub-107-2",
       "to": "file-etc-crontab",
       "label": "define",
@@ -16604,7 +15686,7 @@
       "dashes": false
     },
     {
-      "id": "e_316",
+      "id": "e_279",
       "from": "sub-107-2",
       "to": "file-etc-cron",
       "label": "define",
@@ -16612,7 +15694,7 @@
       "dashes": false
     },
     {
-      "id": "e_317",
+      "id": "e_280",
       "from": "sub-107-2",
       "to": "file-var-spool-cron-crontabs",
       "label": "define",
@@ -16620,7 +15702,7 @@
       "dashes": false
     },
     {
-      "id": "e_318",
+      "id": "e_281",
       "from": "sub-107-2",
       "to": "file-etc-anacrontab",
       "label": "define",
@@ -16628,7 +15710,7 @@
       "dashes": false
     },
     {
-      "id": "e_319",
+      "id": "e_282",
       "from": "sub-107-2",
       "to": "file-etc-cron-allow-y--etc-cron-deny",
       "label": "define",
@@ -16636,7 +15718,7 @@
       "dashes": false
     },
     {
-      "id": "e_320",
+      "id": "e_283",
       "from": "sub-107-2",
       "to": "file-etc-at-allow-y--etc-at-deny",
       "label": "define",
@@ -16644,7 +15726,7 @@
       "dashes": false
     },
     {
-      "id": "e_321",
+      "id": "e_284",
       "from": "sub-107-2",
       "to": "concept-sintaxis-de-5-campos-de",
       "label": "explica",
@@ -16652,7 +15734,7 @@
       "dashes": false
     },
     {
-      "id": "e_322",
+      "id": "e_285",
       "from": "sub-107-3",
       "to": "cmd-localectl",
       "label": "evalúa",
@@ -16660,7 +15742,7 @@
       "dashes": false
     },
     {
-      "id": "e_323",
+      "id": "e_286",
       "from": "sub-107-3",
       "to": "cmd-locale",
       "label": "evalúa",
@@ -16668,7 +15750,7 @@
       "dashes": false
     },
     {
-      "id": "e_324",
+      "id": "e_287",
       "from": "sub-107-3",
       "to": "cmd-timedatectl",
       "label": "evalúa",
@@ -16676,7 +15758,7 @@
       "dashes": false
     },
     {
-      "id": "e_325",
+      "id": "e_288",
       "from": "sub-107-3",
       "to": "cmd-tzselect",
       "label": "evalúa",
@@ -16684,7 +15766,7 @@
       "dashes": false
     },
     {
-      "id": "e_326",
+      "id": "e_289",
       "from": "sub-107-3",
       "to": "cmd-iconv",
       "label": "evalúa",
@@ -16692,7 +15774,7 @@
       "dashes": false
     },
     {
-      "id": "e_327",
+      "id": "e_290",
       "from": "sub-107-3",
       "to": "file-etc-timezone",
       "label": "define",
@@ -16700,7 +15782,7 @@
       "dashes": false
     },
     {
-      "id": "e_328",
+      "id": "e_291",
       "from": "sub-107-3",
       "to": "file-etc-localtime",
       "label": "define",
@@ -16708,7 +15790,7 @@
       "dashes": false
     },
     {
-      "id": "e_329",
+      "id": "e_292",
       "from": "sub-107-3",
       "to": "file-usr-share-zoneinfo",
       "label": "define",
@@ -16716,7 +15798,7 @@
       "dashes": false
     },
     {
-      "id": "e_330",
+      "id": "e_293",
       "from": "sub-107-3",
       "to": "file-etc-locale-gen",
       "label": "define",
@@ -16724,7 +15806,7 @@
       "dashes": false
     },
     {
-      "id": "e_331",
+      "id": "e_294",
       "from": "sub-107-3",
       "to": "concept-jerarqu-a-de-variables-l",
       "label": "explica",
@@ -16732,7 +15814,23 @@
       "dashes": false
     },
     {
-      "id": "e_332",
+      "id": "e_295",
+      "from": "sub-108-1",
+      "to": "cmd-hwclock",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_296",
+      "from": "sub-108-1",
+      "to": "cmd-chronyc",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_297",
       "from": "sub-108-1",
       "to": "cmd-date",
       "label": "evalúa",
@@ -16740,7 +15838,7 @@
       "dashes": false
     },
     {
-      "id": "e_333",
+      "id": "e_298",
       "from": "sub-108-1",
       "to": "file-etc-chrony-chrony-conf",
       "label": "define",
@@ -16748,7 +15846,7 @@
       "dashes": false
     },
     {
-      "id": "e_334",
+      "id": "e_299",
       "from": "sub-108-1",
       "to": "concept-ntp-y-estratos--stratum",
       "label": "explica",
@@ -16756,7 +15854,15 @@
       "dashes": false
     },
     {
-      "id": "e_335",
+      "id": "e_300",
+      "from": "sub-108-2",
+      "to": "cmd-logger",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_301",
       "from": "sub-108-2",
       "to": "cmd-logrotate",
       "label": "evalúa",
@@ -16764,7 +15870,7 @@
       "dashes": false
     },
     {
-      "id": "e_336",
+      "id": "e_302",
       "from": "sub-108-2",
       "to": "file-etc-rsyslog-conf",
       "label": "define",
@@ -16772,7 +15878,7 @@
       "dashes": false
     },
     {
-      "id": "e_337",
+      "id": "e_303",
       "from": "sub-108-2",
       "to": "file-etc-rsyslog-d",
       "label": "define",
@@ -16780,7 +15886,7 @@
       "dashes": false
     },
     {
-      "id": "e_338",
+      "id": "e_304",
       "from": "sub-108-2",
       "to": "file-etc-systemd-journald-conf",
       "label": "define",
@@ -16788,7 +15894,7 @@
       "dashes": false
     },
     {
-      "id": "e_339",
+      "id": "e_305",
       "from": "sub-108-2",
       "to": "file-var-log-journal",
       "label": "define",
@@ -16796,7 +15902,7 @@
       "dashes": false
     },
     {
-      "id": "e_340",
+      "id": "e_306",
       "from": "sub-108-2",
       "to": "file-var-log-auth-log",
       "label": "define",
@@ -16804,7 +15910,7 @@
       "dashes": false
     },
     {
-      "id": "e_341",
+      "id": "e_307",
       "from": "sub-108-2",
       "to": "file-etc-logrotate-conf",
       "label": "define",
@@ -16812,7 +15918,7 @@
       "dashes": false
     },
     {
-      "id": "e_342",
+      "id": "e_308",
       "from": "sub-108-2",
       "to": "concept-facilidades-y-severidade",
       "label": "explica",
@@ -16820,7 +15926,31 @@
       "dashes": false
     },
     {
-      "id": "e_343",
+      "id": "e_309",
+      "from": "sub-108-3",
+      "to": "cmd-newaliases",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_310",
+      "from": "sub-108-3",
+      "to": "cmd-mailq",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_311",
+      "from": "sub-108-3",
+      "to": "cmd-mail",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_312",
       "from": "sub-108-3",
       "to": "file-etc-aliases",
       "label": "define",
@@ -16828,7 +15958,7 @@
       "dashes": false
     },
     {
-      "id": "e_344",
+      "id": "e_313",
       "from": "sub-108-3",
       "to": "file-forward",
       "label": "define",
@@ -16836,7 +15966,7 @@
       "dashes": false
     },
     {
-      "id": "e_345",
+      "id": "e_314",
       "from": "sub-108-3",
       "to": "file-etc-postfix-main-cf",
       "label": "define",
@@ -16844,7 +15974,7 @@
       "dashes": false
     },
     {
-      "id": "e_346",
+      "id": "e_315",
       "from": "sub-108-3",
       "to": "concept-mta-vs-mua-vs-mda",
       "label": "explica",
@@ -16852,7 +15982,7 @@
       "dashes": false
     },
     {
-      "id": "e_347",
+      "id": "e_316",
       "from": "sub-108-4",
       "to": "cmd-lpr",
       "label": "evalúa",
@@ -16860,7 +15990,7 @@
       "dashes": false
     },
     {
-      "id": "e_348",
+      "id": "e_317",
       "from": "sub-108-4",
       "to": "cmd-lpq",
       "label": "evalúa",
@@ -16868,7 +15998,7 @@
       "dashes": false
     },
     {
-      "id": "e_349",
+      "id": "e_318",
       "from": "sub-108-4",
       "to": "cmd-lprm",
       "label": "evalúa",
@@ -16876,7 +16006,7 @@
       "dashes": false
     },
     {
-      "id": "e_350",
+      "id": "e_319",
       "from": "sub-108-4",
       "to": "cmd-cupsenable",
       "label": "evalúa",
@@ -16884,7 +16014,7 @@
       "dashes": false
     },
     {
-      "id": "e_351",
+      "id": "e_320",
       "from": "sub-108-4",
       "to": "cmd-cupsaccept",
       "label": "evalúa",
@@ -16892,7 +16022,7 @@
       "dashes": false
     },
     {
-      "id": "e_352",
+      "id": "e_321",
       "from": "sub-108-4",
       "to": "file-etc-cups-cupsd-conf",
       "label": "define",
@@ -16900,7 +16030,7 @@
       "dashes": false
     },
     {
-      "id": "e_353",
+      "id": "e_322",
       "from": "sub-108-4",
       "to": "file-etc-cups-printers-conf",
       "label": "define",
@@ -16908,7 +16038,7 @@
       "dashes": false
     },
     {
-      "id": "e_354",
+      "id": "e_323",
       "from": "sub-108-4",
       "to": "concept-arquitectura-cups--puert",
       "label": "explica",
@@ -16916,7 +16046,7 @@
       "dashes": false
     },
     {
-      "id": "e_355",
+      "id": "e_324",
       "from": "sub-109-1",
       "to": "file-etc-services",
       "label": "define",
@@ -16924,7 +16054,7 @@
       "dashes": false
     },
     {
-      "id": "e_356",
+      "id": "e_325",
       "from": "sub-109-1",
       "to": "file-etc-protocols",
       "label": "define",
@@ -16932,7 +16062,7 @@
       "dashes": false
     },
     {
-      "id": "e_357",
+      "id": "e_326",
       "from": "sub-109-1",
       "to": "concept-direccionamiento-ipv4-y",
       "label": "explica",
@@ -16940,7 +16070,7 @@
       "dashes": false
     },
     {
-      "id": "e_358",
+      "id": "e_327",
       "from": "sub-109-1",
       "to": "concept-direccionamiento-ipv6",
       "label": "explica",
@@ -16948,7 +16078,7 @@
       "dashes": false
     },
     {
-      "id": "e_359",
+      "id": "e_328",
       "from": "sub-109-2",
       "to": "cmd-ip",
       "label": "evalúa",
@@ -16956,7 +16086,7 @@
       "dashes": false
     },
     {
-      "id": "e_360",
+      "id": "e_329",
       "from": "sub-109-2",
       "to": "cmd-ifconfig",
       "label": "evalúa",
@@ -16964,7 +16094,7 @@
       "dashes": false
     },
     {
-      "id": "e_361",
+      "id": "e_330",
       "from": "sub-109-2",
       "to": "cmd-route",
       "label": "evalúa",
@@ -16972,7 +16102,7 @@
       "dashes": false
     },
     {
-      "id": "e_362",
+      "id": "e_331",
       "from": "sub-109-2",
       "to": "cmd-nmcli",
       "label": "evalúa",
@@ -16980,7 +16110,7 @@
       "dashes": false
     },
     {
-      "id": "e_363",
+      "id": "e_332",
       "from": "sub-109-2",
       "to": "cmd-nmtui",
       "label": "evalúa",
@@ -16988,7 +16118,7 @@
       "dashes": false
     },
     {
-      "id": "e_364",
+      "id": "e_333",
       "from": "sub-109-2",
       "to": "cmd-hostname",
       "label": "evalúa",
@@ -16996,7 +16126,7 @@
       "dashes": false
     },
     {
-      "id": "e_365",
+      "id": "e_334",
       "from": "sub-109-2",
       "to": "cmd-hostnamectl",
       "label": "evalúa",
@@ -17004,7 +16134,7 @@
       "dashes": false
     },
     {
-      "id": "e_366",
+      "id": "e_335",
       "from": "sub-109-2",
       "to": "file-etc-network-interfaces",
       "label": "define",
@@ -17012,7 +16142,7 @@
       "dashes": false
     },
     {
-      "id": "e_367",
+      "id": "e_336",
       "from": "sub-109-2",
       "to": "file-etc-netplan---yaml",
       "label": "define",
@@ -17020,7 +16150,7 @@
       "dashes": false
     },
     {
-      "id": "e_368",
+      "id": "e_337",
       "from": "sub-109-2",
       "to": "file-etc-hostname",
       "label": "define",
@@ -17028,7 +16158,7 @@
       "dashes": false
     },
     {
-      "id": "e_369",
+      "id": "e_338",
       "from": "sub-109-2",
       "to": "concept-configuraci-n-est-tica-v",
       "label": "explica",
@@ -17036,7 +16166,7 @@
       "dashes": false
     },
     {
-      "id": "e_370",
+      "id": "e_339",
       "from": "sub-109-3",
       "to": "cmd-ping",
       "label": "evalúa",
@@ -17044,7 +16174,7 @@
       "dashes": false
     },
     {
-      "id": "e_371",
+      "id": "e_340",
       "from": "sub-109-3",
       "to": "cmd-traceroute",
       "label": "evalúa",
@@ -17052,7 +16182,31 @@
       "dashes": false
     },
     {
-      "id": "e_372",
+      "id": "e_341",
+      "from": "sub-109-3",
+      "to": "cmd-tracepath",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_342",
+      "from": "sub-109-3",
+      "to": "cmd-netstat",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_343",
+      "from": "sub-109-3",
+      "to": "cmd-ss",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_344",
       "from": "sub-109-3",
       "to": "cmd-nc",
       "label": "evalúa",
@@ -17060,7 +16214,7 @@
       "dashes": false
     },
     {
-      "id": "e_373",
+      "id": "e_345",
       "from": "sub-109-3",
       "to": "concept-diagn-stico-de-red-por-c",
       "label": "explica",
@@ -17068,7 +16222,15 @@
       "dashes": false
     },
     {
-      "id": "e_374",
+      "id": "e_346",
+      "from": "sub-109-4",
+      "to": "cmd-dig",
+      "label": "evalúa",
+      "rel_type": "evaluation",
+      "dashes": false
+    },
+    {
+      "id": "e_347",
       "from": "sub-109-4",
       "to": "cmd-host",
       "label": "evalúa",
@@ -17076,7 +16238,7 @@
       "dashes": false
     },
     {
-      "id": "e_375",
+      "id": "e_348",
       "from": "sub-109-4",
       "to": "cmd-nslookup",
       "label": "evalúa",
@@ -17084,7 +16246,7 @@
       "dashes": false
     },
     {
-      "id": "e_376",
+      "id": "e_349",
       "from": "sub-109-4",
       "to": "file-etc-resolv-conf",
       "label": "define",
@@ -17092,7 +16254,7 @@
       "dashes": false
     },
     {
-      "id": "e_377",
+      "id": "e_350",
       "from": "sub-109-4",
       "to": "file-etc-hosts",
       "label": "define",
@@ -17100,7 +16262,7 @@
       "dashes": false
     },
     {
-      "id": "e_378",
+      "id": "e_351",
       "from": "sub-109-4",
       "to": "file-etc-nsswitch-conf",
       "label": "define",
@@ -17108,7 +16270,7 @@
       "dashes": false
     },
     {
-      "id": "e_379",
+      "id": "e_352",
       "from": "sub-109-4",
       "to": "concept-tipos-de-registros-dns",
       "label": "explica",
@@ -17116,7 +16278,7 @@
       "dashes": false
     },
     {
-      "id": "e_380",
+      "id": "e_353",
       "from": "sub-110-1",
       "to": "cmd-ulimit",
       "label": "evalúa",
@@ -17124,7 +16286,7 @@
       "dashes": false
     },
     {
-      "id": "e_381",
+      "id": "e_354",
       "from": "sub-110-1",
       "to": "cmd-sudo",
       "label": "evalúa",
@@ -17132,7 +16294,7 @@
       "dashes": false
     },
     {
-      "id": "e_382",
+      "id": "e_355",
       "from": "sub-110-1",
       "to": "cmd-visudo",
       "label": "evalúa",
@@ -17140,7 +16302,7 @@
       "dashes": false
     },
     {
-      "id": "e_383",
+      "id": "e_356",
       "from": "sub-110-1",
       "to": "cmd-su",
       "label": "evalúa",
@@ -17148,7 +16310,7 @@
       "dashes": false
     },
     {
-      "id": "e_384",
+      "id": "e_357",
       "from": "sub-110-1",
       "to": "file-etc-sudoers",
       "label": "define",
@@ -17156,7 +16318,7 @@
       "dashes": false
     },
     {
-      "id": "e_385",
+      "id": "e_358",
       "from": "sub-110-1",
       "to": "file-etc-sudoers-d",
       "label": "define",
@@ -17164,7 +16326,7 @@
       "dashes": false
     },
     {
-      "id": "e_386",
+      "id": "e_359",
       "from": "sub-110-1",
       "to": "file-etc-security-limits-conf",
       "label": "define",
@@ -17172,7 +16334,7 @@
       "dashes": false
     },
     {
-      "id": "e_387",
+      "id": "e_360",
       "from": "sub-110-1",
       "to": "concept-auditor-a-de-puertos-y-p",
       "label": "explica",
@@ -17180,7 +16342,7 @@
       "dashes": false
     },
     {
-      "id": "e_388",
+      "id": "e_361",
       "from": "sub-110-2",
       "to": "cmd-iptables",
       "label": "evalúa",
@@ -17188,7 +16350,7 @@
       "dashes": false
     },
     {
-      "id": "e_389",
+      "id": "e_362",
       "from": "sub-110-2",
       "to": "cmd-ufw",
       "label": "evalúa",
@@ -17196,7 +16358,7 @@
       "dashes": false
     },
     {
-      "id": "e_390",
+      "id": "e_363",
       "from": "sub-110-2",
       "to": "file-etc-nologin",
       "label": "define",
@@ -17204,7 +16366,7 @@
       "dashes": false
     },
     {
-      "id": "e_391",
+      "id": "e_364",
       "from": "sub-110-2",
       "to": "file-etc-hosts-allow",
       "label": "define",
@@ -17212,7 +16374,7 @@
       "dashes": false
     },
     {
-      "id": "e_392",
+      "id": "e_365",
       "from": "sub-110-2",
       "to": "file-etc-hosts-deny",
       "label": "define",
@@ -17220,7 +16382,7 @@
       "dashes": false
     },
     {
-      "id": "e_393",
+      "id": "e_366",
       "from": "sub-110-2",
       "to": "concept-tcp-wrappers--hosts-allo",
       "label": "explica",
@@ -17228,7 +16390,7 @@
       "dashes": false
     },
     {
-      "id": "e_394",
+      "id": "e_367",
       "from": "sub-110-3",
       "to": "cmd-ssh",
       "label": "evalúa",
@@ -17236,7 +16398,7 @@
       "dashes": false
     },
     {
-      "id": "e_395",
+      "id": "e_368",
       "from": "sub-110-3",
       "to": "cmd-sshd",
       "label": "evalúa",
@@ -17244,7 +16406,7 @@
       "dashes": false
     },
     {
-      "id": "e_396",
+      "id": "e_369",
       "from": "sub-110-3",
       "to": "cmd-ssh-keygen",
       "label": "evalúa",
@@ -17252,7 +16414,7 @@
       "dashes": false
     },
     {
-      "id": "e_397",
+      "id": "e_370",
       "from": "sub-110-3",
       "to": "cmd-ssh-copy-id",
       "label": "evalúa",
@@ -17260,7 +16422,7 @@
       "dashes": false
     },
     {
-      "id": "e_398",
+      "id": "e_371",
       "from": "sub-110-3",
       "to": "cmd-gpg",
       "label": "evalúa",
@@ -17268,7 +16430,7 @@
       "dashes": false
     },
     {
-      "id": "e_399",
+      "id": "e_372",
       "from": "sub-110-3",
       "to": "file-etc-ssh-sshd-config",
       "label": "define",
@@ -17276,7 +16438,7 @@
       "dashes": false
     },
     {
-      "id": "e_400",
+      "id": "e_373",
       "from": "sub-110-3",
       "to": "file-etc-ssh-ssh-config",
       "label": "define",
@@ -17284,7 +16446,7 @@
       "dashes": false
     },
     {
-      "id": "e_401",
+      "id": "e_374",
       "from": "sub-110-3",
       "to": "file-ssh-authorized-keys",
       "label": "define",
@@ -17292,7 +16454,7 @@
       "dashes": false
     },
     {
-      "id": "e_402",
+      "id": "e_375",
       "from": "sub-110-3",
       "to": "file-ssh-known-hosts",
       "label": "define",
@@ -17300,7 +16462,7 @@
       "dashes": false
     },
     {
-      "id": "e_403",
+      "id": "e_376",
       "from": "sub-110-3",
       "to": "file-ssh-id-rsa-y----ssh-id-rsa-pub",
       "label": "define",
@@ -17308,7 +16470,7 @@
       "dashes": false
     },
     {
-      "id": "e_404",
+      "id": "e_377",
       "from": "sub-110-3",
       "to": "concept-cifrado-sim-trico-vs-asi",
       "label": "explica",
@@ -17316,7 +16478,7 @@
       "dashes": false
     },
     {
-      "id": "e_405",
+      "id": "e_378",
       "from": "sub-110-3",
       "to": "concept-permisos-estrictos-de-ss",
       "label": "explica",
@@ -17324,7 +16486,7 @@
       "dashes": false
     },
     {
-      "id": "e_406",
+      "id": "e_379",
       "from": "exam-trap-mkfs-default",
       "to": "cmd-mkfs",
       "label": "punto crítico de examen",
@@ -17332,7 +16494,7 @@
       "dashes": false
     },
     {
-      "id": "e_407",
+      "id": "e_380",
       "from": "exam-trap-mkfs-default",
       "to": "sub-104-1",
       "label": "punto crítico de examen",
@@ -17340,7 +16502,7 @@
       "dashes": false
     },
     {
-      "id": "e_408",
+      "id": "e_381",
       "from": "exam-trap-fstab-fields",
       "to": "file-etc-fstab",
       "label": "punto crítico de examen",
@@ -17348,7 +16510,7 @@
       "dashes": false
     },
     {
-      "id": "e_409",
+      "id": "e_382",
       "from": "exam-trap-fstab-fields",
       "to": "cmd-mount",
       "label": "punto crítico de examen",
@@ -17356,7 +16518,7 @@
       "dashes": false
     },
     {
-      "id": "e_410",
+      "id": "e_383",
       "from": "exam-trap-fstab-fields",
       "to": "cmd-fsck",
       "label": "punto crítico de examen",
@@ -17364,7 +16526,7 @@
       "dashes": false
     },
     {
-      "id": "e_411",
+      "id": "e_384",
       "from": "exam-trap-fstab-fields",
       "to": "sub-104-3",
       "label": "punto crítico de examen",
@@ -17372,7 +16534,7 @@
       "dashes": false
     },
     {
-      "id": "e_412",
+      "id": "e_385",
       "from": "exam-trap-mount-bind",
       "to": "cmd-mount",
       "label": "punto crítico de examen",
@@ -17380,7 +16542,7 @@
       "dashes": false
     },
     {
-      "id": "e_413",
+      "id": "e_386",
       "from": "exam-trap-mount-bind",
       "to": "file-etc-fstab",
       "label": "punto crítico de examen",
@@ -17388,7 +16550,7 @@
       "dashes": false
     },
     {
-      "id": "e_414",
+      "id": "e_387",
       "from": "exam-trap-mount-bind",
       "to": "sub-104-3",
       "label": "punto crítico de examen",
@@ -17396,7 +16558,7 @@
       "dashes": false
     },
     {
-      "id": "e_415",
+      "id": "e_388",
       "from": "exam-trap-tar-f",
       "to": "cmd-tar",
       "label": "punto crítico de examen",
@@ -17404,7 +16566,7 @@
       "dashes": false
     },
     {
-      "id": "e_416",
+      "id": "e_389",
       "from": "exam-trap-tar-f",
       "to": "sub-103-3",
       "label": "punto crítico de examen",
@@ -17412,7 +16574,7 @@
       "dashes": false
     },
     {
-      "id": "e_417",
+      "id": "e_390",
       "from": "exam-trap-find-print0",
       "to": "cmd-find",
       "label": "punto crítico de examen",
@@ -17420,7 +16582,7 @@
       "dashes": false
     },
     {
-      "id": "e_418",
+      "id": "e_391",
       "from": "exam-trap-find-print0",
       "to": "cmd-xargs",
       "label": "punto crítico de examen",
@@ -17428,7 +16590,7 @@
       "dashes": false
     },
     {
-      "id": "e_419",
+      "id": "e_392",
       "from": "exam-trap-find-print0",
       "to": "sub-103-3",
       "label": "punto crítico de examen",
@@ -17436,7 +16598,7 @@
       "dashes": false
     },
     {
-      "id": "e_420",
+      "id": "e_393",
       "from": "exam-trap-nice-default",
       "to": "cmd-nice",
       "label": "punto crítico de examen",
@@ -17444,7 +16606,7 @@
       "dashes": false
     },
     {
-      "id": "e_421",
+      "id": "e_394",
       "from": "exam-trap-nice-default",
       "to": "sub-103-6",
       "label": "punto crítico de examen",
@@ -17452,7 +16614,7 @@
       "dashes": false
     },
     {
-      "id": "e_422",
+      "id": "e_395",
       "from": "exam-trap-single-quotes",
       "to": "cmd-export",
       "label": "punto crítico de examen",
@@ -17460,7 +16622,7 @@
       "dashes": false
     },
     {
-      "id": "e_423",
+      "id": "e_396",
       "from": "exam-trap-single-quotes",
       "to": "sub-103-1",
       "label": "punto crítico de examen",
@@ -17468,7 +16630,7 @@
       "dashes": false
     },
     {
-      "id": "e_424",
+      "id": "e_397",
       "from": "exam-trap-sigstop-sigtstp",
       "to": "cmd-kill",
       "label": "punto crítico de examen",
@@ -17476,7 +16638,7 @@
       "dashes": false
     },
     {
-      "id": "e_425",
+      "id": "e_398",
       "from": "exam-trap-sigstop-sigtstp",
       "to": "sub-103-5",
       "label": "punto crítico de examen",
@@ -17484,7 +16646,7 @@
       "dashes": false
     },
     {
-      "id": "e_426",
+      "id": "e_399",
       "from": "exam-trap-hardlink-restrictions",
       "to": "cmd-ln",
       "label": "punto crítico de examen",
@@ -17492,7 +16654,7 @@
       "dashes": false
     },
     {
-      "id": "e_427",
+      "id": "e_400",
       "from": "exam-trap-hardlink-restrictions",
       "to": "sub-104-6",
       "label": "punto crítico de examen",
@@ -17500,7 +16662,7 @@
       "dashes": false
     },
     {
-      "id": "e_428",
+      "id": "e_401",
       "from": "exam-trap-systemctl-isolate",
       "to": "cmd-systemctl",
       "label": "punto crítico de examen",
@@ -17508,7 +16670,7 @@
       "dashes": false
     },
     {
-      "id": "e_429",
+      "id": "e_402",
       "from": "exam-trap-systemctl-isolate",
       "to": "sub-101-3",
       "label": "punto crítico de examen",
@@ -17516,7 +16678,7 @@
       "dashes": false
     },
     {
-      "id": "e_430",
+      "id": "e_403",
       "from": "exam-trap-systemctl-mask",
       "to": "cmd-systemctl",
       "label": "punto crítico de examen",
@@ -17524,7 +16686,7 @@
       "dashes": false
     },
     {
-      "id": "e_431",
+      "id": "e_404",
       "from": "exam-trap-systemctl-mask",
       "to": "sub-101-3",
       "label": "punto crítico de examen",
@@ -17532,7 +16694,7 @@
       "dashes": false
     },
     {
-      "id": "e_432",
+      "id": "e_405",
       "from": "exam-trap-man-sections",
       "to": "sub-103-1",
       "label": "punto crítico de examen",
@@ -17540,7 +16702,7 @@
       "dashes": false
     },
     {
-      "id": "e_433",
+      "id": "e_406",
       "from": "exam-trap-grub-partition-numbering",
       "to": "cmd-grub-install",
       "label": "punto crítico de examen",
@@ -17548,7 +16710,7 @@
       "dashes": false
     },
     {
-      "id": "e_434",
+      "id": "e_407",
       "from": "exam-trap-grub-partition-numbering",
       "to": "sub-102-2",
       "label": "punto crítico de examen",
@@ -17556,7 +16718,7 @@
       "dashes": false
     },
     {
-      "id": "e_435",
+      "id": "e_408",
       "from": "exam-trap-apt-remove-vs-purge",
       "to": "cmd-apt-get",
       "label": "punto crítico de examen",
@@ -17564,7 +16726,7 @@
       "dashes": false
     },
     {
-      "id": "e_436",
+      "id": "e_409",
       "from": "exam-trap-apt-remove-vs-purge",
       "to": "cmd-dpkg",
       "label": "punto crítico de examen",
@@ -17572,7 +16734,7 @@
       "dashes": false
     },
     {
-      "id": "e_437",
+      "id": "e_410",
       "from": "exam-trap-apt-remove-vs-purge",
       "to": "sub-102-4",
       "label": "punto crítico de examen",
@@ -17580,7 +16742,7 @@
       "dashes": false
     },
     {
-      "id": "e_438",
+      "id": "e_411",
       "from": "exam-trap-rpm-nodeps",
       "to": "cmd-rpm",
       "label": "punto crítico de examen",
@@ -17588,7 +16750,7 @@
       "dashes": false
     },
     {
-      "id": "e_439",
+      "id": "e_412",
       "from": "exam-trap-rpm-nodeps",
       "to": "sub-102-5",
       "label": "punto crítico de examen",
@@ -17596,7 +16758,7 @@
       "dashes": false
     },
     {
-      "id": "e_440",
+      "id": "e_413",
       "from": "exam-trap-umask-calculation",
       "to": "cmd-chmod",
       "label": "punto crítico de examen",
@@ -17604,7 +16766,7 @@
       "dashes": false
     },
     {
-      "id": "e_441",
+      "id": "e_414",
       "from": "exam-trap-umask-calculation",
       "to": "sub-104-5",
       "label": "punto crítico de examen",
@@ -17612,7 +16774,7 @@
       "dashes": false
     },
     {
-      "id": "e_442",
+      "id": "e_415",
       "from": "exam-trap-suid-sgid-bits",
       "to": "cmd-chmod",
       "label": "punto crítico de examen",
@@ -17620,7 +16782,7 @@
       "dashes": false
     },
     {
-      "id": "e_443",
+      "id": "e_416",
       "from": "exam-trap-suid-sgid-bits",
       "to": "sub-104-5",
       "label": "punto crítico de examen",
@@ -17628,7 +16790,7 @@
       "dashes": false
     },
     {
-      "id": "e_444",
+      "id": "e_417",
       "from": "exam-trap-swap-fstab",
       "to": "cmd-mkswap",
       "label": "punto crítico de examen",
@@ -17636,7 +16798,7 @@
       "dashes": false
     },
     {
-      "id": "e_445",
+      "id": "e_418",
       "from": "exam-trap-swap-fstab",
       "to": "file-etc-fstab",
       "label": "punto crítico de examen",
@@ -17644,7 +16806,7 @@
       "dashes": false
     },
     {
-      "id": "e_446",
+      "id": "e_419",
       "from": "exam-trap-swap-fstab",
       "to": "sub-102-1",
       "label": "punto crítico de examen",
@@ -17652,7 +16814,7 @@
       "dashes": false
     },
     {
-      "id": "e_447",
+      "id": "e_420",
       "from": "exam-trap-105-login-order",
       "to": "file-etc-profile",
       "label": "punto crítico de examen",
@@ -17660,7 +16822,7 @@
       "dashes": false
     },
     {
-      "id": "e_448",
+      "id": "e_421",
       "from": "exam-trap-105-login-order",
       "to": "sub-105-1",
       "label": "punto crítico de examen",
@@ -17668,7 +16830,7 @@
       "dashes": false
     },
     {
-      "id": "e_449",
+      "id": "e_422",
       "from": "exam-trap-105-test-gt",
       "to": "cmd-test",
       "label": "punto crítico de examen",
@@ -17676,7 +16838,7 @@
       "dashes": false
     },
     {
-      "id": "e_450",
+      "id": "e_423",
       "from": "exam-trap-105-test-gt",
       "to": "sub-105-2",
       "label": "punto crítico de examen",
@@ -17684,7 +16846,7 @@
       "dashes": false
     },
     {
-      "id": "e_451",
+      "id": "e_424",
       "from": "exam-trap-105-positional-braces",
       "to": "sub-105-2",
       "label": "punto crítico de examen",
@@ -17692,7 +16854,7 @@
       "dashes": false
     },
     {
-      "id": "e_452",
+      "id": "e_425",
       "from": "exam-trap-106-display-syntax",
       "to": "cmd-xdpyinfo",
       "label": "punto crítico de examen",
@@ -17700,7 +16862,7 @@
       "dashes": false
     },
     {
-      "id": "e_453",
+      "id": "e_426",
       "from": "exam-trap-106-display-syntax",
       "to": "sub-106-1",
       "label": "punto crítico de examen",
@@ -17708,7 +16870,7 @@
       "dashes": false
     },
     {
-      "id": "e_454",
+      "id": "e_427",
       "from": "exam-trap-106-xhost-vs-xauth",
       "to": "cmd-xhost",
       "label": "punto crítico de examen",
@@ -17716,7 +16878,7 @@
       "dashes": false
     },
     {
-      "id": "e_455",
+      "id": "e_428",
       "from": "exam-trap-106-xhost-vs-xauth",
       "to": "cmd-xauth",
       "label": "punto crítico de examen",
@@ -17724,7 +16886,7 @@
       "dashes": false
     },
     {
-      "id": "e_456",
+      "id": "e_429",
       "from": "exam-trap-106-xhost-vs-xauth",
       "to": "sub-106-1",
       "label": "punto crítico de examen",
@@ -17732,7 +16894,7 @@
       "dashes": false
     },
     {
-      "id": "e_457",
+      "id": "e_430",
       "from": "exam-trap-106-clipboard-sigint",
       "to": "sub-106-2",
       "label": "punto crítico de examen",
@@ -17740,7 +16902,7 @@
       "dashes": false
     },
     {
-      "id": "e_458",
+      "id": "e_431",
       "from": "exam-trap-106-sticky-shift5",
       "to": "sub-106-3",
       "label": "punto crítico de examen",
@@ -17748,7 +16910,7 @@
       "dashes": false
     },
     {
-      "id": "e_459",
+      "id": "e_432",
       "from": "exam-trap-107-usermod-append-g",
       "to": "cmd-usermod",
       "label": "punto crítico de examen",
@@ -17756,7 +16918,7 @@
       "dashes": false
     },
     {
-      "id": "e_460",
+      "id": "e_433",
       "from": "exam-trap-107-usermod-append-g",
       "to": "sub-107-1",
       "label": "punto crítico de examen",
@@ -17764,7 +16926,7 @@
       "dashes": false
     },
     {
-      "id": "e_461",
+      "id": "e_434",
       "from": "exam-trap-107-crontab-fields",
       "to": "cmd-crontab",
       "label": "punto crítico de examen",
@@ -17772,7 +16934,7 @@
       "dashes": false
     },
     {
-      "id": "e_462",
+      "id": "e_435",
       "from": "exam-trap-107-crontab-fields",
       "to": "file-etc-crontab",
       "label": "punto crítico de examen",
@@ -17780,7 +16942,7 @@
       "dashes": false
     },
     {
-      "id": "e_463",
+      "id": "e_436",
       "from": "exam-trap-107-crontab-fields",
       "to": "sub-107-2",
       "label": "punto crítico de examen",
@@ -17788,7 +16950,7 @@
       "dashes": false
     },
     {
-      "id": "e_464",
+      "id": "e_437",
       "from": "exam-trap-107-tzselect-noperms",
       "to": "cmd-tzselect",
       "label": "punto crítico de examen",
@@ -17796,7 +16958,7 @@
       "dashes": false
     },
     {
-      "id": "e_465",
+      "id": "e_438",
       "from": "exam-trap-107-tzselect-noperms",
       "to": "cmd-timedatectl",
       "label": "punto crítico de examen",
@@ -17804,7 +16966,7 @@
       "dashes": false
     },
     {
-      "id": "e_466",
+      "id": "e_439",
       "from": "exam-trap-107-tzselect-noperms",
       "to": "sub-107-3",
       "label": "punto crítico de examen",
@@ -17812,7 +16974,7 @@
       "dashes": false
     },
     {
-      "id": "e_467",
+      "id": "e_440",
       "from": "exam-trap-107-lcall-priority",
       "to": "sub-107-3",
       "label": "punto crítico de examen",
@@ -17820,7 +16982,7 @@
       "dashes": false
     },
     {
-      "id": "e_468",
+      "id": "e_441",
       "from": "exam-trap-107-iso8859-euro",
       "to": "cmd-iconv",
       "label": "punto crítico de examen",
@@ -17828,7 +16990,7 @@
       "dashes": false
     },
     {
-      "id": "e_469",
+      "id": "e_442",
       "from": "exam-trap-107-iso8859-euro",
       "to": "sub-107-3",
       "label": "punto crítico de examen",
@@ -17836,7 +16998,7 @@
       "dashes": false
     },
     {
-      "id": "e_470",
+      "id": "e_443",
       "from": "exam-trap-108-hwclock-direction",
       "to": "cmd-hwclock",
       "label": "punto crítico de examen",
@@ -17844,7 +17006,7 @@
       "dashes": false
     },
     {
-      "id": "e_471",
+      "id": "e_444",
       "from": "exam-trap-108-hwclock-direction",
       "to": "sub-108-1",
       "label": "punto crítico de examen",
@@ -17852,7 +17014,7 @@
       "dashes": false
     },
     {
-      "id": "e_472",
+      "id": "e_445",
       "from": "exam-trap-108-syslog-priority-scale",
       "to": "file-etc-rsyslog-conf",
       "label": "punto crítico de examen",
@@ -17860,7 +17022,7 @@
       "dashes": false
     },
     {
-      "id": "e_473",
+      "id": "e_446",
       "from": "exam-trap-108-syslog-priority-scale",
       "to": "sub-108-2",
       "label": "punto crítico de examen",
@@ -17868,7 +17030,7 @@
       "dashes": false
     },
     {
-      "id": "e_474",
+      "id": "e_447",
       "from": "exam-trap-108-rsyslog-async-dash",
       "to": "file-etc-rsyslog-conf",
       "label": "punto crítico de examen",
@@ -17876,7 +17038,7 @@
       "dashes": false
     },
     {
-      "id": "e_475",
+      "id": "e_448",
       "from": "exam-trap-108-rsyslog-async-dash",
       "to": "sub-108-2",
       "label": "punto crítico de examen",
@@ -17884,7 +17046,7 @@
       "dashes": false
     },
     {
-      "id": "e_476",
+      "id": "e_449",
       "from": "exam-trap-108-newaliases-db",
       "to": "cmd-newaliases",
       "label": "punto crítico de examen",
@@ -17892,7 +17054,7 @@
       "dashes": false
     },
     {
-      "id": "e_477",
+      "id": "e_450",
       "from": "exam-trap-108-newaliases-db",
       "to": "file-etc-aliases",
       "label": "punto crítico de examen",
@@ -17900,7 +17062,7 @@
       "dashes": false
     },
     {
-      "id": "e_478",
+      "id": "e_451",
       "from": "exam-trap-108-newaliases-db",
       "to": "sub-108-3",
       "label": "punto crítico de examen",
@@ -17908,7 +17070,7 @@
       "dashes": false
     },
     {
-      "id": "e_479",
+      "id": "e_452",
       "from": "exam-trap-108-cups-printers-conf-lock",
       "to": "file-etc-cups-printers-conf",
       "label": "punto crítico de examen",
@@ -17916,15 +17078,7 @@
       "dashes": false
     },
     {
-      "id": "e_480",
-      "from": "exam-trap-108-cups-printers-conf-lock",
-      "to": "cmd-lpadmin",
-      "label": "punto crítico de examen",
-      "rel_type": "exam_relation",
-      "dashes": false
-    },
-    {
-      "id": "e_481",
+      "id": "e_453",
       "from": "exam-trap-108-cups-printers-conf-lock",
       "to": "sub-108-4",
       "label": "punto crítico de examen",
@@ -17932,7 +17086,7 @@
       "dashes": false
     },
     {
-      "id": "e_482",
+      "id": "e_454",
       "from": "exam-trap-108-cups-lp-vs-lpr-flags",
       "to": "cmd-lpr",
       "label": "punto crítico de examen",
@@ -17940,7 +17094,7 @@
       "dashes": false
     },
     {
-      "id": "e_483",
+      "id": "e_455",
       "from": "exam-trap-108-cups-lp-vs-lpr-flags",
       "to": "sub-108-4",
       "label": "punto crítico de examen",
@@ -17948,7 +17102,7 @@
       "dashes": false
     },
     {
-      "id": "e_484",
+      "id": "e_456",
       "from": "exam-trap-109-rfc1918-ranges",
       "to": "file-etc-services",
       "label": "punto crítico de examen",
@@ -17956,7 +17110,7 @@
       "dashes": false
     },
     {
-      "id": "e_485",
+      "id": "e_457",
       "from": "exam-trap-109-rfc1918-ranges",
       "to": "sub-109-1",
       "label": "punto crítico de examen",
@@ -17964,7 +17118,7 @@
       "dashes": false
     },
     {
-      "id": "e_486",
+      "id": "e_458",
       "from": "exam-trap-109-ipv6-compression-rules",
       "to": "sub-109-1",
       "label": "punto crítico de examen",
@@ -17972,7 +17126,7 @@
       "dashes": false
     },
     {
-      "id": "e_487",
+      "id": "e_459",
       "from": "exam-trap-109-nmcli-method-manual",
       "to": "cmd-nmcli",
       "label": "punto crítico de examen",
@@ -17980,7 +17134,7 @@
       "dashes": false
     },
     {
-      "id": "e_488",
+      "id": "e_460",
       "from": "exam-trap-109-nmcli-method-manual",
       "to": "sub-109-2",
       "label": "punto crítico de examen",
@@ -17988,7 +17142,7 @@
       "dashes": false
     },
     {
-      "id": "e_489",
+      "id": "e_461",
       "from": "exam-trap-109-ip-route-default-via",
       "to": "cmd-ip",
       "label": "punto crítico de examen",
@@ -17996,7 +17150,7 @@
       "dashes": false
     },
     {
-      "id": "e_490",
+      "id": "e_462",
       "from": "exam-trap-109-ip-route-default-via",
       "to": "cmd-route",
       "label": "punto crítico de examen",
@@ -18004,7 +17158,7 @@
       "dashes": false
     },
     {
-      "id": "e_491",
+      "id": "e_463",
       "from": "exam-trap-109-ip-route-default-via",
       "to": "sub-109-2",
       "label": "punto crítico de examen",
@@ -18012,7 +17166,7 @@
       "dashes": false
     },
     {
-      "id": "e_492",
+      "id": "e_464",
       "from": "exam-trap-109-tracepath-no-root-mtu",
       "to": "cmd-tracepath",
       "label": "punto crítico de examen",
@@ -18020,7 +17174,7 @@
       "dashes": false
     },
     {
-      "id": "e_493",
+      "id": "e_465",
       "from": "exam-trap-109-tracepath-no-root-mtu",
       "to": "cmd-traceroute",
       "label": "punto crítico de examen",
@@ -18028,7 +17182,7 @@
       "dashes": false
     },
     {
-      "id": "e_494",
+      "id": "e_466",
       "from": "exam-trap-109-tracepath-no-root-mtu",
       "to": "sub-109-3",
       "label": "punto crítico de examen",
@@ -18036,7 +17190,7 @@
       "dashes": false
     },
     {
-      "id": "e_495",
+      "id": "e_467",
       "from": "exam-trap-109-getent-vs-dig-hosts",
       "to": "cmd-dig",
       "label": "punto crítico de examen",
@@ -18044,7 +17198,7 @@
       "dashes": false
     },
     {
-      "id": "e_496",
+      "id": "e_468",
       "from": "exam-trap-109-getent-vs-dig-hosts",
       "to": "cmd-host",
       "label": "punto crítico de examen",
@@ -18052,7 +17206,7 @@
       "dashes": false
     },
     {
-      "id": "e_497",
+      "id": "e_469",
       "from": "exam-trap-109-getent-vs-dig-hosts",
       "to": "file-etc-hosts",
       "label": "punto crítico de examen",
@@ -18060,7 +17214,7 @@
       "dashes": false
     },
     {
-      "id": "e_498",
+      "id": "e_470",
       "from": "exam-trap-109-getent-vs-dig-hosts",
       "to": "file-etc-nsswitch-conf",
       "label": "punto crítico de examen",
@@ -18068,7 +17222,7 @@
       "dashes": false
     },
     {
-      "id": "e_499",
+      "id": "e_471",
       "from": "exam-trap-109-getent-vs-dig-hosts",
       "to": "sub-109-4",
       "label": "punto crítico de examen",
@@ -18076,7 +17230,7 @@
       "dashes": false
     },
     {
-      "id": "e_500",
+      "id": "e_472",
       "from": "exam-trap-110-suid-uppercase-s",
       "to": "sub-110-1",
       "label": "punto crítico de examen",
@@ -18084,7 +17238,7 @@
       "dashes": false
     },
     {
-      "id": "e_501",
+      "id": "e_473",
       "from": "exam-trap-110-etc-nologin-root-allowed",
       "to": "file-etc-nologin",
       "label": "punto crítico de examen",
@@ -18092,7 +17246,7 @@
       "dashes": false
     },
     {
-      "id": "e_502",
+      "id": "e_474",
       "from": "exam-trap-110-etc-nologin-root-allowed",
       "to": "sub-110-2",
       "label": "punto crítico de examen",
@@ -18100,7 +17254,7 @@
       "dashes": false
     },
     {
-      "id": "e_503",
+      "id": "e_475",
       "from": "exam-trap-110-tcp-wrappers-precedence",
       "to": "file-etc-hosts-allow",
       "label": "punto crítico de examen",
@@ -18108,7 +17262,7 @@
       "dashes": false
     },
     {
-      "id": "e_504",
+      "id": "e_476",
       "from": "exam-trap-110-tcp-wrappers-precedence",
       "to": "file-etc-hosts-deny",
       "label": "punto crítico de examen",
@@ -18116,7 +17270,7 @@
       "dashes": false
     },
     {
-      "id": "e_505",
+      "id": "e_477",
       "from": "exam-trap-110-tcp-wrappers-precedence",
       "to": "sub-110-2",
       "label": "punto crítico de examen",
@@ -18124,7 +17278,7 @@
       "dashes": false
     },
     {
-      "id": "e_506",
+      "id": "e_478",
       "from": "exam-trap-110-ssh-private-key-permissions",
       "to": "cmd-ssh",
       "label": "punto crítico de examen",
@@ -18132,7 +17286,7 @@
       "dashes": false
     },
     {
-      "id": "e_507",
+      "id": "e_479",
       "from": "exam-trap-110-ssh-private-key-permissions",
       "to": "sub-110-3",
       "label": "punto crítico de examen",
@@ -18140,7 +17294,7 @@
       "dashes": false
     },
     {
-      "id": "e_508",
+      "id": "e_480",
       "from": "exam-trap-110-ssh-tunnel-local-vs-remote",
       "to": "cmd-ssh",
       "label": "punto crítico de examen",
@@ -18148,7 +17302,7 @@
       "dashes": false
     },
     {
-      "id": "e_509",
+      "id": "e_481",
       "from": "exam-trap-110-ssh-tunnel-local-vs-remote",
       "to": "sub-110-3",
       "label": "punto crítico de examen",
@@ -18156,7 +17310,7 @@
       "dashes": false
     },
     {
-      "id": "e_510",
+      "id": "e_482",
       "from": "exam-trap-110-gpg-encrypt-public-sign-private",
       "to": "cmd-gpg",
       "label": "punto crítico de examen",
@@ -18164,7 +17318,7 @@
       "dashes": false
     },
     {
-      "id": "e_511",
+      "id": "e_483",
       "from": "exam-trap-110-gpg-encrypt-public-sign-private",
       "to": "sub-110-3",
       "label": "punto crítico de examen",
@@ -18172,7 +17326,7 @@
       "dashes": false
     },
     {
-      "id": "e_512",
+      "id": "e_484",
       "from": "cmd-mount",
       "to": "file-etc-fstab",
       "label": "lee configuración de montajes permanentes de",
@@ -18180,7 +17334,7 @@
       "dashes": false
     },
     {
-      "id": "e_513",
+      "id": "e_485",
       "from": "cmd-mount",
       "to": "cmd-blkid",
       "label": "se apoya para resolver UUID y etiquetas en",
@@ -18188,7 +17342,7 @@
       "dashes": false
     },
     {
-      "id": "e_514",
+      "id": "e_486",
       "from": "cmd-mount",
       "to": "cmd-lsblk",
       "label": "inspecciona la topología de bloques con",
@@ -18196,7 +17350,7 @@
       "dashes": false
     },
     {
-      "id": "e_515",
+      "id": "e_487",
       "from": "cmd-umount",
       "to": "cmd-mount",
       "label": "desmonta sistemas de archivos previamente acoplados por",
@@ -18204,7 +17358,7 @@
       "dashes": false
     },
     {
-      "id": "e_516",
+      "id": "e_488",
       "from": "cmd-fsck",
       "to": "file-etc-fstab",
       "label": "determina el orden de verificación con el 6º campo de",
@@ -18212,7 +17366,7 @@
       "dashes": false
     },
     {
-      "id": "e_517",
+      "id": "e_489",
       "from": "cmd-tune2fs",
       "to": "cmd-mkfs",
       "label": "ajusta parámetros de sistemas ext2/3/4 creados por",
@@ -18220,7 +17374,7 @@
       "dashes": false
     },
     {
-      "id": "e_518",
+      "id": "e_490",
       "from": "cmd-dumpe2fs",
       "to": "cmd-mkfs",
       "label": "imprime información del superbloque generado por",
@@ -18228,7 +17382,7 @@
       "dashes": false
     },
     {
-      "id": "e_519",
+      "id": "e_491",
       "from": "cmd-systemctl",
       "to": "cmd-telinit",
       "label": "reemplazo moderno en Linux de",
@@ -18236,7 +17390,7 @@
       "dashes": false
     },
     {
-      "id": "e_520",
+      "id": "e_492",
       "from": "cmd-systemctl",
       "to": "cmd-journalctl",
       "label": "controla demonios cuyos registros audita",
@@ -18244,7 +17398,7 @@
       "dashes": false
     },
     {
-      "id": "e_521",
+      "id": "e_493",
       "from": "cmd-systemctl",
       "to": "file-etc-inittab",
       "label": "sustituye la configuración central de",
@@ -18252,7 +17406,7 @@
       "dashes": false
     },
     {
-      "id": "e_522",
+      "id": "e_494",
       "from": "cmd-systemctl",
       "to": "cmd-shutdown",
       "label": "gestiona apagado coordinado y ordenado mediante",
@@ -18260,7 +17414,7 @@
       "dashes": false
     },
     {
-      "id": "e_523",
+      "id": "e_495",
       "from": "cmd-dmesg",
       "to": "cmd-journalctl",
       "label": "muestra el buffer de arranque antes de que inicie",
@@ -18268,7 +17422,7 @@
       "dashes": false
     },
     {
-      "id": "e_524",
+      "id": "e_496",
       "from": "cmd-modprobe",
       "to": "cmd-lsmod",
       "label": "carga módulos cuyas dependencias y estado lista",
@@ -18276,7 +17430,7 @@
       "dashes": false
     },
     {
-      "id": "e_525",
+      "id": "e_497",
       "from": "cmd-modprobe",
       "to": "cmd-modinfo",
       "label": "resuelve parámetros inspeccionados previamente con",
@@ -18284,7 +17438,7 @@
       "dashes": false
     },
     {
-      "id": "e_526",
+      "id": "e_498",
       "from": "cmd-lspci",
       "to": "cmd-modprobe",
       "label": "identifica hardware PCI y drivers sugeridos para",
@@ -18292,7 +17446,7 @@
       "dashes": false
     },
     {
-      "id": "e_527",
+      "id": "e_499",
       "from": "cmd-lsusb",
       "to": "cmd-modprobe",
       "label": "inspecciona periféricos USB gestionados por",
@@ -18300,7 +17454,7 @@
       "dashes": false
     },
     {
-      "id": "e_528",
+      "id": "e_500",
       "from": "cmd-find",
       "to": "cmd-xargs",
       "label": "envía listas de archivos delimitados por '\\0' a",
@@ -18308,7 +17462,7 @@
       "dashes": false
     },
     {
-      "id": "e_529",
+      "id": "e_501",
       "from": "cmd-grep",
       "to": "cmd-sed",
       "label": "filtra líneas antes de la transformación de texto con",
@@ -18316,7 +17470,7 @@
       "dashes": false
     },
     {
-      "id": "e_530",
+      "id": "e_502",
       "from": "cmd-cat",
       "to": "cmd-grep",
       "label": "canaliza secuencias de texto hacia",
@@ -18324,7 +17478,7 @@
       "dashes": false
     },
     {
-      "id": "e_531",
+      "id": "e_503",
       "from": "cmd-cut",
       "to": "cmd-sort",
       "label": "extrae campos que luego se ordenan con",
@@ -18332,7 +17486,7 @@
       "dashes": false
     },
     {
-      "id": "e_532",
+      "id": "e_504",
       "from": "cmd-sort",
       "to": "cmd-uniq",
       "label": "requiere ordenar las líneas antes de eliminar duplicados con",
@@ -18340,7 +17494,7 @@
       "dashes": false
     },
     {
-      "id": "e_533",
+      "id": "e_505",
       "from": "cmd-tee",
       "to": "cmd-grep",
       "label": "duplica el flujo de la tubería hacia un fichero y hacia",
@@ -18348,7 +17502,7 @@
       "dashes": false
     },
     {
-      "id": "e_534",
+      "id": "e_506",
       "from": "cmd-nice",
       "to": "cmd-renice",
       "label": "asigna niceness inicial modificable posteriormente en vivo por",
@@ -18356,7 +17510,7 @@
       "dashes": false
     },
     {
-      "id": "e_535",
+      "id": "e_507",
       "from": "cmd-ps",
       "to": "cmd-kill",
       "label": "identifica el PID necesario para enviar señales con",
@@ -18364,7 +17518,7 @@
       "dashes": false
     },
     {
-      "id": "e_536",
+      "id": "e_508",
       "from": "cmd-pgrep",
       "to": "cmd-pkill",
       "label": "busca por nombre el proceso que luego termina",
@@ -18372,7 +17526,7 @@
       "dashes": false
     },
     {
-      "id": "e_537",
+      "id": "e_509",
       "from": "cmd-top",
       "to": "cmd-renice",
       "label": "monitoriza procesos interactivos permitiendo renice con 'r' en",
@@ -18380,7 +17534,7 @@
       "dashes": false
     },
     {
-      "id": "e_538",
+      "id": "e_510",
       "from": "cmd-pkill",
       "to": "cmd-pgrep",
       "label": "envía señales directamente por nombre sin requerir PID con",
@@ -18388,7 +17542,7 @@
       "dashes": false
     },
     {
-      "id": "e_539",
+      "id": "e_511",
       "from": "cmd-killall",
       "to": "cmd-kill",
       "label": "elimina todas las instancias concurrentes de un proceso frente al PID de",
@@ -18396,7 +17550,7 @@
       "dashes": false
     },
     {
-      "id": "e_540",
+      "id": "e_512",
       "from": "cmd-jobs",
       "to": "cmd-fg",
       "label": "enumera los trabajos en background recuperables en foreground con",
@@ -18404,7 +17558,7 @@
       "dashes": false
     },
     {
-      "id": "e_541",
+      "id": "e_513",
       "from": "cmd-jobs",
       "to": "cmd-bg",
       "label": "lista trabajos suspendidos reanudables en background con",
@@ -18412,7 +17566,7 @@
       "dashes": false
     },
     {
-      "id": "e_542",
+      "id": "e_514",
       "from": "cmd-nohup",
       "to": "cmd-kill",
       "label": "inmuniza procesos frente a la señal SIGHUP gestionada por",
@@ -18420,7 +17574,7 @@
       "dashes": false
     },
     {
-      "id": "e_543",
+      "id": "e_515",
       "from": "cmd-uptime",
       "to": "cmd-top",
       "label": "muestra carga media (load average a 1, 5 y 15 min) desglosada en",
@@ -18428,7 +17582,7 @@
       "dashes": false
     },
     {
-      "id": "e_544",
+      "id": "e_516",
       "from": "cmd-free",
       "to": "cmd-top",
       "label": "inspecciona memoria RAM y Swap consumida por los procesos mostrados en",
@@ -18436,7 +17590,7 @@
       "dashes": false
     },
     {
-      "id": "e_545",
+      "id": "e_517",
       "from": "cmd-apt-get",
       "to": "cmd-dpkg",
       "label": "frontend de alto nivel que gestiona e instala paquetes deb con",
@@ -18444,7 +17598,7 @@
       "dashes": false
     },
     {
-      "id": "e_546",
+      "id": "e_518",
       "from": "cmd-apt-cache",
       "to": "cmd-apt-get",
       "label": "consulta el repositorio y dependencias antes de instalar con",
@@ -18452,7 +17606,7 @@
       "dashes": false
     },
     {
-      "id": "e_547",
+      "id": "e_519",
       "from": "cmd-apt-file",
       "to": "cmd-dpkg",
       "label": "busca a qué paquete pertenece un fichero sin instalarlo frente a dpkg -S de",
@@ -18460,7 +17614,7 @@
       "dashes": false
     },
     {
-      "id": "e_548",
+      "id": "e_520",
       "from": "cmd-yum",
       "to": "cmd-rpm",
       "label": "frontend de alto nivel en RHEL/CentOS que gestiona paquetes RPM con",
@@ -18468,7 +17622,7 @@
       "dashes": false
     },
     {
-      "id": "e_549",
+      "id": "e_521",
       "from": "cmd-zypper",
       "to": "cmd-rpm",
       "label": "gestor de paquetes de alto nivel en openSUSE que invoca internamente",
@@ -18476,7 +17630,7 @@
       "dashes": false
     },
     {
-      "id": "e_550",
+      "id": "e_522",
       "from": "cmd-rpm2cpio",
       "to": "cmd-cpio",
       "label": "convierte paquetes RPM a flujo comprimido para extraer ficheros con",
@@ -18484,7 +17638,7 @@
       "dashes": false
     },
     {
-      "id": "e_551",
+      "id": "e_523",
       "from": "cmd-gdisk",
       "to": "cmd-fdisk",
       "label": "equivalente GPT para tablas modernas frente al clásico MBR de",
@@ -18492,7 +17646,7 @@
       "dashes": false
     },
     {
-      "id": "e_552",
+      "id": "e_524",
       "from": "cmd-parted",
       "to": "cmd-fdisk",
       "label": "herramienta no interactiva y de scripting frente a",
@@ -18500,7 +17654,7 @@
       "dashes": false
     },
     {
-      "id": "e_553",
+      "id": "e_525",
       "from": "cmd-mke2fs",
       "to": "cmd-mkfs",
       "label": "herramienta especializada subyacente para ext2/ext3/ext4 de",
@@ -18508,7 +17662,7 @@
       "dashes": false
     },
     {
-      "id": "e_554",
+      "id": "e_526",
       "from": "cmd-mkfs.xfs",
       "to": "cmd-mkfs",
       "label": "crea sistemas de archivos de alto rendimiento XFS mediante",
@@ -18516,7 +17670,7 @@
       "dashes": false
     },
     {
-      "id": "e_555",
+      "id": "e_527",
       "from": "cmd-xfs_repair",
       "to": "cmd-mkfs.xfs",
       "label": "repara sistemas XFS no desmontados correctamente creados con",
@@ -18524,7 +17678,7 @@
       "dashes": false
     },
     {
-      "id": "e_556",
+      "id": "e_528",
       "from": "cmd-xfs_info",
       "to": "cmd-xfs_admin",
       "label": "muestra la geometría de bloques y agcount gestionados con",
@@ -18532,7 +17686,7 @@
       "dashes": false
     },
     {
-      "id": "e_557",
+      "id": "e_529",
       "from": "cmd-swapon",
       "to": "cmd-mkswap",
       "label": "activa para la memoria virtual particiones o archivos formateados con",
@@ -18540,7 +17694,7 @@
       "dashes": false
     },
     {
-      "id": "e_558",
+      "id": "e_530",
       "from": "cmd-swapoff",
       "to": "cmd-swapon",
       "label": "desactiva el uso de espacio de intercambio habilitado por",
@@ -18548,7 +17702,7 @@
       "dashes": false
     },
     {
-      "id": "e_559",
+      "id": "e_531",
       "from": "cmd-chown",
       "to": "cmd-chmod",
       "label": "modifica usuario/grupo propietario mientras los bits rwx los define",
@@ -18556,7 +17710,7 @@
       "dashes": false
     },
     {
-      "id": "e_560",
+      "id": "e_532",
       "from": "cmd-chgrp",
       "to": "cmd-chown",
       "label": "modifica específicamente el grupo propietario en sintonía con",
@@ -18564,7 +17718,7 @@
       "dashes": false
     },
     {
-      "id": "e_561",
+      "id": "e_533",
       "from": "cmd-unlink",
       "to": "cmd-ln",
       "label": "elimina enlaces duros o simbólicos creados previamente por",
@@ -18572,7 +17726,7 @@
       "dashes": false
     },
     {
-      "id": "e_562",
+      "id": "e_534",
       "from": "cmd-readlink",
       "to": "cmd-ln",
       "label": "resuelve y muestra el destino real de un symlink creado con",
@@ -18580,7 +17734,7 @@
       "dashes": false
     },
     {
-      "id": "e_563",
+      "id": "e_535",
       "from": "cmd-find",
       "to": "cmd-ln",
       "label": "rastrea archivos con el mismo inodo (-inum/-samefile) vinculados por",
@@ -18588,7 +17742,7 @@
       "dashes": false
     },
     {
-      "id": "e_564",
+      "id": "e_536",
       "from": "cmd-locate",
       "to": "cmd-find",
       "label": "búsqueda indexada por base de datos mlocate frente a la búsqueda en vivo en disco de",
@@ -18596,7 +17750,7 @@
       "dashes": false
     },
     {
-      "id": "e_565",
+      "id": "e_537",
       "from": "cmd-whereis",
       "to": "cmd-which",
       "label": "localiza binarios, manuales y fuentes mientras el path ejecutable lo da",
@@ -18604,7 +17758,7 @@
       "dashes": false
     },
     {
-      "id": "e_566",
+      "id": "e_538",
       "from": "cmd-type",
       "to": "cmd-which",
       "label": "distingue si una orden es builtin interna de shell, alias o binario de",
@@ -18612,7 +17766,7 @@
       "dashes": false
     },
     {
-      "id": "e_567",
+      "id": "e_539",
       "from": "cmd-tac",
       "to": "cmd-cat",
       "label": "concatena e imprime líneas en orden inverso frente a",
@@ -18620,7 +17774,7 @@
       "dashes": false
     },
     {
-      "id": "e_568",
+      "id": "e_540",
       "from": "cmd-head",
       "to": "cmd-tail",
       "label": "muestra las primeras líneas mientras las últimas las vigila en tiempo real",
@@ -18628,7 +17782,7 @@
       "dashes": false
     },
     {
-      "id": "e_569",
+      "id": "e_541",
       "from": "cmd-nl",
       "to": "cmd-cat",
       "label": "numera líneas de ficheros sustituyendo a cat -n",
@@ -18636,7 +17790,7 @@
       "dashes": false
     },
     {
-      "id": "e_570",
+      "id": "e_542",
       "from": "cmd-cut",
       "to": "cmd-paste",
       "label": "separa campos verticalmente que luego pueden combinarse en horizontal con",
@@ -18644,7 +17798,7 @@
       "dashes": false
     },
     {
-      "id": "e_571",
+      "id": "e_543",
       "from": "cmd-split",
       "to": "cmd-cat",
       "label": "divide archivos voluminosos en trozos reconstruibles posteriormente con",
@@ -18652,7 +17806,7 @@
       "dashes": false
     },
     {
-      "id": "e_572",
+      "id": "e_544",
       "from": "cmd-md5sum",
       "to": "cmd-sha256sum",
       "label": "algoritmo hash de 128 bits frente a la verificación robusta de 256 bits de",
@@ -18660,7 +17814,7 @@
       "dashes": false
     },
     {
-      "id": "e_573",
+      "id": "e_545",
       "from": "cmd-sha256sum",
       "to": "cmd-sha512sum",
       "label": "comprueba integridad criptográfica frente a la variante extendida de",
@@ -18668,7 +17822,7 @@
       "dashes": false
     },
     {
-      "id": "e_574",
+      "id": "e_546",
       "from": "cmd-tr",
       "to": "cmd-sed",
       "label": "sustituye y traduce caracteres de flujos antes de transformaciones complejas con",
@@ -18676,7 +17830,7 @@
       "dashes": false
     },
     {
-      "id": "e_575",
+      "id": "e_547",
       "from": "cmd-wc",
       "to": "cmd-sort",
       "label": "cuenta líneas y palabras tras ordenar o agrupar flujos con",
@@ -18684,7 +17838,7 @@
       "dashes": false
     },
     {
-      "id": "e_576",
+      "id": "e_548",
       "from": "cmd-egrep",
       "to": "cmd-grep",
       "label": "habilita expresiones regulares extendidas (ERE) sin requerir escapar con",
@@ -18692,7 +17846,7 @@
       "dashes": false
     },
     {
-      "id": "e_577",
+      "id": "e_549",
       "from": "cmd-fgrep",
       "to": "cmd-grep",
       "label": "modo ultra-rápido de cadenas fijas sin interpretar metacaracteres de",
@@ -18700,7 +17854,7 @@
       "dashes": false
     },
     {
-      "id": "e_578",
+      "id": "e_550",
       "from": "cmd-tar",
       "to": "cmd-cpio",
       "label": "empaquetador estándar de archivos frente al formato secuencial de",
@@ -18708,7 +17862,7 @@
       "dashes": false
     },
     {
-      "id": "e_579",
+      "id": "e_551",
       "from": "cmd-tar",
       "to": "cmd-dd",
       "label": "genera archivos de respaldo empaquetados frente a la copia binaria por bloques de",
@@ -18716,7 +17870,7 @@
       "dashes": false
     },
     {
-      "id": "e_580",
+      "id": "e_552",
       "from": "cmd-lsmod",
       "to": "cmd-modinfo",
       "label": "lista módulos cargados en el kernel cuyos parámetros inspecciona",
@@ -18724,7 +17878,7 @@
       "dashes": false
     },
     {
-      "id": "e_581",
+      "id": "e_553",
       "from": "cmd-lscpu",
       "to": "cmd-lspci",
       "label": "muestra arquitectura del procesador mientras los buses periféricos los lista",
@@ -18732,7 +17886,7 @@
       "dashes": false
     },
     {
-      "id": "e_582",
+      "id": "e_554",
       "from": "cmd-telinit",
       "to": "cmd-runlevel",
       "label": "cambia el nivel de ejecución comprobable mediante",
@@ -18740,7 +17894,7 @@
       "dashes": false
     },
     {
-      "id": "e_583",
+      "id": "e_555",
       "from": "cmd-shutdown",
       "to": "cmd-wall",
       "label": "programa el apagado emitiendo avisos a todos los usuarios con",
@@ -18748,7 +17902,7 @@
       "dashes": false
     },
     {
-      "id": "e_584",
+      "id": "e_556",
       "from": "cmd-ip",
       "to": "cmd-ifconfig",
       "label": "es la alternativa moderna oficial a",
@@ -18756,7 +17910,7 @@
       "dashes": false
     },
     {
-      "id": "e_585",
+      "id": "e_557",
       "from": "cmd-ip",
       "to": "cmd-route",
       "label": "reemplaza la inspección de tablas de rutas de",
@@ -18764,7 +17918,7 @@
       "dashes": false
     },
     {
-      "id": "e_586",
+      "id": "e_558",
       "from": "cmd-ss",
       "to": "cmd-netstat",
       "label": "es la alternativa moderna veloz a",
@@ -18772,7 +17926,7 @@
       "dashes": false
     },
     {
-      "id": "e_587",
+      "id": "e_559",
       "from": "cmd-ping",
       "to": "cmd-traceroute",
       "label": "diagnostica enlace básico mientras rastrea saltos",
@@ -18780,7 +17934,7 @@
       "dashes": false
     },
     {
-      "id": "e_588",
+      "id": "e_560",
       "from": "cmd-nmcli",
       "to": "cmd-nmtui",
       "label": "versión CLI de la interfaz en curses",
@@ -18788,7 +17942,7 @@
       "dashes": false
     },
     {
-      "id": "e_589",
+      "id": "e_561",
       "from": "cmd-dig",
       "to": "cmd-nslookup",
       "label": "es la herramienta moderna recomendada frente a",
@@ -18796,7 +17950,7 @@
       "dashes": false
     },
     {
-      "id": "e_590",
+      "id": "e_562",
       "from": "cmd-dig",
       "to": "file-etc-resolv-conf",
       "label": "utiliza los servidores nameserver definidos en",
@@ -18804,7 +17958,7 @@
       "dashes": false
     },
     {
-      "id": "e_591",
+      "id": "e_563",
       "from": "file-etc-nsswitch-conf",
       "to": "file-etc-hosts",
       "label": "establece prioridad de consulta de",
@@ -18812,7 +17966,7 @@
       "dashes": false
     },
     {
-      "id": "e_592",
+      "id": "e_564",
       "from": "file-etc-nsswitch-conf",
       "to": "file-etc-resolv-conf",
       "label": "establece orden antes de consultar el DNS de",
@@ -18820,7 +17974,7 @@
       "dashes": false
     },
     {
-      "id": "e_593",
+      "id": "e_565",
       "from": "cmd-useradd",
       "to": "file-etc-passwd",
       "label": "escribe la entrada principal de la cuenta en",
@@ -18828,7 +17982,7 @@
       "dashes": false
     },
     {
-      "id": "e_594",
+      "id": "e_566",
       "from": "cmd-useradd",
       "to": "file-etc-shadow",
       "label": "escribe el hash seguro de contraseña en",
@@ -18836,7 +17990,7 @@
       "dashes": false
     },
     {
-      "id": "e_595",
+      "id": "e_567",
       "from": "cmd-useradd",
       "to": "file-etc-skel",
       "label": "copia archivos plantilla al nuevo home desde",
@@ -18844,7 +17998,7 @@
       "dashes": false
     },
     {
-      "id": "e_596",
+      "id": "e_568",
       "from": "cmd-usermod",
       "to": "cmd-chage",
       "label": "modifica atributos de usuario complementando las políticas de",
@@ -18852,7 +18006,7 @@
       "dashes": false
     },
     {
-      "id": "e_597",
+      "id": "e_569",
       "from": "cmd-passwd",
       "to": "cmd-chage",
       "label": "cambia la contraseña mientras que las políticas de caducidad las fija",
@@ -18860,7 +18014,7 @@
       "dashes": false
     },
     {
-      "id": "e_598",
+      "id": "e_570",
       "from": "cmd-sudo",
       "to": "cmd-visudo",
       "label": "aplica las directivas autorizadas y validadas por",
@@ -18868,7 +18022,7 @@
       "dashes": false
     },
     {
-      "id": "e_599",
+      "id": "e_571",
       "from": "cmd-sudo",
       "to": "file-etc-sudoers",
       "label": "consulta permisos y privilegios asignados en",
@@ -18876,7 +18030,7 @@
       "dashes": false
     },
     {
-      "id": "e_600",
+      "id": "e_572",
       "from": "cmd-ssh",
       "to": "cmd-sshd",
       "label": "cliente que conecta al demonio seguro",
@@ -18884,7 +18038,7 @@
       "dashes": false
     },
     {
-      "id": "e_601",
+      "id": "e_573",
       "from": "cmd-ssh-copy-id",
       "to": "cmd-ssh-keygen",
       "label": "instala en el servidor la clave pública creada por",
@@ -18892,7 +18046,7 @@
       "dashes": false
     },
     {
-      "id": "e_602",
+      "id": "e_574",
       "from": "cmd-ssh",
       "to": "file-etc-ssh-sshd-config",
       "label": "conecta respetando las directivas del servidor en",
@@ -18900,7 +18054,7 @@
       "dashes": false
     },
     {
-      "id": "e_603",
+      "id": "e_575",
       "from": "cmd-crontab",
       "to": "file-etc-crontab",
       "label": "gestiona tareas de usuario independientes del cron global de",
@@ -18908,7 +18062,7 @@
       "dashes": false
     },
     {
-      "id": "e_604",
+      "id": "e_576",
       "from": "cmd-at",
       "to": "cmd-atq",
       "label": "programa tareas únicas cuya cola se revisa con",
@@ -18916,7 +18070,7 @@
       "dashes": false
     },
     {
-      "id": "e_605",
+      "id": "e_577",
       "from": "cmd-at",
       "to": "cmd-atrm",
       "label": "programa tareas únicas cancelables con",
@@ -18924,7 +18078,7 @@
       "dashes": false
     },
     {
-      "id": "e_606",
+      "id": "e_578",
       "from": "cmd-chronyc",
       "to": "cmd-hwclock",
       "label": "sincroniza el reloj del sistema que luego se vuelca al RTC con",
@@ -18932,7 +18086,7 @@
       "dashes": false
     },
     {
-      "id": "e_607",
+      "id": "e_579",
       "from": "cmd-logger",
       "to": "file-etc-rsyslog-conf",
       "label": "inyecta eventos manuales clasificados por",
@@ -18940,7 +18094,7 @@
       "dashes": false
     },
     {
-      "id": "e_608",
+      "id": "e_580",
       "from": "cmd-logrotate",
       "to": "file-etc-rsyslog-conf",
       "label": "previene que crezcan indefinidamente los logs producidos por",
@@ -18948,7 +18102,7 @@
       "dashes": false
     },
     {
-      "id": "e_609",
+      "id": "e_581",
       "from": "cmd-xhost",
       "to": "cmd-xauth",
       "label": "control de acceso por host frente a la autenticación criptográfica con cookies de",
@@ -18956,7 +18110,7 @@
       "dashes": false
     },
     {
-      "id": "e_610",
+      "id": "e_582",
       "from": "cmd-xdpyinfo",
       "to": "cmd-xhost",
       "label": "inspecciona la pantalla y extensiones del servidor X autorizado mediante",
@@ -18964,7 +18118,7 @@
       "dashes": false
     },
     {
-      "id": "e_611",
+      "id": "e_583",
       "from": "cmd-useradd",
       "to": "file-etc-passwd",
       "label": "crea la cuenta y escribe los 7 campos en",
@@ -18972,7 +18126,7 @@
       "dashes": false
     },
     {
-      "id": "e_612",
+      "id": "e_584",
       "from": "cmd-useradd",
       "to": "file-etc-shadow",
       "label": "genera la entrada de contraseña y envejecimiento en",
@@ -18980,7 +18134,7 @@
       "dashes": false
     },
     {
-      "id": "e_613",
+      "id": "e_585",
       "from": "cmd-chage",
       "to": "file-etc-shadow",
       "label": "inspecciona y modifica políticas de caducidad en",
@@ -18988,7 +18142,7 @@
       "dashes": false
     },
     {
-      "id": "e_614",
+      "id": "e_586",
       "from": "cmd-passwd",
       "to": "cmd-chage",
       "label": "gestiona contraseñas equivaliendo a opciones de envejecimiento de",
@@ -18996,7 +18150,7 @@
       "dashes": false
     },
     {
-      "id": "e_615",
+      "id": "e_587",
       "from": "cmd-usermod",
       "to": "cmd-useradd",
       "label": "modifica atributos y pertenencias a grupos creados por",
@@ -19004,7 +18158,7 @@
       "dashes": false
     },
     {
-      "id": "e_616",
+      "id": "e_588",
       "from": "cmd-crontab",
       "to": "file-etc-crontab",
       "label": "gestiona tablas personales de usuario frente al crontab de sistema",
@@ -19012,7 +18166,7 @@
       "dashes": false
     },
     {
-      "id": "e_617",
+      "id": "e_589",
       "from": "cmd-at",
       "to": "cmd-atq",
       "label": "programa tareas únicas encoladas y supervisadas con",
@@ -19020,7 +18174,7 @@
       "dashes": false
     },
     {
-      "id": "e_618",
+      "id": "e_590",
       "from": "cmd-at",
       "to": "cmd-atrm",
       "label": "programa tareas únicas canceladas con",
@@ -19028,7 +18182,7 @@
       "dashes": false
     },
     {
-      "id": "e_619",
+      "id": "e_591",
       "from": "cmd-timedatectl",
       "to": "file-etc-localtime",
       "label": "actualiza el enlace simbólico permanente de zona horaria en",
@@ -19036,7 +18190,7 @@
       "dashes": false
     },
     {
-      "id": "e_620",
+      "id": "e_592",
       "from": "cmd-iconv",
       "to": "cmd-locale",
       "label": "transforma archivos entre conjuntos de caracteres auditados con",
