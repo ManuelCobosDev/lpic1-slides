@@ -245,7 +245,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 25–30 min</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel básico/medio</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-server"/></svg> Debian 12 (00-base-limpia)</span>
-        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 0 capturas requeridas</span>
+        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas requeridas</span>
       </div>
     </div>
 
@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          
+          <li><a href="#mision-1" class="toc-link">Misión 1: Inspección y Configuración de Tiempo y Zona Horaria con timedatectl</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Sincronización Bidireccional entre Kernel y Hardware RTC con hwclock</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Diagnóstico de Jerarquía NTP y Estratos con chronyc</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,14 +270,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Aprende a mantener y sincronizar con precisión el tiempo del sistema en servidores Linux. Comprende la diferencia crítica entre el reloj de software (mantenido por el kernel en memoria RAM en escala UTC) y el reloj de hardware o RTC (Real Time Clock en el chip CMOS con batería). Administra las zonas horarias y el servicio de sincronización mediante `timedatectl`, transfiere la hora en ambas direcciones con `hwclock` (`-w`/`--systohc` y `-s`/`--hctosys`), y audita la jerarquía de estratos NTP mediante `chronyc` y `ntpq`.</p>
+          <p style="font-size:17px; line-height:1.7;">Aprende a mantener y sincronizar con precisión el tiempo del sistema en servidores Linux. Comprende la diferencia crítica entre el reloj de software (mantenido por el kernel en memoria RAM en escala UTC) y el reloj de hardware o RTC (Real Time Clock en el chip CMOS alimentado por batería). Administra las zonas horarias y el servicio de sincronización mediante `timedatectl`, transfiere la hora en ambas direcciones con `hwclock` (`-w`/`--systohc` y `-s`/`--hctosys`), y audita la jerarquía de estratos NTP mediante `chronyc` y `ntpq`.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Diferenciar el reloj del kernel (UTC continuo) del reloj RTC (`/dev/rtc0`).</li><li>Usar `timedatectl` para verificar estado, fijar la hora, cambiar zona horaria y activar la sincronización por red (`set-ntp true`).</li><li>Dominar la dirección de sincronización con `hwclock`: grabar en hardware (`--systohc`) frente a cargar en kernel (`--hctosys`).</li><li>Comprender la arquitectura jerárquica de estratos NTP (Stratum 0 a 16) y el puerto de transporte UDP 123.</li><li>Inspeccionar pares NTP y fuentes de tiempo con `chronyc sources -v` y `ntpq -p`.</li>
+            <li>Diferenciar el reloj del kernel (UTC continuo) del reloj RTC (`/dev/rtc0`).</li><li>Usar `timedatectl` para verificar estado, fijar la hora, cambiar zona horaria y activar la sincronización por red (`set-ntp true`).</li><li>Dominar la dirección de sincronización con `hwclock`: grabar en hardware (`--systohc` / `-w`) frente a cargar en kernel (`--hctosys` / `-s`).</li><li>Comprender la arquitectura jerárquica de estratos NTP (Stratum 0 a 16) y el puerto de transporte UDP 123.</li><li>Inspeccionar pares NTP y fuentes de tiempo con `chronyc sources -v` y `chronyc tracking`.</li>
           </ul>
         </section>
 
@@ -302,16 +302,190 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section id="misiones-container">
           <h2 style="font-size:26px; font-weight:800; margin: 32px 0 16px 0;">4. Misiones Guiadas Paso a Paso</h2>
           
+        <div class="card step-card" id="mision-1">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Inspección y Configuración de Tiempo y Zona Horaria con timedatectl</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('108.1', 1, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Inspeccionaremos el estado unificado del subsistema de tiempo del kernel systemd, visualizaremos las zonas horarias del sistema y configuraremos la zona horaria oficial del servidor a `Europe/Madrid`, activando el cliente NTP.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Consultar el estado completo de tiempo del sistema</span>
+<span class="t-cmd">timedatectl</span> status
+
+<span class="t-cmt"># 2. Listar las zonas horarias de Europa y filtrar Madrid</span>
+<span class="t-cmd">timedatectl</span> list-timezones <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-flag">-i</span> madrid
+
+<span class="t-cmt"># 3. Establecer la zona horaria en Europe/Madrid (modifica el symlink /etc/localtime)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">timedatectl</span> set-timezone <span class="t-path">Europe/Madrid</span>
+
+<span class="t-cmt"># 4. Activar el servicio de sincronización horaria por red (NTP)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">timedatectl</span> set-ntp true
+
+<span class="t-cmt"># 5. Verificar que el cambio se ha aplicado y comprobar el enlace simbólico</span>
+<span class="t-cmd">timedatectl</span>
+<span class="t-cmd">ls</span> <span class="t-flag">-l</span> <span class="t-path">/etc/localtime</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`timedatectl status`: Muestra la hora local, hora universal (UTC), hora del RTC, zona horaria activa y si el reloj está sincronizado con la red.</li><li>`timedatectl list-timezones`: Extrae la base de datos de zonas horarias de `/usr/share/zoneinfo/`.</li><li>`sudo timedatectl set-timezone Europe/Madrid`: Apunta de forma atómica `/etc/localtime` hacia `/usr/share/zoneinfo/Europe/Madrid`.</li><li>`sudo timedatectl set-ntp true`: Habilita y arranca el servicio cliente NTP disponible (`systemd-timesyncd` o `chronyd`).</li><li>`ls -l /etc/localtime`: Confirma a nivel de sistema de archivos que la zona horaria está enlazada correctamente.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `timedatectl status` mostrará `Time zone: Europe/Madrid (CET, +0100)` (o CEST si es horario de verano) y `System clock synchronized: yes` junto a `NTP service: active`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 1:</strong> Salida de `timedatectl status` y comprobación de `ls -l /etc/localtime`. Guarda como `108-1-C1-timedatectl-status.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-2">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Sincronización Bidireccional entre Kernel y Hardware RTC con hwclock</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('108.1', 2, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Interactuaremos directamente con el chip RTC (`/dev/rtc0`) usando `hwclock`. Transferiremos la hora de red precisa desde la RAM del kernel hacia el chip CMOS (`--systohc`), y luego comprobaremos la operación inversa (`--hctosys`), dominando las opciones clave de examen `-w` y `-s`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Leer directamente la hora almacenada en el hardware RTC</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">hwclock</span> <span class="t-flag">--show</span> <span class="t-flag">--verbose</span>
+
+<span class="t-cmt"># 2. Transferir la hora del sistema (kernel en RAM) al reloj hardware (CMOS)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">hwclock</span> <span class="t-flag">--systohc</span>
+<span class="t-cmt"># Opción equivalente evaluada en LPIC-1 (write):</span>
+<span class="t-cmt"># sudo hwclock -w</span>
+
+<span class="t-cmt"># 3. Comprobar que el RTC refleja la nueva hora escrita</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">hwclock</span> <span class="t-flag">-r</span>
+
+<span class="t-cmt"># 4. Probar la dirección inversa: cargar la hora del RTC hacia el reloj del sistema</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">hwclock</span> <span class="t-flag">--hctosys</span>
+<span class="t-cmt"># Opción equivalente evaluada en LPIC-1 (set system):</span>
+<span class="t-cmt"># sudo hwclock -s</span>
+
+<span class="t-cmt"># 5. Comprobar la fecha y hora final del kernel</span>
+<span class="t-cmd">date</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`hwclock --show` (o `-r`): Lee e imprime la hora del reloj de hardware en `/dev/rtc0`.</li><li>`--systohc` (o `-w`): *System to Hardware Clock*: escribe la hora del kernel en el RTC (mnemotecnia: **W**rite to hardware).</li><li>`--hctosys` (o `-s`): *Hardware Clock to System*: lee la hora del RTC y actualiza el reloj del kernel (mnemotecnia: **S**et system time from hardware).</li><li>`date`: Consulta el reloj del software (mantenido por los ticks de la CPU e interrupciones del kernel).</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> Ambos relojes diferirán en menos de 0.05 segundos. `sudo hwclock -r` devolverá la misma hora exacta que `date`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 2:</strong> Ejecución de `sudo hwclock --systohc` seguido de `sudo hwclock -r` y `date`. Guarda como `108-1-C2-hwclock-sync.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-3">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Diagnóstico de Jerarquía NTP y Estratos con chronyc</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('108.1', 3, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Inspeccionaremos la configuración del demonio `chronyd` en `/etc/chrony/chrony.conf`, analizaremos la lista de servidores de tiempo remotos, sus estratos (Stratum), retardo de red (delay) y estado de sincronización con `chronyc sources -v` y `chronyc tracking`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Asegurar que el demonio chrony está activo</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> enable <span class="t-flag">--now</span> chrony <strong>||</strong> <span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> restart chrony
+
+<span class="t-cmt"># 2. Examinar las directivas de pool y servidores en la configuración</span>
+<span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">'^(server|pool|makestep)'</span> <span class="t-path">/etc/chrony/chrony.conf</span>
+
+<span class="t-cmt"># 3. Consultar las fuentes de sincronización NTP detalladas</span>
+<span class="t-cmd">chronyc</span> sources <span class="t-flag">-v</span>
+
+<span class="t-cmt"># 4. Analizar la precisión y desviación con chronyc tracking</span>
+<span class="t-cmd">chronyc</span> tracking</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`grep -E '^(server|pool)...'`: Muestra los servidores o pools de tiempo públicos configurados como fuentes de referencia.</li><li>`chronyc sources -v`: Lista cada par o servidor NTP mostrando:</li><li>`^*`: Fuente primaria actualmente seleccionada para sincronización.</li><li>`^+`: Fuentes candidatas aceptables combinadas en el cálculo.</li><li>`^?`: Fuentes inalcanzables o no sincronizadas.</li><li>Columna `Stratum`: Nivel jerárquico (Stratum 1 está conectado a reloj atómico/GPS; Stratum 2 sincroniza de Stratum 1).</li><li>`chronyc tracking`: Muestra el estrato actual del propio host, la frecuencia de desviación (drift) y el error residual estimado.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> En la salida de `chronyc sources -v`, verás al menos un servidor marcado con `^*`, con un estrato típicamente de 2 o 3, y en `chronyc tracking` el *Reference ID* coincidirá con la IP de ese servidor.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 3:</strong> Salida completa de `chronyc sources -v` y `chronyc tracking`. Guarda como `108-1-C3-chrony-sources.png`.</div>
+            </div>
+            
+        </div>
+        
         </section>
 
         <!-- 5. Mini-Reto Final -->
+        
+        <section class="card" id="mini-reto">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">5. Mini-Reto Final de Autonomía (5 min)</h2>
+          <p style="font-size:17px; margin-bottom:16px;"><strong>Demuestra lo aprendido:</strong> Un servidor industrial ubicado en una subestación eléctrica opera completamente aislado de Internet y sin servidor NTP local. Al reiniciar tras un corte eléctrico prolongado, el kernel arranca con la fecha del 1 de enero de 1970 porque el reloj de software se reinició a cero, pero el chip RTC de la placa madre conserva la hora correcta gracias a su pila botón. ¿Qué comando exacto de una sola línea debe ejecutar el técnico para restaurar inmediatamente la hora del sistema leyendo el reloj del hardware?</p>
+          <details class="accordion-item" style="margin-bottom:10px;">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">💡 Ver pista desplegable si te atascas</summary>
+            <div class="accordion-body" style="background:#FFFBEB; color:#78350F;">Recuerda la opción de <code>hwclock</code> que transfiere del hardware (hc) hacia el sistema (sys).</div>
+          </details>
+          <details class="accordion-item">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
+            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">El comando oficial es <strong><code>sudo hwclock --hctosys</code></strong> (o en sintaxis corta: <strong><code>sudo hwclock -s</code></strong>). Este comando toma el tiempo del chip CMOS (RTC) y actualiza el reloj en memoria del kernel sin requerir conectividad de red ni demonios NTP.</div>
+          </details>
+        </section>
         
 
         <!-- 6. Capturas a entregar -->
         <section class="card" id="capturas">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
             <h2 style="font-size:22px; font-weight:700;">6. Capturas a entregar</h2>
-            <span class="badge badge-green" id="captures-counter">Llevas 0 de 0 capturas</span>
+            <span class="badge badge-green" id="captures-counter">Llevas 0 de 3 capturas</span>
           </div>
           <table class="data-table">
             <thead>
@@ -323,6 +497,24 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('108.1', 'C1', this)"> <strong>C1</strong></label></td>
+                  <td>Evidencia de Misión 1: Salida de `timedatectl status` y ruta en `/etc/localtime`</td>
+                  <td><code>`108-1-C1-timedatectl-status.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('108.1', 'C2', this)"> <strong>C2</strong></label></td>
+                  <td>Evidencia de Misión 2: Sincronización con `hwclock --systohc` y comprobación con `-r`</td>
+                  <td><code>`108-1-C2-hwclock-sync.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('108.1', 'C3', this)"> <strong>C3</strong></label></td>
+                  <td>Evidencia de Misión 3: Tabla de servidores y estrato con `chronyc sources -v`</td>
+                  <td><code>`108-1-C3-chrony-sources.png`</code></td>
+                </tr>
+                
             </tbody>
           </table>
         </section>
@@ -331,6 +523,21 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section class="card" id="si-algo-falla">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
+            <details class="accordion-item">
+              <summary>Error: "NTP not supported" o "systemd-timesyncd not active"</summary>
+              <div class="accordion-body">Si chrony está instalado, `systemd-timesyncd` se deshabilita para evitar conflictos. Usa siempre `chronyc tracking` para auditar el estado.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Error: "Cannot access the Hardware Clock via any known method"</summary>
+              <div class="accordion-body">En ciertas máquinas virtuales ligeras (contenedores LXC/Docker), el RTC de hardware no está emulado o está bloqueado por el host. En hipervisores tipo VirtualBox o KVM, el RTC está emulado en `/dev/rtc0`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Restaura tu máquina a estado limpio</summary>
+              <div class="accordion-body">Al terminar las pruebas, restaura el snapshot `00-base-limpia` en tu hipervisor.</div>
+            </details>
+            
         </section>
 
         <!-- 8. Comandos practicados -->
@@ -346,6 +553,48 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><span class="badge badge-blue"><code>timedatectl</code></span></td>
+                  <td>Control unificado de fecha, hora, zona horaria y activación de NTP en systemd</td>
+                  <td>[Slide 4](../t108/108-1-mantener-la-hora-del-sis.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>hwclock</code></span></td>
+                  <td>Sincronización bidireccional entre kernel y RTC (`-w`/`--systohc`, `-s`/`--hctosys`)</td>
+                  <td>[Slide 3](../t108/108-1-mantener-la-hora-del-sis.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>date</code></span></td>
+                  <td>Consulta e imprime la fecha y hora del reloj del sistema (kernel)</td>
+                  <td>[Slide 2](../t108/108-1-mantener-la-hora-del-sis.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>chronyc</code></span></td>
+                  <td>Utilidad de consulta y control del demonio de sincronización horaria chronyd</td>
+                  <td>[Slide 8](../t108/108-1-mantener-la-hora-del-sis.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/localtime</code></span></td>
+                  <td>Enlace simbólico hacia el archivo de zona horaria en `/usr/share/zoneinfo/`</td>
+                  <td>[Slide 4](../t108/108-1-mantener-la-hora-del-sis.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/chrony/chrony.conf</code></span></td>
+                  <td>Archivo de configuración principal del demonio chronyd con servidores y pools NTP</td>
+                  <td>[Slide 7](../t108/108-1-mantener-la-hora-del-sis.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ntpq</code></span></td>
+                  <td>Herramienta clásica de diagnóstico para el demonio ntpd (`ntpq -p`)</td>
+                  <td>[Slide 6](../t108/108-1-mantener-la-hora-del-sis.html)</td>
+                </tr>
+                
             </tbody>
           </table>
           <p style="margin-top:14px; font-size:15px; color:var(--text-muted);">
@@ -430,7 +679,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         const caps = JSON.parse(localStorage.getItem('lpic1_caps_' + SUB_ID) || '{}');
         const done = Object.values(caps).filter(Boolean).length;
         const counter = document.getElementById('captures-counter');
-        if (counter) counter.textContent = 'Llevas ' + done + ' de 0 capturas';
+        if (counter) counter.textContent = 'Llevas ' + done + ' de 3 capturas';
       } catch(e) {}
     }
 

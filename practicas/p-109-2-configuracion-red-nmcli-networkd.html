@@ -245,7 +245,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 25–30 min</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel básico/medio</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-server"/></svg> Debian 12 (00-base-limpia)</span>
-        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 0 capturas requeridas</span>
+        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas requeridas</span>
       </div>
     </div>
 
@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          
+          <li><a href="#mision-1" class="toc-link">Misión 1: Configuración Persistente del Nombre de Host (FQDN) con hostnamectl y /etc/hosts</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Creación y Configuración de un Perfil IP Estático con nmcli</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Inspección de Rutas, Activación/Desactivación y Archivo de Configuración Persistente</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,14 +270,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Domina la administración de interfaces de red tanto en tiempo de ejecución como de forma permanente en servidores Linux. Aprende a manipular el estado de los enlaces con `ip link` e `ip addr`, crea y modifica perfiles de conexión con la herramienta de consola de NetworkManager (`nmcli`), recordando la trampa de examen de cambiar siempre el método a `manual` al definir IPs fijas. Administra el nombre del host estático y transitorio con `hostnamectl` y establece resoluciones locales inmediatas en `/etc/hosts`.</p>
+          <p style="font-size:17px; line-height:1.7;">Aprende a configurar de forma permanente y temporal las interfaces de red de un servidor Linux. Domina la herramienta oficial y moderna de administración NetworkManager mediante su interfaz de consola `nmcli`. Comprende la diferencia crucial entre modificar el estado en caliente del kernel (con `ip addr` e `ip link`, que se pierde al reiniciar) frente a crear perfiles de conexión persistentes en `/etc/NetworkManager/system-connections/` o archivos `.network` en `systemd-networkd`. Aprende además a fijar el nombre del equipo con `hostnamectl` y a relacionarlo en `/etc/hosts`.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Levantar, desactivar y consultar dispositivos con `ip link` y `nmcli device status`.</li><li>Asignar una IP estática persistente con `nmcli con mod <id> ipv4.addresses <IP/MASK> ipv4.gateway <GW> ipv4.method manual`.</li><li>Reactivar perfiles de conexión mediante `nmcli con up <id>`.</li><li>Configurar el nombre del equipo con `hostnamectl set-hostname` y verificar `/etc/hostname`.</li><li>Añadir entradas de resolución rápida en `/etc/hosts` respetando el formato `IP FQDN alias`.</li><li>Reconocer los archivos tradicionales `/etc/network/interfaces` (Debian) e `ifcfg-*` (RHEL).</li>
+            <li>Modificar el nombre del equipo de forma persistente con `hostnamectl set-hostname`.</li><li>Mantener la coherencia de resolución local en `/etc/hosts` para el nuevo FQDN.</li><li>Inspeccionar dispositivos y conexiones con `nmcli device` y `nmcli connection`.</li><li>Configurar una conexión con direccionamiento IP estático, máscara, gateway y DNS con `nmcli`.</li><li>Conocer los métodos alternativos clásicos (`/etc/network/interfaces`) y modernos (`systemd-networkd`).</li>
           </ul>
         </section>
 
@@ -302,16 +302,199 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section id="misiones-container">
           <h2 style="font-size:26px; font-weight:800; margin: 32px 0 16px 0;">4. Misiones Guiadas Paso a Paso</h2>
           
+        <div class="card step-card" id="mision-1">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Configuración Persistente del Nombre de Host (FQDN) con hostnamectl y /etc/hosts</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109.2', 1, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Fijaremos el nombre de host del servidor como `servidor-lpic1.empresa.local` de forma permanente utilizando `hostnamectl`, comprobaremos los tres tipos de hostname gestionados por systemd (estático, transitorio y visual) y actualizaremos `/etc/hosts` para garantizar la resolución local inmediata sin depender de DNS externo.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Consultar el estado y nombre actual del equipo</span>
+<span class="t-cmd">hostnamectl</span> status
+
+<span class="t-cmt"># 2. Establecer el nuevo nombre completo (FQDN)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">hostnamectl</span> set-hostname servidor-lpic1.empresa.local
+
+<span class="t-cmt"># 3. Comprobar que el archivo persistente /etc/hostname se ha actualizado</span>
+<span class="t-cmd">cat</span> <span class="t-path">/etc/hostname</span>
+
+<span class="t-cmt"># 4. Añadir la resolución del nuevo FQDN en /etc/hosts apuntando a 127.0.1.1</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">sed</span> <span class="t-flag">-i</span> <span class="t-path">'/127.0.1.1/d'</span> <span class="t-path">/etc/hosts</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"127.0.1.1</span> servidor-lpic1.empresa.local servidor-lpic1" <strong>>></strong> <span class="t-cmd">/etc/hosts'</span>
+
+<span class="t-cmt"># 5. Validar con hostname -f y getent hosts</span>
+<span class="t-cmd">hostname</span> <span class="t-flag">-f</span>
+<span class="t-cmd">getent</span> hosts servidor-lpic1.empresa.local</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`hostnamectl set-hostname FQDN`: Comando unificado de systemd que actualiza el hostname en el kernel en tiempo de ejecución y escribe de forma atómica en `/etc/hostname`.</li><li>`/etc/hosts`: Archivo de mapeo estático de nombres a IPs que se consulta antes de acudir a servidores DNS remotos (según `/etc/nsswitch.conf`).</li><li>`hostname -f`: Muestra el *Fully Qualified Domain Name* completo resolviendo a través del sistema.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `hostnamectl status` mostrará `Static hostname: servidor-lpic1.empresa.local`. `hostname -f` devolverá el FQDN exacto sin errores.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 1:</strong> Salida de `hostnamectl status`, contenido de `/etc/hostname` y comprobación con `hostname -f`. Guarda como `109-2-C1-hostnamectl-hosts.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-2">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Creación y Configuración de un Perfil IP Estático con nmcli</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109.2', 2, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Usando la interfaz de línea de comandos de NetworkManager (`nmcli`), crearemos una conexión de red con direccionamiento estático IPv4 (`192.168.100.50/24`), puerta de enlace (`192.168.100.1`) y servidores DNS (`1.1.1.1, 8.8.8.8`) sobre una interfaz virtual dummy para experimentar de forma 100% segura sin perder conectividad con el hipervisor.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Crear una interfaz virtual dummy para pruebas seguras</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link add dummy0 type dummy
+
+<span class="t-cmt"># 2. Crear una nueva conexión de tipo ethernet asociada a dummy0</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection add type ethernet con-name <span class="t-arg">"Conexion-Estatica-Lab"</span> ifname dummy0
+
+<span class="t-cmt"># 3. Asignar IP estática, gateway y servidores DNS al perfil</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection modify <span class="t-arg">"Conexion-Estatica-Lab"</span> \
+<span class="t-cmd">ipv4.method</span> manual \
+<span class="t-cmd">ipv4.addresses</span> <span class="t-path">192.168.100.50/24</span> \
+<span class="t-cmd">ipv4.gateway</span> 192.168.100.1 \
+<span class="t-cmd">ipv4.dns</span> <span class="t-arg">"1.1.1.1</span> 8.8.8.8"
+
+<span class="t-cmt"># 4. Activar la conexión creada</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection up <span class="t-arg">"Conexion-Estatica-Lab"</span>
+
+<span class="t-cmt"># 5. Comprobar el estado del perfil y de las direcciones asignadas</span>
+<span class="t-cmd">nmcli</span> connection show <span class="t-arg">"Conexion-Estatica-Lab"</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">'ipv4\.(method|addresses|gateway|dns):'</span>
+<span class="t-cmd">ip</span> addr show dummy0</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`nmcli connection add`: Crea un nuevo perfil persistente en `/etc/NetworkManager/system-connections/`.</li><li>`ipv4.method manual`: Desactiva el cliente DHCP y exige configuración manual estática.</li><li>`ipv4.addresses IP/CIDR`: Especifica la dirección IP y máscara en un solo parámetro.</li><li>`nmcli connection up NOMBRE`: Aplica y activa de inmediato los parámetros del perfil en el kernel.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `ip addr show dummy0` mostrará `inet 192.168.100.50/24 scope global dummy0`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 2:</strong> Configuración con `nmcli connection modify` y salida de `ip addr show dummy0`. Guarda como `109-2-C2-nmcli-static-ip.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-3">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Inspección de Rutas, Activación/Desactivación y Archivo de Configuración Persistente</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109.2', 3, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Inspeccionaremos las tablas de enrutamiento con `ip route`, modificaremos parámetros al vuelo, observaremos el archivo de configuración generado en disco por NetworkManager y probaremos la bajada y subida de interfaces con `nmcli`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Inspeccionar la tabla de rutas del kernel</span>
+<span class="t-cmd">ip</span> route show
+
+<span class="t-cmt"># 2. Desactivar la conexión de laboratorio con nmcli con down</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection down <span class="t-arg">"Conexion-Estatica-Lab"</span>
+
+<span class="t-cmt"># 3. Comprobar que la IP desaparece de la interfaz al desactivar el perfil</span>
+<span class="t-cmd">ip</span> addr show dummy0
+
+<span class="t-cmt"># 4. Reactivar la conexión y validar persistencia</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection up <span class="t-arg">"Conexion-Estatica-Lab"</span>
+<span class="t-cmd">ip</span> addr show dummy0 <strong>|</strong> <span class="t-cmd">grep</span> inet
+
+<span class="t-cmt"># 5. Limpiar la interfaz dummy al finalizar la práctica</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection delete <span class="t-arg">"Conexion-Estatica-Lab"</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link delete dummy0</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`ip route show`: Muestra la tabla de enrutamiento (rutas de red locales y ruta por defecto `default via GW dev DEV`).</li><li>`nmcli connection down`: Desconfigura la interfaz asociada liberando los recursos de red sin borrar el archivo de perfil.</li><li>`nmcli connection delete`: Borra permanentemente el perfil del sistema de archivos.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> Al ejecutar `nmcli connection down`, la dirección `192.168.100.50` desaparece de `dummy0`. Al ejecutar `up`, se restablece al instante.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 3:</strong> Salida de `ip route show` y ciclo `down`/`up` con `nmcli`. Guarda como `109-2-C3-nmcli-routes-persistence.png`.</div>
+            </div>
+            
+        </div>
+        
         </section>
 
         <!-- 5. Mini-Reto Final -->
+        
+        <section class="card" id="mini-reto">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">5. Mini-Reto Final de Autonomía (5 min)</h2>
+          <p style="font-size:17px; margin-bottom:16px;"><strong>Demuestra lo aprendido:</strong> Un administrador ejecuta `sudo ip addr add 10.0.0.88/24 dev eth0` y añade una ruta con `sudo ip route add default via 10.0.0.1`. La red funciona perfectamente durante toda la jornada. Sin embargo, al día siguiente, tras un reinicio nocturno automático del servidor, la máquina queda totalmente inaccesible por red. ¿Por qué se perdieron las direcciones y qué comando oficial debió usar con NetworkManager para que los cambios fuesen permanentes?</p>
+          <details class="accordion-item" style="margin-bottom:10px;">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">💡 Ver pista desplegable si te atascas</summary>
+            <div class="accordion-body" style="background:#FFFBEB; color:#78350F;">Diferencia entre comandos de manipulación volátil de memoria del kernel (iproute2) frente a gestores de configuración persistente (NetworkManager/systemd-networkd).</div>
+          </details>
+          <details class="accordion-item">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
+            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">El comando <code>ip addr add</code> modifica exclusivamente la tabla de interfaces almacenada en la <strong>memoria RAM del kernel</strong>. En cuanto el servidor se reinicia, el kernel recrea las estructuras desde cero y los cambios se pierden.<br>
+Para que la configuración sea permanente en una distribución con NetworkManager, debió utilizarse:<br>
+<strong><code>sudo nmcli connection modify &lt;nombre_conexion&gt; ipv4.addresses 10.0.0.88/24 ipv4.gateway 10.0.0.1 ipv4.method manual</code></strong> seguido de <strong><code>sudo nmcli connection up &lt;nombre_conexion&gt;</code></strong>.</div>
+          </details>
+        </section>
         
 
         <!-- 6. Capturas a entregar -->
         <section class="card" id="capturas">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
             <h2 style="font-size:22px; font-weight:700;">6. Capturas a entregar</h2>
-            <span class="badge badge-green" id="captures-counter">Llevas 0 de 0 capturas</span>
+            <span class="badge badge-green" id="captures-counter">Llevas 0 de 3 capturas</span>
           </div>
           <table class="data-table">
             <thead>
@@ -323,6 +506,24 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109.2', 'C1', this)"> <strong>C1</strong></label></td>
+                  <td>Evidencia de Misión 1: `hostnamectl status` y comprobación en `/etc/hosts`</td>
+                  <td><code>`109-2-C1-hostnamectl-hosts.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109.2', 'C2', this)"> <strong>C2</strong></label></td>
+                  <td>Evidencia de Misión 2: Creación de IP estática con `nmcli` en interfaz dummy</td>
+                  <td><code>`109-2-C2-nmcli-static-ip.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109.2', 'C3', this)"> <strong>C3</strong></label></td>
+                  <td>Evidencia de Misión 3: Verificación de rutas con `ip route` y ciclo `down`/`up`</td>
+                  <td><code>`109-2-C3-nmcli-routes-persistence.png`</code></td>
+                </tr>
+                
             </tbody>
           </table>
         </section>
@@ -331,6 +532,21 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section class="card" id="si-algo-falla">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
+            <details class="accordion-item">
+              <summary>Error: "Error: Connection activation failed: No suitable device found"</summary>
+              <div class="accordion-body">Comprueba que la interfaz asociada existe ejecutando `ip link show dummy0` antes de activar la conexión.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Error: Se pierde la conexión SSH</summary>
+              <div class="accordion-body">Si modificas accidentalmente la interfaz principal de la máquina virtual (en lugar de `dummy0`), reinicia la máquina para recuperar el estado inicial o restaura el snapshot `00-base-limpia`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Restaura tu máquina a estado limpio</summary>
+              <div class="accordion-body">Al terminar las pruebas, restaura el snapshot `00-base-limpia` en tu hipervisor.</div>
+            </details>
+            
         </section>
 
         <!-- 8. Comandos practicados -->
@@ -346,6 +562,42 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><span class="badge badge-blue"><code>nmcli</code></span></td>
+                  <td>Herramienta de línea de comandos para control total de NetworkManager (`con`, `dev`)</td>
+                  <td>[Slide 4](../t109/109-2-configuracion-de-red-per.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>hostnamectl</code></span></td>
+                  <td>Consulta y fija el nombre de host del sistema (`status`, `set-hostname`)</td>
+                  <td>[Slide 7](../t109/109-2-configuracion-de-red-per.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ip addr / ip link</code></span></td>
+                  <td>Muestra y altera en caliente interfaces y direcciones IP en memoria del kernel</td>
+                  <td>[Slide 3](../t109/109-2-configuracion-de-red-per.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ip route</code></span></td>
+                  <td>Consulta y manipula las tablas de enrutamiento del kernel</td>
+                  <td>[Slide 3](../t109/109-2-configuracion-de-red-per.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/hostname</code></span></td>
+                  <td>Archivo estático que contiene el nombre del host leído durante el arranque</td>
+                  <td>[Slide 7](../t109/109-2-configuracion-de-red-per.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/hosts</code></span></td>
+                  <td>Tabla local estática de resolución de nombres a direcciones IP</td>
+                  <td>[Slide 2](../t109/109-2-configuracion-de-red-per.html)</td>
+                </tr>
+                
             </tbody>
           </table>
           <p style="margin-top:14px; font-size:15px; color:var(--text-muted);">
@@ -430,7 +682,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         const caps = JSON.parse(localStorage.getItem('lpic1_caps_' + SUB_ID) || '{}');
         const done = Object.values(caps).filter(Boolean).length;
         const counter = document.getElementById('captures-counter');
-        if (counter) counter.textContent = 'Llevas ' + done + ' de 0 capturas';
+        if (counter) counter.textContent = 'Llevas ' + done + ' de 3 capturas';
       } catch(e) {}
     }
 

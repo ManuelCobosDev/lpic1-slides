@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="Práctica oficial 101.1: Práctica — Laboratorio guiado para la certificación LPIC-1.">
-  <title>Práctica 101.1 — Práctica</title>
+  <meta name="description" content="Práctica oficial 109-GLOBAL: Misión Global Integradora: Diagnóstico, Configuración Persistente y Auditoría de Red en Linux — Laboratorio guiado para la certificación LPIC-1.">
+  <title>Práctica 109-GLOBAL — Misión Global Integradora: Diagnóstico, Configuración Persistente y Auditoría de Red en Linux</title>
   <script>
     (function() {
       var saved = localStorage.getItem('lpic1_theme');
@@ -223,7 +223,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 
   <div class="container">
     <div class="header-nav">
-      <a href="index.html" class="action-btn" style="color:var(--text-muted); font-weight:600; display:inline-flex; align-items:center; gap:6px;"><svg class="ic"><use href="#i-chevron-left"/></svg> Portal de Prácticas</a>
+      <a href="p-109-4-resolucion-dns-cliente-dig-host.html" class="action-btn" style="color:var(--text-muted); font-weight:600; display:inline-flex; align-items:center; gap:6px;"><svg class="ic"><use href="#i-chevron-left"/></svg> 109.4</a>
       <div style="display:flex; gap:12px; align-items:center;">
         <a href="index.html" style="font-size:15px; font-weight:600; color:var(--text-muted);"><svg class="ic ic-sm"><use href="#i-server"/></svg> Todas las prácticas</a>
         <button id="btn-theme-toggle" class="theme-toggle-btn badge badge-gray" onclick="toggleTheme()" title="Cambiar tema claro / oscuro" aria-label="Cambiar tema" style="padding:6px 12px; font-size:14px; cursor:pointer; border:1px solid var(--border); background:var(--surface); color:var(--text);">
@@ -232,20 +232,20 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         </button>
         <button type="button" onclick="window.print()" class="badge badge-gray" style="padding:6px 12px; font-size:14px; cursor:pointer; border:1px solid var(--border); background:var(--surface);"><svg class="ic ic-sm"><use href="#i-download"/></svg> Imprimir / PDF</button>
       </div>
-      <a href="p-101-2-arranque-sistema.html" class="action-btn" style="color:var(--primary); font-weight:700; display:inline-flex; align-items:center; gap:6px;">101.2 <svg class="ic"><use href="#i-chevron-right"/></svg></a>
+      <a href="p-110-1-auditoria-seguridad-suid-chage.html" class="action-btn" style="color:var(--primary); font-weight:700; display:inline-flex; align-items:center; gap:6px;">110.1 <svg class="ic"><use href="#i-chevron-right"/></svg></a>
     </div>
 
     <div class="practice-header">
       <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-        <span class="badge badge-blue">LPIC-1 · Subtema 101.1</span>
+        <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-shield"/></svg> LPIC-1 · Práctica Global Integradora</span>
         <span class="badge badge-gray">Aula Activa</span>
       </div>
-      <h1>Práctica 101.1 — Práctica</h1>
+      <h1>Práctica 109-GLOBAL — Misión Global Integradora: Diagnóstico, Configuración Persistente y Auditoría de Red en Linux</h1>
       <div class="badge-bar">
-        <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 25–30 min</span>
-        <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel básico/medio</span>
+        <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 50–60 min</span>
+        <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel integrador / examen</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-server"/></svg> Debian 12 (00-base-limpia)</span>
-        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 0 capturas requeridas</span>
+        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 5 capturas requeridas</span>
       </div>
     </div>
 
@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          
+          <li><a href="#mision-1" class="toc-link">Misión 1: Análisis de Direccionamiento IP, Subnetting y Puertos IANA</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Despliegue de Red Persistente con nmcli y Asignación de Hostname</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Diagnóstico de Enlace, Rutas y Path MTU (PMTU) con tracepath</a></li><li><a href="#mision-4" class="toc-link">Misión 4: Auditoría de Sockets con ss y Verificación de Servicios con Netcat</a></li><li><a href="#mision-5" class="toc-link">Misión 5: Auditoría DNS, Registros MX/PTR y Precedencia en NSSwitch</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,24 +270,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Esta misión práctica integra los 4 subtemas de Redes del Examen LPIC-1 102-500. Te enfrentarás a un escenario realista de servidor recién instalado que presenta pérdida de conectividad, asignación de IP incorrecta y fallos de resolución de nombres. Deberás diagnosticar metódicamente la pila TCP/IP: desde el enlace de nivel 2 hasta los servicios DNS de nivel 7, aplicando las herramientas modernas (`iproute2`, `nmcli`, `ss`, `tracepath`, `dig`) y dominando todas las trampas de examen oficiales.
-
-```
-       [ CAPA 7: DNS / Aplicación ]      --> dig @servidor, host, getent hosts, /etc/resolv.conf
-                    │
-       [ CAPA 4: Transporte ]          --> ss -tulpn, nc -zv, /etc/services (puertos 22, 53, 80...)
-                    │
-       [ CAPA 3: Red / IP ]            --> ip addr, ip route default via GW, ping -c 3, tracepath
-                    │
-       [ CAPA 2: Enlace ]              --> ip link set up, nmcli con mod ipv4.method manual
-```</p>
+          <p style="font-size:17px; line-height:1.7;">Misión integral de fin de tema que consolida la totalidad de objetivos evaluados en el Tema 109 de LPIC-1 (Examen 102-500, con un peso total de 14 puntos en el examen). Asumirás el papel de un administrador de sistemas y redes encargado de poner en servicio un servidor corporativo: calcularás el direccionamiento y subredes con `ipcalc`, configurarás una conexión de red estática persistente con `nmcli`, fijarás el nombre FQDN con `hostnamectl` y `/etc/hosts`, diagnosticarás el enlace, enrutamiento y Path MTU con `ip link`, `ip route` y `tracepath`, auditarás los sockets y servicios activos con `ss -tulpn` y `nc`, y validarás la arquitectura DNS del cliente configurando `/etc/resolv.conf`, analizando registros con `dig` y `host`, y comprobando la precedencia en `/etc/nsswitch.conf`.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Diagnosticar incidencias de conectividad siguiendo las capas de red sin saltarse pasos.</li><li>Establecer configuraciones de red estáticas persistentes con `nmcli` garantizando `ipv4.method manual`.</li><li>Asegurar la puerta de enlace predeterminada en el kernel mediante `ip route add default via <GW>`.</li><li>Auditar sockets locales en escucha con `ss -tulpn` y comprobar la apertura de puertos remotos con `nc`.</li><li>Validar y depurar la resolución DNS diferenciando el comportamiento de `getent hosts` frente a `dig`.</li>
+            <li>Dominar el 100% de los comandos y directivas evaluados en los subtemas 109.1, 109.2, 109.3 y 109.4.</li><li>Calcular máscaras de red, broadcast y rangos de hosts útiles con `ipcalc`.</li><li>Crear y modificar perfiles de conexión persistentes con `nmcli` fijando IP, gateway y DNS.</li><li>Garantizar la persistencia y resolución del nombre de host mediante `hostnamectl` y `/etc/hosts`.</li><li>Diagnosticar incidencias de red por capas: enlace (capa 2), encaminamiento (capa 3) y transporte (capa 4).</li><li>Medir la MTU del camino con `tracepath` sin requerir privilegios de root.</li><li>Auditar puertos abiertos y procesos con `ss -tulpn` y comprobar conectividad con `nc -zv`.</li><li>Resolver incidencias en la resolución DNS utilizando `dig`, `host` y `getent hosts`.</li>
           </ul>
         </section>
 
@@ -312,16 +302,304 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section id="misiones-container">
           <h2 style="font-size:26px; font-weight:800; margin: 32px 0 16px 0;">4. Misiones Guiadas Paso a Paso</h2>
           
+        <div class="card step-card" id="mision-1">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Análisis de Direccionamiento IP, Subnetting y Puertos IANA</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109-GLOBAL', 1, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Calcularemos los parámetros de direccionamiento para una subred departamental `/27` (32 direcciones IP) perteneciente a un rango privado RFC 1918, y auditaremos en `/etc/services` y `/etc/protocols` los puertos oficiales de examen LPIC-1 (SSH 22, DNS 53, HTTP 80, NTP 123, HTTPS 443).</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Calcular la subred /27 con ipcalc para la IP 172.16.20.45</span>
+<span class="t-cmd">ipcalc</span> <span class="t-flag">-b</span> <span class="t-path">172.16.20.45/27</span>
+
+<span class="t-cmt"># 2. Comprobar que pertenece al rango privado RFC 1918 (172.16.0.0/12)</span>
+<span class="t-cmt"># Nota: La subred alberga 30 hosts utilizables (de .33 a .62)</span>
+
+<span class="t-cmt"># 3. Auditar los números de puerto de los servicios esenciales en /etc/services</span>
+<span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">'^(ssh|domain|ntp|http|https)\s'</span> <span class="t-path">/etc/services</span>
+
+<span class="t-cmt"># 4. Validar el número de protocolo en /etc/protocols (TCP=6, UDP=17, ICMP=1)</span>
+<span class="t-cmd">getent</span> protocols tcp udp icmp</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`ipcalc -b IP/27`: Muestra que la máscara es `255.255.255.224`, la dirección de red es `172.16.20.32` y el broadcast es `172.16.20.63`.</li><li>`/etc/services` y `/etc/protocols`: Archivos estándar IANA que definen la correspondencia oficial de puertos y números de protocolo.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `ipcalc` devolverá la tabla binaria y decimal confirmando `Hosts/Net: 30`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 1:</strong> Salida completa de `ipcalc -b 172.16.20.45/27` y búsqueda en `/etc/services`. Guarda como `109-G-C1-ipcalc-services.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-2">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Despliegue de Red Persistente con nmcli y Asignación de Hostname</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109-GLOBAL', 2, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Fijaremos el nombre de host como `nodo-red.empresa.lab`, crearemos un perfil estático persistente con `nmcli` sobre una interfaz de prueba `dummy1` y validaremos la persistencia de las rutas y direcciones tras activar el perfil.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Fijar el nombre de host de forma persistente con hostnamectl</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">hostnamectl</span> set-hostname nodo-red.empresa.lab
+<span class="t-cmd">hostnamectl</span> status
+
+<span class="t-cmt"># 2. Registrar el nuevo nombre en /etc/hosts</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"127.0.1.1</span> nodo-red.empresa.lab nodo-red" <strong>>></strong> <span class="t-cmd">/etc/hosts'</span>
+
+<span class="t-cmt"># 3. Crear una interfaz dummy para pruebas</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link add dummy1 type dummy
+
+<span class="t-cmt"># 4. Crear el perfil de red persistente con nmcli asignando IP estática y DNS</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection add type ethernet con-name <span class="t-arg">"Perfil-Red-Global"</span> ifname dummy1
+<span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection modify <span class="t-arg">"Perfil-Red-Global"</span> \
+<span class="t-cmd">ipv4.method</span> manual \
+<span class="t-cmd">ipv4.addresses</span> <span class="t-path">172.16.20.45/27</span> \
+<span class="t-cmd">ipv4.dns</span> <span class="t-arg">"1.1.1.1</span> 8.8.8.8"
+
+<span class="t-cmt"># 5. Activar la conexión y comprobar que la IP está activa en la interfaz</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection up <span class="t-arg">"Perfil-Red-Global"</span>
+<span class="t-cmd">ip</span> addr show dummy1</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`hostnamectl set-hostname`: Actualiza `/etc/hostname` y el kernel.</li><li>`nmcli connection modify ... ipv4.method manual`: Escribe el archivo persistente en `/etc/NetworkManager/system-connections/`.</li><li>`nmcli connection up`: Aplica la IP calculada en la Misión 1 a la interfaz `dummy1`.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `ip addr show dummy1` mostrará `inet 172.16.20.45/27 scope global dummy1`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 2:</strong> Salida de `hostnamectl status` y comprobación de `ip addr show dummy1`. Guarda como `109-G-C2-nmcli-hostname.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-3">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Diagnóstico de Enlace, Rutas y Path MTU (PMTU) con tracepath</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109-GLOBAL', 3, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Realizaremos un diagnóstico completo de las capas 2 y 3: comprobaremos los flags de enlace con `ip link`, la tabla de enrutamiento con `ip route`, la conectividad ICMP con `ping` y mediremos la MTU del camino con `tracepath` sin requerir permisos de root.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Inspeccionar las interfaces y estados operativos</span>
+<span class="t-cmd">ip</span> link show
+
+<span class="t-cmt"># 2. Consultar la tabla de enrutamiento del kernel</span>
+<span class="t-cmd">ip</span> route show
+
+<span class="t-cmt"># 3. Medir la latencia y comprobar pérdida de paquetes con ping acotado (-c 4)</span>
+<span class="t-cmd">ping</span> <span class="t-flag">-c</span> 4 1.1.1.1
+
+<span class="t-cmt"># 4. Realizar un trazado de saltos con tracepath y observar la MTU (PMTU)</span>
+<span class="t-cmd">tracepath</span> <span class="t-flag">-n</span> 1.1.1.1</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`ip link show`: Confirma el estado `UP` y la MTU configurada en cada interfaz (habitualmente 1500 bytes en Ethernet).</li><li>`ip route show`: Permite verificar que existe una ruta `default via ...`.</li><li>`tracepath -n`: Descubre la MTU más pequeña a lo largo de toda la ruta hasta el destino, sin requerir privilegios de superusuario.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `tracepath` devolverá cada salto con su tiempo de respuesta y la confirmación de la PMTU final alcanzada.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 3:</strong> Salida de `ip route show` y resultado del trazado con `tracepath -n`. Guarda como `109-G-C3-routes-tracepath.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-4">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 4 — Auditoría de Sockets con ss y Verificación de Servicios con Netcat</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109-GLOBAL', 4, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Identificaremos qué puertos están escuchando en el servidor con `ss -tulpn`, levantaremos un puerto de escucha de prueba con `nc` y verificaremos su accesibilidad local en modo escaneo rápido.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Auditar todos los puertos y procesos en escucha</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span>
+
+<span class="t-cmt"># 2. Levantar un socket temporal en segundo plano en el puerto 8888 con netcat</span>
+<span class="t-cmd">nc</span> <span class="t-flag">-l</span> <span class="t-flag">-p</span> 8888 &
+<span class="t-cmd">PID_NC=$!</span>
+
+<span class="t-cmt"># 3. Comprobar que ss detecta inmediatamente el nuevo socket en escucha</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-arg">':8888'</span>
+
+<span class="t-cmt"># 4. Probar la apertura del puerto con netcat en modo escaneo (-z -v)</span>
+<span class="t-cmd">nc</span> <span class="t-flag">-z</span> <span class="t-flag">-v</span> 127.0.0.1 8888
+
+<span class="t-cmt"># 5. Finalizar el proceso de prueba</span>
+<span class="t-cmd">kill</span> $PID_NC</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`ss -tulpn`: Diagnóstico oficial que reemplaza a `netstat` en las distribuciones actuales.</li><li>`nc -z -v`: Permite auditar si un puerto de destino está abierto sin transferir datos.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `ss -tulpn` mostrará la entrada `LISTEN` en el puerto `8888` asociada al ejecutable `nc`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 4:</strong> Salida de `sudo ss -tulpn | grep ':8888'` y escaneo exitoso con `nc -z -v`. Guarda como `109-G-C4-ss-netcat-scan.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-5">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 5 — Auditoría DNS, Registros MX/PTR y Precedencia en NSSwitch</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109-GLOBAL', 5, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Auditaremos la configuración de `/etc/resolv.conf`, realizaremos consultas de registros MX y resoluciones inversas PTR con `dig` y `host`, y comprobaremos la precedencia de `/etc/nsswitch.conf` frente a servidores DNS puros.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Inspeccionar los servidores de nombres configurados en el sistema</span>
+<span class="t-cmd">cat</span> <span class="t-path">/etc/resolv.conf</span>
+
+<span class="t-cmt"># 2. Consultar registros MX y A de un dominio con dig y host</span>
+<span class="t-cmd">host</span> <span class="t-flag">-t</span> MX lpi.org
+<span class="t-cmd">dig</span> lpi.org +short
+
+<span class="t-cmt"># 3. Realizar una consulta DNS inversa (PTR) con dig -x</span>
+<span class="t-cmd">dig</span> <span class="t-flag">-x</span> 1.1.1.1 +short
+
+<span class="t-cmt"># 4. Comprobar el orden de resolución en /etc/nsswitch.conf</span>
+<span class="t-cmd">grep</span> <span class="t-arg">'^hosts:'</span> <span class="t-path">/etc/nsswitch.conf</span>
+
+<span class="t-cmt"># 5. Demostrar la resolución a través de la biblioteca C con getent hosts</span>
+<span class="t-cmd">getent</span> hosts localhost
+<span class="t-cmd">getent</span> hosts nodo-red.empresa.lab
+
+<span class="t-cmt"># 6. Limpiar la interfaz dummy creada en la Misión 2</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection delete <span class="t-arg">"Perfil-Red-Global"</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link delete dummy1</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`dig -x IP +short`: Extrae directamente el registro PTR de la zona inversa.</li><li>`getent hosts`: Consulta el resolver del sistema C respetando `/etc/hosts` y `nsswitch.conf`.</li><li>`dig` / `host`: Interrogan exclusivamente a los servidores DNS especificados en `/etc/resolv.conf`.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `dig -x 1.1.1.1 +short` devolverá `one.one.one.one.`. `getent hosts nodo-red.empresa.lab` resolverá a `127.0.1.1`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 5:</strong> Salida de `host -t MX lpi.org`, `dig -x 1.1.1.1 +short` y resolución con `getent hosts`. Guarda como `109-G-C5-dns-dig-nsswitch.png`.</div>
+            </div>
+            
+        </div>
+        
         </section>
 
         <!-- 5. Mini-Reto Final -->
+        
+        <section class="card" id="mini-reto">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">5. Mini-Reto Final de Autonomía (5 min)</h2>
+          <p style="font-size:17px; margin-bottom:16px;"><strong>Demuestra lo aprendido:</strong> Un servidor recién migrado pierde toda la conectividad con el exterior. El operador puede hacer `ping` exitoso a `127.0.0.1` y a la IP propia `192.168.1.100`, pero al intentar hacer `ping 192.168.1.1` (puerta de enlace) el comando devuelve `Destination Host Unreachable`. Asimismo, no puede resolver ningún dominio de Internet. Describe la secuencia ordenada de los 3 primeros comandos que debes ejecutar para verificar: 1) si la tarjeta física tiene enlace, 2) si la tabla de rutas tiene gateway por defecto, y 3) si el resolver DNS apunta a una IP válida.</p>
+          <details class="accordion-item" style="margin-bottom:10px;">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">💡 Ver pista desplegable si te atascas</summary>
+            <div class="accordion-body" style="background:#FFFBEB; color:#78350F;">Sigue el orden de capas OSI: capa 2 (ip link), capa 3 (ip route) y capa de aplicación (cat /etc/resolv.conf).</div>
+          </details>
+          <details class="accordion-item">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
+            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">La secuencia ordenada de diagnóstico es:
+1. <strong><code>ip link show</code></strong>: Para comprobar si la interfaz está en estado <code>UP</code> y con portadora física <code>LOWER_UP</code> (si indica <code>NO-CARRIER</code>, hay un problema físico de cable o interfaz virtual desconectada).
+2. <strong><code>ip route show</code></strong>: Para verificar si existe la ruta predeterminada <code>default via 192.168.1.1 dev eth0</code>. Si falta, el kernel descarta paquetes hacia otras subredes.
+3. <strong><code>cat /etc/resolv.conf</code></strong>: Para comprobar que hay al menos una línea <code>nameserver &lt;IP&gt;</code> configurada y alcanzable en la red.</div>
+          </details>
+        </section>
         
 
         <!-- 6. Capturas a entregar -->
         <section class="card" id="capturas">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
             <h2 style="font-size:22px; font-weight:700;">6. Capturas a entregar</h2>
-            <span class="badge badge-green" id="captures-counter">Llevas 0 de 0 capturas</span>
+            <span class="badge badge-green" id="captures-counter">Llevas 0 de 5 capturas</span>
           </div>
           <table class="data-table">
             <thead>
@@ -333,6 +611,36 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109-GLOBAL', 'C1', this)"> <strong>C1</strong></label></td>
+                  <td>Evidencia Misión 1: Cálculo con `ipcalc` y búsqueda en `/etc/services`</td>
+                  <td><code>`109-G-C1-ipcalc-services.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109-GLOBAL', 'C2', this)"> <strong>C2</strong></label></td>
+                  <td>Evidencia Misión 2: Hostname con `hostnamectl` y perfil en `nmcli` sobre dummy</td>
+                  <td><code>`109-G-C2-nmcli-hostname.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109-GLOBAL', 'C3', this)"> <strong>C3</strong></label></td>
+                  <td>Evidencia Misión 3: Rutas con `ip route` y trazado con `tracepath -n`</td>
+                  <td><code>`109-G-C3-routes-tracepath.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109-GLOBAL', 'C4', this)"> <strong>C4</strong></label></td>
+                  <td>Evidencia Misión 4: Auditoría con `ss -tulpn` y escaneo con `nc -zv`</td>
+                  <td><code>`109-G-C4-ss-netcat-scan.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109-GLOBAL', 'C5', this)"> <strong>C5</strong></label></td>
+                  <td>Evidencia Misión 5: Consultas con `dig`, `host` y `getent hosts`</td>
+                  <td><code>`109-G-C5-dns-dig-nsswitch.png`</code></td>
+                </tr>
+                
             </tbody>
           </table>
         </section>
@@ -341,6 +649,21 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section class="card" id="si-algo-falla">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
+            <details class="accordion-item">
+              <summary>Error: NetworkManager no gestiona la interfaz</summary>
+              <div class="accordion-body">Verifica que `/etc/NetworkManager/NetworkManager.conf` tiene `managed=true` o usa interfaces dummy para evitar interferencias.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Error: La interfaz dummy no se elimina</summary>
+              <div class="accordion-body">Ejecuta `sudo ip link delete dummy1` forzosamente como `sudo`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Restaura tu máquina a estado limpio</summary>
+              <div class="accordion-body">Al terminar el laboratorio, restaura el snapshot `00-base-limpia` en tu hipervisor.</div>
+            </details>
+            
         </section>
 
         <!-- 8. Comandos practicados -->
@@ -356,6 +679,66 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><span class="badge badge-blue"><code>ipcalc</code></span></td>
+                  <td>Cálculo de subredes, máscaras decimales/CIDR y direcciones de red y broadcast</td>
+                  <td>[Slide 2](../t109/109-1-fundamentos-de-los-proto.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/services / /etc/protocols</code></span></td>
+                  <td>Asignación canónica de puertos y números de protocolo IANA</td>
+                  <td>[Slide 4](../t109/109-1-fundamentos-de-los-proto.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>nmcli</code></span></td>
+                  <td>Gestión y configuración persistente de perfiles de red en NetworkManager</td>
+                  <td>[Slide 4](../t109/109-2-configuracion-de-red-per.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>hostnamectl</code></span></td>
+                  <td>Fijación permanente y consulta del nombre de host del sistema en systemd</td>
+                  <td>[Slide 7](../t109/109-2-configuracion-de-red-per.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ip (link, addr, route)</code></span></td>
+                  <td>Suite unificada de diagnóstico y configuración de red en memoria del kernel</td>
+                  <td>[Slide 3](../t109/109-3-resolucion-de-problemas.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>tracepath</code></span></td>
+                  <td>Trazado de ruta y descubrimiento de Path MTU (PMTU) sin requerir root</td>
+                  <td>[Slide 4](../t109/109-3-resolucion-de-problemas.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ss</code></span></td>
+                  <td>Inspección de sockets y puertos TCP/UDP en escucha con asociación a procesos</td>
+                  <td>[Slide 6](../t109/109-3-resolucion-de-problemas.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>nc</code></span></td>
+                  <td>Comprobación y escaneo de puertos de red y depuración de transporte TCP/UDP</td>
+                  <td>[Slide 7](../t109/109-3-resolucion-de-problemas.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>dig / host</code></span></td>
+                  <td>Consultas directas, inversas y registros específicos a servidores DNS remotos</td>
+                  <td>[Slide 7](../t109/109-4-configuracion-dns-en-el.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/resolv.conf / /etc/nsswitch.conf</code></span></td>
+                  <td>Configuración del cliente resolver y precedencia de resolución de nombres</td>
+                  <td>[Slide 4](../t109/109-4-configuracion-dns-en-el.html)</td>
+                </tr>
+                
             </tbody>
           </table>
           <p style="margin-top:14px; font-size:15px; color:var(--text-muted);">
@@ -412,7 +795,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
       }
     }
 
-    const SUB_ID = '101.1';
+    const SUB_ID = '109-GLOBAL';
     function toggleStepDone(sub, stepNum, chk) {
       try {
         let data = JSON.parse(localStorage.getItem('lpic1_prog_' + sub) || '{}');
@@ -440,7 +823,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         const caps = JSON.parse(localStorage.getItem('lpic1_caps_' + SUB_ID) || '{}');
         const done = Object.values(caps).filter(Boolean).length;
         const counter = document.getElementById('captures-counter');
-        if (counter) counter.textContent = 'Llevas ' + done + ' de 0 capturas';
+        if (counter) counter.textContent = 'Llevas ' + done + ' de 5 capturas';
       } catch(e) {}
     }
 

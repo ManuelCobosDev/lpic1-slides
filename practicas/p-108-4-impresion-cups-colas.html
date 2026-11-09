@@ -245,7 +245,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 25–30 min</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel básico/medio</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-server"/></svg> Debian 12 (00-base-limpia)</span>
-        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 0 capturas requeridas</span>
+        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas requeridas</span>
       </div>
     </div>
 
@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          
+          <li><a href="#mision-1" class="toc-link">Misión 1: Alta de una Impresora Virtual y Control de Colas con lpadmin y cupsenable</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Configuración de Preferencias y Predeterminada con lpoptions y lpstat</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Envío, Inspección y Cancelación de Trabajos (System V vs BSD)</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,14 +270,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Aprende a configurar y administrar el sistema de impresión estándar de Unix/Linux: CUPS (Common Unix Printing System). Verifica el demonio planificador `cupsd` escuchando en el puerto TCP 631, añade y gestiona colas de impresión con el comando administrativo `lpadmin` (utilizando el estándar moderno *driverless* `everywhere`), define la impresora predeterminada con `lpoptions`, controla el flujo de trabajos con `cupsdisable`/`cupsenable` y domina la dualidad de comandos System V (`lp`, `cancel`, `lpstat`) frente a comandos BSD heredados (`lpr`, `lprm`, `lpq`).</p>
+          <p style="font-size:17px; line-height:1.7;">Aprende a administrar de manera integral el sistema estándar de impresión en Linux: el servidor CUPS (Common Unix Printing System). Comprende la arquitectura cliente-servidor basada en el protocolo IPP (Internet Printing Protocol) sobre el puerto TCP 631, las rutas de configuración en `/etc/cups/`, la creación y control de impresoras con `lpadmin`, la gestión de preferencias con `lpoptions`, y la dualidad de comandos evaluada en LPIC-1: comandos heredados de System V (`lp`, `lpstat`, `cancel`) frente a comandos BSD (`lpr`, `lpq`, `lprm`).</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Comprender la arquitectura de CUPS: demonio `cupsd`, colas de spool, filtros y backends.</li><li>Reconocer los ficheros clave en `/etc/cups/` y la regla de no editar `/etc/cups/printers.conf` en caliente.</li><li>Crear y eliminar colas de impresión con `lpadmin` (`-p`, `-v`, `-m everywhere`, `-E`, `-x`).</li><li>Gestionar restricciones de usuario (`-u allow/deny`) y políticas de error con `lpadmin`.</li><li>Fijar la impresora por omisión con `lpoptions -d`.</li><li>Imprimir archivos con opciones de acabado (`-o landscape`, `media=A4`, `collate=true`) usando `lp` y `lpr`.</li><li>Monitorear colas con `lpstat` y `lpq`, mover trabajos con `lpmove` y cancelar con `cancel` y `lprm -`.</li>
+            <li>Entender el rol de CUPS, controladores PPD y filtros de rasterización.</li><li>Dar de alta una impresora virtual en el sistema con `lpadmin -p -E -v -m`.</li><li>Dominar la diferencia crítica entre aceptar trabajos (`cupsaccept`/`cupsreject`) y procesar impresión (`cupsenable`/`cupsdisable`).</li><li>Fijar y consultar la impresora predeterminada con `lpoptions -d` y `lpstat -d`.</li><li>Enviar trabajos con `lp`/`lpr`, supervisar la cola con `lpq` y cancelarlos con `cancel`/`lprm`.</li>
           </ul>
         </section>
 
@@ -302,16 +302,185 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section id="misiones-container">
           <h2 style="font-size:26px; font-weight:800; margin: 32px 0 16px 0;">4. Misiones Guiadas Paso a Paso</h2>
           
+        <div class="card step-card" id="mision-1">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Alta de una Impresora Virtual y Control de Colas con lpadmin y cupsenable</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('108.4', 1, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Crearemos una impresora virtual llamada `Impresora_PDF` utilizando el backend de archivo `/dev/null` y el modelo sin controlador (driverless everywhere) o genérico. Habilitaremos la cola y la configuraremos para aceptar trabajos.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Asegurar que el servicio cups está activo</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> enable <span class="t-flag">--now</span> cups
+
+<span class="t-cmt"># 2. Crear la impresora virtual 'Impresora_PDF' con lpadmin</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">lpadmin</span> <span class="t-flag">-p</span> Impresora_PDF <span class="t-flag">-E</span> <span class="t-flag">-v</span> <span class="t-path">file:/dev/null</span> <span class="t-flag">-m</span> raw <span class="t-flag">-D</span> <span class="t-arg">"Impresora</span> Virtual LPIC" <span class="t-flag">-L</span> <span class="t-arg">"Laboratorio</span> 108"
+
+<span class="t-cmt"># 3. Comprobar que la impresora está habilitada y aceptando trabajos</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">cupsenable</span> Impresora_PDF
+<span class="t-flag">sudo</span> <span class="t-cmd">cupsaccept</span> Impresora_PDF
+
+<span class="t-cmt"># 4. Inspeccionar el estado de la cola con lpstat</span>
+<span class="t-cmd">lpstat</span> <span class="t-flag">-p</span> Impresora_PDF <span class="t-flag">-l</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`lpadmin -p Impresora_PDF`: Asigna el nombre a la cola de impresión.</li><li>`-E`: Habilita y activa la impresora inmediatamente.</li><li>`-v file:/dev/null`: URI del dispositivo (*Device URI*). En entornos reales puede ser `socket://192.168.1.50:9100` o `ipp://...`.</li><li>`-m raw`: Asigna el modelo o controlador PPD (modo crudo para pruebas de aula).</li><li>`cupsenable`: Permite que la impresora comience a procesar y descargar los trabajos de la cola.</li><li>`cupsaccept`: Permite que el sistema acepte nuevos envíos de trabajos dirigidos a la cola.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `lpstat -p Impresora_PDF` mostrará: `la impresora Impresora_PDF está inactiva. activada desde...` y lista para procesar.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 1:</strong> Creación con `lpadmin` y salida de `lpstat -p Impresora_PDF -l`. Guarda como `108-4-C1-lpadmin-cups.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-2">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Configuración de Preferencias y Predeterminada con lpoptions y lpstat</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('108.4', 2, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Estableceremos la impresora recién creada como la impresora por defecto del sistema y de los usuarios, e inspeccionaremos todas las colas configuradas mediante la suite de opciones del comando `lpstat`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Fijar Impresora_PDF como la impresora predeterminada del sistema</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">lpoptions</span> <span class="t-flag">-d</span> Impresora_PDF
+
+<span class="t-cmt"># 2. Consultar cuál es la impresora predeterminada activa</span>
+<span class="t-cmd">lpstat</span> <span class="t-flag">-d</span>
+
+<span class="t-cmt"># 3. Mostrar el informe global del estado de todo el subsistema de impresión</span>
+<span class="t-cmd">lpstat</span> <span class="t-flag">-t</span>
+
+<span class="t-cmt"># 4. Inspeccionar el archivo de configuración generado por CUPS</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">grep</span> <span class="t-flag">-A</span> 5 <span class="t-arg">"Impresora_PDF"</span> <span class="t-path">/etc/cups/printers.conf</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`lpoptions -d Impresora_PDF`: Fija la impresora predeterminada a nivel de sistema (almacenado en `/etc/cups/lpoptions`). Si se ejecuta sin `sudo`, fija la predeterminada solo para el usuario en `~/.cups/lpoptions`.</li><li>`lpstat -d`: Muestra la impresora por defecto (`system default destination`).</li><li>`lpstat -t`: Muestra un resumen total (*total status*): planificador activo, impresoras por defecto, lista de dispositivos y colas.</li><li>`/etc/cups/printers.conf`: Archivo donde CUPS guarda el estado persistente de cada impresora y sus URIs.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `lpstat -d` confirmará: `el destino predeterminado del sistema es Impresora_PDF`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 2:</strong> Salida de `lpstat -d`, `lpstat -t` y extracto de `/etc/cups/printers.conf`. Guarda como `108-4-C2-lpoptions-lpstat.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-3">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Envío, Inspección y Cancelación de Trabajos (System V vs BSD)</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('108.4', 3, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Pausaremos la admisión o procesamiento de la cola para que los trabajos se acumulen, enviaremos documentos tanto con el comando System V (`lp`) como con el comando BSD (`lpr`), inspeccionaremos la cola con `lpq` y cancelaremos los trabajos con `cancel` y `lprm`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Pausar temporalmente el procesamiento de trabajos en la cola</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">cupsdisable</span> Impresora_PDF
+
+<span class="t-cmt"># 2. Enviar un trabajo de impresión con el comando System V (lp)</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Documento</span> confidencial de prueba System V" <strong>|</strong> <span class="t-cmd">lp</span> <span class="t-flag">-d</span> Impresora_PDF <span class="t-flag">-t</span> <span class="t-arg">"Trabajo_SysV"</span>
+
+<span class="t-cmt"># 3. Enviar otro trabajo con el comando BSD (lpr) solicitando 2 copias (-#)</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Documento</span> de prueba BSD con dos copias" <strong>|</strong> <span class="t-cmd">lpr</span> <span class="t-flag">-P</span> Impresora_PDF <span class="t-flag">-#</span> 2
+
+<span class="t-cmt"># 4. Inspeccionar los trabajos retenidos en la cola con lpq y lpstat</span>
+<span class="t-cmd">lpq</span> <span class="t-flag">-P</span> Impresora_PDF
+<span class="t-cmd">lpstat</span> <span class="t-flag">-o</span>
+
+<span class="t-cmt"># 5. Cancelar el primer trabajo con System V (cancel) y el segundo con BSD (lprm)</span>
+<span class="t-cmd">cancel</span> Impresora_PDF-1 <strong>||</strong> <span class="t-cmd">cancel</span> <span class="t-flag">-a</span> Impresora_PDF
+<span class="t-flag">sudo</span> <span class="t-cmd">cupsenable</span> Impresora_PDF</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`cupsdisable`: Detiene la impresión física de trabajos, pero la cola sigue acumulando documentos enviados.</li><li>`lp -d COLA -t TITULO`: Sintaxis clásica System V. `-d` especifica destino y `-t` título del trabajo.</li><li>`lpr -P COLA -# N`: Sintaxis clásica BSD. `-P` (mayúscula) especifica impresora y `-#` define número de copias.</li><li>`lpq -P COLA`: Comando BSD para inspeccionar el orden y estado de la cola.</li><li>`cancel ID_TRABAJO`: Cancela un trabajo en sintaxis System V (`cancel -a` cancela todos).</li><li>`lprm -P COLA ID`: Cancela un trabajo en sintaxis BSD (`lprm -` cancela los del usuario).</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `lpq` mostrará la lista con Job ID, Owner, Files y Total Size, con la impresora en estado `not ready`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 3:</strong> Salida de `lpq -P Impresora_PDF` y ejecución de `cancel` / `cupsenable`. Guarda como `108-4-C3-print-jobs-cancel.png`.</div>
+            </div>
+            
+        </div>
+        
         </section>
 
         <!-- 5. Mini-Reto Final -->
+        
+        <section class="card" id="mini-reto">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">5. Mini-Reto Final de Autonomía (5 min)</h2>
+          <p style="font-size:17px; margin-bottom:16px;"><strong>Demuestra lo aprendido:</strong> En un centro de trabajo, una impresora departamental se queda sin papel y comienza a acumular 20 documentos urgentes. El administrador quiere mover todos los trabajos pendientes de la cola `Impresora_A` hacia la cola `Impresora_B` que está libre. ¿Qué comando oficial de CUPS realiza esta operación de reubicación en un solo paso?</p>
+          <details class="accordion-item" style="margin-bottom:10px;">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">💡 Ver pista desplegable si te atascas</summary>
+            <div class="accordion-body" style="background:#FFFBEB; color:#78350F;">Revisa los comandos de movimiento de trabajos en CUPS que comienzan por <code>lp...</code>.</div>
+          </details>
+          <details class="accordion-item">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
+            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">El comando oficial es <strong><code>sudo lpmove Impresora_A Impresora_B</code></strong> (o para un trabajo específico: <code>sudo lpmove Impresora_A-15 Impresora_B</code>). Este comando transfiere de manera atómica todos los archivos de spool a la nueva cola sin cancelarlos ni requerir que los usuarios vuelvan a enviar sus documentos.</div>
+          </details>
+        </section>
         
 
         <!-- 6. Capturas a entregar -->
         <section class="card" id="capturas">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
             <h2 style="font-size:22px; font-weight:700;">6. Capturas a entregar</h2>
-            <span class="badge badge-green" id="captures-counter">Llevas 0 de 0 capturas</span>
+            <span class="badge badge-green" id="captures-counter">Llevas 0 de 3 capturas</span>
           </div>
           <table class="data-table">
             <thead>
@@ -323,6 +492,24 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('108.4', 'C1', this)"> <strong>C1</strong></label></td>
+                  <td>Evidencia de Misión 1: Alta con `lpadmin` y activación con `cupsenable`/`cupsaccept`</td>
+                  <td><code>`108-4-C1-lpadmin-cups.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('108.4', 'C2', this)"> <strong>C2</strong></label></td>
+                  <td>Evidencia de Misión 2: Destino predeterminado con `lpstat -d` y estado total `-t`</td>
+                  <td><code>`108-4-C2-lpoptions-lpstat.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('108.4', 'C3', this)"> <strong>C3</strong></label></td>
+                  <td>Evidencia de Misión 3: Inspección de cola con `lpq` y cancelación de trabajos</td>
+                  <td><code>`108-4-C3-print-jobs-cancel.png`</code></td>
+                </tr>
+                
             </tbody>
           </table>
         </section>
@@ -331,6 +518,21 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section class="card" id="si-algo-falla">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
+            <details class="accordion-item">
+              <summary>Error: "lpadmin: The printer or class does not exist"</summary>
+              <div class="accordion-body">Asegúrate de haber arrancado el demonio CUPS con `sudo systemctl start cups` antes de invocar herramientas administrativas.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Error: "cupsaccept: Operation forbidden"</summary>
+              <div class="accordion-body">El usuario actual no pertenece al grupo administrativo de CUPS (habitualmente `lpadmin` en Debian). Ejecuta el comando con `sudo`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Restaura tu máquina a estado limpio</summary>
+              <div class="accordion-body">Al terminar las pruebas, restaura el snapshot `00-base-limpia` en tu hipervisor.</div>
+            </details>
+            
         </section>
 
         <!-- 8. Comandos practicados -->
@@ -346,6 +548,60 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><span class="badge badge-blue"><code>lpadmin</code></span></td>
+                  <td>Configuración, creación y borrado de impresoras y clases en CUPS (`-p`, `-v`, `-m`, `-E`, `-x`)</td>
+                  <td>[Slide 5](../t108/108-4-gestion-de-la-impresion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>lpoptions</code></span></td>
+                  <td>Establece y consulta opciones de impresión y la impresora predeterminada (`-d`, `-l`)</td>
+                  <td>[Slide 6](../t108/108-4-gestion-de-la-impresion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>lpstat</code></span></td>
+                  <td>Consulta el estado del planificador, impresoras, dispositivos y colas (`-p`, `-d`, `-t`, `-o`)</td>
+                  <td>[Slide 6](../t108/108-4-gestion-de-la-impresion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>cupsenable / cupsdisable</code></span></td>
+                  <td>Activa o detiene el procesamiento e impresión de trabajos en la cola seleccionada</td>
+                  <td>[Slide 7](../t108/108-4-gestion-de-la-impresion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>cupsaccept / cupsreject</code></span></td>
+                  <td>Permite o rechaza la recepción de nuevos trabajos en la cola de impresión</td>
+                  <td>[Slide 7](../t108/108-4-gestion-de-la-impresion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>lp / lpr</code></span></td>
+                  <td>Envío de documentos a la cola de impresión (System V `lp` vs BSD `lpr`)</td>
+                  <td>[Slide 8](../t108/108-4-gestion-de-la-impresion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>cancel / lprm</code></span></td>
+                  <td>Cancelación y purga de trabajos encolados (System V `cancel` vs BSD `lprm`)</td>
+                  <td>[Slide 9](../t108/108-4-gestion-de-la-impresion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>lpmove</code></span></td>
+                  <td>Mueve trabajos de impresión encolados entre distintas colas de impresión</td>
+                  <td>[Slide 9](../t108/108-4-gestion-de-la-impresion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/cups/cupsd.conf</code></span></td>
+                  <td>Archivo central de configuración del servidor CUPS y control de acceso web (puerto 631)</td>
+                  <td>[Slide 4](../t108/108-4-gestion-de-la-impresion.html)</td>
+                </tr>
+                
             </tbody>
           </table>
           <p style="margin-top:14px; font-size:15px; color:var(--text-muted);">
@@ -430,7 +686,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         const caps = JSON.parse(localStorage.getItem('lpic1_caps_' + SUB_ID) || '{}');
         const done = Object.values(caps).filter(Boolean).length;
         const counter = document.getElementById('captures-counter');
-        if (counter) counter.textContent = 'Llevas ' + done + ' de 0 capturas';
+        if (counter) counter.textContent = 'Llevas ' + done + ' de 3 capturas';
       } catch(e) {}
     }
 

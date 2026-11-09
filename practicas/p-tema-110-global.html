@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="Práctica oficial 101.1: Práctica — Laboratorio guiado para la certificación LPIC-1.">
-  <title>Práctica 101.1 — Práctica</title>
+  <meta name="description" content="Práctica oficial 110-GLOBAL: Misión Global Integradora: Hardening, Auditoría Integral y Criptografía en Linux — Laboratorio guiado para la certificación LPIC-1.">
+  <title>Práctica 110-GLOBAL — Misión Global Integradora: Hardening, Auditoría Integral y Criptografía en Linux</title>
   <script>
     (function() {
       var saved = localStorage.getItem('lpic1_theme');
@@ -223,7 +223,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 
   <div class="container">
     <div class="header-nav">
-      <a href="index.html" class="action-btn" style="color:var(--text-muted); font-weight:600; display:inline-flex; align-items:center; gap:6px;"><svg class="ic"><use href="#i-chevron-left"/></svg> Portal de Prácticas</a>
+      <a href="p-110-3-cifrado-openssh-gnupg-tuneles.html" class="action-btn" style="color:var(--text-muted); font-weight:600; display:inline-flex; align-items:center; gap:6px;"><svg class="ic"><use href="#i-chevron-left"/></svg> 110.3</a>
       <div style="display:flex; gap:12px; align-items:center;">
         <a href="index.html" style="font-size:15px; font-weight:600; color:var(--text-muted);"><svg class="ic ic-sm"><use href="#i-server"/></svg> Todas las prácticas</a>
         <button id="btn-theme-toggle" class="theme-toggle-btn badge badge-gray" onclick="toggleTheme()" title="Cambiar tema claro / oscuro" aria-label="Cambiar tema" style="padding:6px 12px; font-size:14px; cursor:pointer; border:1px solid var(--border); background:var(--surface); color:var(--text);">
@@ -232,20 +232,20 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         </button>
         <button type="button" onclick="window.print()" class="badge badge-gray" style="padding:6px 12px; font-size:14px; cursor:pointer; border:1px solid var(--border); background:var(--surface);"><svg class="ic ic-sm"><use href="#i-download"/></svg> Imprimir / PDF</button>
       </div>
-      <a href="p-101-2-arranque-sistema.html" class="action-btn" style="color:var(--primary); font-weight:700; display:inline-flex; align-items:center; gap:6px;">101.2 <svg class="ic"><use href="#i-chevron-right"/></svg></a>
+      <a href="index.html" class="action-btn" style="color:var(--primary); font-weight:700; display:inline-flex; align-items:center; gap:6px;">Portal <svg class="ic"><use href="#i-chevron-right"/></svg></a>
     </div>
 
     <div class="practice-header">
       <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-        <span class="badge badge-blue">LPIC-1 · Subtema 101.1</span>
+        <span class="badge badge-amber"><svg class="ic ic-sm"><use href="#i-shield"/></svg> LPIC-1 · Práctica Global Integradora</span>
         <span class="badge badge-gray">Aula Activa</span>
       </div>
-      <h1>Práctica 101.1 — Práctica</h1>
+      <h1>Práctica 110-GLOBAL — Misión Global Integradora: Hardening, Auditoría Integral y Criptografía en Linux</h1>
       <div class="badge-bar">
-        <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 25–30 min</span>
-        <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel básico/medio</span>
+        <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 50–60 min</span>
+        <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel integrador / examen</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-server"/></svg> Debian 12 (00-base-limpia)</span>
-        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 0 capturas requeridas</span>
+        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 5 capturas requeridas</span>
       </div>
     </div>
 
@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          
+          <li><a href="#mision-1" class="toc-link">Misión 1: Auditoría Forense de Binarios SUID/SGID y Archivos Huérfanos</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Gestión de Políticas de Envejecimiento (Aging) y Límites de Recursos</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Bloqueo de Emergencia con /etc/nologin y Filtrado con TCP Wrappers</a></li><li><a href="#mision-4" class="toc-link">Misión 4: Autenticación Asimétrica SSH (Ed25519) y Túnel Cifrado Local</a></li><li><a href="#mision-5" class="toc-link">Misión 5: Cifrado y Firma Digital de Evidencias con GnuPG</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,22 +270,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Esta misión práctica culmina la preparación para el examen LPIC-1 102-500 integrando todas las competencias de seguridad del Tema 110. Te pondrás en el rol del oficial de seguridad de sistemas en una organización. Deberás auditar un servidor en producción para detectar binarios con permisos especiales SUID descontrolados, asegurar el ciclo de contraseñas de las cuentas, fijar límites contra ataques DoS con `ulimit`, configurar el bloqueo de acceso por mantenimiento, auditar la superficie de red con `lsof` y `ss`, aplicar bastionado con TCP Wrappers, establecer un túnel cifrado SSH y certificar el informe de auditoría final mediante firma digital con GnuPG.
-
-```
-       [ CAPA 3: Criptografía ]      --> ssh-keygen, ssh-agent, ssh -L, gpg --encrypt / --clearsign
-                    │
-       [ CAPA 2: Host & Servicios ]  --> /etc/nologin, xinetd, systemctl disable --now, TCP Wrappers
-                    │
-       [ CAPA 1: Permisos & Kernel ] --> find -perm /6000, /etc/shadow, chage, ulimit, sudoers
-```</p>
+          <p style="font-size:17px; line-height:1.7;">Misión final de la certificación LPIC-1 (Tema 110, peso 10 puntos de examen). Como responsable de ciberseguridad y administración de sistemas, realizarás una auditoría profunda de bastionado y protección criptográfica: rastrearás y evaluarás binarios privilegiados con SUID/SGID con `find`, configurarás políticas de ciclo de vida de claves y bloqueo de cuentas con `chage` y `passwd`, limitarás el consumo de recursos de sesión con `ulimit` y validarás `/etc/sudoers`, restringirás el acceso de emergencia con `/etc/nologin` y filtrarás por red mediante TCP Wrappers (`/etc/hosts.allow`), desplegarás autenticación sin contraseña mediante OpenSSH (Ed25519) levantando un túnel de reenvío seguro (`-L`), y finalizarás cifrando y firmando digitalmente el informe final de auditoría con `gpg`.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Auditar con `find` binarios SUID/SGID identificando permisos anómalos ('s' vs 'S').</li><li>Establecer políticas de caducidad en `/etc/shadow` mediante `chage` y bloquear cuentas con `passwd -l`.</li><li>Configurar límites de seguridad con `ulimit` para prevenir ataques de denegación de servicio.</li><li>Implementar el bloqueo global de sesiones con `/etc/nologin` verificando la excepción de `root`.</li><li>Diseñar reglas de bastionado en `/etc/hosts.allow` y `/etc/hosts.deny` comprobando `libwrap` con `ldd`.</li><li>Desplegar túneles SSH locales (`-L`) y remotos (`-R`) con ejecución en segundo plano (`-Nf`).</li><li>Cifrar y firmar digitalmente documentos de auditoría mediante GnuPG verificando el no repudio.</li>
+            <li>Integrar la totalidad de conceptos evaluados en el Tema 110 de LPIC-1.</li><li>Identificar y documentar archivos ejecutables con SUID/SGID mediante `find -perm /6000`.</li><li>Establecer políticas de caducidad e inactividad en `/etc/shadow` con `chage`.</li><li>Controlar límites de recursos de procesos y descriptores abiertos con `ulimit`.</li><li>Bloquear accesos de forma global con `/etc/nologin` y definir banners disuasorios en `/etc/issue`.</li><li>Configurar políticas de acceso con excepciones mediante TCP Wrappers (`EXCEPT`).</li><li>Desplegar claves asimétricas SSH, proteger `~/.ssh` con permisos estrictos y crear túneles locales `-L`.</li><li>Cifrar en formato ASCII y firmar digitalmente reportes de seguridad con GnuPG (`--clearsign`).</li>
           </ul>
         </section>
 
@@ -310,16 +302,318 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section id="misiones-container">
           <h2 style="font-size:26px; font-weight:800; margin: 32px 0 16px 0;">4. Misiones Guiadas Paso a Paso</h2>
           
+        <div class="card step-card" id="mision-1">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Auditoría Forense de Binarios SUID/SGID y Archivos Huérfanos</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('110-GLOBAL', 1, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Realizaremos una auditoría en los directorios de binarios del sistema para catalogar los archivos con permisos SUID (4000) y SGID (2000), comprobando que sus permisos están estrictamente justificados y verificando que no existan archivos sin usuario asignado.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Rastrear todos los ejecutables con SUID en /usr/bin y /usr/sbin</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">find</span> <span class="t-path">/usr/bin</span> <span class="t-path">/usr/sbin</span> <span class="t-flag">-type</span> f <span class="t-flag">-perm</span> <span class="t-flag">-4000</span> <span class="t-flag">-exec</span> ls <span class="t-flag">-ld</span> {} +
+
+<span class="t-cmt"># 2. Rastrear todos los binarios con SGID</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">find</span> <span class="t-path">/usr/bin</span> <span class="t-path">/usr/sbin</span> <span class="t-flag">-type</span> f <span class="t-flag">-perm</span> <span class="t-flag">-2000</span> <span class="t-flag">-exec</span> ls <span class="t-flag">-ld</span> {} +
+
+<span class="t-cmt"># 3. Comprobar archivos huérfanos sin usuario o grupo en los directorios temporales</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">find</span> <span class="t-path">/tmp</span> <span class="t-path">/var/tmp</span> <span class="t-flag">-nouser</span> <span class="t-flag">-o</span> <span class="t-flag">-nogroup</span> <span class="t-path">2>/dev/null</span> <strong>||</strong> <span class="t-cmd">true</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`find -perm -4000`: Localiza ejecutables que se lanzan con los privilegios del propietario (SUID).</li><li>`find -perm -2000`: Localiza ejecutables que se lanzan con los privilegios del grupo (SGID).</li><li>`-nouser`: Detecta archivos cuyo UID no coincide con ningún usuario en `/etc/passwd`.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `find` listará binarios del sistema como `/usr/bin/passwd`, `/usr/bin/newgrp` y `/usr/bin/sudo` con el flag `s` activo.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 1:</strong> Salida del comando `find -perm -4000` mostrando los binarios SUID del sistema. Guarda como `110-G-C1-find-suid-audit.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-2">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Gestión de Políticas de Envejecimiento (Aging) y Límites de Recursos</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('110-GLOBAL', 2, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Crearemos un usuario corporativo `auditor_final`, fijaremos una política estricta de envejecimiento con `chage`, limitaremos el número máximo de descriptores de archivos con `ulimit` y validaremos la sintaxis de `sudoers`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Crear el usuario corporativo y asignarle clave inicial</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">useradd</span> <span class="t-flag">-m</span> <span class="t-flag">-s</span> <span class="t-path">/bin/bash</span> auditor_final
+<span class="t-cmd">echo</span> <span class="t-arg">"auditor_final:AuditoriaMaster2026!"</span> <strong>|</strong> <span class="t-flag">sudo</span> <span class="t-cmd">chpasswd</span>
+
+<span class="t-cmt"># 2. Fijar política de aging con chage: min 7 dias (-m), max 60 dias (-M), aviso 10 (-W), inactividad 14 (-I)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">chage</span> <span class="t-flag">-m</span> 7 <span class="t-flag">-M</span> 60 <span class="t-flag">-W</span> 10 <span class="t-flag">-I</span> 14 auditor_final
+<span class="t-flag">sudo</span> <span class="t-cmd">chage</span> <span class="t-flag">-l</span> auditor_final
+
+<span class="t-cmt"># 3. Consultar y ajustar el límite de descriptores con ulimit</span>
+<span class="t-cmd">ulimit</span> <span class="t-flag">-n</span> 1024
+<span class="t-cmd">ulimit</span> <span class="t-flag">-a</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-arg">"open</span> files"
+
+<span class="t-cmt"># 4. Validar la integridad sintáctica de /etc/sudoers con visudo -c</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">visudo</span> <span class="t-flag">-c</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`chage -l`: Muestra el informe estructurado de expiración de `/etc/shadow`.</li><li>`ulimit -n 1024`: Establece el límite blando de archivos abiertos en la sesión actual.</li><li>`visudo -c`: Comprueba que `/etc/sudoers` no contiene errores sintácticos.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `sudo chage -l auditor_final` mostrará la política de 60 días y `visudo -c` responderá `parsed OK`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 2:</strong> Salida de `sudo chage -l auditor_final`, límite en `ulimit` y validación con `visudo -c`. Guarda como `110-G-C2-chage-ulimit-visudo.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-3">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Bloqueo de Emergencia con /etc/nologin y Filtrado con TCP Wrappers</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('110-GLOBAL', 3, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Simularemos una alerta de seguridad cerrando los accesos a usuarios ordinarios con `/etc/nologin` y restringiremos los servicios de red con TCP Wrappers autorizando únicamente a la subred local mediante `EXCEPT`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Crear el aviso de emergencia en /etc/nologin</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"EMERGENCIA</span> DE SEGURIDAD: Inicios cerrados por auditoria técnica." <strong>></strong> <span class="t-cmd">/etc/nologin'</span>
+
+<span class="t-cmt"># 2. Configurar la política restrictiva de TCP Wrappers</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"ALL:</span> ALL" <strong>></strong> <span class="t-cmd">/etc/hosts.deny'</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'cat</span> << <span class="t-arg">"EOF"</span> <strong>></strong> <span class="t-cmd">/etc/hosts.allow</span>
+<span class="t-cmd">sshd:</span> 127.0.0.1, <span class="t-path">192.168.1.0/24</span> EXCEPT 192.168.1.99
+<span class="t-cmd">EOF'</span>
+
+<span class="t-cmt"># 3. Comprobar ambas políticas</span>
+<span class="t-cmd">cat</span> <span class="t-path">/etc/hosts.allow</span>
+<span class="t-cmd">cat</span> <span class="t-path">/etc/hosts.deny</span>
+
+<span class="t-cmt"># 4. Retirar /etc/nologin para permitir las pruebas de conexión en la siguiente misión</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">rm</span> <span class="t-flag">-f</span> <span class="t-path">/etc/nologin</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`/etc/nologin`: Desactiva logins de usuarios normales mostrando el mensaje en pantalla.</li><li>`ALL: ALL` en `hosts.deny`: Deniega todo el tráfico que no haya coincidido previamente en `hosts.allow`.</li><li>`EXCEPT`: Permite toda la subred local exceptuando un equipo específico.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `cat /etc/hosts.allow` y `cat /etc/hosts.deny` reflejarán la política con la exclusión `EXCEPT`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 3:</strong> Contenido de `/etc/nologin`, `/etc/hosts.allow` y `/etc/hosts.deny`. Guarda como `110-G-C3-nologin-tcpwrappers.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-4">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 4 — Autenticación Asimétrica SSH (Ed25519) y Túnel Cifrado Local</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('110-GLOBAL', 4, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Generaremos llaves SSH Ed25519, configuraremos permisos estrictos en `~/.ssh`, autorizaremos la clave para el usuario local y crearemos un túnel local cifrado en segundo plano.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Generar par de claves Ed25519</span>
+<span class="t-cmd">ssh-keygen</span> <span class="t-flag">-t</span> ed25519 <span class="t-flag">-C</span> <span class="t-arg">"auditor@lpic-master"</span> <span class="t-flag">-f</span> <span class="t-path">~/.ssh/id_ed25519_global</span> <span class="t-flag">-N</span> <span class="t-arg">""</span>
+
+<span class="t-cmt"># 2. Asegurar permisos estrictos en ~/.ssh</span>
+<span class="t-cmd">chmod</span> 700 <span class="t-path">~/.ssh</span>
+<span class="t-cmd">chmod</span> 600 <span class="t-path">~/.ssh/id_ed25519_global</span>
+<span class="t-cmd">cat</span> <span class="t-path">~/.ssh/id_ed25519_global.pub</span> <strong>>></strong> <span class="t-cmd">~/.ssh/authorized_keys</span>
+<span class="t-cmd">chmod</span> 600 <span class="t-path">~/.ssh/authorized_keys</span>
+
+<span class="t-cmt"># 3. Probar la autenticación por clave contra localhost</span>
+<span class="t-cmd">ssh</span> <span class="t-flag">-i</span> <span class="t-path">~/.ssh/id_ed25519_global</span> alumno@127.0.0.1 <span class="t-arg">"echo</span> <span class="t-arg">'Autenticacion</span> SSH Ed25519 OK'"
+
+<span class="t-cmt"># 4. Levantar un tunel SSH local mapeando el puerto 6500 a 127.0.0.1:22</span>
+<span class="t-cmd">ssh</span> <span class="t-flag">-f</span> <span class="t-flag">-N</span> <span class="t-flag">-i</span> <span class="t-path">~/.ssh/id_ed25519_global</span> <span class="t-flag">-L</span> 6500:127.0.0.1:22 alumno@127.0.0.1
+
+<span class="t-cmt"># 5. Comprobar que el puerto 6500 está en escucha en ss</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-arg">':6500'</span>
+<span class="t-cmd">pkill</span> <span class="t-flag">-f</span> <span class="t-arg">"ssh</span> <span class="t-flag">-f</span> <span class="t-flag">-N</span> <span class="t-flag">-i</span> <span class="t-path">.*</span> <span class="t-flag">-L</span> 6500" <strong>||</strong> <span class="t-cmd">true</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`ssh-keygen -t ed25519`: Crea las claves con algoritmo moderno de curvas elípticas.</li><li>`chmod 700 / 600`: Imprescindible para que el demonio `sshd` acepte las claves sin advertencia de permisos inseguros.</li><li>`ssh -L 6500:127.0.0.1:22`: Reenvía de forma cifrada el puerto local 6500 hacia el servidor SSH.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `ss -tulpn` mostrará `127.0.0.1:6500` en escucha bajo el proceso `ssh`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 4:</strong> Permisos de `~/.ssh/`, login exitoso con `ssh -i` y socket en escucha con `ss -tulpn`. Guarda como `110-G-C4-ssh-tunnel-ed25519.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-5">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 5 — Cifrado y Firma Digital de Evidencias con GnuPG</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('110-GLOBAL', 5, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Generaremos un informe final de auditoría, crearemos un par de claves GPG, cifraremos el documento confidencial en formato armadura ASCII y emitiremos una firma digital en texto claro con `--clearsign`, validando su autenticidad.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Generar la clave GPG de auditoría</span>
+<span class="t-cmd">cat</span> << <span class="t-arg">"EOF"</span> <strong>></strong> <span class="t-cmd">/tmp/gpg_master.txt</span>
+<span class="t-cmd">%no-protection</span>
+<span class="t-cmd">Key-Type:</span> RSA
+<span class="t-cmd">Key-Length:</span> 2048
+<span class="t-cmd">Subkey-Type:</span> RSA
+<span class="t-cmd">Subkey-Length:</span> 2048
+<span class="t-cmd">Name-Real:</span> Auditor Maestro LPIC
+<span class="t-cmd">Name-Email:</span> maestro@lpic.lab
+<span class="t-cmd">Expire-Date:</span> 0
+<span class="t-cmd">%commit</span>
+<span class="t-cmd">EOF</span>
+<span class="t-cmd">gpg</span> <span class="t-flag">--batch</span> <span class="t-flag">--generate-key</span> <span class="t-path">/tmp/gpg_master.txt</span>
+<span class="t-cmd">rm</span> <span class="t-path">/tmp/gpg_master.txt</span>
+
+<span class="t-cmt"># 2. Redactar el informe de evidencias</span>
+<span class="t-cmd">cat</span> << <span class="t-arg">"EOF"</span> <strong>></strong> <span class="t-cmd">/tmp/informe_final_110.txt</span>
+<span class="t-cmd">REPORTE</span> OFICIAL DE AUDITORIA LPIC-1 (TEMA 110)
+<span class="t-cmd">-</span> Binarios <span class="t-path">SUID/SGID</span> auditados: Conformes.
+<span class="t-cmd">-</span> Politicas de aging y bloqueo: Operativas.
+<span class="t-cmd">-</span> TCP Wrappers y banners: Desplegados.
+<span class="t-cmd">-</span> Autenticacion SSH Ed25519 y tuneles: Validados.
+<span class="t-cmd">EOF</span>
+
+<span class="t-cmt"># 3. Cifrar el reporte para el auditor en formato ASCII</span>
+<span class="t-cmd">gpg</span> <span class="t-flag">--yes</span> <span class="t-flag">-e</span> <span class="t-flag">-a</span> <span class="t-flag">-r</span> <span class="t-arg">"maestro@lpic.lab"</span> <span class="t-path">/tmp/informe_final_110.txt</span>
+
+<span class="t-cmt"># 4. Firmar digitalmente el reporte con --clearsign</span>
+<span class="t-cmd">gpg</span> <span class="t-flag">--yes</span> <span class="t-flag">--clearsign</span> <span class="t-path">/tmp/informe_final_110.txt</span>
+
+<span class="t-cmt"># 5. Verificar la firma digital con gpg --verify</span>
+<span class="t-cmd">gpg</span> <span class="t-flag">--verify</span> <span class="t-path">/tmp/informe_final_110.txt.asc</span>
+
+<span class="t-cmt"># 6. Limpiar usuario y archivos temporales</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">userdel</span> <span class="t-flag">-r</span> auditor_final <span class="t-path">2>/dev/null</span> <strong>||</strong> <span class="t-cmd">true</span>
+<span class="t-cmd">rm</span> <span class="t-flag">-f</span> <span class="t-path">/tmp/informe_final_110*</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`gpg -e -a -r`: Cifra el informe en formato ASCII blindado con la clave pública del auditor.</li><li>`gpg --clearsign`: Genera una firma criptográfica manteniendo el texto del informe 100% legible.</li><li>`gpg --verify`: Comprueba matemáticamente que ningún carácter del informe ha sido alterado y que fue firmado por la clave de auditoría.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `gpg --verify` devolverá: `gpg: Firma correcta de "Auditor Maestro LPIC <maestro@lpic.lab>"`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 5:</strong> Cifrado con `gpg -e -a` y verificación exitosa de la firma con `gpg --verify`. Guarda como `110-G-C5-gpg-report-sign.png`.</div>
+            </div>
+            
+        </div>
+        
         </section>
 
         <!-- 5. Mini-Reto Final -->
+        
+        <section class="card" id="mini-reto">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">5. Mini-Reto Final de Autonomía (5 min)</h2>
+          <p style="font-size:17px; margin-bottom:16px;"><strong>Demuestra lo aprendido:</strong> En una auditoría de seguridad post-intrusión, debes entregar un informe forense firmado digitalmente con GPG a la dirección técnica. Explica los 3 pasos exactos del flujo de trabajo criptográfico: 1) qué comando ejecutas para firmar el informe manteniendo el texto legible en ASCII, 2) qué comando ejecuta el receptor para comprobar que el archivo no ha sido manipulado, y 3) qué significa la advertencia de GPG `"Esta clave no está certificada por una firma de confianza"` si la comprobación de la firma resulta correcta.</p>
+          <details class="accordion-item" style="margin-bottom:10px;">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">💡 Ver pista desplegable si te atascas</summary>
+            <div class="accordion-body" style="background:#FFFBEB; color:#78350F;">Revisa la diferencia entre validez matemática de la firma e índice de confianza del modelo Web of Trust en GnuPG.</div>
+          </details>
+          <details class="accordion-item">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
+            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">El flujo oficial de examen LPIC-1 es:
+1. <strong>Firma en texto claro</strong>: <code>gpg --clearsign informe.txt</code> (genera <code>informe.txt.asc</code>).
+2. <strong>Verificación del receptor</strong>: <code>gpg --verify informe.txt.asc</code>.
+3. <strong>Significado de la advertencia</strong>: Indica que la firma matemática es <strong>100% íntegra y válida</strong> (el texto no ha cambiado), pero la clave pública del emisor no ha sido firmada por nadie en quien el receptor confíe explícitamente dentro del modelo de confianza descentralizado de GPG (Web of Trust). Para eliminar la advertencia, el receptor debe firmar la clave pública con <code>gpg --sign-key</code> tras verificar su huella digital (*fingerprint*).</div>
+          </details>
+        </section>
         
 
         <!-- 6. Capturas a entregar -->
         <section class="card" id="capturas">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
             <h2 style="font-size:22px; font-weight:700;">6. Capturas a entregar</h2>
-            <span class="badge badge-green" id="captures-counter">Llevas 0 de 0 capturas</span>
+            <span class="badge badge-green" id="captures-counter">Llevas 0 de 5 capturas</span>
           </div>
           <table class="data-table">
             <thead>
@@ -331,6 +625,36 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110-GLOBAL', 'C1', this)"> <strong>C1</strong></label></td>
+                  <td>Evidencia Misión 1: Rastreo de binarios SUID con `find -perm -4000`</td>
+                  <td><code>`110-G-C1-find-suid-audit.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110-GLOBAL', 'C2', this)"> <strong>C2</strong></label></td>
+                  <td>Evidencia Misión 2: Política de aging con `chage -l` y `visudo -c`</td>
+                  <td><code>`110-G-C2-chage-ulimit-visudo.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110-GLOBAL', 'C3', this)"> <strong>C3</strong></label></td>
+                  <td>Evidencia Misión 3: Reglas en `/etc/hosts.allow` y `/etc/hosts.deny`</td>
+                  <td><code>`110-G-C3-nologin-tcpwrappers.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110-GLOBAL', 'C4', this)"> <strong>C4</strong></label></td>
+                  <td>Evidencia Misión 4: Claves SSH Ed25519 y puerto de túnel en `ss -tulpn`</td>
+                  <td><code>`110-G-C4-ssh-tunnel-ed25519.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110-GLOBAL', 'C5', this)"> <strong>C5</strong></label></td>
+                  <td>Evidencia Misión 5: Firma digital con `--clearsign` y verificación con `gpg --verify`</td>
+                  <td><code>`110-G-C5-gpg-report-sign.png`</code></td>
+                </tr>
+                
             </tbody>
           </table>
         </section>
@@ -339,6 +663,21 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section class="card" id="si-algo-falla">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
+            <details class="accordion-item">
+              <summary>Error: GPG pide passphrase en bucle</summary>
+              <div class="accordion-body">En scripts automatizados o aulas, genera la clave con `%no-protection` en el fichero batch para evitar diálogos interactivos de pinentry.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Error: El túnel SSH falla con "Address already in use"</summary>
+              <div class="accordion-body">El puerto local elegido ya está ocupado por otro proceso; libera el puerto con `sudo fuser -k 6500/tcp` o selecciona otro puerto superior a 1024.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Restaura tu máquina a estado limpio</summary>
+              <div class="accordion-body">Al terminar el laboratorio, restaura el snapshot `00-base-limpia` en tu hipervisor.</div>
+            </details>
+            
         </section>
 
         <!-- 8. Comandos practicados -->
@@ -354,6 +693,72 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><span class="badge badge-blue"><code>find</code></span></td>
+                  <td>Rastreo forense de binarios privilegiados con SUID/SGID y archivos huérfanos</td>
+                  <td>[Slide 2](../t110/110-1-tareas-de-administracion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>chage / passwd</code></span></td>
+                  <td>Gestión integral de envejecimiento de claves y bloqueo de cuentas en shadow</td>
+                  <td>[Slide 4](../t110/110-1-tareas-de-administracion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>lsof / fuser</code></span></td>
+                  <td>Auditoría de procesos, descriptores y finalización forzada de sockets</td>
+                  <td>[Slide 6](../t110/110-1-tareas-de-administracion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ulimit</code></span></td>
+                  <td>Limitación de consumo de recursos de memoria, procesos y ficheros por sesión</td>
+                  <td>[Slide 8](../t110/110-1-tareas-de-administracion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>visudo</code></span></td>
+                  <td>Comprobación de integridad sintáctica de `/etc/sudoers` (`-c`)</td>
+                  <td>[Slide 10](../t110/110-1-tareas-de-administracion.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/nologin / /etc/issue</code></span></td>
+                  <td>Banners de advertencia y restricción global de accesos no privilegiados</td>
+                  <td>[Slide 3](../t110/110-2-configuracion-de-la-segu.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>systemctl mask</code></span></td>
+                  <td>Enmascaramiento de servicios vinculándolos a `/dev/null`</td>
+                  <td>[Slide 5](../t110/110-2-configuracion-de-la-segu.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>TCP Wrappers</code></span></td>
+                  <td>Reglas de filtrado por cliente en `/etc/hosts.allow` y `/etc/hosts.deny`</td>
+                  <td>[Slide 7](../t110/110-2-configuracion-de-la-segu.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ssh-keygen / ssh-copy-id</code></span></td>
+                  <td>Generación y despliegue de claves públicas SSH basadas en Ed25519 o RSA</td>
+                  <td>[Slide 4](../t110/110-3-proteccion-de-datos-medi.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ssh -L</code></span></td>
+                  <td>Reenvío local de puertos para túneles cifrados punto a punto</td>
+                  <td>[Slide 7](../t110/110-3-proteccion-de-datos-medi.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>gpg</code></span></td>
+                  <td>Cifrado simétrico/asimétrico, gestión de anillos y firmas digitales con verificación</td>
+                  <td>[Slide 10](../t110/110-3-proteccion-de-datos-medi.html)</td>
+                </tr>
+                
             </tbody>
           </table>
           <p style="margin-top:14px; font-size:15px; color:var(--text-muted);">
@@ -410,7 +815,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
       }
     }
 
-    const SUB_ID = '101.1';
+    const SUB_ID = '110-GLOBAL';
     function toggleStepDone(sub, stepNum, chk) {
       try {
         let data = JSON.parse(localStorage.getItem('lpic1_prog_' + sub) || '{}');
@@ -438,7 +843,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         const caps = JSON.parse(localStorage.getItem('lpic1_caps_' + SUB_ID) || '{}');
         const done = Object.values(caps).filter(Boolean).length;
         const counter = document.getElementById('captures-counter');
-        if (counter) counter.textContent = 'Llevas ' + done + ' de 0 capturas';
+        if (counter) counter.textContent = 'Llevas ' + done + ' de 5 capturas';
       } catch(e) {}
     }
 

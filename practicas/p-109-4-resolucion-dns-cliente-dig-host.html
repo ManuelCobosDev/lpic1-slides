@@ -245,7 +245,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 25–30 min</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel básico/medio</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-server"/></svg> Debian 12 (00-base-limpia)</span>
-        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 0 capturas requeridas</span>
+        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas requeridas</span>
       </div>
     </div>
 
@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          
+          <li><a href="#mision-1" class="toc-link">Misión 1: Inspección y Configuración de /etc/resolv.conf y Orden de NSSwitch</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Consultas DNS Directas, Inversas y Registros Específicos con dig y host</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Demostración de la Trampa de Examen: getent hosts vs dig/host</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,14 +270,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Comprende con total claridad cómo una máquina Linux resuelve nombres de dominio en direcciones IP y viceversa. En esta práctica auditarás la configuración del resolver en `/etc/resolv.conf` (directivas `nameserver`, `search` y `domain`) y el orden de consulta fijado en `/etc/nsswitch.conf`. Aprenderás la trampa de examen más repetida del tema: **`dig` y `host` consultan directamente a los servidores DNS ignorando por completo `/etc/hosts`**, mientras que `getent hosts` consulta la librería glibc respetando el orden del sistema.</p>
+          <p style="font-size:17px; line-height:1.7;">Aprende a configurar, auditar y resolver problemas en la capa de resolución de nombres DNS del cliente Linux. Comprende el orden de precedencia establecido por el archivo maestro `/etc/nsswitch.conf` (`hosts: files dns`), la sintaxis y directivas clave de `/etc/resolv.conf` (`nameserver`, `search`, `domain`, `options`), y domina la diferencia conceptual y práctica evaluada con insistencia en LPIC-1 entre utilidades de resolución del sistema (como `getent hosts` y `ping`, que leen `/etc/hosts`) frente a clientes DNS puros (como `dig` y `host`, que interrogan directamente a los servidores DNS sin consultar jamás `/etc/hosts`).</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Auditar y configurar `/etc/resolv.conf` (máximo de 3 servidores `nameserver` y búsqueda de sufijos `search`).</li><li>Entender el rol de `/etc/nsswitch.conf` (`hosts: files dns myhostname`).</li><li>Consultar registros directos (A, AAAA, MX) e inversos (PTR) con la herramienta rápida `host`.</li><li>Dominar `dig`: interpretar las secciones HEADER, QUESTION, ANSWER, flags (`aa`, `rd`, `ra`), códigos de retorno (`NOERROR`, `NXDOMAIN`), consultas inversas (`dig -x`), resumen (`+short`) y trazas recursivas (`+trace`).</li><li>Usar `getent hosts` para verificar resoluciones locales simuladas en `/etc/hosts`.</li>
+            <li>Configurar y comprobar las directivas `nameserver`, `search` y `domain` en `/etc/resolv.conf`.</li><li>Interpretar y modificar el conmutador Name Service Switch en `/etc/nsswitch.conf`.</li><li>Realizar consultas DNS concisas con `host` (registros A, AAAA, MX, NS).</li><li>Realizar consultas avanzadas con `dig` (`+short`, `+trace`, registros inversos PTR con `-x`).</li><li>Demostrar experimentalmente la trampa clásica de examen entre `getent hosts` y `dig`/`host`.</li>
           </ul>
         </section>
 
@@ -302,16 +302,185 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section id="misiones-container">
           <h2 style="font-size:26px; font-weight:800; margin: 32px 0 16px 0;">4. Misiones Guiadas Paso a Paso</h2>
           
+        <div class="card step-card" id="mision-1">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Inspección y Configuración de /etc/resolv.conf y Orden de NSSwitch</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109.4', 1, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Examinaremos los dos archivos que controlan la resolución de nombres del sistema operativo: `/etc/resolv.conf` (que especifica a qué IPs enviar las consultas DNS) y `/etc/nsswitch.conf` (que determina si se consulta primero el archivo local `/etc/hosts` o los servidores DNS).</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Inspeccionar la directiva de resolución en /etc/nsswitch.conf</span>
+<span class="t-cmd">grep</span> <span class="t-arg">'^hosts:'</span> <span class="t-path">/etc/nsswitch.conf</span>
+
+<span class="t-cmt"># 2. Inspeccionar la configuración activa de resolvers en /etc/resolv.conf</span>
+<span class="t-cmd">cat</span> <span class="t-path">/etc/resolv.conf</span>
+
+<span class="t-cmt"># 3. Comprobar las directivas esenciales: nameserver, search y domain</span>
+<span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">'^(nameserver|search|domain|options)'</span> <span class="t-path">/etc/resolv.conf</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`hosts: files dns`: En `/etc/nsswitch.conf`, indica al subsistema de resolución C (glibc) que busque primero en `files` (el archivo estático local `/etc/hosts`) y, solo si el nombre no se encuentra allí, consulte a los servidores `dns`.</li><li>`nameserver IP`: Dirección IP del servidor DNS recursivo al que se enviarán las peticiones (se pueden definir hasta 3 como respaldo).</li><li>`search dominio.com`: Lista de dominios que se añaden automáticamente cuando el usuario consulta un nombre que no termina en punto (nombre no cualificado).</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `grep '^hosts:' /etc/nsswitch.conf` mostrará típicamente: `hosts: files dns` o `hosts: files mdns4_minimal [NOTFOUND=return] dns`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 1:</strong> Contenido de `/etc/resolv.conf` y línea `hosts:` de `/etc/nsswitch.conf`. Guarda como `109-4-C1-resolv-nsswitch.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-2">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Consultas DNS Directas, Inversas y Registros Específicos con dig y host</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109.4', 2, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Utilizaremos `host` para consultas rápidas y concisas, y `dig` para auditorías técnicas profundas. Consultaremos direcciones IPv4 (tipo A), IPv6 (tipo AAAA), servidores de correo (MX), servidores de nombres (NS) y realizaremos una resolución inversa (PTR) a partir de una dirección IP.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Consulta rápida con host para obtener IPv4, IPv6 y servidores de correo de un dominio</span>
+<span class="t-cmd">host</span> lpi.org
+
+<span class="t-cmt"># 2. Consultar específicamente los servidores de correo (MX) con host</span>
+<span class="t-cmd">host</span> <span class="t-flag">-t</span> MX lpi.org
+
+<span class="t-cmt"># 3. Consulta concisa con dig mediante el modificador +short</span>
+<span class="t-cmd">dig</span> lpi.org +short
+
+<span class="t-cmt"># 4. Consulta completa con dig inspeccionando la sección QUESTION, ANSWER y el tiempo de respuesta</span>
+<span class="t-cmd">dig</span> lpi.org
+
+<span class="t-cmt"># 5. Realizar una consulta DNS inversa (PTR) a partir de una IP con dig -x</span>
+<span class="t-cmd">dig</span> <span class="t-flag">-x</span> 8.8.8.8 +short</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`host -t TIPO dominio`: Solicita un tipo de registro específico (A, AAAA, MX, NS, SOA, TXT).</li><li>`dig +short`: Suprime cabeceras y comentarios, mostrando únicamente la respuesta final limpia (ideal para scripts bash).</li><li>`dig dominio`: Muestra las cuatro secciones estándar de una respuesta DNS:</li><li>*HEADER*: Flags (QR, RD, RA) y código de estado (`NOERROR`, `NXDOMAIN`).</li><li>*QUESTION SECTION*: La consulta enviada.</li><li>*ANSWER SECTION*: Registros devueltos con su TTL (Time To Live).</li><li>*AUTHORITY / ADDITIONAL*: Servidores autoritativos y estadísticas de consulta.</li><li>`dig -x IP`: Realiza la búsqueda inversa en la zona especial `in-addr.arpa` (o `ip6.arpa`) para encontrar el nombre de host asociado a esa IP.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `dig -x 8.8.8.8 +short` devolverá: `dns.google.`. `dig lpi.org` mostrará `status: NOERROR` y los registros A correspondientes.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 2:</strong> Salida de `host -t MX lpi.org` y de `dig -x 8.8.8.8 +short`. Guarda como `109-4-C2-dig-host-queries.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-3">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Demostración de la Trampa de Examen: getent hosts vs dig/host</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109.4', 3, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Comprobaremos de forma práctica la diferencia crucial evaluada en LPIC-1: `getent hosts` y `ping` utilizan la biblioteca de resolución del sistema operativo (que lee `/etc/hosts`), mientras que `dig` y `host` son clientes de red que interrogan exclusivamente a los servidores DNS configurados y nunca leen `/etc/hosts`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Crear una entrada ficticia en /etc/hosts que no existe en el DNS público de Internet</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"192.168.10.99</span> servidor-fantasma.lpic.lab" <strong>>></strong> <span class="t-cmd">/etc/hosts'</span>
+
+<span class="t-cmt"># 2. Intentar resolver el nombre con host (cliente DNS puro)</span>
+<span class="t-cmd">host</span> servidor-fantasma.lpic.lab <strong>||</strong> <span class="t-cmd">echo</span> <span class="t-arg">"host</span> fallo porque NO lee <span class="t-path">/etc/hosts"</span>
+
+<span class="t-cmt"># 3. Intentar resolver el nombre con dig (cliente DNS puro)</span>
+<span class="t-cmd">dig</span> servidor-fantasma.lpic.lab +short <strong>||</strong> <span class="t-cmd">true</span>
+
+<span class="t-cmt"># 4. Resolver el mismo nombre con getent hosts (respeta NSSwitch / /etc/hosts)</span>
+<span class="t-cmd">getent</span> hosts servidor-fantasma.lpic.lab
+
+<span class="t-cmt"># 5. Probar conectividad local con ping (respeta NSSwitch)</span>
+<span class="t-cmd">ping</span> <span class="t-flag">-c</span> 1 servidor-fantasma.lpic.lab
+
+<span class="t-cmt"># 6. Limpiar la línea de prueba de /etc/hosts</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">sed</span> <span class="t-flag">-i</span> <span class="t-path">'/servidor-fantasma/d'</span> <span class="t-path">/etc/hosts</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`host servidor-fantasma...`: Falla con `Host ... not found: 3(NXDOMAIN)` porque envía un paquete UDP a los DNS en `/etc/resolv.conf`, los cuales desconocen ese nombre local.</li><li>`getent hosts servidor-fantasma...`: Tiene éxito inmediato y devuelve `192.168.10.99` porque consulta `/etc/nsswitch.conf`, el cual le indica buscar primero en `/etc/hosts` (`files`).</li><li>*Conclusión fundamental de examen*: Si un comando utiliza la glibc (`ping`, `ssh`, `curl`, `getent`), obedece `/etc/hosts`. Si es una herramienta de diagnóstico DNS (`dig`, `host`, `nslookup`), ignora por completo `/etc/hosts`.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `host` devolverá error (NXDOMAIN), mientras que `getent hosts` mostrará `192.168.10.99  servidor-fantasma.lpic.lab`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 3:</strong> Comparación directa mostrando el fallo de `host` y el éxito simultáneo de `getent hosts`. Guarda como `109-4-C3-nsswitch-vs-dns.png`.</div>
+            </div>
+            
+        </div>
+        
         </section>
 
         <!-- 5. Mini-Reto Final -->
+        
+        <section class="card" id="mini-reto">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">5. Mini-Reto Final de Autonomía (5 min)</h2>
+          <p style="font-size:17px; margin-bottom:16px;"><strong>Demuestra lo aprendido:</strong> Un técnico de soporte añade la línea `10.50.1.20 IntranetEmpresa` en `/etc/hosts`. Sin embargo, cuando los usuarios ejecutan `ping IntranetEmpresa`, el comando devuelve `ping: IntranetEmpresa: Nombre o servicio desconocido`. El técnico comprueba que `/etc/hosts` está bien escrito. ¿Qué archivo del sistema debe revisar y qué directiva errónea podría estar provocando que Linux ignore `/etc/hosts`?</p>
+          <details class="accordion-item" style="margin-bottom:10px;">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">💡 Ver pista desplegable si te atascas</summary>
+            <div class="accordion-body" style="background:#FFFBEB; color:#78350F;">Revisa el archivo Name Service Switch y el orden de los motores de búsqueda de hosts.</div>
+          </details>
+          <details class="accordion-item">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
+            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">Debe revisar el archivo <strong><code>/etc/nsswitch.conf</code></strong>. La línea <strong><code>hosts:</code></strong> probablemente contenga <code>hosts: dns</code> (habiendo omitido la palabra clave <strong><code>files</code></strong>) o tenga una directiva condicional errónea tipo <code>hosts: dns [NOTFOUND=return] files</code>. Para solucionarlo, debe asegurarse de que <code>files</code> figure en primer lugar: <strong><code>hosts: files dns</code></strong>.</div>
+          </details>
+        </section>
         
 
         <!-- 6. Capturas a entregar -->
         <section class="card" id="capturas">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
             <h2 style="font-size:22px; font-weight:700;">6. Capturas a entregar</h2>
-            <span class="badge badge-green" id="captures-counter">Llevas 0 de 0 capturas</span>
+            <span class="badge badge-green" id="captures-counter">Llevas 0 de 3 capturas</span>
           </div>
           <table class="data-table">
             <thead>
@@ -323,6 +492,24 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109.4', 'C1', this)"> <strong>C1</strong></label></td>
+                  <td>Evidencia de Misión 1: `/etc/resolv.conf` y directiva `hosts:` en `/etc/nsswitch.conf`</td>
+                  <td><code>`109-4-C1-resolv-nsswitch.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109.4', 'C2', this)"> <strong>C2</strong></label></td>
+                  <td>Evidencia de Misión 2: Consulta MX con `host` y resolución inversa PTR con `dig -x`</td>
+                  <td><code>`109-4-C2-dig-host-queries.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109.4', 'C3', this)"> <strong>C3</strong></label></td>
+                  <td>Evidencia de Misión 3: Demostración comparativa de `host` (falla) vs `getent hosts` (éxito)</td>
+                  <td><code>`109-4-C3-nsswitch-vs-dns.png`</code></td>
+                </tr>
+                
             </tbody>
           </table>
         </section>
@@ -331,6 +518,21 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section class="card" id="si-algo-falla">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
+            <details class="accordion-item">
+              <summary>Error: "dig: command not found" o "host: command not found"</summary>
+              <div class="accordion-body">Instala el paquete de herramientas DNS con `sudo apt update && sudo apt install -y dnsutils` (en distribuciones RHEL/CentOS se denomina `bind-utils`).</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Error: /etc/resolv.conf es sobreescrito al reiniciar</summary>
+              <div class="accordion-body">En sistemas con `systemd-resolved` o `NetworkManager`, `/etc/resolv.conf` es un enlace simbólico dinámico. Para cambios permanentes, configura el DNS en el perfil de red con `nmcli`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Restaura tu máquina a estado limpio</summary>
+              <div class="accordion-body">Al terminar las pruebas, restaura el snapshot `00-base-limpia` en tu hipervisor.</div>
+            </details>
+            
         </section>
 
         <!-- 8. Comandos practicados -->
@@ -346,6 +548,42 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><span class="badge badge-blue"><code>dig</code></span></td>
+                  <td>Utilidad avanzada de consulta e interrogación DNS (`+short`, `+trace`, `-x`)</td>
+                  <td>[Slide 7](../t109/109-4-configuracion-dns-en-el.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>host</code></span></td>
+                  <td>Cliente DNS sencillo para resolución directa, inversa y consulta de registros</td>
+                  <td>[Slide 7](../t109/109-4-configuracion-dns-en-el.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>getent hosts</code></span></td>
+                  <td>Consulta el servicio de nombres del sistema respetando `/etc/nsswitch.conf` y `/etc/hosts`</td>
+                  <td>[Slide 3](../t109/109-4-configuracion-dns-en-el.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/resolv.conf</code></span></td>
+                  <td>Archivo de configuración del resolver: servidores DNS (`nameserver`) y sufijos (`search`)</td>
+                  <td>[Slide 4](../t109/109-4-configuracion-dns-en-el.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/nsswitch.conf</code></span></td>
+                  <td>Configura las fuentes y orden de consulta de bases de datos administrativas (`hosts: files dns`)</td>
+                  <td>[Slide 3](../t109/109-4-configuracion-dns-en-el.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/hosts</code></span></td>
+                  <td>Tabla local de asignación estática de direcciones IP a nombres de equipo</td>
+                  <td>[Slide 4](../t109/109-4-configuracion-dns-en-el.html)</td>
+                </tr>
+                
             </tbody>
           </table>
           <p style="margin-top:14px; font-size:15px; color:var(--text-muted);">
@@ -430,7 +668,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         const caps = JSON.parse(localStorage.getItem('lpic1_caps_' + SUB_ID) || '{}');
         const done = Object.values(caps).filter(Boolean).length;
         const counter = document.getElementById('captures-counter');
-        if (counter) counter.textContent = 'Llevas ' + done + ' de 0 capturas';
+        if (counter) counter.textContent = 'Llevas ' + done + ' de 3 capturas';
       } catch(e) {}
     }
 

@@ -245,7 +245,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 25–30 min</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel básico/medio</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-server"/></svg> Debian 12 (00-base-limpia)</span>
-        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 0 capturas requeridas</span>
+        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas requeridas</span>
       </div>
     </div>
 
@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          
+          <li><a href="#mision-1" class="toc-link">Misión 1: Regla Personalizada en rsyslog, Escritura Asíncrona e Inyección con logger</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Filtrado Forense Avanzado en el Diario de systemd con journalctl</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Creación y Simulación de una Política de Rotación con logrotate</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,14 +270,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Aprende a administrar el subsistema completo de registro de eventos en Linux. Configura el demonio tradicional `rsyslog` aplicando reglas de facilidad (facility) y prioridad (severity), comprendiendo la escala invertida de gravedad (0 a 7). Inyecta mensajes de prueba con `logger`, realiza búsquedas forenses avanzadas en el registro indexado de systemd con `journalctl` (filtrando por unidad, severidad y reinicios) y configura políticas de rotación y compresión de archivos con `logrotate`.</p>
+          <p style="font-size:17px; line-height:1.7;">Aprende a gestionar la pila completa de registro y auditoría del sistema operativo Linux. Comprende el funcionamiento dual entre el demonio clásico de bitácoras `rsyslog` y el diario binario indexado de systemd (`systemd-journald`). Aprende a diseñar reglas de filtrado con facilidades y severidades, inyectar eventos de prueba con `logger`, realizar búsquedas forenses ultraprecisas con `journalctl` (por servicio, severidad, rango temporal o arranque) y automatizar el archivado y compresión con `logrotate`.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Identificar las 8 severidades de syslog (0 emerg a 7 debug) y su regla de captura acumulativa.</li><li>Configurar reglas en `/etc/rsyslog.d/` utilizando selectores (`.`, `.=`, `.!`) y acciones (ficheros locales, buffer asíncrono con guion `-` y reenvío remoto con `@`/`@@`).</li><li>Generar entradas de log etiquetadas desde la línea de comandos y scripts con `logger`.</li><li>Explotar las opciones de `journalctl` (`-u`, `-p`, `-b`, `-f`, `-k`, `--since`, `--vacuum-size`).</li><li>Definir políticas de retención, compresión y scripts de reinicio en `/etc/logrotate.d/`.</li>
+            <li>Interpretar la sintaxis de selectores en `rsyslog.conf`: facilidad (facility), nivel de severidad (0-7) y acciones.</li><li>Comprender el significado crítico del prefijo guion `-` para escritura en búfer asíncrona en disco.</li><li>Inyectar trazas simuladas con `logger -p facilidad.severidad -t etiqueta`.</li><li>Realizar consultas avanzadas con `journalctl` (`-u`, `-p`, `-b`, `--since`, `-f`, `-o verbose`).</li><li>Crear políticas personalizadas de rotación en `/etc/logrotate.d/` con `daily`, `rotate`, `compress` y `missingok`.</li>
           </ul>
         </section>
 
@@ -302,16 +302,192 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section id="misiones-container">
           <h2 style="font-size:26px; font-weight:800; margin: 32px 0 16px 0;">4. Misiones Guiadas Paso a Paso</h2>
           
+        <div class="card step-card" id="mision-1">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Regla Personalizada en rsyslog, Escritura Asíncrona e Inyección con logger</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('108.2', 1, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Crearemos un archivo de configuración en `/etc/rsyslog.d/` para capturar todos los mensajes de la facilidad `local5` en un archivo de registro dedicado `/var/log/app-auditoria.log`. Usaremos la directiva de buffer asíncrono `-` y verificaremos su funcionamiento inyectando eventos con `logger`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Crear la regla de rsyslog para la facilidad local5 con buffer asíncrono (-)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"local5.*</span> <span class="t-flag">-/var/log/app-auditoria.log"</span> <strong>></strong> <span class="t-cmd">/etc/rsyslog.d/40-auditoria.conf'</span>
+
+<span class="t-cmt"># 2. Reiniciar rsyslog para aplicar la nueva regla</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> restart rsyslog
+
+<span class="t-cmt"># 3. Inyectar eventos de prueba con logger en diferentes severidades (warning y crit)</span>
+<span class="t-cmd">logger</span> <span class="t-flag">-p</span> local5.warn <span class="t-flag">-t</span> APP_AUDIT <span class="t-arg">"Alerta:</span> Espacio en disco superior al 85%"
+<span class="t-cmd">logger</span> <span class="t-flag">-p</span> local5.crit <span class="t-flag">-t</span> APP_AUDIT <span class="t-arg">"FALLO</span> CRITICO: Conexion rechazada por el backend"
+
+<span class="t-cmt"># 4. Inspeccionar el contenido del archivo de bitácora generado</span>
+<span class="t-cmd">cat</span> <span class="t-path">/var/log/app-auditoria.log</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`local5.*`: Selector. Facilidad `local5` (reservada para uso local) y nivel `*` (todas las severidades de debug a emerg).</li><li>`-/var/log/app-auditoria.log`: Acción. El guion `-` indica omitir la sincronización inmediata a disco (`fsync`) tras cada línea, mejorando drásticamente el rendimiento en servidores con alta carga.</li><li>`logger -p local5.warn -t APP_AUDIT`: Utilidad de línea de comandos para inyectar mensajes en el socket `/dev/log`. `-p` fija facilidad.severidad y `-t` asigna una etiqueta identificativa.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> El archivo `/var/log/app-auditoria.log` contendrá dos líneas con timestamp, hostname, etiqueta `APP_AUDIT:` y los mensajes exactos inyectados.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 1:</strong> Contenido de `/etc/rsyslog.d/40-auditoria.conf` y salida de `cat /var/log/app-auditoria.log`. Guarda como `108-2-C1-rsyslog-logger.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-2">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Filtrado Forense Avanzado en el Diario de systemd con journalctl</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('108.2', 2, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">systemd recopila registros binarios estructurados en memoria volátil (`/run/log/journal/`) o persistente (`/var/log/journal/`). Realizaremos búsquedas de diagnóstico filtrando por unidad de servicio, severidad numérica, arranque actual y rango de tiempo relativo.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Consultar registros del servicio SSH desde el arranque actual (-b)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">journalctl</span> <span class="t-flag">-u</span> ssh <span class="t-flag">-b</span> <span class="t-flag">--no-pager</span> <span class="t-flag">-n</span> 10
+
+<span class="t-cmt"># 2. Filtrar únicamente mensajes con nivel de severidad 'err' o superior (0 a 3)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">journalctl</span> <span class="t-flag">-p</span> err <span class="t-flag">-b</span> <span class="t-flag">--no-pager</span> <span class="t-flag">-n</span> 10
+
+<span class="t-cmt"># 3. Consultar eventos ocurridos en los últimos 15 minutos</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">journalctl</span> <span class="t-flag">--since</span> <span class="t-arg">"15</span> minutes ago" <span class="t-flag">--no-pager</span> <span class="t-flag">-n</span> 10
+
+<span class="t-cmt"># 4. Inspeccionar un registro en formato detallado JSON/verbose para ver campos internos</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">journalctl</span> <span class="t-flag">-u</span> ssh <span class="t-flag">-o</span> json-pretty <span class="t-flag">-n</span> 1</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`-u ssh`: Filtra únicamente los mensajes emitidos por la unidad systemd `ssh.service` (`_SYSTEMD_UNIT=ssh.service`).</li><li>`-b`: Limita la consulta al arranque actual (boot 0). Con `-b -1` se consultaría el arranque anterior.</li><li>`-p err`: Muestra eventos con prioridad igual o más grave que *err* (niveles 0: emerg, 1: alert, 2: crit, 3: err).</li><li>`--since "15 minutes ago"`: Filtro temporal relativo (también admite fechas ISO tipo `"2026-11-09 10:00:00"`).</li><li>`-o json-pretty`: Muestra los metadatos completos indexados: PID, UID, SELinux/AppArmor context, transport, etc.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `journalctl` devolverá registros coloreados según severidad (rojo para emergencias/errores, blanco/gris para avisos informativos).</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 2:</strong> Salida de `sudo journalctl -p err -b -n 10` y de la consulta con `--since`. Guarda como `108-2-C2-journalctl-filters.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-3">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Creación y Simulación de una Política de Rotación con logrotate</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('108.2', 3, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Crearemos una directiva para que el nuevo archivo `/var/log/app-auditoria.log` se rote diariamente, manteniendo 4 copias históricas comprimidas con gzip, y probaremos la política en modo simulación (`-d`) y forzado (`-f`).</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Definir la política de rotación en /etc/logrotate.d/</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'cat</span> << <span class="t-arg">"EOF"</span> <strong>></strong> <span class="t-cmd">/etc/logrotate.d/app-auditoria</span>
+<span class="t-cmd">/var/log/app-auditoria.log</span> {
+<span class="t-cmd">daily</span>
+<span class="t-cmd">rotate</span> 4
+<span class="t-cmd">compress</span>
+<span class="t-cmd">delaycompress</span>
+<span class="t-cmd">missingok</span>
+<span class="t-cmd">notifempty</span>
+<span class="t-cmd">create</span> 0640 root adm
+<span class="t-cmd">}</span>
+<span class="t-cmd">EOF'</span>
+
+<span class="t-cmt"># 2. Comprobar la sintaxis y simular la rotación en seco (debug)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">logrotate</span> <span class="t-flag">-d</span> <span class="t-path">/etc/logrotate.d/app-auditoria</span>
+
+<span class="t-cmt"># 3. Forzar la rotación real inmediata (-f)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">logrotate</span> <span class="t-flag">-f</span> <span class="t-path">/etc/logrotate.d/app-auditoria</span>
+
+<span class="t-cmt"># 4. Comprobar los archivos resultantes en /var/log/</span>
+<span class="t-cmd">ls</span> <span class="t-flag">-l</span> <span class="t-path">/var/log/app-auditoria*</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`daily`: Rota el archivo con periodicidad diaria.</li><li>`rotate 4`: Conserva 4 archivos de historial antes de purgar el más antiguo.</li><li>`compress` y `delaycompress`: Comprime los archivos rotados con gzip, posponiendo la compresión de la rotación más reciente (`.1`) hasta el siguiente ciclo para evitar conflictos con procesos que sigan escribiendo.</li><li>`create 0640 root adm`: Crea inmediatamente un archivo nuevo vacío con permisos 0640 tras mover el anterior.</li><li>`logrotate -d`: Modo **debug**: simula qué haría sin modificar archivos en disco.</li><li>`logrotate -f`: Modo **force**: fuerza la rotación aunque no se cumpla la condición temporal o de tamaño.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> Al ejecutar `ls -l`, verás el archivo activo `/var/log/app-auditoria.log` y el rotado `/var/log/app-auditoria.log.1`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 3:</strong> Contenido de `/etc/logrotate.d/app-auditoria` y salida de `ls -l /var/log/app-auditoria*`. Guarda como `108-2-C3-logrotate-policy.png`.</div>
+            </div>
+            
+        </div>
+        
         </section>
 
         <!-- 5. Mini-Reto Final -->
+        
+        <section class="card" id="mini-reto">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">5. Mini-Reto Final de Autonomía (5 min)</h2>
+          <p style="font-size:17px; margin-bottom:16px;"><strong>Demuestra lo aprendido:</strong> En `/etc/rsyslog.conf` encuentras la siguiente línea de configuración:
+`*.=warning;auth,authpriv.none  -/var/log/warnings.log`
+Explica con precisión qué mensajes se registrarán en dicho archivo, prestando especial atención al signo igual `=` y a la directiva `.none`.</p>
+          <details class="accordion-item" style="margin-bottom:10px;">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">💡 Ver pista desplegable si te atascas</summary>
+            <div class="accordion-body" style="background:#FFFBEB; color:#78350F;">Revisa la diferencia entre <code>warning</code> (warning y superiores) frente a <code>=warning</code> (únicamente warning), y la exclusión con <code>.none</code>.</div>
+          </details>
+          <details class="accordion-item">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
+            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">Se registrarán <strong>únicamente</strong> los mensajes cuya severidad sea <strong>exactamente Warning (nivel 4)</strong> de cualquier facilidad (gracias a <code>*.=warning</code>), pero <strong>excluyendo</strong> absolutamente cualquier mensaje que provenga de los subsistemas de autenticación <code>auth</code> y <code>authpriv</code> (gracias a <code>auth,authpriv.none</code>). Todo ello se escribirá con búfer asíncrono gracias al guion <code>-</code>.</div>
+          </details>
+        </section>
         
 
         <!-- 6. Capturas a entregar -->
         <section class="card" id="capturas">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
             <h2 style="font-size:22px; font-weight:700;">6. Capturas a entregar</h2>
-            <span class="badge badge-green" id="captures-counter">Llevas 0 de 0 capturas</span>
+            <span class="badge badge-green" id="captures-counter">Llevas 0 de 3 capturas</span>
           </div>
           <table class="data-table">
             <thead>
@@ -323,6 +499,24 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('108.2', 'C1', this)"> <strong>C1</strong></label></td>
+                  <td>Evidencia de Misión 1: Regla en `rsyslog.d` e inyección de eventos con `logger`</td>
+                  <td><code>`108-2-C1-rsyslog-logger.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('108.2', 'C2', this)"> <strong>C2</strong></label></td>
+                  <td>Evidencia de Misión 2: Filtrado forense con `journalctl -p err -b`</td>
+                  <td><code>`108-2-C2-journalctl-filters.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('108.2', 'C3', this)"> <strong>C3</strong></label></td>
+                  <td>Evidencia de Misión 3: Archivo de política y archivos rotados con `logrotate`</td>
+                  <td><code>`108-2-C3-logrotate-policy.png`</code></td>
+                </tr>
+                
             </tbody>
           </table>
         </section>
@@ -331,6 +525,21 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section class="card" id="si-algo-falla">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
+            <details class="accordion-item">
+              <summary>Error: rsyslog no escribe en el archivo</summary>
+              <div class="accordion-body">Asegúrate de que el usuario `syslog` tiene permisos de escritura en la ruta de destino o crea el archivo previamente con `sudo touch /var/log/app-auditoria.log && sudo chown syslog:adm /var/log/app-auditoria.log`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Error: "logrotate error: skipping... permissions"</summary>
+              <div class="accordion-body">Si el archivo de configuración en `/etc/logrotate.d/` tiene permisos de escritura para grupo u otros, logrotate lo rechazará por seguridad. Aplica `sudo chmod 0644 /etc/logrotate.d/app-auditoria`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Restaura tu máquina a estado limpio</summary>
+              <div class="accordion-body">Al terminar las pruebas, restaura el snapshot `00-base-limpia` en tu hipervisor.</div>
+            </details>
+            
         </section>
 
         <!-- 8. Comandos practicados -->
@@ -346,6 +555,42 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><span class="badge badge-blue"><code>journalctl</code></span></td>
+                  <td>Consulta y filtrado avanzado del diario indexado de systemd (`-u`, `-p`, `-b`, `--since`)</td>
+                  <td>[Slide 6](../t108/108-2-registros-del-sistema.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>logger</code></span></td>
+                  <td>Inyecta manualmente entradas en el sistema de registro (`-p facilidad.severidad`, `-t`)</td>
+                  <td>[Slide 8](../t108/108-2-registros-del-sistema.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>logrotate</code></span></td>
+                  <td>Automatiza la rotación, compresión y eliminación periódica de bitácoras (`-d`, `-f`)</td>
+                  <td>[Slide 9](../t108/108-2-registros-del-sistema.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/rsyslog.conf</code></span></td>
+                  <td>Archivo maestro de reglas, facilidades y destinos del demonio rsyslog</td>
+                  <td>[Slide 3](../t108/108-2-registros-del-sistema.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/systemd/journald.conf</code></span></td>
+                  <td>Configuración del demonio journald: Storage (volatile, persistent, auto) y tamaño</td>
+                  <td>[Slide 5](../t108/108-2-registros-del-sistema.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/var/log/syslog</code></span></td>
+                  <td>Bitácora de propósito general del sistema en distribuciones Debian/Ubuntu</td>
+                  <td>[Slide 2](../t108/108-2-registros-del-sistema.html)</td>
+                </tr>
+                
             </tbody>
           </table>
           <p style="margin-top:14px; font-size:15px; color:var(--text-muted);">
@@ -430,7 +675,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         const caps = JSON.parse(localStorage.getItem('lpic1_caps_' + SUB_ID) || '{}');
         const done = Object.values(caps).filter(Boolean).length;
         const counter = document.getElementById('captures-counter');
-        if (counter) counter.textContent = 'Llevas ' + done + ' de 0 capturas';
+        if (counter) counter.textContent = 'Llevas ' + done + ' de 3 capturas';
       } catch(e) {}
     }
 

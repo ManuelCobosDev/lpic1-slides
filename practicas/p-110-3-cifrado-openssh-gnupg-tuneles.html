@@ -245,7 +245,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 25–30 min</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel básico/medio</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-server"/></svg> Debian 12 (00-base-limpia)</span>
-        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 0 capturas requeridas</span>
+        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 4 capturas requeridas</span>
       </div>
     </div>
 
@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          
+          <li><a href="#mision-1" class="toc-link">Misión 1: Generación de Claves Ed25519 con ssh-keygen, Permisos y Despliegue con ssh-copy-id</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Carga y Gestión de Credenciales en Memoria con ssh-agent y ssh-add</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Creación de Túneles Cifrados de Reenvío de Puertos Locales (ssh -L)</a></li><li><a href="#mision-4" class="toc-link">Misión 4: Operaciones Criptográficas con GnuPG: Cifrado, Descifrado y Firma Digital</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,14 +270,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Domina las dos herramientas criptográficas pilares de la certificación LPIC-1: OpenSSH para la seguridad de sesiones remotas y túneles cifrados, y GnuPG (GPG) para la protección de la confidencialidad, autenticidad e integridad de datos en reposo y comunicaciones asimétricas. En esta práctica generarás claves modernas ED25519 y RSA, utilizarás el agente de autenticación en memoria (`ssh-agent` y `ssh-add`), levantarás túneles locales de puertos con `-L`, limpiarás claves obsoletas de `known_hosts` con `ssh-keygen -R` y ejecutarás el ciclo completo de GPG: exportación con armadura ASCII, cifrado y descifrado asimétrico, y firma en claro (`--clearsign`).</p>
+          <p style="font-size:17px; line-height:1.7;">Domina las tecnologías fundamentales de cifrado asimétrico y protección de datos en tránsito y en reposo en Linux. Aprende a generar pares de claves criptográficas modernas con `ssh-keygen` (algoritmos ED25519 y RSA), configurar permisos estrictos en `~/.ssh/` para evitar rechazos de seguridad del demonio SSH, cargar credenciales en memoria con el agente `ssh-agent` y `ssh-add`, crear túneles de reenvío de puertos locales (`-L`) para securizar tráfico inseguro a través de canales cifrados, y utilizar la suite `gpg` (GnuPG) para generar claves PGP, cifrar archivos con armadura ASCII (`-a`), descifrarlos y emitir firmas digitales verificables (`--clearsign`).</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Generar pares de claves asimétricas con `ssh-keygen -t ed25519` protegiéndolas con frase de paso.</li><li>Verificar permisos estrictos: `~/.ssh/` (0700) y claves privadas (0600).</li><li>Usar `ssh-agent` y `ssh-add` para mantener credenciales descifradas en memoria RAM durante la sesión.</li><li>Establecer un túnel de reenvío local con `ssh -Nf -L <local_port>:<dest_host>:<dest_port> <server>`.</li><li>Generar pares de claves OpenPGP y certificados de revocación con `gpg --gen-key`.</li><li>Exportar e importar claves públicas en formato blindado ASCII con `gpg --export --armor`.</li><li>Cifrar archivos para un destinatario con `gpg --encrypt -r <user> -a` y descifrarlos con `gpg --decrypt`.</li><li>Firmar documentos legibles con `gpg --clearsign` y verificar su autenticidad con `gpg --verify`.</li>
+            <li>Generar pares de claves asimétricas SSH con `ssh-keygen -t ed25519`.</li><li>Identificar los permisos de seguridad obligatorios: 700 en `~/.ssh` y 600 en claves privadas y `authorized_keys`.</li><li>Administrar identidades en memoria volátil mediante `ssh-agent` y `ssh-add` (`-l`, `-d`, `-D`).</li><li>Establecer túneles locales de reenvío de puertos mediante `ssh -L puerto_local:host_destino:puerto_destino`.</li><li>Generar un par de claves GPG con `gpg --full-generate-key`.</li><li>Cifrar ficheros con clave pública (`gpg -e -r -a`) y descifrarlos con clave privada (`gpg -d`).</li><li>Firmar documentos digitalmente con `gpg --clearsign` y verificar su autenticidad e integridad con `gpg --verify`.</li>
           </ul>
         </section>
 
@@ -302,16 +302,269 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section id="misiones-container">
           <h2 style="font-size:26px; font-weight:800; margin: 32px 0 16px 0;">4. Misiones Guiadas Paso a Paso</h2>
           
+        <div class="card step-card" id="mision-1">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Generación de Claves Ed25519 con ssh-keygen, Permisos y Despliegue con ssh-copy-id</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('110.3', 1, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Generaremos un par de claves asimétricas modernas basadas en curvas elípticas Ed25519. Verificaremos y corregiremos los permisos del directorio `~/.ssh` y de los archivos de claves, y desplegaremos la clave pública en `~/.ssh/authorized_keys` usando `ssh-copy-id`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Crear el par de claves Ed25519 con comentario corporativo (-C) sin passphrase para la prueba</span>
+<span class="t-cmd">ssh-keygen</span> <span class="t-flag">-t</span> ed25519 <span class="t-flag">-C</span> <span class="t-arg">"alumno@lpic-lab"</span> <span class="t-flag">-f</span> <span class="t-path">~/.ssh/id_ed25519</span> <span class="t-flag">-N</span> <span class="t-arg">""</span>
+
+<span class="t-cmt"># 2. Inspeccionar los permisos de las claves generadas</span>
+<span class="t-cmd">ls</span> <span class="t-flag">-la</span> <span class="t-path">~/.ssh/</span>
+
+<span class="t-cmt"># 3. Aplicar los permisos estrictos requeridos por SSH (700 directorio, 600 privada, 644 publica)</span>
+<span class="t-cmd">chmod</span> 700 <span class="t-path">~/.ssh</span>
+<span class="t-cmd">chmod</span> 600 <span class="t-path">~/.ssh/id_ed25519</span>
+<span class="t-cmd">chmod</span> 644 <span class="t-path">~/.ssh/id_ed25519.pub</span>
+
+<span class="t-cmt"># 4. Desplegar la clave pública en el almacén de claves autorizadas local</span>
+<span class="t-cmd">ssh-copy-id</span> <span class="t-flag">-i</span> <span class="t-path">~/.ssh/id_ed25519.pub</span> alumno@127.0.0.1 <strong>||</strong> <span class="t-cmd">cat</span> <span class="t-path">~/.ssh/id_ed25519.pub</span> <strong>>></strong> <span class="t-cmd">~/.ssh/authorized_keys</span>
+<span class="t-cmd">chmod</span> 600 <span class="t-path">~/.ssh/authorized_keys</span>
+
+<span class="t-cmt"># 5. Probar el inicio de sesión SSH sin contraseña contra localhost</span>
+<span class="t-cmd">ssh</span> <span class="t-flag">-i</span> <span class="t-path">~/.ssh/id_ed25519</span> alumno@127.0.0.1 <span class="t-arg">"echo</span> <span class="t-arg">'Conexion</span> SSH por clave publica EXITOSA'"</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`ssh-keygen -t ed25519`: Genera claves basadas en el algoritmo Ed25519 (curva de Edwards), mucho más rápido y seguro que RSA.</li><li>`id_ed25519`: Clave privada (debe tener permisos `600` y jamás compartirse).</li><li>`id_ed25519.pub`: Clave pública (se copia a los servidores en `~/.ssh/authorized_keys`).</li><li>*Permisos estrictos*: Si `~/.ssh` o `authorized_keys` tienen permisos de escritura para grupo u otros (`chmod 777` o `chmod 666`), el demonio `sshd` **rechaza silenciosamente** la autenticación por clave por motivos de seguridad (*StrictModes*).</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> La ejecución de `ssh alumno@127.0.0.1` se completará sin pedir contraseña de usuario, devolviendo el mensaje de éxito.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 1:</strong> Permisos en `ls -la ~/.ssh/` y conexión por clave con `ssh -i ~/.ssh/id_ed25519 alumno@127.0.0.1`. Guarda como `110-3-C1-ssh-keygen-auth.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-2">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Carga y Gestión de Credenciales en Memoria con ssh-agent y ssh-add</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('110.3', 2, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Para no tener que introducir la frase de paso (passphrase) de la clave privada cada vez que se establece una conexión, se utiliza el agente `ssh-agent`. Iniciaremos el agente, cargaremos la clave con `ssh-add`, listaremos las huellas en memoria y vaciaremos la memoria del agente.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Iniciar una instancia de ssh-agent y exportar sus variables de entorno</span>
+<span class="t-cmd">eval</span> <span class="t-arg">"$(ssh-agent</span> <span class="t-flag">-s)"</span>
+
+<span class="t-cmt"># 2. Comprobar las variables SSH_AUTH_SOCK y SSH_AGENT_PID creadas</span>
+<span class="t-cmd">env</span> <strong>|</strong> <span class="t-cmd">grep</span> SSH_AGENT
+
+<span class="t-cmt"># 3. Añadir la clave privada a la memoria del agente</span>
+<span class="t-cmd">ssh-add</span> <span class="t-path">~/.ssh/id_ed25519</span>
+
+<span class="t-cmt"># 4. Listar las claves y huellas digitales actualmente cargadas en el agente (-l)</span>
+<span class="t-cmd">ssh-add</span> <span class="t-flag">-l</span>
+
+<span class="t-cmt"># 5. Probar que ssh conecta utilizando el agente sin especificar la ruta del archivo</span>
+<span class="t-cmd">ssh</span> alumno@127.0.0.1 <span class="t-arg">"echo</span> <span class="t-arg">'Sesion</span> con ssh-agent confirmada'"
+
+<span class="t-cmt"># 6. Eliminar todas las identidades de la memoria del agente (-D)</span>
+<span class="t-cmd">ssh-add</span> <span class="t-flag">-D</span>
+<span class="t-cmd">ssh-add</span> <span class="t-flag">-l</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`eval "$(ssh-agent -s)"`: Arranca el proceso demonio `ssh-agent` y define en el shell actual el socket de comunicación `SSH_AUTH_SOCK` y el PID del proceso `SSH_AGENT_PID`.</li><li>`ssh-add`: Descifra y almacena la clave privada en la memoria RAM del agente.</li><li>`ssh-add -l`: Muestra las huellas SHA256 de las claves residentes en memoria.</li><li>`ssh-add -D`: Purga (*Delete all*) todas las claves cargadas en el agente para proteger la sesión antes de alejarse de la estación de trabajo.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `ssh-add -l` mostrará la huella digital y el comentario `alumno@lpic-lab`. Tras `ssh-add -D`, indicará `The agent has no identities`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 2:</strong> Variables de `ssh-agent`, salida de `ssh-add -l` y purga con `ssh-add -D`. Guarda como `110-3-C2-ssh-agent-add.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-3">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Creación de Túneles Cifrados de Reenvío de Puertos Locales (ssh -L)</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('110.3', 3, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Un túnel SSH permite encapsular cualquier protocolo de red inseguro en un canal seguro y cifrado. Crearemos un túnel local (`ssh -L`) para redirigir el puerto local `8080` de nuestra máquina hacia el puerto web de un servidor o servicio interno, y probaremos la conectividad a través del túnel.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Levantar un servicio de prueba escuchando solo en localhost puerto 9999</span>
+<span class="t-cmd">nc</span> <span class="t-flag">-l</span> <span class="t-flag">-p</span> 9999 &
+<span class="t-cmd">PID_NC=$!</span>
+
+<span class="t-cmt"># 2. Crear un tunel SSH local mapeando el puerto 7777 hacia 127.0.0.1:9999</span>
+<span class="t-cmd">ssh</span> <span class="t-flag">-f</span> <span class="t-flag">-N</span> <span class="t-flag">-L</span> 7777:127.0.0.1:9999 alumno@127.0.0.1
+
+<span class="t-cmt"># 3. Comprobar con ss que el nuevo puerto local 7777 está escuchando</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-arg">':7777'</span>
+
+<span class="t-cmt"># 4. Enviar datos a traves del tunel hacia el puerto 7777 y verificar que llegan al servicio</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Datos</span> seguros transmitidos por el tunel SSH" <strong>|</strong> <span class="t-cmd">nc</span> <span class="t-flag">-q</span> 1 127.0.0.1 7777 <strong>||</strong> <span class="t-cmd">true</span>
+
+<span class="t-cmt"># 5. Cerrar el proceso netcat y los tuneles de prueba</span>
+<span class="t-cmd">kill</span> $PID_NC <span class="t-path">2>/dev/null</span> <strong>||</strong> <span class="t-cmd">true</span>
+<span class="t-cmd">pkill</span> <span class="t-flag">-f</span> <span class="t-arg">"ssh</span> <span class="t-flag">-f</span> <span class="t-flag">-N</span> <span class="t-flag">-L</span> 7777" <strong>||</strong> <span class="t-cmd">true</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`ssh -L local_port:dest_host:dest_port`: Reenvío de puerto local (*Local Port Forwarding*). El cliente SSH abre un puerto en escucha (`local_port`) en la máquina origen; cualquier tráfico que entra allí es cifrado y enviado al servidor SSH, quien lo reenvía al destino (`dest_host:dest_port`).</li><li>`-N`: No ejecuta ningún comando remoto (solo reenvía puertos).</li><li>`-f`: Pasa el proceso SSH a segundo plano justo antes de la ejecución.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `ss -tulpn` mostrará `127.0.0.1:7777` en estado `LISTEN` perteneciente al proceso `ssh`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 3:</strong> Socket en escucha en `ss -tulpn | grep :7777` correspondiente al túnel SSH. Guarda como `110-3-C3-ssh-tunnel-local.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-4">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 4 — Operaciones Criptográficas con GnuPG: Cifrado, Descifrado y Firma Digital</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('110.3', 4, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Utilizaremos `gpg` (GnuPG) para generar un par de claves PGP de prueba, exportar la clave pública con armadura ASCII (`-a`), cifrar un archivo confidencial, descifrarlo verificando su integridad y generar un documento firmado digitalmente en texto legible con `--clearsign`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Generar una clave GPG no interactiva por lotes</span>
+<span class="t-cmd">cat</span> << <span class="t-arg">"EOF"</span> <strong>></strong> <span class="t-cmd">/tmp/gpg_batch.txt</span>
+<span class="t-cmd">%no-protection</span>
+<span class="t-cmd">Key-Type:</span> RSA
+<span class="t-cmd">Key-Length:</span> 2048
+<span class="t-cmd">Subkey-Type:</span> RSA
+<span class="t-cmd">Subkey-Length:</span> 2048
+<span class="t-cmd">Name-Real:</span> Alumno LPIC
+<span class="t-cmd">Name-Email:</span> alumno@lpic.lab
+<span class="t-cmd">Expire-Date:</span> 0
+<span class="t-cmd">%commit</span>
+<span class="t-cmd">EOF</span>
+<span class="t-cmd">gpg</span> <span class="t-flag">--batch</span> <span class="t-flag">--generate-key</span> <span class="t-path">/tmp/gpg_batch.txt</span>
+<span class="t-cmd">rm</span> <span class="t-path">/tmp/gpg_batch.txt</span>
+
+<span class="t-cmt"># 2. Listar las claves públicas presentes en el anillo de claves GPG</span>
+<span class="t-cmd">gpg</span> <span class="t-flag">--list-keys</span>
+
+<span class="t-cmt"># 3. Crear un archivo con información sensible y cifrarlo en formato ASCII armoring (-a)</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Clave</span> maestra del cluster: LPIC1_SEC_PASS_2026" <strong>></strong> <span class="t-cmd">/tmp/confidencial.txt</span>
+<span class="t-cmd">gpg</span> <span class="t-flag">--yes</span> <span class="t-flag">-e</span> <span class="t-flag">-a</span> <span class="t-flag">-r</span> <span class="t-arg">"alumno@lpic.lab"</span> <span class="t-path">/tmp/confidencial.txt</span>
+
+<span class="t-cmt"># 4. Inspeccionar el archivo cifrado (.asc) y descifrarlo en la consola (-d)</span>
+<span class="t-cmd">cat</span> <span class="t-path">/tmp/confidencial.txt.asc</span>
+<span class="t-cmd">gpg</span> <span class="t-flag">-d</span> <span class="t-path">/tmp/confidencial.txt.asc</span>
+
+<span class="t-cmt"># 5. Emitir un informe firmado digitalmente en texto plano con --clearsign</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Informe</span> oficial de auditoria de seguridad: Todo correcto." <strong>></strong> <span class="t-cmd">/tmp/informe.txt</span>
+<span class="t-cmd">gpg</span> <span class="t-flag">--yes</span> <span class="t-flag">--clearsign</span> <span class="t-path">/tmp/informe.txt</span>
+
+<span class="t-cmt"># 6. Inspeccionar el informe firmado y verificar su firma digital con gpg --verify</span>
+<span class="t-cmd">cat</span> <span class="t-path">/tmp/informe.txt.asc</span>
+<span class="t-cmd">gpg</span> <span class="t-flag">--verify</span> <span class="t-path">/tmp/informe.txt.asc</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`gpg -e -r DESTINATARIO`: Cifra (*Encrypt*) el archivo con la clave pública del destinatario indicado en `-r` (*Recipient*).</li><li>`-a` (o `--armor`): Genera la salida en texto ASCII plano legible con delimitadores `-----BEGIN PGP MESSAGE-----` para poder enviarse por correo sin corromperse.</li><li>`gpg -d ARCHIVO`: Descifra (*Decrypt*) el archivo utilizando la clave privada correspondiente almacenada en `~/.gnupg/`.</li><li>`gpg --clearsign ARCHIVO`: Genera una firma digital en texto plano donde el texto original permanece legible, añadiendo al final el bloque de firma `-----BEGIN PGP SIGNATURE-----`.</li><li>`gpg --verify ARCHIVO.asc`: Comprueba matemáticamente que el documento no ha sido modificado y que la firma corresponde al emisor legítimo.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `gpg --verify` informará: `gpg: Firma correcta de "Alumno LPIC <alumno@lpic.lab>"`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 4:</strong> Archivo cifrado ASCII con `gpg -e -a`, descifrado con `gpg -d` y verificación de firma con `gpg --verify`. Guarda como `110-3-C4-gpg-crypto-sign.png`.</div>
+            </div>
+            
+        </div>
+        
         </section>
 
         <!-- 5. Mini-Reto Final -->
+        
+        <section class="card" id="mini-reto">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">5. Mini-Reto Final de Autonomía (5 min)</h2>
+          <p style="font-size:17px; margin-bottom:16px;"><strong>Demuestra lo aprendido:</strong> Un administrador necesita acceder desde su portátil a la base de datos MySQL corporativa que solo acepta conexiones locales en `127.0.0.1:3306` dentro del servidor remoto `bbdd.empresa.com`. El administrador tiene acceso SSH a dicho servidor. ¿Qué comando SSH exacto debe ejecutar en su portátil para que al conectarse en su máquina a `localhost:3307` esté interactuando directamente y de forma cifrada con la base de datos remota?</p>
+          <details class="accordion-item" style="margin-bottom:10px;">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">💡 Ver pista desplegable si te atascas</summary>
+            <div class="accordion-body" style="background:#FFFBEB; color:#78350F;">Utiliza la opción de reenvío local <code>-L</code> especificando puerto local, host destino y puerto destino.</div>
+          </details>
+          <details class="accordion-item">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
+            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">El comando oficial es: <strong><code>ssh -L 3307:127.0.0.1:3306 usuario@bbdd.empresa.com</code></strong> (o con <code>-f -N</code> si desea dejarlo en segundo plano). De este modo, cualquier cliente de base de datos que se conecte a <code>127.0.0.1:3307</code> en el portátil viajará por el túnel SSH cifrado y será entregado en el puerto 3306 del servidor MySQL remoto.</div>
+          </details>
+        </section>
         
 
         <!-- 6. Capturas a entregar -->
         <section class="card" id="capturas">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
             <h2 style="font-size:22px; font-weight:700;">6. Capturas a entregar</h2>
-            <span class="badge badge-green" id="captures-counter">Llevas 0 de 0 capturas</span>
+            <span class="badge badge-green" id="captures-counter">Llevas 0 de 4 capturas</span>
           </div>
           <table class="data-table">
             <thead>
@@ -323,6 +576,30 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110.3', 'C1', this)"> <strong>C1</strong></label></td>
+                  <td>Evidencia Misión 1: Permisos de `~/.ssh` y login por clave pública con `ssh -i`</td>
+                  <td><code>`110-3-C1-ssh-keygen-auth.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110.3', 'C2', this)"> <strong>C2</strong></label></td>
+                  <td>Evidencia Misión 2: Variables de entorno del agente y lista con `ssh-add -l`</td>
+                  <td><code>`110-3-C2-ssh-agent-add.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110.3', 'C3', this)"> <strong>C3</strong></label></td>
+                  <td>Evidencia Misión 3: Socket en escucha del túnel local con `ss -tulpn`</td>
+                  <td><code>`110-3-C3-ssh-tunnel-local.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110.3', 'C4', this)"> <strong>C4</strong></label></td>
+                  <td>Evidencia Misión 4: Cifrado/descifrado GPG y verificación con `gpg --verify`</td>
+                  <td><code>`110-3-C4-gpg-crypto-sign.png`</code></td>
+                </tr>
+                
             </tbody>
           </table>
         </section>
@@ -331,6 +608,21 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section class="card" id="si-algo-falla">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
+            <details class="accordion-item">
+              <summary>Error: "Permission denied (publickey)"</summary>
+              <div class="accordion-body">Comprueba los permisos de `chmod 700 ~/.ssh` y `chmod 600 ~/.ssh/authorized_keys`. Si el directorio tiene permisos de grupo u otros, SSH lo rechaza.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Error: "Could not open a connection to your authentication agent"</summary>
+              <div class="accordion-body">Asegúrate de haber evaluado el agente en el shell actual con `eval "$(ssh-agent -s)"` antes de ejecutar `ssh-add`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Restaura tu máquina a estado limpio</summary>
+              <div class="accordion-body">Al terminar las pruebas, restaura el snapshot `00-base-limpia` en tu hipervisor.</div>
+            </details>
+            
         </section>
 
         <!-- 8. Comandos practicados -->
@@ -346,6 +638,42 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><span class="badge badge-blue"><code>ssh-keygen</code></span></td>
+                  <td>Generación de pares de claves asimétricas (ED25519, RSA) con opciones `-t`, `-f`, `-C`</td>
+                  <td>[Slide 4](../t110/110-3-proteccion-de-datos-medi.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ssh-copy-id</code></span></td>
+                  <td>Despliegue automatizado de claves públicas en `~/.ssh/authorized_keys`</td>
+                  <td>[Slide 4](../t110/110-3-proteccion-de-datos-medi.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ssh-agent / ssh-add</code></span></td>
+                  <td>Demonio y gestor de identidades de claves en memoria volátil (`-l`, `-D`)</td>
+                  <td>[Slide 6](../t110/110-3-proteccion-de-datos-medi.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ssh -L / ssh -R</code></span></td>
+                  <td>Creación de túneles SSH de reenvío de puertos local (`-L`) y remoto (`-R`)</td>
+                  <td>[Slide 7](../t110/110-3-proteccion-de-datos-medi.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>gpg</code></span></td>
+                  <td>Suite OpenPGP para cifrado asimétrico (`-e`), descifrado (`-d`) y firma (`--clearsign`)</td>
+                  <td>[Slide 10](../t110/110-3-proteccion-de-datos-medi.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>~/.ssh/authorized_keys</code></span></td>
+                  <td>Lista de claves públicas autorizadas para iniciar sesión sin contraseña</td>
+                  <td>[Slide 5](../t110/110-3-proteccion-de-datos-medi.html)</td>
+                </tr>
+                
             </tbody>
           </table>
           <p style="margin-top:14px; font-size:15px; color:var(--text-muted);">
@@ -430,7 +758,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         const caps = JSON.parse(localStorage.getItem('lpic1_caps_' + SUB_ID) || '{}');
         const done = Object.values(caps).filter(Boolean).length;
         const counter = document.getElementById('captures-counter');
-        if (counter) counter.textContent = 'Llevas ' + done + ' de 0 capturas';
+        if (counter) counter.textContent = 'Llevas ' + done + ' de 4 capturas';
       } catch(e) {}
     }
 

@@ -245,7 +245,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-clock"/></svg> 25–30 min</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-shield"/></svg> Nivel básico/medio</span>
         <span class="badge badge-gray"><svg class="ic ic-sm"><use href="#i-server"/></svg> Debian 12 (00-base-limpia)</span>
-        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 0 capturas requeridas</span>
+        <span class="badge badge-green"><svg class="ic ic-sm"><use href="#i-camera"/></svg> 3 capturas requeridas</span>
       </div>
     </div>
 
@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          
+          <li><a href="#mision-1" class="toc-link">Misión 1: Cálculo y Delimitación de Subredes IPv4 y Rangos RFC 1918 con ipcalc</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Auditoría de Servicios IANA y Protocolos en /etc/services y /etc/protocols</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Compresión, Expansión y Clasificación de Direcciones IPv6</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -277,7 +277,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Calcular la dirección de red, broadcast y número de hosts utilizables con la fórmula $2^{32 \text{CIDR}} 2$.</li><li>Identificar los rangos RFC 1918: `10.0.0.0/8`, `172.16.0.0/12` (hasta 172.31.255.255) y `192.168.0.0/16`.</li><li>Consultar e interpretar la base de datos local `/etc/services` para los 20 puertos fundamentales evaluados en LPIC-1 (SSH 22, DNS 53, HTTP 80, NTP 123, HTTPS 443, etc.).</li><li>Comprimir y expandir correctamente direcciones IPv6 aplicando la regla estricta de `::` solo una vez.</li><li>Diferenciar direcciones IPv6 Loopback, Enlace local (SLAAC / EUI-64), Global Unicast y Multicast.</li>
+            <li>Calcular la dirección de red, broadcast y número de hosts utilizables con la fórmula 2^(32 CIDR) 2.</li><li>Identificar los tres rangos RFC 1918: 10.0.0.0/8, 172.16.0.0/12 (hasta 172.31.255.255) y 192.168.0.0/16.</li><li>Consultar e interpretar la base de datos local `/etc/services` para los 20 puertos fundamentales evaluados en LPIC-1 (SSH 22, DNS 53, HTTP 80, NTP 123, HTTPS 443, etc.).</li><li>Comprimir y expandir correctamente direcciones IPv6 aplicando la regla estricta de `::` solo una vez.</li><li>Diferenciar direcciones IPv6 Loopback, Enlace local (SLAAC / EUI-64), Global Unicast y Multicast.</li>
           </ul>
         </section>
 
@@ -302,16 +302,181 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section id="misiones-container">
           <h2 style="font-size:26px; font-weight:800; margin: 32px 0 16px 0;">4. Misiones Guiadas Paso a Paso</h2>
           
+        <div class="card step-card" id="mision-1">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Cálculo y Delimitación de Subredes IPv4 y Rangos RFC 1918 con ipcalc</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109.1', 1, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Instalaremos la utilidad de cálculo de red `ipcalc` para desglosar la máscara de subred, calcular la dirección de broadcast, la máscara decimal equivalente y el rango de hosts útiles para subredes `/24`, `/26` y `/29`. Identificaremos las diferencias entre IPs privadas (RFC 1918) y públicas.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Instalar ipcalc si no está presente</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">apt</span> update <strong>&&</strong> <span class="t-flag">sudo</span> <span class="t-cmd">apt</span> install <span class="t-flag">-y</span> ipcalc
+
+<span class="t-cmt"># 2. Calcular la topología de una red de clase C /24</span>
+<span class="t-cmd">ipcalc</span> <span class="t-flag">-b</span> <span class="t-path">192.168.10.75/24</span>
+
+<span class="t-cmt"># 3. Calcular una subred departamental más pequeña /26 (64 IPs)</span>
+<span class="t-cmd">ipcalc</span> <span class="t-flag">-b</span> <span class="t-path">172.16.50.130/26</span>
+
+<span class="t-cmt"># 4. Calcular una subred punto a punto de enlace WAN /29 (8 IPs)</span>
+<span class="t-cmd">ipcalc</span> <span class="t-flag">-b</span> <span class="t-path">10.200.1.5/29</span></code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`ipcalc -b IP/MASCARA`: Muestra la representación binaria y decimal de la dirección, la máscara neta (Netmask), la dirección de red (Network), la dirección de difusión (Broadcast), el host mínimo (HostMin), el host máximo (HostMax) y el total de hosts utilizables.</li><li>`/26`: Equivale a la máscara `255.255.255.192` (2^(32-26) 2 = 62 hosts útiles).</li><li>`/29`: Equivale a la máscara `255.255.255.248` (2^(32-29) 2 = 6 hosts útiles).</li><li>`192.168.0.0/16`, `172.16.0.0/12`, `10.0.0.0/8`: Los tres rangos privados no enrutables en Internet según la RFC 1918.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `ipcalc` devolverá un desglose estructurado indicando claramente: `Address`, `Netmask`, `Network`, `HostMin`, `HostMax`, `Broadcast` y `Hosts/Net`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 1:</strong> Salida completa de `ipcalc -b 172.16.50.130/26` mostrando Netmask, Network y Broadcast. Guarda como `109-1-C1-ipcalc-subnetting.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-2">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Auditoría de Servicios IANA y Protocolos en /etc/services y /etc/protocols</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109.1', 2, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Los servicios de red se asocian a números de puerto administrados por la IANA (0-1023 puertos bien conocidos o de sistema, 1024-49151 registrados, 49152-65535 dinámicos/privados). Consultaremos `/etc/services` y `/etc/protocols` directamente y a través del servicio Name Service Switch con `getent`.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Consultar el número de puerto y protocolo de transporte para SSH, DNS y NTP</span>
+<span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">'^(ssh|domain|ntp|http|https)\s'</span> <span class="t-path">/etc/services</span>
+
+<span class="t-cmt"># 2. Utilizar getent services para resolver un servicio específico</span>
+<span class="t-cmd">getent</span> services domain
+<span class="t-cmd">getent</span> services <span class="t-path">22/tcp</span>
+
+<span class="t-cmt"># 3. Consultar los números de protocolo de nivel de red en /etc/protocols (ICMP=1, TCP=6, UDP=17)</span>
+<span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">'^(icmp|tcp|udp)\s'</span> <span class="t-path">/etc/protocols</span>
+
+<span class="t-cmt"># 4. Consultar el protocolo IP con getent</span>
+<span class="t-cmd">getent</span> protocols tcp</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`/etc/services`: Mapea nombres de servicios amigables con pares `número_puerto/protocolo` (ej. `ssh 22/tcp`, `domain 53/tcp`, `domain 53/udp`).</li><li>`getent services <nombre|puerto>`: Consulta oficial que respeta la configuración NSSwitch.</li><li>`/etc/protocols`: Mapea nombres de protocolos de nivel de transporte con sus identificadores de cabecera IP oficiales (ICMP es 1, TCP es 6, UDP es 17, GRE es 47, ESP es 50).</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `getent services domain` devolverá `domain 53/tcp` y `domain 53/udp`. `getent protocols tcp` devolverá `tcp 6 TCP`.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 2:</strong> Salida de `grep -E '^(ssh|domain|ntp|http|https)\s' /etc/services` y `grep -E '^(icmp|tcp|udp)\s' /etc/protocols`. Guarda como `109-1-C2-services-protocols.png`.</div>
+            </div>
+            
+        </div>
+        
+        <div class="card step-card" id="mision-3">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Compresión, Expansión y Clasificación de Direcciones IPv6</h3>
+            <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
+              <input type="checkbox" onchange="toggleStepDone('109.1', 3, this)"> Misión completada
+            </label>
+          </div>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">IPv6 utiliza direcciones de 128 bits organizadas en 8 grupos de 4 dígitos hexadecimales separados por dos puntos (`:`). Practicaremos las dos reglas oficiales de compresión (omisión de ceros iniciales y sustitución de ceros consecutivos por `::`), e inspeccionaremos las direcciones de bucle local (`::1`) y enlace local (`fe80::/10`) asignadas a nuestra máquina.</p>
+          
+            <figure class="term">
+              <figcaption class="term-bar">
+                <svg class="ic ic-sm"><use href="#i-terminal"/></svg> bash
+                
+                <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
+              </figcaption>
+              <pre><code><span class="t-cmt"># 1. Consultar las direcciones IPv6 activas en todas las interfaces de red</span>
+<span class="t-cmd">ip</span> <span class="t-flag">-6</span> addr show
+
+<span class="t-cmt"># 2. Inspeccionar la interfaz loopback lo (debe contener ::1/128)</span>
+<span class="t-cmd">ip</span> <span class="t-flag">-6</span> addr show dev lo
+
+<span class="t-cmt"># 3. Comprobar la dirección Link-Local asignada a la tarjeta de red (prefijo fe80::)</span>
+<span class="t-cmd">ip</span> <span class="t-flag">-6</span> addr show <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-arg">'inet6</span> fe80'
+
+<span class="t-cmt"># 4. Probar conectividad interna con la dirección de loopback IPv6 usando ping</span>
+<span class="t-cmd">ping</span> <span class="t-flag">-c</span> 3 ::1</code></pre>
+            </figure>
+            
+          
+            <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
+              <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
+              <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
+                <li>`ip -6 addr show`: Muestra únicamente las direcciones IPv6 configuradas en el sistema.</li><li>`::1/128`: Dirección Loopback IPv6 (equivalente al `127.0.0.1` de IPv4).</li><li>`fe80::/10`: Rango Link-Local (enlace local no enrutable fuera del segmento). Todo dispositivo con IPv6 activado autoconfigura una dirección `fe80::` automáticamente mediante SLAAC y EUI-64.</li><li>Regla de compresión 1: Los ceros a la izquierda de cada bloque de 16 bits se omiten (`0042` -> `42`, `0000` -> `0`).</li><li>Regla de compresión 2: La secuencia más larga de bloques contiguos de ceros se reemplaza por `::` **una sola vez** en toda la dirección.</li>
+              </ul>
+            </div>
+            
+          
+            <div class="callout callout-info">
+              <svg class="ic"><use href="#i-eye"/></svg>
+              <div><strong>👀 Qué debes observar:</strong> `ip -6 addr show` mostrará `inet6 ::1/128 scope host` en `lo` y `inet6 fe80::... scope link` en la interfaz ethernet física o virtual. `ping -c 3 ::1` responderá con 0% pérdida de paquetes.</div>
+            </div>
+            
+          
+            <div class="callout callout-camera">
+              <svg class="ic"><use href="#i-camera"/></svg>
+              <div><strong>📸 Captura 3:</strong> Salida de `ip -6 addr show` y ejecución exitosa de `ping -c 3 ::1`. Guarda como `109-1-C3-ipv6-addressing.png`.</div>
+            </div>
+            
+        </div>
+        
         </section>
 
         <!-- 5. Mini-Reto Final -->
+        
+        <section class="card" id="mini-reto">
+          <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">5. Mini-Reto Final de Autonomía (5 min)</h2>
+          <p style="font-size:17px; margin-bottom:16px;"><strong>Demuestra lo aprendido:</strong> Un aspirante a la certificación LPIC-1 anota en su cuaderno que la dirección IPv6 `2001:0db8:0000:0000:0042:0000:0000:0001` puede abreviarse legalmente como `2001:db8::42::1`. ¿Por qué esta expresión es estrictamente errónea y cuál es la representación comprimida canónica correcta?</p>
+          <details class="accordion-item" style="margin-bottom:10px;">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">💡 Ver pista desplegable si te atascas</summary>
+            <div class="accordion-body" style="background:#FFFBEB; color:#78350F;">Recuerda cuántas veces puede aparecer el operador de doble dos puntos (::) en una dirección IPv6.</div>
+          </details>
+          <details class="accordion-item">
+            <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
+            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">El estándar RFC 4291 y las preguntas de examen LPIC-1 establecen que el operador <strong><code>::</code> solo puede usarse UNA SOLA VEZ</strong> en toda la dirección IPv6. Usarlo dos veces generaría una ambigüedad matemática insoluble para la pila TCP/IP, ya que no se podría deducir cuántos bloques de ceros faltan a la izquierda y cuántos a la derecha.<br>
+La forma abreviada canónica correcta es: <strong><code>2001:db8::42:0:0:1</code></strong> (o alternativamente <code>2001:db8:0:0:42::1</code>).</div>
+          </details>
+        </section>
         
 
         <!-- 6. Capturas a entregar -->
         <section class="card" id="capturas">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
             <h2 style="font-size:22px; font-weight:700;">6. Capturas a entregar</h2>
-            <span class="badge badge-green" id="captures-counter">Llevas 0 de 0 capturas</span>
+            <span class="badge badge-green" id="captures-counter">Llevas 0 de 3 capturas</span>
           </div>
           <table class="data-table">
             <thead>
@@ -323,6 +488,24 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109.1', 'C1', this)"> <strong>C1</strong></label></td>
+                  <td>Evidencia de Misión 1: Desglose de subred `/26` con `ipcalc`</td>
+                  <td><code>`109-1-C1-ipcalc-subnetting.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109.1', 'C2', this)"> <strong>C2</strong></label></td>
+                  <td>Evidencia de Misión 2: Búsqueda de puertos en `/etc/services` y `/etc/protocols`</td>
+                  <td><code>`109-1-C2-services-protocols.png`</code></td>
+                </tr>
+                
+                <tr>
+                  <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('109.1', 'C3', this)"> <strong>C3</strong></label></td>
+                  <td>Evidencia de Misión 3: Direcciones IPv6 activas y `ping -c 3 ::1`</td>
+                  <td><code>`109-1-C3-ipv6-addressing.png`</code></td>
+                </tr>
+                
             </tbody>
           </table>
         </section>
@@ -331,6 +514,21 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <section class="card" id="si-algo-falla">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
+            <details class="accordion-item">
+              <summary>Error: "ipcalc: command not found"</summary>
+              <div class="accordion-body">Instálalo en Debian mediante `sudo apt update && sudo apt install -y ipcalc`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Error: "ping6: command not found"</summary>
+              <div class="accordion-body">En distribuciones modernas (Debian 12), la utilidad `ping` soporta de forma transparente tanto IPv4 como IPv6 sin necesidad de `ping6`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Restaura tu máquina a estado limpio</summary>
+              <div class="accordion-body">Al terminar las pruebas, restaura el snapshot `00-base-limpia` en tu hipervisor.</div>
+            </details>
+            
         </section>
 
         <!-- 8. Comandos practicados -->
@@ -346,6 +544,42 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </thead>
             <tbody>
               
+                <tr>
+                  <td><span class="badge badge-blue"><code>ipcalc</code></span></td>
+                  <td>Calcula rangos de red, broadcast, máscaras CIDR y número de hosts útiles</td>
+                  <td>[Slide 2](../t109/109-1-fundamentos-de-los-proto.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/services</code></span></td>
+                  <td>Base de datos local que asocia nombres de servicios a puertos y protocolos IANA</td>
+                  <td>[Slide 4](../t109/109-1-fundamentos-de-los-proto.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>/etc/protocols</code></span></td>
+                  <td>Asocia nombres de protocolos a números de protocolo de cabecera IP (TCP=6, UDP=17)</td>
+                  <td>[Slide 4](../t109/109-1-fundamentos-de-los-proto.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>getent</code></span></td>
+                  <td>Consulta bases de datos NSS (`getent services domain`, `getent protocols icmp`)</td>
+                  <td>[Slide 4](../t109/109-1-fundamentos-de-los-proto.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ip -6 addr</code></span></td>
+                  <td>Inspecciona y gestiona direcciones IPv6 de enlace local y globales</td>
+                  <td>[Slide 6](../t109/109-1-fundamentos-de-los-proto.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>ping</code></span></td>
+                  <td>Comprueba la conectividad de nivel de red ICMP en IPv4 y en IPv6 (`::1`)</td>
+                  <td>[Slide 6](../t109/109-1-fundamentos-de-los-proto.html)</td>
+                </tr>
+                
             </tbody>
           </table>
           <p style="margin-top:14px; font-size:15px; color:var(--text-muted);">
@@ -430,7 +664,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         const caps = JSON.parse(localStorage.getItem('lpic1_caps_' + SUB_ID) || '{}');
         const done = Object.values(caps).filter(Boolean).length;
         const counter = document.getElementById('captures-counter');
-        if (counter) counter.textContent = 'Llevas ' + done + ' de 0 capturas';
+        if (counter) counter.textContent = 'Llevas ' + done + ' de 3 capturas';
       } catch(e) {}
     }
 
