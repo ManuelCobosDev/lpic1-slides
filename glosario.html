@@ -133,7 +133,7 @@
 
     <div class="search-bar-wrap">
       <input type="text" id="glo-filter" class="search-input" placeholder="🔍 Buscar término, definición o concepto..." onkeyup="filterGlossary()">
-      <div class="counter-badge" id="glo-counter">301 términos registrados</div>
+      <div class="counter-badge" id="glo-counter">300 términos registrados</div>
     </div>
 
     <div id="glo-container">
@@ -2073,24 +2073,24 @@
               <div class="subtopic-header">
                 <span class="subtopic-badge">108.3</span>
                 <h3>Conceptos básicos del Agente de Transferencia de Correo</h3>
-                <span class="cmd-count-badge">12 términos</span>
+                <span class="cmd-count-badge">11 términos</span>
               </div>
               <div class="term-grid">
             
                 <div class="term-card">
                   <div class="term-top">
-                    <span class="term-name">MTA (Mail Transfer Agent)</span>
+                    <span class="term-name">MUA (Mail User Agent)</span>
                     <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
                   </div>
-                  <div class="term-def">Demonio del sistema responsable de enrutar, transferir y recibir mensajes de correo electrónico entre servidores mediante el protocolo SMTP (puerto TCP 25), gestionando la cola de salida y depositando el correo para su entrega local.</div>
+                  <div class="term-def">Cliente de correo interactivo utilizado por los usuarios para redactar, leer y organizar mensajes (ej. mail, mutt, Thunderbird).</div>
                 </div>
                 
                 <div class="term-card">
                   <div class="term-top">
-                    <span class="term-name">MUA (Mail User Agent)</span>
+                    <span class="term-name">MTA (Mail Transfer Agent)</span>
                     <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
                   </div>
-                  <div class="term-def">Aplicación cliente utilizada por el usuario para redactar, leer y gestionar mensajes de correo electrónico (ej. mail, mailx, mutt, Thunderbird, interfaces webmail).</div>
+                  <div class="term-def">Demonio de servidor encargado de transferir y enrutar correos a través de la red mediante el protocolo SMTP (ej. Postfix, Sendmail, Exim).</div>
                 </div>
                 
                 <div class="term-card">
@@ -2098,7 +2098,7 @@
                     <span class="term-name">MDA (Mail Delivery Agent)</span>
                     <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
                   </div>
-                  <div class="term-def">Programa auxiliar responsable de tomar el mensaje entregado por el MTA y guardarlo físicamente en el buzón local correspondiente del usuario (ej. procmail, dovecot-lda, entrega local directa).</div>
+                  <div class="term-def">Componente que recibe los mensajes transferidos por el MTA y los deposita físicamente en el buzón local del usuario en disco.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2106,7 +2106,7 @@
                     <span class="term-name">SMTP (Simple Mail Transfer Protocol)</span>
                     <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
                   </div>
-                  <div class="term-def">Protocolo estándar de la capa de aplicación sobre la pila TCP/IP (puerto TCP 25 para servidores, 587 para submission de clientes) para la transmisión confiable de correo electrónico.</div>
+                  <div class="term-def">Protocolo de red sobre TCP (puerto 25 para servidores, puerto 587 para submission de clientes) para el envío y retransmisión de correo.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2114,7 +2114,7 @@
                     <span class="term-name">Registro MX (Mail Exchanger)</span>
                     <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
                   </div>
-                  <div class="term-def">Registro DNS que asocia un nombre de dominio con los servidores MTA autorizados para recibir su correo, clasificados por un valor numérico de prioridad donde el menor número tiene la máxima preferencia.</div>
+                  <div class="term-def">Registro DNS que define los servidores responsables de recibir correo para un dominio, ordenados por prioridad numérica inversa (menor número = mayor preferencia).</div>
                 </div>
                 
                 <div class="term-card">
@@ -2122,15 +2122,7 @@
                     <span class="term-name">Open Relay</span>
                     <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
                   </div>
-                  <div class="term-def">Servidor MTA con configuración defectuosa que acepta y retransmite mensajes de correo de cualquier remitente hacia cualquier destinatario remoto sin autenticación, facilitando el abuso y el spam.</div>
-                </div>
-                
-                <div class="term-card">
-                  <div class="term-top">
-                    <span class="term-name">/etc/aliases</span>
-                    <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
-                  </div>
-                  <div class="term-def">Fichero global de configuración de alias de correo administrado por el superusuario root. Permite mapear destinatarios virtuales a usuarios locales, cuentas externas, archivos o tuberías a comandos.</div>
+                  <div class="term-def">Servidor SMTP configurado de forma insegura que acepta y retransmite correos de terceros hacia cualquier destino de Internet, facilitando el spam.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2138,7 +2130,7 @@
                     <span class="term-name">newaliases</span>
                     <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
                   </div>
-                  <div class="term-def">Comando obligatorio para compilar el archivo de texto plano /etc/aliases en la base de datos binaria indexada /etc/aliases.db leída directamente por el MTA (equivalente a 'sendmail -bi').</div>
+                  <div class="term-def">Comando que compila el archivo /etc/aliases en la base de datos binaria indexada /etc/aliases.db leída por el MTA (equivalente a sendmail -bi).</div>
                 </div>
                 
                 <div class="term-card">
@@ -2146,7 +2138,7 @@
                     <span class="term-name">~/.forward</span>
                     <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
                   </div>
-                  <div class="term-def">Fichero en el directorio personal ($HOME) de cada usuario que permite redirigir su correo entrante a otras cuentas locales o externas sin permisos de root ni compilar bases de datos.</div>
+                  <div class="term-def">Fichero opcional en el directorio HOME de un usuario que define reglas de reenvío automático leídas en tiempo real por el MTA.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2154,7 +2146,7 @@
                     <span class="term-name">mailq</span>
                     <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
                   </div>
-                  <div class="term-def">Comando para listar el contenido de la cola de mensajes salientes pendientes o retenidos por el MTA, mostrando identificador (Queue ID), remitente, destinatario y causas de retención (equivalente a 'sendmail -bp').</div>
+                  <div class="term-def">Comando que muestra la lista de mensajes retenidos en la cola de salida del servidor de correo (equivalente a sendmail -bp).</div>
                 </div>
                 
                 <div class="term-card">
@@ -2162,7 +2154,7 @@
                     <span class="term-name">mbox</span>
                     <a href="t108/108-3-conceptos-basicos-del-ag.html" class="term-sub-badge">108.3 </a>
                   </div>
-                  <div class="term-def">Formato clásico de almacenamiento de buzón donde todos los mensajes de un usuario se concatenan en un único fichero de texto secuencial (/var/mail/usuario), requiriendo bloqueo de archivo (file locking).</div>
+                  <div class="term-def">Formato tradicional de almacenamiento de correo en Unix que almacena todos los mensajes secuencialmente en un único archivo (/var/mail/usuario).</div>
                 </div>
                 
                 <div class="term-card">
@@ -2750,7 +2742,7 @@
                     <span class="term-name">resolvectl</span>
                     <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
                   </div>
-                  <div class="term-def">Herramienta CLI moderna (que sustituye a systemd-resolve) para inspeccionar la configuración DNS de systemd-resolved, realizar consultas diagnósticas y purgar la caché local.</div>
+                  <div class="term-def">Herramienta CLI moderna (que sustituye a systemd-resolve) para inspeccionar la configuración DNS de systemd-resolved, realizar consultas diagnósticas y purgar la caché local en RAM.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2758,7 +2750,7 @@
                     <span class="term-name">host</span>
                     <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
                   </div>
-                  <div class="term-def">Utilidad de línea de comandos sencilla y concisa diseñada para realizar consultas DNS directas, búsquedas inversas automáticas y filtros por tipo de registro (A, AAAA, MX, NS, TXT).</div>
+                  <div class="term-def">Utilidad de línea de comandos concisa diseñada para realizar consultas DNS directas, búsquedas inversas automáticas y filtros por tipo de registro (A, AAAA, MX, NS, TXT).</div>
                 </div>
                 
                 <div class="term-card">
@@ -2766,7 +2758,15 @@
                     <span class="term-name">dig (Domain Information Groper)</span>
                     <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
                   </div>
-                  <div class="term-def">La herramienta de diagnóstico DNS más completa de los administradores de sistemas; muestra las secciones de cabecera, flags de control, registros devueltos, autoridades y métricas estadísticas.</div>
+                  <div class="term-def">La herramienta de diagnóstico DNS más completa de los administradores de sistemas; muestra cabeceras, flags de control, registros devueltos, autoridades y métricas estadísticas.</div>
+                </div>
+                
+                <div class="term-card">
+                  <div class="term-top">
+                    <span class="term-name">nslookup</span>
+                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
+                  </div>
+                  <div class="term-def">Herramienta clásica de consulta DNS interactiva y no interactiva disponible históricamente en sistemas Unix y evaluada en los objetivos de certificación LPIC-1.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2783,14 +2783,6 @@
                     <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
                   </div>
                   <div class="term-def">Código de estado devuelto por un servidor de nombres autoritativo que certifica formalmente que el nombre de dominio consultado no existe en la zona DNS.</div>
-                </div>
-                
-                <div class="term-card">
-                  <div class="term-top">
-                    <span class="term-name">FQDN (Fully Qualified Domain Name)</span>
-                    <a href="t109/109-4-configuracion-dns-en-el.html" class="term-sub-badge">109.4 </a>
-                  </div>
-                  <div class="term-def">Nombre de dominio completo e inequívoco que especifica la ubicación exacta de un host dentro del árbol jerárquico del DNS (ej. 'servidor.empresa.es.').</div>
                 </div>
                 
               </div>
@@ -3086,7 +3078,7 @@
         const hasVisible = Array.from(sec.querySelectorAll('.subtopic-block')).some(b => b.style.display !== 'none');
         sec.style.display = hasVisible ? '' : 'none';
       });
-      document.getElementById('glo-counter').textContent = q ? `${visibleCount} términos encontrados` : '301 términos registrados';
+      document.getElementById('glo-counter').textContent = q ? `${visibleCount} términos encontrados` : '300 términos registrados';
     }
 
     function toggleTheme() {
