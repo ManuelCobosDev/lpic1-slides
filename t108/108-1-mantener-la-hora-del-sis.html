@@ -2521,10 +2521,10 @@
         // Badge del manual oficial
         const pdfRef = s.ref || (s.pdf?.pages ? s.pdf.pages.join(', ') : '');
         const chObj = (typeof s.challenge === 'object' && s.challenge !== null) ? s.challenge : null;
-        const scenario = s.scenario || (chObj ? chObj.scenario : null) || s.prompt || s.lead || '';
+        const scenario = s.scenario || (chObj ? chObj.scenario : null) || s.problem || s.prompt || s.lead || '';
         const question = s.question || (chObj ? chObj.question : null) || s.task || '';
         const goalText = s.goal || (chObj ? chObj.goal : null) || '';
-        const hintText = s.hint || (chObj && chObj.hints ? (Array.isArray(chObj.hints) ? chObj.hints.join(' | ') : chObj.hints) : '');
+        const hintText = s.hint || (s.hints ? (Array.isArray(s.hints) ? s.hints.join(' | ') : s.hints) : '') || (chObj && chObj.hints ? (Array.isArray(chObj.hints) ? chObj.hints.join(' | ') : chObj.hints) : '');
         html += `
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span class="ref-badge" style="font-weight:700; color:var(--warning-ink); background:var(--warning-soft); border-color:#FCD34D; font-size:21px;">
@@ -2608,8 +2608,23 @@
 
         // Botón docente interactivo
         const rawSol = s.solution || s.outcome || (chObj ? (chObj.solution || chObj.outcome) : null) || s.explanation || '';
-        const solText = rawSol?.explain || rawSol?.text || rawSol?.solution || (typeof rawSol === 'string' ? rawSol : '');
-        const solTerminal = s.solution?.terminal || s.outcome?.terminal || (chObj ? (chObj.solution?.terminal || chObj.outcome?.terminal) : null) || null;
+        let solText = '';
+        let solTerminal = s.solution?.terminal || s.outcome?.terminal || (chObj ? (chObj.solution?.terminal || chObj.outcome?.terminal) : null) || null;
+
+        if (typeof rawSol === 'string') {
+          solText = rawSol;
+        } else if (typeof rawSol === 'object' && rawSol !== null) {
+          solText = rawSol.explain || rawSol.text || rawSol.solution || rawSol.explanation || '';
+          const metaParts = [];
+          if (rawSol.file) metaParts.push(`<strong>Fichero clave:</strong> <code>${escapeHTML(rawSol.file)}</code>`);
+          if (rawSol.parameter) metaParts.push(`<strong>Parámetro requerido:</strong> <code>${escapeHTML(rawSol.parameter)}</code>`);
+          if (metaParts.length > 0) {
+            solText = `<div style="margin-bottom:8px;">${metaParts.join(' &nbsp;|&nbsp; ')}</div>` + solText;
+          }
+          if (!solTerminal && rawSol.command) {
+            solTerminal = rawSol.command;
+          }
+        }
         html += `
           <div>
             <button class="nav-btn primary btn-reveal-challenge" style="font-size:22px; padding:12px 24px; cursor:pointer;" onclick="const sol=document.getElementById('sol-challenge-box'); sol.style.display=sol.style.display==='none'?'flex':'none';">
@@ -2705,9 +2720,10 @@
         html += `<h1 class="slide-title">${renderRichText(s.title)}</h1>`;
         const lead = s.lead || s.desc || '';
         if (lead) html += `<div class="slide-lead">${renderRichText(lead)}</div>`;
-        html += `<div class="concept-grid">`;
         const sumObj = (typeof s.summary === 'object' && s.summary !== null) ? s.summary : null;
-        const items = s.takeaways || s.items || s.points || s.cards || (sumObj ? (sumObj.takeaways || sumObj.items || sumObj.points || sumObj.cards) : []) || [];
+        const items = s.takeaways || s.items || s.points || s.cards || s.keyPoints || (sumObj ? (sumObj.takeaways || sumObj.items || sumObj.points || sumObj.cards || sumObj.keyPoints) : []) || [];
+        const isDense = items.length >= 6;
+        html += `<div class="concept-grid" style="${isDense ? 'gap:10px; margin-top:2px;' : ''}">`;
         items.forEach((item, idx) => {
           let cardTitle = '';
           let cardDesc = '';
@@ -2725,11 +2741,11 @@
             cardDesc = item.desc || item.detail || item.description || (item.text && item.text !== cardTitle ? item.text : '');
           }
           html += `
-            <div class="concept-card">
-              <div class="icon-box"><svg class="ic ic-md"><use href="#i-${(typeof item === 'object' && item.icon) ? item.icon : 'circle-check'}"/></svg></div>
+            <div class="concept-card" style="${isDense ? 'padding:8px 14px; gap:12px;' : ''}">
+              <div class="icon-box" style="${isDense ? 'width:38px; height:38px; border-radius:8px;' : ''}"><svg class="ic ${isDense ? 'ic-sm' : 'ic-md'}"><use href="#i-${(typeof item === 'object' && item.icon) ? item.icon : 'circle-check'}"/></svg></div>
               <div style="flex:1;">
-                <div class="card-text">${renderRichText(cardTitle)}</div>
-                ${cardDesc ? `<div class="card-detail">${renderRichText(cardDesc)}</div>` : ''}
+                <div class="card-text" style="${isDense ? 'font-size:21px; line-height:1.25;' : ''}">${renderRichText(cardTitle)}</div>
+                ${cardDesc ? `<div class="card-detail" style="${isDense ? 'font-size:19px; margin-top:2px; line-height:1.35;' : ''}">${renderRichText(cardDesc)}</div>` : ''}
               </div>
             </div>
           `;
@@ -2740,30 +2756,30 @@
         const top3 = s.top3 || s.commands || s.top_commands || (sumObj ? (sumObj.top3 || sumObj.top_commands || sumObj.commands) : []) || [];
         if (top3.length > 0) {
           html += `
-            <div style="margin-top:18px; padding:18px 24px; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
-              <div style="font-weight:800; font-size:23px; color:var(--primary-ink); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+            <div style="margin-top:${isDense ? '10px' : '18px'}; padding:${isDense ? '10px 18px' : '18px 24px'}; background:var(--primary-soft); border:2px solid var(--primary); border-radius:14px;">
+              <div style="font-weight:800; font-size:${isDense ? '20px' : '23px'}; color:var(--primary-ink); margin-bottom:${isDense ? '6px' : '12px'}; display:flex; align-items:center; gap:8px;">
                 <svg class="ic ic-sm"><use href="#i-square-terminal"/></svg>Los comandos clave que no puedes olvidar en el examen:
               </div>
-              <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:14px;">
+              <div style="display:grid; grid-template-columns: repeat(${Math.min(top3.length, 3)}, 1fr); gap:${isDense ? '10px' : '14px'};">
           `;
           top3.forEach(t => {
             if (typeof t === 'string') {
               html += `
-                <div class="summary-cmd-card" style="display:flex; align-items:center; justify-content:space-between;">
-                  <code class="t-cmd" style="font-size:22px;">${escapeHTML(t)}</code>
-                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:6px 12px; font-size:20px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                <div class="summary-cmd-card" style="display:flex; align-items:center; justify-content:space-between; ${isDense ? 'padding:8px 12px;' : ''}">
+                  <code class="t-cmd" style="font-size:${isDense ? '20px' : '22px'};">${escapeHTML(t)}</code>
+                  <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(t)}')" style="padding:4px 8px; font-size:18px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                 </div>
               `;
             } else {
               const cmd = t.cmd || t.command || '';
               const desc = t.desc || t.detail || '';
               html += `
-                <div class="summary-cmd-card">
-                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-                    <code class="t-cmd" style="font-size:22px; font-weight:800;">${escapeHTML(cmd)}</code>
-                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:6px 12px; font-size:20px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
+                <div class="summary-cmd-card" style="${isDense ? 'padding:8px 12px;' : ''}">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;">
+                    <code class="t-cmd" style="font-size:${isDense ? '20px' : '22px'}; font-weight:800;">${escapeHTML(cmd)}</code>
+                    <button class="term-copy-btn" onclick="copyToClipboard('${escapeQuotes(cmd)}')" style="padding:4px 8px; font-size:18px;"><svg class="ic ic-sm"><use href="#i-copy"/></svg></button>
                   </div>
-                  ${desc ? `<div style="font-size:21px; color:var(--text-muted); line-height:1.35;">${renderRichText(desc)}</div>` : ''}
+                  ${desc ? `<div style="font-size:${isDense ? '19px' : '21px'}; color:var(--text-muted); line-height:1.3;">${renderRichText(desc)}</div>` : ''}
                 </div>
               `;
             }
@@ -2777,17 +2793,17 @@
           const pUrl = s.practice.url || '#';
           const pDesc = s.practice.desc || 'Pon a prueba tus conocimientos en la máquina virtual.';
           html += `
-            <div class="summary-practice-box">
+            <div class="summary-practice-box" style="${isDense ? 'margin-top:10px; padding:10px 18px;' : ''}">
               <div style="display:flex; align-items:center; gap:16px;">
-                <div class="sp-icon">
+                <div class="sp-icon" style="${isDense ? 'width:40px; height:40px;' : ''}">
                   <svg class="ic ic-md"><use href="#i-wrench"/></svg>
                 </div>
                 <div>
-                  <div class="sp-title">${escapeHTML(pName)}</div>
-                  <div class="sp-desc">${renderRichText(pDesc)}</div>
+                  <div class="sp-title" style="${isDense ? 'font-size:22px;' : ''}">${escapeHTML(pName)}</div>
+                  <div class="sp-desc" style="${isDense ? 'font-size:19px;' : ''}">${renderRichText(pDesc)}</div>
                 </div>
               </div>
-              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:22px; padding:12px 24px; flex:none;">
+              <a href="${escapeHTML(pUrl)}" class="nav-btn" style="background:#16A34A; color:#FFFFFF; border-color:#16A34A; font-weight:700; font-size:${isDense ? '20px' : '22px'}; padding:${isDense ? '8px 18px' : '12px 24px'}; flex:none;">
                 Abrir Práctica Web →
               </a>
             </div>
