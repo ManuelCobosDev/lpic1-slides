@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          <li><a href="#mision-1" class="toc-link">Misión 1: Sincronización Horaria Integral: NTP, Kernel y Chip RTC</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Despliegue de Registros en rsyslog y Auditoría Forense con journalctl</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Automatización del Ciclo de Rotación y Compresión con logrotate</a></li><li><a href="#mision-4" class="toc-link">Misión 4: Flujo de Correo Electrónico: Alias Globales, newaliases y ~/.forward</a></li><li><a href="#mision-5" class="toc-link">Misión 5: Despliegue y Control de Colas de Impresión en CUPS</a></li>
+          <li><a href="#mision-1" class="toc-link">Misión 1: Sincronización Horaria Integral: NTP, Kernel y Chip RTC</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Despliegue de Registros en rsyslog, Permisos y Auditoría Forense con journalctl</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Automatización del Ciclo de Rotación con logrotate y Verificación Previa</a></li><li><a href="#mision-4" class="toc-link">Misión 4: Flujo de Correo Electrónico: Alias Globales, newaliases, ~/.forward y Supervisión de Cola</a></li><li><a href="#mision-5" class="toc-link">Misión 5: Despliegue y Control de Colas de Impresión en CUPS con lpmove</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,31 +270,38 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Laboratorio práctico integral que reúne los 4 objetivos de evaluación del Tema 108 para el examen LPIC-1 (102-500). Pasa por el ciclo completo de administración de servicios clave: sincroniza el reloj del sistema y el chip hardware RTC mediante `timedatectl` y `hwclock`; diseña y despliega una arquitectura de registros con facilidades y severidades en `rsyslog`, audita eventos críticos con `journalctl` y automatiza su compresión en `logrotate`; configura el flujo de correos mediante alias del sistema en `/etc/aliases`, regenera la base de datos indexada con `newaliases`, implementa reenvío individual con `~/.forward` y automatiza alertas con `mailx`; y finaliza administrando el servidor de impresión CUPS (puerto TCP 631), configurando colas virtuales, reubicando trabajos con `lpmove` y purgando colas.</p>
+          <p style="font-size:17px; line-height:1.7;">Laboratorio práctico integral que reúne los 4 objetivos de evaluación del Tema 108 para el examen LPIC-1 (102-500). Pasa por el ciclo completo de administración de servicios clave en una única máquina virtual Debian 12: sincroniza el reloj del sistema y el chip hardware RTC mediante `timedatectl` y `hwclock`; diseña y despliega una arquitectura de registros con facilidades y severidades en `rsyslog`, audita eventos críticos con `journalctl` y automatiza su compresión en `logrotate`; configura el flujo de correos mediante alias del sistema en `/etc/aliases`, regenera la base de datos indexada con `newaliases`, implementa reenvío individual con `~/.forward` y supervisa el spool con `mailq`; y finaliza administrando el servidor de impresión CUPS (puerto TCP 631), configurando colas virtuales con `file:///dev/null`, pausando colas, reubicando trabajos con `lpmove` y purgando colas.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Integrar la totalidad de conceptos evaluados en el Tema 108 (peso 12 en el examen LPIC-1).</li><li>Mantener la hora precisa sincronizando reloj del kernel y chip CMOS con `timedatectl set-ntp true` y `hwclock -w`.</li><li>Implementar registros asíncronos y por niveles en `rsyslog` e inyectar trazas forenses con `logger`.</li><li>Extraer evidencias de auditoría por unidad y severidad con `journalctl` en el arranque actual.</li><li>Configurar políticas de archivado automático con `logrotate` simulando ejecuciones con `-d`.</li><li>Gestionar alias de correo globales con `newaliases` y redirecciones de usuario con escape en `~/.forward`.</li><li>Gestionar colas e impresoras CUPS con `lpadmin`, `lpoptions`, `lpstat`, `lp`, `lpr`, `lpmove` y `cancel`.</li>
+            <li>Integrar la totalidad de conceptos evaluados en el Tema 108 (peso 12 en el examen LPIC-1).</li><li>Instalar y verificar los demonios esenciales (`chrony`, `rsyslog`, `postfix`, `cups`, `cups-bsd`).</li><li>Mantener la hora precisa sincronizando reloj del kernel y chip CMOS con `timedatectl set-ntp true` y `hwclock --systohc`.</li><li>Implementar registros asíncronos y por niveles en `rsyslog` con permisos adecuados (`syslog:adm`) e inyectar trazas con `logger`.</li><li>Extraer evidencias de auditoría por unidad y severidad con `journalctl` en el arranque actual.</li><li>Configurar políticas de archivado automático con `logrotate` asegurando volumen previo y simulando ejecuciones con `-d`.</li><li>Gestionar alias de correo globales con `newaliases` y redirecciones de usuario con escape en `~/.forward`.</li><li>Gestionar colas e impresoras CUPS con `lpadmin`, `lpoptions`, `lpstat`, `lp`, `lpr`, `lpmove` y `cancel`.</li><li>Ejecutar un procedimiento de limpieza integral y metódico al finalizar.</li>
           </ul>
         </section>
 
         <!-- 3. Antes de empezar -->
         <section class="card" id="antes-de-empezar">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">3. Antes de empezar (≤ 5 min)</h2>
+          
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>1. Inicia tu máquina virtual Debian 12 en tu hipervisor.</span>
+            <input type="checkbox"> <span>1. Inicia sesión en tu máquina virtual Debian 12 con el usuario habitual <code>alumno</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>2. Abre un terminal e inicia sesión con el usuario <code>alumno</code>.</span>
+            <input type="checkbox"> <span>2. Verifica que tienes permisos de administración ejecutando <code>sudo -v</code> en la terminal.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>3. Confirma permisos de superusuario con <code>sudo -v</code>.</span>
+            <input type="checkbox"> <span>3. Asegúrate de estar trabajando sobre la instantánea limpia <code>00-base-limpia</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>4. Verifica estar sobre la instantánea limpia <code>00-base-limpia</code>.</span>
+            <input type="checkbox"> <span>4. Instala todos los paquetes necesarios del Tema 108 de una sola vez: <code>sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt install -y chrony rsyslog postfix bsd-mailx cups cups-client cups-bsd</code>.</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>5. Añade al usuario alumno al grupo lpadmin: <code>sudo usermod -aG lpadmin alumno</code>.</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>6. Habilita y arranca los servicios principales: <code>sudo systemctl enable --now chrony rsyslog postfix cups</code>.</span>
           </div>
         </section>
 
@@ -309,7 +316,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('108-GLOBAL', 1, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Configuraremos la zona horaria europea, activaremos la sincronización por red con NTP, sincronizaremos el chip hardware RTC con la hora exacta del kernel y auditaremos la jerarquía de estratos con `chronyc`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Configuraremos la zona horaria europea (`Europe/Madrid`), activaremos la sincronización por red con NTP, sincronizaremos el chip hardware RTC (`/dev/rtc0`) con la hora exacta del kernel con `hwclock --systohc` (o `-w`) y auditaremos la jerarquía de fuentes con `chronyc sources -v`.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -321,7 +328,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-flag">sudo</span> <span class="t-cmd">timedatectl</span> set-timezone <span class="t-path">Europe/Madrid</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">timedatectl</span> set-ntp true
 
-<span class="t-cmt"># 2. Forzar la escritura de la hora sincronizada al chip hardware RTC</span>
+<span class="t-cmt"># 2. Forzar la escritura de la hora sincronizada al chip hardware RTC (CMOS)</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">hwclock</span> <span class="t-flag">--systohc</span>
 
 <span class="t-cmt"># 3. Validar coincidencia de fecha/hora entre kernel y hardware</span>
@@ -356,12 +363,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         
         <div class="card step-card" id="mision-2">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Despliegue de Registros en rsyslog y Auditoría Forense con journalctl</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Despliegue de Registros en rsyslog, Permisos y Auditoría Forense con journalctl</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('108-GLOBAL', 2, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Crearemos una directiva para aislar eventos de la facilidad `local6` en `/var/log/seguridad-108.log` con escritura asíncrona `-`, inyectaremos eventos con `logger` y realizaremos consultas forenses con `journalctl`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Prepararemos el archivo de destino `/var/log/seguridad-108.log` con permisos para el usuario `syslog`, crearemos una directiva para aislar eventos de la facilidad `local6` en `/etc/rsyslog.d/60-seguridad.conf` con escritura asíncrona `-`, inyectaremos eventos con `logger` y realizaremos consultas forenses con `journalctl`.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -369,18 +376,23 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Crear directiva asíncrona para local6</span>
+              <pre><code><span class="t-cmt"># 1. Pre-crear el archivo con propietario y permisos para el demonio rsyslog</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">touch</span> <span class="t-path">/var/log/seguridad-108.log</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">chown</span> syslog:adm <span class="t-path">/var/log/seguridad-108.log</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">chmod</span> 0640 <span class="t-path">/var/log/seguridad-108.log</span>
+
+<span class="t-cmt"># 2. Crear directiva asíncrona para local6</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"local6.*</span> <span class="t-flag">-/var/log/seguridad-108.log"</span> <strong>></strong> <span class="t-cmd">/etc/rsyslog.d/60-seguridad.conf'</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> restart rsyslog
 
-<span class="t-cmt"># 2. Inyectar eventos de advertencia y crítico con logger</span>
+<span class="t-cmt"># 3. Inyectar eventos de advertencia y crítico con logger</span>
 <span class="t-cmd">logger</span> <span class="t-flag">-p</span> local6.warn <span class="t-flag">-t</span> AUDIT108 <span class="t-arg">"Intento</span> de acceso fuera de horario detectado"
 <span class="t-cmd">logger</span> <span class="t-flag">-p</span> local6.crit <span class="t-flag">-t</span> AUDIT108 <span class="t-arg">"Acceso</span> no autorizado bloqueado por cortafuegos"
 
-<span class="t-cmt"># 3. Comprobar el archivo de bitácora generado</span>
+<span class="t-cmt"># 4. Comprobar el archivo de bitácora generado</span>
 <span class="t-cmd">cat</span> <span class="t-path">/var/log/seguridad-108.log</span>
 
-<span class="t-cmt"># 4. Extraer eventos de error en journalctl ocurridos en la última media hora</span>
+<span class="t-cmt"># 5. Extraer eventos de error en journalctl ocurridos en la última media hora</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">journalctl</span> <span class="t-flag">-p</span> err <span class="t-flag">--since</span> <span class="t-arg">"30</span> minutes ago" <span class="t-flag">--no-pager</span> <span class="t-flag">-n</span> 5</code></pre>
             </figure>
             
@@ -408,12 +420,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         
         <div class="card step-card" id="mision-3">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Automatización del Ciclo de Rotación y Compresión con logrotate</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Automatización del Ciclo de Rotación con logrotate y Verificación Previa</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('108-GLOBAL', 3, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Diseñaremos una política en `/etc/logrotate.d/seguridad-108` para rotar diariamente el archivo recién creado, conservando 5 copias comprimidas, y ejecutaremos una prueba de forzado.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Diseñaremos una política en `/etc/logrotate.d/seguridad-108` para rotar `/var/log/seguridad-108.log`. Aseguraremos que el fichero contiene información para que `notifempty` no impida la rotación, comprobaremos en modo debug (`-d`) y forzaremos la rotación real (`-f`).</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -421,7 +433,11 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Crear el archivo de rotación automatizada</span>
+              <pre><code><span class="t-cmt"># 1. Asegurar volumen previo en el log para que 'notifempty' no bloquee la rotacion</span>
+<span class="t-cmd">logger</span> <span class="t-flag">-p</span> local6.info <span class="t-flag">-t</span> AUDIT108 <span class="t-arg">"Control</span> de rotacion programada del sistema"
+<span class="t-cmd">ls</span> <span class="t-flag">-lh</span> <span class="t-path">/var/log/seguridad-108.log</span>
+
+<span class="t-cmt"># 2. Crear el archivo de rotación automatizada</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'cat</span> << <span class="t-arg">"EOF"</span> <strong>></strong> <span class="t-cmd">/etc/logrotate.d/seguridad-108</span>
 <span class="t-cmd">/var/log/seguridad-108.log</span> {
 <span class="t-cmd">daily</span>
@@ -430,17 +446,17 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-cmd">delaycompress</span>
 <span class="t-cmd">missingok</span>
 <span class="t-cmd">notifempty</span>
-<span class="t-cmd">create</span> 0640 root adm
+<span class="t-cmd">create</span> 0640 syslog adm
 <span class="t-cmd">}</span>
 <span class="t-cmd">EOF'</span>
 
-<span class="t-cmt"># 2. Simular la rotación en seco para validar que la sintaxis es correcta</span>
+<span class="t-cmt"># 3. Simular la rotación en seco para validar que la sintaxis es correcta</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">logrotate</span> <span class="t-flag">-d</span> <span class="t-path">/etc/logrotate.d/seguridad-108</span>
 
-<span class="t-cmt"># 3. Forzar la rotación inmediata</span>
+<span class="t-cmt"># 4. Forzar la rotación inmediata (-f)</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">logrotate</span> <span class="t-flag">-f</span> <span class="t-path">/etc/logrotate.d/seguridad-108</span>
 
-<span class="t-cmt"># 4. Comprobar la generación de los archivos rotados</span>
+<span class="t-cmt"># 5. Comprobar la generación de los archivos rotados</span>
 <span class="t-cmd">ls</span> <span class="t-flag">-l</span> <span class="t-path">/var/log/seguridad-108*</span></code></pre>
             </figure>
             
@@ -448,7 +464,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`daily` / `rotate 5`: Define un ciclo de 5 rotaciones diarias antes de expirar.</li><li>`compress` / `delaycompress`: Comprime los archivos con gzip retrasando un ciclo el más reciente.</li><li>`create 0640 root adm`: Crea el nuevo archivo limpio con permisos y grupo adecuados para auditoría.</li>
+                <li>`daily` / `rotate 5`: Define un ciclo de 5 rotaciones diarias antes de expirar.</li><li>`compress` / `delaycompress`: Comprime los archivos con gzip retrasando un ciclo el más reciente.</li><li>`create 0640 syslog adm`: Crea el nuevo archivo limpio con permisos y grupo adecuados para auditoría.</li>
               </ul>
             </div>
             
@@ -468,12 +484,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         
         <div class="card step-card" id="mision-4">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 4 — Flujo de Correo Electrónico: Alias Globales, newaliases y ~/.forward</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 4 — Flujo de Correo Electrónico: Alias Globales, newaliases, ~/.forward y Supervisión de Cola</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('108-GLOBAL', 4, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Redirigiremos las alertas de `operaciones` hacia el usuario `alumno` en `/etc/aliases`, compilaremos con `newaliases`, y configuraremos el reenvío personal en `~/.forward` con escape para conservar copias locales.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Redirigiremos las alertas de `operaciones` hacia el usuario `alumno` en `/etc/aliases`, compilaremos con `newaliases`, aseguraremos `~/.forward` con permisos 0644 y escape `\alumno`, enviaremos correos con `mail` y supervisaremos la cola con `mailq`.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -485,16 +501,20 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"operaciones:</span> alumno" <strong>>></strong> <span class="t-cmd">/etc/aliases'</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">newaliases</span>
 
-<span class="t-cmt"># 2. Configurar el reenvío de usuario en ~/.forward evitando loops</span>
+<span class="t-cmt"># 2. Comprobar que /etc/aliases.db se actualizó</span>
+<span class="t-cmd">ls</span> <span class="t-flag">-l</span> <span class="t-path">/etc/aliases*</span>
+
+<span class="t-cmt"># 3. Configurar el reenvío de usuario en ~/.forward asegurando permisos estrictos</span>
 <span class="t-cmd">cat</span> << <span class="t-arg">"EOF"</span> <strong>></strong> <span class="t-cmd">~/.forward</span>
 <span class="t-cmd">\alumno,</span> log-auditor@empresa.com
 <span class="t-cmd">EOF</span>
 <span class="t-cmd">chmod</span> 644 <span class="t-path">~/.forward</span>
+<span class="t-cmd">chown</span> alumno:alumno <span class="t-path">~/.forward</span>
 
-<span class="t-cmt"># 3. Enviar correo de prueba hacia 'operaciones'</span>
+<span class="t-cmt"># 4. Enviar correo de prueba hacia 'operaciones'</span>
 <span class="t-cmd">echo</span> <span class="t-arg">"Notificacion</span> de mantenimiento programado" <strong>|</strong> <span class="t-cmd">mail</span> <span class="t-flag">-s</span> <span class="t-arg">"AVISO_OPERACIONES"</span> operaciones
 
-<span class="t-cmt"># 4. Comprobar la cola de salida de correo con mailq</span>
+<span class="t-cmt"># 5. Comprobar la cola de salida de correo con mailq</span>
 <span class="t-cmd">mailq</span></code></pre>
             </figure>
             
@@ -522,12 +542,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         
         <div class="card step-card" id="mision-5">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 5 — Despliegue y Control de Colas de Impresión en CUPS</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 5 — Despliegue y Control de Colas de Impresión en CUPS con lpmove</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('108-GLOBAL', 5, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Crearemos dos impresoras virtuales (`Cola_A` y `Cola_B`), fijaremos `Cola_A` como predeterminada, encolaremos trabajos pausando la cola, reubicaremos un trabajo hacia `Cola_B` con `lpmove` y limpiaremos la cola.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Crearemos dos impresoras virtuales (`Cola_A` y `Cola_B`) utilizando el Device URI canónico `file:///dev/null`, fijaremos `Cola_A` como predeterminada, encolaremos un trabajo con `Cola_A` pausada con `cupsdisable`, reubicaremos el trabajo hacia `Cola_B` mediante `lpmove`, y finalmente verificaremos y reanudaremos las colas.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -535,16 +555,16 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Crear las dos impresoras virtuales en CUPS</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">lpadmin</span> <span class="t-flag">-p</span> Cola_A <span class="t-flag">-E</span> <span class="t-flag">-v</span> <span class="t-path">file:/dev/null</span> <span class="t-flag">-m</span> raw <span class="t-flag">-D</span> <span class="t-arg">"Cola</span> A Produccion"
-<span class="t-flag">sudo</span> <span class="t-cmd">lpadmin</span> <span class="t-flag">-p</span> Cola_B <span class="t-flag">-E</span> <span class="t-flag">-v</span> <span class="t-path">file:/dev/null</span> <span class="t-flag">-m</span> raw <span class="t-flag">-D</span> <span class="t-arg">"Cola</span> B Respaldo"
+              <pre><code><span class="t-cmt"># 1. Crear las dos impresoras virtuales en CUPS con Device URI file:///dev/null</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">lpadmin</span> <span class="t-flag">-p</span> Cola_A <span class="t-flag">-E</span> <span class="t-flag">-v</span> <span class="t-path">file:///dev/null</span> <span class="t-flag">-m</span> raw <span class="t-flag">-D</span> <span class="t-arg">"Cola</span> A Produccion"
+<span class="t-flag">sudo</span> <span class="t-cmd">lpadmin</span> <span class="t-flag">-p</span> Cola_B <span class="t-flag">-E</span> <span class="t-flag">-v</span> <span class="t-path">file:///dev/null</span> <span class="t-flag">-m</span> raw <span class="t-flag">-D</span> <span class="t-arg">"Cola</span> B Respaldo"
 <span class="t-flag">sudo</span> <span class="t-cmd">cupsaccept</span> Cola_A Cola_B
 
 <span class="t-cmt"># 2. Fijar Cola_A como predeterminada y detener su procesamiento</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">lpoptions</span> <span class="t-flag">-d</span> Cola_A
 <span class="t-flag">sudo</span> <span class="t-cmd">cupsdisable</span> Cola_A
 
-<span class="t-cmt"># 3. Enviar un trabajo de impresión a Cola_A</span>
+<span class="t-cmt"># 3. Enviar un trabajo de impresión a la cola por defecto (Cola_A)</span>
 <span class="t-cmd">echo</span> <span class="t-arg">"Listado</span> de inventario mensual para impresion" <strong>|</strong> <span class="t-cmd">lp</span> <span class="t-flag">-t</span> <span class="t-arg">"INVENTARIO_2026"</span>
 
 <span class="t-cmt"># 4. Inspeccionar la cola detenida con lpq</span>
@@ -553,6 +573,8 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-cmt"># 5. Reubicar el trabajo a Cola_B con lpmove y verificar</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">lpmove</span> Cola_A-1 Cola_B
 <span class="t-cmd">lpq</span> <span class="t-flag">-P</span> Cola_B
+
+<span class="t-cmt"># 6. Reactivar el procesamiento en ambas colas</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">cupsenable</span> Cola_A Cola_B</code></pre>
             </figure>
             
@@ -651,18 +673,23 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
             <details class="accordion-item">
-              <summary>Error: Fallo al reubicar trabajos con lpmove</summary>
-              <div class="accordion-body">Asegúrate de que ambas colas existen con `lpstat -p` y de ejecutar `lpmove` como `sudo`.</div>
+              <summary>Fallo al reubicar trabajos con lpmove</summary>
+              <div class="accordion-body">Asegúrate de que ambas colas existen con `lpstat -p` y de ejecutar `lpmove` con `sudo`.</div>
             </details>
             
             <details class="accordion-item">
-              <summary>Error: Postfix o rsyslog no inician tras editar configuración</summary>
-              <div class="accordion-body">Revisa la sintaxis de `/etc/rsyslog.d/*.conf` eliminando comas o tabulaciones incorrectas y reinicia con `sudo systemctl restart rsyslog`.</div>
+              <summary>Postfix o rsyslog no inician tras editar configuración</summary>
+              <div class="accordion-body">Revisa la sintaxis en `/etc/rsyslog.d/*.conf` eliminando errores y reinicia con `sudo systemctl restart rsyslog`.</div>
             </details>
             
             <details class="accordion-item">
-              <summary>Restaura tu máquina a estado limpio</summary>
-              <div class="accordion-body">Al terminar el laboratorio, restaura el snapshot `00-base-limpia` en tu hipervisor.</div>
+              <summary>Permisos en ~/.forward y en colas de impresión</summary>
+              <div class="accordion-body">Revisa que `~/.forward` tenga permisos 0644 y que el alumno esté en el grupo `lpadmin`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Limpieza completa del laboratorio</summary>
+              <div class="accordion-body">Al terminar, puedes ejecutar la siguiente secuencia de desmantelamiento de pruebas:</div>
             </details>
             
         </section>

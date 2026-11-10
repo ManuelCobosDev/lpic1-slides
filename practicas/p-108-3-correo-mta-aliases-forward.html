@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          <li><a href="#mision-1" class="toc-link">Misión 1: Creación de Alias Administrativos Globales en /etc/aliases y Compilación con newaliases</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Reenvío Individual de Usuario con ~/.forward y Prevención de Bucle</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Inspección y Gestión de la Cola de Correo con mailq</a></li>
+          <li><a href="#mision-1" class="toc-link">Misión 1: Creación de Alias Administrativos Globales en /etc/aliases, Compilación con newaliases y Comprobación de aliases.db</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Reenvío Individual de Usuario con ~/.forward, Permisos Estrictos y Prevención de Bucles</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Inspección del Spool con mailq y Vaciado de Cola con postsuper</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,31 +270,38 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Comprende la arquitectura del servicio de correo electrónico en sistemas Linux. Diferencia con precisión las tres capas del flujo postal: el Agente de Usuario (MUA), el Agente de Transferencia (MTA como Postfix o Sendmail) y el Agente de Entrega Local (MDA). Aprende a diagnosticar servidores SMTP que escuchan en el puerto TCP 25, gestionar la tabla global de alias en `/etc/aliases` regenerando la base de datos indexada con `newaliases`, configurar reenvíos individuales y listas de correo con `~/.forward`, y auditar la cola de salida con `mailq`.</p>
+          <p style="font-size:17px; line-height:1.7;">Comprende la arquitectura del servicio de correo electrónico en sistemas Linux. Diferencia con precisión las tres capas del flujo postal evaluadas en LPIC-1: el Agente de Usuario (MUA como `mail`/`mailx`), el Agente de Transferencia (MTA como Postfix o Sendmail) y el Agente de Entrega Local (MDA). Aprende a diagnosticar servicios SMTP (puerto TCP 25), gestionar la tabla global de alias en `/etc/aliases` regenerando la base de datos indexada con `newaliases` (`/etc/aliases.db`), configurar reenvíos individuales y listas de correo con `~/.forward` (previniendo bucles con `\usuario` y respetando permisos estrictos), e inspeccionar y purgar la cola de salida con `mailq` y `postsuper`.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Diferenciar el rol de Postfix, Sendmail, Exim y Qmail en el examen LPIC-1.</li><li>Configurar alias a nivel de sistema en `/etc/aliases` y compilar la base de datos binaria con `newaliases`.</li><li>Implementar redirecciones de usuario mediante el archivo oculto `~/.forward`.</li><li>Evitar bucles de reenvío utilizando la barra invertida `\usuario`.</li><li>Enviar correos desde terminal con `mail` / `mailx` e inspeccionar mensajes encolados con `mailq`.</li>
+            <li>Instalar Postfix y `bsd-mailx` con `DEBIAN_FRONTEND=noninteractive` y configuración *Local only*.</li><li>Comprender los roles de Postfix, Sendmail, Exim y Qmail en el examen LPIC-1.</li><li>Editar `/etc/aliases` y compilar la base de datos binaria `/etc/aliases.db` mediante `newaliases`.</li><li>Crear y asegurar el archivo `~/.forward` con permisos 0644 o 0600 para evitar que el MTA lo rechace por seguridad.</li><li>Evitar bucles infinitos de reenvío mediante la contrabarra `\usuario`.</li><li>Enviar mensajes por terminal con `mail`/`mailx` y consultar buzones locales en `/var/mail/`.</li><li>Diagnosticar el estado del spool con `mailq` (o `postqueue -p`) y vaciar la cola con `postsuper -d ALL`.</li><li>Realizar una limpieza completa de alias y reenvíos al finalizar el laboratorio.</li>
           </ul>
         </section>
 
         <!-- 3. Antes de empezar -->
         <section class="card" id="antes-de-empezar">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">3. Antes de empezar (≤ 5 min)</h2>
+          
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>1. Inicia tu máquina virtual Debian 12 en tu hipervisor.</span>
+            <input type="checkbox"> <span>1. Inicia sesión en tu máquina virtual Debian 12 con el usuario habitual <code>alumno</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>2. Abre un terminal e inicia sesión con el usuario <code>alumno</code>.</span>
+            <input type="checkbox"> <span>2. Verifica que tienes permisos de administración ejecutando <code>sudo -v</code> en la terminal.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>3. Confirma permisos de superusuario con <code>sudo -v</code>.</span>
+            <input type="checkbox"> <span>3. Asegúrate de estar trabajando sobre la instantánea limpia <code>00-base-limpia</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>4. Verifica estar sobre la instantánea limpia <code>00-base-limpia</code>.</span>
+            <input type="checkbox"> <span>4. Instala Postfix y el cliente de correo: <code>sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt install -y postfix bsd-mailx</code>.</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>5. Nota de configuración debconf: El uso de <code>DEBIAN_FRONTEND=noninteractive</code> evita que aparezcan cuadros de diálogo de configuración. Si se instala de forma manual, selecciona "Local only" (Sólo correo local) con el nombre de sistema <code>debian</code> o <code>localhost</code>.</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>6. Asegura que el servicio Postfix está activo: <code>sudo systemctl enable --now postfix</code>.</span>
           </div>
         </section>
 
@@ -304,12 +311,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           
         <div class="card step-card" id="mision-1">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Creación de Alias Administrativos Globales en /etc/aliases y Compilación con newaliases</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 1 — Creación de Alias Administrativos Globales en /etc/aliases, Compilación con newaliases y Comprobación de aliases.db</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('108.3', 1, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Por defecto, las notificaciones críticas del sistema se dirigen a la cuenta `root`. Añadiremos un alias en `/etc/aliases` para que cualquier mensaje dirigido a `seguridad` y a `root` se redirija automáticamente al buzón del usuario local `alumno`. Compilaremos la base de datos binaria con `newaliases`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Por defecto, las alertas del sistema se dirigen a la cuenta `root`. Añadiremos alias en `/etc/aliases` para redirigir `seguridad` y `soporte` hacia el usuario local `alumno`. Compilaremos la base de datos binaria con `newaliases`, verificaremos la generación del archivo `/etc/aliases.db` y comprobaremos la entrega local.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -320,34 +327,37 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <pre><code><span class="t-cmt"># 1. Inspeccionar el contenido actual de /etc/aliases</span>
 <span class="t-cmd">cat</span> <span class="t-path">/etc/aliases</span>
 
-<span class="t-cmt"># 2. Añadir los alias 'seguridad' y actualizar 'root' hacia el usuario 'alumno'</span>
+<span class="t-cmt"># 2. Añadir los alias 'seguridad' y 'soporte' dirigidos al usuario 'alumno'</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'cat</span> << <span class="t-arg">"EOF"</span> <strong>>></strong> <span class="t-cmd">/etc/aliases</span>
 <span class="t-cmd">seguridad:</span> alumno
-<span class="t-cmd">root:</span> alumno
+<span class="t-cmd">soporte:</span> alumno
 <span class="t-cmd">EOF'</span>
 
 <span class="t-cmt"># 3. Compilar la tabla en formato binario /etc/aliases.db con newaliases</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">newaliases</span>
 
-<span class="t-cmt"># 4. Enviar un correo de prueba a root mediante mailx</span>
-<span class="t-cmd">echo</span> <span class="t-arg">"Alerta</span> de prueba de seguridad en el servidor" <strong>|</strong> <span class="t-cmd">mail</span> <span class="t-flag">-s</span> <span class="t-arg">"TEST_LPIC_108_3"</span> root
+<span class="t-cmt"># 4. Comprobar que el archivo binario /etc/aliases.db se ha actualizado</span>
+<span class="t-cmd">ls</span> <span class="t-flag">-l</span> <span class="t-path">/etc/aliases*</span>
 
-<span class="t-cmt"># 5. Comprobar que el correo llegó al buzón del usuario alumno en /var/mail/alumno</span>
-<span class="t-cmd">mail</span> <span class="t-flag">-H</span> <strong>||</strong> <span class="t-cmd">cat</span> <span class="t-path">/var/mail/alumno</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-arg">"Subject:</span> TEST_LPIC_108_3"</code></pre>
+<span class="t-cmt"># 5. Enviar un correo de prueba a 'seguridad' mediante mailx</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Alerta</span> de prueba de auditoria postal" <strong>|</strong> <span class="t-cmd">mail</span> <span class="t-flag">-s</span> <span class="t-arg">"TEST_LPIC_108_3"</span> seguridad
+
+<span class="t-cmt"># 6. Comprobar la recepcion en el buzon del usuario alumno en /var/mail/alumno</span>
+<span class="t-cmd">tail</span> <span class="t-flag">-n</span> 20 <span class="t-path">/var/mail/alumno</span> <strong>||</strong> <span class="t-cmd">mail</span> <span class="t-flag">-H</span></code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`/etc/aliases`: Archivo de texto plano editable donde se definen alias de sistema (`nombre: destino1, destino2`).</li><li>`newaliases`: Comando imprescindible de examen que lee `/etc/aliases` y genera o actualiza el archivo binario indexado `/etc/aliases.db`. Sin ejecutar este comando, el MTA ignora cualquier cambio.</li><li>`mail -s "ASUNTO" destinatario`: Comando MUA en terminal para redactar o consultar correos.</li><li>`/var/mail/alumno`: Ruta canónica donde el MDA almacena los buzones de usuario en formato `mbox`.</li>
+                <li>`/etc/aliases`: Archivo de texto plano editable donde se definen alias de sistema (`nombre: destino1, destino2`).</li><li>`sudo newaliases`: Comando imprescindible de examen que lee `/etc/aliases` y genera o actualiza el archivo binario indexado `/etc/aliases.db`. Sin ejecutar este comando, el MTA ignora cualquier cambio.</li><li>`ls -l /etc/aliases*`: Comprueba la existencia y fecha de modificación reciente de `/etc/aliases.db`.</li><li>`mail -s "ASUNTO" destinatario`: Comando MUA en terminal para redactar o consultar correos.</li><li>`/var/mail/alumno`: Ruta canónica donde el MDA almacena los buzones de usuario en formato estándar `mbox`.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> Al ejecutar `newaliases`, el sistema informará del número de alias compilados. Al inspeccionar el correo del alumno, verás el mensaje dirigido originalmente a `root`.</div>
+              <div><strong>👀 Qué debes observar:</strong> Al ejecutar `newaliases`, el sistema informará del número de alias compilados. Al inspeccionar el correo del alumno, verás el mensaje dirigido originalmente a `seguridad`.</div>
             </div>
             
           
@@ -360,12 +370,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         
         <div class="card step-card" id="mision-2">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Reenvío Individual de Usuario con ~/.forward y Prevención de Bucle</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Reenvío Individual de Usuario con ~/.forward, Permisos Estrictos y Prevención de Bucles</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('108.3', 2, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Los usuarios sin privilegios de root no pueden editar `/etc/aliases`. Para redirigir su propio correo personal, utilizan el archivo `~/.forward`. Crearemos una regla en el home de `alumno` para enviar copias al buzón local y a un correo de respaldo externo, utilizando la barra invertida `\` para impedir bucles infinitos.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Los usuarios sin privilegios administrativos gestionan su propio reenvío con `~/.forward` en su directorio personal. Por motivos de seguridad, los MTA modernos (incluido Postfix) rechazan y no procesan este archivo si tiene permisos permisivos de escritura para grupo u otros. Configuraremos el archivo con permisos 0644 (o 0600) y usaremos la contrabarra `\alumno` para evitar bucles de entrega recursivos.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -373,18 +383,20 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Crear el archivo ~/.forward en el directorio home del alumno</span>
+              <pre><code><span class="t-cmt"># 1. Crear el archivo ~/.forward en el home del usuario alumno</span>
 <span class="t-cmd">cat</span> << <span class="t-arg">"EOF"</span> <strong>></strong> <span class="t-cmd">~/.forward</span>
 <span class="t-cmd">\alumno,</span> backup-alumno@empresa.com
 <span class="t-cmd">EOF</span>
 
-<span class="t-cmt"># 2. Asegurar permisos estrictos en el archivo (600 o 644)</span>
+<span class="t-cmt"># 2. Asegurar permisos estrictos (644 o 600) requeridos por el MTA</span>
 <span class="t-cmd">chmod</span> 644 <span class="t-path">~/.forward</span>
+<span class="t-cmd">chown</span> alumno:alumno <span class="t-path">~/.forward</span>
 
-<span class="t-cmt"># 3. Inspeccionar el archivo creado</span>
+<span class="t-cmt"># 3. Inspeccionar el contenido y permisos del archivo creado</span>
+<span class="t-cmd">ls</span> <span class="t-flag">-l</span> <span class="t-path">~/.forward</span>
 <span class="t-cmd">cat</span> <span class="t-path">~/.forward</span>
 
-<span class="t-cmt"># 4. Enviar un correo de prueba dirigido a alumno</span>
+<span class="t-cmt"># 4. Enviar un correo de prueba dirigido a alumno para validar el reenvio</span>
 <span class="t-cmd">echo</span> <span class="t-arg">"Mensaje</span> de prueba para verificar <span class="t-path">~/.forward"</span> <strong>|</strong> <span class="t-cmd">mail</span> <span class="t-flag">-s</span> <span class="t-arg">"TEST_FORWARD"</span> alumno</code></pre>
             </figure>
             
@@ -392,14 +404,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`~/.forward`: Archivo interpretado por el MTA en el momento de la entrega local.</li><li>`\alumno`: La barra invertida `\` (backslash) le indica al MTA: *"entrega una copia en el buzón físico local de este usuario y detén la evaluación recursiva de alias"*. Sin la contrabarra, el MTA intentaría redirigir a `alumno`, leyendo de nuevo `~/.forward` y generando un bucle infinito (*mail loop*).</li><li>`backup-alumno@empresa.com`: Destino secundario donde se despachará otra copia por SMTP.</li>
+                <li>`~/.forward`: Archivo interpretado por el MTA en el momento de la entrega local.</li><li>`\alumno`: La barra invertida `\` (backslash) le indica al MTA: *"entrega una copia en el buzón físico local de este usuario y detén la evaluación recursiva de alias"*. Sin la contrabarra, el MTA intentaría redirigir a `alumno`, leyendo de nuevo `~/.forward` y generando un bucle infinito (*mail loop*).</li><li>`chmod 644 ~/.forward`: Postfix exige que el archivo pertenezca al usuario y no tenga permisos de escritura para grupo ni para otros (`group-writable` o `world-writable`). De lo contrario, se niega a leerlo por seguridad.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `cat ~/.forward` mostrará las dos entradas separadas por coma.</div>
+              <div><strong>👀 Qué debes observar:</strong> `cat ~/.forward` mostrará las dos entradas separadas por coma y `ls -l` confirmará permisos seguros (`-rw-r--r--`).</div>
             </div>
             
           
@@ -412,12 +424,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         
         <div class="card step-card" id="mision-3">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Inspección y Gestión de la Cola de Correo con mailq</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Inspección del Spool con mailq y Vaciado de Cola con postsuper</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('108.3', 3, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Cuando un MTA no puede entregar un mensaje inmediatamente (por ejemplo, porque el servidor de destino no responde o está desconectado), el correo se encola en el spool del sistema. Inspeccionaremos la cola con `mailq` y aprenderemos a forzar el reintento o purga.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Cuando los correos se entregan a usuarios locales, el MDA los deposita de inmediato y `mailq` muestra la cola vacía (`Mail queue is empty`), lo cual es completamente correcto. Para observar el funcionamiento de la cola de salida y retención (*deferred queue*), enviaremos un correo a un dominio remoto inalcanzable. Luego aprenderemos a inspeccionar el ID de cola y a purgarla con `postsuper -d ALL`.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -425,33 +437,35 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Consultar la cola de salida de correo con mailq</span>
-<span class="t-cmd">mailq</span>
-<span class="t-cmt"># Comando equivalente en Postfix:</span>
-<span class="t-cmt"># postqueue -p</span>
-
-<span class="t-cmt"># 2. Enviar un correo a un dominio ficticio para provocar su encolado</span>
-<span class="t-cmd">echo</span> <span class="t-arg">"Mensaje</span> encolado de prueba" <strong>|</strong> <span class="t-cmd">mail</span> <span class="t-flag">-s</span> <span class="t-arg">"CORREO_RETENIDO"</span> no-existe@dominio-inexistente-lpic.org
-
-<span class="t-cmt"># 3. Inspeccionar la cola para ver el ID de mensaje, emisor y causa de retención</span>
+              <pre><code><span class="t-cmt"># 1. Consultar la cola de salida inicial con mailq (o postqueue -p)</span>
 <span class="t-cmd">mailq</span>
 
-<span class="t-cmt"># 4. Limpiar los mensajes retenidos de prueba de la cola (en Postfix)</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">postsuper</span> <span class="t-flag">-d</span> ALL <strong>||</strong> <span class="t-flag">sudo</span> <span class="t-cmd">postqueue</span> <span class="t-flag">-f</span></code></pre>
+<span class="t-cmt"># 2. Enviar un correo a un dominio ficticio para provocar su retención en la cola</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Mensaje</span> de prueba para retencion en cola" <strong>|</strong> <span class="t-cmd">mail</span> <span class="t-flag">-s</span> <span class="t-arg">"CORREO_RETENIDO"</span> test@dominio-inexistente-lpic.org
+
+<span class="t-cmt"># 3. Esperar un par de segundos y consultar la cola retenida con mailq</span>
+<span class="t-cmd">sleep</span> 2
+<span class="t-cmd">mailq</span>
+
+<span class="t-cmt"># 4. Purgar y eliminar todos los mensajes pendientes de la cola con postsuper</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">postsuper</span> <span class="t-flag">-d</span> ALL
+
+<span class="t-cmt"># 5. Comprobar que la cola ha quedado limpia de nuevo</span>
+<span class="t-cmd">mailq</span></code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`mailq`: Muestra la cola de mensajes pendientes de envío en `/var/spool/postfix/` o `/var/spool/mqueue/`.</li><li>`postqueue -p`: Comando nativo de Postfix idéntico a `mailq`.</li><li>`postsuper -d ALL`: Borra todos los mensajes de la cola (requiere root).</li><li>`postqueue -f`: Fuerza un intento inmediato de entrega de todos los mensajes pendientes en la cola.</li>
+                <li>`mailq`: Muestra la cola de mensajes pendientes de envío en `/var/spool/postfix/` o `/var/spool/mqueue/`. Si la cola está vacía (`Mail queue is empty`), indica que todos los mensajes se entregaron o no hay pendientes.</li><li>`postqueue -p`: Comando nativo de Postfix idéntico a `mailq`.</li><li>`postsuper -d ALL`: Borra todos los mensajes de la cola (requiere root).</li><li>`postqueue -f`: Fuerza un intento inmediato de entrega de todos los mensajes pendientes en la cola.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `mailq` listará el Queue ID, tamaño, timestamp y la causa del fallo temporal (ej. *Connection timed out* o *Name service error*).</div>
+              <div><strong>👀 Qué debes observar:</strong> `mailq` listará el Queue ID, tamaño, timestamp y la causa del fallo temporal (ej. *Connection timed out* o *Name service error*). Tras ejecutar `postsuper -d ALL`, `mailq` indicará nuevamente `Mail queue is empty`.</div>
             </div>
             
           
@@ -509,13 +523,13 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <tr>
                   <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('108.3', 'C2', this)"> <strong>C2</strong></label></td>
-                  <td>Evidencia de Misión 2: Sintaxis de `~/.forward` con escape `\alumno`</td>
+                  <td>Evidencia de Misión 2: Sintaxis de `~/.forward` con escape `\alumno` y permisos seguros</td>
                   <td><code>`108-3-C2-forward-loop-prevent.png`</code></td>
                 </tr>
                 
                 <tr>
                   <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('108.3', 'C3', this)"> <strong>C3</strong></label></td>
-                  <td>Evidencia de Misión 3: Salida detallada de la cola con `mailq`</td>
+                  <td>Evidencia de Misión 3: Salida detallada de la cola con `mailq` y purga con `postsuper`</td>
                   <td><code>`108-3-C3-mailq-spool.png`</code></td>
                 </tr>
                 
@@ -528,18 +542,28 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
             <details class="accordion-item">
-              <summary>Error: "mail: command not found"</summary>
-              <div class="accordion-body">Instala la utilidad cliente BSD mailx con `sudo apt update && sudo apt install -y bsd-mailx postfix`.</div>
+              <summary>Error: "mail: command not found" o postfix no instalado</summary>
+              <div class="accordion-body">En Debian 12 base no están incluidos. Instálalos con `sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt install -y postfix bsd-mailx`.</div>
             </details>
             
             <details class="accordion-item">
-              <summary>Error: Postfix no arranca por configuración incompleta</summary>
-              <div class="accordion-body">Ejecuta `sudo dpkg-reconfigure postfix` y selecciona la opción *Local only* o *Internet Site* con el nombre de dominio predeterminado del sistema.</div>
+              <summary>Error debconf / Configuración de Postfix</summary>
+              <div class="accordion-body">Si la instalación interactiva de Postfix te muestra un menú azul ncurses, selecciona **"Local only"** (Sólo correo local) con las opciones por defecto (`debian` o `localhost`). Si necesitas reconfigurarlo más tarde, ejecuta: `sudo dpkg-reconfigure postfix`.</div>
             </details>
             
             <details class="accordion-item">
-              <summary>Restaura tu máquina a estado limpio</summary>
-              <div class="accordion-body">Al terminar las pruebas, restaura el snapshot `00-base-limpia` en tu hipervisor.</div>
+              <summary>Postfix rechaza o ignora ~/.forward (forward file is not owned by user / group writable)</summary>
+              <div class="accordion-body">Postfix aplica directivas de seguridad muy estrictas. Asegúrate de que el archivo pertenece a alumno y tiene permisos 0644 o 0600: `chown alumno:alumno ~/.forward && chmod 644 ~/.forward`. El directorio `$HOME` tampoco debe ser escribible por el grupo o terceros (`chmod 755 ~`).</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>mailq dice "Mail queue is empty"</summary>
+              <div class="accordion-body">Si envías correos a usuarios locales (`alumno`, `root`), la entrega es instantánea en el buzón local `/var/mail/`, por lo que la cola estará vacía casi siempre. Esto es el comportamiento correcto y deseable. Para ver mensajes encolados debes enviar a destinos externos sin conectividad.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Limpieza de recursos al terminar</summary>
+              <div class="accordion-body">Retira los alias de prueba y el reenvío ejecutando:</div>
             </details>
             
         </section>
@@ -582,6 +606,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 </tr>
                 
                 <tr>
+                  <td><span class="badge badge-blue"><code>/etc/aliases.db</code></span></td>
+                  <td>Base de datos binaria indexada de alias consultada por el MTA</td>
+                  <td>[Slide 7](../t108/108-3-conceptos-basicos-del-ag.html)</td>
+                </tr>
+                
+                <tr>
                   <td><span class="badge badge-blue"><code>~/.forward</code></span></td>
                   <td>Archivo de redirección personal por usuario con soporte de escape `\usuario`</td>
                   <td>[Slide 8](../t108/108-3-conceptos-basicos-del-ag.html)</td>
@@ -591,6 +621,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                   <td><span class="badge badge-blue"><code>/etc/postfix/main.cf</code></span></td>
                   <td>Archivo de configuración central del MTA Postfix</td>
                   <td>[Slide 4](../t108/108-3-conceptos-basicos-del-ag.html)</td>
+                </tr>
+                
+                <tr>
+                  <td><span class="badge badge-blue"><code>postsuper</code></span></td>
+                  <td>Comando administrativo de Postfix para purgar o gestionar mensajes en cola (`-d ALL`)</td>
+                  <td>[Slide 9](../t108/108-3-conceptos-basicos-del-ag.html)</td>
                 </tr>
                 
             </tbody>

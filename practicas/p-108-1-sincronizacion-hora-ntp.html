@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          <li><a href="#mision-1" class="toc-link">Misión 1: Inspección y Configuración de Tiempo y Zona Horaria con timedatectl</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Sincronización Bidireccional entre Kernel y Hardware RTC con hwclock</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Diagnóstico de Jerarquía NTP y Estratos con chronyc</a></li>
+          <li><a href="#mision-1" class="toc-link">Misión 1: Inspección y Configuración de Tiempo y Zona Horaria con timedatectl</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Sincronización Bidireccional entre Kernel y Hardware RTC con hwclock</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Diagnóstico de Jerarquía NTP y Estratos con chronyc en Entorno Virtual</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,31 +270,35 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Aprende a mantener y sincronizar con precisión el tiempo del sistema en servidores Linux. Comprende la diferencia crítica entre el reloj de software (mantenido por el kernel en memoria RAM en escala UTC) y el reloj de hardware o RTC (Real Time Clock en el chip CMOS alimentado por batería). Administra las zonas horarias y el servicio de sincronización mediante `timedatectl`, transfiere la hora en ambas direcciones con `hwclock` (`-w`/`--systohc` y `-s`/`--hctosys`), y audita la jerarquía de estratos NTP mediante `chronyc` y `ntpq`.</p>
+          <p style="font-size:17px; line-height:1.7;">Aprende a mantener y sincronizar con precisión el tiempo del sistema en servidores Linux. Comprende la diferencia crítica entre los dos relojes: el reloj de software (mantenido en memoria RAM por el kernel Linux en escala UTC continuo mediante ticks de CPU) y el reloj de hardware o RTC (Real Time Clock en el chip CMOS de la placa base alimentado por batería, `/dev/rtc0`). Administra las zonas horarias y la activación del servicio NTP mediante `timedatectl`, transfiere la hora en ambas direcciones con `hwclock` (`-w`/`--systohc` y `-s`/`--hctosys`), comprende la jerarquía de estratos NTP (puerto UDP 123) y audita las fuentes de tiempo con `chronyc` y `ntpq`.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Diferenciar el reloj del kernel (UTC continuo) del reloj RTC (`/dev/rtc0`).</li><li>Usar `timedatectl` para verificar estado, fijar la hora, cambiar zona horaria y activar la sincronización por red (`set-ntp true`).</li><li>Dominar la dirección de sincronización con `hwclock`: grabar en hardware (`--systohc` / `-w`) frente a cargar en kernel (`--hctosys` / `-s`).</li><li>Comprender la arquitectura jerárquica de estratos NTP (Stratum 0 a 16) y el puerto de transporte UDP 123.</li><li>Inspeccionar pares NTP y fuentes de tiempo con `chronyc sources -v` y `chronyc tracking`.</li>
+            <li>Diferenciar el reloj de software del kernel (UTC continuo) del reloj hardware RTC (`/dev/rtc0`).</li><li>Instalar `chrony` y entender cómo interactúa con `systemd-timesyncd` en Debian 12.</li><li>Usar `timedatectl` para verificar estado, zonas horarias (`list-timezones`, `set-timezone`) y activar NTP (`set-ntp true`).</li><li>Dominar la sincronización bidireccional con `hwclock`: grabar en hardware (`--systohc` / `-w`) y restaurar al kernel (`--hctosys` / `-s`).</li><li>Comprender la arquitectura jerárquica de estratos NTP (Stratum 0 a 16) sobre el puerto UDP 123.</li><li>Inspeccionar el demonio `chronyd` con `chronyc sources -v`, `chronyc tracking` y `chronyc activity`.</li><li>Diagnosticar el comportamiento en entornos virtualizados: sincronización periódica del host mediante VirtualBox Guest Additions (`VBoxService --timesync`) y funcionamiento en redes NAT sin salida UDP 123.</li>
           </ul>
         </section>
 
         <!-- 3. Antes de empezar -->
         <section class="card" id="antes-de-empezar">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">3. Antes de empezar (≤ 5 min)</h2>
+          
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>1. Inicia tu máquina virtual Debian 12 en tu hipervisor.</span>
+            <input type="checkbox"> <span>1. Inicia sesión en tu máquina virtual Debian 12 con el usuario habitual <code>alumno</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>2. Abre un terminal e inicia sesión con el usuario <code>alumno</code>.</span>
+            <input type="checkbox"> <span>2. Verifica que tienes permisos de administración ejecutando <code>sudo -v</code> en la terminal.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>3. Confirma permisos de superusuario con <code>sudo -v</code>.</span>
+            <input type="checkbox"> <span>3. Asegúrate de estar trabajando sobre la instantánea limpia <code>00-base-limpia</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>4. Verifica estar sobre la instantánea limpia <code>00-base-limpia</code>.</span>
+            <input type="checkbox"> <span>4. Instala chrony (no viene en Debian 12 base): <code>sudo apt update && sudo apt install -y chrony</code>.</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>5. Ten en cuenta la sincronización de VirtualBox: Las Guest Additions (<code>VBoxService</code>) sincronizan automáticamente el reloj con tu sistema anfitrión cada pocos segundos.</span>
           </div>
         </section>
 
@@ -309,7 +313,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('108.1', 1, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Inspeccionaremos el estado unificado del subsistema de tiempo del kernel systemd, visualizaremos las zonas horarias del sistema y configuraremos la zona horaria oficial del servidor a `Europe/Madrid`, activando el cliente NTP.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Inspeccionaremos el estado unificado del subsistema de tiempo del kernel systemd, visualizaremos las zonas horarias del sistema y configuraremos la zona horaria oficial del servidor a `Europe/Madrid`, activando el cliente NTP con `timedatectl set-ntp true`.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -338,7 +342,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`timedatectl status`: Muestra la hora local, hora universal (UTC), hora del RTC, zona horaria activa y si el reloj está sincronizado con la red.</li><li>`timedatectl list-timezones`: Extrae la base de datos de zonas horarias de `/usr/share/zoneinfo/`.</li><li>`sudo timedatectl set-timezone Europe/Madrid`: Apunta de forma atómica `/etc/localtime` hacia `/usr/share/zoneinfo/Europe/Madrid`.</li><li>`sudo timedatectl set-ntp true`: Habilita y arranca el servicio cliente NTP disponible (`systemd-timesyncd` o `chronyd`).</li><li>`ls -l /etc/localtime`: Confirma a nivel de sistema de archivos que la zona horaria está enlazada correctamente.</li>
+                <li>`timedatectl status`: Muestra la hora local, hora universal (UTC), hora del RTC, zona horaria activa y si el reloj está sincronizado con la red.</li><li>`timedatectl list-timezones`: Extrae la base de datos de zonas horarias de `/usr/share/zoneinfo/`.</li><li>`sudo timedatectl set-timezone Europe/Madrid`: Apunta de forma atómica `/etc/localtime` hacia `/usr/share/zoneinfo/Europe/Madrid`.</li><li>`sudo timedatectl set-ntp true`: Activa la sincronización horaria por red en systemd, delegando en chrony o systemd-timesyncd.</li><li>`ls -l /etc/localtime`: Confirma a nivel de sistema de archivos que la zona horaria apunta al archivo zoneinfo correspondiente.</li>
               </ul>
             </div>
             
@@ -363,7 +367,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('108.1', 2, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Interactuaremos directamente con el chip RTC (`/dev/rtc0`) usando `hwclock`. Transferiremos la hora de red precisa desde la RAM del kernel hacia el chip CMOS (`--systohc`), y luego comprobaremos la operación inversa (`--hctosys`), dominando las opciones clave de examen `-w` y `-s`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Interactuaremos directamente con el chip RTC (`/dev/rtc0`) usando `hwclock`. Transferiremos la hora de red precisa desde la RAM del kernel hacia el chip CMOS (`--systohc` / `-w`), y luego comprobaremos la operación inversa (`--hctosys` / `-s`). En VirtualBox, este chip está emulado y refleja el reloj de hardware del host.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -371,12 +375,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Leer directamente la hora almacenada en el hardware RTC</span>
+              <pre><code><span class="t-cmt"># 1. Leer directamente la hora almacenada en el hardware RTC (/dev/rtc0)</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">hwclock</span> <span class="t-flag">--show</span> <span class="t-flag">--verbose</span>
 
 <span class="t-cmt"># 2. Transferir la hora del sistema (kernel en RAM) al reloj hardware (CMOS)</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">hwclock</span> <span class="t-flag">--systohc</span>
-<span class="t-cmt"># Opción equivalente evaluada en LPIC-1 (write):</span>
+<span class="t-cmt"># Opción equivalente corta evaluada en LPIC-1 (write):</span>
 <span class="t-cmt"># sudo hwclock -w</span>
 
 <span class="t-cmt"># 3. Comprobar que el RTC refleja la nueva hora escrita</span>
@@ -384,7 +388,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 
 <span class="t-cmt"># 4. Probar la dirección inversa: cargar la hora del RTC hacia el reloj del sistema</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">hwclock</span> <span class="t-flag">--hctosys</span>
-<span class="t-cmt"># Opción equivalente evaluada en LPIC-1 (set system):</span>
+<span class="t-cmt"># Opción equivalente corta evaluada en LPIC-1 (set system):</span>
 <span class="t-cmt"># sudo hwclock -s</span>
 
 <span class="t-cmt"># 5. Comprobar la fecha y hora final del kernel</span>
@@ -415,12 +419,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         
         <div class="card step-card" id="mision-3">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Diagnóstico de Jerarquía NTP y Estratos con chronyc</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Diagnóstico de Jerarquía NTP y Estratos con chronyc en Entorno Virtual</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('108.1', 3, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Inspeccionaremos la configuración del demonio `chronyd` en `/etc/chrony/chrony.conf`, analizaremos la lista de servidores de tiempo remotos, sus estratos (Stratum), retardo de red (delay) y estado de sincronización con `chronyc sources -v` y `chronyc tracking`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Inspeccionaremos la configuración del demonio `chronyd` en `/etc/chrony/chrony.conf`, analizaremos los servidores de tiempo remotos, sus estratos (Stratum), retardo de red (delay) y estado de sincronización con `chronyc sources -v` y `chronyc tracking`. Comprenderemos el comportamiento en redes NAT/offline y cómo interpretar los símbolos `^*` (fuente primaria seleccionada) y `^?` (fuente inalcanzable por cortafuegos o NAT).</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -428,8 +432,8 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Asegurar que el demonio chrony está activo</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> enable <span class="t-flag">--now</span> chrony <strong>||</strong> <span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> restart chrony
+              <pre><code><span class="t-cmt"># 1. Asegurar que el demonio chrony está activo y habilitado</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> enable <span class="t-flag">--now</span> chrony
 
 <span class="t-cmt"># 2. Examinar las directivas de pool y servidores en la configuración</span>
 <span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">'^(server|pool|makestep)'</span> <span class="t-path">/etc/chrony/chrony.conf</span>
@@ -437,22 +441,25 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-cmt"># 3. Consultar las fuentes de sincronización NTP detalladas</span>
 <span class="t-cmd">chronyc</span> sources <span class="t-flag">-v</span>
 
-<span class="t-cmt"># 4. Analizar la precisión y desviación con chronyc tracking</span>
-<span class="t-cmd">chronyc</span> tracking</code></pre>
+<span class="t-cmt"># 4. Analizar la precisión, estrato y desviación con chronyc tracking</span>
+<span class="t-cmd">chronyc</span> tracking
+
+<span class="t-cmt"># 5. Comprobar la actividad de sondeo del demonio</span>
+<span class="t-cmd">chronyc</span> activity</code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`grep -E '^(server|pool)...'`: Muestra los servidores o pools de tiempo públicos configurados como fuentes de referencia.</li><li>`chronyc sources -v`: Lista cada par o servidor NTP mostrando:</li><li>`^*`: Fuente primaria actualmente seleccionada para sincronización.</li><li>`^+`: Fuentes candidatas aceptables combinadas en el cálculo.</li><li>`^?`: Fuentes inalcanzables o no sincronizadas.</li><li>Columna `Stratum`: Nivel jerárquico (Stratum 1 está conectado a reloj atómico/GPS; Stratum 2 sincroniza de Stratum 1).</li><li>`chronyc tracking`: Muestra el estrato actual del propio host, la frecuencia de desviación (drift) y el error residual estimado.</li>
+                <li>`grep -E '^(server|pool)...'`: Muestra los servidores o pools de tiempo públicos configurados como fuentes de referencia (`2.debian.pool.ntp.org`).</li><li>`chronyc sources -v`: Lista cada par o servidor NTP mostrando:</li><li>`^*`: Fuente primaria actualmente sincronizada y en uso.</li><li>`^+`: Fuentes candidatas válidas combinadas en el algoritmo.</li><li>`^?`: Fuentes inalcanzables o no sincronizadas (típico si la red NAT bloquea UDP 123 o no hay Internet).</li><li>Columna `Stratum`: Nivel jerárquico (Stratum 1 está conectado a reloj atómico/GPS; Stratum 2 sincroniza de Stratum 1).</li><li>`chronyc tracking`: Muestra el estrato actual del propio host, la frecuencia de desviación (drift) y el error residual estimado.</li><li>`chronyc activity`: Informa del número de fuentes en línea (*online*) o fuera de línea (*offline*).</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> En la salida de `chronyc sources -v`, verás al menos un servidor marcado con `^*`, con un estrato típicamente de 2 o 3, y en `chronyc tracking` el *Reference ID* coincidirá con la IP de ese servidor.</div>
+              <div><strong>👀 Qué debes observar:</strong> En entornos con acceso a Internet libre, verás al menos un servidor marcado con `^*` con un estrato típicamente de 2 o 3. Si la red NAT no permite tráfico UDP 123 hacia el exterior, las fuentes mostrarán `^?` (unreachable), lo cual es normal y esperado en redes aisladas; la sintaxis, columnas y directivas son idénticas a las del examen LPIC-1.</div>
             </div>
             
           
@@ -524,13 +531,18 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
             <details class="accordion-item">
-              <summary>Error: "NTP not supported" o "systemd-timesyncd not active"</summary>
-              <div class="accordion-body">Si chrony está instalado, `systemd-timesyncd` se deshabilita para evitar conflictos. Usa siempre `chronyc tracking` para auditar el estado.</div>
+              <summary>Interacción con VirtualBox Guest Additions (el reloj vuelve a la hora anterior al cambiarlo)</summary>
+              <div class="accordion-body">Las Guest Additions ejecutan el proceso `VBoxService --timesync`, que cada pocos segundos lee la hora del sistema operativo anfitrión (host) y sobreescribe cualquier desfase manual en la máquina virtual. Para comprobar si VBoxService está activo ejecuta `pgrep -a VBoxService`. Si necesitas probar modificaciones manuales de tiempo sin que VirtualBox las revierta, puedes detener temporalmente el servicio con `sudo systemctl stop virtualbox-guest-utils`.</div>
             </details>
             
             <details class="accordion-item">
-              <summary>Error: "Cannot access the Hardware Clock via any known method"</summary>
-              <div class="accordion-body">En ciertas máquinas virtuales ligeras (contenedores LXC/Docker), el RTC de hardware no está emulado o está bloqueado por el host. En hipervisores tipo VirtualBox o KVM, el RTC está emulado en `/dev/rtc0`.</div>
+              <summary>Fuentes chronyc muestran '^?' o 'Stratum: 0' (Red NAT sin acceso a UDP 123)</summary>
+              <div class="accordion-body">Si tu máquina virtual tiene red NAT restringida o no tiene conexión a Internet externa, el tráfico al puerto UDP 123 no llegará a los servidores públicos de Debian (`*.debian.pool.ntp.org`). En este caso, `chronyc sources -v` mostrará `^?` y `chronyc activity` indicará `0 sources online`. Esto NO es un error de tu configuración: es la respuesta normal de chrony ante la falta de conectividad. Para simular sincronización sin internet, chrony puede usar una directiva `local stratum 10` en `/etc/chrony/chrony.conf` que permite al equipo actuar como servidor de tiempo para sí mismo usando su propio reloj interno.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Conflicto entre chrony y systemd-timesyncd</summary>
+              <div class="accordion-body">Si `timedatectl status` muestra advertencias sobre demonios en conflicto, asegúrate de que solo uno de los dos servicios está en funcionamiento. Al instalar chrony, Debian suele enmascarar automáticamente timesyncd. Puedes verificarlo con `systemctl status systemd-timesyncd` (debe estar inactivo) y `systemctl status chrony` (debe estar activo).</div>
             </details>
             
             <details class="accordion-item">

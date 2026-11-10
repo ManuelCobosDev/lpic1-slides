@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          <li><a href="#mision-1" class="toc-link">Misión 1: Análisis de Direccionamiento IP, Subnetting y Puertos IANA</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Despliegue de Red Persistente con nmcli y Asignación de Hostname</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Diagnóstico de Enlace, Rutas y Path MTU (PMTU) con tracepath</a></li><li><a href="#mision-4" class="toc-link">Misión 4: Auditoría de Sockets con ss y Verificación de Servicios con Netcat</a></li><li><a href="#mision-5" class="toc-link">Misión 5: Auditoría DNS, Registros MX/PTR y Precedencia en NSSwitch</a></li>
+          <li><a href="#mision-1" class="toc-link">Misión 1: Análisis de Direccionamiento IP, Subnetting y Puertos IANA</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Despliegue de Red Persistente con nmcli, Interfaz Dummy y Asignación de Hostname</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Diagnóstico de Enlace, Rutas y Path MTU (PMTU) con tracepath</a></li><li><a href="#mision-4" class="toc-link">Misión 4: Auditoría de Sockets con ss y Verificación de Servicios con Netcat</a></li><li><a href="#mision-5" class="toc-link">Misión 5: Auditoría DNS, Precedencia en NSSwitch y Procedimiento de Limpieza Total</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,31 +270,41 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Misión integral de fin de tema que consolida la totalidad de objetivos evaluados en el Tema 109 de LPIC-1 (Examen 102-500, con un peso total de 14 puntos en el examen). Asumirás el papel de un administrador de sistemas y redes encargado de poner en servicio un servidor corporativo: calcularás el direccionamiento y subredes con `ipcalc`, configurarás una conexión de red estática persistente con `nmcli`, fijarás el nombre FQDN con `hostnamectl` y `/etc/hosts`, diagnosticarás el enlace, enrutamiento y Path MTU con `ip link`, `ip route` y `tracepath`, auditarás los sockets y servicios activos con `ss -tulpn` y `nc`, y validarás la arquitectura DNS del cliente configurando `/etc/resolv.conf`, analizando registros con `dig` y `host`, y comprobando la precedencia en `/etc/nsswitch.conf`.</p>
+          <p style="font-size:17px; line-height:1.7;">Misión integral de fin de tema que consolida la totalidad de objetivos evaluados en el Tema 109 de LPIC-1 (Examen 102-500, con un peso total de 14 puntos en el examen). Asumirás el papel de un administrador de sistemas y redes encargado de poner en servicio un servidor corporativo: calcularás el direccionamiento y subredes con `ipcalc`, configurarás una conexión de red estática persistente con `nmcli`, fijarás el nombre FQDN con `hostnamectl` y `/etc/hosts` previniendo errores de sudo, diagnosticarás el enlace, enrutamiento y Path MTU con `ip link`, `ip route` y `tracepath`, auditarás los sockets y servicios activos con `ss -tulpn` y `nc`, y validarás la arquitectura DNS del cliente configurando `/etc/resolv.conf`, analizando registros con `dig` y `host`, y comprobando la precedencia en `/etc/nsswitch.conf`. Todo realizado con aislamiento seguro en `dummy1` y finalizando con un procedimiento estricto de restauración y limpieza total.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Dominar el 100% de los comandos y directivas evaluados en los subtemas 109.1, 109.2, 109.3 y 109.4.</li><li>Calcular máscaras de red, broadcast y rangos de hosts útiles con `ipcalc`.</li><li>Crear y modificar perfiles de conexión persistentes con `nmcli` fijando IP, gateway y DNS.</li><li>Garantizar la persistencia y resolución del nombre de host mediante `hostnamectl` y `/etc/hosts`.</li><li>Diagnosticar incidencias de red por capas: enlace (capa 2), encaminamiento (capa 3) y transporte (capa 4).</li><li>Medir la MTU del camino con `tracepath` sin requerir privilegios de root.</li><li>Auditar puertos abiertos y procesos con `ss -tulpn` y comprobar conectividad con `nc -zv`.</li><li>Resolver incidencias en la resolución DNS utilizando `dig`, `host` y `getent hosts`.</li>
+            <li>Dominar el 100% de los comandos y directivas evaluados en los subtemas 109.1, 109.2, 109.3 y 109.4.</li><li>Calcular máscaras de red, broadcast y rangos de hosts útiles con `ipcalc`.</li><li>Instalar y gestionar NetworkManager en entornos de consola Debian 12.</li><li>Crear y modificar perfiles de conexión persistentes con `nmcli` fijando IP, gateway y DNS sobre interfaces virtuales seguras (`dummy1`).</li><li>Garantizar la persistencia y resolución del nombre de host mediante `hostnamectl` y `/etc/hosts` sin generar alertas en `sudo`.</li><li>Diagnosticar incidencias de red por capas: enlace (capa 2), encaminamiento (capa 3) y transporte (capa 4).</li><li>Medir la MTU del camino con `tracepath` sin requerir privilegios de root tanto en red local como en Internet.</li><li>Auditar puertos abiertos y procesos con `ss -tulpn` y comprobar conectividad con `nc -zv` gestionando procesos en background.</li><li>Resolver incidencias en la resolución DNS utilizando `dig`, `host` y `getent hosts`.</li><li>Aplicar un protocolo riguroso de desmontaje y limpieza total al finalizar la sesión.</li>
           </ul>
         </section>
 
         <!-- 3. Antes de empezar -->
         <section class="card" id="antes-de-empezar">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">3. Antes de empezar (≤ 5 min)</h2>
+          
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>1. Inicia tu máquina virtual Debian 12 en tu hipervisor.</span>
+            <input type="checkbox"> <span>1. Inicia sesión en tu máquina virtual Debian 12 con el usuario habitual <code>alumno</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>2. Abre un terminal e inicia sesión con el usuario <code>alumno</code>.</span>
+            <input type="checkbox"> <span>2. Verifica que tienes permisos de administración ejecutando <code>sudo -v</code> en la terminal.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>3. Confirma permisos de superusuario con <code>sudo -v</code>.</span>
+            <input type="checkbox"> <span>3. Asegúrate de estar trabajando sobre la instantánea limpia <code>00-base-limpia</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>4. Verifica estar sobre la instantánea limpia <code>00-base-limpia</code>.</span>
+            <input type="checkbox"> <span>4. **Instala la suite completa de herramientas requeridas**:</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>5. **Habilita e inicia el servicio NetworkManager**:</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>6. **Carga el módulo de interfaces virtuales en el kernel**:</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>7. Comprueba que tu interfaz física principal (<code>enp0s3</code> o <code>eth0</code>) está activa y protegida para no ser modificada en este laboratorio.</span>
           </div>
         </section>
 
@@ -321,7 +331,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-cmd">ipcalc</span> <span class="t-flag">-b</span> <span class="t-path">172.16.20.45/27</span>
 
 <span class="t-cmt"># 2. Comprobar que pertenece al rango privado RFC 1918 (172.16.0.0/12)</span>
-<span class="t-cmt"># Nota: La subred alberga 30 hosts utilizables (de .33 a .62)</span>
+<span class="t-cmt"># La subred alberga 30 hosts utilizables (de .33 a .62) con máscara 255.255.255.224</span>
 
 <span class="t-cmt"># 3. Auditar los números de puerto de los servicios esenciales en /etc/services</span>
 <span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">'^(ssh|domain|ntp|http|https)\s'</span> <span class="t-path">/etc/services</span>
@@ -354,12 +364,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         
         <div class="card step-card" id="mision-2">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Despliegue de Red Persistente con nmcli y Asignación de Hostname</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Despliegue de Red Persistente con nmcli, Interfaz Dummy y Asignación de Hostname</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('109-GLOBAL', 2, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Fijaremos el nombre de host como `nodo-red.empresa.lab`, crearemos un perfil estático persistente con `nmcli` sobre una interfaz de prueba `dummy1` y validaremos la persistencia de las rutas y direcciones tras activar el perfil.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Fijaremos el nombre de host como `nodo-red.empresa.lab`, actualizando al mismo tiempo `/etc/hosts` para evitar que `sudo` lance avisos de resolución. Crearemos un perfil estático persistente con `nmcli` sobre una interfaz de prueba aislada `dummy1` (garantizando que la tarjeta física de VirtualBox queda 100% protegida), y validaremos la persistencia de las rutas y direcciones tras activar el perfil.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -371,17 +381,21 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-flag">sudo</span> <span class="t-cmd">hostnamectl</span> set-hostname nodo-red.empresa.lab
 <span class="t-cmd">hostnamectl</span> status
 
-<span class="t-cmt"># 2. Registrar el nuevo nombre en /etc/hosts</span>
+<span class="t-cmt"># 2. Registrar de inmediato el nuevo nombre en /etc/hosts para evitar advertencias de sudo</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">sed</span> <span class="t-flag">-i</span> <span class="t-path">'/nodo-red/d'</span> <span class="t-path">/etc/hosts</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"127.0.1.1</span> nodo-red.empresa.lab nodo-red" <strong>>></strong> <span class="t-cmd">/etc/hosts'</span>
 
-<span class="t-cmt"># 3. Crear una interfaz dummy para pruebas</span>
+<span class="t-cmt"># 3. Crear una tarjeta virtual dummy1 para pruebas seguras</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">modprobe</span> dummy
 <span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link add dummy1 type dummy
+<span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link set dummy1 up
 
-<span class="t-cmt"># 4. Crear el perfil de red persistente con nmcli asignando IP estática y DNS</span>
+<span class="t-cmt"># 4. Crear el perfil de red persistente con nmcli asignando IP estática, gateway y DNS</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection add type ethernet con-name <span class="t-arg">"Perfil-Red-Global"</span> ifname dummy1
 <span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection modify <span class="t-arg">"Perfil-Red-Global"</span> \
 <span class="t-cmd">ipv4.method</span> manual \
 <span class="t-cmd">ipv4.addresses</span> <span class="t-path">172.16.20.45/27</span> \
+<span class="t-cmd">ipv4.gateway</span> 172.16.20.33 \
 <span class="t-cmd">ipv4.dns</span> <span class="t-arg">"1.1.1.1</span> 8.8.8.8"
 
 <span class="t-cmt"># 5. Activar la conexión y comprobar que la IP está activa en la interfaz</span>
@@ -393,7 +407,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`hostnamectl set-hostname`: Actualiza `/etc/hostname` y el kernel.</li><li>`nmcli connection modify ... ipv4.method manual`: Escribe el archivo persistente en `/etc/NetworkManager/system-connections/`.</li><li>`nmcli connection up`: Aplica la IP calculada en la Misión 1 a la interfaz `dummy1`.</li>
+                <li>`hostnamectl set-hostname`: Actualiza `/etc/hostname` y el kernel.</li><li>`/etc/hosts`: Asocia `127.0.1.1` al nuevo FQDN.</li><li>`dummy1`: Tarjeta virtual de laboratorio que previene cortes de red en la VM.</li><li>`nmcli connection modify ... ipv4.method manual`: Escribe el archivo persistente en `/etc/NetworkManager/system-connections/`.</li><li>`nmcli connection up`: Aplica la IP calculada en la Misión 1 a la interfaz `dummy1`.</li>
               </ul>
             </div>
             
@@ -418,7 +432,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('109-GLOBAL', 3, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Realizaremos un diagnóstico completo de las capas 2 y 3: comprobaremos los flags de enlace con `ip link`, la tabla de enrutamiento con `ip route`, la conectividad ICMP con `ping` y mediremos la MTU del camino con `tracepath` sin requerir permisos de root.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Realizaremos un diagnóstico completo de las capas 2 y 3: comprobaremos los flags de enlace con `ip link`, la tabla de enrutamiento con `ip route`, la conectividad ICMP con `ping` y mediremos la MTU del camino con `tracepath` sin requerir permisos de root, usando la puerta de enlace NAT (`10.0.2.2`) para asegurar una respuesta inmediata sin depender de salida externa.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -426,31 +440,36 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Inspeccionar las interfaces y estados operativos</span>
+              <pre><code><span class="t-cmt"># 1. Inspeccionar las interfaces y estados operativos (Capa 2)</span>
 <span class="t-cmd">ip</span> link show
 
-<span class="t-cmt"># 2. Consultar la tabla de enrutamiento del kernel</span>
+<span class="t-cmt"># 2. Consultar la tabla de enrutamiento del kernel (Capa 3)</span>
 <span class="t-cmd">ip</span> route show
 
-<span class="t-cmt"># 3. Medir la latencia y comprobar pérdida de paquetes con ping acotado (-c 4)</span>
-<span class="t-cmd">ping</span> <span class="t-flag">-c</span> 4 1.1.1.1
+<span class="t-cmt"># 3. Detectar la puerta de enlace de la VM y medir latencia con ping acotado (-c 4)</span>
+<span class="t-cmd">GW_IP=$(ip</span> route show default <strong>|</strong> <span class="t-cmd">awk</span> <span class="t-arg">'{print</span> $3}')
+<span class="t-cmd">[</span> <span class="t-flag">-z</span> <span class="t-arg">"$GW_IP"</span> ] <strong>&&</strong> <span class="t-cmd">GW_IP="10.0.2.2"</span>
+<span class="t-cmd">ping</span> <span class="t-flag">-c</span> 4 <span class="t-arg">"$GW_IP"</span>
 
-<span class="t-cmt"># 4. Realizar un trazado de saltos con tracepath y observar la MTU (PMTU)</span>
-<span class="t-cmd">tracepath</span> <span class="t-flag">-n</span> 1.1.1.1</code></pre>
+<span class="t-cmt"># 4. Realizar un trazado de saltos con tracepath y observar la MTU del camino (PMTU)</span>
+<span class="t-cmd">tracepath</span> <span class="t-flag">-n</span> <span class="t-arg">"$GW_IP"</span>
+
+<span class="t-cmt"># 5. Probar con IP pública si hay acceso a internet exterior (con fallback seguro)</span>
+<span class="t-cmd">tracepath</span> <span class="t-flag">-n</span> 1.1.1.1 <strong>||</strong> <span class="t-cmd">true</span></code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`ip link show`: Confirma el estado `UP` y la MTU configurada en cada interfaz (habitualmente 1500 bytes en Ethernet).</li><li>`ip route show`: Permite verificar que existe una ruta `default via ...`.</li><li>`tracepath -n`: Descubre la MTU más pequeña a lo largo de toda la ruta hasta el destino, sin requerir privilegios de superusuario.</li>
+                <li>`ip link show`: Confirma el estado `UP` y la MTU configurada en cada interfaz (1500 bytes estándar).</li><li>`ip route show`: Permite verificar que existe una ruta `default via ...`.</li><li>`tracepath -n`: Descubre la MTU más pequeña a lo largo de toda la ruta hasta el destino, sin requerir privilegios de superusuario.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `tracepath` devolverá cada salto con su tiempo de respuesta y la confirmación de la PMTU final alcanzada.</div>
+              <div><strong>👀 Qué debes observar:</strong> `tracepath` devolverá el salto con su tiempo de respuesta y la confirmación de la PMTU final alcanzada (`pmtu 1500`).</div>
             </div>
             
           
@@ -468,7 +487,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('109-GLOBAL', 4, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Identificaremos qué puertos están escuchando en el servidor con `ss -tulpn`, levantaremos un puerto de escucha de prueba con `nc` y verificaremos su accesibilidad local en modo escaneo rápido.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Identificaremos qué puertos están escuchando en el servidor con `ss -tulpn`, levantaremos un puerto de escucha de prueba con `nc -l -p 8888 &` en segundo plano, verificaremos su accesibilidad local en modo escaneo rápido con `nc -z -v` y terminaremos el proceso de forma limpia con `kill`.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -476,35 +495,40 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Auditar todos los puertos y procesos en escucha</span>
+              <pre><code><span class="t-cmt"># 1. Auditar todos los puertos y procesos en escucha en el servidor</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span>
 
-<span class="t-cmt"># 2. Levantar un socket temporal en segundo plano en el puerto 8888 con netcat</span>
+<span class="t-cmt"># 2. Levantar un socket temporal en segundo plano en el puerto TCP 8888 con netcat</span>
 <span class="t-cmd">nc</span> <span class="t-flag">-l</span> <span class="t-flag">-p</span> 8888 &
 <span class="t-cmd">PID_NC=$!</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Servicio</span> netcat escuchando en segundo plano (PID: $PID_NC)"
 
-<span class="t-cmt"># 3. Comprobar que ss detecta inmediatamente el nuevo socket en escucha</span>
+<span class="t-cmt"># 3. Comprobar que ss detecta inmediatamente el nuevo socket en estado LISTEN</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-arg">':8888'</span>
 
-<span class="t-cmt"># 4. Probar la apertura del puerto con netcat en modo escaneo (-z -v)</span>
-<span class="t-cmd">nc</span> <span class="t-flag">-z</span> <span class="t-flag">-v</span> 127.0.0.1 8888
+<span class="t-cmt"># 4. Probar la apertura del puerto con netcat en modo escaneo sin envío de datos (-z -v)</span>
+<span class="t-cmd">nc</span> <span class="t-flag">-z</span> <span class="t-flag">-v</span> 127.0.1.1 8888
 
-<span class="t-cmt"># 5. Finalizar el proceso de prueba</span>
-<span class="t-cmd">kill</span> $PID_NC</code></pre>
+<span class="t-cmt"># 5. FINALIZACIÓN LIMPIA: Matar el proceso de escucha temporal de netcat</span>
+<span class="t-cmd">kill</span> $PID_NC <span class="t-path">2>/dev/null</span> <strong>||</strong> <span class="t-cmd">true</span>
+<span class="t-cmd">wait</span> $PID_NC <span class="t-path">2>/dev/null</span> <strong>||</strong> <span class="t-cmd">true</span>
+
+<span class="t-cmt"># 6. Comprobar que el puerto 8888 ha quedado cerrado y liberado</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-arg">':8888'</span> <strong>||</strong> <span class="t-cmd">echo</span> <span class="t-arg">"Puerto</span> 8888 cerrado correctamente"</code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`ss -tulpn`: Diagnóstico oficial que reemplaza a `netstat` en las distribuciones actuales.</li><li>`nc -z -v`: Permite auditar si un puerto de destino está abierto sin transferir datos.</li>
+                <li>`ss -tulpn`: Diagnóstico oficial que reemplaza a `netstat` en las distribuciones actuales.</li><li>`nc -z -v`: Permite auditar si un puerto de destino está abierto sin transferir datos.</li><li>`kill $PID_NC`: Evita dejar procesos netcat huérfanos o zombis en el sistema.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `ss -tulpn` mostrará la entrada `LISTEN` en el puerto `8888` asociada al ejecutable `nc`.</div>
+              <div><strong>👀 Qué debes observar:</strong> `ss -tulpn` mostrará la entrada `LISTEN` en el puerto `8888` asociada al ejecutable `nc`. `nc -z -v 127.0.1.1 8888` reportará éxito.</div>
             </div>
             
           
@@ -517,12 +541,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         
         <div class="card step-card" id="mision-5">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 5 — Auditoría DNS, Registros MX/PTR y Precedencia en NSSwitch</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 5 — Auditoría DNS, Precedencia en NSSwitch y Procedimiento de Limpieza Total</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('109-GLOBAL', 5, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Auditaremos la configuración de `/etc/resolv.conf`, realizaremos consultas de registros MX y resoluciones inversas PTR con `dig` y `host`, y comprobaremos la precedencia de `/etc/nsswitch.conf` frente a servidores DNS puros.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Auditaremos la configuración de `/etc/resolv.conf`, realizaremos consultas con `dig` y `host`, comprobaremos la precedencia de `/etc/nsswitch.conf` frente a servidores DNS puros, y ejecutaremos el protocolo final de limpieza total del laboratorio.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -533,12 +557,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <pre><code><span class="t-cmt"># 1. Inspeccionar los servidores de nombres configurados en el sistema</span>
 <span class="t-cmd">cat</span> <span class="t-path">/etc/resolv.conf</span>
 
-<span class="t-cmt"># 2. Consultar registros MX y A de un dominio con dig y host</span>
-<span class="t-cmd">host</span> <span class="t-flag">-t</span> MX lpi.org
-<span class="t-cmd">dig</span> lpi.org +short
+<span class="t-cmt"># 2. Consultar registros de un dominio con dig y host (con fallback a local si no hay internet)</span>
+<span class="t-cmd">DNS_SRV=$(grep</span> <span class="t-flag">-m1</span> <span class="t-arg">'^nameserver'</span> <span class="t-path">/etc/resolv.conf</span> <strong>|</strong> <span class="t-cmd">awk</span> <span class="t-arg">'{print</span> $2}')
+<span class="t-cmd">[</span> <span class="t-flag">-z</span> <span class="t-arg">"$DNS_SRV"</span> ] <strong>&&</strong> <span class="t-cmd">DNS_SRV="10.0.2.3"</span>
+<span class="t-cmd">host</span> <span class="t-flag">-t</span> MX lpi.org <strong>||</strong> <span class="t-cmd">host</span> localhost <span class="t-arg">"$DNS_SRV"</span>
+<span class="t-cmd">dig</span> lpi.org +short <strong>||</strong> <span class="t-cmd">dig</span> @"$DNS_SRV" localhost +short
 
 <span class="t-cmt"># 3. Realizar una consulta DNS inversa (PTR) con dig -x</span>
-<span class="t-cmd">dig</span> <span class="t-flag">-x</span> 1.1.1.1 +short
+<span class="t-cmd">dig</span> <span class="t-flag">-x</span> 1.1.1.1 +short <strong>||</strong> <span class="t-cmd">dig</span> <span class="t-flag">-x</span> 127.0.0.1 @"$DNS_SRV" +short
 
 <span class="t-cmt"># 4. Comprobar el orden de resolución en /etc/nsswitch.conf</span>
 <span class="t-cmd">grep</span> <span class="t-arg">'^hosts:'</span> <span class="t-path">/etc/nsswitch.conf</span>
@@ -547,29 +573,43 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-cmd">getent</span> hosts localhost
 <span class="t-cmd">getent</span> hosts nodo-red.empresa.lab
 
-<span class="t-cmt"># 6. Limpiar la interfaz dummy creada en la Misión 2</span>
+<span class="t-cmt"># 6. PROTOCOLO OBLIGATORIO DE LIMPIEZA TOTAL:</span>
+<span class="t-cmt"># a) Eliminar la conexión de NetworkManager</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection delete <span class="t-arg">"Perfil-Red-Global"</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link delete dummy1</code></pre>
+
+<span class="t-cmt"># b) Eliminar la interfaz dummy1 del kernel</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link delete dummy1
+
+<span class="t-cmt"># c) Restaurar el hostname original</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">hostnamectl</span> set-hostname debian-lpic
+
+<span class="t-cmt"># d) Limpiar /etc/hosts y restaurar entrada base</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">sed</span> <span class="t-flag">-i</span> <span class="t-path">'/nodo-red/d'</span> <span class="t-path">/etc/hosts</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">sed</span> <span class="t-flag">-i</span> <span class="t-path">'/debian-lpic/d'</span> <span class="t-path">/etc/hosts</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"127.0.1.1</span> debian-lpic" <strong>>></strong> <span class="t-cmd">/etc/hosts'</span>
+
+<span class="t-cmt"># e) Validar que el sistema queda 100% restablecido y limpio</span>
+<span class="t-cmd">hostnamectl</span> status</code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`dig -x IP +short`: Extrae directamente el registro PTR de la zona inversa.</li><li>`getent hosts`: Consulta el resolver del sistema C respetando `/etc/hosts` y `nsswitch.conf`.</li><li>`dig` / `host`: Interrogan exclusivamente a los servidores DNS especificados en `/etc/resolv.conf`.</li>
+                <li>`dig -x IP +short`: Extrae directamente el registro PTR de la zona inversa.</li><li>`getent hosts`: Consulta el resolver del sistema C respetando `/etc/hosts` y `nsswitch.conf`.</li><li>`dig` / `host`: Interrogan exclusivamente a los servidores DNS especificados en `/etc/resolv.conf`.</li><li>Protocolo de limpieza: Garantiza que la VM queda exactamente en el estado inicial para futuras prácticas.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `dig -x 1.1.1.1 +short` devolverá `one.one.one.one.`. `getent hosts nodo-red.empresa.lab` resolverá a `127.0.1.1`.</div>
+              <div><strong>👀 Qué debes observar:</strong> `dig` responderá con los registros DNS. `getent hosts nodo-red.empresa.lab` resolverá a `127.0.1.1`. Al final de la limpieza, `hostnamectl status` devolverá `Static hostname: debian-lpic` y la interfaz `dummy1` habrá desaparecido.</div>
             </div>
             
           
             <div class="callout callout-camera">
               <svg class="ic"><use href="#i-camera"/></svg>
-              <div><strong>📸 Captura 5:</strong> Salida de `host -t MX lpi.org`, `dig -x 1.1.1.1 +short` y resolución con `getent hosts`. Guarda como `109-G-C5-dns-dig-nsswitch.png`.</div>
+              <div><strong>📸 Captura 5:</strong> Salida de `host -t MX lpi.org` (o `localhost`), `dig -x` y comprobación con `getent hosts`. Guarda como `109-G-C5-dns-dig-nsswitch.png`.</div>
             </div>
             
         </div>
@@ -650,13 +690,23 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
             <details class="accordion-item">
-              <summary>Error: NetworkManager no gestiona la interfaz</summary>
-              <div class="accordion-body">Verifica que `/etc/NetworkManager/NetworkManager.conf` tiene `managed=true` o usa interfaces dummy para evitar interferencias.</div>
+              <summary>NetworkManager no arranca</summary>
+              <div class="accordion-body">Asegúrate de haber ejecutado `sudo systemctl enable --now NetworkManager`.</div>
             </details>
             
             <details class="accordion-item">
-              <summary>Error: La interfaz dummy no se elimina</summary>
-              <div class="accordion-body">Ejecuta `sudo ip link delete dummy1` forzosamente como `sudo`.</div>
+              <summary>Interfaz dummy1 no responde o no existe</summary>
+              <div class="accordion-body">Carga el módulo con `sudo modprobe dummy` y comprueba que se creó con `ip link show dummy1`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Error al resolver host en sudo</summary>
+              <div class="accordion-body">Si aparece `sudo: unable to resolve host ...`, añade inmediatamente `127.0.1.1 <nombre_host>` a `/etc/hosts`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Consultas DNS dan timeout</summary>
+              <div class="accordion-body">En redes aisladas de VirtualBox, usa la IP del resolver local (`10.0.2.3`) o `localhost`.</div>
             </details>
             
             <details class="accordion-item">

@@ -270,31 +270,35 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Aprende a diagnosticar y resolver incidencias de conectividad de red siguiendo la metodología estándar por capas del modelo OSI/TCP-IP. Verifica la capa de enlace físico con `ip link`, la capa de red con `ip route` y `ping`, analiza la topología de encaminamiento y el Path MTU sin requerir privilegios de superusuario mediante `tracepath`, audita sockets y puertos abiertos en tiempo real con `ss` (sustituto moderno de `netstat`) y verifica la disponibilidad de servicios de transporte mediante la versátil navaja suiza `nc` (netcat).</p>
+          <p style="font-size:17px; line-height:1.7;">Aprende a diagnosticar y resolver incidencias de conectividad de red siguiendo la metodología estándar por capas del modelo OSI/TCP-IP. Verifica la capa de enlace físico con `ip link`, la capa de red con `ip route` y `ping`, analiza la topología de encaminamiento y el Path MTU sin requerir privilegios de superusuario mediante `tracepath`, audita sockets y puertos abiertos en tiempo real con `ss` (sustituto moderno de `netstat`) y verifica la disponibilidad de servicios de transporte mediante la versátil herramienta `nc` (netcat). Todo adaptado al entorno de máquina virtual con red NAT para evitar bloqueos si no hay conexión exterior.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Aplicar el método de diagnóstico por capas: Enlace -> Red (IP/ICMP) -> Transporte (TCP/UDP) -> Aplicación.</li><li>Interpretar los flags de estado en `ip link` (`UP`, `LOWER_UP`, `NO-CARRIER`).</li><li>Medir la latencia y pérdida de paquetes con `ping` (`-c`, `-i`, `-s`, `-W`).</li><li>Descubrir la MTU mínima del camino (PMTU Discovery) con `tracepath -n` y entender por qué no requiere root a diferencia de `traceroute`.</li><li>Inspeccionar sockets en escucha y conexiones establecidas con `ss -tulpn`.</li><li>Probar puertos remotos y simular escuchas con `nc` (netcat).</li>
+            <li>Aplicar el método de diagnóstico por capas: Enlace -> Red (IP/ICMP) -> Transporte (TCP/UDP) -> Aplicación.</li><li>Interpretar los flags de estado en `ip link` (`UP`, `LOWER_UP`, `NO-CARRIER`).</li><li>Medir la latencia y pérdida de paquetes con `ping` (`-c`, `-i`, `-s`, `-W`) verificando la puerta de enlace NAT (`10.0.2.2`).</li><li>Descubrir la MTU mínima del camino (PMTU Discovery) con `tracepath -n` y entender por qué no requiere root a diferencia de `traceroute`.</li><li>Manejar alternativas seguras de diagnóstico cuando el entorno de clase no tiene salida activa a Internet.</li><li>Inspeccionar sockets en escucha y conexiones establecidas con `ss -tulpn`.</li><li>Probar puertos remotos y simular escuchas con `nc` (netcat) gestionando procesos en segundo plano de forma limpia.</li>
           </ul>
         </section>
 
         <!-- 3. Antes de empezar -->
         <section class="card" id="antes-de-empezar">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">3. Antes de empezar (≤ 5 min)</h2>
+          
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>1. Inicia tu máquina virtual Debian 12 en tu hipervisor.</span>
+            <input type="checkbox"> <span>1. Inicia sesión en tu máquina virtual Debian 12 con el usuario habitual <code>alumno</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>2. Abre un terminal e inicia sesión con el usuario <code>alumno</code>.</span>
+            <input type="checkbox"> <span>2. Verifica que tienes permisos de administración ejecutando <code>sudo -v</code> en la terminal.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>3. Confirma permisos de superusuario con <code>sudo -v</code>.</span>
+            <input type="checkbox"> <span>3. Asegúrate de estar trabajando sobre la instantánea limpia <code>00-base-limpia</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>4. Verifica estar sobre la instantánea limpia <code>00-base-limpia</code>.</span>
+            <input type="checkbox"> <span>4. **Instala las herramientas de diagnóstico necesarias**: <code>sudo apt update && sudo apt install -y traceroute netcat-openbsd iproute2 iputils-ping</code>.</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>5. Comprueba que los comandos <code>ss</code>, <code>ip</code>, <code>tracepath</code>, <code>ping</code> y <code>nc</code> responden correctamente en la terminal.</span>
           </div>
         </section>
 
@@ -309,7 +313,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('109.3', 1, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Comprobaremos que la tarjeta de red tiene portadora física (`LOWER_UP`), que existe una ruta por defecto en la tabla de enrutamiento y probaremos la conectividad hacia la puerta de enlace y hacia un host externo mediante `ping`, enviando un número acotado de paquetes con `-c 4`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Comprobaremos que la tarjeta de red tiene portadora física (`LOWER_UP`), que existe una ruta por defecto en la tabla de enrutamiento y probaremos la conectividad hacia la puerta de enlace de VirtualBox (`10.0.2.2`) y hacia un host externo mediante `ping`, enviando un número acotado de paquetes con `-c 4`.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -317,32 +321,34 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Comprobar el estado físico y operativo de las interfaces de red</span>
+              <pre><code><span class="t-cmt"># 1. Comprobar el estado físico y operativo de las interfaces de red (Capa 2)</span>
 <span class="t-cmd">ip</span> link show
 
-<span class="t-cmt"># 2. Verificar la tabla de enrutamiento y localizar la puerta de enlace por defecto</span>
+<span class="t-cmt"># 2. Verificar la tabla de enrutamiento y localizar la puerta de enlace por defecto (Capa 3)</span>
 <span class="t-cmd">ip</span> route show <strong>|</strong> <span class="t-cmd">grep</span> default
 
-<span class="t-cmt"># 3. Probar conectividad hacia la puerta de enlace local (reemplaza por tu GW real si difiere)</span>
+<span class="t-cmt"># 3. Probar conectividad hacia la puerta de enlace local de VirtualBox (10.0.2.2)</span>
 <span class="t-cmd">GATEWAY_IP=$(ip</span> route show default <strong>|</strong> <span class="t-cmd">awk</span> <span class="t-arg">'{print</span> $3}')
+<span class="t-cmd">[</span> <span class="t-flag">-z</span> <span class="t-arg">"$GATEWAY_IP"</span> ] <strong>&&</strong> <span class="t-cmd">GATEWAY_IP="10.0.2.2"</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Puerta</span> de enlace detectada: $GATEWAY_IP"
 <span class="t-cmd">ping</span> <span class="t-flag">-c</span> 4 <span class="t-arg">"$GATEWAY_IP"</span>
 
-<span class="t-cmt"># 4. Probar conectividad con un servidor de Internet público</span>
-<span class="t-cmd">ping</span> <span class="t-flag">-c</span> 4 1.1.1.1</code></pre>
+<span class="t-cmt"># 4. Probar conectividad con un servidor exterior (o fallback a localhost si el aula no tiene internet)</span>
+<span class="t-cmd">ping</span> <span class="t-flag">-c</span> 4 1.1.1.1 <strong>||</strong> <span class="t-cmd">ping</span> <span class="t-flag">-c</span> 4 127.0.0.1</code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`ip link show`: Muestra la capa 2. El flag `UP` indica que la interfaz administrativa está levantada; `LOWER_UP` confirma que el cable de red o enlace virtual tiene portadora física activa.</li><li>`ip route show default`: Extrae la línea `default via X.X.X.X dev INTERFAZ`. Sin ruta por defecto, el kernel no sabe por dónde enviar tráfico fuera de la subred local.</li><li>`ping -c 4`: Envía exactamente 4 paquetes ICMP Echo Request y se detiene automáticamente, calculando el RTT mínimo, medio y máximo.</li>
+                <li>`ip link show`: Muestra la capa 2. El flag `UP` indica que la interfaz administrativa está levantada; `LOWER_UP` confirma que el cable o interfaz virtual tiene portadora física activa.</li><li>`ip route show default`: Extrae la línea `default via X.X.X.X dev INTERFAZ`. En VirtualBox NAT suele ser `10.0.2.2`. Sin ruta por defecto, el kernel descarta tráfico hacia redes externas.</li><li>`ping -c 4`: Envía exactamente 4 paquetes ICMP Echo Request y se detiene automáticamente, calculando el RTT mínimo, medio y máximo sin dejar procesos colgados.</li><li>`10.0.2.2`: Dirección estándar del router NAT de VirtualBox; responde siempre al ping incluso sin conexión externa a Internet.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `ping -c 4` devolverá `4 packets transmitted, 4 received, 0% packet loss` y un resumen de tiempos RTT en milisegundos.</div>
+              <div><strong>👀 Qué debes observar:</strong> `ping -c 4 "$GATEWAY_IP"` devolverá `4 packets transmitted, 4 received, 0% packet loss` y un resumen de tiempos RTT en milisegundos.</div>
             </div>
             
           
@@ -360,7 +366,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('109.3', 2, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Analizaremos la ruta de saltos hacia un destino remoto. Compararemos `traceroute` (que por defecto requiere sockets RAW o permisos) frente a `tracepath`, una herramienta de iproute2 que puede ejecutar cualquier usuario sin root y que descubre la Unidad Máxima de Transferencia (MTU) de cada tramo del camino.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Analizaremos la topología de encaminamiento y la Unidad Máxima de Transferencia del camino (PMTU). Compararemos `traceroute` (que por defecto requiere privilegios o sockets especiales) frente a `tracepath`, herramienta de iproute2 que puede ejecutar cualquier usuario común y que descubre la MTU mínima del camino. Para evitar bloqueos si no hay salida a Internet, utilizaremos la puerta de enlace local de VirtualBox (`10.0.2.2`) o `1.1.1.1`.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -368,34 +374,38 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Ejecutar tracepath hacia un servidor DNS público sin resolver nombres inversos (-n)</span>
-<span class="t-cmd">tracepath</span> <span class="t-flag">-n</span> 1.1.1.1
+              <pre><code><span class="t-cmt"># 1. Obtener la IP de la puerta de enlace local de la VM</span>
+<span class="t-cmd">GW_IP=$(ip</span> route show default <strong>|</strong> <span class="t-cmd">awk</span> <span class="t-arg">'{print</span> $3}')
+<span class="t-cmd">[</span> <span class="t-flag">-z</span> <span class="t-arg">"$GW_IP"</span> ] <strong>&&</strong> <span class="t-cmd">GW_IP="10.0.2.2"</span>
 
-<span class="t-cmt"># 2. Analizar el valor de 'pmtu' en el salto 1 y en saltos sucesivos</span>
-<span class="t-cmt"># Observa si en algún salto la MTU baja de 1500 bytes</span>
+<span class="t-cmt"># 2. Ejecutar tracepath hacia la puerta de enlace local (garantizado en VirtualBox NAT sin colgarse)</span>
+<span class="t-cmd">tracepath</span> <span class="t-flag">-n</span> <span class="t-arg">"$GW_IP"</span>
 
-<span class="t-cmt"># 3. Comparar con traceroute limitando a 5 saltos máximos (-m 5)</span>
-<span class="t-cmd">traceroute</span> <span class="t-flag">-n</span> <span class="t-flag">-m</span> 5 1.1.1.1 <strong>||</strong> <span class="t-cmd">echo</span> <span class="t-arg">"traceroute</span> completado"</code></pre>
+<span class="t-cmt"># 3. Intentar tracepath hacia una IP pública (1.1.1.1); si no hay internet o UDP se filtra, finaliza limpiamente</span>
+<span class="t-cmd">tracepath</span> <span class="t-flag">-n</span> 1.1.1.1 <strong>||</strong> <span class="t-cmd">true</span>
+
+<span class="t-cmt"># 4. Comparar con traceroute limitando a 3 saltos máximos (-m 3) y sin resolución DNS (-n)</span>
+<span class="t-cmd">traceroute</span> <span class="t-flag">-n</span> <span class="t-flag">-m</span> 3 <span class="t-arg">"$GW_IP"</span></code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`tracepath -n`: Muestra los saltos numéricos (IPs) sin demorarse haciendo resolución DNS inversa.</li><li>`pmtu` (*Path Maximum Transmission Unit*): Determina el tamaño máximo del paquete IP que puede transmitirse a lo largo de todo el camino sin fragmentarse. Si un enlace intermedio tiene MTU menor (ej. túneles VPN o PPPoE con MTU 1492 o 1420), `tracepath` lo detecta inmediatamente.</li><li>*Ventaja clave de examen*: `tracepath` utiliza paquetes UDP ordinarios y no requiere permisos de superusuario (`sudo`).</li>
+                <li>`tracepath -n`: Muestra los saltos numéricos (IPs) sin demorarse haciendo resolución DNS inversa.</li><li>`pmtu` (*Path Maximum Transmission Unit*): Determina el tamaño máximo del paquete IP que puede transmitirse a lo largo de todo el camino sin fragmentarse (habitualmente 1500 bytes en redes locales Ethernet).</li><li>*Ventaja clave de examen*: `tracepath` utiliza paquetes UDP a puertos altos no privilegiados y no requiere permisos de superusuario (`sudo`).</li><li>`traceroute -n -m 3`: Herramienta clásica que envía paquetes con TTL incremental; `-m 3` limita la búsqueda a un máximo de 3 saltos para que el comando termine rápidamente.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `tracepath` listará cada salto numerado (`1?:`, `2:`, etc.) con la latencia en milisegundos y el valor de PMTU (normalmente 1500).</div>
+              <div><strong>👀 Qué debes observar:</strong> `tracepath -n 10.0.2.2` listará el salto local indicando `pmtu 1500` y el tiempo de respuesta RTT.</div>
             </div>
             
           
             <div class="callout callout-camera">
               <svg class="ic"><use href="#i-camera"/></svg>
-              <div><strong>📸 Captura 2:</strong> Salida completa de `tracepath -n 1.1.1.1` mostrando la columna de saltos y PMTU. Guarda como `109-3-C2-tracepath-pmtu.png`.</div>
+              <div><strong>📸 Captura 2:</strong> Salida completa de `tracepath -n` mostrando la columna de saltos y PMTU. Guarda como `109-3-C2-tracepath-pmtu.png`.</div>
             </div>
             
         </div>
@@ -407,7 +417,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('109.3', 3, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Auditaremos qué procesos están escuchando en puertos TCP y UDP en nuestra máquina usando `ss` (sustituto oficial de `netstat`). Luego levantaremos un servidor de prueba temporal en segundo plano con `nc -l` y verificaremos su disponibilidad desde otra consola o comando con `nc -zv`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Auditaremos qué procesos están escuchando en puertos TCP y UDP en nuestra máquina usando `ss` (sustituto oficial y moderno de `netstat`). Luego levantaremos un servicio temporal de escucha en segundo plano con `nc -l -p 9999 &`, lo auditaremos con `ss`, probaremos su conectividad con el escáner rápido `nc -z -v` y cerraremos el proceso de forma limpia con `kill` para no dejar zombis en el sistema.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -415,35 +425,43 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Auditar todos los sockets TCP y UDP en escucha en el servidor mostrando el proceso (-p)</span>
+              <pre><code><span class="t-cmt"># 1. Auditar todos los sockets TCP y UDP en escucha mostrando el nombre y PID del proceso (-p)</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span>
 
 <span class="t-cmt"># 2. Filtrar únicamente servicios que escuchen en el puerto 22 (SSH)</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-arg">':22'</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">':(22|ssh)'</span>
 
-<span class="t-cmt"># 3. Abrir un puerto de escucha temporal TCP 9999 en segundo plano con netcat</span>
+<span class="t-cmt"># 3. Abrir un socket TCP de escucha temporal en el puerto 9999 en segundo plano con netcat</span>
 <span class="t-cmd">nc</span> <span class="t-flag">-l</span> <span class="t-flag">-p</span> 9999 &
 <span class="t-cmd">NC_PID=$!</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Proceso</span> netcat lanzado en segundo plano con PID: $NC_PID"
 
-<span class="t-cmt"># 4. Probar la apertura del puerto 9999 en modo escaneo rápido con netcat (-z -v)</span>
+<span class="t-cmt"># 4. Comprobar que ss detecta inmediatamente el nuevo puerto 9999 en estado LISTEN</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-arg">':9999'</span>
+
+<span class="t-cmt"># 5. Probar la apertura del puerto 9999 en modo escaneo rápido con netcat (-z -v)</span>
 <span class="t-cmd">nc</span> <span class="t-flag">-z</span> <span class="t-flag">-v</span> 127.0.0.1 9999
 
-<span class="t-cmt"># 5. Finalizar el proceso de prueba de netcat</span>
-<span class="t-cmd">kill</span> $NC_PID</code></pre>
+<span class="t-cmt"># 6. FINALIZACIÓN LIMPIA: Cerrar el proceso de netcat para no dejar procesos zombis</span>
+<span class="t-cmd">kill</span> $NC_PID <span class="t-path">2>/dev/null</span> <strong>||</strong> <span class="t-cmd">true</span>
+<span class="t-cmd">wait</span> $NC_PID <span class="t-path">2>/dev/null</span> <strong>||</strong> <span class="t-cmd">true</span>
+
+<span class="t-cmt"># 7. Validar que el puerto 9999 se ha liberado completamente</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ss</span> <span class="t-flag">-tulpn</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-arg">':9999'</span> <strong>||</strong> <span class="t-cmd">echo</span> <span class="t-arg">"Puerto</span> 9999 liberado con éxito"</code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`ss -tulpn`:</li><li>`-t`: Muestra sockets **T**CP.</li><li>`-u`: Muestra sockets **U**DP.</li><li>`-l`: Muestra únicamente puertos en escucha (**L**istening).</li><li>`-p`: Muestra el **P**roceso y PID propietario del socket (requiere sudo).</li><li>`-n`: Muestra números de puerto en formato **N**umérico en lugar de resolver el nombre del servicio.</li><li>`nc -z -v`: Modo de escaneo de puertos. `-z` (Zero-I/O) no envía datos y cierra la conexión inmediatamente; `-v` (verbose) detalla si la conexión fue exitosa (*open*) o rechazada (*Connection refused*).</li>
+                <li>`ss -tulpn`:</li><li>`-t`: Muestra sockets **T**CP.</li><li>`-u`: Muestra sockets **U**DP.</li><li>`-l`: Muestra únicamente puertos en escucha (**L**istening).</li><li>`-p`: Muestra el **P**roceso y PID propietario del socket (requiere sudo).</li><li>`-n`: Muestra números de puerto en formato **N**umérico en lugar de nombres de servicio.</li><li>`nc -l -p 9999 &`: Pone netcat a la escucha (*listen*) en el puerto 9999 en background, guardando su PID en `$!`.</li><li>`nc -z -v`: Modo de escaneo rápido de puertos. `-z` (Zero-I/O) no transfiere datos y cierra la conexión inmediatamente tras el handshake TCP; `-v` (verbose) detalla el resultado.</li><li>`kill $NC_PID`: Termina el proceso netcat en segundo plano, evitando dejar procesos colgados.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `ss -tulpn` mostrará la lista con `Netid`, `State`, `Local Address:Port` y `Process`. `nc -z -v 127.0.0.1 9999` devolverá `Connection to 127.0.0.1 9999 port [tcp/*] succeeded!`.</div>
+              <div><strong>👀 Qué debes observar:</strong> `ss -tulpn` mostrará la entrada `LISTEN` en el puerto `9999` asociada a `nc`. `nc -z -v 127.0.0.1 9999` devolverá `Connection to 127.0.0.1 9999 port [tcp/*] succeeded!`. Al ejecutar `kill`, el puerto desaparece de `ss`.</div>
             </div>
             
           
@@ -515,13 +533,18 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
             <details class="accordion-item">
-              <summary>Error: "ss: command not found" o "tracepath: command not found"</summary>
-              <div class="accordion-body">Vienen incluidos en el paquete base `iproute2`. Instala dependencias con `sudo apt update && sudo apt install -y iproute2 netcat-openbsd traceroute`.</div>
+              <summary>Herramientas no encontradas</summary>
+              <div class="accordion-body">Instala las utilidades con `sudo apt update && sudo apt install -y traceroute netcat-openbsd iproute2 iputils-ping`.</div>
             </details>
             
             <details class="accordion-item">
-              <summary>Error: tracepath se queda bloqueado con "no reply" en todos los saltos</summary>
-              <div class="accordion-body">Algunos enrutadores de proveedores bloquean paquetes ICMP Time Exceeded o paquetes UDP en frontera; prueba con otra IP pública (ej. `8.8.8.8` o la puerta de enlace).</div>
+              <summary>`tracepath` se queda bloqueado con "no reply"</summary>
+              <div class="accordion-body">Si el host o el aula no tienen acceso directo a Internet, los paquetes UDP hacia IPs públicas se descartan. Ejecuta `tracepath -n 10.0.2.2` (puerta de enlace local de VirtualBox NAT) o `tracepath -n 127.0.0.1` que siempre responden al instante.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Quedan procesos netcat colgados</summary>
+              <div class="accordion-body">Si olvidaste matar el proceso de escucha, elimínalo ejecutando `sudo pkill -f 'nc -l -p 9999'`.</div>
             </details>
             
             <details class="accordion-item">

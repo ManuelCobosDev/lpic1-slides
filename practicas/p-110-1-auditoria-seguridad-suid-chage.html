@@ -270,31 +270,37 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Aprende a auditar y blindar los aspectos fundamentales de la seguridad operativa local en Linux. En esta práctica rastrearás ficheros y ejecutables con permisos especiales SUID (4000) y SGID (2000) con `find`, interpretarás la diferencia entre la 's' minúscula y la 'S' mayúscula, gestionarás las políticas de envejecimiento y bloqueo de contraseñas con `chage` y `passwd`, auditarás procesos que controlan puertos con `lsof` y `fuser`, limitarás el consumo de recursos con `ulimit` e inspeccionarás sesiones activas con `who`, `w`, `last` y la delegación de privilegios con `visudo`.</p>
+          <p style="font-size:17px; line-height:1.7;">Aprende a auditar y blindar los aspectos fundamentales de la seguridad operativa local en Linux según los estándares de LPIC-1. En esta práctica rastrearás ficheros y ejecutables con permisos especiales SUID (4000) y SGID (2000) con `find`, interpretarás la diferencia de seguridad entre la 's' minúscula y la 'S' mayúscula, gestionarás las políticas de envejecimiento y bloqueo de contraseñas con `chage` y `passwd`, auditarás procesos que controlan puertos de red con `lsof` y `fuser`, limitarás el consumo de recursos de sesión con `ulimit` e inspeccionarás la delegación de privilegios administrativos con `sudo visudo -c`.
+
+Todo el procedimiento está diseñado para ejecutarse en una única máquina virtual Debian 12 con usuario `alumno` y privilegios `sudo`, asegurando búsquedas rápidas acotadas a directorios del sistema y una limpieza completa de usuarios y archivos temporales al finalizar.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Localizar binarios SUID y SGID con `find / -perm /6000` y entender el riesgo de elevación de privilegios.</li><li>Auditar y configurar la política de caducidad de contraseñas con `chage -l`, `-M`, `-m`, `-W`, `-I` y `-E`.</li><li>Bloquear y desbloquear cuentas con `passwd -l` y `passwd -u` interpretando el estado de `/etc/shadow`.</li><li>Detectar qué procesos escuchan en puertos con `lsof -i :22` y terminarlos con `fuser -k`.</li><li>Fijar límites de descriptores de fichero y procesos por sesión con `ulimit -n` y `ulimit -u`.</li><li>Comprobar la sintaxis de `/etc/sudoers` de forma segura con `visudo -c`.</li>
+            <li>Localizar binarios SUID y SGID de forma eficiente con `find /usr/bin /usr/sbin -perm /6000` y entender el riesgo de elevación de privilegios.</li><li>Distinguir entre el bit SUID activo con ejecución (`s`) y sin ejecución (`S`).</li><li>Auditar y configurar la política de caducidad de contraseñas con `chage -l`, `-M`, `-m`, `-W`, `-I` y `-E`.</li><li>Bloquear y desbloquear cuentas con `passwd -l` y `passwd -u` interpretando el prefijo `!` en `/etc/shadow`.</li><li>Detectar qué procesos escuchan en puertos con `lsof -i :22` y terminarlos selectivamente con `fuser -v` / `fuser -k`.</li><li>Consultar y fijar límites de descriptores de fichero y procesos por sesión con `ulimit -n` y `ulimit -u`.</li><li>Validar la integridad sintáctica de `/etc/sudoers` de forma segura mediante `sudo visudo -c`.</li>
           </ul>
         </section>
 
         <!-- 3. Antes de empezar -->
         <section class="card" id="antes-de-empezar">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">3. Antes de empezar (≤ 5 min)</h2>
+          
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>1. Inicia tu máquina virtual Debian 12 en tu hipervisor.</span>
+            <input type="checkbox"> <span>1. Inicia sesión en tu máquina virtual Debian 12 con el usuario habitual <code>alumno</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>2. Abre un terminal e inicia sesión con el usuario <code>alumno</code>.</span>
+            <input type="checkbox"> <span>2. Verifica que tienes permisos de administración ejecutando: <code>sudo -v</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>3. Confirma permisos de superusuario con <code>sudo -v</code>.</span>
+            <input type="checkbox"> <span>3. Asegúrate de estar trabajando sobre la instantánea limpia <code>00-base-limpia</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>4. Verifica estar sobre la instantánea limpia <code>00-base-limpia</code>.</span>
+            <input type="checkbox"> <span>4. Instala las utilidades de auditoría necesarias (los paquetes <code>lsof</code> y <code>psmisc</code> para <code>fuser</code> no vienen instalados por defecto en Debian 12 base):</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>5. Comprueba que los comandos están listos para usarse:</span>
           </div>
         </section>
 
@@ -309,7 +315,9 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('110.1', 1, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Los bits especiales SUID (4000) y SGID (2000) permiten que un programa se ejecute con los privilegios del propietario del archivo (normalmente root) en lugar de los privilegios del usuario que lo lanza. Rastrearemos todos los binarios con permisos SUID y SGID en los directorios de ejecutables del sistema, analizaremos archivos huérfanos sin usuario (`-nouser`) y verificaremos por qué representan un vector de elevación de privilegios.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Los bits especiales SUID (4000) y SGID (2000) permiten que un programa se ejecute temporalmente con los privilegios del propietario del archivo (normalmente root) o del grupo en lugar de los privilegios del usuario que lo lanza. Rastrearemos los binarios con estos bits en los directorios de ejecutables del sistema (`/usr/bin` y `/usr/sbin`), analizaremos archivos huérfanos sin usuario (`-nouser`) y verificaremos por qué representan un vector crítico de elevación de privilegios.
+
+> 💡 **Nota de rendimiento y seguridad**: Acotamos la búsqueda a `/usr/bin /usr/sbin`. Buscar desde la raíz `/` en sistemas modernos con sistemas de archivos virtuales (`/proc`, `/sys`) generaría cientos de mensajes de error de permisos denegados y demoraría minutos innecesariamente.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -320,7 +328,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <pre><code><span class="t-cmt"># 1. Rastrear binarios con bit SUID (4000) en /usr/bin y /usr/sbin</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">find</span> <span class="t-path">/usr/bin</span> <span class="t-path">/usr/sbin</span> <span class="t-flag">-type</span> f <span class="t-flag">-perm</span> <span class="t-flag">-4000</span> <span class="t-flag">-exec</span> ls <span class="t-flag">-l</span> {} +
 
-<span class="t-cmt"># 2. Rastrear binarios con bit SGID (2000)</span>
+<span class="t-cmt"># 2. Rastrear binarios con bit SGID (2000) en las mismas rutas</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">find</span> <span class="t-path">/usr/bin</span> <span class="t-path">/usr/sbin</span> <span class="t-flag">-type</span> f <span class="t-flag">-perm</span> <span class="t-flag">-2000</span> <span class="t-flag">-exec</span> ls <span class="t-flag">-l</span> {} +
 
 <span class="t-cmt"># 3. Buscar cualquier ejecutable que tenga SUID O SGID mediante la barra inclinada (/6000)</span>
@@ -334,20 +342,20 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`-perm -4000`: Coincidencia exacta de todos los bits especificados (debe tener SUID activo).</li><li>`-perm /6000`: Coincidencia de **cualquiera** de los bits (tiene SUID O tiene SGID activo). En sintaxis clásica de find se usaba `-perm +6000`, pero en versiones modernas se utiliza `/6000`.</li><li>`-nouser` / `-nogroup`: Localiza archivos cuyos UIDs o GIDs ya no existen en `/etc/passwd` ni en `/etc/group` (por ejemplo tras borrar un usuario sin eliminar sus archivos).</li><li>`s` minúscula en permisos (`-rwsr-xr-x`): Indica que el bit SUID está activo y el propietario tiene además permiso de ejecución (`x`). Si apareciera una `S` mayúscula, indica que el bit SUID está fijado pero el archivo **carece** de permiso de ejecución.</li>
+                <li>`-perm -4000`: Coincidencia exacta de todos los bits especificados (el bit SUID debe estar activo).</li><li>`-perm /6000`: Coincidencia de **cualquiera** de los bits indicados (tiene SUID **O** tiene SGID activo). En versiones antiguas de GNU find se usaba `+6000`, pero en versiones modernas y en el examen LPIC-1 actual se utiliza `/6000`.</li><li>`-nouser` / `-nogroup`: Localiza archivos cuyos UIDs o GIDs ya no existen en `/etc/passwd` ni en `/etc/group` (por ejemplo tras borrar un usuario sin eliminar sus archivos con `-r`).</li><li>`s` minúscula en permisos (`-rwsr-xr-x`): Indica que el bit SUID está activo y el propietario tiene además permiso de ejecución (`x`). Si apareciera una `S` mayúscula (`-rwSr-xr-x`), indicaría que el bit SUID está fijado pero el archivo **carece** de permiso de ejecución.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> Binarios legítimos como `/usr/bin/passwd`, `/usr/bin/sudo` o `/usr/bin/su` aparecerán en la lista con el atributo `-rwsr-xr-x`.</div>
+              <div><strong>👀 Qué debes observar:</strong> Binarios legítimos como `/usr/bin/passwd`, `/usr/bin/sudo`, `/usr/bin/su` o `/usr/bin/gpasswd` aparecerán listados con el atributo especial `-rwsr-xr-x`.</div>
             </div>
             
           
             <div class="callout callout-camera">
               <svg class="ic"><use href="#i-camera"/></svg>
-              <div><strong>📸 Captura 1:</strong> Salida de `sudo find /usr/bin -type f -perm -4000` mostrando `/usr/bin/passwd` y `/usr/bin/sudo`. Guarda como `110-1-C1-find-suid.png`.</div>
+              <div><strong>📸 Captura 1:</strong> Salida de `sudo find /usr/bin /usr/sbin -type f -perm -4000` mostrando `/usr/bin/passwd` y `/usr/bin/sudo`. Guarda como `110-1-C1-find-suid.png`.</div>
             </div>
             
         </div>
@@ -359,7 +367,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('110.1', 2, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Crearemos una cuenta temporal de auditoría `inspector_sec`, auditaremos su ciclo de vida con `chage -l`, fijaremos una política de caducidad y probaremos el bloqueo y desbloqueo seguro mediante `passwd -l` y `passwd -u`, verificando el signo de exclamación `!` en `/etc/shadow`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Crearemos una cuenta temporal de auditoría `inspector_sec`, auditaremos su ciclo de vida con `chage -l`, fijaremos una política estricta de caducidad e inactividad y probaremos el bloqueo y desbloqueo seguro mediante `passwd -l` y `passwd -u`, verificando cómo el subsistema PAM antepone un signo de exclamación `!` al hash de contraseña en `/etc/shadow`.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -375,10 +383,10 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-cmt"># Mínimo 5 días (-m), máximo 45 días (-M), aviso 7 días (-W), inactividad 10 días (-I):</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">chage</span> <span class="t-flag">-m</span> 5 <span class="t-flag">-M</span> 45 <span class="t-flag">-W</span> 7 <span class="t-flag">-I</span> 10 inspector_sec
 
-<span class="t-cmt"># 3. Comprobar el informe legible con chage -l</span>
+<span class="t-cmt"># 3. Comprobar el informe estructurado legible con chage -l</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">chage</span> <span class="t-flag">-l</span> inspector_sec
 
-<span class="t-cmt"># 4. Bloquear la cuenta con passwd -l e inspeccionar /etc/shadow</span>
+<span class="t-cmt"># 4. Bloquear la cuenta con passwd -l e inspeccionar la entrada en /etc/shadow</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">passwd</span> <span class="t-flag">-l</span> inspector_sec
 <span class="t-flag">sudo</span> <span class="t-cmd">grep</span> inspector_sec <span class="t-path">/etc/shadow</span>
 
@@ -391,14 +399,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`chage -m 5`: Mínimo de días antes de poder cambiar la contraseña nuevamente.</li><li>`chage -M 45`: Máximo de días de validez de la contraseña antes de expirar.</li><li>`chage -W 7`: Días de aviso (*Warning*) antes de que caduque.</li><li>`chage -I 10`: Días de inactividad de gracia permitidos tras expirar antes de deshabilitar la cuenta por completo.</li><li>`passwd -l`: Bloquea la cuenta (*Lock*) anteponiendo `!` al hash de contraseña en `/etc/shadow`.</li><li>`passwd -u`: Desbloquea la cuenta (*Unlock*) retirando el `!`.</li>
+                <li>`chage -m 5`: Mínimo de días (*min days*) que deben transcurrir antes de poder cambiar la contraseña nuevamente.</li><li>`chage -M 45`: Máximo de días (*max days*) de validez de la contraseña antes de expirar obligatoriamente.</li><li>`chage -W 7`: Días de advertencia (*Warning*) previos a la expiración en los que el sistema avisa al usuario.</li><li>`chage -I 10`: Días de inactividad de gracia permitidos tras expirar antes de deshabilitar la cuenta por completo.</li><li>`passwd -l`: Bloquea la cuenta (*Lock*) anteponiendo el carácter `!` al hash cifrado en el segundo campo de `/etc/shadow`, invalidando cualquier coincidencia criptográfica.</li><li>`passwd -u`: Desbloquea la cuenta (*Unlock*) retirando el carácter `!`.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `sudo grep inspector_sec /etc/shadow` mostrará el hash precedido de `!` tras el bloqueo, y sin él tras el desbloqueo.</div>
+              <div><strong>👀 Qué debes observar:</strong> `sudo grep inspector_sec /etc/shadow` mostrará el hash precedido de `!` inmediatamente tras el bloqueo (ejemplo: `inspector_sec:!$y$j9T...`), y volverá a mostrarlo sin `!` tras el desbloqueo.</div>
             </div>
             
           
@@ -416,7 +424,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('110.1', 3, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Identificaremos qué procesos tienen archivos o puertos abiertos mediante `lsof` y `fuser`, consultaremos los límites de recursos de sesión con `ulimit` e inspeccionaremos la sintaxis de delegación de privilegios de `/etc/sudoers` mediante `visudo -c`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Identificaremos qué procesos tienen puertos abiertos o archivos en uso mediante `lsof` y `fuser` (paquete `psmisc`), consultaremos los límites de recursos de sesión con el comando interno del shell `ulimit`, validaremos la sintaxis de delegación de privilegios de `/etc/sudoers` mediante `sudo visudo -c` y realizaremos la limpieza del usuario de prueba.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -439,7 +447,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-cmt"># 4. Validar la integridad sintáctica de /etc/sudoers de forma segura con visudo -c</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">visudo</span> <span class="t-flag">-c</span>
 
-<span class="t-cmt"># 5. Limpiar el usuario de prueba</span>
+<span class="t-cmt"># 5. Limpieza obligatoria del usuario temporal de pruebas y su directorio home</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">userdel</span> <span class="t-flag">-r</span> inspector_sec</code></pre>
             </figure>
             
@@ -447,14 +455,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`lsof -i :22`: Lista los descriptores de archivos de red abiertos en el puerto 22, mostrando el comando (`sshd`), PID, usuario y socket.</li><li>`fuser -v 22/tcp`: Identifica el proceso que retiene el recurso TCP 22. Si se ejecutara `fuser -k 22/tcp`, enviaría una señal SIGKILL al proceso para liberarlo.</li><li>`ulimit -a`: Muestra todos los límites de recursos del shell (procesos máximos `-u`, tamaño de core dump `-c`, archivos abiertos `-n`).</li><li>`ulimit -n 2048`: Incrementa el límite blando (*soft limit*) de ficheros abiertos hasta el máximo del límite duro (*hard limit*).</li><li>`visudo -c`: Verifica (*Check only*) la sintaxis de `/etc/sudoers` y de `/etc/sudoers.d/*` sin abrir el editor interactivo.</li>
+                <li>`sudo lsof -i :22`: Lista los ficheros de red abiertos en el puerto 22, mostrando el comando (`sshd`), PID, usuario y socket.</li><li>`sudo fuser -v 22/tcp`: Identifica de forma detallada el proceso que retiene el recurso TCP 22. Si se ejecutara `fuser -k 22/tcp`, enviaría una señal SIGKILL al proceso para forzar la liberación del socket.</li><li>`ulimit -a`: Muestra todos los límites de recursos del shell (archivos abiertos `-n`, procesos máximos `-u`, tamaño de core dump `-c`).</li><li>`ulimit -n 2048`: Incrementa el límite blando (*soft limit*) de ficheros abiertos hasta el máximo del límite duro (*hard limit*). Un usuario normal puede modificar el límite blando, pero solo root puede elevar el límite duro (configurado en `/etc/security/limits.conf`).</li><li>`sudo visudo -c`: Verifica (*Check only*) la sintaxis de `/etc/sudoers` y de `/etc/sudoers.d/*` sin abrir el editor interactivo. Se debe ejecutar con `sudo` porque `/etc/sudoers` tiene permisos estrictos `0440` y no es legible por usuarios no privilegiados.</li><li>`sudo userdel -r inspector_sec`: Elimina la cuenta temporal y borra su directorio `/home/inspector_sec` (`-r`) para no dejar archivos huérfanos.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `sudo visudo -c` responderá: `/etc/sudoers: parsed OK`.</div>
+              <div><strong>👀 Qué debes observar:</strong> `sudo visudo -c` responderá: `/etc/sudoers: parsed OK` (y el estado OK de los archivos en `/etc/sudoers.d/`).</div>
             </div>
             
           
@@ -478,7 +486,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           </details>
           <details class="accordion-item">
             <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
-            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">La opción de montaje preventiva obligatoria es <strong><code>nosuid</code></strong> en el 4º campo de <code>/etc/fstab</code> (por ejemplo: <code>tmpfs /tmp tmpfs defaults,nosuid,nodev,noexec 0 0</code>). La directiva <strong><code>nosuid</code></strong> le indica al kernel que ignore por completo los bits SUID y SGID en cualquier ejecutable ubicado dentro de esa partición o sistema de archivos, ejecutándolo únicamente con los privilegios reales del usuario que lo lanza.</div>
+            <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">La opción de montaje preventiva obligatoria es <strong><code>nosuid</code></strong> en el 4º campo de <code>/etc/fstab</code> (por ejemplo: <code>tmpfs /tmp tmpfs defaults,nosuid,nodev,noexec 0 0</code>). La directiva <strong><code>nosuid</code></strong> le indica al kernel de Linux que ignore por completo los bits SUID y SGID en cualquier ejecutable ubicado dentro de esa partición o sistema de archivos, ejecutándolo únicamente con los privilegios reales del usuario que lo lanza.</div>
           </details>
         </section>
         
@@ -501,19 +509,19 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               
                 <tr>
                   <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110.1', 'C1', this)"> <strong>C1</strong></label></td>
-                  <td>Evidencia de Misión 1: Rastreo de binarios SUID con `find -perm -4000`</td>
+                  <td>Evidencia de Misión 1: Rastreo de binarios SUID con `find -perm -4000` en `/usr/bin`</td>
                   <td><code>`110-1-C1-find-suid.png`</code></td>
                 </tr>
                 
                 <tr>
                   <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110.1', 'C2', this)"> <strong>C2</strong></label></td>
-                  <td>Evidencia de Misión 2: Caducidad con `chage -l` y bloqueo en `/etc/shadow`</td>
+                  <td>Evidencia de Misión 2: Caducidad con `chage -l` y bloqueo en `/etc/shadow` con `!`</td>
                   <td><code>`110-1-C2-chage-passwd-lock.png`</code></td>
                 </tr>
                 
                 <tr>
                   <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110.1', 'C3', this)"> <strong>C3</strong></label></td>
-                  <td>Evidencia de Misión 3: Proceso en `lsof -i :22`, `ulimit -a` y validación con `visudo -c`</td>
+                  <td>Evidencia de Misión 3: Proceso en `lsof -i :22`, `ulimit -a` y validación con `sudo visudo -c`</td>
                   <td><code>`110-1-C3-lsof-ulimit-visudo.png`</code></td>
                 </tr>
                 
@@ -531,8 +539,18 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             </details>
             
             <details class="accordion-item">
+              <summary>Error: "visudo: /etc/sudoers: Permission denied"</summary>
+              <div class="accordion-body">El archivo `/etc/sudoers` tiene permisos `0440` (solo root puede leerlo). Asegúrate de anteponer `sudo`: `sudo visudo -c`.</div>
+            </details>
+            
+            <details class="accordion-item">
               <summary>Error: "ulimit: cannot modify limit: Operation not permitted"</summary>
-              <div class="accordion-body">Un usuario normal solo puede reducir el límite duro o modificar el límite blando hasta el valor del duro. Para elevar los límites duros, se deben configurar en `/etc/security/limits.conf`.</div>
+              <div class="accordion-body">Un usuario normal solo puede modificar el límite blando hasta el valor máximo del límite duro. Para elevar los límites duros permanentemente, deben configurarse en `/etc/security/limits.conf`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>El usuario inspector_sec ya existe</summary>
+              <div class="accordion-body">Si interrumpiste la práctica antes del paso final, elimínalo forzosamente con `sudo userdel -r -f inspector_sec 2>/dev/null || true`.</div>
             </details>
             
             <details class="accordion-item">
@@ -563,7 +581,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <tr>
                   <td><span class="badge badge-blue"><code>chage</code></span></td>
-                  <td>Auditoría e inspección de políticas de caducidad e inactividad en `/etc/shadow`</td>
+                  <td>Auditoría e inspección de políticas de caducidad e inactividad en `/etc/shadow` (`-l`, `-M`, `-m`, `-W`, `-I`, `-E`)</td>
                   <td>[Slide 4](../t110/110-1-tareas-de-administracion.html)</td>
                 </tr>
                 
@@ -581,7 +599,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <tr>
                   <td><span class="badge badge-blue"><code>fuser</code></span></td>
-                  <td>Identifica y termina procesos que retienen ficheros, puertos o montajes (`-k`)</td>
+                  <td>Identifica y termina procesos que retienen ficheros, puertos o montajes (`-k`, `-v`)</td>
                   <td>[Slide 6](../t110/110-1-tareas-de-administracion.html)</td>
                 </tr>
                 

@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          <li><a href="#mision-1" class="toc-link">Misión 1: Restricción de Inicios con /etc/nologin y Configuración de Banners Legales</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Reducción de Superficie: Desactivación y Enmascaramiento de Servicios</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Control de Acceso por Host con TCP Wrappers (/etc/hosts.allow y /etc/hosts.deny)</a></li>
+          <li><a href="#mision-1" class="toc-link">Misión 1: Restricción de Inicios con /etc/nologin y Configuración de Banners Legales</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Reducción de Superficie: Desactivación y Enmascaramiento de Servicios en systemd</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Control de Acceso por Host con TCP Wrappers (/etc/hosts.allow y /etc/hosts.deny)</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,31 +270,34 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Aprende las técnicas clave de reducción de superficie de ataque y bastionado (hardening) en Linux. Domina los mecanismos para impedir inicios de sesión ordinarios mediante `/etc/nologin` y shells falsas (`/usr/sbin/nologin` vs `/bin/false`), personaliza los mensajes de advertencia legal en `/etc/issue`, `/etc/issue.net` y `/etc/motd`, comprende el modelo de activación bajo demanda con superdemonios clásicos (`xinetd`) y unidades modernas de socket en systemd (`systemd.socket`), desactiva y enmascara servicios innecesarios (`systemctl mask`) y aplica reglas de control de acceso por host con TCP Wrappers (`/etc/hosts.allow` y `/etc/hosts.deny`).</p>
+          <p style="font-size:17px; line-height:1.7;">Aprende las técnicas clave de reducción de superficie de ataque y bastionado (*hardening*) en Linux requeridas para LPIC-1. Dominarás los mecanismos para impedir inicios de sesión ordinarios mediante `/etc/nologin` y shells restringidas (`/usr/sbin/nologin` frente a `/bin/false`), personalizarás los mensajes de advertencia legal en `/etc/issue`, `/etc/issue.net` y `/etc/motd`, comprenderás el modelo de activación bajo demanda con superdemonios clásicos (`xinetd`) y unidades modernas de socket en systemd (`systemd.socket`), desactivarás y enmascararás servicios prescindibles (`systemctl mask`) y aplicarás reglas de control de acceso por host con TCP Wrappers (`/etc/hosts.allow` y `/etc/hosts.deny`).
+
+Para garantizar la continuidad del laboratorio en tu máquina virtual Debian 12, se incluye una advertencia crítica sobre el uso de `/etc/nologin` con su borrado inmediato obligatorio, así como la contextualización didáctica de TCP Wrappers en distribuciones modernas frente a su papel estricto en el examen LPIC-1.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Bloquear inicios de sesión de usuarios no-root creando `/etc/nologin`.</li><li>Diferenciar los tres banners del sistema: `/etc/issue` (pre-login local), `/etc/issue.net` (pre-login remoto) y `/etc/motd` (post-login).</li><li>Comprender el algoritmo de evaluación de TCP Wrappers: `hosts.allow` primero, luego `hosts.deny`, y por defecto permitir si no coincide.</li><li>Utilizar comodines (`ALL`, `LOCAL`, `UNKNOWN`) y la cláusula `EXCEPT` en TCP Wrappers.</li><li>Desactivar (`disable --now`) y enmascarar de forma irreversible a nivel de symlink (`mask`) servicios vulnerables en systemd.</li>
+            <li>Bloquear inicios de sesión de usuarios no-root mediante `/etc/nologin` y retirarlo de inmediato para evitar bloqueos accidentales.</li><li>Diferenciar los tres banners del sistema: `/etc/issue` (pre-login local), `/etc/issue.net` (pre-login remoto) y `/etc/motd` (post-login).</li><li>Comprender el algoritmo de evaluación de TCP Wrappers: `hosts.allow` primero, luego `hosts.deny`, y permitir por defecto si no coincide en ninguno.</li><li>Utilizar comodines (`ALL`, `LOCAL`, `UNKNOWN`) y la cláusula `EXCEPT` en las directivas de TCP Wrappers.</li><li>Desactivar (`disable --now`) y enmascarar de forma irreversible a nivel de symlink (`mask`) servicios innecesarios en systemd.</li><li>Restaurar las configuraciones a su estado limpio y seguro tras la sesión práctica.</li>
           </ul>
         </section>
 
         <!-- 3. Antes de empezar -->
         <section class="card" id="antes-de-empezar">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">3. Antes de empezar (≤ 5 min)</h2>
+          
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>1. Inicia tu máquina virtual Debian 12 en tu hipervisor.</span>
+            <input type="checkbox"> <span>1. Inicia sesión en tu máquina virtual Debian 12 con el usuario habitual <code>alumno</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>2. Abre un terminal e inicia sesión con el usuario <code>alumno</code>.</span>
+            <input type="checkbox"> <span>2. Verifica que tienes permisos de administración ejecutando: <code>sudo -v</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>3. Confirma permisos de superusuario con <code>sudo -v</code>.</span>
+            <input type="checkbox"> <span>3. Asegúrate de estar trabajando sobre la instantánea limpia <code>00-base-limpia</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>4. Verifica estar sobre la instantánea limpia <code>00-base-limpia</code>.</span>
+            <input type="checkbox"> <span>4. Comprueba que los archivos <code>/etc/hosts.allow</code> y <code>/etc/hosts.deny</code> están presentes en el sistema:</span>
           </div>
         </section>
 
@@ -309,7 +312,10 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('110.2', 1, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Simularemos una ventana de mantenimiento técnico bloqueando el acceso a todos los usuarios ordinarios mediante `/etc/nologin`. Configuraremos un banner disuasorio previo al login en `/etc/issue` e inspeccionaremos el mensaje del día en `/etc/motd`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Simularemos una ventana de mantenimiento técnico bloqueando el acceso a todos los usuarios ordinarios mediante `/etc/nologin`. Configuraremos un banner disuasorio previo a la autenticación en `/etc/issue` e inspeccionaremos el mensaje del día post-login en `/etc/motd`.
+
+> ⚠️ **PELIGRO CRÍTICO — RIESGO DE BLOQUEO DE SESIÓN**:
+> Si el archivo `/etc/nologin` existe en el sistema, el módulo PAM rechaza **INMEDIATAMENTE** cualquier intento de inicio de sesión de usuarios no privilegiados (incluido el usuario `alumno`). **NO cierres la terminal, NO cierres la sesión y NO intentes abrir otra pestaña** mientras `/etc/nologin` exista. Ejecuta de inmediato el comando de borrado `sudo rm -f /etc/nologin` como se indica en el paso 4.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -317,13 +323,22 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Crear el archivo de bloqueo temporal /etc/nologin con mensaje explicativo</span>
+              <pre><code><span class="t-cmt"># 1. Crear copias de respaldo de los banners originales</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">cp</span> <span class="t-path">/etc/issue</span> <span class="t-path">/etc/issue.bak</span> <span class="t-path">2>/dev/null</span> <strong>||</strong> <span class="t-cmd">true</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">cp</span> <span class="t-path">/etc/motd</span> <span class="t-path">/etc/motd.bak</span> <span class="t-path">2>/dev/null</span> <strong>||</strong> <span class="t-cmd">true</span>
+
+<span class="t-cmt"># 2. Crear el archivo de bloqueo temporal /etc/nologin con mensaje explicativo</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"MANTENIMIENTO</span> PROGRAMADO: Sistema cerrado para usuarios ordinarios hasta las 20:00." <strong>></strong> <span class="t-cmd">/etc/nologin'</span>
 
-<span class="t-cmt"># 2. Comprobar permisos y existencia de /etc/nologin</span>
+<span class="t-cmt"># 3. Comprobar permisos y existencia de /etc/nologin</span>
 <span class="t-cmd">ls</span> <span class="t-flag">-l</span> <span class="t-path">/etc/nologin</span>
+<span class="t-cmd">cat</span> <span class="t-path">/etc/nologin</span>
 
-<span class="t-cmt"># 3. Configurar el banner legal previo a la autenticación en consola local (/etc/issue)</span>
+<span class="t-cmt"># 4. BORRADO INMEDIATO DE SEGURIDAD de /etc/nologin (¡No omitir este paso!)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">rm</span> <span class="t-flag">-f</span> <span class="t-path">/etc/nologin</span>
+<span class="t-cmd">ls</span> <span class="t-path">/etc/nologin</span> <span class="t-path">2>/dev/null</span> <strong>||</strong> <span class="t-cmd">echo</span> <span class="t-arg">"OK:</span> <span class="t-path">/etc/nologin</span> retirado de inmediato. Acceso seguro preservado."
+
+<span class="t-cmt"># 5. Configurar el banner legal previo a la autenticación en consola local (/etc/issue)</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'cat</span> << <span class="t-arg">"EOF"</span> <strong>></strong> <span class="t-cmd">/etc/issue</span>
 <span class="t-cmd">****************************************************************</span>
 <span class="t-cmd">*</span> AVISO: Acceso restringido a personal autorizado de LPIC Lab. *
@@ -331,43 +346,40 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-cmd">****************************************************************</span>
 <span class="t-cmd">EOF'</span>
 
-<span class="t-cmt"># 4. Configurar el mensaje del día post-autenticación (/etc/motd)</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"Bienvenido</span> al servidor de produccion. Recuerda aplicar snapshot 00-base-limpia." <strong>></strong> <span class="t-cmd">/etc/motd'</span>
-
-<span class="t-cmt"># 5. Retirar el archivo de bloqueo /etc/nologin para restaurar el acceso normal</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">rm</span> <span class="t-flag">-f</span> <span class="t-path">/etc/nologin</span></code></pre>
+<span class="t-cmt"># 6. Configurar el mensaje del día post-autenticación (/etc/motd)</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"Bienvenido</span> al servidor de produccion. Recuerda aplicar snapshot 00-base-limpia." <strong>></strong> <span class="t-cmd">/etc/motd'</span></code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`/etc/nologin`: Si este archivo existe, el subsistema PAM rechaza de inmediato cualquier intento de login de usuarios ordinarios, imprimiendo el contenido del archivo en la pantalla. Únicamente el usuario `root` puede iniciar sesión.</li><li>`/etc/issue`: Se muestra en las consolas virtuales locales (TTYs) **antes** de que el usuario introduzca su nombre de usuario.</li><li>`/etc/issue.net`: Equivalente a `/etc/issue` pero mostrado en conexiones de red entrantes (Telnet o configurado con `Banner` en `sshd_config`).</li><li>`/etc/motd` (*Message Of The Day*): Se muestra en pantalla **después** de una autenticación exitosa.</li>
+                <li>`/etc/nologin`: Si este archivo existe, el subsistema PAM (`pam_nologin.so`) rechaza de inmediato cualquier intento de login de usuarios ordinarios, imprimiendo el contenido del archivo en la pantalla. Únicamente el usuario `root` puede iniciar sesión.</li><li>`/etc/issue`: Se muestra en las consolas virtuales locales (TTYs) **antes** de que el usuario introduzca su nombre de usuario. Admite caracteres de escape como `\n` (nombre de host) o `\l` (número de terminal).</li><li>`/etc/issue.net`: Equivalente a `/etc/issue` pero mostrado en conexiones de red entrantes (Telnet o configurado con la directiva `Banner` en `/etc/ssh/sshd_config`).</li><li>`/etc/motd` (*Message Of The Day*): Se muestra en pantalla **después** de una autenticación exitosa, notificando al operador sobre avisos corporativos o ventanas de cambio.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `cat /etc/issue` y `cat /etc/motd` reflejarán los textos de advertencia legal formateados.</div>
+              <div><strong>👀 Qué debes observar:</strong> `cat /etc/nologin` mostrará el texto de mantenimiento, seguido inmediatamente del mensaje de confirmación de borrado. `cat /etc/issue` y `cat /etc/motd` reflejarán los banners legales formateados.</div>
             </div>
             
           
             <div class="callout callout-camera">
               <svg class="ic"><use href="#i-camera"/></svg>
-              <div><strong>📸 Captura 1:</strong> Contenido de `/etc/nologin`, `/etc/issue` y `/etc/motd`. Guarda como `110-2-C1-nologin-banners.png`.</div>
+              <div><strong>📸 Captura 1:</strong> Contenido de `/etc/nologin`, confirmación de su borrado y texto de `/etc/issue`. Guarda como `110-2-C1-nologin-banners.png`.</div>
             </div>
             
         </div>
         
         <div class="card step-card" id="mision-2">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Reducción de Superficie: Desactivación y Enmascaramiento de Servicios</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Reducción de Superficie: Desactivación y Enmascaramiento de Servicios en systemd</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('110.2', 2, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Un principio fundamental de bastionado es eliminar servicios innecesarios. Comprobaremos la diferencia crítica entre `disable` (que solo retira los symlinks de inicio automático pero permite que otros servicios arranquen la unidad) frente a `mask` (que enlaza la unidad a `/dev/null`, impidiendo terminantemente que se inicie de forma manual o como dependencia).</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Un principio fundamental de bastionado es eliminar servicios innecesarios. Comprobaremos la diferencia crítica de seguridad entre `disable` (que solo retira los symlinks de inicio automático en el target por defecto pero permite que otros servicios arranquen la unidad) frente a `mask` (que enlaza la unidad directamente a `/dev/null`, impidiendo terminantemente que se inicie de forma manual o como dependencia de otro servicio).</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -375,22 +387,22 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Listar servicios activos en el sistema</span>
+              <pre><code><span class="t-cmt"># 1. Listar servicios activos en el sistema para identificar candidatos</span>
 <span class="t-cmd">systemctl</span> list-units <span class="t-flag">--type=service</span> <span class="t-flag">--state=running</span> <strong>|</strong> <span class="t-cmd">head</span> <span class="t-flag">-n</span> 10
 
 <span class="t-cmt"># 2. Desactivar un servicio simulado (ej. cups si estuviera activo)</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> disable <span class="t-flag">--now</span> cups.service <strong>||</strong> <span class="t-cmd">true</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> disable <span class="t-flag">--now</span> cups.service <span class="t-path">2>/dev/null</span> <strong>||</strong> <span class="t-cmd">true</span>
 
 <span class="t-cmt"># 3. Enmascarar el servicio con systemctl mask</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> mask cups.service
 
-<span class="t-cmt"># 4. Verificar el enlace simbólico a /dev/null creado por mask</span>
+<span class="t-cmt"># 4. Verificar el enlace simbólico hacia /dev/null creado por mask</span>
 <span class="t-cmd">ls</span> <span class="t-flag">-l</span> <span class="t-path">/etc/systemd/system/cups.service</span>
 
-<span class="t-cmt"># 5. Intentar arrancar el servicio enmascarado y verificar el rechazo</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> start cups.service <strong>||</strong> <span class="t-cmd">echo</span> <span class="t-arg">"systemd</span> impidio el arranque del servicio enmascarado"
+<span class="t-cmt"># 5. Intentar arrancar el servicio enmascarado y verificar el rechazo de systemd</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> start cups.service 2>&1 <strong>||</strong> <span class="t-cmd">echo</span> <span class="t-arg">"systemd</span> impidio el arranque: unidad enmascarada"
 
-<span class="t-cmt"># 6. Desenmascarar el servicio para restaurar la normalidad</span>
+<span class="t-cmt"># 6. Desenmascarar el servicio para restaurar la normalidad del sistema</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">systemctl</span> unmask cups.service</code></pre>
             </figure>
             
@@ -398,14 +410,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`systemctl disable --now`: Detiene el proceso inmediatamente y retira los symlinks de `/etc/systemd/system/*.wants/`.</li><li>`systemctl mask`: Crea un enlace simbólico desde `/etc/systemd/system/cups.service` apuntando directamente al dispositivo nulo `/dev/null`.</li><li>*Ventaja clave de examen*: Ningún comando (`start`, `restart`) ni ningún otro servicio que tenga `Requires=cups` o `Wants=cups` podrá levantar el servicio mientras permanezca enmascarado.</li>
+                <li>`systemctl disable --now`: Detiene el proceso inmediatamente y retira los symlinks de `/etc/systemd/system/*.wants/`.</li><li>`systemctl mask`: Crea un enlace simbólico desde `/etc/systemd/system/cups.service` apuntando directamente al dispositivo nulo `/dev/null`.</li><li>*Ventaja clave evaluada en LPIC-1*: Ningún comando interactivo (`start`, `restart`) ni ningún otro servicio que declare `Requires=cups` o `Wants=cups` podrá levantar el servicio mientras permanezca enmascarado.</li><li>`systemctl unmask`: Elimina el enlace simbólico a `/dev/null`, devolviendo la unidad a su definición en `/lib/systemd/system/`.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `ls -l /etc/systemd/system/cups.service` mostrará `-> /dev/null`. `systemctl start` devolverá: `Failed to start cups.service: Unit cups.service is masked`.</div>
+              <div><strong>👀 Qué debes observar:</strong> `ls -l /etc/systemd/system/cups.service` mostrará `-> /dev/null`. Al intentar iniciarlo con `start`, systemd devolverá: `Failed to start cups.service: Unit cups.service is masked`.</div>
             </div>
             
           
@@ -423,7 +435,10 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('110.2', 3, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">TCP Wrappers es la biblioteca de filtrado a nivel de aplicación (`libwrap.so`) utilizada históricamente en Linux para restringir qué clientes pueden conectarse a servicios de red según su IP o dominio. Configuraremos una política de seguridad estricta: denegar todo el tráfico por defecto en `/etc/hosts.deny` y autorizar selectivamente únicamente a la red local en `/etc/hosts.allow`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">TCP Wrappers es la tecnología clásica de filtrado a nivel de aplicación (`libwrap.so`) utilizada históricamente en Linux para restringir qué clientes pueden conectarse a servicios de red según su IP o dominio. Configuraremos una política de seguridad estricta: denegar todo el tráfico por defecto en `/etc/hosts.deny` y autorizar selectivamente únicamente a la red local en `/etc/hosts.allow` utilizando la cláusula `EXCEPT`.
+
+> ℹ️ **Nota de examen LPIC-1 vs Debian 12**:
+> En distribuciones modernas como Debian 12, demonios como OpenSSH ya no enlazan la biblioteca `libwrap.so` (se eliminó en OpenSSH 6.7 a favor de filtros en kernel con nftables/iptables). Sin embargo, TCP Wrappers (`/etc/hosts.allow`, `/etc/hosts.deny`, comodines `ALL`, `LOCAL`, `UNKNOWN`, `PARANOID` y la cláusula `EXCEPT`) sigue siendo **materia oficial obligatoria del examen LPIC-1 102-500 (Tema 110.2)**. Por ello, dominar su sintaxis y su algoritmo de evaluación estricto es imprescindible para aprobar la certificación.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -431,8 +446,8 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Comprobar si un binario está compilado contra la librería TCP Wrappers (libwrap)</span>
-<span class="t-cmd">ldd</span> <span class="t-path">/usr/sbin/sshd</span> <span class="t-path">2>/dev/null</span> <strong>|</strong> <span class="t-cmd">grep</span> libwrap <strong>||</strong> <span class="t-cmd">echo</span> <span class="t-arg">"Binario</span> moderno sin libwrap directo (evaluado como estandar LPIC-1)"
+              <pre><code><span class="t-cmt"># 1. Comprobar si el binario sshd está enlazado contra libwrap</span>
+<span class="t-cmd">ldd</span> <span class="t-path">/usr/sbin/sshd</span> <span class="t-path">2>/dev/null</span> <strong>|</strong> <span class="t-cmd">grep</span> libwrap <strong>||</strong> <span class="t-cmd">echo</span> <span class="t-arg">"Binario</span> moderno sin libwrap directo (evaluado como estándar teórico-práctico LPIC-1)"
 
 <span class="t-cmt"># 2. Configurar la política de denegación total por defecto en /etc/hosts.deny</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'cat</span> << <span class="t-arg">"EOF"</span> <strong>></strong> <span class="t-cmd">/etc/hosts.deny</span>
@@ -441,10 +456,10 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 
 <span class="t-cmt"># 3. Configurar la lista de exclusiones y permisos en /etc/hosts.allow</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'cat</span> << <span class="t-arg">"EOF"</span> <strong>></strong> <span class="t-cmd">/etc/hosts.allow</span>
-<span class="t-cmt"># Permitir SSH unicamente desde localhost y la red interna 192.168.1.0/24</span>
+<span class="t-cmt"># Permitir SSH únicamente desde localhost y la red interna 192.168.1.0/24</span>
 <span class="t-cmd">sshd:</span> 127.0.0.1, <span class="t-path">192.168.1.0/255.255.255.0</span>
 
-<span class="t-cmt"># Permitir a todos los clientes locales excepto un host sospechoso</span>
+<span class="t-cmt"># Permitir vsftpd a todos los clientes locales excepto un host sospechoso</span>
 <span class="t-cmd">vsftpd:</span> <span class="t-path">192.168.1.0/24</span> EXCEPT 192.168.1.66
 <span class="t-cmd">EOF'</span>
 
@@ -452,23 +467,25 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
 <span class="t-cmd">cat</span> <span class="t-path">/etc/hosts.allow</span>
 <span class="t-cmd">cat</span> <span class="t-path">/etc/hosts.deny</span>
 
-<span class="t-cmt"># 5. Restaurar archivos a estado permisivo neutro</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"#</span> Limpio" <strong>></strong> <span class="t-cmd">/etc/hosts.deny'</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"#</span> Limpio" <strong>></strong> <span class="t-cmd">/etc/hosts.allow'</span></code></pre>
+<span class="t-cmt"># 5. Limpieza obligatoria: vaciar los archivos para no dejar bloqueos residuales en la VM</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">truncate</span> <span class="t-flag">-s</span> 0 <span class="t-path">/etc/hosts.allow</span> <span class="t-path">/etc/hosts.deny</span>
+<span class="t-cmt"># Restaurar banners originales</span>
+<span class="t-cmd">[</span> <span class="t-flag">-f</span> <span class="t-path">/etc/issue.bak</span> ] <strong>&&</strong> <span class="t-flag">sudo</span> <span class="t-cmd">mv</span> <span class="t-path">/etc/issue.bak</span> <span class="t-path">/etc/issue</span> <strong>||</strong> <span class="t-cmd">true</span>
+<span class="t-cmd">[</span> <span class="t-flag">-f</span> <span class="t-path">/etc/motd.bak</span> ] <strong>&&</strong> <span class="t-flag">sudo</span> <span class="t-cmd">mv</span> <span class="t-path">/etc/motd.bak</span> <span class="t-path">/etc/motd</span> <strong>||</strong> <span class="t-cmd">true</span></code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>Algoritmo de evaluación de TCP Wrappers:</li><li>Comodín `ALL`: Aplica a todos los servicios o a todos los clientes.</li><li>Cláusula `EXCEPT`: Permite definir excepciones dentro de una lista (ej. `RED EXCEPT IP_ESPECIFICA`).</li>
+                <li>Algoritmo de evaluación estricto de TCP Wrappers:</li><li>Comodín `ALL`: Aplica a todos los servicios o a todos los clientes.</li><li>Cláusula `EXCEPT`: Permite definir excepciones dentro de una lista (ejemplo: `sshd: RED EXCEPT IP_SOSPECHOSA`).</li><li>`sudo truncate -s 0`: Deja los archivos en tamaño 0 bytes para evitar que reglas experimentales afecten a otras prácticas o herramientas de red.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `cat /etc/hosts.allow` y `cat /etc/hosts.deny` mostrarán la política de denegación total con excepciones autorizadas.</div>
+              <div><strong>👀 Qué debes observar:</strong> `cat /etc/hosts.allow` y `cat /etc/hosts.deny` mostrarán la política de denegación total con excepciones autorizadas. Al ejecutar `truncate`, ambos archivos quedarán limpios y neutros.</div>
             </div>
             
           
@@ -497,8 +514,8 @@ Si un usuario intenta conectarse por SSH desde la dirección IP `10.0.5.25`, ¿p
           <details class="accordion-item">
             <summary style="font-size:15px; font-weight:600; cursor:pointer;">✅ Ver solución oficial explicada</summary>
             <div class="accordion-body" style="background:#F0FDF4; color:#14532D;">El usuario <strong>SERÁ RECHAZADO</strong>.<br>
-Paso 1: Se evalúa <code>/etc/hosts.allow</code>. La IP <code>10.0.5.25</code> pertenece a <code>10.0.0.0/8</code>, pero está explícitamente excluida por la cláusula <strong><code>EXCEPT 10.0.5.0/24</code></strong>. Por tanto, <strong>NO</strong> coincide con <code>hosts.allow</code>.<br>
-Paso 2: Se evalúa <code>/etc/hosts.deny</code>. Al coincidir con la regla <strong><code>sshd: ALL</code></strong>, el archivo <code>hosts.deny</code> bloquea la conexión inmediatamente.</div>
+Paso 1: Se evalúa <code>/etc/hosts.allow</code>. La IP <code>10.0.5.25</code> pertenece a la red <code>10.0.0.0/8</code>, pero está explícitamente excluida por la cláusula <strong><code>EXCEPT 10.0.5.0/255.255.255.0</code></strong>. Por tanto, <strong>NO</strong> coincide con la directiva de autorización de <code>hosts.allow</code>.<br>
+Paso 2: Se pasa a evaluar <code>/etc/hosts.deny</code>. Al coincidir con la regla <strong><code>sshd: ALL</code></strong>, el archivo <code>hosts.deny</code> bloquea la conexión inmediatamente.</div>
           </details>
         </section>
         
@@ -521,19 +538,19 @@ Paso 2: Se evalúa <code>/etc/hosts.deny</code>. Al coincidir con la regla <stro
               
                 <tr>
                   <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110.2', 'C1', this)"> <strong>C1</strong></label></td>
-                  <td>Evidencia de Misión 1: `/etc/nologin`, banner en `/etc/issue` y `/etc/motd`</td>
+                  <td>Evidencia de Misión 1: `/etc/nologin`, confirmación de su borrado y `/etc/issue`</td>
                   <td><code>`110-2-C1-nologin-banners.png`</code></td>
                 </tr>
                 
                 <tr>
                   <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110.2', 'C2', this)"> <strong>C2</strong></label></td>
-                  <td>Evidencia de Misión 2: Symlink de `systemctl mask` hacia `/dev/null`</td>
+                  <td>Evidencia de Misión 2: Symlink de `systemctl mask` hacia `/dev/null` y error al arrancar</td>
                   <td><code>`110-2-C2-systemctl-mask.png`</code></td>
                 </tr>
                 
                 <tr>
                   <td><label style="cursor:pointer; display:flex; align-items:center; gap:8px;"><input type="checkbox" onchange="toggleCaptureDone('110.2', 'C3', this)"> <strong>C3</strong></label></td>
-                  <td>Evidencia de Misión 3: Políticas en `/etc/hosts.allow` y `/etc/hosts.deny`</td>
+                  <td>Evidencia de Misión 3: Políticas en `/etc/hosts.allow` (con `EXCEPT`) y `/etc/hosts.deny` (`ALL: ALL`)</td>
                   <td><code>`110-2-C3-tcpwrappers-rules.png`</code></td>
                 </tr>
                 
@@ -546,13 +563,18 @@ Paso 2: Se evalúa <code>/etc/hosts.deny</code>. Al coincidir con la regla <stro
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
             <details class="accordion-item">
-              <summary>Error: Los usuarios no pueden hacer login</summary>
-              <div class="accordion-body">Verifica si olvidaste borrar `/etc/nologin` tras las pruebas ejecutando `sudo rm -f /etc/nologin`.</div>
+              <summary>¡Bloqueo por /etc/nologin!</summary>
+              <div class="accordion-body">Si por error cerraste sesión o tu terminal se cerró mientras `/etc/nologin` existía, ningún usuario ordinario podrá iniciar sesión. Para resolverlo:</div>
             </details>
             
             <details class="accordion-item">
               <summary>Error: systemctl unmask no funciona</summary>
-              <div class="accordion-body">Si el archivo persiste en `/etc/systemd/system/`, bórralo manualmente con `sudo rm /etc/systemd/system/<servicio>.service && sudo systemctl daemon-reload`.</div>
+              <div class="accordion-body">Si el archivo persiste en `/etc/systemd/system/`, bórralo manualmente con `sudo rm -f /etc/systemd/system/cups.service && sudo systemctl daemon-reload`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Servicios de red bloqueados por TCP Wrappers</summary>
+              <div class="accordion-body">Si dejaste `/etc/hosts.deny` activo y te bloquea algún servicio, vacía ambos archivos ejecutando: `sudo truncate -s 0 /etc/hosts.allow /etc/hosts.deny`.</div>
             </details>
             
             <details class="accordion-item">
@@ -577,31 +599,31 @@ Paso 2: Se evalúa <code>/etc/hosts.deny</code>. Al coincidir con la regla <stro
               
                 <tr>
                   <td><span class="badge badge-blue"><code>/etc/nologin</code></span></td>
-                  <td>Bloquea temporalmente el inicio de sesión a todos los usuarios no-root</td>
+                  <td>Bloquea temporalmente el inicio de sesión a todos los usuarios no-root mediante PAM</td>
                   <td>[Slide 3](../t110/110-2-configuracion-de-la-segu.html)</td>
                 </tr>
                 
                 <tr>
                   <td><span class="badge badge-blue"><code>/etc/issue / /etc/issue.net</code></span></td>
-                  <td>Banners de advertencia legal mostrados antes de la autenticación local/red</td>
+                  <td>Banners de advertencia legal mostrados antes de la autenticación local (TTY) o red</td>
                   <td>[Slide 3](../t110/110-2-configuracion-de-la-segu.html)</td>
                 </tr>
                 
                 <tr>
                   <td><span class="badge badge-blue"><code>/etc/motd</code></span></td>
-                  <td>Mensaje del día mostrado a los usuarios tras autenticarse con éxito</td>
+                  <td>Mensaje del día mostrado a los usuarios tras autenticarse con éxito en el sistema</td>
                   <td>[Slide 3](../t110/110-2-configuracion-de-la-segu.html)</td>
                 </tr>
                 
                 <tr>
                   <td><span class="badge badge-blue"><code>systemctl mask / unmask</code></span></td>
-                  <td>Enmascara unidades vinculándolas a `/dev/null` para impedir su ejecución</td>
+                  <td>Enmascara unidades vinculándolas a `/dev/null` para impedir terminantemente su ejecución</td>
                   <td>[Slide 5](../t110/110-2-configuracion-de-la-segu.html)</td>
                 </tr>
                 
                 <tr>
                   <td><span class="badge badge-blue"><code>/etc/hosts.allow</code></span></td>
-                  <td>Reglas de autorización preferente de clientes en TCP Wrappers</td>
+                  <td>Reglas de autorización preferente de clientes en TCP Wrappers (evaluado primero)</td>
                   <td>[Slide 7](../t110/110-2-configuracion-de-la-segu.html)</td>
                 </tr>
                 

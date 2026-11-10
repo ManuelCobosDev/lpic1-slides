@@ -257,7 +257,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
           <li><a href="#de-que-va" class="toc-link">1. De qué va</a></li>
           <li><a href="#que-aprenderas" class="toc-link">2. Qué aprenderás</a></li>
           <li><a href="#antes-de-empezar" class="toc-link">3. Antes de empezar</a></li>
-          <li><a href="#mision-1" class="toc-link">Misión 1: Configuración Persistente del Nombre de Host (FQDN) con hostnamectl y /etc/hosts</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Creación y Configuración de un Perfil IP Estático con nmcli</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Inspección de Rutas, Activación/Desactivación y Archivo de Configuración Persistente</a></li>
+          <li><a href="#mision-1" class="toc-link">Misión 1: Configuración Persistente del Nombre de Host (FQDN) con hostnamectl y /etc/hosts</a></li><li><a href="#mision-2" class="toc-link">Misión 2: Creación y Configuración de un Perfil IP Estático con nmcli en Interfaz Dummy</a></li><li><a href="#mision-3" class="toc-link">Misión 3: Inspección de Rutas, Persistencia y Procedimiento de Limpieza</a></li>
           <li><a href="#mini-reto" class="toc-link">5. Mini-Reto Final</a></li>
           <li><a href="#capturas" class="toc-link">6. Capturas a entregar</a></li>
           <li><a href="#si-algo-falla" class="toc-link">7. Si algo falla</a></li>
@@ -270,31 +270,38 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         <!-- 1. De qué va -->
         <section class="card" id="de-que-va">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">1. De qué va</h2>
-          <p style="font-size:17px; line-height:1.7;">Aprende a configurar de forma permanente y temporal las interfaces de red de un servidor Linux. Domina la herramienta oficial y moderna de administración NetworkManager mediante su interfaz de consola `nmcli`. Comprende la diferencia crucial entre modificar el estado en caliente del kernel (con `ip addr` e `ip link`, que se pierde al reiniciar) frente a crear perfiles de conexión persistentes en `/etc/NetworkManager/system-connections/` o archivos `.network` en `systemd-networkd`. Aprende además a fijar el nombre del equipo con `hostnamectl` y a relacionarlo en `/etc/hosts`.</p>
+          <p style="font-size:17px; line-height:1.7;">Aprende a configurar de forma permanente y temporal las interfaces de red de un servidor Linux. Domina la herramienta oficial y moderna de administración NetworkManager mediante su interfaz de consola `nmcli`. Comprende la diferencia crucial entre modificar el estado en caliente del kernel (con `ip addr` e `ip link`, que se pierde al reiniciar) frente a crear perfiles de conexión persistentes en `/etc/NetworkManager/system-connections/` o archivos `.network` en `systemd-networkd`. Aprende además a fijar el nombre del equipo con `hostnamectl` y a relacionarlo en `/etc/hosts` para evitar errores del sistema. Toda la práctica está blindada para ejecutarse sobre una interfaz virtual `dummy0`, garantizando que jamás perderás conectividad con tu máquina virtual ni con VirtualBox.</p>
         </section>
 
         <!-- 2. Qué aprenderás -->
         <section class="card" id="que-aprenderas">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">2. Qué aprenderás</h2>
           <ul style="margin-left: 20px; line-height:1.8;">
-            <li>Modificar el nombre del equipo de forma persistente con `hostnamectl set-hostname`.</li><li>Mantener la coherencia de resolución local en `/etc/hosts` para el nuevo FQDN.</li><li>Inspeccionar dispositivos y conexiones con `nmcli device` y `nmcli connection`.</li><li>Configurar una conexión con direccionamiento IP estático, máscara, gateway y DNS con `nmcli`.</li><li>Conocer los métodos alternativos clásicos (`/etc/network/interfaces`) y modernos (`systemd-networkd`).</li>
+            <li>Modificar el nombre del equipo de forma persistente con `hostnamectl set-hostname`.</li><li>Mantener la coherencia de resolución local en `/etc/hosts` para el nuevo FQDN evitando el error `sudo: unable to resolve host`.</li><li>Instalar y habilitar el servicio NetworkManager en sistemas Debian mínimos.</li><li>Cargar el módulo del kernel `dummy` y crear interfaces virtuales seguras para laboratorio.</li><li>Inspeccionar dispositivos y conexiones con `nmcli device` y `nmcli connection`.</li><li>Configurar una conexión con direccionamiento IP estático, máscara, gateway y DNS con `nmcli`.</li><li>Conocer los métodos alternativos clásicos (`/etc/network/interfaces`) y modernos (`systemd-networkd`).</li><li>Ejecutar el procedimiento estricto de limpieza y desmontaje al finalizar las pruebas.</li>
           </ul>
         </section>
 
         <!-- 3. Antes de empezar -->
         <section class="card" id="antes-de-empezar">
           <h2 style="font-size:22px; font-weight:700; margin-bottom:12px;">3. Antes de empezar (≤ 5 min)</h2>
+          
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>1. Inicia tu máquina virtual Debian 12 en tu hipervisor.</span>
+            <input type="checkbox"> <span>1. Inicia sesión en tu máquina virtual Debian 12 con el usuario habitual <code>alumno</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>2. Abre un terminal e inicia sesión con el usuario <code>alumno</code>.</span>
+            <input type="checkbox"> <span>2. Verifica que tienes permisos de administración ejecutando <code>sudo -v</code> en la terminal.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>3. Confirma permisos de superusuario con <code>sudo -v</code>.</span>
+            <input type="checkbox"> <span>3. Asegúrate de estar trabajando sobre la instantánea limpia <code>00-base-limpia</code>.</span>
           </div>
           <div class="checkbox-item" onclick="this.classList.toggle('checked')">
-            <input type="checkbox"> <span>4. Verifica estar sobre la instantánea limpia <code>00-base-limpia</code>.</span>
+            <input type="checkbox"> <span>4. **Instala y arranca NetworkManager**: En instalaciones mínimas de Debian consola no viene instalado por defecto. Ejecuta: <code>sudo apt update && sudo apt install -y network-manager && sudo systemctl enable --now NetworkManager</code>.</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>5. **Carga el módulo dummy en el kernel**: Ejecuta <code>sudo modprobe dummy</code> para habilitar interfaces de prueba seguras.</span>
+          </div>
+          <div class="checkbox-item" onclick="this.classList.toggle('checked')">
+            <input type="checkbox"> <span>6. Anota tu nombre de host actual ejecutando <code>cat /etc/hostname</code> para restaurarlo en la limpieza final.</span>
           </div>
         </section>
 
@@ -309,7 +316,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <input type="checkbox" onchange="toggleStepDone('109.2', 1, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Fijaremos el nombre de host del servidor como `servidor-lpic1.empresa.local` de forma permanente utilizando `hostnamectl`, comprobaremos los tres tipos de hostname gestionados por systemd (estático, transitorio y visual) y actualizaremos `/etc/hosts` para garantizar la resolución local inmediata sin depender de DNS externo.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Fijaremos el nombre de host del servidor como `servidor-lpic1.empresa.local` de forma permanente utilizando `hostnamectl`. Como buena práctica crítica de administración de sistemas, actualizaremos de forma inmediata `/etc/hosts` asociando el nuevo FQDN a `127.0.1.1`; si no se hace este paso, `sudo` emitirá en cada invocación el mensaje de advertencia `sudo: unable to resolve host servidor-lpic1.empresa.local`.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -320,17 +327,21 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
               <pre><code><span class="t-cmt"># 1. Consultar el estado y nombre actual del equipo</span>
 <span class="t-cmd">hostnamectl</span> status
 
-<span class="t-cmt"># 2. Establecer el nuevo nombre completo (FQDN)</span>
+<span class="t-cmt"># 2. Guardar el nombre de host original en una variable para restaurarlo después</span>
+<span class="t-cmd">ORIG_HOST=$(cat</span> <span class="t-path">/etc/hostname)</span>
+<span class="t-cmd">echo</span> <span class="t-arg">"Hostname</span> original del sistema: $ORIG_HOST"
+
+<span class="t-cmt"># 3. Establecer el nuevo nombre completo (FQDN) de forma persistente</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">hostnamectl</span> set-hostname servidor-lpic1.empresa.local
 
-<span class="t-cmt"># 3. Comprobar que el archivo persistente /etc/hostname se ha actualizado</span>
+<span class="t-cmt"># 4. Comprobar que el archivo persistente /etc/hostname se ha actualizado de inmediato</span>
 <span class="t-cmd">cat</span> <span class="t-path">/etc/hostname</span>
 
-<span class="t-cmt"># 4. Añadir la resolución del nuevo FQDN en /etc/hosts apuntando a 127.0.1.1</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">sed</span> <span class="t-flag">-i</span> <span class="t-path">'/127.0.1.1/d'</span> <span class="t-path">/etc/hosts</span>
+<span class="t-cmt"># 5. SINCRONIZACIÓN CRÍTICA: Añadir el nuevo FQDN en /etc/hosts para evitar fallos de sudo</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">sed</span> <span class="t-flag">-i</span> <span class="t-path">'/servidor-lpic1/d'</span> <span class="t-path">/etc/hosts</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"127.0.1.1</span> servidor-lpic1.empresa.local servidor-lpic1" <strong>>></strong> <span class="t-cmd">/etc/hosts'</span>
 
-<span class="t-cmt"># 5. Validar con hostname -f y getent hosts</span>
+<span class="t-cmt"># 6. Validar que la resolución del FQDN funciona a través del sistema sin advertencias</span>
 <span class="t-cmd">hostname</span> <span class="t-flag">-f</span>
 <span class="t-cmd">getent</span> hosts servidor-lpic1.empresa.local</code></pre>
             </figure>
@@ -339,14 +350,14 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`hostnamectl set-hostname FQDN`: Comando unificado de systemd que actualiza el hostname en el kernel en tiempo de ejecución y escribe de forma atómica en `/etc/hostname`.</li><li>`/etc/hosts`: Archivo de mapeo estático de nombres a IPs que se consulta antes de acudir a servidores DNS remotos (según `/etc/nsswitch.conf`).</li><li>`hostname -f`: Muestra el *Fully Qualified Domain Name* completo resolviendo a través del sistema.</li>
+                <li>`hostnamectl set-hostname FQDN`: Comando unificado de systemd que actualiza el hostname en el kernel en tiempo de ejecución y escribe de forma atómica en `/etc/hostname`.</li><li>`/etc/hosts`: Archivo de mapeo estático de nombres a IPs que se consulta antes de acudir a servidores DNS remotos (según `/etc/nsswitch.conf`).</li><li>`127.0.1.1`: Convención estándar en Debian y Ubuntu para asociar el FQDN del equipo al loopback cuando la máquina no tiene una IP estática fija pública.</li><li>`hostname -f`: Muestra el *Fully Qualified Domain Name* completo resolviendo a través del sistema.</li><li>`getent hosts`: Consulta el resolver del sistema C confirmando que el FQDN apunta a `127.0.1.1`.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> `hostnamectl status` mostrará `Static hostname: servidor-lpic1.empresa.local`. `hostname -f` devolverá el FQDN exacto sin errores.</div>
+              <div><strong>👀 Qué debes observar:</strong> `hostnamectl status` mostrará `Static hostname: servidor-lpic1.empresa.local`. `hostname -f` devolverá el FQDN exacto sin advertencias de `unable to resolve host`.</div>
             </div>
             
           
@@ -359,12 +370,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         
         <div class="card step-card" id="mision-2">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Creación y Configuración de un Perfil IP Estático con nmcli</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 2 — Creación y Configuración de un Perfil IP Estático con nmcli en Interfaz Dummy</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('109.2', 2, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Usando la interfaz de línea de comandos de NetworkManager (`nmcli`), crearemos una conexión de red con direccionamiento estático IPv4 (`192.168.100.50/24`), puerta de enlace (`192.168.100.1`) y servidores DNS (`1.1.1.1, 8.8.8.8`) sobre una interfaz virtual dummy para experimentar de forma 100% segura sin perder conectividad con el hipervisor.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Usando la herramienta `nmcli`, crearemos una conexión de red con direccionamiento estático IPv4 (`192.168.100.50/24`), puerta de enlace (`192.168.100.1`) y servidores DNS (`1.1.1.1, 8.8.8.8`). Para garantizar que NUNCA pierdas conectividad de red con VirtualBox ni cortes tu sesión SSH, realizaremos la práctica sobre una tarjeta virtual `dummy0` creada con el módulo `dummy` del kernel.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -372,23 +383,28 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Crear una interfaz virtual dummy para pruebas seguras</span>
+              <pre><code><span class="t-cmt"># 1. Cargar el módulo dummy y crear la tarjeta virtual dummy0</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">modprobe</span> dummy
 <span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link add dummy0 type dummy
+<span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link set dummy0 up
 
-<span class="t-cmt"># 2. Crear una nueva conexión de tipo ethernet asociada a dummy0</span>
+<span class="t-cmt"># 2. Verificar que NetworkManager detecta el nuevo dispositivo como disponible</span>
+<span class="t-cmd">nmcli</span> device status
+
+<span class="t-cmt"># 3. Crear una nueva conexión de tipo ethernet asociada a dummy0</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection add type ethernet con-name <span class="t-arg">"Conexion-Estatica-Lab"</span> ifname dummy0
 
-<span class="t-cmt"># 3. Asignar IP estática, gateway y servidores DNS al perfil</span>
+<span class="t-cmt"># 4. Asignar IP estática, máscara /24, gateway y servidores DNS al perfil</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection modify <span class="t-arg">"Conexion-Estatica-Lab"</span> \
 <span class="t-cmd">ipv4.method</span> manual \
 <span class="t-cmd">ipv4.addresses</span> <span class="t-path">192.168.100.50/24</span> \
 <span class="t-cmd">ipv4.gateway</span> 192.168.100.1 \
 <span class="t-cmd">ipv4.dns</span> <span class="t-arg">"1.1.1.1</span> 8.8.8.8"
 
-<span class="t-cmt"># 4. Activar la conexión creada</span>
+<span class="t-cmt"># 5. Activar la conexión creada en el dispositivo</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection up <span class="t-arg">"Conexion-Estatica-Lab"</span>
 
-<span class="t-cmt"># 5. Comprobar el estado del perfil y de las direcciones asignadas</span>
+<span class="t-cmt"># 6. Comprobar las propiedades del perfil persistente y la IP asignada en el kernel</span>
 <span class="t-cmd">nmcli</span> connection show <span class="t-arg">"Conexion-Estatica-Lab"</span> <strong>|</strong> <span class="t-cmd">grep</span> <span class="t-flag">-E</span> <span class="t-arg">'ipv4\.(method|addresses|gateway|dns):'</span>
 <span class="t-cmd">ip</span> addr show dummy0</code></pre>
             </figure>
@@ -397,7 +413,7 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`nmcli connection add`: Crea un nuevo perfil persistente en `/etc/NetworkManager/system-connections/`.</li><li>`ipv4.method manual`: Desactiva el cliente DHCP y exige configuración manual estática.</li><li>`ipv4.addresses IP/CIDR`: Especifica la dirección IP y máscara en un solo parámetro.</li><li>`nmcli connection up NOMBRE`: Aplica y activa de inmediato los parámetros del perfil en el kernel.</li>
+                <li>`sudo ip link add dummy0 type dummy`: Crea un adaptador de red virtual en memoria del kernel que emula una tarjeta Ethernet real sin tocar la interfaz física `enp0s3` o `eth0`.</li><li>`nmcli connection add`: Crea un nuevo perfil persistente en `/etc/NetworkManager/system-connections/Conexion-Estatica-Lab.nmconnection`.</li><li>`ipv4.method manual`: Desactiva el cliente DHCP y exige configuración manual estática.</li><li>`ipv4.addresses IP/CIDR`: Especifica la dirección IP y máscara en notación CIDR en un solo parámetro.</li><li>`nmcli connection up NOMBRE`: Aplica y activa de inmediato los parámetros del perfil en el dispositivo `dummy0`.</li>
               </ul>
             </div>
             
@@ -417,12 +433,12 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
         
         <div class="card step-card" id="mision-3">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Inspección de Rutas, Activación/Desactivación y Archivo de Configuración Persistente</h3>
+            <h3 style="font-size:22px; font-weight:700;">Misión 3 — Inspección de Rutas, Persistencia y Procedimiento de Limpieza</h3>
             <label class="checkbox-item" style="margin:0; font-size:14px; font-weight:600;">
               <input type="checkbox" onchange="toggleStepDone('109.2', 3, this)"> Misión completada
             </label>
           </div>
-          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Inspeccionaremos las tablas de enrutamiento con `ip route`, modificaremos parámetros al vuelo, observaremos el archivo de configuración generado en disco por NetworkManager y probaremos la bajada y subida de interfaces con `nmcli`.</p>
+          <p style="font-size:16px; color:var(--text-muted); margin-bottom:12px;">Inspeccionaremos las tablas de enrutamiento con `ip route`, probaremos la desconexión y reactivación del perfil con `nmcli connection down` y `up` observando cómo el kernel reacciona en caliente, y finalmente ejecutaremos el procedimiento completo de limpieza para eliminar el perfil, borrar la interfaz virtual `dummy0` y devolver el hostname y `/etc/hosts` a su estado original.</p>
           
             <figure class="term">
               <figcaption class="term-bar">
@@ -430,36 +446,46 @@ details.accordion-item .accordion-body { padding: 16px 20px; font-size: 16px; }
                 
                 <button class="copy-btn"  onclick="copySnippet(this)"><svg class="ic ic-sm"><use href="#i-copy"/></svg>Copiar</button>
               </figcaption>
-              <pre><code><span class="t-cmt"># 1. Inspeccionar la tabla de rutas del kernel</span>
+              <pre><code><span class="t-cmt"># 1. Inspeccionar la tabla de rutas del kernel generada por las conexiones</span>
 <span class="t-cmd">ip</span> route show
 
-<span class="t-cmt"># 2. Desactivar la conexión de laboratorio con nmcli con down</span>
+<span class="t-cmt"># 2. Desactivar la conexión de laboratorio con nmcli connection down</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection down <span class="t-arg">"Conexion-Estatica-Lab"</span>
 
-<span class="t-cmt"># 3. Comprobar que la IP desaparece de la interfaz al desactivar el perfil</span>
+<span class="t-cmt"># 3. Comprobar que la IP 192.168.100.50 desaparece de dummy0 al desactivar el perfil</span>
 <span class="t-cmd">ip</span> addr show dummy0
 
-<span class="t-cmt"># 4. Reactivar la conexión y validar persistencia</span>
+<span class="t-cmt"># 4. Reactivar la conexión y validar que la persistencia restaura la IP al instante</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection up <span class="t-arg">"Conexion-Estatica-Lab"</span>
 <span class="t-cmd">ip</span> addr show dummy0 <strong>|</strong> <span class="t-cmd">grep</span> inet
 
-<span class="t-cmt"># 5. Limpiar la interfaz dummy al finalizar la práctica</span>
+<span class="t-cmt"># 5. PROCEDIMIENTO DE LIMPIEZA: Eliminar la conexión de NetworkManager</span>
 <span class="t-flag">sudo</span> <span class="t-cmd">nmcli</span> connection delete <span class="t-arg">"Conexion-Estatica-Lab"</span>
-<span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link delete dummy0</code></pre>
+
+<span class="t-cmt"># 6. Eliminar la tarjeta virtual dummy0 del kernel</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">ip</span> link delete dummy0
+
+<span class="t-cmt"># 7. Restaurar el nombre de host original y limpiar /etc/hosts</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">hostnamectl</span> set-hostname debian-lpic
+<span class="t-flag">sudo</span> <span class="t-cmd">sed</span> <span class="t-flag">-i</span> <span class="t-path">'/servidor-lpic1/d'</span> <span class="t-path">/etc/hosts</span>
+<span class="t-flag">sudo</span> <span class="t-cmd">bash</span> <span class="t-flag">-c</span> <span class="t-arg">'echo</span> <span class="t-arg">"127.0.1.1</span> debian-lpic" <strong>>></strong> <span class="t-cmd">/etc/hosts'</span>
+
+<span class="t-cmt"># 8. Validar que el sistema vuelve a su estado limpio original</span>
+<span class="t-cmd">hostnamectl</span> status</code></pre>
             </figure>
             
           
             <div style="background:var(--surface-alt); padding:16px; border-radius:10px; margin:14px 0;">
               <h4 style="font-size:16px; font-weight:700; margin-bottom:8px;">¿Qué significa cada parte del comando?</h4>
               <ul style="margin-left:20px; line-height:1.7; font-size:15px;">
-                <li>`ip route show`: Muestra la tabla de enrutamiento (rutas de red locales y ruta por defecto `default via GW dev DEV`).</li><li>`nmcli connection down`: Desconfigura la interfaz asociada liberando los recursos de red sin borrar el archivo de perfil.</li><li>`nmcli connection delete`: Borra permanentemente el perfil del sistema de archivos.</li>
+                <li>`ip route show`: Muestra la tabla de enrutamiento (rutas de red locales y ruta por defecto `default via GW dev DEV`).</li><li>`nmcli connection down`: Desconfigura la interfaz asociada liberando los recursos de red sin borrar el archivo de perfil.</li><li>`nmcli connection delete`: Borra permanentemente el archivo de perfil de `/etc/NetworkManager/system-connections/`.</li><li>`ip link delete dummy0`: Destruye el dispositivo virtual del kernel de forma segura.</li><li>`hostnamectl set-hostname debian-lpic`: Restaura el nombre del sistema al estándar de laboratorio.</li>
               </ul>
             </div>
             
           
             <div class="callout callout-info">
               <svg class="ic"><use href="#i-eye"/></svg>
-              <div><strong>👀 Qué debes observar:</strong> Al ejecutar `nmcli connection down`, la dirección `192.168.100.50` desaparece de `dummy0`. Al ejecutar `up`, se restablece al instante.</div>
+              <div><strong>👀 Qué debes observar:</strong> Al ejecutar `nmcli connection down`, la dirección `192.168.100.50` desaparece de `dummy0`. Al ejecutar `up`, se restablece al instante. Al final, la limpieza borra `dummy0` y el hostname queda restablecido como `debian-lpic`.</div>
             </div>
             
           
@@ -533,13 +559,23 @@ Para que la configuración sea permanente en una distribución con NetworkManage
           <h2 style="font-size:22px; font-weight:700; margin-bottom:16px;">7. Si algo falla (Solución rápida)</h2>
           
             <details class="accordion-item">
-              <summary>Error: "Error: Connection activation failed: No suitable device found"</summary>
-              <div class="accordion-body">Comprueba que la interfaz asociada existe ejecutando `ip link show dummy0` antes de activar la conexión.</div>
+              <summary>NetworkManager no está instalado o no arranca</summary>
+              <div class="accordion-body">En Debian 12 consola, instala el paquete con `sudo apt update && sudo apt install -y network-manager` y arráncalo con `sudo systemctl enable --now NetworkManager`.</div>
             </details>
             
             <details class="accordion-item">
-              <summary>Error: Se pierde la conexión SSH</summary>
-              <div class="accordion-body">Si modificas accidentalmente la interfaz principal de la máquina virtual (en lugar de `dummy0`), reinicia la máquina para recuperar el estado inicial o restaura el snapshot `00-base-limpia`.</div>
+              <summary>Error: "sudo: unable to resolve host ..."</summary>
+              <div class="accordion-body">Este mensaje aparece si cambiaste el nombre con `hostnamectl` pero olvidaste actualizar `/etc/hosts`. Añade `127.0.1.1 tu_nuevo_hostname` en `/etc/hosts` para resolverlo al instante.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>Error: "Connection activation failed: No suitable device found"</summary>
+              <div class="accordion-body">Asegúrate de haber cargado el módulo del kernel con `sudo modprobe dummy` y de haber creado `dummy0` con `sudo ip link add dummy0 type dummy` y `sudo ip link set dummy0 up`.</div>
+            </details>
+            
+            <details class="accordion-item">
+              <summary>NUNCA modifiques tu tarjeta física (`enp0s3` o `eth0`)</summary>
+              <div class="accordion-body">Toda la práctica está diseñada para usar `dummy0`. Si por error modificaste la tarjeta física y perdiste red, reinicia la máquina o restaura la instantánea `00-base-limpia`.</div>
             </details>
             
             <details class="accordion-item">
