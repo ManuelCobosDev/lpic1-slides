@@ -133,7 +133,7 @@
 
     <div class="search-bar-wrap">
       <input type="text" id="glo-filter" class="search-input" placeholder="🔍 Buscar término, definición o concepto..." onkeyup="filterGlossary()">
-      <div class="counter-badge" id="glo-counter">297 términos registrados</div>
+      <div class="counter-badge" id="glo-counter">291 términos registrados</div>
     </div>
 
     <div id="glo-container">
@@ -2773,7 +2773,7 @@
               <div class="subtopic-header">
                 <span class="subtopic-badge">110.1</span>
                 <h3>Tareas de administración de seguridad</h3>
-                <span class="cmd-count-badge">10 términos</span>
+                <span class="cmd-count-badge">9 términos</span>
               </div>
               <div class="term-grid">
             
@@ -2830,7 +2830,7 @@
                     <span class="term-name">nmap (Network Mapper)</span>
                     <a href="t110/110-1-tareas-de-administracion.html" class="term-sub-badge">110.1 </a>
                   </div>
-                  <div class="term-def">Escáner activo de seguridad de red utilizado para descubrir hosts, puertos abiertos, servicios en escucha y sistemas operativos mediante el envío de paquetes de sondeo.</div>
+                  <div class="term-def">Escáner de seguridad y puertos de red empleado para descubrir hosts activos, puertos TCP/UDP abiertos y sistemas operativos remotos en una red local o remota.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2838,15 +2838,7 @@
                     <span class="term-name">ulimit</span>
                     <a href="t110/110-1-tareas-de-administracion.html" class="term-sub-badge">110.1 </a>
                   </div>
-                  <div class="term-def">Orden interna integrada (builtin) del shell Bash para consultar y modificar los límites de consumo de recursos por proceso (tiempo CPU, memoria RAM, descriptores de fichero abiertos, etc.).</div>
-                </div>
-                
-                <div class="term-card">
-                  <div class="term-top">
-                    <span class="term-name">/etc/security/limits.conf</span>
-                    <a href="t110/110-1-tareas-de-administracion.html" class="term-sub-badge">110.1 </a>
-                  </div>
-                  <div class="term-def">Archivo de configuración del módulo PAM pam_limits.so que establece límites permanentes de recursos del sistema para usuarios y grupos al iniciar sesión.</div>
+                  <div class="term-def">Comando interno (builtin) de Bash utilizado para consultar y limitar en tiempo de ejecución los recursos del sistema asignables al shell y a sus procesos hijos (procesos, memoria, archivos abiertos).</div>
                 </div>
                 
                 <div class="term-card">
@@ -2854,7 +2846,7 @@
                     <span class="term-name">visudo</span>
                     <a href="t110/110-1-tareas-de-administracion.html" class="term-sub-badge">110.1 </a>
                   </div>
-                  <div class="term-def">Comando oficial para editar el archivo /etc/sudoers que aplica bloqueo de concurrencia y validación sintáctica estricta antes de guardar para evitar dejar el sistema sin privilegios administrativos.</div>
+                  <div class="term-def">Editor seguro y bloqueante diseñado para modificar /etc/sudoers garantizando el bloqueo concurrente de archivo y validando la sintaxis antes de guardar cambios para evitar la pérdida de acceso administrativo.</div>
                 </div>
                 
               </div>
@@ -2864,16 +2856,16 @@
               <div class="subtopic-header">
                 <span class="subtopic-badge">110.2</span>
                 <h3>Configuración de la seguridad del sistema</h3>
-                <span class="cmd-count-badge">10 términos</span>
+                <span class="cmd-count-badge">5 términos</span>
               </div>
               <div class="term-grid">
             
                 <div class="term-card">
                   <div class="term-top">
-                    <span class="term-name">Shadow Passwords</span>
+                    <span class="term-name">Suite Shadow</span>
                     <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
                   </div>
-                  <div class="term-def">Técnica de seguridad que extrae los hashes de contraseña del archivo público legible /etc/passwd (donde se reemplazan por una 'x') y los almacena en /etc/shadow, accesible exclusivamente por root.</div>
+                  <div class="term-def">Conjunto de utilidades y arquitectura de ficheros que traslada los hashes de contraseñas de /etc/passwd a /etc/shadow (0640) para evitar ataques de fuerza bruta offline.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2881,7 +2873,7 @@
                     <span class="term-name">pwconv / pwunconv</span>
                     <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
                   </div>
-                  <div class="term-def">Comandos de administración para convertir contraseñas tradicionales a shadow creando /etc/shadow (pwconv) o para revertir los hashes de nuevo a /etc/passwd (pwunconv).</div>
+                  <div class="term-def">Comandos de conversión que migran hashes de /etc/passwd hacia /etc/shadow sustituyéndolos por 'x' (pwconv), o revierten el proceso (pwunconv).</div>
                 </div>
                 
                 <div class="term-card">
@@ -2889,23 +2881,7 @@
                     <span class="term-name">pwck / grpck</span>
                     <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
                   </div>
-                  <div class="term-def">Herramientas de auditoría e integridad que verifican la sintaxis, número de campos y consistencia de /etc/passwd, /etc/shadow, /etc/group y /etc/gshadow.</div>
-                </div>
-                
-                <div class="term-card">
-                  <div class="term-top">
-                    <span class="term-name">/etc/nologin</span>
-                    <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
-                  </div>
-                  <div class="term-def">Archivo de bloqueo temporal del sistema. Si existe, impide que cualquier usuario no-root inicie sesión por terminal o SSH, mostrando el mensaje contenido en su interior. Root sí puede acceder en consola local.</div>
-                </div>
-                
-                <div class="term-card">
-                  <div class="term-top">
-                    <span class="term-name">/sbin/nologin vs /bin/false</span>
-                    <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
-                  </div>
-                  <div class="term-def">Shells falsas asignadas a cuentas restringidas o demonios. /sbin/nologin muestra un mensaje de aviso antes de salir; /bin/false termina silenciosamente con código 1.</div>
+                  <div class="term-def">Herramientas de comprobación de integridad que verifican el formato y sincronización entre ficheros de usuarios (passwd/shadow) y grupos (group/gshadow).</div>
                 </div>
                 
                 <div class="term-card">
@@ -2913,31 +2889,7 @@
                     <span class="term-name">xinetd</span>
                     <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
                   </div>
-                  <div class="term-def">Superdemonio extendido de red (eXtended Internet Daemon) que escucha en puertos de red por demanda e inicia el servicio correspondiente solo cuando llega una conexión entrante, ahorrando memoria RAM.</div>
-                </div>
-                
-                <div class="term-card">
-                  <div class="term-top">
-                    <span class="term-name">systemd.socket</span>
-                    <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
-                  </div>
-                  <div class="term-def">Unidad de systemd para la activación de servicios basada en sockets (equivalente moderno a xinetd). Systemd escucha en el puerto y arranca la unidad .service asociada al recibir tráfico.</div>
-                </div>
-                
-                <div class="term-card">
-                  <div class="term-top">
-                    <span class="term-name">systemctl mask</span>
-                    <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
-                  </div>
-                  <div class="term-def">Operación de hardening que crea un enlace simbólico a /dev/null impidiendo que un servicio sea iniciado de forma manual o arrastrado por dependencias de otros servicios.</div>
-                </div>
-                
-                <div class="term-card">
-                  <div class="term-top">
-                    <span class="term-name">ss (Socket Statistics)</span>
-                    <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
-                  </div>
-                  <div class="term-def">Herramienta moderna de iproute2 para auditar sockets de red TCP/UDP en escucha (ss -tulnp), sucesora eficiente del clásico netstat.</div>
+                  <div class="term-def">Superdemonio de servicios de Internet bajo demanda (on-demand) que centraliza la escucha de sockets y arranca servicios hijos únicamente cuando llega una petición.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2945,7 +2897,7 @@
                     <span class="term-name">TCP Wrappers (libwrap)</span>
                     <a href="t110/110-2-configuracion-de-la-segu.html" class="term-sub-badge">110.2 </a>
                   </div>
-                  <div class="term-def">Subsistema de control de acceso a servicios de red vinculado a la biblioteca libwrap.so que valida la IP o dominio del cliente consultando /etc/hosts.allow y /etc/hosts.deny antes de aceptar la conexión.</div>
+                  <div class="term-def">Capa de control de acceso a servicios compilados con libwrap.so que filtra clientes según /etc/hosts.allow y /etc/hosts.deny antes de aceptar conexiones.</div>
                 </div>
                 
               </div>
@@ -2964,7 +2916,7 @@
                     <span class="term-name">Criptografía Asimétrica</span>
                     <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
                   </div>
-                  <div class="term-def">Sistema criptográfico basado en pares de claves matemáticamente vinculadas: una clave pública (compartible libremente para cifrar o verificar) y una clave privada (secreta y protegida por passphrase para descifrar o firmar).</div>
+                  <div class="term-def">Sistema basado en pares de claves matemáticamente vinculadas: una clave pública (compartible para cifrar o verificar) y una clave privada (secreta y protegida para descifrar o firmar).</div>
                 </div>
                 
                 <div class="term-card">
@@ -2972,7 +2924,7 @@
                     <span class="term-name">OpenSSH</span>
                     <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
                   </div>
-                  <div class="term-def">Suite libre que implementa el protocolo SSH 2.0 para comunicaciones cifradas remotas, sustituyendo a herramientas inseguras en texto claro como telnet, rlogin o rsh.</div>
+                  <div class="term-def">Suite libre que implementa el protocolo SSH 2.0 para comunicaciones remotas cifradas, sustituyendo a protocolos inseguros en texto claro como telnet o rlogin.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2980,7 +2932,7 @@
                     <span class="term-name">Host Key</span>
                     <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
                   </div>
-                  <div class="term-def">Clave pública y privada del servidor SSH (/etc/ssh/ssh_host_*_key) que garantiza la autenticidad e identidad del servidor remoto ante los clientes, previniendo ataques Man-in-the-Middle.</div>
+                  <div class="term-def">Clave pública y privada del servidor SSH (/etc/ssh/ssh_host_*_key) que garantiza su identidad ante los clientes para prevenir ataques Man-in-the-Middle.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2988,7 +2940,7 @@
                     <span class="term-name">ssh-agent</span>
                     <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
                   </div>
-                  <div class="term-def">Demonio de autenticación de SSH en memoria RAM que almacena las claves privadas descifradas, permitiendo inicios de sesión automáticos sin tener que teclear la frase de contraseña en cada conexión.</div>
+                  <div class="term-def">Demonio de autenticación de SSH en memoria RAM que custodia las claves privadas descifradas, permitiendo inicios de sesión sin volver a teclear la passphrase.</div>
                 </div>
                 
                 <div class="term-card">
@@ -2996,7 +2948,7 @@
                     <span class="term-name">Port Forwarding (Túnel SSH)</span>
                     <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
                   </div>
-                  <div class="term-def">Mecanismo que redirige tráfico de red de un puerto TCP a través de un canal cifrado seguro SSH hacia un host de destino (local con -L o remoto inverso con -R).</div>
+                  <div class="term-def">Mecanismo que canaliza tráfico TCP a través de un canal cifrado seguro SSH hacia un host de destino (local con -L o remoto inverso con -R).</div>
                 </div>
                 
                 <div class="term-card">
@@ -3004,7 +2956,7 @@
                     <span class="term-name">GnuPG (GPG)</span>
                     <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
                   </div>
-                  <div class="term-def">GNU Privacy Guard: implementación libre y de código abierto del estándar OpenPGP (RFC 4880) utilizada para cifrar archivos, correos y generar firmas digitales.</div>
+                  <div class="term-def">GNU Privacy Guard: implementación libre del estándar OpenPGP (RFC 4880) empleada para cifrar archivos y emitir firmas digitales con integridad y autenticidad.</div>
                 </div>
                 
                 <div class="term-card">
@@ -3012,7 +2964,7 @@
                     <span class="term-name">ASCII Armor</span>
                     <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
                   </div>
-                  <div class="term-def">Formato de codificación en texto imprimible Base64 delimitado por cabeceras '-----BEGIN PGP MESSAGE-----' que permite transportar datos binarios cifrados en correos o terminales sin corrupción.</div>
+                  <div class="term-def">Codificación en texto Base64 imprimible delimitado por cabeceras '-----BEGIN PGP MESSAGE-----' que transporta datos binarios cifrados en correos o terminales sin corrupción.</div>
                 </div>
                 
                 <div class="term-card">
@@ -3020,7 +2972,7 @@
                     <span class="term-name">Certificado de Revocación</span>
                     <a href="t110/110-3-proteccion-de-datos-medi.html" class="term-sub-badge">110.3 </a>
                   </div>
-                  <div class="term-def">Fichero criptográfico generado con gpg --gen-revoke que permite anular y deshabilitar públicamente una clave OpenPGP en los servidores de claves si la clave privada queda comprometida.</div>
+                  <div class="term-def">Fichero criptográfico generado con gpg --gen-revoke que permite anular y deshabilitar públicamente una clave OpenPGP si la clave privada queda comprometida o perdida.</div>
                 </div>
                 
               </div>
@@ -3054,7 +3006,7 @@
         const hasVisible = Array.from(sec.querySelectorAll('.subtopic-block')).some(b => b.style.display !== 'none');
         sec.style.display = hasVisible ? '' : 'none';
       });
-      document.getElementById('glo-counter').textContent = q ? `${visibleCount} términos encontrados` : '297 términos registrados';
+      document.getElementById('glo-counter').textContent = q ? `${visibleCount} términos encontrados` : '291 términos registrados';
     }
 
     function toggleTheme() {
